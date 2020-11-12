@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeClassicLinkInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeClassicLinkInstancesCommand(input), ...args);
+  return await client.send(new DescribeClassicLinkInstancesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

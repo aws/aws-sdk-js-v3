@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input), ...args);
+  return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CostExplorer,

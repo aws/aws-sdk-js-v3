@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetUpgradeHistoryCommand(input), ...args);
+  return await client.send(new GetUpgradeHistoryCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ElasticsearchService,

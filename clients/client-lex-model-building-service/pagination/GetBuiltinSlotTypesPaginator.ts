@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBuiltinSlotTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBuiltinSlotTypesCommand(input), ...args);
+  return await client.send(new GetBuiltinSlotTypesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,

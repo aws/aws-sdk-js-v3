@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeBackupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeBackupsCommand(input), ...args);
+  return await client.send(new DescribeBackupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: OpsWorksCM,

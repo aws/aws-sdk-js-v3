@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHarvestJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHarvestJobsCommand(input), ...args);
+  return await client.send(new ListHarvestJobsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaPackage,

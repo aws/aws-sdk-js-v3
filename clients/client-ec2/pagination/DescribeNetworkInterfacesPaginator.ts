@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeNetworkInterfacesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeNetworkInterfacesCommand(input), ...args);
+  return await client.send(new DescribeNetworkInterfacesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBClusterSnapshotsCommand(input), ...args);
+  return await client.send(new DescribeDBClusterSnapshotsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

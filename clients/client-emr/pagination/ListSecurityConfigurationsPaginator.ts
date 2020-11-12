@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecurityConfigurationsCommand(input), ...args);
+  return await client.send(new ListSecurityConfigurationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EMR,

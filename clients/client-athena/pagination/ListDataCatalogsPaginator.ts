@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDataCatalogsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDataCatalogsCommand(input), ...args);
+  return await client.send(new ListDataCatalogsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Athena,

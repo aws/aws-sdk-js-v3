@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBudgetsForResourceCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBudgetsForResourceCommand(input), ...args);
+  return await client.send(new ListBudgetsForResourceCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

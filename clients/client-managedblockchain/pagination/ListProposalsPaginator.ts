@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProposalsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProposalsCommand(input), ...args);
+  return await client.send(new ListProposalsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ManagedBlockchain,

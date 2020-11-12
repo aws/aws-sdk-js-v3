@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVersionsByFunctionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVersionsByFunctionCommand(input), ...args);
+  return await client.send(new ListVersionsByFunctionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Lambda,

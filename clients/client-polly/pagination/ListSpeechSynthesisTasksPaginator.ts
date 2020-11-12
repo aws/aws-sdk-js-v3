@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSpeechSynthesisTasksCommand(input), ...args);
+  return await client.send(new ListSpeechSynthesisTasksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Polly,

@@ -30989,6 +30989,9 @@ const serializeAws_ec2CreateRouteRequest = (input: CreateRouteRequest, context: 
   if (input.DryRun !== undefined) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.VpcEndpointId !== undefined) {
+    entries["VpcEndpointId"] = input.VpcEndpointId;
+  }
   if (input.EgressOnlyInternetGatewayId !== undefined) {
     entries["EgressOnlyInternetGatewayId"] = input.EgressOnlyInternetGatewayId;
   }
@@ -31739,6 +31742,13 @@ const serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest = (
     const memberEntries = serializeAws_ec2ValueStringList(input.NetworkLoadBalancerArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.GatewayLoadBalancerArns !== undefined) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.GatewayLoadBalancerArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `GatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -40326,6 +40336,20 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
       entries[loc] = value;
     });
   }
+  if (input.AddGatewayLoadBalancerArns !== undefined) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.AddGatewayLoadBalancerArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.RemoveGatewayLoadBalancerArns !== undefined) {
+    const memberEntries = serializeAws_ec2ValueStringList(input.RemoveGatewayLoadBalancerArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -41675,6 +41699,9 @@ const serializeAws_ec2ReplaceRouteRequest = (input: ReplaceRouteRequest, context
   }
   if (input.DryRun !== undefined) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.VpcEndpointId !== undefined) {
+    entries["VpcEndpointId"] = input.VpcEndpointId;
   }
   if (input.EgressOnlyInternetGatewayId !== undefined) {
     entries["EgressOnlyInternetGatewayId"] = input.EgressOnlyInternetGatewayId;
@@ -60507,6 +60534,7 @@ const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeCon
     AcceptanceRequired: undefined,
     ManagesVpcEndpoints: undefined,
     NetworkLoadBalancerArns: undefined,
+    GatewayLoadBalancerArns: undefined,
     BaseEndpointDnsNames: undefined,
     PrivateDnsName: undefined,
     PrivateDnsNameConfiguration: undefined,
@@ -60551,6 +60579,15 @@ const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeCon
   if (output["networkLoadBalancerArnSet"] !== undefined && output["networkLoadBalancerArnSet"]["item"] !== undefined) {
     contents.NetworkLoadBalancerArns = deserializeAws_ec2ValueStringList(
       __getArrayIfSingleItem(output["networkLoadBalancerArnSet"]["item"]),
+      context
+    );
+  }
+  if (output.gatewayLoadBalancerArnSet === "") {
+    contents.GatewayLoadBalancerArns = [];
+  }
+  if (output["gatewayLoadBalancerArnSet"] !== undefined && output["gatewayLoadBalancerArnSet"]["item"] !== undefined) {
+    contents.GatewayLoadBalancerArns = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["gatewayLoadBalancerArnSet"]["item"]),
       context
     );
   }
@@ -64274,6 +64311,7 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
     CreationTimestamp: undefined,
     DnsEntries: undefined,
     NetworkLoadBalancerArns: undefined,
+    GatewayLoadBalancerArns: undefined,
   };
   if (output["serviceId"] !== undefined) {
     contents.ServiceId = output["serviceId"];
@@ -64302,6 +64340,15 @@ const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeCo
   if (output["networkLoadBalancerArnSet"] !== undefined && output["networkLoadBalancerArnSet"]["item"] !== undefined) {
     contents.NetworkLoadBalancerArns = deserializeAws_ec2ValueStringList(
       __getArrayIfSingleItem(output["networkLoadBalancerArnSet"]["item"]),
+      context
+    );
+  }
+  if (output.gatewayLoadBalancerArnSet === "") {
+    contents.GatewayLoadBalancerArns = [];
+  }
+  if (output["gatewayLoadBalancerArnSet"] !== undefined && output["gatewayLoadBalancerArnSet"]["item"] !== undefined) {
+    contents.GatewayLoadBalancerArns = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["gatewayLoadBalancerArnSet"]["item"]),
       context
     );
   }

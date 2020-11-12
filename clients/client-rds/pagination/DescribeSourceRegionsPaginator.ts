@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeSourceRegionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeSourceRegionsCommand(input), ...args);
+  return await client.send(new DescribeSourceRegionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

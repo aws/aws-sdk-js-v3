@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetVpcLinksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetVpcLinksCommand(input), ...args);
+  return await client.send(new GetVpcLinksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: APIGateway,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMedicalVocabulariesCommand(input), ...args);
+  return await client.send(new ListMedicalVocabulariesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Transcribe,

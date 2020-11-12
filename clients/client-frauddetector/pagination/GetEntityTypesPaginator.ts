@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetEntityTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetEntityTypesCommand(input), ...args);
+  return await client.send(new GetEntityTypesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: FraudDetector,

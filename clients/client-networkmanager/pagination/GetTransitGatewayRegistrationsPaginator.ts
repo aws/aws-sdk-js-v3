@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTransitGatewayRegistrationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTransitGatewayRegistrationsCommand(input), ...args);
+  return await client.send(new GetTransitGatewayRegistrationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: NetworkManager,

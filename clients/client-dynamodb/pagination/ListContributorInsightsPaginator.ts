@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContributorInsightsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContributorInsightsCommand(input), ...args);
+  return await client.send(new ListContributorInsightsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DynamoDB,

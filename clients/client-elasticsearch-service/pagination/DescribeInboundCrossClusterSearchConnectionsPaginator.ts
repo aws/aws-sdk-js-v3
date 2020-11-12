@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInboundCrossClusterSearchConnectionsCommand(input), ...args);
+  return await client.send(new DescribeInboundCrossClusterSearchConnectionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ElasticsearchService,

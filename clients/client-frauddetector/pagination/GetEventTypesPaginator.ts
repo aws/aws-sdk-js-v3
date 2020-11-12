@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetEventTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetEventTypesCommand(input), ...args);
+  return await client.send(new GetEventTypesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: FraudDetector,

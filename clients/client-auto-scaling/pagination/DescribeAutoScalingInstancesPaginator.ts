@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAutoScalingInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAutoScalingInstancesCommand(input), ...args);
+  return await client.send(new DescribeAutoScalingInstancesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AutoScaling,

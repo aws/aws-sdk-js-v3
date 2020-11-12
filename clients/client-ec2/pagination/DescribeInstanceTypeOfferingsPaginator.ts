@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInstanceTypeOfferingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInstanceTypeOfferingsCommand(input), ...args);
+  return await client.send(new DescribeInstanceTypeOfferingsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

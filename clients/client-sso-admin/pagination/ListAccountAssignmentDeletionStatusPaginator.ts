@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountAssignmentDeletionStatusCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountAssignmentDeletionStatusCommand(input), ...args);
+  return await client.send(new ListAccountAssignmentDeletionStatusCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSOAdmin,

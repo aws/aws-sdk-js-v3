@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListKeyPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListKeyPoliciesCommand(input), ...args);
+  return await client.send(new ListKeyPoliciesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: KMS,

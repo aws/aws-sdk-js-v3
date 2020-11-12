@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeClientVpnConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeClientVpnConnectionsCommand(input), ...args);
+  return await client.send(new DescribeClientVpnConnectionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

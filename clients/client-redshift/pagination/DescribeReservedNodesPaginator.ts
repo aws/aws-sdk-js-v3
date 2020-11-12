@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReservedNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReservedNodesCommand(input), ...args);
+  return await client.send(new DescribeReservedNodesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Redshift,

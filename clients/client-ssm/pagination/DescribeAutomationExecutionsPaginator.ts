@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAutomationExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAutomationExecutionsCommand(input), ...args);
+  return await client.send(new DescribeAutomationExecutionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

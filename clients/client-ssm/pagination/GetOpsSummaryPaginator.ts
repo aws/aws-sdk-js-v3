@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetOpsSummaryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetOpsSummaryCommand(input), ...args);
+  return await client.send(new GetOpsSummaryCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTaskDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTaskDefinitionsCommand(input), ...args);
+  return await client.send(new ListTaskDefinitionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ECS,

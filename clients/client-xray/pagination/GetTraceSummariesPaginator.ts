@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTraceSummariesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTraceSummariesCommand(input), ...args);
+  return await client.send(new GetTraceSummariesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: XRay,

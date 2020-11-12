@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeExportTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeExportTasksCommand(input), ...args);
+  return await client.send(new DescribeExportTasksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExternalModelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExternalModelsCommand(input), ...args);
+  return await client.send(new GetExternalModelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: FraudDetector,

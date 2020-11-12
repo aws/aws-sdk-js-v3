@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOrganizationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOrganizationsCommand(input), ...args);
+  return await client.send(new ListOrganizationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: WorkMail,

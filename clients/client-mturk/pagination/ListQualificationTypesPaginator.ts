@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListQualificationTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListQualificationTypesCommand(input), ...args);
+  return await client.send(new ListQualificationTypesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MTurk,

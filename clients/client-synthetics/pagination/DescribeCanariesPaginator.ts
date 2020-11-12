@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCanariesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCanariesCommand(input), ...args);
+  return await client.send(new DescribeCanariesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Synthetics,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSSHPublicKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSSHPublicKeysCommand(input), ...args);
+  return await client.send(new ListSSHPublicKeysCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

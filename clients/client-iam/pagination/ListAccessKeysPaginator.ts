@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccessKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccessKeysCommand(input), ...args);
+  return await client.send(new ListAccessKeysCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

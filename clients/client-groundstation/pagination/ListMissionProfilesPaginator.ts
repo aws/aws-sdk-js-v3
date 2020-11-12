@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMissionProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMissionProfilesCommand(input), ...args);
+  return await client.send(new ListMissionProfilesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: GroundStation,

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetInsightsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetInsightsCommand(input), ...args);
+  return await client.send(new GetInsightsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SecurityHub,

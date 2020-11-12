@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListQueuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListQueuesCommand(input), ...args);
+  return await client.send(new ListQueuesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaConvert,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBSubnetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBSubnetGroupsCommand(input), ...args);
+  return await client.send(new DescribeDBSubnetGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Neptune,

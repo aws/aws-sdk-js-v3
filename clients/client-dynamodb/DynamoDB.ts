@@ -48,6 +48,11 @@ import {
   DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  DescribeExportCommand,
+  DescribeExportCommandInput,
+  DescribeExportCommandOutput,
+} from "./commands/DescribeExportCommand";
+import {
   DescribeGlobalTableCommand,
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput,
@@ -77,6 +82,11 @@ import {
   DescribeTimeToLiveCommandInput,
   DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand";
+import {
+  ExportTableToPointInTimeCommand,
+  ExportTableToPointInTimeCommandInput,
+  ExportTableToPointInTimeCommandOutput,
+} from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
 import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
@@ -84,6 +94,7 @@ import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import {
   ListGlobalTablesCommand,
   ListGlobalTablesCommandInput,
@@ -798,6 +809,38 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>Describes an existing table export.</p>
+   */
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportCommandOutput>;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportCommandOutput) => void
+  ): Promise<DescribeExportCommandOutput> | void {
+    const command = new DescribeExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the specified global table.</p>
    *           <note>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.
@@ -1069,6 +1112,40 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>Exports table data to an S3 bucket. The table must have point in time recovery
+   *             enabled, and you can export data from any time within the point in time recovery
+   *             window.</p>
+   */
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportTableToPointInTimeCommandOutput>;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportTableToPointInTimeCommandOutput) => void),
+    cb?: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): Promise<ExportTableToPointInTimeCommandOutput> | void {
+    const command = new ExportTableToPointInTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary
    *           key. If there is no matching item, <code>GetItem</code> does not return any data and there will be no <code>Item</code> element in the response.</p>
    *          <p>
@@ -1154,6 +1231,32 @@ export class DynamoDB extends DynamoDBClient {
     cb?: (err: any, data?: ListContributorInsightsCommandOutput) => void
   ): Promise<ListContributorInsightsCommandOutput> | void {
     const command = new ListContributorInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists completed exports within the past 90 days.</p>
+   */
+  public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListExportsCommandOutput) => void
+  ): Promise<ListExportsCommandOutput> | void {
+    const command = new ListExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

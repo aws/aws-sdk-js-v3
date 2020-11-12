@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetUsageStatisticsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetUsageStatisticsCommand(input), ...args);
+  return await client.send(new GetUsageStatisticsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Macie2,

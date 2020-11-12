@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLaunchConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLaunchConfigurationsCommand(input), ...args);
+  return await client.send(new DescribeLaunchConfigurationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AutoScaling,

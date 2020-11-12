@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTextDetectionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTextDetectionCommand(input), ...args);
+  return await client.send(new GetTextDetectionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

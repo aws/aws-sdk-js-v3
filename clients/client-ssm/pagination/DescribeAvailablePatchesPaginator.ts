@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAvailablePatchesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAvailablePatchesCommand(input), ...args);
+  return await client.send(new DescribeAvailablePatchesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

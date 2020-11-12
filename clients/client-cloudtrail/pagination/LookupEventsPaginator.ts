@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<LookupEventsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new LookupEventsCommand(input), ...args);
+  return await client.send(new LookupEventsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudTrail,

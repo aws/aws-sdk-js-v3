@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetProvisionedProductOutputsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetProvisionedProductOutputsCommand(input), ...args);
+  return await client.send(new GetProvisionedProductOutputsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

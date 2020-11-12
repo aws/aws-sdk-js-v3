@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProfileTimesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProfileTimesCommand(input), ...args);
+  return await client.send(new ListProfileTimesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeGuruProfiler,

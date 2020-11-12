@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetParametersByPathCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetParametersByPathCommand(input), ...args);
+  return await client.send(new GetParametersByPathCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

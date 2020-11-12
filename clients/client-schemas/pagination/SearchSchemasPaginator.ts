@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchSchemasCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchSchemasCommand(input), ...args);
+  return await client.send(new SearchSchemasCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Schemas,

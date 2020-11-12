@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSatellitesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSatellitesCommand(input), ...args);
+  return await client.send(new ListSatellitesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: GroundStation,

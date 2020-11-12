@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListClosedWorkflowExecutionsCommand(input), ...args);
+  return await client.send(new ListClosedWorkflowExecutionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SWF,

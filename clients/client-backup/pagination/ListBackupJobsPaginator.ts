@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBackupJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBackupJobsCommand(input), ...args);
+  return await client.send(new ListBackupJobsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Backup,

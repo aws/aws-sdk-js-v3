@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeListenersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeListenersCommand(input), ...args);
+  return await client.send(new DescribeListenersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ElasticLoadBalancingV2,

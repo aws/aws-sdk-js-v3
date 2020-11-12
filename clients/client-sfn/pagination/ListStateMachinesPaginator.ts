@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStateMachinesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStateMachinesCommand(input), ...args);
+  return await client.send(new ListStateMachinesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SFN,

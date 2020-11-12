@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFpgaImagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFpgaImagesCommand(input), ...args);
+  return await client.send(new DescribeFpgaImagesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

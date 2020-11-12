@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTunnelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTunnelsCommand(input), ...args);
+  return await client.send(new ListTunnelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTSecureTunneling,

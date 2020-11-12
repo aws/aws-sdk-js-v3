@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetServiceGraphCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetServiceGraphCommand(input), ...args);
+  return await client.send(new GetServiceGraphCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: XRay,

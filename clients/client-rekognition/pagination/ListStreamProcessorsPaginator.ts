@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamProcessorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamProcessorsCommand(input), ...args);
+  return await client.send(new ListStreamProcessorsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

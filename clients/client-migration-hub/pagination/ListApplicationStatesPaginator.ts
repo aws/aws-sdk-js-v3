@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListApplicationStatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListApplicationStatesCommand(input), ...args);
+  return await client.send(new ListApplicationStatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MigrationHub,

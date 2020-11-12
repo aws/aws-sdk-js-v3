@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReservedCacheNodesCommand(input), ...args);
+  return await client.send(new DescribeReservedCacheNodesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ElastiCache,

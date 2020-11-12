@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInstanceCreditSpecificationsCommand(input), ...args);
+  return await client.send(new DescribeInstanceCreditSpecificationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

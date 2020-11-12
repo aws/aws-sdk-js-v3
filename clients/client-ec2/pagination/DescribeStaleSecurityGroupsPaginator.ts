@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeStaleSecurityGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeStaleSecurityGroupsCommand(input), ...args);
+  return await client.send(new DescribeStaleSecurityGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

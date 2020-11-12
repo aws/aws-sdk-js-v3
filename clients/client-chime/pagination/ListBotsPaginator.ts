@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBotsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBotsCommand(input), ...args);
+  return await client.send(new ListBotsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Chime,

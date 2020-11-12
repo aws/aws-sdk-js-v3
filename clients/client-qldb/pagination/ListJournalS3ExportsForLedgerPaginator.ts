@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJournalS3ExportsForLedgerCommand(input), ...args);
+  return await client.send(new ListJournalS3ExportsForLedgerCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QLDB,

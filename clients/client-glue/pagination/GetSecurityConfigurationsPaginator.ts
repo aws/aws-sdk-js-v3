@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSecurityConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSecurityConfigurationsCommand(input), ...args);
+  return await client.send(new GetSecurityConfigurationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

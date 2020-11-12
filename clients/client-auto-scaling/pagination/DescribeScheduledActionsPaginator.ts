@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeScheduledActionsCommand(input), ...args);
+  return await client.send(new DescribeScheduledActionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AutoScaling,

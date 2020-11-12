@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInventoryDeletionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInventoryDeletionsCommand(input), ...args);
+  return await client.send(new DescribeInventoryDeletionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

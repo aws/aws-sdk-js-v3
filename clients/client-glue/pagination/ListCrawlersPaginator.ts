@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCrawlersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCrawlersCommand(input), ...args);
+  return await client.send(new ListCrawlersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

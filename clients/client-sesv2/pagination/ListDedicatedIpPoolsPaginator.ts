@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDedicatedIpPoolsCommand(input), ...args);
+  return await client.send(new ListDedicatedIpPoolsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SESv2,

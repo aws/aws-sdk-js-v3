@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListClustersCommand(input), ...args);
+  return await client.send(new ListClustersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EKS,

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevicesCommand(input), ...args);
+  return await client.send(new ListDevicesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: WorkLink,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTapeArchivesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTapeArchivesCommand(input), ...args);
+  return await client.send(new DescribeTapeArchivesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: StorageGateway,

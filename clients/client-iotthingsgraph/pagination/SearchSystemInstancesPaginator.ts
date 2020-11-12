@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchSystemInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchSystemInstancesCommand(input), ...args);
+  return await client.send(new SearchSystemInstancesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTThingsGraph,

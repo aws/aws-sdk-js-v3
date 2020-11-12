@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribePublicIpv4PoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribePublicIpv4PoolsCommand(input), ...args);
+  return await client.send(new DescribePublicIpv4PoolsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

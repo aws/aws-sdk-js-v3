@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagOptionsCommand(input), ...args);
+  return await client.send(new ListTagOptionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeOrderableClusterOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeOrderableClusterOptionsCommand(input), ...args);
+  return await client.send(new DescribeOrderableClusterOptionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Redshift,

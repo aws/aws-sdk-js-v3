@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAliasesCommand(input), ...args);
+  return await client.send(new ListAliasesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: KMS,

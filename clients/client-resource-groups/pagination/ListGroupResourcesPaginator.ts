@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGroupResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGroupResourcesCommand(input), ...args);
+  return await client.send(new ListGroupResourcesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ResourceGroups,

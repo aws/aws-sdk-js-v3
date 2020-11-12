@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListNotebookInstanceLifecycleConfigsCommand(input), ...args);
+  return await client.send(new ListNotebookInstanceLifecycleConfigsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SageMaker,

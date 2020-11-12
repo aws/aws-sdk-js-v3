@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetInventorySchemaCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetInventorySchemaCommand(input), ...args);
+  return await client.send(new GetInventorySchemaCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

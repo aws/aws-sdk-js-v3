@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContainersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContainersCommand(input), ...args);
+  return await client.send(new ListContainersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaStore,

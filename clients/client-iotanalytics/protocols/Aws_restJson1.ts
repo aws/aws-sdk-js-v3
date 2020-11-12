@@ -88,6 +88,7 @@ import {
   DatastoreStorageSummary,
   DatastoreSummary,
   DeltaTime,
+  DeltaTimeSessionWindowConfiguration,
   DeviceRegistryEnrichActivity,
   DeviceShadowEnrichActivity,
   EstimatedResourceSize,
@@ -97,6 +98,8 @@ import {
   InvalidRequestException,
   IotEventsDestinationConfiguration,
   LambdaActivity,
+  LateDataRule,
+  LateDataRuleConfiguration,
   LimitExceededException,
   LoggingOptions,
   MathActivity,
@@ -249,6 +252,9 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
     ...(input.datasetName !== undefined && { datasetName: input.datasetName }),
+    ...(input.lateDataRules !== undefined && {
+      lateDataRules: serializeAws_restJson1LateDataRules(input.lateDataRules, context),
+    }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
@@ -275,7 +281,7 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
@@ -288,6 +294,9 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
+  body = JSON.stringify({
+    ...(input.versionId !== undefined && { versionId: input.versionId }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -741,8 +750,8 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.scheduledOnOrAfter !== undefined && {
       scheduledOnOrAfter: (input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
@@ -773,8 +782,8 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   };
   let resolvedPath = "/datasets";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -938,8 +947,8 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
@@ -1027,8 +1036,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1104,6 +1113,9 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
     ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
+    }),
+    ...(input.lateDataRules !== undefined && {
+      lateDataRules: serializeAws_restJson1LateDataRules(input.lateDataRules, context),
     }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
@@ -4505,6 +4517,15 @@ const serializeAws_restJson1DeltaTime = (input: DeltaTime, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
+  input: DeltaTimeSessionWindowConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.timeoutInMinutes !== undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+  };
+};
+
 const serializeAws_restJson1DeviceRegistryEnrichActivity = (
   input: DeviceRegistryEnrichActivity,
   context: __SerdeContext
@@ -4563,6 +4584,33 @@ const serializeAws_restJson1LambdaActivity = (input: LambdaActivity, context: __
     ...(input.name !== undefined && { name: input.name }),
     ...(input.next !== undefined && { next: input.next }),
   };
+};
+
+const serializeAws_restJson1LateDataRule = (input: LateDataRule, context: __SerdeContext): any => {
+  return {
+    ...(input.ruleConfiguration !== undefined && {
+      ruleConfiguration: serializeAws_restJson1LateDataRuleConfiguration(input.ruleConfiguration, context),
+    }),
+    ...(input.ruleName !== undefined && { ruleName: input.ruleName }),
+  };
+};
+
+const serializeAws_restJson1LateDataRuleConfiguration = (
+  input: LateDataRuleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.deltaTimeSessionWindowConfiguration !== undefined && {
+      deltaTimeSessionWindowConfiguration: serializeAws_restJson1DeltaTimeSessionWindowConfiguration(
+        input.deltaTimeSessionWindowConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1LateDataRules = (input: LateDataRule[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1LateDataRule(entry, context));
 };
 
 const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
@@ -4826,6 +4874,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -4900,6 +4952,10 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
@@ -4990,6 +5046,10 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    lateDataRules:
+      output.lateDataRules !== undefined && output.lateDataRules !== null
+        ? deserializeAws_restJson1LateDataRules(output.lateDataRules, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     retentionPeriod:
@@ -5183,6 +5243,10 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -5262,6 +5326,10 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
       output.datastoreStorage !== undefined && output.datastoreStorage !== null
         ? deserializeAws_restJson1DatastoreStorageSummary(output.datastoreStorage, context)
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -5276,6 +5344,16 @@ const deserializeAws_restJson1DeltaTime = (output: any, context: __SerdeContext)
       output.offsetSeconds !== undefined && output.offsetSeconds !== null ? output.offsetSeconds : undefined,
     timeExpression:
       output.timeExpression !== undefined && output.timeExpression !== null ? output.timeExpression : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DeltaTimeSessionWindowConfiguration => {
+  return {
+    timeoutInMinutes:
+      output.timeoutInMinutes !== undefined && output.timeoutInMinutes !== null ? output.timeoutInMinutes : undefined,
   } as any;
 };
 
@@ -5350,6 +5428,35 @@ const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeCon
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LateDataRule = (output: any, context: __SerdeContext): LateDataRule => {
+  return {
+    ruleConfiguration:
+      output.ruleConfiguration !== undefined && output.ruleConfiguration !== null
+        ? deserializeAws_restJson1LateDataRuleConfiguration(output.ruleConfiguration, context)
+        : undefined,
+    ruleName: output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LateDataRuleConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LateDataRuleConfiguration => {
+  return {
+    deltaTimeSessionWindowConfiguration:
+      output.deltaTimeSessionWindowConfiguration !== undefined && output.deltaTimeSessionWindowConfiguration !== null
+        ? deserializeAws_restJson1DeltaTimeSessionWindowConfiguration(
+            output.deltaTimeSessionWindowConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LateDataRules = (output: any, context: __SerdeContext): LateDataRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1LateDataRule(entry, context));
 };
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTransitGatewayPrefixListReferencesCommand(input), ...args);
+  return await client.send(new GetTransitGatewayPrefixListReferencesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

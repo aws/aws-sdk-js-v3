@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInstanceGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInstanceGroupsCommand(input), ...args);
+  return await client.send(new ListInstanceGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EMR,

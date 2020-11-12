@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListReviewPolicyResultsForHITCommand(input), ...args);
+  return await client.send(new ListReviewPolicyResultsForHITCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MTurk,

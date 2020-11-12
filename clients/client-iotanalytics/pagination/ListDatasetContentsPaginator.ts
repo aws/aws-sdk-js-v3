@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDatasetContentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDatasetContentsCommand(input), ...args);
+  return await client.send(new ListDatasetContentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTAnalytics,

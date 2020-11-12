@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAlarmsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAlarmsCommand(input), ...args);
+  return await client.send(new DescribeAlarmsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudWatch,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeManagedPrefixListsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeManagedPrefixListsCommand(input), ...args);
+  return await client.send(new DescribeManagedPrefixListsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

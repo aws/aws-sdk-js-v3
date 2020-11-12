@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStackSetOperationResultsCommand(input), ...args);
+  return await client.send(new ListStackSetOperationResultsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudFormation,

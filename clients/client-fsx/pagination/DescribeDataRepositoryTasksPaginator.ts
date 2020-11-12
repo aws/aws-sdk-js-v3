@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDataRepositoryTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDataRepositoryTasksCommand(input), ...args);
+  return await client.send(new DescribeDataRepositoryTasksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: FSx,

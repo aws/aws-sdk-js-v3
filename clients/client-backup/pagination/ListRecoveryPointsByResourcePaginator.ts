@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRecoveryPointsByResourceCommand(input), ...args);
+  return await client.send(new ListRecoveryPointsByResourceCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Backup,

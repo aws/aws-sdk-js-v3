@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeExportImageTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeExportImageTasksCommand(input), ...args);
+  return await client.send(new DescribeExportImageTasksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

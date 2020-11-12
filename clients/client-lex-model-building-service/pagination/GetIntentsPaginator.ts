@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetIntentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetIntentsCommand(input), ...args);
+  return await client.send(new GetIntentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,

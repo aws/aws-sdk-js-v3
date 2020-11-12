@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTrailsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTrailsCommand(input), ...args);
+  return await client.send(new ListTrailsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudTrail,

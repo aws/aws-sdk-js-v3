@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSigningProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSigningProfilesCommand(input), ...args);
+  return await client.send(new ListSigningProfilesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Signer,

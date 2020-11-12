@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTestCasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTestCasesCommand(input), ...args);
+  return await client.send(new DescribeTestCasesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeBuild,

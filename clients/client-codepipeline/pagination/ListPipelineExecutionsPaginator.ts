@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPipelineExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPipelineExecutionsCommand(input), ...args);
+  return await client.send(new ListPipelineExecutionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodePipeline,

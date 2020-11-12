@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCertificatesByCACommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCertificatesByCACommand(input), ...args);
+  return await client.send(new ListCertificatesByCACommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

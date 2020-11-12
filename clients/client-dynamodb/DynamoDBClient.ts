@@ -16,6 +16,7 @@ import {
   DescribeContributorInsightsCommandOutput,
 } from "./commands/DescribeContributorInsightsCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
+import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
 import {
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput,
@@ -31,12 +32,17 @@ import {
   DescribeTableReplicaAutoScalingCommandOutput,
 } from "./commands/DescribeTableReplicaAutoScalingCommand";
 import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "./commands/DescribeTimeToLiveCommand";
+import {
+  ExportTableToPointInTimeCommandInput,
+  ExportTableToPointInTimeCommandOutput,
+} from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "./commands/ListGlobalTablesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "./commands/ListTagsOfResourceCommand";
@@ -137,15 +143,18 @@ export type ServiceInputTypes =
   | DescribeContinuousBackupsCommandInput
   | DescribeContributorInsightsCommandInput
   | DescribeEndpointsCommandInput
+  | DescribeExportCommandInput
   | DescribeGlobalTableCommandInput
   | DescribeGlobalTableSettingsCommandInput
   | DescribeLimitsCommandInput
   | DescribeTableCommandInput
   | DescribeTableReplicaAutoScalingCommandInput
   | DescribeTimeToLiveCommandInput
+  | ExportTableToPointInTimeCommandInput
   | GetItemCommandInput
   | ListBackupsCommandInput
   | ListContributorInsightsCommandInput
+  | ListExportsCommandInput
   | ListGlobalTablesCommandInput
   | ListTablesCommandInput
   | ListTagsOfResourceCommandInput
@@ -180,15 +189,18 @@ export type ServiceOutputTypes =
   | DescribeContinuousBackupsCommandOutput
   | DescribeContributorInsightsCommandOutput
   | DescribeEndpointsCommandOutput
+  | DescribeExportCommandOutput
   | DescribeGlobalTableCommandOutput
   | DescribeGlobalTableSettingsCommandOutput
   | DescribeLimitsCommandOutput
   | DescribeTableCommandOutput
   | DescribeTableReplicaAutoScalingCommandOutput
   | DescribeTimeToLiveCommandOutput
+  | ExportTableToPointInTimeCommandOutput
   | GetItemCommandOutput
   | ListBackupsCommandOutput
   | ListContributorInsightsCommandOutput
+  | ListExportsCommandOutput
   | ListGlobalTablesCommandOutput
   | ListTablesCommandOutput
   | ListTagsOfResourceCommandOutput

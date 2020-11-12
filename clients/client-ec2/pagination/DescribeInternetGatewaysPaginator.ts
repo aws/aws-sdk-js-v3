@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInternetGatewaysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInternetGatewaysCommand(input), ...args);
+  return await client.send(new DescribeInternetGatewaysCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

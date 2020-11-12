@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEventSubscriptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEventSubscriptionsCommand(input), ...args);
+  return await client.send(new ListEventSubscriptionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Inspector,

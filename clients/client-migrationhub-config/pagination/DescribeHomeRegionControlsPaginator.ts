@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeHomeRegionControlsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeHomeRegionControlsCommand(input), ...args);
+  return await client.send(new DescribeHomeRegionControlsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MigrationHubConfig,

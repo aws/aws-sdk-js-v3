@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListImagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListImagesCommand(input), ...args);
+  return await client.send(new ListImagesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SageMaker,

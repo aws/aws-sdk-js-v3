@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccessPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccessPoliciesCommand(input), ...args);
+  return await client.send(new ListAccessPoliciesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

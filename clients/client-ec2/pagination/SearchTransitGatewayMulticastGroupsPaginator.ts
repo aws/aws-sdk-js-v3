@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchTransitGatewayMulticastGroupsCommand(input), ...args);
+  return await client.send(new SearchTransitGatewayMulticastGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

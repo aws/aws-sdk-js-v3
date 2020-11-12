@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualMFADevicesCommand(input), ...args);
+  return await client.send(new ListVirtualMFADevicesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

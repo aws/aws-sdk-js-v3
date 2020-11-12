@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetWorkflowRunsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetWorkflowRunsCommand(input), ...args);
+  return await client.send(new GetWorkflowRunsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

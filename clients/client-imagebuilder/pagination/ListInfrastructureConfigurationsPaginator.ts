@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInfrastructureConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInfrastructureConfigurationsCommand(input), ...args);
+  return await client.send(new ListInfrastructureConfigurationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Imagebuilder,

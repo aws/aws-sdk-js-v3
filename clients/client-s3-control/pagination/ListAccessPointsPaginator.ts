@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccessPointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccessPointsCommand(input), ...args);
+  return await client.send(new ListAccessPointsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: S3Control,

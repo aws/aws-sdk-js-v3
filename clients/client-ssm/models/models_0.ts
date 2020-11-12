@@ -3988,6 +3988,7 @@ export enum AutomationExecutionFilterKey {
   START_TIME_AFTER = "StartTimeAfter",
   START_TIME_BEFORE = "StartTimeBefore",
   TAG_KEY = "TagKey",
+  TARGET_RESOURCE_GROUP = "TargetResourceGroup",
 }
 
 /**
@@ -7801,6 +7802,7 @@ export enum SessionFilterKey {
   INVOKED_AFTER = "InvokedAfter",
   INVOKED_BEFORE = "InvokedBefore",
   OWNER = "Owner",
+  SESSION_ID = "SessionId",
   STATUS = "Status",
   TARGET_ID = "Target",
 }
@@ -7854,6 +7856,9 @@ export interface SessionFilter {
    *                      <p>Failed</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>SessionId: Specify a session ID to return details about the session.</p>
    *             </li>
    *          </ul>
    */

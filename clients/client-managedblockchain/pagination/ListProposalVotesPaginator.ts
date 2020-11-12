@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProposalVotesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProposalVotesCommand(input), ...args);
+  return await client.send(new ListProposalVotesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ManagedBlockchain,

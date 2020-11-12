@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProtectedResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProtectedResourcesCommand(input), ...args);
+  return await client.send(new ListProtectedResourcesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Backup,

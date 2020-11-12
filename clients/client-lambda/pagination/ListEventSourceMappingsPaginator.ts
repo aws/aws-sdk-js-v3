@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEventSourceMappingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEventSourceMappingsCommand(input), ...args);
+  return await client.send(new ListEventSourceMappingsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Lambda,

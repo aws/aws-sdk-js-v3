@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBillingGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBillingGroupsCommand(input), ...args);
+  return await client.send(new ListBillingGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

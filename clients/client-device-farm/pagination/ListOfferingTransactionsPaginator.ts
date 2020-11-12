@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOfferingTransactionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOfferingTransactionsCommand(input), ...args);
+  return await client.send(new ListOfferingTransactionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DeviceFarm,

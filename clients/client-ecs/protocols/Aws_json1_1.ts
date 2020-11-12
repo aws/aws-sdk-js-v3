@@ -199,6 +199,8 @@ import {
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EnvironmentFile,
+  FSxWindowsFileServerAuthorizationConfig,
+  FSxWindowsFileServerVolumeConfiguration,
   Failure,
   FirelensConfiguration,
   HealthCheck,
@@ -6038,6 +6040,32 @@ const serializeAws_json1_1FirelensConfigurationOptionsMap = (
   );
 };
 
+const serializeAws_json1_1FSxWindowsFileServerAuthorizationConfig = (
+  input: FSxWindowsFileServerAuthorizationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.credentialsParameter !== undefined && { credentialsParameter: input.credentialsParameter }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+  };
+};
+
+const serializeAws_json1_1FSxWindowsFileServerVolumeConfiguration = (
+  input: FSxWindowsFileServerVolumeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.authorizationConfig !== undefined && {
+      authorizationConfig: serializeAws_json1_1FSxWindowsFileServerAuthorizationConfig(
+        input.authorizationConfig,
+        context
+      ),
+    }),
+    ...(input.fileSystemId !== undefined && { fileSystemId: input.fileSystemId }),
+    ...(input.rootDirectory !== undefined && { rootDirectory: input.rootDirectory }),
+  };
+};
+
 const serializeAws_json1_1HealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   return {
     ...(input.command !== undefined && { command: serializeAws_json1_1StringList(input.command, context) }),
@@ -6876,6 +6904,12 @@ const serializeAws_json1_1Volume = (input: Volume, context: __SerdeContext): any
     }),
     ...(input.efsVolumeConfiguration !== undefined && {
       efsVolumeConfiguration: serializeAws_json1_1EFSVolumeConfiguration(input.efsVolumeConfiguration, context),
+    }),
+    ...(input.fsxWindowsFileServerVolumeConfiguration !== undefined && {
+      fsxWindowsFileServerVolumeConfiguration: serializeAws_json1_1FSxWindowsFileServerVolumeConfiguration(
+        input.fsxWindowsFileServerVolumeConfiguration,
+        context
+      ),
     }),
     ...(input.host !== undefined && { host: serializeAws_json1_1HostVolumeProperties(input.host, context) }),
     ...(input.name !== undefined && { name: input.name }),
@@ -7844,6 +7878,34 @@ const deserializeAws_json1_1FirelensConfigurationOptionsMap = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1FSxWindowsFileServerAuthorizationConfig = (
+  output: any,
+  context: __SerdeContext
+): FSxWindowsFileServerAuthorizationConfig => {
+  return {
+    credentialsParameter:
+      output.credentialsParameter !== undefined && output.credentialsParameter !== null
+        ? output.credentialsParameter
+        : undefined,
+    domain: output.domain !== undefined && output.domain !== null ? output.domain : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FSxWindowsFileServerVolumeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FSxWindowsFileServerVolumeConfiguration => {
+  return {
+    authorizationConfig:
+      output.authorizationConfig !== undefined && output.authorizationConfig !== null
+        ? deserializeAws_json1_1FSxWindowsFileServerAuthorizationConfig(output.authorizationConfig, context)
+        : undefined,
+    fileSystemId: output.fileSystemId !== undefined && output.fileSystemId !== null ? output.fileSystemId : undefined,
+    rootDirectory:
+      output.rootDirectory !== undefined && output.rootDirectory !== null ? output.rootDirectory : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GpuIds = (output: any, context: __SerdeContext): string[] => {
@@ -9075,6 +9137,14 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
     efsVolumeConfiguration:
       output.efsVolumeConfiguration !== undefined && output.efsVolumeConfiguration !== null
         ? deserializeAws_json1_1EFSVolumeConfiguration(output.efsVolumeConfiguration, context)
+        : undefined,
+    fsxWindowsFileServerVolumeConfiguration:
+      output.fsxWindowsFileServerVolumeConfiguration !== undefined &&
+      output.fsxWindowsFileServerVolumeConfiguration !== null
+        ? deserializeAws_json1_1FSxWindowsFileServerVolumeConfiguration(
+            output.fsxWindowsFileServerVolumeConfiguration,
+            context
+          )
         : undefined,
     host:
       output.host !== undefined && output.host !== null

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCrawlerMetricsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCrawlerMetricsCommand(input), ...args);
+  return await client.send(new GetCrawlerMetricsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImportTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImportTasksCommand(input), ...args);
+  return await client.send(new DescribeImportTasksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ApplicationDiscoveryService,

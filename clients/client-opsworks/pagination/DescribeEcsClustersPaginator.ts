@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEcsClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEcsClustersCommand(input), ...args);
+  return await client.send(new DescribeEcsClustersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: OpsWorks,

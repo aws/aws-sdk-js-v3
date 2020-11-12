@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConferenceProvidersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConferenceProvidersCommand(input), ...args);
+  return await client.send(new ListConferenceProvidersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDelegatedServicesForAccountCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDelegatedServicesForAccountCommand(input), ...args);
+  return await client.send(new ListDelegatedServicesForAccountCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Organizations,

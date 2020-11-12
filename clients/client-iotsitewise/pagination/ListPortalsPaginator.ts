@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPortalsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPortalsCommand(input), ...args);
+  return await client.send(new ListPortalsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

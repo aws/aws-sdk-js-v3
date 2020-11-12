@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountRolesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountRolesCommand(input), ...args);
+  return await client.send(new ListAccountRolesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSO,

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetModelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetModelsCommand(input), ...args);
+  return await client.send(new GetModelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: FraudDetector,

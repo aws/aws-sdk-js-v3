@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGatewayRoutesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGatewayRoutesCommand(input), ...args);
+  return await client.send(new ListGatewayRoutesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AppMesh,

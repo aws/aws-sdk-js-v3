@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeActionTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeActionTargetsCommand(input), ...args);
+  return await client.send(new DescribeActionTargetsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SecurityHub,

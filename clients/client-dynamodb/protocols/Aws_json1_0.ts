@@ -16,6 +16,7 @@ import {
   DescribeContributorInsightsCommandOutput,
 } from "../commands/DescribeContributorInsightsCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "../commands/DescribeEndpointsCommand";
+import { DescribeExportCommandInput, DescribeExportCommandOutput } from "../commands/DescribeExportCommand";
 import {
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput,
@@ -31,12 +32,17 @@ import {
   DescribeTableReplicaAutoScalingCommandOutput,
 } from "../commands/DescribeTableReplicaAutoScalingCommand";
 import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "../commands/DescribeTimeToLiveCommand";
+import {
+  ExportTableToPointInTimeCommandInput,
+  ExportTableToPointInTimeCommandOutput,
+} from "../commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "../commands/GetItemCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "../commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "../commands/ListContributorInsightsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
 import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "../commands/ListGlobalTablesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "../commands/ListTagsOfResourceCommand";
@@ -133,6 +139,8 @@ import {
   DescribeContributorInsightsOutput,
   DescribeEndpointsRequest,
   DescribeEndpointsResponse,
+  DescribeExportInput,
+  DescribeExportOutput,
   DescribeGlobalTableInput,
   DescribeGlobalTableOutput,
   DescribeGlobalTableSettingsInput,
@@ -147,6 +155,12 @@ import {
   DescribeTimeToLiveOutput,
   Endpoint,
   ExpectedAttributeValue,
+  ExportConflictException,
+  ExportDescription,
+  ExportNotFoundException,
+  ExportSummary,
+  ExportTableToPointInTimeInput,
+  ExportTableToPointInTimeOutput,
   FailureException,
   Get,
   GetItemInput,
@@ -165,6 +179,7 @@ import {
   IndexNotFoundException,
   InternalServerError,
   InvalidEndpointException,
+  InvalidExportTimeException,
   InvalidRestoreTimeException,
   ItemCollectionMetrics,
   ItemCollectionSizeLimitExceededException,
@@ -176,6 +191,8 @@ import {
   ListBackupsOutput,
   ListContributorInsightsInput,
   ListContributorInsightsOutput,
+  ListExportsInput,
+  ListExportsOutput,
   ListGlobalTablesInput,
   ListGlobalTablesOutput,
   ListTablesInput,
@@ -437,6 +454,19 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeExportCommand = async (
+  input: DescribeExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeExport",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeExportInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeGlobalTableCommand = async (
   input: DescribeGlobalTableCommandInput,
   context: __SerdeContext
@@ -515,6 +545,19 @@ export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ExportTableToPointInTimeCommand = async (
+  input: ExportTableToPointInTimeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ExportTableToPointInTime",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExportTableToPointInTimeInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0GetItemCommand = async (
   input: GetItemCommandInput,
   context: __SerdeContext
@@ -551,6 +594,19 @@ export const serializeAws_json1_0ListContributorInsightsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListContributorInsightsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListExportsCommand = async (
+  input: ListExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListExports",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListExportsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1802,6 +1858,77 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DescribeExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeExportOutput(data, context);
+  const response: DescribeExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ExportNotFoundException":
+    case "com.amazonaws.dynamodb#ExportNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ExportNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DescribeGlobalTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2212,6 +2339,101 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0ExportTableToPointInTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportTableToPointInTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExportTableToPointInTimeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExportTableToPointInTimeOutput(data, context);
+  const response: ExportTableToPointInTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExportTableToPointInTimeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportTableToPointInTimeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ExportConflictException":
+    case "com.amazonaws.dynamodb#ExportConflictException":
+      response = {
+        ...(await deserializeAws_json1_0ExportConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidExportTimeException":
+    case "com.amazonaws.dynamodb#InvalidExportTimeException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidExportTimeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PointInTimeRecoveryUnavailableException":
+    case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0GetItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2404,6 +2626,69 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ListExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListExportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListExportsOutput(data, context);
+  const response: ListExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListExportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4259,6 +4544,36 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
   return contents;
 };
 
+const deserializeAws_json1_0ExportConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExportConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ExportConflictException(body, context);
+  const contents: ExportConflictException = {
+    name: "ExportConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_0ExportNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExportNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ExportNotFoundException(body, context);
+  const contents: ExportNotFoundException = {
+    name: "ExportNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4342,6 +4657,21 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_0InvalidEndpointException(body, context);
   const contents: InvalidEndpointException = {
     name: "InvalidEndpointException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_0InvalidExportTimeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidExportTimeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0InvalidExportTimeException(body, context);
+  const contents: InvalidExportTimeException = {
+    name: "InvalidExportTimeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4967,6 +5297,12 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
   return {};
 };
 
+const serializeAws_json1_0DescribeExportInput = (input: DescribeExportInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ExportArn !== undefined && { ExportArn: input.ExportArn }),
+  };
+};
+
 const serializeAws_json1_0DescribeGlobalTableInput = (
   input: DescribeGlobalTableInput,
   context: __SerdeContext
@@ -5031,6 +5367,23 @@ const serializeAws_json1_0ExpectedAttributeValue = (input: ExpectedAttributeValu
     ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
     ...(input.Exists !== undefined && { Exists: input.Exists }),
     ...(input.Value !== undefined && { Value: serializeAws_json1_0AttributeValue(input.Value, context) }),
+  };
+};
+
+const serializeAws_json1_0ExportTableToPointInTimeInput = (
+  input: ExportTableToPointInTimeInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ExportFormat !== undefined && { ExportFormat: input.ExportFormat }),
+    ...(input.ExportTime !== undefined && { ExportTime: Math.round(input.ExportTime.getTime() / 1000) }),
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3BucketOwner !== undefined && { S3BucketOwner: input.S3BucketOwner }),
+    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+    ...(input.S3SseAlgorithm !== undefined && { S3SseAlgorithm: input.S3SseAlgorithm }),
+    ...(input.S3SseKmsKeyId !== undefined && { S3SseKmsKeyId: input.S3SseKmsKeyId }),
+    ...(input.TableArn !== undefined && { TableArn: input.TableArn }),
   };
 };
 
@@ -5259,6 +5612,14 @@ const serializeAws_json1_0ListContributorInsightsInput = (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_0ListExportsInput = (input: ListExportsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TableArn !== undefined && { TableArn: input.TableArn }),
   };
 };
 
@@ -6602,6 +6963,15 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeExportOutput = (output: any, context: __SerdeContext): DescribeExportOutput => {
+  return {
+    ExportDescription:
+      output.ExportDescription !== undefined && output.ExportDescription !== null
+        ? deserializeAws_json1_0ExportDescription(output.ExportDescription, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeGlobalTableOutput = (
   output: any,
   context: __SerdeContext
@@ -6694,6 +7064,84 @@ const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): E
 
 const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_0Endpoint(entry, context));
+};
+
+const deserializeAws_json1_0ExportConflictException = (
+  output: any,
+  context: __SerdeContext
+): ExportConflictException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportDescription = (output: any, context: __SerdeContext): ExportDescription => {
+  return {
+    BilledSizeBytes:
+      output.BilledSizeBytes !== undefined && output.BilledSizeBytes !== null ? output.BilledSizeBytes : undefined,
+    ClientToken: output.ClientToken !== undefined && output.ClientToken !== null ? output.ClientToken : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    ExportArn: output.ExportArn !== undefined && output.ExportArn !== null ? output.ExportArn : undefined,
+    ExportFormat: output.ExportFormat !== undefined && output.ExportFormat !== null ? output.ExportFormat : undefined,
+    ExportManifest:
+      output.ExportManifest !== undefined && output.ExportManifest !== null ? output.ExportManifest : undefined,
+    ExportStatus: output.ExportStatus !== undefined && output.ExportStatus !== null ? output.ExportStatus : undefined,
+    ExportTime:
+      output.ExportTime !== undefined && output.ExportTime !== null
+        ? new Date(Math.round(output.ExportTime * 1000))
+        : undefined,
+    FailureCode: output.FailureCode !== undefined && output.FailureCode !== null ? output.FailureCode : undefined,
+    FailureMessage:
+      output.FailureMessage !== undefined && output.FailureMessage !== null ? output.FailureMessage : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
+    S3BucketOwner:
+      output.S3BucketOwner !== undefined && output.S3BucketOwner !== null ? output.S3BucketOwner : undefined,
+    S3Prefix: output.S3Prefix !== undefined && output.S3Prefix !== null ? output.S3Prefix : undefined,
+    S3SseAlgorithm:
+      output.S3SseAlgorithm !== undefined && output.S3SseAlgorithm !== null ? output.S3SseAlgorithm : undefined,
+    S3SseKmsKeyId:
+      output.S3SseKmsKeyId !== undefined && output.S3SseKmsKeyId !== null ? output.S3SseKmsKeyId : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    TableArn: output.TableArn !== undefined && output.TableArn !== null ? output.TableArn : undefined,
+    TableId: output.TableId !== undefined && output.TableId !== null ? output.TableId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ExportNotFoundException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportSummaries = (output: any, context: __SerdeContext): ExportSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0ExportSummary(entry, context));
+};
+
+const deserializeAws_json1_0ExportSummary = (output: any, context: __SerdeContext): ExportSummary => {
+  return {
+    ExportArn: output.ExportArn !== undefined && output.ExportArn !== null ? output.ExportArn : undefined,
+    ExportStatus: output.ExportStatus !== undefined && output.ExportStatus !== null ? output.ExportStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportTableToPointInTimeOutput = (
+  output: any,
+  context: __SerdeContext
+): ExportTableToPointInTimeOutput => {
+  return {
+    ExportDescription:
+      output.ExportDescription !== undefined && output.ExportDescription !== null
+        ? deserializeAws_json1_0ExportDescription(output.ExportDescription, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0ExpressionAttributeNameMap = (
@@ -6879,6 +7327,15 @@ const deserializeAws_json1_0InvalidEndpointException = (
   } as any;
 };
 
+const deserializeAws_json1_0InvalidExportTimeException = (
+  output: any,
+  context: __SerdeContext
+): InvalidExportTimeException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0InvalidRestoreTimeException = (
   output: any,
   context: __SerdeContext
@@ -7044,6 +7501,16 @@ const deserializeAws_json1_0ListContributorInsightsOutput = (
     ContributorInsightsSummaries:
       output.ContributorInsightsSummaries !== undefined && output.ContributorInsightsSummaries !== null
         ? deserializeAws_json1_0ContributorInsightsSummaries(output.ContributorInsightsSummaries, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ListExportsOutput = (output: any, context: __SerdeContext): ListExportsOutput => {
+  return {
+    ExportSummaries:
+      output.ExportSummaries !== undefined && output.ExportSummaries !== null
+        ? deserializeAws_json1_0ExportSummaries(output.ExportSummaries, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;

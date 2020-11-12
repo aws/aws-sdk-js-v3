@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSignalingChannelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSignalingChannelsCommand(input), ...args);
+  return await client.send(new ListSignalingChannelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: KinesisVideo,

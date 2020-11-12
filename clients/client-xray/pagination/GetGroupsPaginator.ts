@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetGroupsCommand(input), ...args);
+  return await client.send(new GetGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: XRay,

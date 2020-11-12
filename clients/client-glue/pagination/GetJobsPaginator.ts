@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetJobsCommand(input), ...args);
+  return await client.send(new GetJobsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

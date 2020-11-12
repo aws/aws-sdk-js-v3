@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobExecutionsForThingCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobExecutionsForThingCommand(input), ...args);
+  return await client.send(new ListJobExecutionsForThingCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRolesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRolesCommand(input), ...args);
+  return await client.send(new ListRolesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

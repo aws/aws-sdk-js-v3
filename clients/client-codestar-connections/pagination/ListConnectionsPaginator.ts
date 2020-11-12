@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConnectionsCommand(input), ...args);
+  return await client.send(new ListConnectionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeStarConnections,

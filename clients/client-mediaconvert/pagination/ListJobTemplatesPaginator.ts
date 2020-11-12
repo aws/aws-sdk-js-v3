@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobTemplatesCommand(input), ...args);
+  return await client.send(new ListJobTemplatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaConvert,

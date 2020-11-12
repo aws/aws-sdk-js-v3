@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetMetricDataCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetMetricDataCommand(input), ...args);
+  return await client.send(new GetMetricDataCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Connect,

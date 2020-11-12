@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeContinuousExportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeContinuousExportsCommand(input), ...args);
+  return await client.send(new DescribeContinuousExportsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ApplicationDiscoveryService,

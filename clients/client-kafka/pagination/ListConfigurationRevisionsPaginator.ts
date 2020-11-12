@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConfigurationRevisionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConfigurationRevisionsCommand(input), ...args);
+  return await client.send(new ListConfigurationRevisionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Kafka,

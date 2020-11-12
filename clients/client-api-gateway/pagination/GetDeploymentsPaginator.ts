@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDeploymentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDeploymentsCommand(input), ...args);
+  return await client.send(new GetDeploymentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: APIGateway,

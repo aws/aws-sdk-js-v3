@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAccountLimitsCommand(input), ...args);
+  return await client.send(new DescribeAccountLimitsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudFormation,

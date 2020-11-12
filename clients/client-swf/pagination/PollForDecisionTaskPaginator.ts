@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<PollForDecisionTaskCommandOutput> => {
   // @ts-ignore
-  return await client.send(new PollForDecisionTaskCommand(input), ...args);
+  return await client.send(new PollForDecisionTaskCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SWF,

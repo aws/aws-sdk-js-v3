@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFlowExecutionMessagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFlowExecutionMessagesCommand(input), ...args);
+  return await client.send(new ListFlowExecutionMessagesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTThingsGraph,

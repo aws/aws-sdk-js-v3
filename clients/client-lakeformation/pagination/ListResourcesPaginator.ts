@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResourcesCommand(input), ...args);
+  return await client.send(new ListResourcesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LakeFormation,

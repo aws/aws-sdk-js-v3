@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeMatchmakingRuleSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeMatchmakingRuleSetsCommand(input), ...args);
+  return await client.send(new DescribeMatchmakingRuleSetsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: GameLift,

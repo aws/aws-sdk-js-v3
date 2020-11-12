@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFlowExecutionRecordsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFlowExecutionRecordsCommand(input), ...args);
+  return await client.send(new DescribeFlowExecutionRecordsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Appflow,

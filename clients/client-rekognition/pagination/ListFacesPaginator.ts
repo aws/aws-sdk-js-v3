@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFacesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFacesCommand(input), ...args);
+  return await client.send(new ListFacesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

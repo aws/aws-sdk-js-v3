@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeSpotFleetRequestsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeSpotFleetRequestsCommand(input), ...args);
+  return await client.send(new DescribeSpotFleetRequestsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

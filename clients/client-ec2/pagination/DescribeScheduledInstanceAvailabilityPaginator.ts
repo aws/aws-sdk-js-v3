@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeScheduledInstanceAvailabilityCommand(input), ...args);
+  return await client.send(new DescribeScheduledInstanceAvailabilityCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

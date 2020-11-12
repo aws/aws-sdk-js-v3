@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListImagePipelinesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListImagePipelinesCommand(input), ...args);
+  return await client.send(new ListImagePipelinesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Imagebuilder,

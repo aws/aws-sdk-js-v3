@@ -6,14 +6,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface ActiveDirectoryBackupAttributes {
   /**
-   * <p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>
-   */
-  ActiveDirectoryId?: string;
-
-  /**
    * <p>The fully qualified domain name of the self-managed AD directory.</p>
    */
   DomainName?: string;
+
+  /**
+   * <p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>
+   */
+  ActiveDirectoryId?: string;
 }
 
 export namespace ActiveDirectoryBackupAttributes {
@@ -36,14 +36,14 @@ export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer
   name: "ActiveDirectoryError";
   $fault: "client";
   /**
-   * <p>The type of Active Directory error.</p>
-   */
-  Type?: ActiveDirectoryErrorType | string;
-
-  /**
    * <p>The directory ID of the directory that an error pertains to.</p>
    */
   ActiveDirectoryId: string | undefined;
+
+  /**
+   * <p>The type of Active Directory error.</p>
+   */
+  Type?: ActiveDirectoryErrorType | string;
 
   /**
    * <p>A detailed error message.</p>
@@ -58,6 +58,8 @@ export namespace ActiveDirectoryError {
 }
 
 export enum AdministrativeActionType {
+  FILE_SYSTEM_ALIAS_ASSOCIATION = "FILE_SYSTEM_ALIAS_ASSOCIATION",
+  FILE_SYSTEM_ALIAS_DISASSOCIATION = "FILE_SYSTEM_ALIAS_DISASSOCIATION",
   FILE_SYSTEM_UPDATE = "FILE_SYSTEM_UPDATE",
   STORAGE_OPTIMIZATION = "STORAGE_OPTIMIZATION",
 }
@@ -67,7 +69,7 @@ export enum AdministrativeActionType {
  */
 export interface AdministrativeActionFailureDetails {
   /**
-   * <p>Error message providing details about the failure.</p>
+   * <p>Error message providing details about the failed administrative action.</p>
    */
   Message?: string;
 }
@@ -192,16 +194,21 @@ export interface DataRepositoryConfiguration {
   ImportPath?: string;
 
   /**
-   * <p>Provides detailed information about the data respository if its <code>Lifecycle</code> is
-   *             set to <code>MISCONFIGURED</code>.</p>
-   */
-  FailureDetails?: DataRepositoryFailureDetails;
-
-  /**
    * <p>The export path to the Amazon S3 bucket (and prefix) that you are using to store new and
    *             changed Lustre file system files in S3.</p>
    */
   ExportPath?: string;
+
+  /**
+   * <p>For files imported from a data repository, this value determines the stripe count and
+   *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
+   *             number of disks that a single file can be striped across is limited by the total number
+   *             of disks that make up the file system.</p>
+   *
+   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
+   */
+  ImportedFileChunkSize?: number;
 
   /**
    * <p>Describes the file system's linked S3 data repository's <code>AutoImportPolicy</code>.
@@ -234,15 +241,10 @@ export interface DataRepositoryConfiguration {
   AutoImportPolicy?: AutoImportPolicyType | string;
 
   /**
-   * <p>For files imported from a data repository, this value determines the stripe count and
-   *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
-   *             number of disks that a single file can be striped across is limited by the total number
-   *             of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
-   *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
+   * <p>Provides detailed information about the data respository if its <code>Lifecycle</code> is
+   *             set to <code>MISCONFIGURED</code>.</p>
    */
-  ImportedFileChunkSize?: number;
+  FailureDetails?: DataRepositoryFailureDetails;
 }
 
 export namespace DataRepositoryConfiguration {
@@ -267,53 +269,16 @@ export enum DriveCacheType {
  */
 export interface LustreFileSystemConfiguration {
   /**
-   * <p>A boolean flag indicating whether tags on the file system should be copied to backups.
-   *             If it's set to true, all tags on the file system are
-   *             copied to all automatic backups and any user-initiated backups where the user
-   *             doesn't specify any tags. If this value is true, and you specify one or more tags,
-   *             only the specified tags are copied to backups. If you specify one or more tags when
-   *             creating a user-initiated backup, no tags are copied from the file system,
-   *             regardless of this value. (Default = false)</p>
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
    */
-  CopyTagsToBackups?: boolean;
-
-  /**
-   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
-   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
-   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
-   */
-  DailyAutomaticBackupStartTime?: string;
-
-  /**
-   * <p> Per unit storage throughput represents the megabytes per second of read or write
-   *             throughput per 1 tebibyte of storage provisioned. File system throughput capacity is
-   *             equal to Storage capacity (TiB) * PerUnitStorageThroughput (MB/s/TiB). This option is
-   *             only valid for <code>PERSISTENT_1</code> deployment types. </p>
-   *         <p>Valid values for SSD storage: 50, 100, 200. Valid values for HDD storage: 12, 40. </p>
-   */
-  PerUnitStorageThroughput?: number;
-
-  /**
-   * <p>The number of days to retain automatic backups. Setting this to 0 disables
-   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
-   */
-  AutomaticBackupRetentionDays?: number;
+  WeeklyMaintenanceStartTime?: string;
 
   /**
    * <p>The data repository configuration object for Lustre file systems returned in the response of
    *             the <code>CreateFileSystem</code> operation.</p>
    */
   DataRepositoryConfiguration?: DataRepositoryConfiguration;
-
-  /**
-   * <p>You use the <code>MountName</code> value when mounting the file system.</p>
-   *         <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
-   *             For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types, this
-   *             value is a string that is unique within an AWS Region.
-   *
-   *         </p>
-   */
-  MountName?: string;
 
   /**
    * <p>The deployment type of the FSX for Lustre file system. <i>Scratch deployment type</i> is designed for temporary storage
@@ -331,6 +296,49 @@ export interface LustreFileSystemConfiguration {
   DeploymentType?: LustreDeploymentType | string;
 
   /**
+   * <p> Per unit storage throughput represents the megabytes per second of read or write
+   *             throughput per 1 tebibyte of storage provisioned. File system throughput capacity is
+   *             equal to Storage capacity (TiB) * PerUnitStorageThroughput (MB/s/TiB). This option is
+   *             only valid for <code>PERSISTENT_1</code> deployment types. </p>
+   *         <p>Valid values for SSD storage: 50, 100, 200. Valid values for HDD storage: 12, 40. </p>
+   */
+  PerUnitStorageThroughput?: number;
+
+  /**
+   * <p>You use the <code>MountName</code> value when mounting the file system.</p>
+   *         <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
+   *             For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types, this
+   *             value is a string that is unique within an AWS Region.
+   *
+   *         </p>
+   */
+  MountName?: string;
+
+  /**
+   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
+   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
+   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>A boolean flag indicating whether tags on the file system should be copied to backups.
+   *             If it's set to true, all tags on the file system are
+   *             copied to all automatic backups and any user-initiated backups where the user
+   *             doesn't specify any tags. If this value is true, and you specify one or more tags,
+   *             only the specified tags are copied to backups. If you specify one or more tags when
+   *             creating a user-initiated backup, no tags are copied from the file system,
+   *             regardless of this value. (Default = false)</p>
+   */
+  CopyTagsToBackups?: boolean;
+
+  /**
    * <p>The type of drive cache used by PERSISTENT_1 file systems that are provisioned with
    *             HDD storage devices. This parameter is required when storage type is HDD. Set to
    *             <code>READ</code>, improve the performance for frequently accessed files and allows 20%
@@ -338,12 +346,6 @@ export interface LustreFileSystemConfiguration {
    *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
   DriveCacheType?: DriveCacheType | string;
-
-  /**
-   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-   */
-  WeeklyMaintenanceStartTime?: string;
 }
 
 export namespace LustreFileSystemConfiguration {
@@ -362,22 +364,87 @@ export enum StorageType {
  */
 export interface Tag {
   /**
+   * <p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must
+   *             be unique for the resource to which they are attached.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>A value that specifies the <code>TagValue</code>, the value assigned to the
    *             corresponding tag key. Tag values can be null and don't have to be unique in a tag set.
    *             For example, you can have a key-value pair in a tag set of <code>finances : April</code>
    *             and also of <code>payroll : April</code>.</p>
    */
   Value: string | undefined;
-
-  /**
-   * <p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must
-   *             be unique for the resource to which they are attached.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+export enum AliasLifecycle {
+  AVAILABLE = "AVAILABLE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+}
+
+/**
+ * <p>A DNS alias that is associated with the file system. You can use a DNS alias to access a file system using
+ *             user-defined DNS names, in addition to the default DNS name
+ *             that Amazon FSx assigns to the file system. For more information, see
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">DNS aliases</a> in the <i>FSx for Windows File Server User Guide</i>.</p>
+ */
+export interface Alias {
+  /**
+   * <p>The name of the DNS alias. The alias name has to meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can contain alphanumeric characters and the hyphen (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot start or end with a hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can start with a numeric.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For DNS names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Describes the state of the DNS alias.</p>
+   *         <ul>
+   *             <li>
+   *                <p>AVAILABLE - The DNS alias is associated with an Amazon FSx file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATING - Amazon FSx is creating the DNS alias and associating it with the file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE_FAILED - Amazon FSx was unable to associate the DNS alias with the file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING - Amazon FSx is disassociating the DNS alias from the file system and deleting it.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE_FAILED - Amazon FSx was unable to disassocate the DNS alias from the file system.</p>
+   *             </li>
+   *          </ul>
+   */
+  Lifecycle?: AliasLifecycle | string;
+}
+
+export namespace Alias {
+  export const filterSensitiveLog = (obj: Alias): any => ({
     ...obj,
   });
 }
@@ -399,6 +466,17 @@ export enum FileSystemMaintenanceOperation {
  */
 export interface SelfManagedActiveDirectoryAttributes {
   /**
+   * <p>The fully qualified domain name of the self-managed AD directory.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The fully qualified distinguished name of the organizational unit within the
+   *             self-managed AD directory to which the Windows File Server instance is joined.</p>
+   */
+  OrganizationalUnitDistinguishedName?: string;
+
+  /**
    * <p>The name of the domain group whose members have administrative privileges for the FSx
    *             file system.</p>
    */
@@ -409,17 +487,6 @@ export interface SelfManagedActiveDirectoryAttributes {
    *             join to your AD domain.</p>
    */
   UserName?: string;
-
-  /**
-   * <p>The fully qualified distinguished name of the organizational unit within the
-   *             self-managed AD directory to which the Windows File Server instance is joined.</p>
-   */
-  OrganizationalUnitDistinguishedName?: string;
-
-  /**
-   * <p>The fully qualified domain name of the self-managed AD directory.</p>
-   */
-  DomainName?: string;
 
   /**
    * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
@@ -445,62 +512,10 @@ export interface WindowsFileSystemConfiguration {
   ActiveDirectoryId?: string;
 
   /**
-   * <p>The number of days to retain automatic backups. Setting this to 0 disables automatic
-   *             backups. You can retain automatic backups for a maximum of 90 days.</p>
+   * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
+   *             which the Windows File Server instance is joined.</p>
    */
-  AutomaticBackupRetentionDays?: number;
-
-  /**
-   * <p>For <code>MULTI_AZ_1</code> deployment types, it specifies the ID of the subnet where the preferred file server is located.
-   *             Must be one of the two subnet IDs specified in <code>SubnetIds</code> property.
-   *             Amazon FSx serves traffic from this subnet except in the event of a failover to the secondary file server.</p>
-   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this value is the same as that for <code>SubnetIDs</code>.
-   *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html#single-multi-az-resources">Availability and Durability: Single-AZ and Multi-AZ File Systems</a>
-   *          </p>
-   */
-  PreferredSubnetId?: string;
-
-  /**
-   * <p>A boolean flag indicating whether tags on the file system should be copied to backups.
-   *             This value defaults to false. If it's set to true, all tags on the file system are
-   *             copied to all automatic backups and any user-initiated backups where the user
-   *             doesn't specify any tags. If this value is true, and you specify one or more tags,
-   *             only the specified tags are copied to backups. If you specify one or more tags when
-   *             creating a user-initiated backup, no tags are copied from the file system,
-   *             regardless of this value.</p>
-   */
-  CopyTagsToBackups?: boolean;
-
-  /**
-   * <p>The throughput of an Amazon FSx file system, measured in megabytes per
-   *             second.</p>
-   */
-  ThroughputCapacity?: number;
-
-  /**
-   * <p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using
-   *             Amazon FSx Remote PowerShell.</p>
-   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this is the DNS name of the file system.</p>
-   *         <p>This endpoint is temporarily unavailable when the file system is undergoing maintenance.</p>
-   */
-  RemoteAdministrationEndpoint?: string;
-
-  /**
-   * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
-   */
-  DailyAutomaticBackupStartTime?: string;
-
-  /**
-   * <p>The list of maintenance operations in progress for this file system.</p>
-   */
-  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
-
-  /**
-   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-   */
-  WeeklyMaintenanceStartTime?: string;
+  SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
 
   /**
    * <p>Specifies the file system deployment type, valid values are the following:</p>
@@ -527,10 +542,23 @@ export interface WindowsFileSystemConfiguration {
   DeploymentType?: WindowsDeploymentType | string;
 
   /**
-   * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
-   *             which the Windows File Server instance is joined.</p>
+   * <p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using
+   *             Amazon FSx Remote PowerShell.</p>
+   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this is the DNS name of the file system.</p>
+   *         <p>This endpoint is temporarily unavailable when the file system is undergoing maintenance.</p>
    */
-  SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
+  RemoteAdministrationEndpoint?: string;
+
+  /**
+   * <p>For <code>MULTI_AZ_1</code> deployment types, it specifies the ID of the subnet where the preferred file server is located.
+   *             Must be one of the two subnet IDs specified in <code>SubnetIds</code> property.
+   *             Amazon FSx serves traffic from this subnet except in the event of a failover to the secondary file server.</p>
+   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this value is the same as that for <code>SubnetIDs</code>.
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html#single-multi-az-resources">Availability and Durability: Single-AZ and Multi-AZ File Systems</a>
+   *          </p>
+   */
+  PreferredSubnetId?: string;
 
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p>
@@ -544,10 +572,129 @@ export interface WindowsFileSystemConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/accessing-file-shares.html">Accessing File Shares</a>.</p>
    */
   PreferredFileServerIp?: string;
+
+  /**
+   * <p>The throughput of an Amazon FSx file system, measured in megabytes per
+   *             second.</p>
+   */
+  ThroughputCapacity?: number;
+
+  /**
+   * <p>The list of maintenance operations in progress for this file system.</p>
+   */
+  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
+
+  /**
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables automatic
+   *             backups. You can retain automatic backups for a maximum of 90 days.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>A boolean flag indicating whether tags on the file system should be copied to backups.
+   *             This value defaults to false. If it's set to true, all tags on the file system are
+   *             copied to all automatic backups and any user-initiated backups where the user
+   *             doesn't specify any tags. If this value is true, and you specify one or more tags,
+   *             only the specified tags are copied to backups. If you specify one or more tags when
+   *             creating a user-initiated backup, no tags are copied from the file system,
+   *             regardless of this value.</p>
+   */
+  CopyTagsToBackups?: boolean;
+
+  /**
+   * <p>An array of one or more DNS aliases that are currently associated with the Amazon FSx file system.
+   *             Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system.
+   *             You can associate up to 50 aliases with a file system at any time.
+   *             You can associate additional DNS aliases after you create the file system using the <a>AssociateFileSystemAliases</a> operation.
+   *             You can remove DNS aliases from the file system after it is created using the <a>DisassociateFileSystemAliases</a> operation.
+   *             You only need to specify the alias name in the request payload. For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">DNS aliases</a>.</p>
+   */
+  Aliases?: Alias[];
 }
 
 export namespace WindowsFileSystemConfiguration {
   export const filterSensitiveLog = (obj: WindowsFileSystemConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request object specifying one or more DNS alias names to associate with an Amazon FSx for Windows File Server file system.</p>
+ */
+export interface AssociateFileSystemAliasesRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
+   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies the file system with which you want to associate one or more DNS aliases.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>An array of one or more DNS alias names to associate with the file system.
+   *             The alias name has to comply with the following formatting requirements:</p>
+   *             <ul>
+   *             <li>
+   *                <p>Formatted as a fully-qualified domain name (FQDN), <i>
+   *                      <code>hostname.domain</code>
+   *                   </i>,
+   *                     for example, <code>accounting.corp.example.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can contain alphanumeric characters and the hyphen (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot start or end with a hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can start with a numeric.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
+   */
+  Aliases: string[] | undefined;
+}
+
+export namespace AssociateFileSystemAliasesRequest {
+  export const filterSensitiveLog = (obj: AssociateFileSystemAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The system generated response showing the DNS aliases that
+ *             Amazon FSx is attempting to associate with the file system.
+ *             Use the  API
+ *             operation to monitor the status of the aliases Amazon FSx is
+ *             associating with the file system. It can take up to 2.5 minutes for
+ *         the alias status to change from <code>CREATING</code> to <code>AVAILABLE</code>. </p>
+ */
+export interface AssociateFileSystemAliasesResponse {
+  /**
+   * <p>An array of the DNS aliases that Amazon FSx is associating with the file system.</p>
+   */
+  Aliases?: Alias[];
+}
+
+export namespace AssociateFileSystemAliasesResponse {
+  export const filterSensitiveLog = (obj: AssociateFileSystemAliasesResponse): any => ({
     ...obj,
   });
 }
@@ -566,6 +713,42 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
 
 export namespace BadRequest {
   export const filterSensitiveLog = (obj: BadRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ */
+export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
+  name: "FileSystemNotFound";
+  $fault: "client";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace FileSystemNotFound {
+  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A generic error indicating a server-side failure.</p>
+ */
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
 }
@@ -677,24 +860,6 @@ export namespace DataRepositoryTaskNotFound {
 }
 
 /**
- * <p>A generic error indicating a server-side failure.</p>
- */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The requested operation is not supported for this resource or API.</p>
  */
 export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
@@ -736,11 +901,9 @@ export namespace BackupInProgress {
  */
 export interface CreateBackupRequest {
   /**
-   * <p>(Optional) The tags to apply to the backup at backup creation. The key value of the
-   *             <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code> to true, and
-   *             you specify one or more tags using the <code>CreateBackup</code> action, no existing file system tags are copied from the file system to the backup.</p>
+   * <p>The ID of the file system to back up.</p>
    */
-  Tags?: Tag[];
+  FileSystemId: string | undefined;
 
   /**
    * <p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure
@@ -750,9 +913,11 @@ export interface CreateBackupRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The ID of the file system to back up.</p>
+   * <p>(Optional) The tags to apply to the backup at backup creation. The key value of the
+   *             <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code> to true, and
+   *             you specify one or more tags using the <code>CreateBackup</code> action, no existing file system tags are copied from the file system to the backup.</p>
    */
-  FileSystemId: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateBackupRequest {
@@ -788,25 +953,8 @@ export enum BackupLifecycle {
 
 export enum BackupType {
   AUTOMATIC = "AUTOMATIC",
+  AWS_BACKUP = "AWS_BACKUP",
   USER_INITIATED = "USER_INITIATED",
-}
-
-/**
- * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
- */
-export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
-  name: "FileSystemNotFound";
-  $fault: "client";
-  /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace FileSystemNotFound {
-  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -818,14 +966,14 @@ export interface IncompatibleParameterError extends __SmithyException, $Metadata
   name: "IncompatibleParameterError";
   $fault: "client";
   /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>A parameter that is incompatible with the earlier request.</p>
    */
   Parameter: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
 }
 
 export namespace IncompatibleParameterError {
@@ -882,6 +1030,13 @@ export enum ReportScope {
  */
 export interface CompletionReport {
   /**
+   * <p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes.
+   *             If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>.
+   *             Set <code>Enabled</code> to <code>False</code> if you do not want a <code>CompletionReport</code> generated when the task completes.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location.
    *             The <code>Path</code> you provide must be located within the file system’s ExportPath.
    *             An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following information for each file in the report:
@@ -897,13 +1052,6 @@ export interface CompletionReport {
    *         </p>
    */
   Format?: ReportFormat | string;
-
-  /**
-   * <p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes.
-   *             If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>.
-   *             Set <code>Enabled</code> to <code>False</code> if you do not want a <code>CompletionReport</code> generated when the task completes.</p>
-   */
-  Enabled: boolean | undefined;
 
   /**
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope currently supported.
@@ -924,11 +1072,18 @@ export enum DataRepositoryTaskType {
 
 export interface CreateDataRepositoryTaskRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
-   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
-   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   * <p>Specifies the type of data repository task to create.</p>
    */
-  ClientRequestToken?: string;
+  Type: DataRepositoryTaskType | string | undefined;
+
+  /**
+   * <p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed.
+   *             The default path is the file system root directory. The paths you provide need to be relative to the mount point of the file system.
+   *             If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or
+   *             file on the file system you want to export, then the path to provide is <code>path1</code>.
+   *             If a path that you provide isn't valid, the task fails.</p>
+   */
+  Paths?: string[];
 
   /**
    * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
@@ -944,23 +1099,16 @@ export interface CreateDataRepositoryTaskRequest {
   Report: CompletionReport | undefined;
 
   /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
+   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed.
-   *             The default path is the file system root directory. The paths you provide need to be relative to the mount point of the file system.
-   *             If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or
-   *             file on the file system you want to export, then the path to provide is <code>path1</code>.
-   *             If a path that you provide isn't valid, the task fails.</p>
-   */
-  Paths?: string[];
-
-  /**
-   * <p>Specifies the type of data repository task to create.</p>
-   */
-  Type: DataRepositoryTaskType | string | undefined;
 }
 
 export namespace CreateDataRepositoryTaskRequest {
@@ -1026,22 +1174,9 @@ export namespace DataRepositoryTaskStatus {
  */
 export interface DataRepositoryTask {
   /**
-   * <p>Failure message describing why the task failed, it is populated only when <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
+   * <p>The system-generated, unique 17-digit ID of the data repository task.</p>
    */
-  FailureDetails?: DataRepositoryTaskFailureDetails;
-
-  /**
-   * <p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter.
-   *             FSx delivers the report to the file system's linked data repository in Amazon S3,
-   *             using the path specified in the report <code>Path</code> parameter.
-   *             You can specify whether or not a report gets generated for a task using the <code>Enabled</code> parameter.</p>
-   */
-  Report?: CompletionReport;
-
-  /**
-   * <p>Provides the status of the number of files that the task has processed successfully and failed to process.</p>
-   */
-  Status?: DataRepositoryTaskStatus;
+  TaskId: string | undefined;
 
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
@@ -1082,6 +1217,17 @@ export interface DataRepositoryTask {
   Lifecycle: DataRepositoryTaskLifecycle | string | undefined;
 
   /**
+   * <p>The type of data repository task; EXPORT_TO_REPOSITORY is the only type currently supported.</p>
+   */
+  Type: DataRepositoryTaskType | string | undefined;
+
+  /**
+   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
+   *             also known as Unix time.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
    * <p>The time that Amazon FSx began processing the task.</p>
    */
   StartTime?: Date;
@@ -1090,11 +1236,6 @@ export interface DataRepositoryTask {
    * <p>The time that Amazon FSx completed processing the task, populated after the task is complete.</p>
    */
   EndTime?: Date;
-
-  /**
-   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify AWS
@@ -1106,9 +1247,14 @@ export interface DataRepositoryTask {
   ResourceARN?: string;
 
   /**
-   * <p>The type of data repository task; EXPORT_TO_REPOSITORY is the only type currently supported.</p>
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
-  Type: DataRepositoryTaskType | string | undefined;
+  Tags?: Tag[];
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId: string | undefined;
 
   /**
    * <p>An array of paths on the Amazon FSx for Lustre file system that specify the data for the data repository task to process.
@@ -1118,20 +1264,22 @@ export interface DataRepositoryTask {
   Paths?: string[];
 
   /**
-   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * <p>Failure message describing why the task failed, it is populated only when <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
    */
-  FileSystemId: string | undefined;
+  FailureDetails?: DataRepositoryTaskFailureDetails;
 
   /**
-   * <p>The system-generated, unique 17-digit ID of the data repository task.</p>
+   * <p>Provides the status of the number of files that the task has processed successfully and failed to process.</p>
    */
-  TaskId: string | undefined;
+  Status?: DataRepositoryTaskStatus;
 
   /**
-   * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
-   *             also known as Unix time.</p>
+   * <p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter.
+   *             FSx delivers the report to the file system's linked data repository in Amazon S3,
+   *             using the path specified in the report <code>Path</code> parameter.
+   *             You can specify whether or not a report gets generated for a task using the <code>Enabled</code> parameter.</p>
    */
-  CreationTime: Date | undefined;
+  Report?: CompletionReport;
 }
 
 export namespace DataRepositoryTask {
@@ -1178,6 +1326,12 @@ export namespace DataRepositoryTaskExecuting {
  */
 export interface CreateFileSystemLustreConfiguration {
   /**
+   * <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
    * <p>(Optional) The path to the Amazon S3 bucket (including the optional prefix) that
    *             you're using as the data repository for your Amazon FSx for Lustre file system.
    *             The root of your FSx for Lustre file system will
@@ -1189,19 +1343,56 @@ export interface CreateFileSystemLustreConfiguration {
   ImportPath?: string;
 
   /**
-   * <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
+   * <p>(Optional) The path in Amazon S3 where the root of your Amazon FSx file system is exported.
+   *             The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which
+   *             new and changed data is to be exported from your Amazon FSx for Lustre file system. If
+   *             an <code>ExportPath</code> value is not provided, Amazon FSx sets a default export path,
+   *             <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in
+   *             UTC format, for example
+   *             <code>s3://import-bucket/FSxLustre20181105T222312Z</code>.</p>
+   *
+   *         <p>The Amazon S3 export bucket must be the same as the import bucket specified by
+   *             <code>ImportPath</code>. If you only specify a bucket name, such as
+   *             <code>s3://import-bucket</code>, you get a 1:1 mapping of file system objects to S3
+   *             bucket objects. This mapping means that the input data in S3 is overwritten on export.
+   *             If you provide a custom prefix in the export path, such as
+   *             <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file
+   *             system to that export prefix in the Amazon S3 bucket.</p>
    */
-  WeeklyMaintenanceStartTime?: string;
+  ExportPath?: string;
 
   /**
-   * <p>The type of drive cache used by PERSISTENT_1 file systems that are provisioned with
-   *             HDD storage devices. This parameter is required when storage type is HDD. Set to
-   *             <code>READ</code>, improve the performance for frequently accessed files and allows 20%
-   *             of the total storage capacity of the file system to be cached. </p>
-   *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
+   * <p>(Optional) For files imported from a data repository, this value determines the stripe
+   *             count and maximum amount of data per file (in MiB) stored on a single physical disk. The
+   *             maximum number of disks that a single file can be striped across is limited by the total
+   *             number of disks that make up the file system.</p>
+   *
+   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
    */
-  DriveCacheType?: DriveCacheType | string;
+  ImportedFileChunkSize?: number;
+
+  /**
+   * <p>
+   *             Choose <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment
+   *             types when you need temporary storage and shorter-term processing of data.
+   *             The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst
+   *             throughput capacity than <code>SCRATCH_1</code>.</p>
+   *
+   *             <p>Choose <code>PERSISTENT_1</code> deployment type for longer-term storage
+   *                 and workloads and encryption of data in transit. To learn more about deployment types, see
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
+   *                     FSx for Lustre Deployment Options</a>.</p>
+   *             <p>Encryption of data in-transit is automatically
+   *             enabled when you access a <code>SCRATCH_2</code> or <code>PERSISTENT_1</code>
+   *             file system from Amazon EC2 instances that <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-                 protection.html">support this feature</a>.
+   *             (Default = <code>SCRATCH_1</code>)
+   *         </p>
+   *             <p>Encryption of data in-transit for <code>SCRATCH_2</code> and <code>PERSISTENT_1</code>
+   *                 deployment types is supported when accessed from supported instance types in supported AWS Regions. To learn more,
+   *                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting Data in Transit</a>.</p>
+   */
+  DeploymentType?: LustreDeploymentType | string;
 
   /**
    * <p> (Optional) When you create your file system, your existing S3 objects appear as file and directory listings.
@@ -1238,51 +1429,6 @@ export interface CreateFileSystemLustreConfiguration {
   AutoImportPolicy?: AutoImportPolicyType | string;
 
   /**
-   * <p>(Optional) Not available to use with file systems that are linked to a data repository.
-   *             A boolean flag indicating whether tags for the file system should be copied to
-   *             backups. The default value is false. If it's set to true, all file system
-   *             tags are copied to all automatic and user-initiated backups when the user
-   *             doesn't specify any backup-specific tags. If this value is true, and you specify one or more backup tags, only
-   *             the specified tags are copied to backups. If you specify one or more tags when creating a
-   *             user-initiated backup, no tags are copied from the file system, regardless of this value.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with backups</a>.</p>
-   */
-  CopyTagsToBackups?: boolean;
-
-  /**
-   * <p>
-   *             Choose <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment
-   *             types when you need temporary storage and shorter-term processing of data.
-   *             The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst
-   *             throughput capacity than <code>SCRATCH_1</code>.</p>
-   *
-   *             <p>Choose <code>PERSISTENT_1</code> deployment type for longer-term storage
-   *                 and workloads and encryption of data in transit. To learn more about deployment types, see
-   *                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
-   *                     FSx for Lustre Deployment Options</a>.</p>
-   *             <p>Encryption of data in-transit is automatically
-   *             enabled when you access a <code>SCRATCH_2</code> or <code>PERSISTENT_1</code>
-   *             file system from Amazon EC2 instances that <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-                 protection.html">support this feature</a>.
-   *             (Default = <code>SCRATCH_1</code>)
-   *         </p>
-   *             <p>Encryption of data in-transit for <code>SCRATCH_2</code> and <code>PERSISTENT_1</code>
-   *                 deployment types is supported when accessed from supported instance types in supported AWS Regions. To learn more,
-   *                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting Data in Transit</a>.</p>
-   */
-  DeploymentType?: LustreDeploymentType | string;
-
-  /**
-   * <p>(Optional) For files imported from a data repository, this value determines the stripe
-   *             count and maximum amount of data per file (in MiB) stored on a single physical disk. The
-   *             maximum number of disks that a single file can be striped across is limited by the total
-   *             number of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
-   *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
-   */
-  ImportedFileChunkSize?: number;
-
-  /**
    * <p>
    *             Required for the <code>PERSISTENT_1</code> deployment type, describes the amount of read and write
    *             throughput for each 1 tebibyte of storage, in MB/s/TiB.
@@ -1296,12 +1442,6 @@ export interface CreateFileSystemLustreConfiguration {
   PerUnitStorageThroughput?: number;
 
   /**
-   * <p>The number of days to retain automatic backups. Setting this to 0 disables
-   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
-   */
-  AutomaticBackupRetentionDays?: number;
-
-  /**
    * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
    *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
    *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
@@ -1309,23 +1449,31 @@ export interface CreateFileSystemLustreConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>(Optional) The path in Amazon S3 where the root of your Amazon FSx file system is exported.
-   *             The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which
-   *             new and changed data is to be exported from your Amazon FSx for Lustre file system. If
-   *             an <code>ExportPath</code> value is not provided, Amazon FSx sets a default export path,
-   *             <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in
-   *             UTC format, for example
-   *             <code>s3://import-bucket/FSxLustre20181105T222312Z</code>.</p>
-   *
-   *         <p>The Amazon S3 export bucket must be the same as the import bucket specified by
-   *             <code>ImportPath</code>. If you only specify a bucket name, such as
-   *             <code>s3://import-bucket</code>, you get a 1:1 mapping of file system objects to S3
-   *             bucket objects. This mapping means that the input data in S3 is overwritten on export.
-   *             If you provide a custom prefix in the export path, such as
-   *             <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file
-   *             system to that export prefix in the Amazon S3 bucket.</p>
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
    */
-  ExportPath?: string;
+  AutomaticBackupRetentionDays?: number;
+
+  /**
+   * <p>(Optional) Not available to use with file systems that are linked to a data repository.
+   *             A boolean flag indicating whether tags for the file system should be copied to
+   *             backups. The default value is false. If it's set to true, all file system
+   *             tags are copied to all automatic and user-initiated backups when the user
+   *             doesn't specify any backup-specific tags. If this value is true, and you specify one or more backup tags, only
+   *             the specified tags are copied to backups. If you specify one or more tags when creating a
+   *             user-initiated backup, no tags are copied from the file system, regardless of this value.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with backups</a>.</p>
+   */
+  CopyTagsToBackups?: boolean;
+
+  /**
+   * <p>The type of drive cache used by PERSISTENT_1 file systems that are provisioned with
+   *             HDD storage devices. This parameter is required when storage type is HDD. Set to
+   *             <code>READ</code>, improve the performance for frequently accessed files and allows 20%
+   *             of the total storage capacity of the file system to be cached. </p>
+   *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
+   */
+  DriveCacheType?: DriveCacheType | string;
 }
 
 export namespace CreateFileSystemLustreConfiguration {
@@ -1341,6 +1489,12 @@ export namespace CreateFileSystemLustreConfiguration {
  */
 export interface SelfManagedActiveDirectoryConfiguration {
   /**
+   * <p>The fully qualified domain name of the self-managed AD directory, such as
+   *                 <code>corp.example.com</code>.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
    * <p>(Optional) The fully qualified distinguished name of the organizational unit within
    *             your self-managed AD directory that the Windows File Server instance will join. Amazon
    *             FSx only accepts OU as the direct parent of the file system. An example is
@@ -1352,37 +1506,6 @@ export interface SelfManagedActiveDirectoryConfiguration {
    *         </important>
    */
   OrganizationalUnitDistinguishedName?: string;
-
-  /**
-   * <p>The fully qualified domain name of the self-managed AD directory, such as
-   *                 <code>corp.example.com</code>.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
-   *             self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range
-   *             as the one in which your Amazon FSx file system is being created, or in the private IP version 4
-   *             (IPv4) address ranges, as specified in <a href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p>
-   *             </li>
-   *             <li>
-   *                 <p>172.16.0.0 - 172.31.255.255 (172.16/12 prefix)</p>
-   *             </li>
-   *             <li>
-   *                 <p>192.168.0.0 - 192.168.255.255 (192.168/16 prefix)</p>
-   *             </li>
-   *          </ul>
-   */
-  DnsIps: string[] | undefined;
-
-  /**
-   * <p>The password for the service account on your self-managed AD domain that Amazon FSx
-   *             will use to join to your AD domain.</p>
-   */
-  Password: string | undefined;
 
   /**
    * <p>(Optional) The name of the domain group whose members are granted administrative
@@ -1402,6 +1525,31 @@ export interface SelfManagedActiveDirectoryConfiguration {
    *             AD domain.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The password for the service account on your self-managed AD domain that Amazon FSx
+   *             will use to join to your AD domain.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
+   *             self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range
+   *             as the one in which your Amazon FSx file system is being created, or in the private IP version 4
+   *             (IPv4) address ranges, as specified in <a href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p>
+   *             </li>
+   *             <li>
+   *                 <p>172.16.0.0 - 172.31.255.255 (172.16/12 prefix)</p>
+   *             </li>
+   *             <li>
+   *                 <p>192.168.0.0 - 192.168.255.255 (192.168/16 prefix)</p>
+   *             </li>
+   *          </ul>
+   */
+  DnsIps: string[] | undefined;
 }
 
 export namespace SelfManagedActiveDirectoryConfiguration {
@@ -1417,33 +1565,6 @@ export namespace SelfManagedActiveDirectoryConfiguration {
  *             operations.</p>
  */
 export interface CreateFileSystemWindowsConfiguration {
-  /**
-   * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet
-   *             in which you want the preferred file server to be located. For in-AWS applications, we recommend that you launch
-   *             your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
-   *             data transfer costs and minimize latency. </p>
-   */
-  PreferredSubnetId?: string;
-
-  /**
-   * <p>The number of days to retain automatic backups. The default is to retain backups for 7
-   *             days. Setting this value to 0 disables the creation of automatic backups. The maximum
-   *             retention period for backups is 90 days.</p>
-   */
-  AutomaticBackupRetentionDays?: number;
-
-  /**
-   * <p>The preferred time to take daily automatic backups, formatted HH:MM in the UTC time
-   *             zone.</p>
-   */
-  DailyAutomaticBackupStartTime?: string;
-
-  /**
-   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-   */
-  WeeklyMaintenanceStartTime?: string;
-
   /**
    * <p>The ID for an existing AWS Managed Microsoft Active Directory (AD) instance that the
    *             file system should join when it's created.</p>
@@ -1484,6 +1605,39 @@ export interface CreateFileSystemWindowsConfiguration {
   DeploymentType?: WindowsDeploymentType | string;
 
   /**
+   * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet
+   *             in which you want the preferred file server to be located. For in-AWS applications, we recommend that you launch
+   *             your clients in the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+   *             data transfer costs and minimize latency. </p>
+   */
+  PreferredSubnetId?: string;
+
+  /**
+   * <p>The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to
+   *             the <i>n</i>th increments, between 2^3 (8) and 2^11 (2048).</p>
+   */
+  ThroughputCapacity: number | undefined;
+
+  /**
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone, where d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The preferred time to take daily automatic backups, formatted HH:MM in the UTC time
+   *             zone.</p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The number of days to retain automatic backups. The default is to retain backups for 7
+   *             days. Setting this value to 0 disables the creation of automatic backups. The maximum
+   *             retention period for backups is 90 days.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
    * <p>A boolean flag indicating whether tags for the file system should be copied to
    *             backups. This value defaults to false. If it's set to true, all tags for the file
    *             system are copied to all automatic and user-initiated backups where the user
@@ -1494,10 +1648,34 @@ export interface CreateFileSystemWindowsConfiguration {
   CopyTagsToBackups?: boolean;
 
   /**
-   * <p>The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to
-   *             the <i>n</i>th increments, between 2^3 (8) and 2^11 (2048).</p>
+   * <p>An array of one or more DNS alias names that you want to associate with the Amazon FSx file system.
+   *             Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system.
+   *             You can associate up to 50 aliases with a file system at any time.
+   *         You can associate additional DNS aliases after you create the file system using the <a>AssociateFileSystemAliases</a> operation.
+   *             You can remove DNS aliases from the file system after it is created using the <a>DisassociateFileSystemAliases</a> operation.
+   *             You only need to specify the alias name in the request payload.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
+   *         <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
+   *         additional steps you must take to be able to access your file system using a DNS alias.</p>
+   *          <p>An alias name has to meet the following requirements:</p>
+   *             <ul>
+   *             <li>
+   *                <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can contain alphanumeric characters and the hyphen (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot start or end with a hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can start with a numeric.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
    */
-  ThroughputCapacity: number | undefined;
+  Aliases?: string[];
 }
 
 export namespace CreateFileSystemWindowsConfiguration {
@@ -1516,36 +1694,11 @@ export namespace CreateFileSystemWindowsConfiguration {
  */
 export interface CreateFileSystemRequest {
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre <code>PERSISTENT_1</code> file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems are always encrypted at rest using
-   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   *             idempotent creation. This string is automatically filled on your behalf when you use the
+   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
    */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code>
-   *             file system deployment types, provide exactly two subnet IDs, one for the preferred file server
-   *             and one for the standby file server. You specify one of these subnets as the preferred subnet
-   *             using the <code>WindowsConfiguration > PreferredSubnetID</code> property.</p>
-   *         <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment types and Lustre file systems, provide exactly one subnet ID.
-   *            The file server is launched in that subnet's Availability Zone.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The tags to apply to the file system being created. The key value of
-   *             the <code>Name</code> tag appears in the console as the file system name.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Microsoft Windows configuration for the file system being created.
-   *             </p>
-   */
-  WindowsConfiguration?: CreateFileSystemWindowsConfiguration;
+  ClientRequestToken?: string;
 
   /**
    * <p>The type of Amazon FSx file system to create, either <code>WINDOWS</code> or <code>LUSTRE</code>.</p>
@@ -1582,13 +1735,6 @@ export interface CreateFileSystemRequest {
   StorageCapacity: number | undefined;
 
   /**
-   * <p>A list of IDs specifying the security groups to apply to all network interfaces
-   *             created for file system access. This list isn't returned in later requests to
-   *             describe the file system.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>Sets the storage type for the file system you're creating.
    *             Valid values are <code>SSD</code> and <code>HDD</code>.</p>
    *         <ul>
@@ -1614,17 +1760,49 @@ export interface CreateFileSystemRequest {
   StorageType?: StorageType | string;
 
   /**
+   * <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code>
+   *             file system deployment types, provide exactly two subnet IDs, one for the preferred file server
+   *             and one for the standby file server. You specify one of these subnets as the preferred subnet
+   *             using the <code>WindowsConfiguration > PreferredSubnetID</code> property.</p>
+   *         <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment types and Lustre file systems, provide exactly one subnet ID.
+   *            The file server is launched in that subnet's Availability Zone.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of IDs specifying the security groups to apply to all network interfaces
+   *             created for file system access. This list isn't returned in later requests to
+   *             describe the file system.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The tags to apply to the file system being created. The key value of
+   *             the <code>Name</code> tag appears in the console as the file system name.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre <code>PERSISTENT_1</code> file
+   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
+   *             is used. The Amazon FSx for Lustre <code>SCRATCH_1</code> and <code>SCRATCH_2</code> file systems are always encrypted at rest using
+   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
+   *             in the <i>AWS Key Management Service API Reference</i>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Microsoft Windows configuration for the file system being created.
+   *             </p>
+   */
+  WindowsConfiguration?: CreateFileSystemWindowsConfiguration;
+
+  /**
    * <p>The Lustre configuration for the file system being created.
    *             </p>
    */
   LustreConfiguration?: CreateFileSystemLustreConfiguration;
-
-  /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
-   *             idempotent creation. This string is automatically filled on your behalf when you use the
-   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-   */
-  ClientRequestToken?: string;
 }
 
 export namespace CreateFileSystemRequest {
@@ -1684,17 +1862,17 @@ export interface InvalidNetworkSettings extends __SmithyException, $MetadataBear
   name: "InvalidNetworkSettings";
   $fault: "client";
   /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The ID for a subnet. A <i>subnet</i> is a range of IP addresses in
    *             your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC and Subnets</a> in the
    *                 <i>Amazon VPC User Guide.</i>
    *          </p>
    */
   InvalidSubnetId?: string;
-
-  /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
 
   /**
    * <p>The ID of your Amazon EC2 security group. This ID is used to control network access
@@ -1772,6 +1950,18 @@ export namespace BackupNotFound {
  */
 export interface CreateFileSystemFromBackupRequest {
   /**
+   * <p>The ID of the backup. Specifies the backup to use if you're creating a file system from an existing backup.</p>
+   */
+  BackupId: string | undefined;
+
+  /**
+   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   *             idempotent creation. This string is automatically filled on your behalf when you use the
+   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
    * <p>Specifies the IDs of the subnets that the file system will be accessible from. For Windows <code>MULTI_AZ_1</code>
    *             file system deployment types, provide exactly two subnet IDs, one for the preferred file server
    *             and one for the standby file server. You specify one of these subnets as the preferred subnet
@@ -1783,15 +1973,18 @@ export interface CreateFileSystemFromBackupRequest {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>The ID of the backup. Specifies the backup to use if you're creating a file system from an existing backup.</p>
+   * <p>A list of IDs for the security groups that apply to the specified network
+   *             interfaces created for file system access. These security groups apply to all network
+   *             interfaces. This value isn't returned in later DescribeFileSystem requests.</p>
    */
-  BackupId: string | undefined;
+  SecurityGroupIds?: string[];
 
   /**
-   * <p>The Lustre configuration for the file system being created.
-   *             </p>
+   * <p>The tags to be applied to the file system at file system creation. The key value of
+   *             the <code>Name</code> tag appears in the console as the file system
+   *             name.</p>
    */
-  LustreConfiguration?: CreateFileSystemLustreConfiguration;
+  Tags?: Tag[];
 
   /**
    * <p>The configuration for this Microsoft Windows file system.</p>
@@ -1799,11 +1992,10 @@ export interface CreateFileSystemFromBackupRequest {
   WindowsConfiguration?: CreateFileSystemWindowsConfiguration;
 
   /**
-   * <p>A list of IDs for the security groups that apply to the specified network
-   *             interfaces created for file system access. These security groups apply to all network
-   *             interfaces. This value isn't returned in later DescribeFileSystem requests.</p>
+   * <p>The Lustre configuration for the file system being created.
+   *             </p>
    */
-  SecurityGroupIds?: string[];
+  LustreConfiguration?: CreateFileSystemLustreConfiguration;
 
   /**
    * <p>Sets the storage type for the Windows file system you're creating from a backup.
@@ -1831,20 +2023,6 @@ export interface CreateFileSystemFromBackupRequest {
    *          </note>
    */
   StorageType?: StorageType | string;
-
-  /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
-   *             idempotent creation. This string is automatically filled on your behalf when you use the
-   *             AWS Command Line Interface (AWS CLI) or an AWS SDK.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The tags to be applied to the file system at file system creation. The key value of
-   *             the <code>Name</code> tag appears in the console as the file system
-   *             name.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateFileSystemFromBackupRequest {
@@ -1885,16 +2063,16 @@ export namespace BackupRestoring {
  */
 export interface DeleteBackupRequest {
   /**
+   * <p>The ID of the backup you want to delete.</p>
+   */
+  BackupId: string | undefined;
+
+  /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *             idempotent deletion. This is automatically filled on your behalf when using the AWS CLI
    *             or SDK.</p>
    */
   ClientRequestToken?: string;
-
-  /**
-   * <p>The ID of the backup you want to delete.</p>
-   */
-  BackupId: string | undefined;
 }
 
 export namespace DeleteBackupRequest {
@@ -1930,19 +2108,19 @@ export namespace DeleteBackupResponse {
  */
 export interface DeleteFileSystemLustreConfiguration {
   /**
+   * <p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file
+   *             system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the
+   *                 <code>DeleteFileSystem</code> operation is invoked. (Default = true)</p>
+   */
+  SkipFinalBackup?: boolean;
+
+  /**
    * <p>Use if <code>SkipFinalBackup</code> is set to <code>false</code>,
    *             and you want to apply an array of tags to the final backup. If you have set the file system property
    *             <code>CopyTagsToBackups</code> to true, and
    *             you specify one or more <code>FinalBackupTags</code> when deleting a file system, Amazon FSx will not copy any existing file system tags to the backup.</p>
    */
   FinalBackupTags?: Tag[];
-
-  /**
-   * <p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file
-   *             system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the
-   *                 <code>DeleteFileSystem</code> operation is invoked. (Default = true)</p>
-   */
-  SkipFinalBackup?: boolean;
 }
 
 export namespace DeleteFileSystemLustreConfiguration {
@@ -1981,16 +2159,9 @@ export namespace DeleteFileSystemWindowsConfiguration {
  */
 export interface DeleteFileSystemRequest {
   /**
-   * <p>The configuration object for the Amazon FSx for Lustre file system being deleted in the
-   *                 <code>DeleteFileSystem</code> operation.</p>
+   * <p>The ID of the file system you want to delete.</p>
    */
-  LustreConfiguration?: DeleteFileSystemLustreConfiguration;
-
-  /**
-   * <p>The configuration object for the Microsoft Windows file system used in the
-   *                 <code>DeleteFileSystem</code> operation.</p>
-   */
-  WindowsConfiguration?: DeleteFileSystemWindowsConfiguration;
+  FileSystemId: string | undefined;
 
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
@@ -2000,9 +2171,16 @@ export interface DeleteFileSystemRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The ID of the file system you want to delete.</p>
+   * <p>The configuration object for the Microsoft Windows file system used in the
+   *                 <code>DeleteFileSystem</code> operation.</p>
    */
-  FileSystemId: string | undefined;
+  WindowsConfiguration?: DeleteFileSystemWindowsConfiguration;
+
+  /**
+   * <p>The configuration object for the Amazon FSx for Lustre file system being deleted in the
+   *                 <code>DeleteFileSystem</code> operation.</p>
+   */
+  LustreConfiguration?: DeleteFileSystemLustreConfiguration;
 }
 
 export namespace DeleteFileSystemRequest {
@@ -2017,14 +2195,14 @@ export namespace DeleteFileSystemRequest {
  */
 export interface DeleteFileSystemLustreResponse {
   /**
-   * <p>The set of tags applied to the final backup.</p>
-   */
-  FinalBackupTags?: Tag[];
-
-  /**
    * <p>The ID of the final backup for this file system.</p>
    */
   FinalBackupId?: string;
+
+  /**
+   * <p>The set of tags applied to the final backup.</p>
+   */
+  FinalBackupTags?: Tag[];
 }
 
 export namespace DeleteFileSystemLustreResponse {
@@ -2060,27 +2238,27 @@ export namespace DeleteFileSystemWindowsResponse {
  */
 export interface DeleteFileSystemResponse {
   /**
+   * <p>The ID of the file system being deleted.</p>
+   */
+  FileSystemId?: string;
+
+  /**
    * <p>The file system lifecycle for the deletion request. Should be
    *             <code>DELETING</code>.</p>
    */
   Lifecycle?: FileSystemLifecycle | string;
 
   /**
-   * <p>The ID of the file system being deleted.</p>
+   * <p>The response object for the Microsoft Windows file system used in the
+   *                 <code>DeleteFileSystem</code> operation.</p>
    */
-  FileSystemId?: string;
+  WindowsResponse?: DeleteFileSystemWindowsResponse;
 
   /**
    * <p>The response object for the Amazon FSx for Lustre file system being deleted in the
    *                 <code>DeleteFileSystem</code> operation.</p>
    */
   LustreResponse?: DeleteFileSystemLustreResponse;
-
-  /**
-   * <p>The response object for the Microsoft Windows file system used in the
-   *                 <code>DeleteFileSystem</code> operation.</p>
-   */
-  WindowsResponse?: DeleteFileSystemWindowsResponse;
 }
 
 export namespace DeleteFileSystemResponse {
@@ -2129,6 +2307,12 @@ export interface DescribeBackupsRequest {
   BackupIds?: string[];
 
   /**
+   * <p>Filters structure. Supported names are file-system-id and
+   *             backup-type.</p>
+   */
+  Filters?: Filter[];
+
+  /**
    * <p>Maximum number of backups to return in the response (integer). This
    *             parameter value must be greater than 0. The number of items that Amazon FSx returns is
    *             the minimum of the <code>MaxResults</code> parameter specified in the request and the
@@ -2142,12 +2326,6 @@ export interface DescribeBackupsRequest {
    *             continues the list from where the returning call left off.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Filters structure. Supported names are file-system-id and
-   *             backup-type.</p>
-   */
-  Filters?: Filter[];
 }
 
 export namespace DescribeBackupsRequest {
@@ -2229,16 +2407,16 @@ export namespace DescribeDataRepositoryTasksRequest {
 
 export interface DescribeDataRepositoryTasksResponse {
   /**
+   * <p>The collection of data repository task descriptions returned.</p>
+   */
+  DataRepositoryTasks?: DataRepositoryTask[];
+
+  /**
    * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
    *             present, this token indicates from what point you can continue processing the request, where
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The collection of data repository task descriptions returned.</p>
-   */
-  DataRepositoryTasks?: DataRepositoryTask[];
 }
 
 export namespace DescribeDataRepositoryTasksResponse {
@@ -2248,15 +2426,76 @@ export namespace DescribeDataRepositoryTasksResponse {
 }
 
 /**
+ * <p>The request object for <code>DescribeFileSystemAliases</code> operation.</p>
+ */
+export interface DescribeFileSystemAliasesRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
+   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the file system to return the associated DNS aliases for
+   *             (String).</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>Maximum number of DNS aliases to return in the response (integer). This
+   *             parameter value must be greater than 0. The number of items that Amazon FSx returns is
+   *             the minimum of the <code>MaxResults</code> parameter specified in the request and the
+   *             service's internal maximum number of items per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Opaque pagination token returned from a previous
+   *                 <code>DescribeFileSystemAliases</code> operation (String). If a token is included in the request, the action
+   *             continues the list from where the previous returning call left off.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFileSystemAliasesRequest {
+  export const filterSensitiveLog = (obj: DescribeFileSystemAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The response object for <code>DescribeFileSystemAliases</code> operation.</p>
+ */
+export interface DescribeFileSystemAliasesResponse {
+  /**
+   * <p>An array of one or more DNS aliases currently associated with the specified file system.</p>
+   */
+  Aliases?: Alias[];
+
+  /**
+   * <p>Present if there are more DNS aliases than returned in the response (String). You
+   *             can use the <code>NextToken</code> value in a later request to fetch additional
+   *             descriptions. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFileSystemAliasesResponse {
+  export const filterSensitiveLog = (obj: DescribeFileSystemAliasesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request object for <code>DescribeFileSystems</code> operation.</p>
  */
 export interface DescribeFileSystemsRequest {
   /**
-   * <p>Opaque pagination token returned from a previous
-   *                 <code>DescribeFileSystems</code> operation (String). If a token present, the action
-   *             continues the list from where the returning call left off.</p>
+   * <p>IDs of the file systems whose descriptions you want to retrieve
+   *             (String).</p>
    */
-  NextToken?: string;
+  FileSystemIds?: string[];
 
   /**
    * <p>Maximum number of file systems to return in the response (integer). This
@@ -2267,10 +2506,11 @@ export interface DescribeFileSystemsRequest {
   MaxResults?: number;
 
   /**
-   * <p>IDs of the file systems whose descriptions you want to retrieve
-   *             (String).</p>
+   * <p>Opaque pagination token returned from a previous
+   *                 <code>DescribeFileSystems</code> operation (String). If a token present, the action
+   *             continues the list from where the returning call left off.</p>
    */
-  FileSystemIds?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeFileSystemsRequest {
@@ -2280,9 +2520,59 @@ export namespace DescribeFileSystemsRequest {
 }
 
 /**
+ * <p>The request object of DNS aliases to disassociate from an Amazon FSx for Windows File Server file system.</p>
+ */
+export interface DisassociateFileSystemAliasesRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   *             ASCII characters. This token is automatically filled on your behalf when you use the AWS
+   *             Command Line Interface (AWS CLI) or an AWS SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies the file system from which to disassociate the DNS aliases.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>An array of one or more DNS alias names to disassociate, or remove, from the file system.</p>
+   */
+  Aliases: string[] | undefined;
+}
+
+export namespace DisassociateFileSystemAliasesRequest {
+  export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The system generated response showing the DNS aliases that Amazon FSx is attempting to disassociate from the file system.
+ *         Use the  API operation to monitor the status of the aliases Amazon FSx is removing from the file system.</p>
+ */
+export interface DisassociateFileSystemAliasesResponse {
+  /**
+   * <p>An array of one or more DNS aliases that Amazon FSx is attempting to disassociate from the file system.</p>
+   */
+  Aliases?: Alias[];
+}
+
+export namespace DisassociateFileSystemAliasesResponse {
+  export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request object for <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the Amazon FSx resource that will have its tags listed.</p>
+   */
+  ResourceARN: string | undefined;
+
   /**
    * <p>Maximum number of tags to return in the response (integer). This
    *             parameter value must be greater than 0. The number of items that Amazon FSx returns is
@@ -2290,11 +2580,6 @@ export interface ListTagsForResourceRequest {
    *             service's internal maximum number of items per page.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The ARN of the Amazon FSx resource that will have its tags listed.</p>
-   */
-  ResourceARN: string | undefined;
 
   /**
    * <p>Opaque pagination token returned from a previous
@@ -2315,16 +2600,16 @@ export namespace ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * <p>A list of tags on the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>This is present if there are more tags than returned in the response (String). You
    *             can use the <code>NextToken</code> value in the later request to fetch the tags.
    *         </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of tags on the resource.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2388,14 +2673,14 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFound";
   $fault: "client";
   /**
-   * <p>A detailed error message.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The resource ARN of the resource that can't be found.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>A detailed error message.</p>
+   */
+  Message?: string;
 }
 
 export namespace ResourceNotFound {
@@ -2477,6 +2762,25 @@ export namespace UntagResourceResponse {
  */
 export interface UpdateFileSystemLustreConfiguration {
   /**
+   * <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
+   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
+   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
+   * <p>The number of days to retain automatic backups. Setting this to 0 disables
+   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
+   */
+  AutomaticBackupRetentionDays?: number;
+
+  /**
    * <p> (Optional) When you create your file system, your existing S3 objects appear as file and directory listings.
    *             Use this property to choose how Amazon FSx keeps your file and directory listing up to date
    *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can
@@ -2506,25 +2810,6 @@ export interface UpdateFileSystemLustreConfiguration {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">Automatically import updates from your S3 bucket</a>.</p>
    */
   AutoImportPolicy?: AutoImportPolicyType | string;
-
-  /**
-   * <p>A recurring daily time, in the format <code>HH:MM</code>. <code>HH</code> is the
-   *             zero-padded hour of the day (0-23), and <code>MM</code> is the zero-padded minute of the
-   *             hour. For example, <code>05:00</code> specifies 5 AM daily. </p>
-   */
-  DailyAutomaticBackupStartTime?: string;
-
-  /**
-   * <p>(Optional) The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone. d is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday.</p>
-   */
-  WeeklyMaintenanceStartTime?: string;
-
-  /**
-   * <p>The number of days to retain automatic backups. Setting this to 0 disables
-   *             automatic backups. You can retain automatic backups for a maximum of 90 days. The default is 0.</p>
-   */
-  AutomaticBackupRetentionDays?: number;
 }
 
 export namespace UpdateFileSystemLustreConfiguration {
@@ -2539,10 +2824,12 @@ export namespace UpdateFileSystemLustreConfiguration {
  */
 export interface SelfManagedActiveDirectoryConfigurationUpdates {
   /**
-   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
-   *             self-managed AD directory.</p>
+   * <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to
+   *             your AD domain. This account must have the permission to join
+   *             computers to the domain in the organizational unit provided in
+   *             <code>OrganizationalUnitDistinguishedName</code>.</p>
    */
-  DnsIps?: string[];
+  UserName?: string;
 
   /**
    * <p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to
@@ -2551,12 +2838,10 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
   Password?: string;
 
   /**
-   * <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to
-   *             your AD domain. This account must have the permission to join
-   *             computers to the domain in the organizational unit provided in
-   *             <code>OrganizationalUnitDistinguishedName</code>.</p>
+   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
+   *             self-managed AD directory.</p>
    */
-  UserName?: string;
+  DnsIps?: string[];
 }
 
 export namespace SelfManagedActiveDirectoryConfigurationUpdates {
@@ -2573,6 +2858,18 @@ export namespace SelfManagedActiveDirectoryConfigurationUpdates {
  */
 export interface UpdateFileSystemWindowsConfiguration {
   /**
+   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
+   *             time zone. Where d is the weekday number, from 1 through 7, with 1 = Monday and 7 = Sunday.</p>
+   */
+  WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The preferred time to start the daily automatic backup, in the UTC time zone, for example, <code>02:00</code>
+   *          </p>
+   */
+  DailyAutomaticBackupStartTime?: string;
+
+  /**
    * <p>The number of days to retain automatic daily backups. Setting this to zero (0) disables automatic daily
    *             backups. You can retain automatic daily backups for a maximum of 90 days. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups">Working with Automatic Daily Backups</a>.</p>
@@ -2580,23 +2877,11 @@ export interface UpdateFileSystemWindowsConfiguration {
   AutomaticBackupRetentionDays?: number;
 
   /**
-   * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
-   *             time zone. Where d is the weekday number, from 1 through 7, with 1 = Monday and 7 = Sunday.</p>
-   */
-  WeeklyMaintenanceStartTime?: string;
-
-  /**
    * <p>Sets the target value for a file system's throughput capacity, in MB/s, that you are updating the file system to. Valid values are
    *             8, 16, 32, 64, 128, 256, 512, 1024, 2048. You cannot make a throughput capacity update request if there is an existing throughput capacity update request in progress. For more information,
    *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-throughput-capacity.html">Managing Throughput Capacity</a>.</p>
    */
   ThroughputCapacity?: number;
-
-  /**
-   * <p>The preferred time to start the daily automatic backup, in the UTC time zone, for example, <code>02:00</code>
-   *          </p>
-   */
-  DailyAutomaticBackupStartTime?: string;
 
   /**
    * <p>The configuration Amazon FSx uses to join the Windows File Server instance to the
@@ -2621,20 +2906,9 @@ export namespace UpdateFileSystemWindowsConfiguration {
  */
 export interface UpdateFileSystemRequest {
   /**
-   * <p>The configuration updates for an Amazon FSx for Windows File Server file system.</p>
-   */
-  WindowsConfiguration?: UpdateFileSystemWindowsConfiguration;
-
-  /**
    * <p>Identifies the file system that you are updating.</p>
    */
   FileSystemId: string | undefined;
-
-  /**
-   * <p>The configuration object for Amazon FSx for Lustre file systems used in the
-   *                 <code>UpdateFileSystem</code> operation.</p>
-   */
-  LustreConfiguration?: UpdateFileSystemLustreConfiguration;
 
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
@@ -2653,6 +2927,17 @@ export interface UpdateFileSystemRequest {
    *       <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing Storage Capacity</a>.</p>
    */
   StorageCapacity?: number;
+
+  /**
+   * <p>The configuration updates for an Amazon FSx for Windows File Server file system.</p>
+   */
+  WindowsConfiguration?: UpdateFileSystemWindowsConfiguration;
+
+  /**
+   * <p>The configuration object for Amazon FSx for Lustre file systems used in the
+   *                 <code>UpdateFileSystem</code> operation.</p>
+   */
+  LustreConfiguration?: UpdateFileSystemLustreConfiguration;
 }
 
 export namespace UpdateFileSystemRequest {
@@ -2674,7 +2959,7 @@ export interface AdministrativeAction {
    *             <li>
    *                 <p>
    *                   <code>FILE_SYSTEM_UPDATE</code> - A file system update administrative action initiated by the user from the
-   *                     Amazon FSx console, API (UpdateFileSystem), or CLI (update-file-system). A</p>
+   *                     Amazon FSx console, API (UpdateFileSystem), or CLI (update-file-system).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2688,9 +2973,31 @@ export interface AdministrativeAction {
    *                     <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing Storage Capacity</a>.
    *                     </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FILE_SYSTEM_ALIAS_ASSOCIATION</code> - A file system update to associate a new DNS alias with the file system.
+   *                 For more information, see
+   *                 .</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FILE_SYSTEM_ALIAS_DISASSOCIATION</code> - A file system update to disassociate a DNS alias from the file system.
+   *                 For more information, see .</p>
+   *             </li>
    *          </ul>
    */
   AdministrativeActionType?: AdministrativeActionType | string;
+
+  /**
+   * <p>Provides the percent complete of a <code>STORAGE_OPTIMIZATION</code> administrative action.
+   *             Does not apply to any other administrative action type.</p>
+   */
+  ProgressPercent?: number;
+
+  /**
+   * <p>Time that the administrative action request was received.</p>
+   */
+  RequestTime?: Date;
 
   /**
    * <p>Describes the status of the administrative action, as follows:</p>
@@ -2722,22 +3029,12 @@ export interface AdministrativeAction {
   Status?: Status | string;
 
   /**
-   * <p>Time that the administrative action request was received.</p>
-   */
-  RequestTime?: Date;
-
-  /**
-   * <p>Describes the target <code>StorageCapacity</code> or <code>ThroughputCapacity</code> value
+   * <p>Describes the target value for the administration action,
    *             provided in the <code>UpdateFileSystem</code> operation.
-   *            Returned for  <code>FILE_SYSTEM_UPDATE</code> administrative actions.
+   *            Returned for <code>FILE_SYSTEM_UPDATE</code> administrative actions.
    *          </p>
    */
   TargetFileSystemValues?: FileSystem;
-
-  /**
-   * <p>Provides the percent complete of a <code>STORAGE_OPTIMIZATION</code> administrative action.</p>
-   */
-  ProgressPercent?: number;
 
   /**
    * <p>Provides information about a failed administrative action.</p>
@@ -2756,51 +3053,27 @@ export namespace AdministrativeAction {
  */
 export interface FileSystem {
   /**
+   * <p>The AWS account that created the file system. If the file system was created by an AWS
+   *             Identity and Access Management (IAM) user, the AWS account to which the IAM user belongs
+   *             is the owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
    * <p>The time that the file system was created, in seconds (since 1970-01-01T00:00:00Z),
    *             also known as Unix time.</p>
    */
   CreationTime?: Date;
 
   /**
-   * <p>The configuration for this Microsoft Windows file system.</p>
+   * <p>The system-generated, unique 17-digit ID of the file system.</p>
    */
-  WindowsConfiguration?: WindowsFileSystemConfiguration;
-
-  /**
-   * <p>The DNS name for the file system.</p>
-   */
-  DNSName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the file system resource.</p>
-   */
-  ResourceARN?: string;
+  FileSystemId?: string;
 
   /**
    * <p>The type of Amazon FSx file system, either <code>LUSTRE</code> or <code>WINDOWS</code>.</p>
    */
   FileSystemType?: FileSystemType | string;
-
-  /**
-   * <p>Specifies the IDs of the subnets that the file system is accessible from. For Windows <code>MULTI_AZ_1</code>
-   *             file system deployment type, there are two subnet IDs, one for the preferred file server
-   *             and one for the standby file server. The preferred file server subnet identified in the
-   *             <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p>
-   *         <p>For Lustre file systems, and Single-AZ Windows file systems, this is the ID of
-   *             the subnet that contains the endpoint for the file system. For <code>MULTI_AZ_1</code> Windows file systems,
-   *             the endpoint for the file system is available in the <code>PreferredSubnetID</code>.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
-   *             for Amazon FSx for Windows File Server file systems and persistent Amazon FSx for Lustre file
-   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
-   *             is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using
-   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
-   *             in the <i>AWS Key Management Service API Reference</i>.</p>
-   */
-  KmsKeyId?: string;
 
   /**
    * <p>The lifecycle status of the file system, following are the possible values and what they mean:</p>
@@ -2835,6 +3108,42 @@ export interface FileSystem {
   Lifecycle?: FileSystemLifecycle | string;
 
   /**
+   * <p>A structure providing details of any failures that occur when creating the file system
+   *             has failed.</p>
+   */
+  FailureDetails?: FileSystemFailureDetails;
+
+  /**
+   * <p>The storage capacity of the file system in gigabytes (GB).</p>
+   */
+  StorageCapacity?: number;
+
+  /**
+   * <p>The storage type of the file system.
+   *             Valid values are <code>SSD</code> and <code>HDD</code>.
+   *             If set to <code>SSD</code>, the file system uses solid state drive storage.
+   *             If set to <code>HDD</code>, the file system uses hard disk drive storage.
+   *         </p>
+   */
+  StorageType?: StorageType | string;
+
+  /**
+   * <p>The ID of the primary VPC for the file system.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Specifies the IDs of the subnets that the file system is accessible from. For Windows <code>MULTI_AZ_1</code>
+   *             file system deployment type, there are two subnet IDs, one for the preferred file server
+   *             and one for the standby file server. The preferred file server subnet identified in the
+   *             <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p>
+   *         <p>For Lustre file systems, and Single-AZ Windows file systems, this is the ID of
+   *             the subnet that contains the endpoint for the file system. For <code>MULTI_AZ_1</code> Windows file systems,
+   *             the endpoint for the file system is available in the <code>PreferredSubnetID</code>.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
    * <p>The IDs of the elastic network interface from which a specific file system is
    *             accessible. The elastic network interface is automatically created in the same VPC that
    *             the Amazon FSx file system was created in. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network
@@ -2848,36 +3157,24 @@ export interface FileSystem {
   NetworkInterfaceIds?: string[];
 
   /**
-   * <p>The ID of the primary VPC for the file system.</p>
+   * <p>The DNS name for the file system.</p>
    */
-  VpcId?: string;
+  DNSName?: string;
 
   /**
-   * <p>The configuration for the Amazon FSx for Lustre file system.</p>
+   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data
+   *             for Amazon FSx for Windows File Server file systems and persistent Amazon FSx for Lustre file
+   *             systems at rest. In either case, if not specified, the Amazon FSx managed key
+   *             is used. The scratch Amazon FSx for Lustre file systems are always encrypted at rest using
+   *             Amazon FSx managed keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a>
+   *             in the <i>AWS Key Management Service API Reference</i>.</p>
    */
-  LustreConfiguration?: LustreFileSystemConfiguration;
+  KmsKeyId?: string;
 
   /**
-   * <p>A structure providing details of any failures that occur when creating the file system
-   *             has failed.</p>
+   * <p>The Amazon Resource Name (ARN) for the file system resource.</p>
    */
-  FailureDetails?: FileSystemFailureDetails;
-
-  /**
-   * <p>The storage type of the file system.
-   *             Valid values are <code>SSD</code> and <code>HDD</code>.
-   *             If set to <code>SSD</code>, the file system uses solid state drive storage.
-   *             If set to <code>HDD</code>, the file system uses hard disk drive storage.
-   *         </p>
-   */
-  StorageType?: StorageType | string;
-
-  /**
-   * <p>The AWS account that created the file system. If the file system was created by an AWS
-   *             Identity and Access Management (IAM) user, the AWS account to which the IAM user belongs
-   *             is the owner.</p>
-   */
-  OwnerId?: string;
+  ResourceARN?: string;
 
   /**
    * <p>The tags to associate with the file system. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your
@@ -2887,9 +3184,14 @@ export interface FileSystem {
   Tags?: Tag[];
 
   /**
-   * <p>The storage capacity of the file system in gigabytes (GB).</p>
+   * <p>The configuration for this Microsoft Windows file system.</p>
    */
-  StorageCapacity?: number;
+  WindowsConfiguration?: WindowsFileSystemConfiguration;
+
+  /**
+   * <p>The configuration for the Amazon FSx for Lustre file system.</p>
+   */
+  LustreConfiguration?: LustreFileSystemConfiguration;
 
   /**
    * <p>A list of administrative actions for the file system that are in process or waiting to be processed.
@@ -2897,11 +3199,6 @@ export interface FileSystem {
    *         </p>
    */
   AdministrativeActions?: AdministrativeAction[];
-
-  /**
-   * <p>The system-generated, unique 17-digit ID of the file system.</p>
-   */
-  FileSystemId?: string;
 }
 
 export namespace FileSystem {
@@ -2915,10 +3212,9 @@ export namespace FileSystem {
  */
 export interface Backup {
   /**
-   * <p>Metadata of the file system associated with the backup. This metadata is persisted
-   *             even if the file system is deleted.</p>
+   * <p>The ID of the backup.</p>
    */
-  FileSystem: FileSystem | undefined;
+  BackupId: string | undefined;
 
   /**
    * <p>The lifecycle status of the backup.</p>
@@ -2948,28 +3244,6 @@ export interface Backup {
   Lifecycle: BackupLifecycle | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the backup resource.</p>
-   */
-  ResourceARN?: string;
-
-  /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the
-   *               backup of the Amazon FSx file system's data at rest.
-   *               </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The configuration of the self-managed Microsoft Active Directory (AD) to which the Windows File Server instance is joined.</p>
-   */
-  DirectoryInformation?: ActiveDirectoryBackupAttributes;
-
-  /**
-   * <p>The current percent of progress of an asynchronous task.</p>
-   */
-  ProgressPercent?: number;
-
-  /**
    * <p>Details explaining any failures that occur when creating a backup.</p>
    */
   FailureDetails?: BackupFailureDetails;
@@ -2980,19 +3254,42 @@ export interface Backup {
   Type: BackupType | string | undefined;
 
   /**
+   * <p>The current percent of progress of an asynchronous task.</p>
+   */
+  ProgressPercent?: number;
+
+  /**
    * <p>The time when a particular backup was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
-   * <p>The ID of the backup.</p>
+   * <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the
+   *               backup of the Amazon FSx file system's data at rest.
+   *               </p>
    */
-  BackupId: string | undefined;
+  KmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the backup resource.</p>
+   */
+  ResourceARN?: string;
 
   /**
    * <p>Tags associated with a particular file system.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Metadata of the file system associated with the backup. This metadata is persisted
+   *             even if the file system is deleted.</p>
+   */
+  FileSystem: FileSystem | undefined;
+
+  /**
+   * <p>The configuration of the self-managed Microsoft Active Directory (AD) to which the Windows File Server instance is joined.</p>
+   */
+  DirectoryInformation?: ActiveDirectoryBackupAttributes;
 }
 
 export namespace Backup {
@@ -3071,16 +3368,16 @@ export namespace CreateBackupResponse {
  */
 export interface DescribeFileSystemsResponse {
   /**
+   * <p>An array of file system descriptions.</p>
+   */
+  FileSystems?: FileSystem[];
+
+  /**
    * <p>Present if there are more file systems than returned in the response (String). You
    *             can use the <code>NextToken</code> value in the later request to fetch the
    *             descriptions. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array of file system descriptions.</p>
-   */
-  FileSystems?: FileSystem[];
 }
 
 export namespace DescribeFileSystemsResponse {
@@ -3094,16 +3391,16 @@ export namespace DescribeFileSystemsResponse {
  */
 export interface DescribeBackupsResponse {
   /**
+   * <p>Any array of backups.</p>
+   */
+  Backups?: Backup[];
+
+  /**
    * <p>This is present if there are more backups than returned in the response (String).
    *             You can use the <code>NextToken</code> value in the later request to fetch the backups.
    *         </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Any array of backups.</p>
-   */
-  Backups?: Backup[];
 }
 
 export namespace DescribeBackupsResponse {

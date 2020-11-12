@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEffectiveInstanceAssociationsCommand(input), ...args);
+  return await client.send(new DescribeEffectiveInstanceAssociationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPlatformBranchesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPlatformBranchesCommand(input), ...args);
+  return await client.send(new ListPlatformBranchesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ElasticBeanstalk,

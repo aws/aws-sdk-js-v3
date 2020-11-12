@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLayerVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLayerVersionsCommand(input), ...args);
+  return await client.send(new ListLayerVersionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Lambda,

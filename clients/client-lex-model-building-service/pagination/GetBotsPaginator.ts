@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBotsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBotsCommand(input), ...args);
+  return await client.send(new GetBotsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,

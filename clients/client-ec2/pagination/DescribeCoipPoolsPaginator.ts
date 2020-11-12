@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCoipPoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCoipPoolsCommand(input), ...args);
+  return await client.send(new DescribeCoipPoolsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

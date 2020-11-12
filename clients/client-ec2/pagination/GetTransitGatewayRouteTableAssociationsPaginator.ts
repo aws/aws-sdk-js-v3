@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTransitGatewayRouteTableAssociationsCommand(input), ...args);
+  return await client.send(new GetTransitGatewayRouteTableAssociationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

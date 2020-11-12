@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWebhooksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWebhooksCommand(input), ...args);
+  return await client.send(new ListWebhooksCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodePipeline,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCertificatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCertificatesCommand(input), ...args);
+  return await client.send(new ListCertificatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ACM,

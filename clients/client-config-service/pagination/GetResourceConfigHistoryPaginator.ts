@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetResourceConfigHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetResourceConfigHistoryCommand(input), ...args);
+  return await client.send(new GetResourceConfigHistoryCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ConfigService,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAttachedGroupPoliciesCommand(input), ...args);
+  return await client.send(new ListAttachedGroupPoliciesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

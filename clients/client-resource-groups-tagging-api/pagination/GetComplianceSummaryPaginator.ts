@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetComplianceSummaryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetComplianceSummaryCommand(input), ...args);
+  return await client.send(new GetComplianceSummaryCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ResourceGroupsTaggingAPI,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInstanceInformationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInstanceInformationCommand(input), ...args);
+  return await client.send(new DescribeInstanceInformationCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevicePoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevicePoolsCommand(input), ...args);
+  return await client.send(new ListDevicePoolsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DeviceFarm,

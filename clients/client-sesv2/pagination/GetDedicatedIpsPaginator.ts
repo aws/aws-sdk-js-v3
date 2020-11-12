@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDedicatedIpsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDedicatedIpsCommand(input), ...args);
+  return await client.send(new GetDedicatedIpsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SESv2,

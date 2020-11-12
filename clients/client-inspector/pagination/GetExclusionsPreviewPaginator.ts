@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExclusionsPreviewCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExclusionsPreviewCommand(input), ...args);
+  return await client.send(new GetExclusionsPreviewCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Inspector,

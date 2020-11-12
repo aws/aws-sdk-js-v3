@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCommunicationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCommunicationsCommand(input), ...args);
+  return await client.send(new DescribeCommunicationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Support,

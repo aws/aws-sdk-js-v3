@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBInstancesCommand(input), ...args);
+  return await client.send(new DescribeDBInstancesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Neptune,

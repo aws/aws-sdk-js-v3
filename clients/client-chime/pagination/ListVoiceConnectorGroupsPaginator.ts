@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVoiceConnectorGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVoiceConnectorGroupsCommand(input), ...args);
+  return await client.send(new ListVoiceConnectorGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Chime,

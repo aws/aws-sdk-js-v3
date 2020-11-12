@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<FilterLogEventsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new FilterLogEventsCommand(input), ...args);
+  return await client.send(new FilterLogEventsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudWatchLogs,

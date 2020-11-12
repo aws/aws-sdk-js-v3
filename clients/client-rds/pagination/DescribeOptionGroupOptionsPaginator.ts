@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeOptionGroupOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeOptionGroupOptionsCommand(input), ...args);
+  return await client.send(new DescribeOptionGroupOptionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDiscoverersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDiscoverersCommand(input), ...args);
+  return await client.send(new ListDiscoverersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Schemas,

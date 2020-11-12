@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRecipesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRecipesCommand(input), ...args);
+  return await client.send(new ListRecipesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Personalize,

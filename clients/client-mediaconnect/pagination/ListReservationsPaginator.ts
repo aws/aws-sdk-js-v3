@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListReservationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListReservationsCommand(input), ...args);
+  return await client.send(new ListReservationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaConnect,

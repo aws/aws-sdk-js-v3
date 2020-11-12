@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPermissionSetsProvisionedToAccountCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPermissionSetsProvisionedToAccountCommand(input), ...args);
+  return await client.send(new ListPermissionSetsProvisionedToAccountCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSOAdmin,

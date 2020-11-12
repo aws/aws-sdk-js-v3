@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVpcClassicLinkDnsSupportCommand(input), ...args);
+  return await client.send(new DescribeVpcClassicLinkDnsSupportCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeHsmConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeHsmConfigurationsCommand(input), ...args);
+  return await client.send(new DescribeHsmConfigurationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Redshift,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBClustersCommand(input), ...args);
+  return await client.send(new DescribeDBClustersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DocDB,

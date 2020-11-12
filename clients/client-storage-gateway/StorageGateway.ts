@@ -138,6 +138,11 @@ import {
   DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand";
 import {
+  DescribeBandwidthRateLimitScheduleCommand,
+  DescribeBandwidthRateLimitScheduleCommandInput,
+  DescribeBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/DescribeBandwidthRateLimitScheduleCommand";
+import {
   DescribeCacheCommand,
   DescribeCacheCommandInput,
   DescribeCacheCommandOutput,
@@ -331,6 +336,11 @@ import {
   UpdateBandwidthRateLimitCommandInput,
   UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand";
+import {
+  UpdateBandwidthRateLimitScheduleCommand,
+  UpdateBandwidthRateLimitScheduleCommandInput,
+  UpdateBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/UpdateBandwidthRateLimitScheduleCommand";
 import {
   UpdateChapCredentialsCommand,
   UpdateChapCredentialsCommandInput,
@@ -1632,6 +1642,58 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void
   ): Promise<DescribeBandwidthRateLimitCommandOutput> | void {
     const command = new DescribeBandwidthRateLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns information about the bandwidth rate limit schedule of a gateway. By default, gateways do
+   *          not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect. This
+   *          operation is supported only in the volume and tape gateway types.
+   *       </p>
+   *
+   *          <p>This operation returns information about a gateway's bandwidth rate limit schedule. A bandwidth
+   *          rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit
+   *          interval defines a period of time on one or more days of the week, during which bandwidth rate
+   *          limits are specified for uploading, downloading, or both.
+   *       </p>
+   *
+   *          <p>
+   *          A bandwidth rate limit interval consists of one or more days of the week, a start hour and minute,
+   *          an ending hour and minute, and bandwidth rate limits for uploading and downloading
+   *       </p>
+   *
+   *          <p>
+   *          If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an
+   *          empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN)
+   *          of the gateway in your request.</p>
+   */
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput>;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new DescribeBandwidthRateLimitScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3200,6 +3262,43 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: UpdateBandwidthRateLimitCommandOutput) => void
   ): Promise<UpdateBandwidthRateLimitCommandOutput> | void {
     const command = new UpdateBandwidthRateLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways do
+   *          not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect.
+   *          Use this to initiate or update a gateway's bandwidth rate limit schedule.
+   *          This operation is supported in the volume and tape gateway types.
+   *       </p>
+   */
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput>;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new UpdateBandwidthRateLimitScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEvaluationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEvaluationsCommand(input), ...args);
+  return await client.send(new DescribeEvaluationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MachineLearning,

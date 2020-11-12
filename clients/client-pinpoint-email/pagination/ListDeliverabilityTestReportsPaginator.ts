@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeliverabilityTestReportsCommand(input), ...args);
+  return await client.send(new ListDeliverabilityTestReportsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: PinpointEmail,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRoleAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRoleAliasesCommand(input), ...args);
+  return await client.send(new ListRoleAliasesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

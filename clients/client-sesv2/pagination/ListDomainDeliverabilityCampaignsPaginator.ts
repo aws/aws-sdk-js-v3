@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDomainDeliverabilityCampaignsCommand(input), ...args);
+  return await client.send(new ListDomainDeliverabilityCampaignsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SESv2,

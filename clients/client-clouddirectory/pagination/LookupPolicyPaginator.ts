@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<LookupPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new LookupPolicyCommand(input), ...args);
+  return await client.send(new LookupPolicyCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudDirectory,

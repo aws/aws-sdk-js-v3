@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetEffectivePermissionsForPathCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetEffectivePermissionsForPathCommand(input), ...args);
+  return await client.send(new GetEffectivePermissionsForPathCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LakeFormation,

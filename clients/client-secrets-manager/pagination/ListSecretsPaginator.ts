@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecretsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecretsCommand(input), ...args);
+  return await client.send(new ListSecretsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SecretsManager,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBParametersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBParametersCommand(input), ...args);
+  return await client.send(new DescribeDBParametersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Neptune,

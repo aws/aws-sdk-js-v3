@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTemplatesCommand(input), ...args);
+  return await client.send(new ListTemplatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QuickSight,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReplicationSubnetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReplicationSubnetGroupsCommand(input), ...args);
+  return await client.send(new DescribeReplicationSubnetGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DatabaseMigrationService,

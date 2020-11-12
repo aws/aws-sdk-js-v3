@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSegmentDetectionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSegmentDetectionCommand(input), ...args);
+  return await client.send(new GetSegmentDetectionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

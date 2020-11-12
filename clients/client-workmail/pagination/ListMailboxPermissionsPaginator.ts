@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMailboxPermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMailboxPermissionsCommand(input), ...args);
+  return await client.send(new ListMailboxPermissionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: WorkMail,

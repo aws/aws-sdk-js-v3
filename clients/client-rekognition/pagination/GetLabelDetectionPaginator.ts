@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetLabelDetectionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetLabelDetectionCommand(input), ...args);
+  return await client.send(new GetLabelDetectionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

@@ -7782,6 +7782,11 @@ export interface VpcEndpointConnection {
    * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
    */
   NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
 }
 
 export namespace VpcEndpointConnection {
@@ -7845,6 +7850,10 @@ export interface DescribeVpcEndpointsRequest {
    *                         (<code>pendingAcceptance</code> | <code>pending</code> |
    *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
    *                         <code>rejected</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
    *             <li>
    *         		     <p>

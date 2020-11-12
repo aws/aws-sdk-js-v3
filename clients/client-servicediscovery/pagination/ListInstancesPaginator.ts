@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInstancesCommand(input), ...args);
+  return await client.send(new ListInstancesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ServiceDiscovery,

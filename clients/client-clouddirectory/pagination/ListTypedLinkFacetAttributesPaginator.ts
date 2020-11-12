@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTypedLinkFacetAttributesCommand(input), ...args);
+  return await client.send(new ListTypedLinkFacetAttributesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudDirectory,

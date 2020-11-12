@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeServersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeServersCommand(input), ...args);
+  return await client.send(new DescribeServersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: OpsWorksCM,

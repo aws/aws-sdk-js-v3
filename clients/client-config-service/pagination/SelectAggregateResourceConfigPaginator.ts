@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SelectAggregateResourceConfigCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SelectAggregateResourceConfigCommand(input), ...args);
+  return await client.send(new SelectAggregateResourceConfigCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ConfigService,

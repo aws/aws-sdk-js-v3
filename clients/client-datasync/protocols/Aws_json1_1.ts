@@ -60,6 +60,10 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "../commands/UpdateTaskCommand";
 import {
+  UpdateTaskExecutionCommandInput,
+  UpdateTaskExecutionCommandOutput,
+} from "../commands/UpdateTaskExecutionCommand";
+import {
   AgentListEntry,
   CancelTaskExecutionRequest,
   CancelTaskExecutionResponse,
@@ -139,6 +143,8 @@ import {
   UntagResourceResponse,
   UpdateAgentRequest,
   UpdateAgentResponse,
+  UpdateTaskExecutionRequest,
+  UpdateTaskExecutionResponse,
   UpdateTaskRequest,
   UpdateTaskResponse,
 } from "../models/models_0";
@@ -552,6 +558,19 @@ export const serializeAws_json1_1UpdateTaskCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTaskRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateTaskExecutionCommand = async (
+  input: UpdateTaskExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "FmrsService.UpdateTaskExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateTaskExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2508,6 +2527,69 @@ const deserializeAws_json1_1UpdateTaskCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateTaskExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateTaskExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateTaskExecutionResponse(data, context);
+  const response: UpdateTaskExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateTaskExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1InternalExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2963,6 +3045,16 @@ const serializeAws_json1_1UpdateAgentRequest = (input: UpdateAgentRequest, conte
   return {
     ...(input.AgentArn !== undefined && { AgentArn: input.AgentArn }),
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateTaskExecutionRequest = (
+  input: UpdateTaskExecutionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Options !== undefined && { Options: serializeAws_json1_1Options(input.Options, context) }),
+    ...(input.TaskExecutionArn !== undefined && { TaskExecutionArn: input.TaskExecutionArn }),
   };
 };
 
@@ -3608,6 +3700,13 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1UpdateAgentResponse = (output: any, context: __SerdeContext): UpdateAgentResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateTaskExecutionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateTaskExecutionResponse => {
   return {} as any;
 };
 

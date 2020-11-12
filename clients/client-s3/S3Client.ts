@@ -23,6 +23,10 @@ import {
   DeleteBucketEncryptionCommandOutput,
 } from "./commands/DeleteBucketEncryptionCommand";
 import {
+  DeleteBucketIntelligentTieringConfigurationCommandInput,
+  DeleteBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/DeleteBucketIntelligentTieringConfigurationCommand";
+import {
   DeleteBucketInventoryConfigurationCommandInput,
   DeleteBucketInventoryConfigurationCommandOutput,
 } from "./commands/DeleteBucketInventoryConfigurationCommand";
@@ -75,6 +79,10 @@ import {
   GetBucketEncryptionCommandInput,
   GetBucketEncryptionCommandOutput,
 } from "./commands/GetBucketEncryptionCommand";
+import {
+  GetBucketIntelligentTieringConfigurationCommandInput,
+  GetBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/GetBucketIntelligentTieringConfigurationCommand";
 import {
   GetBucketInventoryConfigurationCommandInput,
   GetBucketInventoryConfigurationCommandOutput,
@@ -137,6 +145,10 @@ import {
   ListBucketAnalyticsConfigurationsCommandOutput,
 } from "./commands/ListBucketAnalyticsConfigurationsCommand";
 import {
+  ListBucketIntelligentTieringConfigurationsCommandInput,
+  ListBucketIntelligentTieringConfigurationsCommandOutput,
+} from "./commands/ListBucketIntelligentTieringConfigurationsCommand";
+import {
   ListBucketInventoryConfigurationsCommandInput,
   ListBucketInventoryConfigurationsCommandOutput,
 } from "./commands/ListBucketInventoryConfigurationsCommand";
@@ -167,6 +179,10 @@ import {
   PutBucketEncryptionCommandInput,
   PutBucketEncryptionCommandOutput,
 } from "./commands/PutBucketEncryptionCommand";
+import {
+  PutBucketIntelligentTieringConfigurationCommandInput,
+  PutBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/PutBucketIntelligentTieringConfigurationCommand";
 import {
   PutBucketInventoryConfigurationCommandInput,
   PutBucketInventoryConfigurationCommandOutput,
@@ -298,6 +314,7 @@ export type ServiceInputTypes =
   | DeleteBucketCommandInput
   | DeleteBucketCorsCommandInput
   | DeleteBucketEncryptionCommandInput
+  | DeleteBucketIntelligentTieringConfigurationCommandInput
   | DeleteBucketInventoryConfigurationCommandInput
   | DeleteBucketLifecycleCommandInput
   | DeleteBucketMetricsConfigurationCommandInput
@@ -315,6 +332,7 @@ export type ServiceInputTypes =
   | GetBucketAnalyticsConfigurationCommandInput
   | GetBucketCorsCommandInput
   | GetBucketEncryptionCommandInput
+  | GetBucketIntelligentTieringConfigurationCommandInput
   | GetBucketInventoryConfigurationCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketLocationCommandInput
@@ -340,6 +358,7 @@ export type ServiceInputTypes =
   | HeadBucketCommandInput
   | HeadObjectCommandInput
   | ListBucketAnalyticsConfigurationsCommandInput
+  | ListBucketIntelligentTieringConfigurationsCommandInput
   | ListBucketInventoryConfigurationsCommandInput
   | ListBucketMetricsConfigurationsCommandInput
   | ListBucketsCommandInput
@@ -353,6 +372,7 @@ export type ServiceInputTypes =
   | PutBucketAnalyticsConfigurationCommandInput
   | PutBucketCorsCommandInput
   | PutBucketEncryptionCommandInput
+  | PutBucketIntelligentTieringConfigurationCommandInput
   | PutBucketInventoryConfigurationCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketLoggingCommandInput
@@ -387,6 +407,7 @@ export type ServiceOutputTypes =
   | DeleteBucketCommandOutput
   | DeleteBucketCorsCommandOutput
   | DeleteBucketEncryptionCommandOutput
+  | DeleteBucketIntelligentTieringConfigurationCommandOutput
   | DeleteBucketInventoryConfigurationCommandOutput
   | DeleteBucketLifecycleCommandOutput
   | DeleteBucketMetricsConfigurationCommandOutput
@@ -404,6 +425,7 @@ export type ServiceOutputTypes =
   | GetBucketAnalyticsConfigurationCommandOutput
   | GetBucketCorsCommandOutput
   | GetBucketEncryptionCommandOutput
+  | GetBucketIntelligentTieringConfigurationCommandOutput
   | GetBucketInventoryConfigurationCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketLocationCommandOutput
@@ -429,6 +451,7 @@ export type ServiceOutputTypes =
   | HeadBucketCommandOutput
   | HeadObjectCommandOutput
   | ListBucketAnalyticsConfigurationsCommandOutput
+  | ListBucketIntelligentTieringConfigurationsCommandOutput
   | ListBucketInventoryConfigurationsCommandOutput
   | ListBucketMetricsConfigurationsCommandOutput
   | ListBucketsCommandOutput
@@ -442,6 +465,7 @@ export type ServiceOutputTypes =
   | PutBucketAnalyticsConfigurationCommandOutput
   | PutBucketCorsCommandOutput
   | PutBucketEncryptionCommandOutput
+  | PutBucketIntelligentTieringConfigurationCommandOutput
   | PutBucketInventoryConfigurationCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketLoggingCommandOutput

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTableVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTableVersionsCommand(input), ...args);
+  return await client.send(new GetTableVersionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Glue,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetAssetPropertyAggregatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetAssetPropertyAggregatesCommand(input), ...args);
+  return await client.send(new GetAssetPropertyAggregatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

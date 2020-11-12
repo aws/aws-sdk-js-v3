@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<PreviewAgentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new PreviewAgentsCommand(input), ...args);
+  return await client.send(new PreviewAgentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Inspector,

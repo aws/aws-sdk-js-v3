@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMeshesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMeshesCommand(input), ...args);
+  return await client.send(new ListMeshesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AppMesh,

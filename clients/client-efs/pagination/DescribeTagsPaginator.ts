@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTagsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTagsCommand(input), ...args);
+  return await client.send(new DescribeTagsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EFS,

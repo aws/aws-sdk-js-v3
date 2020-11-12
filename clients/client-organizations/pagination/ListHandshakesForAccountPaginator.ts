@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHandshakesForAccountCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHandshakesForAccountCommand(input), ...args);
+  return await client.send(new ListHandshakesForAccountCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Organizations,

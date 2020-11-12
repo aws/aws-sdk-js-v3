@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDomainControllersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDomainControllersCommand(input), ...args);
+  return await client.send(new DescribeDomainControllersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DirectoryService,

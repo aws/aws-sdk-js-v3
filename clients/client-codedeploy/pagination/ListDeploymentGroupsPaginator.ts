@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeploymentGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeploymentGroupsCommand(input), ...args);
+  return await client.send(new ListDeploymentGroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeDeploy,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeOrderableDBInstanceOptionsCommand(input), ...args);
+  return await client.send(new DescribeOrderableDBInstanceOptionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

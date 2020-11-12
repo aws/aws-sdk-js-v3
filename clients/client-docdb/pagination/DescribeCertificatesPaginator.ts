@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCertificatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCertificatesCommand(input), ...args);
+  return await client.send(new DescribeCertificatesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DocDB,

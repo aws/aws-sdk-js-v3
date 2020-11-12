@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPlacementsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPlacementsCommand(input), ...args);
+  return await client.send(new ListPlacementsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT1ClickProjects,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchAnalysesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchAnalysesCommand(input), ...args);
+  return await client.send(new SearchAnalysesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QuickSight,

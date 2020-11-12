@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetStatementResultCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetStatementResultCommand(input), ...args);
+  return await client.send(new GetStatementResultCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RedshiftData,

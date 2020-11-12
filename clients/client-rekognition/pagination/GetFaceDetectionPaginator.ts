@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetFaceDetectionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetFaceDetectionCommand(input), ...args);
+  return await client.send(new GetFaceDetectionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

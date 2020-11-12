@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJournalKinesisStreamsForLedgerCommand(input), ...args);
+  return await client.send(new ListJournalKinesisStreamsForLedgerCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QLDB,

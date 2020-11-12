@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSkillsStoreCategoriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSkillsStoreCategoriesCommand(input), ...args);
+  return await client.send(new ListSkillsStoreCategoriesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,

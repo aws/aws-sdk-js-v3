@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchDashboardsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchDashboardsCommand(input), ...args);
+  return await client.send(new SearchDashboardsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QuickSight,

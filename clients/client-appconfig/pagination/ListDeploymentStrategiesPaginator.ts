@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeploymentStrategiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeploymentStrategiesCommand(input), ...args);
+  return await client.send(new ListDeploymentStrategiesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: AppConfig,

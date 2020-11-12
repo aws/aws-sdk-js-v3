@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListServiceActionsForProvisioningArtifactCommand(input), ...args);
+  return await client.send(new ListServiceActionsForProvisioningArtifactCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

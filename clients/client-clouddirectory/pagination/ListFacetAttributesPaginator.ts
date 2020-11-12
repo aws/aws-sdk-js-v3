@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFacetAttributesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFacetAttributesCommand(input), ...args);
+  return await client.send(new ListFacetAttributesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudDirectory,

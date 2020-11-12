@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBonusPaymentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBonusPaymentsCommand(input), ...args);
+  return await client.send(new ListBonusPaymentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MTurk,

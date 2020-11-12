@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDatastoresCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDatastoresCommand(input), ...args);
+  return await client.send(new ListDatastoresCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTAnalytics,

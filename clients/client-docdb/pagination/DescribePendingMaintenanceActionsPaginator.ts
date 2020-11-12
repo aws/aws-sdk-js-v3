@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribePendingMaintenanceActionsCommand(input), ...args);
+  return await client.send(new DescribePendingMaintenanceActionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DocDB,

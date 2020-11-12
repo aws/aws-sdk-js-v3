@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeComputeEnvironmentsCommand(input), ...args);
+  return await client.send(new DescribeComputeEnvironmentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Batch,

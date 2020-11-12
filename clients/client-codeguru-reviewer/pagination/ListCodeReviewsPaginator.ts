@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCodeReviewsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCodeReviewsCommand(input), ...args);
+  return await client.send(new ListCodeReviewsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeGuruReviewer,

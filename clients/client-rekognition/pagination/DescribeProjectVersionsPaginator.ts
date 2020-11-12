@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeProjectVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeProjectVersionsCommand(input), ...args);
+  return await client.send(new DescribeProjectVersionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

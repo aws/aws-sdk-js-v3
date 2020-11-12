@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPublicKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPublicKeysCommand(input), ...args);
+  return await client.send(new ListPublicKeysCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CloudTrail,

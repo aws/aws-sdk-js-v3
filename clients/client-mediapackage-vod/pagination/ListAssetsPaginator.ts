@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssetsCommand(input), ...args);
+  return await client.send(new ListAssetsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaPackageVod,

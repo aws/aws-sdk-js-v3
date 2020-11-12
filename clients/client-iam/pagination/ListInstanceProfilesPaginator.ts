@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInstanceProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInstanceProfilesCommand(input), ...args);
+  return await client.send(new ListInstanceProfilesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,

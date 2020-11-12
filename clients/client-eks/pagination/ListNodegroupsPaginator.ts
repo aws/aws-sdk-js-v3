@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListNodegroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListNodegroupsCommand(input), ...args);
+  return await client.send(new ListNodegroupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EKS,

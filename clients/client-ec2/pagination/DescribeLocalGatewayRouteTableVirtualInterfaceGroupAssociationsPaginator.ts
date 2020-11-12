@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input), ...args);
+  return await client.send(new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

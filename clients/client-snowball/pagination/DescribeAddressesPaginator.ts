@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAddressesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAddressesCommand(input), ...args);
+  return await client.send(new DescribeAddressesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Snowball,

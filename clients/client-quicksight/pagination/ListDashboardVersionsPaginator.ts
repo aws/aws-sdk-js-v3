@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDashboardVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDashboardVersionsCommand(input), ...args);
+  return await client.send(new ListDashboardVersionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: QuickSight,

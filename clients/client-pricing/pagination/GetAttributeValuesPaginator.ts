@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetAttributeValuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetAttributeValuesCommand(input), ...args);
+  return await client.send(new GetAttributeValuesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Pricing,

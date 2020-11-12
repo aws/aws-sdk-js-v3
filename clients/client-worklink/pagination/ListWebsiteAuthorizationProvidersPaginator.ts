@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWebsiteAuthorizationProvidersCommand(input), ...args);
+  return await client.send(new ListWebsiteAuthorizationProvidersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: WorkLink,

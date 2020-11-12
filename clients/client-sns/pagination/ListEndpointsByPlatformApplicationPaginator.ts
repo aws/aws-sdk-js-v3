@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEndpointsByPlatformApplicationCommand(input), ...args);
+  return await client.send(new ListEndpointsByPlatformApplicationCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SNS,

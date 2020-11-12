@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListClusterOperationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListClusterOperationsCommand(input), ...args);
+  return await client.send(new ListClusterOperationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Kafka,

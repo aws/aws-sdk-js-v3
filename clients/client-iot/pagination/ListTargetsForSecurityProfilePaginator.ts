@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTargetsForSecurityProfileCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTargetsForSecurityProfileCommand(input), ...args);
+  return await client.send(new ListTargetsForSecurityProfileCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

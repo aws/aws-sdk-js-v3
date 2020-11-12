@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamKeysCommand(input), ...args);
+  return await client.send(new ListStreamKeysCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Ivs,

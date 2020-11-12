@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListManagedPoliciesInPermissionSetCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListManagedPoliciesInPermissionSetCommand(input), ...args);
+  return await client.send(new ListManagedPoliciesInPermissionSetCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSOAdmin,

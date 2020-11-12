@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTargetsCommand(input), ...args);
+  return await client.send(new ListTargetsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodestarNotifications,

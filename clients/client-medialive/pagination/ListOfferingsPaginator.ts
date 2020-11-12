@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOfferingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOfferingsCommand(input), ...args);
+  return await client.send(new ListOfferingsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaLive,

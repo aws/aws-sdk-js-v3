@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<QueryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new QueryCommand(input), ...args);
+  return await client.send(new QueryCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: TimestreamQuery,

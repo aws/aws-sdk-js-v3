@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAffectedEntitiesForOrganizationCommand(input), ...args);
+  return await client.send(new DescribeAffectedEntitiesForOrganizationCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Health,

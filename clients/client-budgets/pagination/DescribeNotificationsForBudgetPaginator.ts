@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeNotificationsForBudgetCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeNotificationsForBudgetCommand(input), ...args);
+  return await client.send(new DescribeNotificationsForBudgetCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Budgets,

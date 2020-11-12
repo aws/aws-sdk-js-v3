@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBEngineVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBEngineVersionsCommand(input), ...args);
+  return await client.send(new DescribeDBEngineVersionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DocDB,

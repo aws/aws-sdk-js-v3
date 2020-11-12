@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFleetAttributesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFleetAttributesCommand(input), ...args);
+  return await client.send(new DescribeFleetAttributesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: GameLift,

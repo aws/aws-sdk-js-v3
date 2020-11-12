@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEngineDefaultParametersCommand(input), ...args);
+  return await client.send(new DescribeEngineDefaultParametersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTestGridSessionArtifactsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTestGridSessionArtifactsCommand(input), ...args);
+  return await client.send(new ListTestGridSessionArtifactsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: DeviceFarm,

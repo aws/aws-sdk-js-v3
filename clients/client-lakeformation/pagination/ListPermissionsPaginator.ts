@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPermissionsCommand(input), ...args);
+  return await client.send(new ListPermissionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: LakeFormation,

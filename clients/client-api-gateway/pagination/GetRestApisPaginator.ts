@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetRestApisCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetRestApisCommand(input), ...args);
+  return await client.send(new GetRestApisCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: APIGateway,

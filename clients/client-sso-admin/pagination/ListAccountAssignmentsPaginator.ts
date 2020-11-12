@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountAssignmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountAssignmentsCommand(input), ...args);
+  return await client.send(new ListAccountAssignmentsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSOAdmin,

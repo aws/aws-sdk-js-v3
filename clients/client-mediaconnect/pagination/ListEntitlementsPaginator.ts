@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitlementsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitlementsCommand(input), ...args);
+  return await client.send(new ListEntitlementsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: MediaConnect,

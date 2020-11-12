@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCommentsForPullRequestCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCommentsForPullRequestCommand(input), ...args);
+  return await client.send(new GetCommentsForPullRequestCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CodeCommit,

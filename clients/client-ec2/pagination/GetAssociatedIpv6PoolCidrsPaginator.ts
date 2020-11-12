@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetAssociatedIpv6PoolCidrsCommand(input), ...args);
+  return await client.send(new GetAssociatedIpv6PoolCidrsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: EC2,

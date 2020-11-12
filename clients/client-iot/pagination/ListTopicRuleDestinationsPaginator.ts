@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTopicRuleDestinationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTopicRuleDestinationsCommand(input), ...args);
+  return await client.send(new ListTopicRuleDestinationsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCelebrityRecognitionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCelebrityRecognitionCommand(input), ...args);
+  return await client.send(new GetCelebrityRecognitionCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: Rekognition,

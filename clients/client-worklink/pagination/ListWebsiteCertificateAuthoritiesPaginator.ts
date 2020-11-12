@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWebsiteCertificateAuthoritiesCommand(input), ...args);
+  return await client.send(new ListWebsiteCertificateAuthoritiesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: WorkLink,

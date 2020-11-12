@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListComplianceSummariesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListComplianceSummariesCommand(input), ...args);
+  return await client.send(new ListComplianceSummariesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SSM,

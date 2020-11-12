@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetServersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetServersCommand(input), ...args);
+  return await client.send(new GetServersCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: SMS,

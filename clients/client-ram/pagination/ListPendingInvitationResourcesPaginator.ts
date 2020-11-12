@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPendingInvitationResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPendingInvitationResourcesCommand(input), ...args);
+  return await client.send(new ListPendingInvitationResourcesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RAM,

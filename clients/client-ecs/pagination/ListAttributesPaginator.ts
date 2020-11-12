@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAttributesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAttributesCommand(input), ...args);
+  return await client.send(new ListAttributesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: ECS,

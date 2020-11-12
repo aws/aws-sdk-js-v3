@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<AdminListGroupsForUserCommandOutput> => {
   // @ts-ignore
-  return await client.send(new AdminListGroupsForUserCommand(input), ...args);
+  return await client.send(new AdminListGroupsForUserCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: CognitoIdentityProvider,

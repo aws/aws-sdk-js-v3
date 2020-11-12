@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssetModelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssetModelsCommand(input), ...args);
+  return await client.send(new ListAssetModelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

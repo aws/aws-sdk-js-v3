@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDimensionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDimensionsCommand(input), ...args);
+  return await client.send(new ListDimensionsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

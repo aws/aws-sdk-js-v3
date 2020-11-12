@@ -1,5 +1,10 @@
 import { FSxClient } from "./FSxClient";
 import {
+  AssociateFileSystemAliasesCommand,
+  AssociateFileSystemAliasesCommandInput,
+  AssociateFileSystemAliasesCommandOutput,
+} from "./commands/AssociateFileSystemAliasesCommand";
+import {
   CancelDataRepositoryTaskCommand,
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
@@ -45,10 +50,20 @@ import {
   DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand";
 import {
+  DescribeFileSystemAliasesCommand,
+  DescribeFileSystemAliasesCommandInput,
+  DescribeFileSystemAliasesCommandOutput,
+} from "./commands/DescribeFileSystemAliasesCommand";
+import {
   DescribeFileSystemsCommand,
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import {
+  DisassociateFileSystemAliasesCommand,
+  DisassociateFileSystemAliasesCommandInput,
+  DisassociateFileSystemAliasesCommandOutput,
+} from "./commands/DisassociateFileSystemAliasesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -72,6 +87,48 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             application administrators to launch and use shared file storage.</p>
  */
 export class FSx extends FSxClient {
+  /**
+   * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
+   *         A file systen can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
+   *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
+   *         For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
+   *              additional steps you must take to be able to access your file system using a DNS alias.</p>
+   *         <p>The system response shows the DNS aliases that
+   *             Amazon FSx is attempting to associate with the file system.
+   *             Use the  API
+   *             operation to monitor the status of the aliases Amazon FSx is
+   *             associating with the file system.</p>
+   */
+  public associateFileSystemAliases(
+    args: AssociateFileSystemAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateFileSystemAliasesCommandOutput>;
+  public associateFileSystemAliases(
+    args: AssociateFileSystemAliasesCommandInput,
+    cb: (err: any, data?: AssociateFileSystemAliasesCommandOutput) => void
+  ): void;
+  public associateFileSystemAliases(
+    args: AssociateFileSystemAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateFileSystemAliasesCommandOutput) => void
+  ): void;
+  public associateFileSystemAliases(
+    args: AssociateFileSystemAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateFileSystemAliasesCommandOutput) => void),
+    cb?: (err: any, data?: AssociateFileSystemAliasesCommandOutput) => void
+  ): Promise<AssociateFileSystemAliasesCommandOutput> | void {
+    const command = new AssociateFileSystemAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
    *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel a task, Amazon FSx does the following.</p>
@@ -555,6 +612,40 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
+   *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
+   *         provided in the <a>DescribeFileSystems</a> operation response.</p>
+   */
+  public describeFileSystemAliases(
+    args: DescribeFileSystemAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFileSystemAliasesCommandOutput>;
+  public describeFileSystemAliases(
+    args: DescribeFileSystemAliasesCommandInput,
+    cb: (err: any, data?: DescribeFileSystemAliasesCommandOutput) => void
+  ): void;
+  public describeFileSystemAliases(
+    args: DescribeFileSystemAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFileSystemAliasesCommandOutput) => void
+  ): void;
+  public describeFileSystemAliases(
+    args: DescribeFileSystemAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFileSystemAliasesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFileSystemAliasesCommandOutput) => void
+  ): Promise<DescribeFileSystemAliasesCommandOutput> | void {
+    const command = new DescribeFileSystemAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the description of specific Amazon FSx file systems, if a
    *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
    *             returns descriptions of all file systems owned by your AWS account in the AWS Region of
@@ -607,6 +698,46 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): Promise<DescribeFileSystemsCommandOutput> | void {
     const command = new DescribeFileSystemsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
+   *             from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
+   *             associated with the file system, Amazon FSx responds with a 400 Bad Request. For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a>.</p>
+   *         <p>The system generated response showing the DNS aliases that
+   *             Amazon FSx is attempting to disassociate from the file system.
+   *             Use the  API
+   *             operation to monitor the status of the aliases Amazon FSx is
+   *             disassociating with the file system.</p>
+   */
+  public disassociateFileSystemAliases(
+    args: DisassociateFileSystemAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFileSystemAliasesCommandOutput>;
+  public disassociateFileSystemAliases(
+    args: DisassociateFileSystemAliasesCommandInput,
+    cb: (err: any, data?: DisassociateFileSystemAliasesCommandOutput) => void
+  ): void;
+  public disassociateFileSystemAliases(
+    args: DisassociateFileSystemAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFileSystemAliasesCommandOutput) => void
+  ): void;
+  public disassociateFileSystemAliases(
+    args: DisassociateFileSystemAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFileSystemAliasesCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateFileSystemAliasesCommandOutput) => void
+  ): Promise<DisassociateFileSystemAliasesCommandOutput> | void {
+    const command = new DisassociateFileSystemAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

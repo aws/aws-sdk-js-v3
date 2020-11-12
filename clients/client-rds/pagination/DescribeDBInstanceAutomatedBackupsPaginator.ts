@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBInstanceAutomatedBackupsCommand(input), ...args);
+  return await client.send(new DescribeDBInstanceAutomatedBackupsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: RDS,

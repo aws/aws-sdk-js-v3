@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListV2LoggingLevelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListV2LoggingLevelsCommand(input), ...args);
+  return await client.send(new ListV2LoggingLevelsCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IoT,

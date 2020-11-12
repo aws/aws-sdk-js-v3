@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMFADevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMFADevicesCommand(input), ...args);
+  return await client.send(new ListMFADevicesCommand(input, ...args));
 };
 const makePagedRequest = async (
   client: IAM,
