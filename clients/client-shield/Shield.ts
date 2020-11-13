@@ -25,6 +25,11 @@ import {
   CreateProtectionCommandOutput,
 } from "./commands/CreateProtectionCommand";
 import {
+  CreateProtectionGroupCommand,
+  CreateProtectionGroupCommandInput,
+  CreateProtectionGroupCommandOutput,
+} from "./commands/CreateProtectionGroupCommand";
+import {
   CreateSubscriptionCommand,
   CreateSubscriptionCommandInput,
   CreateSubscriptionCommandOutput,
@@ -35,6 +40,11 @@ import {
   DeleteProtectionCommandOutput,
 } from "./commands/DeleteProtectionCommand";
 import {
+  DeleteProtectionGroupCommand,
+  DeleteProtectionGroupCommandInput,
+  DeleteProtectionGroupCommandOutput,
+} from "./commands/DeleteProtectionGroupCommand";
+import {
   DeleteSubscriptionCommand,
   DeleteSubscriptionCommandInput,
   DeleteSubscriptionCommandOutput,
@@ -44,6 +54,11 @@ import {
   DescribeAttackCommandInput,
   DescribeAttackCommandOutput,
 } from "./commands/DescribeAttackCommand";
+import {
+  DescribeAttackStatisticsCommand,
+  DescribeAttackStatisticsCommandInput,
+  DescribeAttackStatisticsCommandOutput,
+} from "./commands/DescribeAttackStatisticsCommand";
 import {
   DescribeDRTAccessCommand,
   DescribeDRTAccessCommandInput,
@@ -59,6 +74,11 @@ import {
   DescribeProtectionCommandInput,
   DescribeProtectionCommandOutput,
 } from "./commands/DescribeProtectionCommand";
+import {
+  DescribeProtectionGroupCommand,
+  DescribeProtectionGroupCommandInput,
+  DescribeProtectionGroupCommandOutput,
+} from "./commands/DescribeProtectionGroupCommand";
 import {
   DescribeSubscriptionCommand,
   DescribeSubscriptionCommandInput,
@@ -96,15 +116,30 @@ import {
 } from "./commands/GetSubscriptionStateCommand";
 import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
 import {
+  ListProtectionGroupsCommand,
+  ListProtectionGroupsCommandInput,
+  ListProtectionGroupsCommandOutput,
+} from "./commands/ListProtectionGroupsCommand";
+import {
   ListProtectionsCommand,
   ListProtectionsCommandInput,
   ListProtectionsCommandOutput,
 } from "./commands/ListProtectionsCommand";
 import {
+  ListResourcesInProtectionGroupCommand,
+  ListResourcesInProtectionGroupCommandInput,
+  ListResourcesInProtectionGroupCommandOutput,
+} from "./commands/ListResourcesInProtectionGroupCommand";
+import {
   UpdateEmergencyContactSettingsCommand,
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
+import {
+  UpdateProtectionGroupCommand,
+  UpdateProtectionGroupCommandInput,
+  UpdateProtectionGroupCommandOutput,
+} from "./commands/UpdateProtectionGroupCommand";
 import {
   UpdateSubscriptionCommand,
   UpdateSubscriptionCommandInput,
@@ -295,6 +330,38 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * <p>Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+   */
+  public createProtectionGroup(
+    args: CreateProtectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProtectionGroupCommandOutput>;
+  public createProtectionGroup(
+    args: CreateProtectionGroupCommandInput,
+    cb: (err: any, data?: CreateProtectionGroupCommandOutput) => void
+  ): void;
+  public createProtectionGroup(
+    args: CreateProtectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProtectionGroupCommandOutput) => void
+  ): void;
+  public createProtectionGroup(
+    args: CreateProtectionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProtectionGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateProtectionGroupCommandOutput) => void
+  ): Promise<CreateProtectionGroupCommandOutput> | void {
+    const command = new CreateProtectionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Activates AWS Shield Advanced for an account.</p>
    *
    *          <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>
@@ -361,6 +428,38 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * <p>Removes the specified protection group.</p>
+   */
+  public deleteProtectionGroup(
+    args: DeleteProtectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProtectionGroupCommandOutput>;
+  public deleteProtectionGroup(
+    args: DeleteProtectionGroupCommandInput,
+    cb: (err: any, data?: DeleteProtectionGroupCommandOutput) => void
+  ): void;
+  public deleteProtectionGroup(
+    args: DeleteProtectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProtectionGroupCommandOutput) => void
+  ): void;
+  public deleteProtectionGroup(
+    args: DeleteProtectionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProtectionGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProtectionGroupCommandOutput) => void
+  ): Promise<DeleteProtectionGroupCommandOutput> | void {
+    const command = new DeleteProtectionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
    */
   public deleteSubscription(
@@ -414,6 +513,40 @@ export class Shield extends ShieldClient {
     cb?: (err: any, data?: DescribeAttackCommandOutput) => void
   ): Promise<DescribeAttackCommandOutput> | void {
     const command = new DescribeAttackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides information about the number and type of attacks AWS Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p>
+   *          <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p>
+   *          <p>The time range indicates the period covered by the attack statistics data items.</p>
+   */
+  public describeAttackStatistics(
+    args: DescribeAttackStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAttackStatisticsCommandOutput>;
+  public describeAttackStatistics(
+    args: DescribeAttackStatisticsCommandInput,
+    cb: (err: any, data?: DescribeAttackStatisticsCommandOutput) => void
+  ): void;
+  public describeAttackStatistics(
+    args: DescribeAttackStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAttackStatisticsCommandOutput) => void
+  ): void;
+  public describeAttackStatistics(
+    args: DescribeAttackStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAttackStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAttackStatisticsCommandOutput) => void
+  ): Promise<DescribeAttackStatisticsCommandOutput> | void {
+    const command = new DescribeAttackStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -510,6 +643,38 @@ export class Shield extends ShieldClient {
     cb?: (err: any, data?: DescribeProtectionCommandOutput) => void
   ): Promise<DescribeProtectionCommandOutput> | void {
     const command = new DescribeProtectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the specification for the specified protection group.</p>
+   */
+  public describeProtectionGroup(
+    args: DescribeProtectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProtectionGroupCommandOutput>;
+  public describeProtectionGroup(
+    args: DescribeProtectionGroupCommandInput,
+    cb: (err: any, data?: DescribeProtectionGroupCommandOutput) => void
+  ): void;
+  public describeProtectionGroup(
+    args: DescribeProtectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProtectionGroupCommandOutput) => void
+  ): void;
+  public describeProtectionGroup(
+    args: DescribeProtectionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProtectionGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeProtectionGroupCommandOutput) => void
+  ): Promise<DescribeProtectionGroupCommandOutput> | void {
+    const command = new DescribeProtectionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -775,6 +940,38 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * <p>Retrieves the <a>ProtectionGroup</a> objects for the account.</p>
+   */
+  public listProtectionGroups(
+    args: ListProtectionGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProtectionGroupsCommandOutput>;
+  public listProtectionGroups(
+    args: ListProtectionGroupsCommandInput,
+    cb: (err: any, data?: ListProtectionGroupsCommandOutput) => void
+  ): void;
+  public listProtectionGroups(
+    args: ListProtectionGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProtectionGroupsCommandOutput) => void
+  ): void;
+  public listProtectionGroups(
+    args: ListProtectionGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtectionGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListProtectionGroupsCommandOutput) => void
+  ): Promise<ListProtectionGroupsCommandOutput> | void {
+    const command = new ListProtectionGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all <a>Protection</a> objects for the account.</p>
    */
   public listProtections(
@@ -807,6 +1004,38 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * <p>Retrieves the resources that are included in the protection group. </p>
+   */
+  public listResourcesInProtectionGroup(
+    args: ListResourcesInProtectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesInProtectionGroupCommandOutput>;
+  public listResourcesInProtectionGroup(
+    args: ListResourcesInProtectionGroupCommandInput,
+    cb: (err: any, data?: ListResourcesInProtectionGroupCommandOutput) => void
+  ): void;
+  public listResourcesInProtectionGroup(
+    args: ListResourcesInProtectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcesInProtectionGroupCommandOutput) => void
+  ): void;
+  public listResourcesInProtectionGroup(
+    args: ListResourcesInProtectionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesInProtectionGroupCommandOutput) => void),
+    cb?: (err: any, data?: ListResourcesInProtectionGroupCommandOutput) => void
+  ): Promise<ListResourcesInProtectionGroupCommandOutput> | void {
+    const command = new ListResourcesInProtectionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
    */
   public updateEmergencyContactSettings(
@@ -828,6 +1057,38 @@ export class Shield extends ShieldClient {
     cb?: (err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> | void {
     const command = new UpdateEmergencyContactSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+   */
+  public updateProtectionGroup(
+    args: UpdateProtectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProtectionGroupCommandOutput>;
+  public updateProtectionGroup(
+    args: UpdateProtectionGroupCommandInput,
+    cb: (err: any, data?: UpdateProtectionGroupCommandOutput) => void
+  ): void;
+  public updateProtectionGroup(
+    args: UpdateProtectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProtectionGroupCommandOutput) => void
+  ): void;
+  public updateProtectionGroup(
+    args: UpdateProtectionGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProtectionGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProtectionGroupCommandOutput) => void
+  ): Promise<UpdateProtectionGroupCommandOutput> | void {
+    const command = new UpdateProtectionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

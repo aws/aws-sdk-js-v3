@@ -5355,6 +5355,9 @@ const serializeAws_querySetSubnetsInput = (input: SetSubnetsInput, context: __Se
       entries[loc] = value;
     });
   }
+  if (input.IpAddressType !== undefined) {
+    entries["IpAddressType"] = input.IpAddressType;
+  }
   return entries;
 };
 
@@ -5390,6 +5393,9 @@ const serializeAws_querySubnetMapping = (input: SubnetMapping, context: __SerdeC
   }
   if (input.PrivateIPv4Address !== undefined) {
     entries["PrivateIPv4Address"] = input.PrivateIPv4Address;
+  }
+  if (input.IPv6Address !== undefined) {
+    entries["IPv6Address"] = input.IPv6Address;
   }
   return entries;
 };
@@ -6622,6 +6628,7 @@ const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeCo
     IpAddress: undefined,
     AllocationId: undefined,
     PrivateIPv4Address: undefined,
+    IPv6Address: undefined,
   };
   if (output["IpAddress"] !== undefined) {
     contents.IpAddress = output["IpAddress"];
@@ -6631,6 +6638,9 @@ const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeCo
   }
   if (output["PrivateIPv4Address"] !== undefined) {
     contents.PrivateIPv4Address = output["PrivateIPv4Address"];
+  }
+  if (output["IPv6Address"] !== undefined) {
+    contents.IPv6Address = output["IPv6Address"];
   }
   return contents;
 };
@@ -7066,6 +7076,7 @@ const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __Ser
 const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
   let contents: any = {
     AvailabilityZones: undefined,
+    IpAddressType: undefined,
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -7075,6 +7086,9 @@ const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
+  }
+  if (output["IpAddressType"] !== undefined) {
+    contents.IpAddressType = output["IpAddressType"];
   }
   return contents;
 };

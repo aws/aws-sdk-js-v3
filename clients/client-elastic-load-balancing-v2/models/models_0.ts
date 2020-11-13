@@ -655,6 +655,11 @@ export interface LoadBalancerAddress {
    * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
    */
   PrivateIPv4Address?: string;
+
+  /**
+   * <p>[Network Load Balancers] The IPv6 address.</p>
+   */
+  IPv6Address?: string;
 }
 
 export namespace LoadBalancerAddress {
@@ -742,10 +747,11 @@ export interface CreateListenerInput {
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The protocol for connections from clients to the load balancer. For Application Load
-   *       Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the
-   *       supported protocols are TCP, TLS, UDP, and TCP_UDP. You cannot specify a protocol for a
-   *       Gateway Load Balancer.</p>
+   * <p>The protocol for connections from clients to the load balancer.
+   *       For Application Load Balancers, the supported protocols are HTTP and HTTPS.
+   *       For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP.
+   *       You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled.
+   *       You cannot specify a protocol for a Gateway Load Balancer.</p>
    */
   Protocol?: ProtocolEnum | string;
 
@@ -1096,6 +1102,11 @@ export interface SubnetMapping {
    * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
    */
   PrivateIPv4Address?: string;
+
+  /**
+   * <p>[Network Load Balancers] The IPv6 address.</p>
+   */
+  IPv6Address?: string;
 }
 
 export namespace SubnetMapping {
@@ -1142,10 +1153,11 @@ export interface CreateLoadBalancerInput {
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.
-   *       You can specify one Elastic IP address per subnet if you need static IP addresses for
-   *       your internet-facing load balancer. For internal load balancers, you can specify one
-   *       private IP address per subnet from the IPv4 range of the subnet.</p>
+   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You
+   *       can specify one Elastic IP address per subnet if you need static IP addresses for your
+   *       internet-facing load balancer. For internal load balancers, you can specify one private IP
+   *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
+   *       can specify one IPv6 address per subnet.</p>
    *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
    *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
    */
@@ -1181,10 +1193,10 @@ export interface CreateLoadBalancerInput {
   Type?: LoadBalancerTypeEnum | string;
 
   /**
-   * <p>[Application Load Balancers] The type of IP addresses used by the subnets for your load
-   *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use
-   *         <code>ipv4</code>.</p>
+   * <p>The type of IP addresses used by the subnets for your load balancer.
+   *       The possible values are <code>ipv4</code> (for IPv4 addresses) and
+   *       <code>dualstack</code> (for IPv4 and IPv6 addresses).
+   *       Internal load balancers must use <code>ipv4</code>.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -2659,6 +2671,12 @@ export interface LoadBalancerAttribute {
    *           <code>true</code> or <code>false</code>. The default is <code>true</code>. Elastic Load Balancing
    *           requires that message header names contain only alphanumeric characters and hyphens.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load balancer
+   *           to route requests to targets if it is unable to forward the request to AWS WAF. The value is
+   *           <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
    *          </ul>
    *
    *          <p>The following attribute is supported by Network Load Balancers and Gateway Load Balancers:</p>
@@ -2995,8 +3013,14 @@ export interface TargetGroupAttribute {
    *             </li>
    *          </ul>
    *
-   *          <p>The following attribute is supported only by Network Load Balancers:</p>
+   *          <p>The following attributes are supported only by Network Load Balancers:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether
+   *           the load balancer terminates connections at the end of the deregistration timeout. The value is
+   *           <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is enabled.
@@ -3310,6 +3334,7 @@ export interface ModifyListenerInput {
    * <p>The protocol for connections from clients to the load balancer.
    *       Application Load Balancers support the HTTP and HTTPS protocols.
    *       Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols.
+   *       You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is enabled.
    *       You cannot specify a protocol for a Gateway Load Balancer.</p>
    */
   Protocol?: ProtocolEnum | string;
@@ -3658,9 +3683,10 @@ export interface SetIpAddressTypeInput {
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use
-   *         <code>ipv4</code>. </p>
+   * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses)
+   *       and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must
+   *       use <code>ipv4</code>. You can’t specify <code>dualstack</code> for a load balancer with
+   *       a UDP or TCP_UDP listener.</p>
    */
   IpAddressType: IpAddressType | string | undefined;
 }
@@ -3769,23 +3795,42 @@ export interface SetSubnetsInput {
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IDs of the public subnets. You must specify subnets from at least two Availability Zones.
-   *       You can specify only one subnet per Availability Zone. You must specify either subnets or
-   *       subnet mappings.</p>
+   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
+   *       You must specify either subnets or subnet mappings.</p>
+   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
+   *       Zones.</p>
+   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
+   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
+   *       Zones.</p>
+   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
+   *       Zones.</p>
    */
   Subnets?: string[];
 
   /**
-   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must
-   *       specify either subnets or subnet mappings.</p>
-   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability Zones.
-   *       You cannot specify Elastic IP addresses for your subnets.</p>
-   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. If you
-   *       need static IP addresses for your internet-facing load balancer, you can specify one Elastic IP
-   *       address per subnet. For internal load balancers, you can specify one private IP address per
-   *       subnet from the IPv4 range of the subnet.</p>
+   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
+   *       You must specify either subnets or subnet mappings.</p>
+   *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
+   *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
+   *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
+   *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
+   *       Zones.</p>
+   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You
+   *       can specify one Elastic IP address per subnet if you need static IP addresses for your
+   *       internet-facing load balancer. For internal load balancers, you can specify one private IP
+   *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
+   *       can specify one IPv6 address per subnet.</p>
    */
   SubnetMappings?: SubnetMapping[];
+
+  /**
+   * <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load balancer.
+   *       The possible values are <code>ipv4</code> (for IPv4 addresses) and
+   *       <code>dualstack</code> (for IPv4 and IPv6 addresses).
+   *       You can’t specify <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.
+   *       Internal load balancers must use <code>ipv4</code>.</p>
+   */
+  IpAddressType?: IpAddressType | string;
 }
 
 export namespace SetSubnetsInput {
@@ -3799,6 +3844,11 @@ export interface SetSubnetsOutput {
    * <p>Information about the subnets.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
+
+  /**
+   * <p>[Network Load Balancers] The IP address type.</p>
+   */
+  IpAddressType?: IpAddressType | string;
 }
 
 export namespace SetSubnetsOutput {
