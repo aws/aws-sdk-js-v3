@@ -87,7 +87,7 @@ We’ve made several public API changes to improve consistency, make the SDK eas
 In version 2.x of the SDK, service configuration could be passed to individual client constructors.
 However, these configurations would first be merged automatically into a copy of the global SDK configuration: `AWS.config`.
 
-Also, calling `AWS.config.update({/* params *})` only updated configuration for service clients instantiated after the update call was made, not any existing clients.
+Also, calling `AWS.config.update({/* params */})` only updated configuration for service clients instantiated after the update call was made, not any existing clients.
 
 This behavior was a frequent source of confusion, and made it difficult to add configuration to the global object that only affects a subset of service clients in a forward-compatible way.
 In v3 rc, there is no longer a global configuration managed by the SDK.
