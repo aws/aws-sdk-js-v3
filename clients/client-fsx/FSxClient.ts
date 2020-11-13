@@ -1,4 +1,8 @@
 import {
+  AssociateFileSystemAliasesCommandInput,
+  AssociateFileSystemAliasesCommandOutput,
+} from "./commands/AssociateFileSystemAliasesCommand";
+import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
@@ -20,9 +24,17 @@ import {
   DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand";
 import {
+  DescribeFileSystemAliasesCommandInput,
+  DescribeFileSystemAliasesCommandOutput,
+} from "./commands/DescribeFileSystemAliasesCommand";
+import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import {
+  DisassociateFileSystemAliasesCommandInput,
+  DisassociateFileSystemAliasesCommandOutput,
+} from "./commands/DisassociateFileSystemAliasesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -80,6 +92,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AssociateFileSystemAliasesCommandInput
   | CancelDataRepositoryTaskCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryTaskCommandInput
@@ -89,13 +102,16 @@ export type ServiceInputTypes =
   | DeleteFileSystemCommandInput
   | DescribeBackupsCommandInput
   | DescribeDataRepositoryTasksCommandInput
+  | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DisassociateFileSystemAliasesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateFileSystemCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateFileSystemAliasesCommandOutput
   | CancelDataRepositoryTaskCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryTaskCommandOutput
@@ -105,7 +121,9 @@ export type ServiceOutputTypes =
   | DeleteFileSystemCommandOutput
   | DescribeBackupsCommandOutput
   | DescribeDataRepositoryTasksCommandOutput
+  | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DisassociateFileSystemAliasesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

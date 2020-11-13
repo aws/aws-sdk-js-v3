@@ -1290,7 +1290,7 @@ export type ContributorInsightsAction = "DISABLE" | "ENABLE";
 export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "FAILED";
 
 /**
- * <p>Represents a Contributor Insights summary entry..</p>
+ * <p>Represents a Contributor Insights summary entry.</p>
  */
 export interface ContributorInsightsSummary {
   /**
@@ -3168,6 +3168,182 @@ export namespace DescribeEndpointsResponse {
   });
 }
 
+export interface DescribeExportInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the export.</p>
+   */
+  ExportArn: string | undefined;
+}
+
+export namespace DescribeExportInput {
+  export const filterSensitiveLog = (obj: DescribeExportInput): any => ({
+    ...obj,
+  });
+}
+
+export enum ExportFormat {
+  DYNAMODB_JSON = "DYNAMODB_JSON",
+  ION = "ION",
+}
+
+export enum ExportStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+export type S3SseAlgorithm = "AES256" | "KMS";
+
+/**
+ * <p>Represents the properties of the exported table.</p>
+ */
+export interface ExportDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table export.</p>
+   */
+  ExportArn?: string;
+
+  /**
+   * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+   */
+  ExportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The time at which the export task began.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time at which the export task completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The name of the manifest file for the export task.</p>
+   */
+  ExportManifest?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>Unique ID of the table that was exported.</p>
+   */
+  TableId?: string;
+
+  /**
+   * <p>Point in time from which table data was exported.</p>
+   */
+  ExportTime?: Date;
+
+  /**
+   * <p>The client token that was provided for the export task. A client token makes calls to
+   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
+   *             identical calls have the same effect as one single call.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket containing the export.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the bucket containing the export.</p>
+   */
+  S3BucketOwner?: string;
+
+  /**
+   * <p>The Amazon S3 bucket prefix used as the file name and path of the exported
+   *             snapshot.</p>
+   */
+  S3Prefix?: string;
+
+  /**
+   * <p>Type of encryption used on the bucket where export data is stored. Valid values
+   *             for <code>S3SseAlgorithm</code> are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>KMS</code> - server-side encryption with AWS KMS managed keys</p>
+   *             </li>
+   *          </ul>
+   */
+  S3SseAlgorithm?: S3SseAlgorithm | string;
+
+  /**
+   * <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is
+   *             stored (if applicable).</p>
+   */
+  S3SseKmsKeyId?: string;
+
+  /**
+   * <p>Status code for the result of the failed export.</p>
+   */
+  FailureCode?: string;
+
+  /**
+   * <p>Export failure reason description.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
+   *             <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   */
+  ExportFormat?: ExportFormat | string;
+
+  /**
+   * <p>The billable size of the table export.</p>
+   */
+  BilledSizeBytes?: number;
+
+  /**
+   * <p>The number of items exported.</p>
+   */
+  ItemCount?: number;
+}
+
+export namespace ExportDescription {
+  export const filterSensitiveLog = (obj: ExportDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExportOutput {
+  /**
+   * <p>Represents the properties of the export.</p>
+   */
+  ExportDescription?: ExportDescription;
+}
+
+export namespace DescribeExportOutput {
+  export const filterSensitiveLog = (obj: DescribeExportOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified export was not found.</p>
+ */
+export interface ExportNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ExportNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ExportNotFoundException {
+  export const filterSensitiveLog = (obj: ExportNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeGlobalTableInput {
   /**
    * <p>The name of the global table.</p>
@@ -3658,6 +3834,142 @@ export namespace DescribeTimeToLiveOutput {
   });
 }
 
+/**
+ * <p>There was a conflict when writing to the specified S3 bucket.</p>
+ */
+export interface ExportConflictException extends __SmithyException, $MetadataBearer {
+  name: "ExportConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ExportConflictException {
+  export const filterSensitiveLog = (obj: ExportConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportTableToPointInTimeInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
+   */
+  TableArn: string | undefined;
+
+  /**
+   * <p>Time in the past from which to export table data. The table export will be a snapshot
+   *             of the table's state at this point in time.</p>
+   */
+  ExportTime?: Date;
+
+  /**
+   * <p>Providing a <code>ClientToken</code> makes the call to
+   *                 <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
+   *             identical calls have the same effect as one single call.</p>
+   *         <p>A client token is valid for 8 hours after the first request that uses it is
+   *             completed. After 8 hours, any request with the same client token is treated as a new
+   *             request. Do not resubmit the same request with the same client token for more than 8
+   *             hours, or the result might not be idempotent.</p>
+   *         <p>If you submit a request with the same client token but a change in other parameters
+   *             within the 8-hour idempotency window, DynamoDB returns an
+   *             <code>IdempotentParameterMismatch</code> exception.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that owns the bucket the export will be stored in.</p>
+   */
+  S3BucketOwner?: string;
+
+  /**
+   * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported
+   *             snapshot.</p>
+   */
+  S3Prefix?: string;
+
+  /**
+   * <p>Type of encryption used on the bucket where export data will be stored. Valid values
+   *             for <code>S3SseAlgorithm</code> are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>KMS</code> - server-side encryption with AWS KMS managed keys</p>
+   *             </li>
+   *          </ul>
+   */
+  S3SseAlgorithm?: S3SseAlgorithm | string;
+
+  /**
+   * <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will
+   *             be stored (if applicable).</p>
+   */
+  S3SseKmsKeyId?: string;
+
+  /**
+   * <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
+   *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+   */
+  ExportFormat?: ExportFormat | string;
+}
+
+export namespace ExportTableToPointInTimeInput {
+  export const filterSensitiveLog = (obj: ExportTableToPointInTimeInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportTableToPointInTimeOutput {
+  /**
+   * <p>Contains a description of the table export.</p>
+   */
+  ExportDescription?: ExportDescription;
+}
+
+export namespace ExportTableToPointInTimeOutput {
+  export const filterSensitiveLog = (obj: ExportTableToPointInTimeOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
+ *             window.</p>
+ */
+export interface InvalidExportTimeException extends __SmithyException, $MetadataBearer {
+  name: "InvalidExportTimeException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidExportTimeException {
+  export const filterSensitiveLog = (obj: InvalidExportTimeException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Point in time recovery has not yet been enabled for this source table.</p>
+ */
+export interface PointInTimeRecoveryUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "PointInTimeRecoveryUnavailableException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PointInTimeRecoveryUnavailableException {
+  export const filterSensitiveLog = (obj: PointInTimeRecoveryUnavailableException): any => ({
+    ...obj,
+  });
+}
+
 export interface ListBackupsInput {
   /**
    * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
@@ -3782,6 +4094,72 @@ export interface ListContributorInsightsOutput {
 
 export namespace ListContributorInsightsOutput {
   export const filterSensitiveLog = (obj: ListContributorInsightsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExportsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
+   */
+  TableArn?: string;
+
+  /**
+   * <p>Maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional string that, if supplied, must be copied from the output of a previous
+   *             call to <code>ListExports</code>. When provided in this manner, the API fetches the next
+   *             page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExportsInput {
+  export const filterSensitiveLog = (obj: ListExportsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information about an export task.</p>
+ */
+export interface ExportSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the export.</p>
+   */
+  ExportArn?: string;
+
+  /**
+   * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+   */
+  ExportStatus?: ExportStatus | string;
+}
+
+export namespace ExportSummary {
+  export const filterSensitiveLog = (obj: ExportSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExportsOutput {
+  /**
+   * <p>A list of <code>ExportSummary</code> objects.</p>
+   */
+  ExportSummaries?: ExportSummary[];
+
+  /**
+   * <p>If this value is returned, there are additional results to be displayed. To retrieve
+   *             them, call <code>ListExports</code> again, with <code>NextToken</code> set to this
+   *             value.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExportsOutput {
+  export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
     ...obj,
   });
 }
@@ -4027,21 +4405,6 @@ export interface InvalidRestoreTimeException extends __SmithyException, $Metadat
 
 export namespace InvalidRestoreTimeException {
   export const filterSensitiveLog = (obj: InvalidRestoreTimeException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Point in time recovery has not yet been enabled for this source table.</p>
- */
-export interface PointInTimeRecoveryUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "PointInTimeRecoveryUnavailableException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PointInTimeRecoveryUnavailableException {
-  export const filterSensitiveLog = (obj: PointInTimeRecoveryUnavailableException): any => ({
     ...obj,
   });
 }

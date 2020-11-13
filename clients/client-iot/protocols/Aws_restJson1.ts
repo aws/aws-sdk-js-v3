@@ -28230,6 +28230,7 @@ const serializeAws_restJson1FindingIds = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1FirehoseAction = (input: FirehoseAction, context: __SerdeContext): any => {
   return {
+    ...(input.batchMode !== undefined && { batchMode: input.batchMode }),
     ...(input.deliveryStreamName !== undefined && { deliveryStreamName: input.deliveryStreamName }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.separator !== undefined && { separator: input.separator }),
@@ -28290,6 +28291,7 @@ const serializeAws_restJson1HttpUrlDestinationConfiguration = (
 
 const serializeAws_restJson1IotAnalyticsAction = (input: IotAnalyticsAction, context: __SerdeContext): any => {
   return {
+    ...(input.batchMode !== undefined && { batchMode: input.batchMode }),
     ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
     ...(input.channelName !== undefined && { channelName: input.channelName }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
@@ -28298,6 +28300,7 @@ const serializeAws_restJson1IotAnalyticsAction = (input: IotAnalyticsAction, con
 
 const serializeAws_restJson1IotEventsAction = (input: IotEventsAction, context: __SerdeContext): any => {
   return {
+    ...(input.batchMode !== undefined && { batchMode: input.batchMode }),
     ...(input.inputName !== undefined && { inputName: input.inputName }),
     ...(input.messageId !== undefined && { messageId: input.messageId }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
@@ -30088,6 +30091,7 @@ const deserializeAws_restJson1FindingIds = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
   return {
+    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
     deliveryStreamName:
       output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
@@ -30175,6 +30179,7 @@ const deserializeAws_restJson1IndexNamesList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1IotAnalyticsAction = (output: any, context: __SerdeContext): IotAnalyticsAction => {
   return {
+    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     channelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -30183,6 +30188,7 @@ const deserializeAws_restJson1IotAnalyticsAction = (output: any, context: __Serd
 
 const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeContext): IotEventsAction => {
   return {
+    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
     inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,

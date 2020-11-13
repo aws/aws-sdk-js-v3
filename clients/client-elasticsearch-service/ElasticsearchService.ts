@@ -111,6 +111,11 @@ import {
   GetCompatibleElasticsearchVersionsCommandOutput,
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
 import {
+  GetPackageVersionHistoryCommand,
+  GetPackageVersionHistoryCommandInput,
+  GetPackageVersionHistoryCommandOutput,
+} from "./commands/GetPackageVersionHistoryCommand";
+import {
   GetUpgradeHistoryCommand,
   GetUpgradeHistoryCommandInput,
   GetUpgradeHistoryCommandOutput,
@@ -167,6 +172,11 @@ import {
   UpdateElasticsearchDomainConfigCommandInput,
   UpdateElasticsearchDomainConfigCommandOutput,
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
+import {
+  UpdatePackageCommand,
+  UpdatePackageCommandInput,
+  UpdatePackageCommandOutput,
+} from "./commands/UpdatePackageCommand";
 import {
   UpgradeElasticsearchDomainCommand,
   UpgradeElasticsearchDomainCommandInput,
@@ -951,6 +961,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
+   * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
+   */
+  public getPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPackageVersionHistoryCommandOutput>;
+  public getPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
+  ): void;
+  public getPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
+  ): void;
+  public getPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPackageVersionHistoryCommandOutput) => void),
+    cb?: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
+  ): Promise<GetPackageVersionHistoryCommandOutput> | void {
+    const command = new GetPackageVersionHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
    */
   public getUpgradeHistory(
@@ -1350,6 +1392,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput> | void {
     const command = new UpdateElasticsearchDomainConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a package for use with Amazon ES domains.</p>
+   */
+  public updatePackage(
+    args: UpdatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageCommandOutput>;
+  public updatePackage(
+    args: UpdatePackageCommandInput,
+    cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
+  public updatePackage(
+    args: UpdatePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
+  public updatePackage(
+    args: UpdatePackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePackageCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): Promise<UpdatePackageCommandOutput> | void {
+    const command = new UpdatePackageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

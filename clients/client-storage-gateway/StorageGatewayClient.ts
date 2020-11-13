@@ -58,6 +58,10 @@ import {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand";
+import {
+  DescribeBandwidthRateLimitScheduleCommandInput,
+  DescribeBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/DescribeBandwidthRateLimitScheduleCommand";
 import { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "./commands/DescribeCacheCommand";
 import {
   DescribeCachediSCSIVolumesCommandInput,
@@ -176,6 +180,10 @@ import {
   UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand";
 import {
+  UpdateBandwidthRateLimitScheduleCommandInput,
+  UpdateBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/UpdateBandwidthRateLimitScheduleCommand";
+import {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
@@ -289,6 +297,7 @@ export type ServiceInputTypes =
   | DeleteVolumeCommandInput
   | DescribeAvailabilityMonitorTestCommandInput
   | DescribeBandwidthRateLimitCommandInput
+  | DescribeBandwidthRateLimitScheduleCommandInput
   | DescribeCacheCommandInput
   | DescribeCachediSCSIVolumesCommandInput
   | DescribeChapCredentialsCommandInput
@@ -331,6 +340,7 @@ export type ServiceInputTypes =
   | StartGatewayCommandInput
   | UpdateAutomaticTapeCreationPolicyCommandInput
   | UpdateBandwidthRateLimitCommandInput
+  | UpdateBandwidthRateLimitScheduleCommandInput
   | UpdateChapCredentialsCommandInput
   | UpdateGatewayInformationCommandInput
   | UpdateGatewaySoftwareNowCommandInput
@@ -373,6 +383,7 @@ export type ServiceOutputTypes =
   | DeleteVolumeCommandOutput
   | DescribeAvailabilityMonitorTestCommandOutput
   | DescribeBandwidthRateLimitCommandOutput
+  | DescribeBandwidthRateLimitScheduleCommandOutput
   | DescribeCacheCommandOutput
   | DescribeCachediSCSIVolumesCommandOutput
   | DescribeChapCredentialsCommandOutput
@@ -415,6 +426,7 @@ export type ServiceOutputTypes =
   | StartGatewayCommandOutput
   | UpdateAutomaticTapeCreationPolicyCommandOutput
   | UpdateBandwidthRateLimitCommandOutput
+  | UpdateBandwidthRateLimitScheduleCommandOutput
   | UpdateChapCredentialsCommandOutput
   | UpdateGatewayInformationCommandOutput
   | UpdateGatewaySoftwareNowCommandOutput

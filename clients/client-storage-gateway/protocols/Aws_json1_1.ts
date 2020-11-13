@@ -58,6 +58,10 @@ import {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput,
 } from "../commands/DescribeBandwidthRateLimitCommand";
+import {
+  DescribeBandwidthRateLimitScheduleCommandInput,
+  DescribeBandwidthRateLimitScheduleCommandOutput,
+} from "../commands/DescribeBandwidthRateLimitScheduleCommand";
 import { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "../commands/DescribeCacheCommand";
 import {
   DescribeCachediSCSIVolumesCommandInput,
@@ -176,6 +180,10 @@ import {
   UpdateBandwidthRateLimitCommandOutput,
 } from "../commands/UpdateBandwidthRateLimitCommand";
 import {
+  UpdateBandwidthRateLimitScheduleCommandInput,
+  UpdateBandwidthRateLimitScheduleCommandOutput,
+} from "../commands/UpdateBandwidthRateLimitScheduleCommand";
+import {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "../commands/UpdateChapCredentialsCommand";
@@ -226,6 +234,7 @@ import {
   AttachVolumeOutput,
   AutomaticTapeCreationPolicyInfo,
   AutomaticTapeCreationRule,
+  BandwidthRateLimitInterval,
   CacheAttributes,
   CachediSCSIVolume,
   CancelArchivalInput,
@@ -275,6 +284,8 @@ import {
   DescribeAvailabilityMonitorTestOutput,
   DescribeBandwidthRateLimitInput,
   DescribeBandwidthRateLimitOutput,
+  DescribeBandwidthRateLimitScheduleInput,
+  DescribeBandwidthRateLimitScheduleOutput,
   DescribeCacheInput,
   DescribeCacheOutput,
   DescribeCachediSCSIVolumesInput,
@@ -378,6 +389,8 @@ import {
   UpdateAutomaticTapeCreationPolicyOutput,
   UpdateBandwidthRateLimitInput,
   UpdateBandwidthRateLimitOutput,
+  UpdateBandwidthRateLimitScheduleInput,
+  UpdateBandwidthRateLimitScheduleOutput,
   UpdateChapCredentialsInput,
   UpdateChapCredentialsOutput,
   UpdateGatewayInformationInput,
@@ -800,6 +813,19 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = async (
+  input: DescribeBandwidthRateLimitScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1346,6 +1372,19 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async (
+  input: UpdateBandwidthRateLimitScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3343,6 +3382,69 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput(data, context);
+  const response: DescribeBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6031,6 +6133,69 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput(data, context);
+  const response: UpdateBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6787,6 +6952,32 @@ const serializeAws_json1_1AutomaticTapeCreationRules = (
   return input.map((entry) => serializeAws_json1_1AutomaticTapeCreationRule(entry, context));
 };
 
+const serializeAws_json1_1BandwidthRateLimitInterval = (
+  input: BandwidthRateLimitInterval,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined && {
+      AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
+    }),
+    ...(input.AverageUploadRateLimitInBitsPerSec !== undefined && {
+      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
+    }),
+    ...(input.DaysOfWeek !== undefined && { DaysOfWeek: serializeAws_json1_1DaysOfWeek(input.DaysOfWeek, context) }),
+    ...(input.EndHourOfDay !== undefined && { EndHourOfDay: input.EndHourOfDay }),
+    ...(input.EndMinuteOfHour !== undefined && { EndMinuteOfHour: input.EndMinuteOfHour }),
+    ...(input.StartHourOfDay !== undefined && { StartHourOfDay: input.StartHourOfDay }),
+    ...(input.StartMinuteOfHour !== undefined && { StartMinuteOfHour: input.StartMinuteOfHour }),
+  };
+};
+
+const serializeAws_json1_1BandwidthRateLimitIntervals = (
+  input: BandwidthRateLimitInterval[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1BandwidthRateLimitInterval(entry, context));
+};
+
 const serializeAws_json1_1CacheAttributes = (input: CacheAttributes, context: __SerdeContext): any => {
   return {
     ...(input.CacheStaleTimeoutInSeconds !== undefined && {
@@ -6969,6 +7160,10 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
   };
 };
 
+const serializeAws_json1_1DaysOfWeek = (input: number[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
   input: DeleteAutomaticTapeCreationPolicyInput,
   context: __SerdeContext
@@ -7062,6 +7257,15 @@ const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
 
 const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
   input: DescribeBandwidthRateLimitInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+  };
+};
+
+const serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput = (
+  input: DescribeBandwidthRateLimitScheduleInput,
   context: __SerdeContext
 ): any => {
   return {
@@ -7507,6 +7711,21 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   };
 };
 
+const serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput = (
+  input: UpdateBandwidthRateLimitScheduleInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BandwidthRateLimitIntervals !== undefined && {
+      BandwidthRateLimitIntervals: serializeAws_json1_1BandwidthRateLimitIntervals(
+        input.BandwidthRateLimitIntervals,
+        context
+      ),
+    }),
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+  };
+};
+
 const serializeAws_json1_1UpdateChapCredentialsInput = (
   input: UpdateChapCredentialsInput,
   context: __SerdeContext
@@ -7758,6 +7977,42 @@ const deserializeAws_json1_1AutomaticTapeCreationRules = (
   return (output || []).map((entry: any) => deserializeAws_json1_1AutomaticTapeCreationRule(entry, context));
 };
 
+const deserializeAws_json1_1BandwidthRateLimitInterval = (
+  output: any,
+  context: __SerdeContext
+): BandwidthRateLimitInterval => {
+  return {
+    AverageDownloadRateLimitInBitsPerSec:
+      output.AverageDownloadRateLimitInBitsPerSec !== undefined && output.AverageDownloadRateLimitInBitsPerSec !== null
+        ? output.AverageDownloadRateLimitInBitsPerSec
+        : undefined,
+    AverageUploadRateLimitInBitsPerSec:
+      output.AverageUploadRateLimitInBitsPerSec !== undefined && output.AverageUploadRateLimitInBitsPerSec !== null
+        ? output.AverageUploadRateLimitInBitsPerSec
+        : undefined,
+    DaysOfWeek:
+      output.DaysOfWeek !== undefined && output.DaysOfWeek !== null
+        ? deserializeAws_json1_1DaysOfWeek(output.DaysOfWeek, context)
+        : undefined,
+    EndHourOfDay: output.EndHourOfDay !== undefined && output.EndHourOfDay !== null ? output.EndHourOfDay : undefined,
+    EndMinuteOfHour:
+      output.EndMinuteOfHour !== undefined && output.EndMinuteOfHour !== null ? output.EndMinuteOfHour : undefined,
+    StartHourOfDay:
+      output.StartHourOfDay !== undefined && output.StartHourOfDay !== null ? output.StartHourOfDay : undefined,
+    StartMinuteOfHour:
+      output.StartMinuteOfHour !== undefined && output.StartMinuteOfHour !== null
+        ? output.StartMinuteOfHour
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BandwidthRateLimitIntervals = (
+  output: any,
+  context: __SerdeContext
+): BandwidthRateLimitInterval[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1BandwidthRateLimitInterval(entry, context));
+};
+
 const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
   return {
     CacheStaleTimeoutInSeconds:
@@ -7925,6 +8180,10 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
   output: any,
   context: __SerdeContext
@@ -8028,6 +8287,19 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
     AverageUploadRateLimitInBitsPerSec:
       output.AverageUploadRateLimitInBitsPerSec !== undefined && output.AverageUploadRateLimitInBitsPerSec !== null
         ? output.AverageUploadRateLimitInBitsPerSec
+        : undefined,
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeBandwidthRateLimitScheduleOutput => {
+  return {
+    BandwidthRateLimitIntervals:
+      output.BandwidthRateLimitIntervals !== undefined && output.BandwidthRateLimitIntervals !== null
+        ? deserializeAws_json1_1BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
         : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
@@ -9053,6 +9325,15 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateBandwidthRateLimitOutput => {
+  return {
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateBandwidthRateLimitScheduleOutput => {
   return {
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;

@@ -4225,7 +4225,7 @@ export interface ModifyVpcEndpointRequest {
   ResetPolicy?: boolean;
 
   /**
-   * <p>A policy to attach to the endpoint that controls access to the service. The policy must
+   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must
    *             be in valid JSON format.</p>
    */
   PolicyDocument?: string;
@@ -4241,7 +4241,7 @@ export interface ModifyVpcEndpointRequest {
   RemoveRouteTableIds?: string[];
 
   /**
-   * <p>(Interface endpoint) One or more subnet IDs in which to serve the endpoint.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
    */
   AddSubnetIds?: string[];
 
@@ -4344,12 +4344,12 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The private DNS name to assign to the endpoint service.</p>
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
    */
   PrivateDnsName?: string;
 
   /**
-   * <p>Removes the private DNS name of the endpoint service.</p>
+   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
    */
   RemovePrivateDnsName?: boolean;
 
@@ -4369,6 +4369,18 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
    *             configuration.</p>
    */
   RemoveNetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
+   *             configuration.</p>
+   */
+  AddGatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
+   *             configuration.</p>
+   */
+  RemoveGatewayLoadBalancerArns?: string[];
 }
 
 export namespace ModifyVpcEndpointServiceConfigurationRequest {
@@ -6045,6 +6057,11 @@ export interface ReplaceRouteRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
 
   /**
    * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>

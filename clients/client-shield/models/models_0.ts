@@ -84,12 +84,47 @@ export namespace InvalidOperationException {
 }
 
 /**
- * <p>Exception that indicates that the parameters passed to the API are invalid. </p>
+ * <p>Provides information about a particular parameter passed inside a request that resulted in an exception.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the parameter that failed validation.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The message describing why the parameter failed validation.</p>
+   */
+  message: string | undefined;
+}
+
+export namespace ValidationExceptionField {
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
+    ...obj,
+  });
+}
+
+export enum ValidationExceptionReason {
+  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
+  OTHER = "OTHER",
+}
+
+/**
+ * <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
  */
 export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
+  /**
+   * <p>Additional information about the exception.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>Fields that caused the exception.</p>
+   */
+  fields?: ValidationExceptionField[];
 }
 
 export namespace InvalidParameterException {
@@ -109,8 +144,8 @@ export interface LimitsExceededException extends __SmithyException, $MetadataBea
   name: "LimitsExceededException";
   $fault: "client";
   message?: string;
-  Limit?: number;
   Type?: string;
+  Limit?: number;
 }
 
 export namespace LimitsExceededException {
@@ -151,12 +186,16 @@ export namespace OptimisticLockException {
 }
 
 /**
- * <p>Exception indicating the specified resource does not exist.</p>
+ * <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
+  /**
+   * <p>Type of resource.</p>
+   */
+  resourceType?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -189,14 +228,14 @@ export namespace AssociateDRTRoleResponse {
 
 export interface AssociateHealthCheckRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
-   */
-  HealthCheckArn: string | undefined;
-
-  /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
    */
   ProtectionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
 }
 
 export namespace AssociateHealthCheckRequest {
@@ -218,14 +257,14 @@ export namespace AssociateHealthCheckResponse {
  */
 export interface EmergencyContact {
   /**
-   * <p>The phone number for the contact.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
    * <p>The email address for the contact.</p>
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>The phone number for the contact.</p>
+   */
+  PhoneNumber?: string;
 
   /**
    * <p>Additional notes regarding the contact. </p>
@@ -269,14 +308,9 @@ export namespace AssociateProactiveEngagementDetailsResponse {
  */
 export interface SummarizedCounter {
   /**
-   * <p>The unit of the counters.</p>
+   * <p>The counter name.</p>
    */
-  Unit?: string;
-
-  /**
-   * <p>The total of counter values for a specified time period.</p>
-   */
-  Sum?: number;
+  Name?: string;
 
   /**
    * <p>The maximum value of the counter for a specified time period.</p>
@@ -289,14 +323,19 @@ export interface SummarizedCounter {
   Average?: number;
 
   /**
+   * <p>The total of counter values for a specified time period.</p>
+   */
+  Sum?: number;
+
+  /**
    * <p>The number of counters for a specified time period.</p>
    */
   N?: number;
 
   /**
-   * <p>The counter name.</p>
+   * <p>The unit of the counters.</p>
    */
-  Name?: string;
+  Unit?: string;
 }
 
 export namespace SummarizedCounter {
@@ -354,11 +393,6 @@ export enum Unit {
  */
 export interface AttackProperty {
   /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
-   */
-  Unit?: Unit | string;
-
-  /**
    * <p>The type of distributed denial of service (DDoS) event that was observed.
    *             <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
    *          indicates layer 7 events.</p>
@@ -366,16 +400,21 @@ export interface AttackProperty {
   AttackLayer?: AttackLayer | string;
 
   /**
-   * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
-   */
-  TopContributors?: Contributor[];
-
-  /**
    * <p>Defines the DDoS attack property information that is provided. The
    *             <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>
    *          values are valid only for WordPress reflective pingback DDoS attacks.</p>
    */
   AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
+
+  /**
+   * <p>The array of contributor objects that includes the top five contributors to an attack. </p>
+   */
+  TopContributors?: Contributor[];
+
+  /**
+   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   */
+  Unit?: Unit | string;
 
   /**
    * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
@@ -441,14 +480,14 @@ export interface SubResourceSummary {
   Type?: SubResourceType | string;
 
   /**
-   * <p>The list of attack types and associated counters.</p>
-   */
-  AttackVectors?: SummarizedAttackVector[];
-
-  /**
    * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The list of attack types and associated counters.</p>
+   */
+  AttackVectors?: SummarizedAttackVector[];
 
   /**
    * <p>The counters that describe the details of the attack.</p>
@@ -467,15 +506,9 @@ export namespace SubResourceSummary {
  */
 export interface AttackDetail {
   /**
-   * <p>If applicable, additional detail about the resource being attacked, for example, IP
-   *          address or URL.</p>
+   * <p>The unique identifier (ID) of the attack.</p>
    */
-  SubResources?: SubResourceSummary[];
-
-  /**
-   * <p>The array of <a>AttackProperty</a> objects.</p>
-   */
-  AttackProperties?: AttackProperty[];
+  AttackId?: string;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
@@ -483,19 +516,19 @@ export interface AttackDetail {
   ResourceArn?: string;
 
   /**
+   * <p>If applicable, additional detail about the resource being attacked, for example, IP address or URL.</p>
+   */
+  SubResources?: SubResourceSummary[];
+
+  /**
+   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   EndTime?: Date;
-
-  /**
-   * <p>The unique identifier (ID) of the attack.</p>
-   */
-  AttackId?: string;
-
-  /**
-   * <p>List of mitigation actions taken for the attack.</p>
-   */
-  Mitigations?: Mitigation[];
 
   /**
    * <p>List of counters that describe the attack for the specified time period.</p>
@@ -503,13 +536,81 @@ export interface AttackDetail {
   AttackCounters?: SummarizedCounter[];
 
   /**
-   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>The array of <a>AttackProperty</a> objects.</p>
    */
-  StartTime?: Date;
+  AttackProperties?: AttackProperty[];
+
+  /**
+   * <p>List of mitigation actions taken for the attack.</p>
+   */
+  Mitigations?: Mitigation[];
 }
 
 export namespace AttackDetail {
   export const filterSensitiveLog = (obj: AttackDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Statistics objects for the various data types in <a>AttackVolume</a>. </p>
+ */
+export interface AttackVolumeStatistics {
+  /**
+   * <p>The maximum attack volume observed for the given unit.</p>
+   */
+  Max: number | undefined;
+}
+
+export namespace AttackVolumeStatistics {
+  export const filterSensitiveLog = (obj: AttackVolumeStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the volume of attacks during the time period, included in an <a>AttackStatisticsDataItem</a>. If the accompanying <code>AttackCount</code> in the statistics object is zero, this setting might be empty.</p>
+ */
+export interface AttackVolume {
+  /**
+   * <p>A statistics object that uses bits per second as the unit. This is included for network level attacks. </p>
+   */
+  BitsPerSecond?: AttackVolumeStatistics;
+
+  /**
+   * <p>A statistics object that uses packets per second as the unit. This is included for network level attacks. </p>
+   */
+  PacketsPerSecond?: AttackVolumeStatistics;
+
+  /**
+   * <p>A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.</p>
+   */
+  RequestsPerSecond?: AttackVolumeStatistics;
+}
+
+export namespace AttackVolume {
+  export const filterSensitiveLog = (obj: AttackVolume): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A single attack statistics data record. This is returned by <a>DescribeAttackStatistics</a> along with a time range indicating the time period that the attack statistics apply to.  </p>
+ */
+export interface AttackStatisticsDataItem {
+  /**
+   * <p>Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty.</p>
+   */
+  AttackVolume?: AttackVolume;
+
+  /**
+   * <p>The number of attacks detected during the time period. This is always present, but might be zero. </p>
+   */
+  AttackCount: number | undefined;
+}
+
+export namespace AttackStatisticsDataItem {
+  export const filterSensitiveLog = (obj: AttackStatisticsDataItem): any => ({
     ...obj,
   });
 }
@@ -596,16 +697,6 @@ export interface AttackSummary {
   AttackId?: string;
 
   /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The list of attacks for a specified time period.</p>
-   */
-  AttackVectors?: AttackVectorDescription[];
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    */
   ResourceArn?: string;
@@ -614,6 +705,16 @@ export interface AttackSummary {
    * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The list of attacks for a specified time period.</p>
+   */
+  AttackVectors?: AttackVectorDescription[];
 }
 
 export namespace AttackSummary {
@@ -628,6 +729,11 @@ export enum AutoRenew {
 }
 
 export interface CreateProtectionRequest {
+  /**
+   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
    *          <p>The ARN should be in one of the following formats:</p>
@@ -665,11 +771,6 @@ export interface CreateProtectionRequest {
    *          </ul>
    */
   ResourceArn: string | undefined;
-
-  /**
-   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreateProtectionRequest {
@@ -707,16 +808,94 @@ export namespace InvalidResourceException {
 }
 
 /**
- * <p>Exception indicating the specified resource already exists.</p>
+ * <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
  */
 export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
+  /**
+   * <p>The type of resource that already exists.</p>
+   */
+  resourceType?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+export enum ProtectionGroupAggregation {
+  MAX = "MAX",
+  MEAN = "MEAN",
+  SUM = "SUM",
+}
+
+export enum ProtectionGroupPattern {
+  ALL = "ALL",
+  ARBITRARY = "ARBITRARY",
+  BY_RESOURCE_TYPE = "BY_RESOURCE_TYPE",
+}
+
+export enum ProtectedResourceType {
+  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
+  CLASSIC_LOAD_BALANCER = "CLASSIC_LOAD_BALANCER",
+  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
+  ELASTIC_IP_ALLOCATION = "ELASTIC_IP_ALLOCATION",
+  GLOBAL_ACCELERATOR = "GLOBAL_ACCELERATOR",
+  ROUTE_53_HOSTED_ZONE = "ROUTE_53_HOSTED_ZONE",
+}
+
+export interface CreateProtectionGroupRequest {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+
+  /**
+   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *             </li>
+   *          </ul>
+   */
+  Aggregation: ProtectionGroupAggregation | string | undefined;
+
+  /**
+   * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p>
+   */
+  Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.
+   *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  ResourceType?: ProtectedResourceType | string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members?: string[];
+}
+
+export namespace CreateProtectionGroupRequest {
+  export const filterSensitiveLog = (obj: CreateProtectionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateProtectionGroupResponse {}
+
+export namespace CreateProtectionGroupResponse {
+  export const filterSensitiveLog = (obj: CreateProtectionGroupResponse): any => ({
     ...obj,
   });
 }
@@ -755,6 +934,27 @@ export interface DeleteProtectionResponse {}
 
 export namespace DeleteProtectionResponse {
   export const filterSensitiveLog = (obj: DeleteProtectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteProtectionGroupRequest {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+}
+
+export namespace DeleteProtectionGroupRequest {
+  export const filterSensitiveLog = (obj: DeleteProtectionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteProtectionGroupResponse {}
+
+export namespace DeleteProtectionGroupResponse {
+  export const filterSensitiveLog = (obj: DeleteProtectionGroupResponse): any => ({
     ...obj,
   });
 }
@@ -816,6 +1016,53 @@ export namespace DescribeAttackResponse {
   });
 }
 
+export interface DescribeAttackStatisticsRequest {}
+
+export namespace DescribeAttackStatisticsRequest {
+  export const filterSensitiveLog = (obj: DescribeAttackStatisticsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The time range. </p>
+ */
+export interface TimeRange {
+  /**
+   * <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  FromInclusive?: Date;
+
+  /**
+   * <p>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  ToExclusive?: Date;
+}
+
+export namespace TimeRange {
+  export const filterSensitiveLog = (obj: TimeRange): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAttackStatisticsResponse {
+  /**
+   * <p>The time range. </p>
+   */
+  TimeRange: TimeRange | undefined;
+
+  /**
+   * <p>The data that describes the attacks detected during the time period.</p>
+   */
+  DataItems: AttackStatisticsDataItem[] | undefined;
+}
+
+export namespace DescribeAttackStatisticsResponse {
+  export const filterSensitiveLog = (obj: DescribeAttackStatisticsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDRTAccessRequest {}
 
 export namespace DescribeDRTAccessRequest {
@@ -865,16 +1112,16 @@ export namespace DescribeEmergencyContactSettingsResponse {
 
 export interface DescribeProtectionRequest {
   /**
-   * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is
-   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
-   */
-  ResourceArn?: string;
-
-  /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object that is
    *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
    */
   ProtectionId?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is
+   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
+   */
+  ResourceArn?: string;
 }
 
 export namespace DescribeProtectionRequest {
@@ -888,9 +1135,14 @@ export namespace DescribeProtectionRequest {
  */
 export interface Protection {
   /**
-   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
+   * <p>The unique identifier (ID) of the protection.</p>
    */
-  HealthCheckIds?: string[];
+  Id?: string;
+
+  /**
+   * <p>The name of the protection. For example, <code>My CloudFront distributions</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
@@ -898,14 +1150,9 @@ export interface Protection {
   ResourceArn?: string;
 
   /**
-   * <p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>
+   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    */
-  Name?: string;
-
-  /**
-   * <p>The unique identifier (ID) of the protection.</p>
-   */
-  Id?: string;
+  HealthCheckIds?: string[];
 }
 
 export namespace Protection {
@@ -927,6 +1174,80 @@ export namespace DescribeProtectionResponse {
   });
 }
 
+export interface DescribeProtectionGroupRequest {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+}
+
+export namespace DescribeProtectionGroupRequest {
+  export const filterSensitiveLog = (obj: DescribeProtectionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+ */
+export interface ProtectionGroup {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+
+  /**
+   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *             </li>
+   *          </ul>
+   */
+  Aggregation: ProtectionGroupAggregation | string | undefined;
+
+  /**
+   * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
+   */
+  Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
+   *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  ResourceType?: ProtectedResourceType | string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members: string[] | undefined;
+}
+
+export namespace ProtectionGroup {
+  export const filterSensitiveLog = (obj: ProtectionGroup): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProtectionGroupResponse {
+  /**
+   * <p>A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+   */
+  ProtectionGroup: ProtectionGroup | undefined;
+}
+
+export namespace DescribeProtectionGroupResponse {
+  export const filterSensitiveLog = (obj: DescribeProtectionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSubscriptionRequest {}
 
 export namespace DescribeSubscriptionRequest {
@@ -940,14 +1261,14 @@ export namespace DescribeSubscriptionRequest {
  */
 export interface Limit {
   /**
-   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
-   */
-  Max?: number;
-
-  /**
    * <p>The type of protection.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
+   */
+  Max?: number;
 }
 
 export namespace Limit {
@@ -963,6 +1284,96 @@ export enum ProactiveEngagementStatus {
 }
 
 /**
+ * <p>Limits settings on protection groups with arbitrary pattern type. </p>
+ */
+export interface ProtectionGroupArbitraryPatternLimits {
+  /**
+   * <p>The maximum number of resources you can specify for a single arbitrary pattern in a protection group.</p>
+   */
+  MaxMembers: number | undefined;
+}
+
+export namespace ProtectionGroupArbitraryPatternLimits {
+  export const filterSensitiveLog = (obj: ProtectionGroupArbitraryPatternLimits): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Limits settings by pattern type in the protection groups for your subscription. </p>
+ */
+export interface ProtectionGroupPatternTypeLimits {
+  /**
+   * <p>Limits settings on protection groups with arbitrary pattern type. </p>
+   */
+  ArbitraryPatternLimits: ProtectionGroupArbitraryPatternLimits | undefined;
+}
+
+export namespace ProtectionGroupPatternTypeLimits {
+  export const filterSensitiveLog = (obj: ProtectionGroupPatternTypeLimits): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Limits settings on protection groups for your subscription. </p>
+ */
+export interface ProtectionGroupLimits {
+  /**
+   * <p>The maximum number of protection groups that you can have at one time. </p>
+   */
+  MaxProtectionGroups: number | undefined;
+
+  /**
+   * <p>Limits settings by pattern type in the protection groups for your subscription. </p>
+   */
+  PatternTypeLimits: ProtectionGroupPatternTypeLimits | undefined;
+}
+
+export namespace ProtectionGroupLimits {
+  export const filterSensitiveLog = (obj: ProtectionGroupLimits): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Limits settings on protections for your subscription. </p>
+ */
+export interface ProtectionLimits {
+  /**
+   * <p>The maximum number of resource types that you can specify in a protection.</p>
+   */
+  ProtectedResourceTypeLimits: Limit[] | undefined;
+}
+
+export namespace ProtectionLimits {
+  export const filterSensitiveLog = (obj: ProtectionLimits): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Limits settings for your subscription. </p>
+ */
+export interface SubscriptionLimits {
+  /**
+   * <p>Limits settings on protections for your subscription. </p>
+   */
+  ProtectionLimits: ProtectionLimits | undefined;
+
+  /**
+   * <p>Limits settings on protection groups for your subscription. </p>
+   */
+  ProtectionGroupLimits: ProtectionGroupLimits | undefined;
+}
+
+export namespace SubscriptionLimits {
+  export const filterSensitiveLog = (obj: SubscriptionLimits): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the AWS Shield Advanced subscription for an account.</p>
  */
 export interface Subscription {
@@ -970,24 +1381,6 @@ export interface Subscription {
    * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
-   *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
-   */
-  AutoRenew?: AutoRenew | string;
-
-  /**
-   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
-   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
-   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
-   */
-  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
-
-  /**
-   * <p>Specifies how many protections of a given type you can create.</p>
-   */
-  Limits?: Limit[];
 
   /**
    * <p>The date and time your subscription will end.</p>
@@ -998,6 +1391,29 @@ export interface Subscription {
    * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
    */
   TimeCommitmentInSeconds?: number;
+
+  /**
+   * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
+   *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
+   */
+  AutoRenew?: AutoRenew | string;
+
+  /**
+   * <p>Specifies how many protections of a given type you can create.</p>
+   */
+  Limits?: Limit[];
+
+  /**
+   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
+   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
+   */
+  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
+
+  /**
+   * <p>Limits settings for your subscription. </p>
+   */
+  SubscriptionLimits: SubscriptionLimits | undefined;
 }
 
 export namespace Subscription {
@@ -1074,14 +1490,14 @@ export namespace DisassociateDRTRoleResponse {
 
 export interface DisassociateHealthCheckRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
-   */
-  HealthCheckArn: string | undefined;
-
-  /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
    */
   ProtectionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
 }
 
 export namespace DisassociateHealthCheckRequest {
@@ -1140,33 +1556,7 @@ export namespace GetSubscriptionStateResponse {
   });
 }
 
-/**
- * <p>The time range.</p>
- */
-export interface TimeRange {
-  /**
-   * <p>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  ToExclusive?: Date;
-
-  /**
-   * <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  FromInclusive?: Date;
-}
-
-export namespace TimeRange {
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttacksRequest {
-  /**
-   * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left
    *          blank, all applicable resources for this account will be included.</p>
@@ -1174,20 +1564,26 @@ export interface ListAttacksRequest {
   ResourceArns?: string[];
 
   /**
+   * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   */
+  StartTime?: TimeRange;
+
+  /**
    * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
    */
   EndTime?: TimeRange;
 
   /**
-   * <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>
-   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
    */
-  MaxResults?: number;
+  NextToken?: string;
 
   /**
-   * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   * <p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
    */
-  StartTime?: TimeRange;
+  MaxResults?: number;
 }
 
 export namespace ListAttacksRequest {
@@ -1207,7 +1603,7 @@ export interface ListAttacksResponse {
    *          If not null, more results are available. Pass this value for the <code>NextMarker</code>
    *          parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of
    *          items.</p>
-   *          <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   *          <p>Shield Advanced might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more attack summary objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
 }
@@ -1233,6 +1629,44 @@ export namespace InvalidPaginationTokenException {
   });
 }
 
+export interface ListProtectionGroupsRequest {
+  /**
+   * <p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListProtectionGroupsRequest {
+  export const filterSensitiveLog = (obj: ListProtectionGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProtectionGroupsResponse {
+  /**
+   * <p></p>
+   */
+  ProtectionGroups: ProtectionGroup[] | undefined;
+
+  /**
+   * <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProtectionGroupsResponse {
+  export const filterSensitiveLog = (obj: ListProtectionGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListProtectionsRequest {
   /**
    * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
@@ -1240,9 +1674,9 @@ export interface ListProtectionsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of <a>Protection</a> objects to be returned. If this is
-   *          left blank the first 20 results will be returned.</p>
-   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   * <p>The maximum number of <a>Protection</a> objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
    */
   MaxResults?: number;
 }
@@ -1261,13 +1695,56 @@ export interface ListProtectionsResponse {
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
-   *          <p>AWS WAF might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   *          <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
 }
 
 export namespace ListProtectionsResponse {
   export const filterSensitiveLog = (obj: ListProtectionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListResourcesInProtectionGroupRequest {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+
+  /**
+   * <p>The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of resource ARN objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListResourcesInProtectionGroupRequest {
+  export const filterSensitiveLog = (obj: ListResourcesInProtectionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListResourcesInProtectionGroupResponse {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
+   */
+  ResourceArns: string[] | undefined;
+
+  /**
+   * <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListResourcesInProtectionGroupResponse {
+  export const filterSensitiveLog = (obj: ListResourcesInProtectionGroupResponse): any => ({
     ...obj,
   });
 }
@@ -1290,6 +1767,59 @@ export interface UpdateEmergencyContactSettingsResponse {}
 
 export namespace UpdateEmergencyContactSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateEmergencyContactSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProtectionGroupRequest {
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
+
+  /**
+   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *             </li>
+   *          </ul>
+   */
+  Aggregation: ProtectionGroupAggregation | string | undefined;
+
+  /**
+   * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
+   */
+  Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
+   *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  ResourceType?: ProtectedResourceType | string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members?: string[];
+}
+
+export namespace UpdateProtectionGroupRequest {
+  export const filterSensitiveLog = (obj: UpdateProtectionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProtectionGroupResponse {}
+
+export namespace UpdateProtectionGroupResponse {
+  export const filterSensitiveLog = (obj: UpdateProtectionGroupResponse): any => ({
     ...obj,
   });
 }

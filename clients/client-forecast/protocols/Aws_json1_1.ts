@@ -96,6 +96,7 @@ import {
   DescribePredictorRequest,
   DescribePredictorResponse,
   EncryptionConfig,
+  ErrorMetric,
   EvaluationParameters,
   EvaluationResult,
   Featurization,
@@ -2737,6 +2738,9 @@ const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorReques
       FeaturizationConfig: serializeAws_json1_1FeaturizationConfig(input.FeaturizationConfig, context),
     }),
     ...(input.ForecastHorizon !== undefined && { ForecastHorizon: input.ForecastHorizon }),
+    ...(input.ForecastTypes !== undefined && {
+      ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
+    }),
     ...(input.HPOConfig !== undefined && {
       HPOConfig: serializeAws_json1_1HyperParameterTuningJobConfig(input.HPOConfig, context),
     }),
@@ -3540,6 +3544,10 @@ const deserializeAws_json1_1DescribePredictorResponse = (
         : undefined,
     ForecastHorizon:
       output.ForecastHorizon !== undefined && output.ForecastHorizon !== null ? output.ForecastHorizon : undefined,
+    ForecastTypes:
+      output.ForecastTypes !== undefined && output.ForecastTypes !== null
+        ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
+        : undefined,
     HPOConfig:
       output.HPOConfig !== undefined && output.HPOConfig !== null
         ? deserializeAws_json1_1HyperParameterTuningJobConfig(output.HPOConfig, context)
@@ -3576,6 +3584,18 @@ const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeCon
     KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
+  return {
+    ForecastType: output.ForecastType !== undefined && output.ForecastType !== null ? output.ForecastType : undefined,
+    RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
+    WAPE: output.WAPE !== undefined && output.WAPE !== null ? output.WAPE : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ErrorMetric(entry, context));
 };
 
 const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
@@ -3892,6 +3912,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
+    ErrorMetrics:
+      output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
+        ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
+        : undefined,
     RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
     WeightedQuantileLosses:
       output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null

@@ -59,6 +59,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
+import {
+  UpdateTaskExecutionCommandInput,
+  UpdateTaskExecutionCommandOutput,
+} from "./commands/UpdateTaskExecutionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -139,7 +143,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
-  | UpdateTaskCommandInput;
+  | UpdateTaskCommandInput
+  | UpdateTaskExecutionCommandInput;
 
 export type ServiceOutputTypes =
   | CancelTaskExecutionCommandOutput
@@ -172,7 +177,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
-  | UpdateTaskCommandOutput;
+  | UpdateTaskCommandOutput
+  | UpdateTaskExecutionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

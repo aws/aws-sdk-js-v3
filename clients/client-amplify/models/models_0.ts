@@ -29,14 +29,9 @@ export enum Stage {
  */
 export interface AutoBranchCreationConfig {
   /**
-   * <p> The environment variables for the autocreated branch. </p>
+   * <p> Describes the current stage for the autocreated branch. </p>
    */
-  environmentVariables?: { [key: string]: string };
-
-  /**
-   * <p> Enables auto building for the autocreated branch. </p>
-   */
-  enableAutoBuild?: boolean;
+  stage?: Stage | string;
 
   /**
    * <p> The framework for the autocreated branch. </p>
@@ -44,14 +39,30 @@ export interface AutoBranchCreationConfig {
   framework?: string;
 
   /**
+   * <p> Enables auto building for the autocreated branch. </p>
+   */
+  enableAutoBuild?: boolean;
+
+  /**
+   * <p> The environment variables for the autocreated branch. </p>
+   */
+  environmentVariables?: { [key: string]: string };
+
+  /**
    * <p> The basic authorization credentials for the autocreated branch. </p>
    */
   basicAuthCredentials?: string;
 
   /**
-   * <p> Describes the current stage for the autocreated branch. </p>
+   * <p> Enables basic authorization for the autocreated branch. </p>
    */
-  stage?: Stage | string;
+  enableBasicAuth?: boolean;
+
+  /**
+   * <p>Enables performance mode for the branch.</p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   */
+  enablePerformanceMode?: boolean;
 
   /**
    * <p> The build specification (build spec) for the autocreated branch. </p>
@@ -59,12 +70,7 @@ export interface AutoBranchCreationConfig {
   buildSpec?: string;
 
   /**
-   * <p> Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. Enabling performance mode will mean that hosting configuration or code changes can take up to 10 minutes to roll out. </p>
-   */
-  enablePerformanceMode?: boolean;
-
-  /**
-   * <p> Enables pull request preview for the autocreated branch. </p>
+   * <p> Enables pull request previews for the autocreated branch. </p>
    */
   enablePullRequestPreview?: boolean;
 
@@ -72,11 +78,6 @@ export interface AutoBranchCreationConfig {
    * <p> The Amplify environment name for the pull request. </p>
    */
   pullRequestEnvironmentName?: string;
-
-  /**
-   * <p> Enables basic authorization for the autocreated branch. </p>
-   */
-  enableBasicAuth?: boolean;
 }
 
 export namespace AutoBranchCreationConfig {
@@ -91,14 +92,14 @@ export namespace AutoBranchCreationConfig {
  */
 export interface CustomRule {
   /**
+   * <p> The source pattern for a URL rewrite or redirect rule. </p>
+   */
+  source: string | undefined;
+
+  /**
    * <p> The target pattern for a URL rewrite or redirect rule. </p>
    */
   target: string | undefined;
-
-  /**
-   * <p> The condition for a URL rewrite or redirect rule, such as a country code. </p>
-   */
-  condition?: string;
 
   /**
    * <p> The status code for a URL rewrite or redirect rule. </p>
@@ -129,9 +130,9 @@ export interface CustomRule {
   status?: string;
 
   /**
-   * <p> The source pattern for a URL rewrite or redirect rule. </p>
+   * <p> The condition for a URL rewrite or redirect rule, such as a country code. </p>
    */
-  source: string | undefined;
+  condition?: string;
 }
 
 export namespace CustomRule {
@@ -149,15 +150,9 @@ export enum Platform {
  */
 export interface CreateAppRequest {
   /**
-   * <p> Enables automated branch creation for the Amplify app. </p>
+   * <p> The name for an Amplify app. </p>
    */
-  enableAutoBranchCreation?: boolean;
-
-  /**
-   * <p> Enables basic authorization for an Amplify app. This will apply to all branches that
-   *             are part of this app. </p>
-   */
-  enableBasicAuth?: boolean;
+  name: string | undefined;
 
   /**
    * <p> The description for an Amplify app. </p>
@@ -165,31 +160,19 @@ export interface CreateAppRequest {
   description?: string;
 
   /**
-   * <p> The platform or framework for an Amplify app. </p>
-   */
-  platform?: Platform | string;
-
-  /**
-   * <p> The personal access token for a third-party source control system for an Amplify app.
-   *             The personal access token is used to create a webhook and a read-only deploy key. The
-   *             token is not stored. </p>
-   */
-  accessToken?: string;
-
-  /**
    * <p> The repository for an Amplify app. </p>
    */
   repository?: string;
 
   /**
-   * <p> Enables the auto building of branches for an Amplify app. </p>
+   * <p> The platform or framework for an Amplify app. </p>
    */
-  enableBranchAutoBuild?: boolean;
+  platform?: Platform | string;
 
   /**
-   * <p> The tag for an Amplify app. </p>
+   * <p> The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
    */
-  tags?: { [key: string]: string };
+  iamServiceRoleArn?: string;
 
   /**
    * <p> The OAuth token for a third-party source control system for an Amplify app. The OAuth
@@ -199,14 +182,11 @@ export interface CreateAppRequest {
   oauthToken?: string;
 
   /**
-   * <p> The automated branch creation glob patterns for the Amplify app. </p>
+   * <p> The personal access token for a third-party source control system for an Amplify app.
+   *             The personal access token is used to create a webhook and a read-only deploy key. The
+   *             token is not stored. </p>
    */
-  autoBranchCreationPatterns?: string[];
-
-  /**
-   * <p> The custom rewrite and redirect rules for an Amplify app. </p>
-   */
-  customRules?: CustomRule[];
+  accessToken?: string;
 
   /**
    * <p> The environment variables map for an Amplify app. </p>
@@ -214,19 +194,21 @@ export interface CreateAppRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
+   * <p> Enables the auto building of branches for an Amplify app. </p>
    */
-  iamServiceRoleArn?: string;
+  enableBranchAutoBuild?: boolean;
 
   /**
-   * <p> The build specification (build spec) for an Amplify app. </p>
+   * <p> Automatically disconnects a branch in the Amplify Console when you delete a branch
+   *             from your Git repository. </p>
    */
-  buildSpec?: string;
+  enableBranchAutoDeletion?: boolean;
 
   /**
-   * <p> The automated branch creation configuration for the Amplify app. </p>
+   * <p> Enables basic authorization for an Amplify app. This will apply to all branches that
+   *             are part of this app. </p>
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
+  enableBasicAuth?: boolean;
 
   /**
    * <p> The credentials for basic authorization for an Amplify app. </p>
@@ -234,26 +216,50 @@ export interface CreateAppRequest {
   basicAuthCredentials?: string;
 
   /**
-   * <p> The name for the Amplify app. </p>
+   * <p> The custom rewrite and redirect rules for an Amplify app. </p>
    */
-  name: string | undefined;
+  customRules?: CustomRule[];
 
   /**
-   * <p> Automatically disconnects a branch in the Amplify Console when you delete a branch
-   *             from your Git repository. </p>
+   * <p> The tag for an Amplify app. </p>
    */
-  enableBranchAutoDeletion?: boolean;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p> The build specification (build spec) for an Amplify app. </p>
+   */
+  buildSpec?: string;
+
+  /**
+   * <p>The custom HTTP headers for an Amplify app.</p>
+   */
+  customHeaders?: string;
+
+  /**
+   * <p> Enables automated branch creation for an Amplify app. </p>
+   */
+  enableAutoBranchCreation?: boolean;
+
+  /**
+   * <p> The automated branch creation glob patterns for an Amplify app. </p>
+   */
+  autoBranchCreationPatterns?: string[];
+
+  /**
+   * <p> The automated branch creation configuration for an Amplify app. </p>
+   */
+  autoBranchCreationConfig?: AutoBranchCreationConfig;
 }
 
 export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
     ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
 }
 
@@ -261,11 +267,6 @@ export namespace CreateAppRequest {
  * <p> Describes the information about a production branch for an Amplify app. </p>
  */
 export interface ProductionBranch {
-  /**
-   * <p> The branch name for the production branch. </p>
-   */
-  branchName?: string;
-
   /**
    * <p> The last deploy time of the production branch. </p>
    */
@@ -280,6 +281,11 @@ export interface ProductionBranch {
    * <p> The thumbnail URL for the production branch. </p>
    */
   thumbnailUrl?: string;
+
+  /**
+   * <p> The branch name for the production branch. </p>
+   */
+  branchName?: string;
 }
 
 export namespace ProductionBranch {
@@ -299,50 +305,24 @@ export interface App {
   appId: string | undefined;
 
   /**
-   * <p> Describes the automated branch creation glob patterns for the Amplify app. </p>
+   * <p> The Amazon Resource Name (ARN) of the Amplify app. </p>
    */
-  autoBranchCreationPatterns?: string[];
+  appArn: string | undefined;
 
   /**
-   * <p> Describes the custom redirect and rewrite rules for the Amplify app. </p>
+   * <p> The name for the Amplify app. </p>
    */
-  customRules?: CustomRule[];
+  name: string | undefined;
 
   /**
-   * <p> The environment variables for the Amplify app. </p>
+   * <p> The tag for the Amplify app. </p>
    */
-  environmentVariables: { [key: string]: string } | undefined;
+  tags?: { [key: string]: string };
 
   /**
-   * <p> Describes the automated branch creation configuration for the Amplify app. </p>
+   * <p> The description for the Amplify app. </p>
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
-
-  /**
-   * <p> The AWS Identity and Access Management (IAM) service role for the Amazon Resource
-   *             Name (ARN) of the Amplify app. </p>
-   */
-  iamServiceRoleArn?: string;
-
-  /**
-   * <p> Enables automated branch creation for the Amplify app. </p>
-   */
-  enableAutoBranchCreation?: boolean;
-
-  /**
-   * <p> The default domain for the Amplify app. </p>
-   */
-  defaultDomain: string | undefined;
-
-  /**
-   * <p> Enables basic authorization for the Amplify app's branches. </p>
-   */
-  enableBasicAuth: boolean | undefined;
-
-  /**
-   * <p> Enables the auto-building of branches for the Amplify app. </p>
-   */
-  enableBranchAutoBuild: boolean | undefined;
+  description: string | undefined;
 
   /**
    * <p> The repository for the Amplify app. </p>
@@ -355,9 +335,9 @@ export interface App {
   platform: Platform | string | undefined;
 
   /**
-   * <p> The description for the Amplify app. </p>
+   * <p> Creates a date and time for the Amplify app. </p>
    */
-  description: string | undefined;
+  createTime: Date | undefined;
 
   /**
    * <p> Updates the date and time for the Amplify app. </p>
@@ -365,35 +345,25 @@ export interface App {
   updateTime: Date | undefined;
 
   /**
-   * <p> The tag for the Amplify app. </p>
+   * <p> The AWS Identity and Access Management (IAM) service role for the Amazon Resource
+   *             Name (ARN) of the Amplify app. </p>
    */
-  tags?: { [key: string]: string };
+  iamServiceRoleArn?: string;
 
   /**
-   * <p> Describes the information about a production branch of the Amplify app. </p>
+   * <p> The environment variables for the Amplify app. </p>
    */
-  productionBranch?: ProductionBranch;
+  environmentVariables: { [key: string]: string } | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Amplify app. </p>
+   * <p> The default domain for the Amplify app. </p>
    */
-  appArn: string | undefined;
+  defaultDomain: string | undefined;
 
   /**
-   * <p> Describes the content of the build specification (build spec) for the Amplify app.
-   *         </p>
+   * <p> Enables the auto-building of branches for the Amplify app. </p>
    */
-  buildSpec?: string;
-
-  /**
-   * <p> The basic authorization credentials for branches for the Amplify app. </p>
-   */
-  basicAuthCredentials?: string;
-
-  /**
-   * <p> The name for the Amplify app. </p>
-   */
-  name: string | undefined;
+  enableBranchAutoBuild: boolean | undefined;
 
   /**
    * <p> Automatically disconnect a branch in the Amplify Console when you delete a branch
@@ -402,18 +372,59 @@ export interface App {
   enableBranchAutoDeletion?: boolean;
 
   /**
-   * <p> Creates a date and time for the Amplify app. </p>
+   * <p> Enables basic authorization for the Amplify app's branches. </p>
    */
-  createTime: Date | undefined;
+  enableBasicAuth: boolean | undefined;
+
+  /**
+   * <p> The basic authorization credentials for branches for the Amplify app. </p>
+   */
+  basicAuthCredentials?: string;
+
+  /**
+   * <p> Describes the custom redirect and rewrite rules for the Amplify app. </p>
+   */
+  customRules?: CustomRule[];
+
+  /**
+   * <p> Describes the information about a production branch of the Amplify app. </p>
+   */
+  productionBranch?: ProductionBranch;
+
+  /**
+   * <p> Describes the content of the build specification (build spec) for the Amplify app.
+   *         </p>
+   */
+  buildSpec?: string;
+
+  /**
+   * <p>Describes the custom HTTP headers for the Amplify app.</p>
+   */
+  customHeaders?: string;
+
+  /**
+   * <p> Enables automated branch creation for the Amplify app. </p>
+   */
+  enableAutoBranchCreation?: boolean;
+
+  /**
+   * <p> Describes the automated branch creation glob patterns for the Amplify app. </p>
+   */
+  autoBranchCreationPatterns?: string[];
+
+  /**
+   * <p> Describes the automated branch creation configuration for the Amplify app. </p>
+   */
+  autoBranchCreationConfig?: AutoBranchCreationConfig;
 }
 
 export namespace App {
   export const filterSensitiveLog = (obj: App): any => ({
     ...obj,
+    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
 }
 
@@ -507,14 +518,14 @@ export interface CreateBackendEnvironmentRequest {
   environmentName: string | undefined;
 
   /**
-   * <p> The name of deployment artifacts. </p>
-   */
-  deploymentArtifacts?: string;
-
-  /**
    * <p> The AWS CloudFormation stack name of a backend environment. </p>
    */
   stackName?: string;
+
+  /**
+   * <p> The name of deployment artifacts. </p>
+   */
+  deploymentArtifacts?: string;
 }
 
 export namespace CreateBackendEnvironmentRequest {
@@ -528,27 +539,10 @@ export namespace CreateBackendEnvironmentRequest {
  */
 export interface BackendEnvironment {
   /**
-   * <p> The creation date and time for a backend environment that is part of an Amplify app.
-   *         </p>
-   */
-  createTime: Date | undefined;
-
-  /**
    * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
    *             app. </p>
    */
   backendEnvironmentArn: string | undefined;
-
-  /**
-   * <p> The last updated date and time for a backend environment that is part of an Amplify
-   *             app. </p>
-   */
-  updateTime: Date | undefined;
-
-  /**
-   * <p> The AWS CloudFormation stack name of a backend environment. </p>
-   */
-  stackName?: string;
 
   /**
    * <p> The name for a backend environment that is part of an Amplify app. </p>
@@ -556,9 +550,26 @@ export interface BackendEnvironment {
   environmentName: string | undefined;
 
   /**
+   * <p> The AWS CloudFormation stack name of a backend environment. </p>
+   */
+  stackName?: string;
+
+  /**
    * <p> The name of deployment artifacts. </p>
    */
   deploymentArtifacts?: string;
+
+  /**
+   * <p> The creation date and time for a backend environment that is part of an Amplify app.
+   *         </p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p> The last updated date and time for a backend environment that is part of an Amplify
+   *             app. </p>
+   */
+  updateTime: Date | undefined;
 }
 
 export namespace BackendEnvironment {
@@ -603,70 +614,9 @@ export namespace NotFoundException {
  */
 export interface CreateBranchRequest {
   /**
-   * <p> Enables notifications for the branch. </p>
-   */
-  enableNotification?: boolean;
-
-  /**
-   * <p> Enables basic authorization for the branch. </p>
-   */
-  enableBasicAuth?: boolean;
-
-  /**
-   * <p> Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. Enabling performance mode will mean that hosting configuration or code changes can take up to 10 minutes to roll out. </p>
-   */
-  enablePerformanceMode?: boolean;
-
-  /**
-   * <p> Describes the current stage for the branch. </p>
-   */
-  stage?: Stage | string;
-
-  /**
-   * <p> Enables pull request preview for this branch. </p>
-   */
-  enablePullRequestPreview?: boolean;
-
-  /**
-   * <p> The environment variables for the branch. </p>
-   */
-  environmentVariables?: { [key: string]: string };
-
-  /**
    * <p> The unique ID for an Amplify app. </p>
    */
   appId: string | undefined;
-
-  /**
-   * <p> The content Time To Live (TTL) for the website in seconds. </p>
-   */
-  ttl?: string;
-
-  /**
-   * <p> The tag for the branch. </p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p> The framework for the branch. </p>
-   */
-  framework?: string;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
-   *             app. </p>
-   */
-  backendEnvironmentArn?: string;
-
-  /**
-   * <p> The description for the branch. </p>
-   */
-  description?: string;
-
-  /**
-   * <p> The basic authorization credentials for the branch. </p>
-   */
-  basicAuthCredentials?: string;
 
   /**
    * <p> The name for the branch. </p>
@@ -674,9 +624,24 @@ export interface CreateBranchRequest {
   branchName: string | undefined;
 
   /**
-   * <p> The build specification (build spec) for the branch. </p>
+   * <p> The description for the branch. </p>
    */
-  buildSpec?: string;
+  description?: string;
+
+  /**
+   * <p> Describes the current stage for the branch. </p>
+   */
+  stage?: Stage | string;
+
+  /**
+   * <p> The framework for the branch. </p>
+   */
+  framework?: string;
+
+  /**
+   * <p> Enables notifications for the branch. </p>
+   */
+  enableNotification?: boolean;
 
   /**
    * <p> Enables auto building for the branch. </p>
@@ -684,14 +649,61 @@ export interface CreateBranchRequest {
   enableAutoBuild?: boolean;
 
   /**
+   * <p> The environment variables for the branch. </p>
+   */
+  environmentVariables?: { [key: string]: string };
+
+  /**
+   * <p> The basic authorization credentials for the branch. </p>
+   */
+  basicAuthCredentials?: string;
+
+  /**
+   * <p> Enables basic authorization for the branch. </p>
+   */
+  enableBasicAuth?: boolean;
+
+  /**
+   * <p>Enables performance mode for the branch.</p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   */
+  enablePerformanceMode?: boolean;
+
+  /**
+   * <p> The tag for the branch. </p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p> The build specification (build spec) for the branch. </p>
+   */
+  buildSpec?: string;
+
+  /**
+   * <p> The content Time To Live (TTL) for the website in seconds. </p>
+   */
+  ttl?: string;
+
+  /**
    * <p> The display name for a branch. This is used as the default domain prefix. </p>
    */
   displayName?: string;
 
   /**
+   * <p> Enables pull request previews for this branch. </p>
+   */
+  enablePullRequestPreview?: boolean;
+
+  /**
    * <p> The Amplify environment name for the pull request. </p>
    */
   pullRequestEnvironmentName?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+   *             app. </p>
+   */
+  backendEnvironmentArn?: string;
 }
 
 export namespace CreateBranchRequest {
@@ -706,9 +718,19 @@ export namespace CreateBranchRequest {
  */
 export interface Branch {
   /**
-   * <p> Enables auto-building on push for a branch of an Amplify app. </p>
+   * <p> The Amazon Resource Name (ARN) for a branch that is part of an Amplify app. </p>
    */
-  enableAutoBuild: boolean | undefined;
+  branchArn: string | undefined;
+
+  /**
+   * <p> The name for the branch that is part of an Amplify app. </p>
+   */
+  branchName: string | undefined;
+
+  /**
+   * <p> The description for the branch that is part of an Amplify app. </p>
+   */
+  description: string | undefined;
 
   /**
    * <p> The tag for the branch of an Amplify app. </p>
@@ -716,19 +738,101 @@ export interface Branch {
   tags?: { [key: string]: string };
 
   /**
+   * <p> The current stage for the branch that is part of an Amplify app. </p>
+   */
+  stage: Stage | string | undefined;
+
+  /**
+   * <p> The display name for the branch. This is used as the default domain prefix. </p>
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p> Enables notifications for a branch that is part of an Amplify app. </p>
+   */
+  enableNotification: boolean | undefined;
+
+  /**
+   * <p> The creation date and time for a branch that is part of an Amplify app. </p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p> The last updated date and time for a branch that is part of an Amplify app. </p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p> The environment variables specific to a branch of an Amplify app. </p>
+   */
+  environmentVariables: { [key: string]: string } | undefined;
+
+  /**
+   * <p> Enables auto-building on push for a branch of an Amplify app. </p>
+   */
+  enableAutoBuild: boolean | undefined;
+
+  /**
+   * <p> The custom domains for a branch of an Amplify app. </p>
+   */
+  customDomains: string[] | undefined;
+
+  /**
+   * <p> The framework for a branch of an Amplify app. </p>
+   */
+  framework: string | undefined;
+
+  /**
+   * <p> The ID of the active job for a branch of an Amplify app. </p>
+   */
+  activeJobId: string | undefined;
+
+  /**
    * <p> The total number of jobs that are part of an Amplify app. </p>
    */
   totalNumberOfJobs: string | undefined;
 
   /**
-   * <p> The source branch if the branch is a pull request branch. </p>
+   * <p> Enables basic authorization for a branch of an Amplify app. </p>
    */
-  sourceBranch?: string;
+  enableBasicAuth: boolean | undefined;
+
+  /**
+   * <p>Enables performance mode for the branch.</p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   */
+  enablePerformanceMode?: boolean;
 
   /**
    * <p> The thumbnail URL for the branch of an Amplify app. </p>
    */
   thumbnailUrl?: string;
+
+  /**
+   * <p> The basic authorization credentials for a branch of an Amplify app. </p>
+   */
+  basicAuthCredentials?: string;
+
+  /**
+   * <p> The build specification (build spec) content for the branch of an Amplify app.
+   *         </p>
+   */
+  buildSpec?: string;
+
+  /**
+   * <p> The content Time to Live (TTL) for the website in seconds. </p>
+   */
+  ttl: string | undefined;
+
+  /**
+   * <p> A list of custom resources that are linked to this branch. </p>
+   */
+  associatedResources?: string[];
+
+  /**
+   * <p> Enables pull request previews for the branch. </p>
+   */
+  enablePullRequestPreview: boolean | undefined;
 
   /**
    * <p> The Amplify environment name for the pull request. </p>
@@ -741,100 +845,9 @@ export interface Branch {
   destinationBranch?: string;
 
   /**
-   * <p> The ID of the active job for a branch of an Amplify app. </p>
+   * <p> The source branch if the branch is a pull request branch. </p>
    */
-  activeJobId: string | undefined;
-
-  /**
-   * <p> The current stage for the branch that is part of an Amplify app. </p>
-   */
-  stage: Stage | string | undefined;
-
-  /**
-   * <p> Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. Enabling performance mode will mean that hosting configuration or code changes can take up to 10 minutes to roll out. </p>
-   */
-  enablePerformanceMode?: boolean;
-
-  /**
-   * <p> A list of custom resources that are linked to this branch. </p>
-   */
-  associatedResources?: string[];
-
-  /**
-   * <p> The creation date and time for a branch that is part of an Amplify app. </p>
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p> The build specification (build spec) content for the branch of an Amplify app.
-   *         </p>
-   */
-  buildSpec?: string;
-
-  /**
-   * <p> The last updated date and time for a branch that is part of an Amplify app. </p>
-   */
-  updateTime: Date | undefined;
-
-  /**
-   * <p> The framework for a branch of an Amplify app. </p>
-   */
-  framework: string | undefined;
-
-  /**
-   * <p> Enables basic authorization for a branch of an Amplify app. </p>
-   */
-  enableBasicAuth: boolean | undefined;
-
-  /**
-   * <p> The display name for the branch. This is used as the default domain prefix. </p>
-   */
-  displayName: string | undefined;
-
-  /**
-   * <p> The description for the branch that is part of an Amplify app. </p>
-   */
-  description: string | undefined;
-
-  /**
-   * <p> The basic authorization credentials for a branch of an Amplify app. </p>
-   */
-  basicAuthCredentials?: string;
-
-  /**
-   * <p> The custom domains for a branch of an Amplify app. </p>
-   */
-  customDomains: string[] | undefined;
-
-  /**
-   * <p> The environment variables specific to a branch of an Amplify app. </p>
-   */
-  environmentVariables: { [key: string]: string } | undefined;
-
-  /**
-   * <p> Enables notifications for a branch that is part of an Amplify app. </p>
-   */
-  enableNotification: boolean | undefined;
-
-  /**
-   * <p> Enables pull request preview for the branch. </p>
-   */
-  enablePullRequestPreview: boolean | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) for a branch that is part of an Amplify app. </p>
-   */
-  branchArn: string | undefined;
-
-  /**
-   * <p> The name for the branch that is part of an Amplify app. </p>
-   */
-  branchName: string | undefined;
-
-  /**
-   * <p> The content Time to Live (TTL) for the website in seconds. </p>
-   */
-  ttl: string | undefined;
+  sourceBranch?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
@@ -907,16 +920,16 @@ export interface CreateDeploymentResult {
   jobId?: string;
 
   /**
-   * <p> When the <code>fileMap</code> argument is not provided in the request, this
-   *                 <code>zipUploadUrl</code> is returned. </p>
-   */
-  zipUploadUrl: string | undefined;
-
-  /**
    * <p> When the <code>fileMap</code> argument is provided in the request,
    *                 <code>fileUploadUrls</code> will contain a map of file names to upload URLs. </p>
    */
   fileUploadUrls: { [key: string]: string } | undefined;
+
+  /**
+   * <p> When the <code>fileMap</code> argument is not provided in the request, this
+   *                 <code>zipUploadUrl</code> is returned. </p>
+   */
+  zipUploadUrl: string | undefined;
 }
 
 export namespace CreateDeploymentResult {
@@ -930,14 +943,14 @@ export namespace CreateDeploymentResult {
  */
 export interface SubDomainSetting {
   /**
-   * <p> The branch name setting for the subdomain. </p>
-   */
-  branchName: string | undefined;
-
-  /**
    * <p> The prefix setting for the subdomain. </p>
    */
   prefix: string | undefined;
+
+  /**
+   * <p> The branch name setting for the subdomain. </p>
+   */
+  branchName: string | undefined;
 }
 
 export namespace SubDomainSetting {
@@ -951,9 +964,19 @@ export namespace SubDomainSetting {
  */
 export interface CreateDomainAssociationRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
    * <p> The domain name for the domain association. </p>
    */
   domainName: string | undefined;
+
+  /**
+   * <p> Enables the automated creation of subdomains for branches. </p>
+   */
+  enableAutoSubDomain?: boolean;
 
   /**
    * <p> The setting for the subdomain. </p>
@@ -964,16 +987,6 @@ export interface CreateDomainAssociationRequest {
    * <p> Sets the branch patterns for automatic subdomain creation. </p>
    */
   autoSubDomainCreationPatterns?: string[];
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p> Enables the automated creation of subdomains for branches. </p>
-   */
-  enableAutoSubDomain?: boolean;
 
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
@@ -1031,32 +1044,6 @@ export namespace SubDomain {
  */
 export interface DomainAssociation {
   /**
-   * <p> The DNS record for certificate verification. </p>
-   */
-  certificateVerificationDNSRecord?: string;
-
-  /**
-   * <p> The current status of the domain association. </p>
-   */
-  domainStatus: DomainStatus | string | undefined;
-
-  /**
-   * <p> Enables the automated creation of subdomains for branches. </p>
-   */
-  enableAutoSubDomain: boolean | undefined;
-
-  /**
-   * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
-   *             Resource Name (ARN) for automatically creating subdomains. </p>
-   */
-  autoSubDomainIAMRole?: string;
-
-  /**
-   * <p> The subdomains for the domain association. </p>
-   */
-  subDomains: SubDomain[] | undefined;
-
-  /**
    * <p> The Amazon Resource Name (ARN) for the domain association. </p>
    */
   domainAssociationArn: string | undefined;
@@ -1067,14 +1054,40 @@ export interface DomainAssociation {
   domainName: string | undefined;
 
   /**
-   * <p> The reason for the current status of the domain association. </p>
+   * <p> Enables the automated creation of subdomains for branches. </p>
    */
-  statusReason: string | undefined;
+  enableAutoSubDomain: boolean | undefined;
 
   /**
    * <p> Sets branch patterns for automatic subdomain creation. </p>
    */
   autoSubDomainCreationPatterns?: string[];
+
+  /**
+   * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
+   *             Resource Name (ARN) for automatically creating subdomains. </p>
+   */
+  autoSubDomainIAMRole?: string;
+
+  /**
+   * <p> The current status of the domain association. </p>
+   */
+  domainStatus: DomainStatus | string | undefined;
+
+  /**
+   * <p> The reason for the current status of the domain association. </p>
+   */
+  statusReason: string | undefined;
+
+  /**
+   * <p> The DNS record for certificate verification. </p>
+   */
+  certificateVerificationDNSRecord?: string;
+
+  /**
+   * <p> The subdomains for the domain association. </p>
+   */
+  subDomains: SubDomain[] | undefined;
 }
 
 export namespace DomainAssociation {
@@ -1110,14 +1123,14 @@ export interface CreateWebhookRequest {
   appId: string | undefined;
 
   /**
-   * <p> The description for a webhook. </p>
-   */
-  description?: string;
-
-  /**
    * <p> The name for a branch that is part of an Amplify app. </p>
    */
   branchName: string | undefined;
+
+  /**
+   * <p> The description for a webhook. </p>
+   */
+  description?: string;
 }
 
 export namespace CreateWebhookRequest {
@@ -1156,14 +1169,14 @@ export interface Webhook {
   description: string | undefined;
 
   /**
-   * <p> Updates the date and time for a webhook. </p>
-   */
-  updateTime: Date | undefined;
-
-  /**
    * <p> The create date and time for a webhook. </p>
    */
   createTime: Date | undefined;
+
+  /**
+   * <p> Updates the date and time for a webhook. </p>
+   */
+  updateTime: Date | undefined;
 }
 
 export namespace Webhook {
@@ -1264,14 +1277,14 @@ export namespace DeleteBackendEnvironmentResult {
  */
 export interface DeleteBranchRequest {
   /**
-   * <p> The name for the branch. </p>
-   */
-  branchName: string | undefined;
-
-  /**
    * <p> The unique ID for an Amplify app. </p>
    */
   appId: string | undefined;
+
+  /**
+   * <p> The name for the branch. </p>
+   */
+  branchName: string | undefined;
 }
 
 export namespace DeleteBranchRequest {
@@ -1302,14 +1315,14 @@ export namespace DeleteBranchResult {
  */
 export interface DeleteDomainAssociationRequest {
   /**
-   * <p> The name of the domain. </p>
-   */
-  domainName: string | undefined;
-
-  /**
    * <p> The unique id for an Amplify app. </p>
    */
   appId: string | undefined;
+
+  /**
+   * <p> The name of the domain. </p>
+   */
+  domainName: string | undefined;
 }
 
 export namespace DeleteDomainAssociationRequest {
@@ -1337,14 +1350,14 @@ export namespace DeleteDomainAssociationResult {
  */
 export interface DeleteJobRequest {
   /**
-   * <p> The name for the branch, for the job. </p>
-   */
-  branchName: string | undefined;
-
-  /**
    * <p> The unique ID for an Amplify app. </p>
    */
   appId: string | undefined;
+
+  /**
+   * <p> The name for the branch, for the job. </p>
+   */
+  branchName: string | undefined;
 
   /**
    * <p> The unique ID for the job. </p>
@@ -1385,19 +1398,14 @@ export interface JobSummary {
   jobArn: string | undefined;
 
   /**
-   * <p> The end date and time for the job. </p>
+   * <p> The unique ID for the job. </p>
    */
-  endTime?: Date;
+  jobId: string | undefined;
 
   /**
-   * <p> The current status for the job. </p>
+   * <p> The commit ID from a third-party repository provider for the job. </p>
    */
-  status: JobStatus | string | undefined;
-
-  /**
-   * <p> The start date and time for the job. </p>
-   */
-  startTime: Date | undefined;
+  commitId: string | undefined;
 
   /**
    * <p> The commit message from a third-party repository provider for the job. </p>
@@ -1410,9 +1418,19 @@ export interface JobSummary {
   commitTime: Date | undefined;
 
   /**
-   * <p> The unique ID for the job. </p>
+   * <p> The start date and time for the job. </p>
    */
-  jobId: string | undefined;
+  startTime: Date | undefined;
+
+  /**
+   * <p> The current status for the job. </p>
+   */
+  status: JobStatus | string | undefined;
+
+  /**
+   * <p> The end date and time for the job. </p>
+   */
+  endTime?: Date;
 
   /**
    * <p> The type for the job. If the value is <code>RELEASE</code>, the job was manually
@@ -1422,11 +1440,6 @@ export interface JobSummary {
    *             webhooks. </p>
    */
   jobType: JobType | string | undefined;
-
-  /**
-   * <p> The commit ID from a third-party repository provider for the job. </p>
-   */
-  commitId: string | undefined;
 }
 
 export namespace JobSummary {
@@ -1605,14 +1618,14 @@ export namespace GetArtifactUrlResult {
  */
 export interface GetBackendEnvironmentRequest {
   /**
-   * <p> The name for the backend environment. </p>
-   */
-  environmentName: string | undefined;
-
-  /**
    * <p> The unique id for an Amplify app. </p>
    */
   appId: string | undefined;
+
+  /**
+   * <p> The name for the backend environment. </p>
+   */
+  environmentName: string | undefined;
 }
 
 export namespace GetBackendEnvironmentRequest {
@@ -1741,14 +1754,14 @@ export namespace GetJobRequest {
  */
 export interface Step {
   /**
-   * <p> The URL to the logs for the execution step. </p>
+   * <p> The name of the execution step. </p>
    */
-  logUrl?: string;
+  stepName: string | undefined;
 
   /**
-   * <p> The URL to the test configuration for the execution step. </p>
+   * <p> The start date and time of the execution step. </p>
    */
-  testConfigUrl?: string;
+  startTime: Date | undefined;
 
   /**
    * <p> The status of the execution step. </p>
@@ -1761,30 +1774,9 @@ export interface Step {
   endTime: Date | undefined;
 
   /**
-   * <p> The list of screenshot URLs for the execution step, if relevant. </p>
+   * <p> The URL to the logs for the execution step. </p>
    */
-  screenshots?: { [key: string]: string };
-
-  /**
-   * <p> The URL to the test artifact for the execution step. </p>
-   */
-  testArtifactsUrl?: string;
-
-  /**
-   * <p> The start date and time of the execution step. </p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p> The context for the current step. Includes a build image if the step is build.
-   *         </p>
-   */
-  context?: string;
-
-  /**
-   * <p> The reason for the current step status. </p>
-   */
-  statusReason?: string;
+  logUrl?: string;
 
   /**
    * <p> The URL to the artifact for the execution step. </p>
@@ -1792,9 +1784,30 @@ export interface Step {
   artifactsUrl?: string;
 
   /**
-   * <p> The name of the execution step. </p>
+   * <p> The URL to the test artifact for the execution step. </p>
    */
-  stepName: string | undefined;
+  testArtifactsUrl?: string;
+
+  /**
+   * <p> The URL to the test configuration for the execution step. </p>
+   */
+  testConfigUrl?: string;
+
+  /**
+   * <p> The list of screenshot URLs for the execution step, if relevant. </p>
+   */
+  screenshots?: { [key: string]: string };
+
+  /**
+   * <p> The reason for the current step status. </p>
+   */
+  statusReason?: string;
+
+  /**
+   * <p> The context for the current step. Includes a build image if the step is build.
+   *         </p>
+   */
+  context?: string;
 }
 
 export namespace Step {
@@ -1874,15 +1887,15 @@ export namespace GetWebhookResult {
  */
 export interface ListAppsRequest {
   /**
-   * <p> The maximum number of records to list in a single response. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p> A pagination token. If non-null, the pagination token is returned in a result. Pass
    *             its value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p> The maximum number of records to list in a single response. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListAppsRequest {
@@ -1920,11 +1933,9 @@ export namespace ListAppsResult {
  */
 export interface ListArtifactsRequest {
   /**
-   * <p> A pagination token. Set to null to start listing artifacts from start. If a non-null
-   *             pagination token is returned in a result, pass its value in here to list more artifacts.
-   *         </p>
+   * <p> The unique ID for an Amplify app. </p>
    */
-  nextToken?: string;
+  appId: string | undefined;
 
   /**
    * <p> The name of a branch that is part of an Amplify app. </p>
@@ -1932,19 +1943,21 @@ export interface ListArtifactsRequest {
   branchName: string | undefined;
 
   /**
-   * <p> The maximum number of records to list in a single response. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p> The unique ID for a job. </p>
    */
   jobId: string | undefined;
 
   /**
-   * <p> The unique ID for an Amplify app. </p>
+   * <p> A pagination token. Set to null to start listing artifacts from start. If a non-null
+   *             pagination token is returned in a result, pass its value in here to list more artifacts.
+   *         </p>
    */
-  appId: string | undefined;
+  nextToken?: string;
+
+  /**
+   * <p> The maximum number of records to list in a single response. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListArtifactsRequest {
@@ -1958,14 +1971,14 @@ export namespace ListArtifactsRequest {
  */
 export interface Artifact {
   /**
-   * <p> The unique ID for the artifact. </p>
-   */
-  artifactId: string | undefined;
-
-  /**
    * <p> The file name for the artifact. </p>
    */
   artifactFileName: string | undefined;
+
+  /**
+   * <p> The unique ID for the artifact. </p>
+   */
+  artifactId: string | undefined;
 }
 
 export namespace Artifact {
@@ -2001,6 +2014,16 @@ export namespace ListArtifactsResult {
  */
 export interface ListBackendEnvironmentsRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p> The name of the backend environment </p>
+   */
+  environmentName?: string;
+
+  /**
    * <p> A pagination token. Set to null to start listing backend environments from the start.
    *             If a non-null pagination token is returned in a result, pass its value in here to list
    *             more backend environments. </p>
@@ -2008,19 +2031,9 @@ export interface ListBackendEnvironmentsRequest {
   nextToken?: string;
 
   /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
-
-  /**
    * <p> The maximum number of records to list in a single response. </p>
    */
   maxResults?: number;
-
-  /**
-   * <p> The name of the backend environment </p>
-   */
-  environmentName?: string;
 }
 
 export namespace ListBackendEnvironmentsRequest {
@@ -2034,15 +2047,15 @@ export namespace ListBackendEnvironmentsRequest {
  */
 export interface ListBackendEnvironmentsResult {
   /**
+   * <p> The list of backend environments for an Amplify app. </p>
+   */
+  backendEnvironments: BackendEnvironment[] | undefined;
+
+  /**
    * <p> A pagination token. If a non-null pagination token is returned in a result, pass its
    *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p> The list of backend environments for an Amplify app. </p>
-   */
-  backendEnvironments: BackendEnvironment[] | undefined;
 }
 
 export namespace ListBackendEnvironmentsResult {
@@ -2056,6 +2069,11 @@ export namespace ListBackendEnvironmentsResult {
  */
 export interface ListBranchesRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
    * <p> A pagination token. Set to null to start listing branches from the start. If a
    *             non-null pagination token is returned in a result, pass its value in here to list more
    *             branches. </p>
@@ -2066,11 +2084,6 @@ export interface ListBranchesRequest {
    * <p> The maximum number of records to list in a single response. </p>
    */
   maxResults?: number;
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
 }
 
 export namespace ListBranchesRequest {
@@ -2112,16 +2125,16 @@ export interface ListDomainAssociationsRequest {
   appId: string | undefined;
 
   /**
-   * <p> The maximum number of records to list in a single response. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p> A pagination token. Set to null to start listing apps from the start. If non-null, a
    *             pagination token is returned in a result. Pass its value in here to list more projects.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p> The maximum number of records to list in a single response. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDomainAssociationsRequest {
@@ -2162,6 +2175,11 @@ export interface ListJobsRequest {
   appId: string | undefined;
 
   /**
+   * <p> The name for a branch. </p>
+   */
+  branchName: string | undefined;
+
+  /**
    * <p> A pagination token. Set to null to start listing steps from the start. If a non-null
    *             pagination token is returned in a result, pass its value in here to list more steps.
    *         </p>
@@ -2172,11 +2190,6 @@ export interface ListJobsRequest {
    * <p> The maximum number of records to list in a single response. </p>
    */
   maxResults?: number;
-
-  /**
-   * <p> The name for a branch. </p>
-   */
-  branchName: string | undefined;
 }
 
 export namespace ListJobsRequest {
@@ -2190,15 +2203,15 @@ export namespace ListJobsRequest {
  */
 export interface ListJobsResult {
   /**
+   * <p> The result structure for the list job result request. </p>
+   */
+  jobSummaries: JobSummary[] | undefined;
+
+  /**
    * <p> A pagination token. If non-null the pagination token is returned in a result. Pass
    *             its value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p> The result structure for the list job result request. </p>
-   */
-  jobSummaries: JobSummary[] | undefined;
 }
 
 export namespace ListJobsResult {
@@ -2245,8 +2258,8 @@ export namespace ListTagsForResourceResponse {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  message: string | undefined;
   code: string | undefined;
+  message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
@@ -2260,11 +2273,6 @@ export namespace ResourceNotFoundException {
  */
 export interface ListWebhooksRequest {
   /**
-   * <p> The maximum number of records to list in a single response. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p> The unique ID for an Amplify app. </p>
    */
   appId: string | undefined;
@@ -2275,6 +2283,11 @@ export interface ListWebhooksRequest {
    *             more webhooks. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p> The maximum number of records to list in a single response. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListWebhooksRequest {
@@ -2288,15 +2301,15 @@ export namespace ListWebhooksRequest {
  */
 export interface ListWebhooksResult {
   /**
+   * <p> A list of webhooks. </p>
+   */
+  webhooks: Webhook[] | undefined;
+
+  /**
    * <p> A pagination token. If non-null, the pagination token is returned in a result. Pass
    *             its value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p> A list of webhooks. </p>
-   */
-  webhooks: Webhook[] | undefined;
 }
 
 export namespace ListWebhooksResult {
@@ -2310,9 +2323,19 @@ export namespace ListWebhooksResult {
  */
 export interface StartDeploymentRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
    * <p> The name for the branch, for the job. </p>
    */
   branchName: string | undefined;
+
+  /**
+   * <p> The job ID for this deployment, generated by the create deployment request. </p>
+   */
+  jobId?: string;
 
   /**
    * <p> The source URL for this deployment, used when calling start deployment without create
@@ -2320,16 +2343,6 @@ export interface StartDeploymentRequest {
    *             downloads a single .zip file. </p>
    */
   sourceUrl?: string;
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p> The job ID for this deployment, generated by the create deployment request. </p>
-   */
-  jobId?: string;
 }
 
 export namespace StartDeploymentRequest {
@@ -2359,9 +2372,29 @@ export namespace StartDeploymentResult {
  */
 export interface StartJobRequest {
   /**
-   * <p> The commit message from a third-party repository provider for the job. </p>
+   * <p> The unique ID for an Amplify app. </p>
    */
-  commitMessage?: string;
+  appId: string | undefined;
+
+  /**
+   * <p> The branch name for the job. </p>
+   */
+  branchName: string | undefined;
+
+  /**
+   * <p> The unique ID for an existing job. This is required if the value of
+   *                 <code>jobType</code> is <code>RETRY</code>. </p>
+   */
+  jobId?: string;
+
+  /**
+   * <p> Describes the type for the job. The job type <code>RELEASE</code> starts a new job
+   *             with the latest change from the specified branch. This value is available only for apps
+   *             that are connected to a repository. The job type <code>RETRY</code> retries an existing
+   *             job. If the job type value is <code>RETRY</code>, the <code>jobId</code> is also
+   *             required. </p>
+   */
+  jobType: JobType | string | undefined;
 
   /**
    * <p> A descriptive reason for starting this job. </p>
@@ -2374,34 +2407,14 @@ export interface StartJobRequest {
   commitId?: string;
 
   /**
+   * <p> The commit message from a third-party repository provider for the job. </p>
+   */
+  commitMessage?: string;
+
+  /**
    * <p> The commit date and time for the job. </p>
    */
   commitTime?: Date;
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p> The unique ID for an existing job. This is required if the value of
-   *                 <code>jobType</code> is <code>RETRY</code>. </p>
-   */
-  jobId?: string;
-
-  /**
-   * <p> The branch name for the job. </p>
-   */
-  branchName: string | undefined;
-
-  /**
-   * <p> Describes the type for the job. The job type <code>RELEASE</code> starts a new job
-   *             with the latest change from the specified branch. This value is available only for apps
-   *             that are connected to a repository. The job type <code>RETRY</code> retries an existing
-   *             job. If the job type value is <code>RETRY</code>, the <code>jobId</code> is also
-   *             required. </p>
-   */
-  jobType: JobType | string | undefined;
 }
 
 export namespace StartJobRequest {
@@ -2431,6 +2444,11 @@ export namespace StartJobResult {
  */
 export interface StopJobRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
    * <p> The name for the branch, for the job. </p>
    */
   branchName: string | undefined;
@@ -2439,11 +2457,6 @@ export interface StopJobRequest {
    * <p> The unique id for the job. </p>
    */
   jobId: string | undefined;
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
 }
 
 export namespace StopJobRequest {
@@ -2473,14 +2486,14 @@ export namespace StopJobResult {
  */
 export interface TagResourceRequest {
   /**
-   * <p> The tags used to tag the resource. </p>
-   */
-  tags: { [key: string]: string } | undefined;
-
-  /**
    * <p> The Amazon Resource Name (ARN) to use to tag a resource. </p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p> The tags used to tag the resource. </p>
+   */
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2537,27 +2550,14 @@ export namespace UntagResourceResponse {
  */
 export interface UpdateAppRequest {
   /**
-   * <p> The personal access token for a third-party source control system for an Amplify app.
-   *             The token is used to create webhook and a read-only deploy key. The token is not stored.
-   *         </p>
+   * <p> The unique ID for an Amplify app. </p>
    */
-  accessToken?: string;
+  appId: string | undefined;
 
   /**
-   * <p> Automatically disconnects a branch in the Amplify Console when you delete a branch
-   *             from your Git repository. </p>
+   * <p> The name for an Amplify app. </p>
    */
-  enableBranchAutoDeletion?: boolean;
-
-  /**
-   * <p> Enables branch auto-building for an Amplify app. </p>
-   */
-  enableBranchAutoBuild?: boolean;
-
-  /**
-   * <p> The name of the repository for an Amplify app </p>
-   */
-  repository?: string;
+  name?: string;
 
   /**
    * <p> The description for an Amplify app. </p>
@@ -2565,9 +2565,9 @@ export interface UpdateAppRequest {
   description?: string;
 
   /**
-   * <p> The name for an Amplify app. </p>
+   * <p> The platform for an Amplify app. </p>
    */
-  name?: string;
+  platform?: Platform | string;
 
   /**
    * <p> The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
@@ -2580,9 +2580,25 @@ export interface UpdateAppRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The automated branch creation configuration for the Amplify app. </p>
+   * <p> Enables branch auto-building for an Amplify app. </p>
    */
-  autoBranchCreationConfig?: AutoBranchCreationConfig;
+  enableBranchAutoBuild?: boolean;
+
+  /**
+   * <p> Automatically disconnects a branch in the Amplify Console when you delete a branch
+   *             from your Git repository. </p>
+   */
+  enableBranchAutoDeletion?: boolean;
+
+  /**
+   * <p> Enables basic authorization for an Amplify app. </p>
+   */
+  enableBasicAuth?: boolean;
+
+  /**
+   * <p> The basic authorization credentials for an Amplify app. </p>
+   */
+  basicAuthCredentials?: string;
 
   /**
    * <p> The custom redirect and rewrite rules for an Amplify app. </p>
@@ -2590,9 +2606,34 @@ export interface UpdateAppRequest {
   customRules?: CustomRule[];
 
   /**
-   * <p> Describes the automated branch creation glob patterns for the Amplify app. </p>
+   * <p> The build specification (build spec) for an Amplify app. </p>
+   */
+  buildSpec?: string;
+
+  /**
+   * <p>The custom HTTP headers for an Amplify app.</p>
+   */
+  customHeaders?: string;
+
+  /**
+   * <p> Enables automated branch creation for an Amplify app. </p>
+   */
+  enableAutoBranchCreation?: boolean;
+
+  /**
+   * <p> Describes the automated branch creation glob patterns for an Amplify app. </p>
    */
   autoBranchCreationPatterns?: string[];
+
+  /**
+   * <p> The automated branch creation configuration for an Amplify app. </p>
+   */
+  autoBranchCreationConfig?: AutoBranchCreationConfig;
+
+  /**
+   * <p> The name of the repository for an Amplify app </p>
+   */
+  repository?: string;
 
   /**
    * <p> The OAuth token for a third-party source control system for an Amplify app. The token
@@ -2602,45 +2643,22 @@ export interface UpdateAppRequest {
   oauthToken?: string;
 
   /**
-   * <p> The platform for an Amplify app. </p>
+   * <p> The personal access token for a third-party source control system for an Amplify app.
+   *             The token is used to create webhook and a read-only deploy key. The token is not stored.
+   *         </p>
    */
-  platform?: Platform | string;
-
-  /**
-   * <p> The basic authorization credentials for an Amplify app. </p>
-   */
-  basicAuthCredentials?: string;
-
-  /**
-   * <p> Enables basic authorization for an Amplify app. </p>
-   */
-  enableBasicAuth?: boolean;
-
-  /**
-   * <p> Enables automated branch creation for the Amplify app. </p>
-   */
-  enableAutoBranchCreation?: boolean;
-
-  /**
-   * <p> The build specification (build spec) for an Amplify app. </p>
-   */
-  buildSpec?: string;
-
-  /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
+  accessToken?: string;
 }
 
 export namespace UpdateAppRequest {
   export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
     ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
     ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
 }
 
@@ -2666,9 +2684,39 @@ export namespace UpdateAppResult {
  */
 export interface UpdateBranchRequest {
   /**
+   * <p> The unique ID for an Amplify app. </p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p> The name for the branch. </p>
+   */
+  branchName: string | undefined;
+
+  /**
+   * <p> The description for the branch. </p>
+   */
+  description?: string;
+
+  /**
+   * <p> The framework for the branch. </p>
+   */
+  framework?: string;
+
+  /**
+   * <p> Describes the current stage for the branch. </p>
+   */
+  stage?: Stage | string;
+
+  /**
    * <p> Enables notifications for the branch. </p>
    */
   enableNotification?: boolean;
+
+  /**
+   * <p> Enables auto building for the branch. </p>
+   */
+  enableAutoBuild?: boolean;
 
   /**
    * <p> The environment variables for the branch. </p>
@@ -2676,9 +2724,20 @@ export interface UpdateBranchRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
+   * <p> The basic authorization credentials for the branch. </p>
+   */
+  basicAuthCredentials?: string;
+
+  /**
    * <p> Enables basic authorization for the branch. </p>
    */
   enableBasicAuth?: boolean;
+
+  /**
+   * <p>Enables performance mode for the branch.</p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   */
+  enablePerformanceMode?: boolean;
 
   /**
    * <p> The build specification (build spec) for the branch. </p>
@@ -2691,50 +2750,14 @@ export interface UpdateBranchRequest {
   ttl?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
-   *             app. </p>
+   * <p> The display name for a branch. This is used as the default domain prefix. </p>
    */
-  backendEnvironmentArn?: string;
+  displayName?: string;
 
   /**
-   * <p> The unique ID for an Amplify app. </p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p> Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. Enabling performance mode will mean that hosting configuration or code changes can take up to 10 minutes to roll out. </p>
-   */
-  enablePerformanceMode?: boolean;
-
-  /**
-   * <p> The framework for the branch. </p>
-   */
-  framework?: string;
-
-  /**
-   * <p> Enables pull request preview for this branch. </p>
+   * <p> Enables pull request previews for this branch. </p>
    */
   enablePullRequestPreview?: boolean;
-
-  /**
-   * <p> Describes the current stage for the branch. </p>
-   */
-  stage?: Stage | string;
-
-  /**
-   * <p> The basic authorization credentials for the branch. </p>
-   */
-  basicAuthCredentials?: string;
-
-  /**
-   * <p> Enables auto building for the branch. </p>
-   */
-  enableAutoBuild?: boolean;
-
-  /**
-   * <p> The name for the branch. </p>
-   */
-  branchName: string | undefined;
 
   /**
    * <p> The Amplify environment name for the pull request. </p>
@@ -2742,14 +2765,10 @@ export interface UpdateBranchRequest {
   pullRequestEnvironmentName?: string;
 
   /**
-   * <p> The description for the branch. </p>
+   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+   *             app. </p>
    */
-  description?: string;
-
-  /**
-   * <p> The display name for a branch. This is used as the default domain prefix. </p>
-   */
-  displayName?: string;
+  backendEnvironmentArn?: string;
 }
 
 export namespace UpdateBranchRequest {
@@ -2786,9 +2805,9 @@ export interface UpdateDomainAssociationRequest {
   appId: string | undefined;
 
   /**
-   * <p> Sets the branch patterns for automatic subdomain creation. </p>
+   * <p> The name of the domain. </p>
    */
-  autoSubDomainCreationPatterns?: string[];
+  domainName: string | undefined;
 
   /**
    * <p> Enables the automated creation of subdomains for branches. </p>
@@ -2801,9 +2820,9 @@ export interface UpdateDomainAssociationRequest {
   subDomainSettings: SubDomainSetting[] | undefined;
 
   /**
-   * <p> The name of the domain. </p>
+   * <p> Sets the branch patterns for automatic subdomain creation. </p>
    */
-  domainName: string | undefined;
+  autoSubDomainCreationPatterns?: string[];
 
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
@@ -2845,14 +2864,14 @@ export interface UpdateWebhookRequest {
   webhookId: string | undefined;
 
   /**
-   * <p> The description for a webhook. </p>
-   */
-  description?: string;
-
-  /**
    * <p> The name for a branch that is part of an Amplify app. </p>
    */
   branchName?: string;
+
+  /**
+   * <p> The description for a webhook. </p>
+   */
+  description?: string;
 }
 
 export namespace UpdateWebhookRequest {

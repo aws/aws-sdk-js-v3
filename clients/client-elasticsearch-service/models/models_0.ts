@@ -725,6 +725,7 @@ export interface DomainPackageDetails {
    */
   DomainPackageStatus?: DomainPackageStatus | string;
 
+  PackageVersion?: string;
   /**
    * <p>The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.</p>
    */
@@ -1714,6 +1715,8 @@ export interface PackageDetails {
    */
   CreatedAt?: Date;
 
+  LastUpdatedAt?: Date;
+  AvailablePackageVersion?: string;
   /**
    * <p>Additional information if the package is in an error state. Null otherwise.</p>
    */
@@ -3206,6 +3209,89 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
  * <p>
  *       Container for request parameters to
  *       <code>
+ *         <a>GetPackageVersionHistory</a>
+ *       </code>
+ *       operation.
+ *     </p>
+ */
+export interface GetPackageVersionHistoryRequest {
+  /**
+   * <p>Returns an audit history of versions of the package.</p>
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p>Limits results to a maximum number of versions.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetPackageVersionHistoryRequest {
+  export const filterSensitiveLog = (obj: GetPackageVersionHistoryRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of a package version.</p>
+ */
+export interface PackageVersionHistory {
+  /**
+   * <p>Version of the package.</p>
+   */
+  PackageVersion?: string;
+
+  /**
+   * <p>A message associated with the version.</p>
+   */
+  CommitMessage?: string;
+
+  /**
+   * <p>Timestamp which tells creation time of the package version.</p>
+   */
+  CreatedAt?: Date;
+}
+
+export namespace PackageVersionHistory {
+  export const filterSensitiveLog = (obj: PackageVersionHistory): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Container for response returned by
+ *       <code>
+ *         <a>GetPackageVersionHistory</a>
+ *       </code>
+ *       operation.
+ *     </p>
+ */
+export interface GetPackageVersionHistoryResponse {
+  PackageID?: string;
+  /**
+   * <p>List of <code>PackageVersionHistory</code> objects.</p>
+   */
+  PackageVersionHistoryList?: PackageVersionHistory[];
+
+  NextToken?: string;
+}
+
+export namespace GetPackageVersionHistoryResponse {
+  export const filterSensitiveLog = (obj: GetPackageVersionHistoryResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Container for request parameters to
+ *       <code>
  *         <a>GetUpgradeHistory</a>
  *       </code>
  *       operation.
@@ -3996,6 +4082,65 @@ export interface UpdateElasticsearchDomainConfigResponse {
 
 export namespace UpdateElasticsearchDomainConfigResponse {
   export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Container for request parameters to
+ *       <code>
+ *         <a>UpdatePackage</a>
+ *       </code>
+ *       operation.
+ *     </p>
+ */
+export interface UpdatePackageRequest {
+  /**
+   * <p>Unique identifier for the package.</p>
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p>The S3 location for importing the package specified as <code>S3BucketName</code> and <code>S3Key</code></p>
+   */
+  PackageSource: PackageSource | undefined;
+
+  /**
+   * <p>New description of the package.</p>
+   */
+  PackageDescription?: string;
+
+  /**
+   * <p>An info message for the new version which will be shown as part of <code>GetPackageVersionHistoryResponse</code>.</p>
+   */
+  CommitMessage?: string;
+}
+
+export namespace UpdatePackageRequest {
+  export const filterSensitiveLog = (obj: UpdatePackageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Container for response returned by
+ *       <code>
+ *         <a>UpdatePackage</a>
+ *       </code>
+ *       operation.
+ *     </p>
+ */
+export interface UpdatePackageResponse {
+  /**
+   * <p>Information about the package <code>PackageDetails</code>.</p>
+   */
+  PackageDetails?: PackageDetails;
+}
+
+export namespace UpdatePackageResponse {
+  export const filterSensitiveLog = (obj: UpdatePackageResponse): any => ({
     ...obj,
   });
 }

@@ -8,14 +8,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Tag {
   /**
-   * <p>Value of the tag key.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>Tag key. The key can't start with aws:.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>Value of the tag key.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -67,6 +67,36 @@ export namespace Tag {
  */
 export interface ActivateGatewayInput {
   /**
+   * <p>Your gateway activation key. You can obtain the activation key by sending an HTTP GET
+   *          request with redirects enabled to the gateway IP address (port 80). The redirect URL
+   *          returned in the response provides you the activation key for your gateway in the query
+   *          string parameter <code>activationKey</code>. It may also include other activation-related
+   *          parameters, however, these are merely defaults -- the arguments you pass to the
+   *             <code>ActivateGateway</code> API call determine the actual configuration of your
+   *          gateway.</p>
+   *
+   *
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html">Getting activation
+   *             key</a> in the <i>AWS Storage Gateway User Guide</i>.</p>
+   */
+  ActivationKey: string | undefined;
+
+  /**
+   * <p>The name you configured for your gateway.</p>
+   */
+  GatewayName: string | undefined;
+
+  /**
+   * <p>A value that indicates the time zone you want to set for the gateway. The time zone is
+   *          of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4
+   *          hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is
+   *          used, for example, for scheduling snapshots and your gateway's maintenance
+   *          schedule.</p>
+   */
+  GatewayTimezone: string | undefined;
+
+  /**
    * <p>A value that indicates the AWS Region where you want to store your data. The gateway AWS
    *          Region specified must be the same AWS Region as the AWS Region in your <code>Host</code>
    *          header in the request. For more information about available AWS Regions and endpoints for
@@ -94,32 +124,6 @@ export interface ActivateGatewayInput {
   GatewayType?: string;
 
   /**
-   * <p>The value that indicates the type of medium changer to use for tape gateway. This field
-   *          is optional.</p>
-   *
-   *          <p>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> |
-   *             <code>IBM-03584L32-0402</code>
-   *          </p>
-   */
-  MediumChangerType?: string;
-
-  /**
-   * <p>Your gateway activation key. You can obtain the activation key by sending an HTTP GET
-   *          request with redirects enabled to the gateway IP address (port 80). The redirect URL
-   *          returned in the response provides you the activation key for your gateway in the query
-   *          string parameter <code>activationKey</code>. It may also include other activation-related
-   *          parameters, however, these are merely defaults -- the arguments you pass to the
-   *             <code>ActivateGateway</code> API call determine the actual configuration of your
-   *          gateway.</p>
-   *
-   *
-   *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html">Getting activation
-   *             key</a> in the <i>AWS Storage Gateway User Guide</i>.</p>
-   */
-  ActivationKey: string | undefined;
-
-  /**
    * <p>The value that indicates the type of tape drive to use for tape gateway. This field is
    *          optional.</p>
    *
@@ -129,13 +133,14 @@ export interface ActivateGatewayInput {
   TapeDriveType?: string;
 
   /**
-   * <p>A value that indicates the time zone you want to set for the gateway. The time zone is
-   *          of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4
-   *          hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is
-   *          used, for example, for scheduling snapshots and your gateway's maintenance
-   *          schedule.</p>
+   * <p>The value that indicates the type of medium changer to use for tape gateway. This field
+   *          is optional.</p>
+   *
+   *          <p>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> |
+   *             <code>IBM-03584L32-0402</code>
+   *          </p>
    */
-  GatewayTimezone: string | undefined;
+  MediumChangerType?: string;
 
   /**
    * <p>A list of up to 50 tags that you can assign to the gateway. Each tag is a key-value
@@ -149,11 +154,6 @@ export interface ActivateGatewayInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The name you configured for your gateway.</p>
-   */
-  GatewayName: string | undefined;
 }
 
 export namespace ActivateGatewayInput {
@@ -259,14 +259,14 @@ export type ErrorCode =
  */
 export interface StorageGatewayError {
   /**
-   * <p>Human-readable text that provides detail about the error that occurred.</p>
-   */
-  errorDetails?: { [key: string]: string };
-
-  /**
    * <p>Additional information about the error.</p>
    */
   errorCode?: ErrorCode | string;
+
+  /**
+   * <p>Human-readable text that provides detail about the error that occurred.</p>
+   */
+  errorDetails?: { [key: string]: string };
 }
 
 export namespace StorageGatewayError {
@@ -283,15 +283,15 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   name: "InternalServerError";
   $fault: "server";
   /**
+   * <p>A human-readable message describing the error that occurred.</p>
+   */
+  message?: string;
+
+  /**
    * <p>A <a>StorageGatewayError</a> that provides more information about the cause
    *          of the error.</p>
    */
   error?: StorageGatewayError;
-
-  /**
-   * <p>A human-readable message describing the error that occurred.</p>
-   */
-  message?: string;
 }
 
 export namespace InternalServerError {
@@ -308,15 +308,15 @@ export interface InvalidGatewayRequestException extends __SmithyException, $Meta
   name: "InvalidGatewayRequestException";
   $fault: "client";
   /**
+   * <p>A human-readable message describing the error that occurred.</p>
+   */
+  message?: string;
+
+  /**
    * <p>A <a>StorageGatewayError</a> that provides more detail about the cause of the
    *          error.</p>
    */
   error?: StorageGatewayError;
-
-  /**
-   * <p>A human-readable message describing the error that occurred.</p>
-   */
-  message?: string;
 }
 
 export namespace InvalidGatewayRequestException {
@@ -416,17 +416,17 @@ export namespace AddTagsToResourceOutput {
 
 export interface AddUploadBufferInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
    * <p>An array of strings that identify disks that are to be configured as working storage.
    *          Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
   DiskIds: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
 }
 
 export namespace AddUploadBufferInput {
@@ -462,17 +462,17 @@ export namespace AddUploadBufferOutput {
  */
 export interface AddWorkingStorageInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
    * <p>An array of strings that identify disks that are to be configured as working storage.
    *          Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
   DiskIds: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
 }
 
 export namespace AddWorkingStorageInput {
@@ -501,6 +501,12 @@ export namespace AddWorkingStorageOutput {
 
 export interface AssignTapePoolInput {
   /**
+   * <p>The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the
+   *          tape pool.</p>
+   */
+  TapeARN: string | undefined;
+
+  /**
    * <p>The ID of the pool that you want to add your tape to for archiving. The tape in this
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
@@ -510,12 +516,6 @@ export interface AssignTapePoolInput {
    *          </p>
    */
   PoolId: string | undefined;
-
-  /**
-   * <p>The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the
-   *          tape pool.</p>
-   */
-  TapeARN: string | undefined;
 
   /**
    * <p>Set permissions to bypass governance retention. If the lock type of the archived tape is
@@ -556,11 +556,10 @@ export namespace AssignTapePoolOutput {
  */
 export interface AttachVolumeInput {
   /**
-   * <p>The unique device ID or other distinguishing data that identifies the local disk used to
-   *          create the volume. This value is only required when you are attaching a stored
-   *          volume.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway that you want to attach the volume
+   *          to.</p>
    */
-  DiskId?: string;
+  GatewayARN: string | undefined;
 
   /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
@@ -589,10 +588,11 @@ export interface AttachVolumeInput {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway that you want to attach the volume
-   *          to.</p>
+   * <p>The unique device ID or other distinguishing data that identifies the local disk used to
+   *          create the volume. This value is only required when you are attaching a stored
+   *          volume.</p>
    */
-  GatewayARN: string | undefined;
+  DiskId?: string;
 }
 
 export namespace AttachVolumeInput {
@@ -630,19 +630,6 @@ export namespace AttachVolumeOutput {
  */
 export interface AutomaticTapeCreationRule {
   /**
-   * <p>The minimum number of available virtual tapes that the gateway maintains at all times.
-   *          If the number of tapes on the gateway goes below this value, the gateway creates as many
-   *          new tapes as are needed to have <code>MinimumNumTapes</code> on the gateway. For more
-   *          information about automatic tape creation, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically">Creating Tapes Automatically</a>.</p>
-   */
-  MinimumNumTapes: number | undefined;
-
-  /**
-   * <p>The size, in bytes, of the virtual tape capacity.</p>
-   */
-  TapeSizeInBytes: number | undefined;
-
-  /**
    * <p>A prefix that you append to the barcode of the virtual tape that you are creating. This
    *          prefix makes the barcode unique.</p>
    *
@@ -665,6 +652,19 @@ export interface AutomaticTapeCreationRule {
   PoolId: string | undefined;
 
   /**
+   * <p>The size, in bytes, of the virtual tape capacity.</p>
+   */
+  TapeSizeInBytes: number | undefined;
+
+  /**
+   * <p>The minimum number of available virtual tapes that the gateway maintains at all times.
+   *          If the number of tapes on the gateway goes below this value, the gateway creates as many
+   *          new tapes as are needed to have <code>MinimumNumTapes</code> on the gateway. For more
+   *          information about automatic tape creation, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically">Creating Tapes Automatically</a>.</p>
+   */
+  MinimumNumTapes: number | undefined;
+
+  /**
    * <p>Set to <code>true</code> to indicate that tapes are to be archived as
    *          write-once-read-many (WORM). Set to <code>false</code> when WORM is not enabled for
    *          tapes.</p>
@@ -684,17 +684,17 @@ export namespace AutomaticTapeCreationRule {
  */
 export interface AutomaticTapeCreationPolicyInfo {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
    * <p>An automatic tape creation policy consists of a list of automatic tape creation rules.
    *          This returns the rules that determine when and how to automatically create new
    *          tapes.</p>
    */
   AutomaticTapeCreationRules?: AutomaticTapeCreationRule[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
 }
 
 export namespace AutomaticTapeCreationPolicyInfo {
@@ -704,6 +704,83 @@ export namespace AutomaticTapeCreationPolicyInfo {
 }
 
 export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
+
+/**
+ * <p>
+ *          Describes a bandwidth rate limit interval for a gateway. A bandwidth
+ *          rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit
+ *          interval defines a period of time on one or more days of the week, during which bandwidth rate
+ *          limits are specified for uploading, downloading, or both.
+ *       </p>
+ */
+export interface BandwidthRateLimitInterval {
+  /**
+   * <p>
+   *          The hour of the day to start the bandwidth rate limit interval.
+   *       </p>
+   */
+  StartHourOfDay: number | undefined;
+
+  /**
+   * <p>
+   *          The minute of the hour to start the bandwidth rate limit interval.
+   *          The interval begins at the start of that minute. To begin an interval exactly at
+   *          the start of the hour, use the value <code>0</code>.
+   *       </p>
+   */
+  StartMinuteOfHour: number | undefined;
+
+  /**
+   * <p>
+   *          The hour of the day to end the bandwidth rate limit interval.
+   *       </p>
+   */
+  EndHourOfDay: number | undefined;
+
+  /**
+   * <p>
+   *          The minute of the hour to end the bandwidth rate limit interval.
+   *       </p>
+   *
+   *          <important>
+   *             <p>
+   *             The bandwidth rate limit interval ends at the end of the minute. To end an interval
+   *             at the end of an hour, use the value <code>59</code>.
+   *          </p>
+   *          </important>
+   */
+  EndMinuteOfHour: number | undefined;
+
+  /**
+   * <p>
+   *          The days of the week component of the bandwidth rate limit interval,
+   *          represented as ordinal numbers from 0 to 6, where 0 represents Sunday and 6 Saturday.
+   *       </p>
+   */
+  DaysOfWeek: number[] | undefined;
+
+  /**
+   * <p>
+   *          The average upload rate limit component of the bandwidth rate limit interval,
+   *          in bits per second. This field does not appear in the response if the upload rate limit is not set.
+   *       </p>
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>
+   *          The average download rate limit component of the bandwidth rate limit interval,
+   *          in bits per second. This field does not appear in the response if the download rate limit is not set.
+   *       </p>
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
+}
+
+export namespace BandwidthRateLimitInterval {
+  export const filterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Lists refresh cache information.</p>
@@ -731,14 +808,14 @@ export namespace CacheAttributes {
  */
 export interface VolumeiSCSIAttributes {
   /**
-   * <p>The network interface identifier.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the volume target.</p>
    */
   TargetARN?: string;
+
+  /**
+   * <p>The network interface identifier.</p>
+   */
+  NetworkInterfaceId?: string;
 
   /**
    * <p>The port used to communicate with iSCSI targets.</p>
@@ -746,14 +823,14 @@ export interface VolumeiSCSIAttributes {
   NetworkInterfacePort?: number;
 
   /**
-   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
-   */
-  ChapEnabled?: boolean;
-
-  /**
    * <p>The logical disk number.</p>
    */
   LunNumber?: number;
+
+  /**
+   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
+   */
+  ChapEnabled?: boolean;
 }
 
 export namespace VolumeiSCSIAttributes {
@@ -766,6 +843,63 @@ export namespace VolumeiSCSIAttributes {
  * <p>Describes an iSCSI cached volume.</p>
  */
 export interface CachediSCSIVolume {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage volume.</p>
+   */
+  VolumeARN?: string;
+
+  /**
+   * <p>The unique identifier of the volume, e.g., vol-AE4B946D.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>One of the VolumeType enumeration values that describes the type of the volume.</p>
+   */
+  VolumeType?: string;
+
+  /**
+   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
+   */
+  VolumeStatus?: string;
+
+  /**
+   * <p>A value that indicates whether a storage volume is attached to or detached from a
+   *          gateway. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume">Moving
+   *             your volumes to a different gateway</a>.</p>
+   */
+  VolumeAttachmentStatus?: string;
+
+  /**
+   * <p>The size, in bytes, of the volume capacity.</p>
+   */
+  VolumeSizeInBytes?: number;
+
+  /**
+   * <p>Represents the percentage complete if the volume is restoring or bootstrapping that
+   *          represents the percent of data transferred. This field does not appear in the response if
+   *          the cached volume is not restoring or bootstrapping.</p>
+   */
+  VolumeProgress?: number;
+
+  /**
+   * <p>If the cached volume was created from a snapshot, this field contains the snapshot ID
+   *          used, e.g., snap-78e22663. Otherwise, this field is not included.</p>
+   */
+  SourceSnapshotId?: string;
+
+  /**
+   * <p>An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI
+   *          attributes for one stored volume.</p>
+   */
+  VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
+
+  /**
+   * <p>The date the volume was created. Volumes created prior to March 28, 2017 don’t have this
+   *          timestamp.</p>
+   */
+  CreatedDate?: Date;
+
   /**
    * <p>The size of the data stored on the volume in bytes. This value is calculated based on
    *          the number of blocks that are touched, instead of the actual amount of data written. This
@@ -781,6 +915,13 @@ export interface CachediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
    *          suffix for the target ARN. For example, specifying <code>TargetName</code> as
    *             <i>myvolume</i> results in the target ARN of
@@ -791,70 +932,6 @@ export interface CachediSCSIVolume {
    *          used for this volume as the new target name.</p>
    */
   TargetName?: string;
-
-  /**
-   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
-   */
-  VolumeStatus?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI
-   *          attributes for one stored volume.</p>
-   */
-  VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
-
-  /**
-   * <p>The date the volume was created. Volumes created prior to March 28, 2017 don’t have this
-   *          timestamp.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>A value that indicates whether a storage volume is attached to or detached from a
-   *          gateway. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume">Moving
-   *             your volumes to a different gateway</a>.</p>
-   */
-  VolumeAttachmentStatus?: string;
-
-  /**
-   * <p>Represents the percentage complete if the volume is restoring or bootstrapping that
-   *          represents the percent of data transferred. This field does not appear in the response if
-   *          the cached volume is not restoring or bootstrapping.</p>
-   */
-  VolumeProgress?: number;
-
-  /**
-   * <p>The size, in bytes, of the volume capacity.</p>
-   */
-  VolumeSizeInBytes?: number;
-
-  /**
-   * <p>The unique identifier of the volume, e.g., vol-AE4B946D.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>One of the VolumeType enumeration values that describes the type of the volume.</p>
-   */
-  VolumeType?: string;
-
-  /**
-   * <p>If the cached volume was created from a snapshot, this field contains the snapshot ID
-   *          used, e.g., snap-78e22663. Otherwise, this field is not included.</p>
-   */
-  SourceSnapshotId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the storage volume.</p>
-   */
-  VolumeARN?: string;
 }
 
 export namespace CachediSCSIVolume {
@@ -908,16 +985,16 @@ export namespace CancelArchivalOutput {
  */
 export interface CancelRetrievalInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval
-   *          for.</p>
-   */
-  TapeARN: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
   GatewayARN: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval
+   *          for.</p>
+   */
+  TapeARN: string | undefined;
 }
 
 export namespace CancelRetrievalInput {
@@ -951,17 +1028,6 @@ export type CaseSensitivity = "CaseSensitive" | "ClientSpecified";
  */
 export interface ChapInfo {
   /**
-   * <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g., Windows client).</p>
-   */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the volume.</p>
    *
    *          <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>
@@ -973,24 +1039,46 @@ export interface ChapInfo {
    *          participate in mutual CHAP with the target.</p>
    */
   SecretToAuthenticateInitiator?: string;
+
+  /**
+   * <p>The iSCSI initiator that connects to the target.</p>
+   */
+  InitiatorName?: string;
+
+  /**
+   * <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g., Windows client).</p>
+   */
+  SecretToAuthenticateTarget?: string;
 }
 
 export namespace ChapInfo {
   export const filterSensitiveLog = (obj: ChapInfo): any => ({
     ...obj,
-    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
 }
 
 export interface CreateCachediSCSIVolumeInput {
   /**
-   * <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an exact
-   *          copy of the specified existing volume's latest recovery point. The
-   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
-   *          the size of the existing volume, in bytes.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  SourceVolumeARN?: string;
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The size of the volume in bytes.</p>
+   */
+  VolumeSizeInBytes: number | undefined;
+
+  /**
+   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
+   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
+   *          otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+   *             Reference</i>.</p>
+   */
+  SnapshotId?: string;
 
   /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
@@ -1003,6 +1091,29 @@ export interface CreateCachediSCSIVolumeInput {
    *          used for this volume as the new target name.</p>
    */
   TargetName: string | undefined;
+
+  /**
+   * <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an exact
+   *          copy of the specified existing volume's latest recovery point. The
+   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
+   *          the size of the existing volume, in bytes.</p>
+   */
+  SourceVolumeARN?: string;
+
+  /**
+   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *
+   *          <p>Valid Values: A valid IP address.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>A unique identifier that you use to retry a request. If you retry a request, use the
+   *          same <code>ClientToken</code> you specified in the initial request.</p>
+   */
+  ClientToken: string | undefined;
 
   /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
@@ -1021,21 +1132,6 @@ export interface CreateCachediSCSIVolumeInput {
   KMSKey?: string;
 
   /**
-   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *
-   *          <p>Valid Values: A valid IP address.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>A unique identifier that you use to retry a request. If you retry a request, use the
-   *          same <code>ClientToken</code> you specified in the initial request.</p>
-   */
-  ClientToken: string | undefined;
-
-  /**
    * <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value
    *          pair.</p>
    *
@@ -1047,25 +1143,6 @@ export interface CreateCachediSCSIVolumeInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
-   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
-   *          otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
-   *             Reference</i>.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The size of the volume in bytes.</p>
-   */
-  VolumeSizeInBytes: number | undefined;
 }
 
 export namespace CreateCachediSCSIVolumeInput {
@@ -1102,18 +1179,6 @@ export namespace CreateCachediSCSIVolumeOutput {
  */
 export interface NFSFileShareDefaults {
   /**
-   * <p>The default group ID for the file share (unless the files have another group ID
-   *          specified). The default value is <code>nfsnobody</code>.</p>
-   */
-  GroupId?: number;
-
-  /**
-   * <p>The default owner ID for files in the file share (unless the files have another owner ID
-   *          specified). The default value is <code>nfsnobody</code>.</p>
-   */
-  OwnerId?: number;
-
-  /**
    * <p>The Unix file mode in the form "nnnn". For example, <code>0666</code> represents the
    *          default file mode inside the file share. The default value is <code>0666</code>.</p>
    */
@@ -1125,6 +1190,18 @@ export interface NFSFileShareDefaults {
    *             <code>0777</code>.</p>
    */
   DirectoryMode?: string;
+
+  /**
+   * <p>The default group ID for the file share (unless the files have another group ID
+   *          specified). The default value is <code>nfsnobody</code>.</p>
+   */
+  GroupId?: number;
+
+  /**
+   * <p>The default owner ID for files in the file share (unless the files have another owner ID
+   *          specified). The default value is <code>nfsnobody</code>.</p>
+   */
+  OwnerId?: number;
 }
 
 export namespace NFSFileShareDefaults {
@@ -1147,6 +1224,51 @@ export type ObjectACL =
  */
 export interface CreateNFSFileShareInput {
   /**
+   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
+   *          file share creation.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>File share default values. Optional.</p>
+   */
+  NFSFileShareDefaults?: NFSFileShareDefaults;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file gateway on which you want to create a file
+   *          share.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
+   *          when it accesses the underlying storage.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
+   *          the S3 bucket name. It must end with a "/".</p>
+   */
+  LocationARN: string | undefined;
+
+  /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
@@ -1157,16 +1279,16 @@ export interface CreateNFSFileShareInput {
   DefaultStorageClass?: string;
 
   /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
-   *          either valid IP addresses or valid CIDR blocks.</p>
-   */
-  ClientList?: string[];
-
-  /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
+
+  /**
+   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   *          either valid IP addresses or valid CIDR blocks.</p>
+   */
+  ClientList?: string[];
 
   /**
    * <p>A value that maps a user to anonymous user.</p>
@@ -1191,36 +1313,23 @@ export interface CreateNFSFileShareInput {
   Squash?: string;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
-   *          when it accesses the underlying storage.</p>
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
-   *          the S3 bucket name. It must end with a "/".</p>
-   */
-  LocationARN: string | undefined;
-
-  /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
-   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
+   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    */
-  KMSEncrypted?: boolean;
+  ReadOnly?: boolean;
 
   /**
-   * <p>The name of the file share. Optional.</p>
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
    *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  FileShareName?: string;
+  GuessMIMETypeEnabled?: boolean;
 
   /**
    * <p>A value that sets who pays the cost of the request and the cost associated with data
@@ -1241,27 +1350,6 @@ export interface CreateNFSFileShareInput {
   RequesterPays?: boolean;
 
   /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  GuessMIMETypeEnabled?: boolean;
-
-  /**
-   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
-   *          file share creation.</p>
-   */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>Refresh cache information.</p>
-   */
-  CacheAttributes?: CacheAttributes;
-
-  /**
    * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a
    *          key-value pair.</p>
    *
@@ -1275,36 +1363,25 @@ export interface CreateNFSFileShareInput {
   Tags?: Tag[];
 
   /**
+   * <p>The name of the file share. Optional.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
+   */
+  FileShareName?: string;
+
+  /**
+   * <p>Refresh cache information.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+
+  /**
    * <p>The notification policy of the file share.</p>
    */
   NotificationPolicy?: string;
-
-  /**
-   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
-   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file gateway on which you want to create a file
-   *          share.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>File share default values. Optional.</p>
-   */
-  NFSFileShareDefaults?: NFSFileShareDefaults;
 }
 
 export namespace CreateNFSFileShareInput {
@@ -1334,31 +1411,24 @@ export namespace CreateNFSFileShareOutput {
  */
 export interface CreateSMBFileShareInput {
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
-   *          when it accesses the underlying storage.</p>
+   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
+   *          file share creation.</p>
    */
-  Role: string | undefined;
+  ClientToken: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   * <p>The ARN of the file gateway on which you want to create a file share.</p>
    */
-  AuditDestinationARN?: string;
+  GatewayARN: string | undefined;
 
   /**
-   * <p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file
-   *          share. Set it to <code>false</code> to map file and directory permissions to the POSIX
-   *          permissions.</p>
-   *
-   *
-   *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
-   *             Guide</i>.</p>
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    */
-  SMBACLEnabled?: boolean;
+  KMSEncrypted?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
@@ -1368,13 +1438,16 @@ export interface CreateSMBFileShareInput {
   KMSKey?: string;
 
   /**
-   * <p>The authentication method that users use to access the file share. The default is
-   *             <code>ActiveDirectory</code>.</p>
-   *
-   *          <p>Valid Values: <code>ActiveDirectory</code> | <code>GuestAccess</code>
-   *          </p>
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
+   *          when it accesses the underlying storage.</p>
    */
-  Authentication?: string;
+  Role: string | undefined;
+
+  /**
+   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
+   *          the S3 bucket name. It must end with a "/".</p>
+   */
+  LocationARN: string | undefined;
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
@@ -1387,47 +1460,29 @@ export interface CreateSMBFileShareInput {
   DefaultStorageClass?: string;
 
   /**
-   * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a
-   *          key-value pair.</p>
+   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
+   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   */
+  ObjectACL?: ObjectACL | string;
+
+  /**
+   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
+   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
    *
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
-   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
-   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  Tags?: Tag[];
+  ReadOnly?: boolean;
 
   /**
-   * <p>Refresh cache information.</p>
-   */
-  CacheAttributes?: CacheAttributes;
-
-  /**
-   * <p>A list of users or groups in the Active Directory that are allowed to access the file
-   *             <a href=""></a> share. A group must be prefixed with the @ character. Acceptable formats
-   *          include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
-   */
-  ValidUserList?: string[];
-
-  /**
-   * <p>The ARN of the file gateway on which you want to create a file share.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The name of the file share. Optional.</p>
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
    *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  FileShareName?: string;
+  GuessMIMETypeEnabled?: boolean;
 
   /**
    * <p>A value that sets who pays the cost of the request and the cost associated with data
@@ -1448,19 +1503,26 @@ export interface CreateSMBFileShareInput {
   RequesterPays?: boolean;
 
   /**
-   * <p>A list of users or groups in the Active Directory that are not allowed to access the
-   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
+   * <p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file
+   *          share. Set it to <code>false</code> to map file and directory permissions to the POSIX
+   *          permissions.</p>
+   *
+   *
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
+   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
+   *             Guide</i>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  InvalidUserList?: string[];
+  SMBACLEnabled?: boolean;
 
   /**
-   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
-   *          the S3 bucket name. It must end with a "/".</p>
+   * <p>The files and folders on this share will only be visible to users with read
+   *          access.</p>
    */
-  LocationARN: string | undefined;
+  AccessBasedEnumeration?: boolean;
 
   /**
    * <p>A list of users or groups in the Active Directory that will be granted administrator
@@ -1476,35 +1538,36 @@ export interface CreateSMBFileShareInput {
   AdminUserList?: string[];
 
   /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
+   * <p>A list of users or groups in the Active Directory that are allowed to access the file
+   *             <a href=""></a> share. A group must be prefixed with the @ character. Acceptable formats
+   *          include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  ValidUserList?: string[];
+
+  /**
+   * <p>A list of users or groups in the Active Directory that are not allowed to access the
+   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  InvalidUserList?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   */
+  AuditDestinationARN?: string;
+
+  /**
+   * <p>The authentication method that users use to access the file share. The default is
+   *             <code>ActiveDirectory</code>.</p>
    *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          <p>Valid Values: <code>ActiveDirectory</code> | <code>GuestAccess</code>
    *          </p>
    */
-  GuessMIMETypeEnabled?: boolean;
-
-  /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
-   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
-   *          file share creation.</p>
-   */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>The files and folders on this share will only be visible to users with read
-   *          access.</p>
-   */
-  AccessBasedEnumeration?: boolean;
+  Authentication?: string;
 
   /**
    * <p>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>, the
@@ -1514,24 +1577,38 @@ export interface CreateSMBFileShareInput {
   CaseSensitivity?: CaseSensitivity | string;
 
   /**
+   * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a
+   *          key-value pair.</p>
+   *
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
+   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
+   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the file share. Optional.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
+   */
+  FileShareName?: string;
+
+  /**
+   * <p>Refresh cache information.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+
+  /**
    * <p>The notification policy of the file share.</p>
    */
   NotificationPolicy?: string;
-
-  /**
-   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
-   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
-   */
-  ObjectACL?: ObjectACL | string;
 }
 
 export namespace CreateSMBFileShareInput {
@@ -1580,6 +1657,14 @@ export interface CreateSnapshotInput {
   VolumeARN: string | undefined;
 
   /**
+   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
+   *          Block Store snapshots panel in the <b>Description</b> field, and
+   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *             <b>Description</b> field.</p>
+   */
+  SnapshotDescription: string | undefined;
+
+  /**
    * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value
    *          pair.</p>
    *
@@ -1591,14 +1676,6 @@ export interface CreateSnapshotInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
-   *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
-   *             <b>Description</b> field.</p>
-   */
-  SnapshotDescription: string | undefined;
 }
 
 export namespace CreateSnapshotInput {
@@ -1663,6 +1740,14 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
   VolumeARN: string | undefined;
 
   /**
+   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
+   *          Block Store snapshots panel in the <b>Description</b> field, and
+   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *             <b>Description</b> field.</p>
+   */
+  SnapshotDescription: string | undefined;
+
+  /**
    * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value
    *          pair.</p>
    *
@@ -1674,14 +1759,6 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
-   *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
-   *             <b>Description</b> field.</p>
-   */
-  SnapshotDescription: string | undefined;
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointInput {
@@ -1692,11 +1769,6 @@ export namespace CreateSnapshotFromVolumeRecoveryPointInput {
 
 export interface CreateSnapshotFromVolumeRecoveryPointOutput {
   /**
-   * <p>The time the volume was created from the recovery point.</p>
-   */
-  VolumeRecoveryPointTime?: string;
-
-  /**
    * <p>The ID of the snapshot.</p>
    */
   SnapshotId?: string;
@@ -1706,6 +1778,11 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
    *          specified VolumeARN.</p>
    */
   VolumeARN?: string;
+
+  /**
+   * <p>The time the volume was created from the recovery point.</p>
+   */
+  VolumeRecoveryPointTime?: string;
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
@@ -1747,33 +1824,6 @@ export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
  */
 export interface CreateStorediSCSIVolumeInput {
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
-   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *
-   *          <p>Valid Values: A valid IP address.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>Set to true <code>true</code> if you want to preserve the data on the local disk.
-   *          Otherwise, set to <code>false</code> to create an empty volume.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  PreserveExistingData: boolean | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
@@ -1787,32 +1837,21 @@ export interface CreateStorediSCSIVolumeInput {
   DiskId: string | undefined;
 
   /**
-   * <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value
-   *          pair.</p>
-   *
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
-   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
-   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
    * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
    *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
    *          otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
    *             Reference</i>.</p>
    */
   SnapshotId?: string;
+
+  /**
+   * <p>Set to true <code>true</code> if you want to preserve the data on the local disk.
+   *          Otherwise, set to <code>false</code> to create an empty volume.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  PreserveExistingData: boolean | undefined;
 
   /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
@@ -1825,6 +1864,44 @@ export interface CreateStorediSCSIVolumeInput {
    *          used for this volume as the new target name.</p>
    */
   TargetName: string | undefined;
+
+  /**
+   * <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *
+   *          <p>Valid Values: A valid IP address.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value
+   *          pair.</p>
+   *
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
+   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
+   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateStorediSCSIVolumeInput {
@@ -1871,6 +1948,27 @@ export interface CreateTapePoolInput {
   PoolName: string | undefined;
 
   /**
+   * <p>The storage class that is associated with the new custom pool. When you use your backup
+   *          application to eject the tape, the tape is archived directly into the storage class (S3
+   *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
+   */
+  StorageClass: TapeStorageClass | string | undefined;
+
+  /**
+   * <p>Tape retention lock can be configured in two modes. When configured in governance mode,
+   *          AWS accounts with specific IAM permissions are authorized to remove the tape retention lock
+   *          from archived virtual tapes. When configured in compliance mode, the tape retention lock
+   *          cannot be removed by any user, including the root AWS account.</p>
+   */
+  RetentionLockType?: RetentionLockType | string;
+
+  /**
+   * <p>Tape retention lock time is set in days. Tape retention lock can be enabled for up to
+   *          100 years (36,500 days).</p>
+   */
+  RetentionLockTimeInDays?: number;
+
+  /**
    * <p>A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value
    *          pair.</p>
    *
@@ -1882,27 +1980,6 @@ export interface CreateTapePoolInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>Tape retention lock time is set in days. Tape retention lock can be enabled for up to
-   *          100 years (36,500 days).</p>
-   */
-  RetentionLockTimeInDays?: number;
-
-  /**
-   * <p>Tape retention lock can be configured in two modes. When configured in governance mode,
-   *          AWS accounts with specific IAM permissions are authorized to remove the tape retention lock
-   *          from archived virtual tapes. When configured in compliance mode, the tape retention lock
-   *          cannot be removed by any user, including the root AWS account.</p>
-   */
-  RetentionLockType?: RetentionLockType | string;
-
-  /**
-   * <p>The storage class that is associated with the new custom pool. When you use your backup
-   *          application to eject the tape, the tape is archived directly into the storage class (S3
-   *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   */
-  StorageClass: TapeStorageClass | string | undefined;
 }
 
 export namespace CreateTapePoolInput {
@@ -1938,6 +2015,15 @@ export interface CreateTapesInput {
   GatewayARN: string | undefined;
 
   /**
+   * <p>The size, in bytes, of the virtual tapes that you want to create.</p>
+   *
+   *          <note>
+   *             <p>The size must be aligned by gigabyte (1024*1024*1024 bytes).</p>
+   *          </note>
+   */
+  TapeSizeInBytes: number | undefined;
+
+  /**
    * <p>A unique identifier that you use to retry a request. If you retry a request, use the
    *          same <code>ClientToken</code> you specified in the initial request.</p>
    *
@@ -1949,6 +2035,22 @@ export interface CreateTapesInput {
   ClientToken: string | undefined;
 
   /**
+   * <p>The number of virtual tapes that you want to create.</p>
+   */
+  NumTapesToCreate: number | undefined;
+
+  /**
+   * <p>A prefix that you append to the barcode of the virtual tape you are creating. This
+   *          prefix makes the barcode unique.</p>
+   *
+   *          <note>
+   *             <p>The prefix must be 1 to 4 characters in length and must be one of the uppercase
+   *             letters from A to Z.</p>
+   *          </note>
+   */
+  TapeBarcodePrefix: string | undefined;
+
+  /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
@@ -1958,23 +2060,11 @@ export interface CreateTapesInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value
-   *          pair.</p>
-   *
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
-   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
-   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a
-   *          write-once-read-many (WORM) tape.</p>
-   */
-  Worm?: boolean;
+  KMSKey?: string;
 
   /**
    * <p>The ID of the pool that you want to add your tape to for archiving. The tape in this
@@ -1988,36 +2078,23 @@ export interface CreateTapesInput {
   PoolId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a
+   *          write-once-read-many (WORM) tape.</p>
    */
-  KMSKey?: string;
+  Worm?: boolean;
 
   /**
-   * <p>The number of virtual tapes that you want to create.</p>
-   */
-  NumTapesToCreate: number | undefined;
-
-  /**
-   * <p>The size, in bytes, of the virtual tapes that you want to create.</p>
+   * <p>A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value
+   *          pair.</p>
    *
    *          <note>
-   *             <p>The size must be aligned by gigabyte (1024*1024*1024 bytes).</p>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
+   *             UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length
+   *             of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
    *          </note>
    */
-  TapeSizeInBytes: number | undefined;
-
-  /**
-   * <p>A prefix that you append to the barcode of the virtual tape you are creating. This
-   *          prefix makes the barcode unique.</p>
-   *
-   *          <note>
-   *             <p>The prefix must be 1 to 4 characters in length and must be one of the uppercase
-   *             letters from A to Z.</p>
-   *          </note>
-   */
-  TapeBarcodePrefix: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateTapesInput {
@@ -2048,6 +2125,32 @@ export namespace CreateTapesOutput {
  */
 export interface CreateTapeWithBarcodeInput {
   /**
+   * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
+   *          virtual tape with. Use the <a>ListGateways</a> operation to return a list of
+   *          gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The size, in bytes, of the virtual tape that you want to create.</p>
+   *
+   *          <note>
+   *             <p>The size must be aligned by gigabyte (1024*1024*1024 bytes).</p>
+   *          </note>
+   */
+  TapeSizeInBytes: number | undefined;
+
+  /**
+   * <p>The barcode that you want to assign to the tape.</p>
+   *
+   *          <note>
+   *             <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been
+   *             deleted.</p>
+   *          </note>
+   */
+  TapeBarcode: string | undefined;
+
+  /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
@@ -2055,12 +2158,6 @@ export interface CreateTapeWithBarcodeInput {
    *          </p>
    */
   KMSEncrypted?: boolean;
-
-  /**
-   * <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a
-   *          write-once-read-many (WORM) tape.</p>
-   */
-  Worm?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
@@ -2081,14 +2178,10 @@ export interface CreateTapeWithBarcodeInput {
   PoolId?: string;
 
   /**
-   * <p>The barcode that you want to assign to the tape.</p>
-   *
-   *          <note>
-   *             <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been
-   *             deleted.</p>
-   *          </note>
+   * <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a
+   *          write-once-read-many (WORM) tape.</p>
    */
-  TapeBarcode: string | undefined;
+  Worm?: boolean;
 
   /**
    * <p>A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each
@@ -2102,22 +2195,6 @@ export interface CreateTapeWithBarcodeInput {
    *          </note>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
-   *          virtual tape with. Use the <a>ListGateways</a> operation to return a list of
-   *          gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The size, in bytes, of the virtual tape that you want to create.</p>
-   *
-   *          <note>
-   *             <p>The size must be aligned by gigabyte (1024*1024*1024 bytes).</p>
-   *          </note>
-   */
-  TapeSizeInBytes: number | undefined;
 }
 
 export namespace CreateTapeWithBarcodeInput {
@@ -2394,17 +2471,17 @@ export interface DeleteTapeInput {
   GatewayARN: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>
+   */
+  TapeARN: string | undefined;
+
+  /**
    * <p>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool with
    *          tape retention lock. Only archived tapes with tape retention lock set to
    *             <code>governance</code> can be deleted. Archived tapes with tape retention lock set to
    *             <code>compliance</code> can't be deleted.</p>
    */
   BypassGovernanceRetention?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>
-   */
-  TapeARN: string | undefined;
 }
 
 export namespace DeleteTapeInput {
@@ -2434,18 +2511,18 @@ export namespace DeleteTapeOutput {
  */
 export interface DeleteTapeArchiveInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf
+   *          (VTS).</p>
+   */
+  TapeARN: string | undefined;
+
+  /**
    * <p>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool with
    *          tape retention lock. Only archived tapes with tape retention lock set to
    *             <code>governance</code> can be deleted. Archived tapes with tape retention lock set to
    *             <code>compliance</code> can't be deleted.</p>
    */
   BypassGovernanceRetention?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf
-   *          (VTS).</p>
-   */
-  TapeARN: string | undefined;
 }
 
 export namespace DeleteTapeArchiveInput {
@@ -2595,10 +2672,10 @@ export namespace DescribeBandwidthRateLimitInput {
  */
 export interface DescribeBandwidthRateLimitOutput {
   /**
-   * <p>The average download bandwidth rate limit in bits per second. This field does not appear
-   *          in the response if the download rate limit is not set.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  AverageDownloadRateLimitInBitsPerSec?: number;
+  GatewayARN?: string;
 
   /**
    * <p>The average upload bandwidth rate limit in bits per second. This field does not appear
@@ -2607,14 +2684,49 @@ export interface DescribeBandwidthRateLimitOutput {
   AverageUploadRateLimitInBitsPerSec?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>The average download bandwidth rate limit in bits per second. This field does not appear
+   *          in the response if the download rate limit is not set.</p>
    */
-  GatewayARN?: string;
+  AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
 export namespace DescribeBandwidthRateLimitOutput {
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBandwidthRateLimitScheduleInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeBandwidthRateLimitScheduleInput {
+  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBandwidthRateLimitScheduleOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>
+   *          An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
+   *       </p>
+   */
+  BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[];
+}
+
+export namespace DescribeBandwidthRateLimitScheduleOutput {
+  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleOutput): any => ({
     ...obj,
   });
 }
@@ -2635,10 +2747,35 @@ export namespace DescribeCacheInput {
 
 export interface DescribeCacheOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   */
+  DiskIds?: string[];
+
+  /**
+   * <p>The amount of cache in bytes allocated to a gateway.</p>
+   */
+  CacheAllocatedInBytes?: number;
+
+  /**
    * <p>Percent use of the gateway's cache storage. This metric applies only to the
    *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
    */
   CacheUsedPercentage?: number;
+
+  /**
+   * <p>The file share's contribution to the overall percentage of the gateway's cache
+   *          that has not been persisted to AWS. The sample is taken at the end of the reporting
+   *          period.</p>
+   */
+  CacheDirtyPercentage?: number;
 
   /**
    * <p>Percent of application read operations from the file shares that are served from cache.
@@ -2651,31 +2788,6 @@ export interface DescribeCacheOutput {
    *          cache. The sample is taken at the end of the reporting period.</p>
    */
   CacheMissPercentage?: number;
-
-  /**
-   * <p>The file share's contribution to the overall percentage of the gateway's cache
-   *          that has not been persisted to AWS. The sample is taken at the end of the reporting
-   *          period.</p>
-   */
-  CacheDirtyPercentage?: number;
-
-  /**
-   * <p>The amount of cache in bytes allocated to a gateway.</p>
-   */
-  CacheAllocatedInBytes?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   */
-  DiskIds?: string[];
 }
 
 export namespace DescribeCacheOutput {
@@ -2805,6 +2917,11 @@ export namespace DescribeGatewayInformationInput {
  */
 export interface NetworkInterface {
   /**
+   * <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
+   */
+  Ipv4Address?: string;
+
+  /**
    * <p>The Media Access Control (MAC) address of the interface.</p>
    *
    *          <note>
@@ -2818,11 +2935,6 @@ export interface NetworkInterface {
    *             supported</i>.</p>
    */
   Ipv6Address?: string;
-
-  /**
-   * <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
-   */
-  Ipv4Address?: string;
 }
 
 export namespace NetworkInterface {
@@ -2838,78 +2950,6 @@ export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "VMWARE";
  */
 export interface DescribeGatewayInformationOutput {
   /**
-   * <p>The type of endpoint for your gateway.</p>
-   *
-   *          <p>Valid Values: <code>STANDARD</code> | <code>FIPS</code>
-   *          </p>
-   */
-  EndpointType?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
-   *          monitor events in the gateway.</p>
-   */
-  CloudWatchLogGroupARN?: string;
-
-  /**
-   * <p>The name you configured for your gateway.</p>
-   */
-  GatewayName?: string;
-
-  /**
-   * <p>The ID of the Amazon EC2 instance that was used to launch the gateway.</p>
-   */
-  Ec2InstanceId?: string;
-
-  /**
-   * <p>A value that indicates the operating state of the gateway.</p>
-   */
-  GatewayState?: string;
-
-  /**
-   * <p>A value that indicates the time zone configured for the gateway.</p>
-   */
-  GatewayTimezone?: string;
-
-  /**
-   * <p>A <a>NetworkInterface</a> array that contains descriptions of the gateway
-   *          network interfaces.</p>
-   */
-  GatewayNetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>Date after which this gateway will not receive software updates for new features.</p>
-   */
-  SoftwareUpdatesEndDate?: string;
-
-  /**
-   * <p>Date after which this gateway will not receive software updates for new features and bug
-   *          fixes.</p>
-   */
-  DeprecationDate?: string;
-
-  /**
-   * <p>The configuration settings for the virtual private cloud (VPC) endpoint for your
-   *          gateway.</p>
-   */
-  VPCEndpoint?: string;
-
-  /**
-   * <p>The type of hypervisor environment used by the host.</p>
-   */
-  HostEnvironment?: HostEnvironment | string;
-
-  /**
-   * <p>The AWS Region where the Amazon EC2 instance is located.</p>
-   */
-  Ec2InstanceRegion?: string;
-
-  /**
-   * <p>The type of the gateway.</p>
-   */
-  GatewayType?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
@@ -2923,11 +2963,37 @@ export interface DescribeGatewayInformationOutput {
   GatewayId?: string;
 
   /**
-   * <p>A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each
-   *          tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all
-   *          tags using the <code>ListTagsForResource</code> API operation.</p>
+   * <p>The name you configured for your gateway.</p>
    */
-  Tags?: Tag[];
+  GatewayName?: string;
+
+  /**
+   * <p>A value that indicates the time zone configured for the gateway.</p>
+   */
+  GatewayTimezone?: string;
+
+  /**
+   * <p>A value that indicates the operating state of the gateway.</p>
+   */
+  GatewayState?: string;
+
+  /**
+   * <p>A <a>NetworkInterface</a> array that contains descriptions of the gateway
+   *          network interfaces.</p>
+   */
+  GatewayNetworkInterfaces?: NetworkInterface[];
+
+  /**
+   * <p>The type of the gateway.</p>
+   */
+  GatewayType?: string;
+
+  /**
+   * <p>The date on which an update to the gateway is available. This date is in the time zone
+   *          of the gateway. If the gateway is not available for an update this field is not returned in
+   *          the response.</p>
+   */
+  NextUpdateAvailabilityDate?: string;
 
   /**
    * <p>The date on which the last software update was applied to the gateway. If the gateway
@@ -2936,11 +3002,57 @@ export interface DescribeGatewayInformationOutput {
   LastSoftwareUpdate?: string;
 
   /**
-   * <p>The date on which an update to the gateway is available. This date is in the time zone
-   *          of the gateway. If the gateway is not available for an update this field is not returned in
-   *          the response.</p>
+   * <p>The ID of the Amazon EC2 instance that was used to launch the gateway.</p>
    */
-  NextUpdateAvailabilityDate?: string;
+  Ec2InstanceId?: string;
+
+  /**
+   * <p>The AWS Region where the Amazon EC2 instance is located.</p>
+   */
+  Ec2InstanceRegion?: string;
+
+  /**
+   * <p>A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each
+   *          tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all
+   *          tags using the <code>ListTagsForResource</code> API operation.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The configuration settings for the virtual private cloud (VPC) endpoint for your
+   *          gateway.</p>
+   */
+  VPCEndpoint?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
+   *          monitor events in the gateway.</p>
+   */
+  CloudWatchLogGroupARN?: string;
+
+  /**
+   * <p>The type of hypervisor environment used by the host.</p>
+   */
+  HostEnvironment?: HostEnvironment | string;
+
+  /**
+   * <p>The type of endpoint for your gateway.</p>
+   *
+   *          <p>Valid Values: <code>STANDARD</code> | <code>FIPS</code>
+   *          </p>
+   */
+  EndpointType?: string;
+
+  /**
+   * <p>Date after which this gateway will not receive software updates for new features.</p>
+   */
+  SoftwareUpdatesEndDate?: string;
+
+  /**
+   * <p>Date after which this gateway will not receive software updates for new features and bug
+   *          fixes.</p>
+   */
+  DeprecationDate?: string;
 }
 
 export namespace DescribeGatewayInformationOutput {
@@ -2999,23 +3111,10 @@ export namespace DescribeMaintenanceStartTimeInput {
  */
 export interface DescribeMaintenanceStartTimeOutput {
   /**
-   * <p>A value that indicates the time zone that is set for the gateway. The start time and day
-   *          of week specified should be in the time zone of the gateway.</p>
-   */
-  Timezone?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
   GatewayARN?: string;
-
-  /**
-   * <p>The day of the month component of the maintenance start time represented as an ordinal
-   *          number from 1 to 28, where 1 represents the first day of the month and 28 represents the
-   *          last day of the month.</p>
-   */
-  DayOfMonth?: number;
 
   /**
    * <p>The hour component of the maintenance start time represented as <i>hh</i>,
@@ -3037,6 +3136,19 @@ export interface DescribeMaintenanceStartTimeOutput {
    *          gateway.</p>
    */
   DayOfWeek?: number;
+
+  /**
+   * <p>The day of the month component of the maintenance start time represented as an ordinal
+   *          number from 1 to 28, where 1 represents the first day of the month and 28 represents the
+   *          last day of the month.</p>
+   */
+  DayOfMonth?: number;
+
+  /**
+   * <p>A value that indicates the time zone that is set for the gateway. The start time and day
+   *          of week specified should be in the time zone of the gateway.</p>
+   */
+  Timezone?: string;
 }
 
 export namespace DescribeMaintenanceStartTimeOutput {
@@ -3069,6 +3181,73 @@ export namespace DescribeNFSFileSharesInput {
  */
 export interface NFSFileShareInfo {
   /**
+   * <p>Describes Network File System (NFS) file share default values. Files and folders stored
+   *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions
+   *          assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that
+   *          represent files and folders are assigned these default Unix permissions. This operation is
+   *          only supported for file gateways.</p>
+   */
+  NFSFileShareDefaults?: NFSFileShareDefaults;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file share.</p>
+   */
+  FileShareARN?: string;
+
+  /**
+   * <p>The ID of the file share.</p>
+   */
+  FileShareId?: string;
+
+  /**
+   * <p>The status of the file share.</p>
+   *
+   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
+   *             <code>DELETING</code>
+   *          </p>
+   */
+  FileShareStatus?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   */
+  KMSKey?: string;
+
+  /**
+   * <p>The file share path used by the NFS client to identify the mount point.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
+   *          storage.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
+   *          the S3 bucket name. It must end with a "/".</p>
+   */
+  LocationARN?: string;
+
+  /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
@@ -3079,16 +3258,16 @@ export interface NFSFileShareInfo {
   DefaultStorageClass?: string;
 
   /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
-   *          either valid IP addresses or valid CIDR blocks.</p>
-   */
-  ClientList?: string[];
-
-  /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
+
+  /**
+   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   *          either valid IP addresses or valid CIDR blocks.</p>
+   */
+  ClientList?: string[];
 
   /**
    * <p>The user mapped to anonymous user. Valid options are the following:</p>
@@ -3111,45 +3290,23 @@ export interface NFSFileShareInfo {
   Squash?: string;
 
   /**
-   * <p>The status of the file share.</p>
-   *
-   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
-   *             <code>DELETING</code>
-   *          </p>
-   */
-  FileShareStatus?: string;
-
-  /**
-   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
-   *          the S3 bucket name. It must end with a "/".</p>
-   */
-  LocationARN?: string;
-
-  /**
-   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
-   *          storage.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
-   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
+   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    */
-  KMSEncrypted?: boolean;
+  ReadOnly?: boolean;
 
   /**
-   * <p>The name of the file share. Optional.</p>
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
    *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  FileShareName?: string;
+  GuessMIMETypeEnabled?: boolean;
 
   /**
    * <p>A value that sets who pays the cost of the request and the cost associated with data
@@ -3170,36 +3327,6 @@ export interface NFSFileShareInfo {
   RequesterPays?: boolean;
 
   /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  GuessMIMETypeEnabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file share.</p>
-   */
-  FileShareARN?: string;
-
-  /**
-   * <p>The ID of the file share.</p>
-   */
-  FileShareId?: string;
-
-  /**
-   * <p>The notification policy of the file share.</p>
-   */
-  NotificationPolicy?: string;
-
-  /**
-   * <p>Refresh cache information.</p>
-   */
-  CacheAttributes?: CacheAttributes;
-
-  /**
    * <p>A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key
    *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
    *          view all tags using the <code>ListTagsForResource</code> API operation.</p>
@@ -3207,40 +3334,25 @@ export interface NFSFileShareInfo {
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The file share path used by the NFS client to identify the mount point.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
-   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
+   * <p>The name of the file share. Optional.</p>
    *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
    */
-  ReadOnly?: boolean;
+  FileShareName?: string;
 
   /**
-   * <p>Describes Network File System (NFS) file share default values. Files and folders stored
-   *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions
-   *          assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that
-   *          represent files and folders are assigned these default Unix permissions. This operation is
-   *          only supported for file gateways.</p>
+   * <p>Refresh cache information.</p>
    */
-  NFSFileShareDefaults?: NFSFileShareDefaults;
+  CacheAttributes?: CacheAttributes;
+
+  /**
+   * <p>The notification policy of the file share.</p>
+   */
+  NotificationPolicy?: string;
 }
 
 export namespace NFSFileShareInfo {
@@ -3289,30 +3401,38 @@ export namespace DescribeSMBFileSharesInput {
  */
 export interface SMBFileShareInfo {
   /**
-   * <p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key
-   *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
-   *          view all tags using the <code>ListTagsForResource</code> API operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the file share.</p>
    */
-  Tags?: Tag[];
+  FileShareARN?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>The ID of the file share.</p>
    */
-  CacheAttributes?: CacheAttributes;
+  FileShareId?: string;
 
   /**
-   * <p>A list of users or groups in the Active Directory that have administrator rights to the
-   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
+   * <p>The status of the file share.</p>
+   *
+   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
+   *             <code>DELETING</code>
+   *          </p>
    */
-  AdminUserList?: string[];
+  FileShareStatus?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  AuditDestinationARN?: string;
+  GatewayARN?: string;
+
+  /**
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  KMSEncrypted?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
@@ -3322,33 +3442,31 @@ export interface SMBFileShareInfo {
   KMSKey?: string;
 
   /**
-   * <p>If this value is set to <code>true</code>, it indicates that access control list (ACL)
-   *          is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that
-   *          file and directory permissions are mapped to the POSIX permission.</p>
-   *
-   *
-   *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
-   *             Guide</i>.</p>
-   */
-  SMBACLEnabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The ID of the file share.</p>
-   */
-  FileShareId?: string;
-
-  /**
    * <p>The file share path used by the SMB client to identify the mount point.</p>
    */
   Path?: string;
+
+  /**
+   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
+   *          storage.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
+   *          the S3 bucket name. It must end with a "/".</p>
+   */
+  LocationARN?: string;
+
+  /**
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *
+   *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
+   *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
+   *          </p>
+   */
+  DefaultStorageClass?: string;
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
@@ -3366,27 +3484,14 @@ export interface SMBFileShareInfo {
   ReadOnly?: boolean;
 
   /**
-   * <p>A list of users or groups in the Active Directory that are not allowed to access the
-   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  InvalidUserList?: string[];
-
-  /**
-   * <p>A list of users or groups in the Active Directory that are allowed to access the file
-   *          share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
-   */
-  ValidUserList?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file share.</p>
-   */
-  FileShareARN?: string;
+  GuessMIMETypeEnabled?: boolean;
 
   /**
    * <p>A value that sets who pays the cost of the request and the cost associated with data
@@ -3407,36 +3512,54 @@ export interface SMBFileShareInfo {
   RequesterPays?: boolean;
 
   /**
-   * <p>The name of the file share. Optional.</p>
+   * <p>If this value is set to <code>true</code>, it indicates that access control list (ACL)
+   *          is enabled on the SMB file share. If it is set to <code>false</code>, it indicates that
+   *          file and directory permissions are mapped to the POSIX permission.</p>
    *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
-   */
-  FileShareName?: string;
-
-  /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
-   *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
+   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
+   *             Guide</i>.</p>
    */
-  KMSEncrypted?: boolean;
+  SMBACLEnabled?: boolean;
 
   /**
-   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
-   *          storage.</p>
+   * <p>Indicates whether <code>AccessBasedEnumeration</code> is enabled.</p>
    */
-  Role?: string;
+  AccessBasedEnumeration?: boolean;
 
   /**
-   * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
-   *          the S3 bucket name. It must end with a "/".</p>
+   * <p>A list of users or groups in the Active Directory that have administrator rights to the
+   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
    */
-  LocationARN?: string;
+  AdminUserList?: string[];
+
+  /**
+   * <p>A list of users or groups in the Active Directory that are allowed to access the file
+   *          share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  ValidUserList?: string[];
+
+  /**
+   * <p>A list of users or groups in the Active Directory that are not allowed to access the
+   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  InvalidUserList?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   */
+  AuditDestinationARN?: string;
 
   /**
    * <p>The authentication method of the file share. The default is
@@ -3455,43 +3578,32 @@ export interface SMBFileShareInfo {
   CaseSensitivity?: CaseSensitivity | string;
 
   /**
-   * <p>Indicates whether <code>AccessBasedEnumeration</code> is enabled.</p>
+   * <p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key
+   *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
+   *          view all tags using the <code>ListTagsForResource</code> API operation.</p>
    */
-  AccessBasedEnumeration?: boolean;
+  Tags?: Tag[];
 
   /**
-   * <p>The status of the file share.</p>
+   * <p>The name of the file share. Optional.</p>
    *
-   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
-   *             <code>DELETING</code>
-   *          </p>
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
    */
-  FileShareStatus?: string;
+  FileShareName?: string;
+
+  /**
+   * <p>Refresh cache information.</p>
+   */
+  CacheAttributes?: CacheAttributes;
 
   /**
    * <p>The notification policy of the file share.</p>
    */
   NotificationPolicy?: string;
-
-  /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-   *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
-   *
-   *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
-   *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
-   *          </p>
-   */
-  DefaultStorageClass?: string;
-
-  /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  GuessMIMETypeEnabled?: boolean;
 }
 
 export namespace SMBFileShareInfo {
@@ -3534,37 +3646,15 @@ export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "M
 
 export interface DescribeSMBSettingsOutput {
   /**
-   * <p>The type of security strategy that was specified for file gateway.</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ClientSpecified</code>: If you use this option, requests are established
-   *                based on what is negotiated by the client. This option is recommended when you want
-   *                to maximize compatibility across different clients in your environment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MandatorySigning</code>: If you use this option, file gateway only allows
-   *                connections from SMBv2 or SMBv3 clients that have signing enabled. This option works
-   *                with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MandatoryEncryption</code>: If you use this option, file gateway only allows
-   *                connections from SMBv3 clients that have encryption enabled. This option is highly
-   *                recommended for environments that handle sensitive data. This option works with SMB
-   *                clients on Microsoft Windows 8, Windows Server 2012 or newer.</p>
-   *             </li>
-   *          </ul>
-   */
-  SMBSecurityStrategy?: SMBSecurityStrategy | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
   GatewayARN?: string;
+
+  /**
+   * <p>The name of the domain that the gateway is joined to.</p>
+   */
+  DomainName?: string;
 
   /**
    * <p>Indicates the status of a gateway that is a member of the Active Directory
@@ -3610,11 +3700,6 @@ export interface DescribeSMBSettingsOutput {
   ActiveDirectoryStatus?: ActiveDirectoryStatus | string;
 
   /**
-   * <p>The name of the domain that the gateway is joined to.</p>
-   */
-  DomainName?: string;
-
-  /**
    * <p>This value is <code>true</code> if a password for the guest user <code>smbguest</code>
    *          is set, otherwise <code>false</code>.</p>
    *
@@ -3622,6 +3707,33 @@ export interface DescribeSMBSettingsOutput {
    *          </p>
    */
   SMBGuestPasswordSet?: boolean;
+
+  /**
+   * <p>The type of security strategy that was specified for file gateway.</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ClientSpecified</code>: If you use this option, requests are established
+   *                based on what is negotiated by the client. This option is recommended when you want
+   *                to maximize compatibility across different clients in your environment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MandatorySigning</code>: If you use this option, file gateway only allows
+   *                connections from SMBv2 or SMBv3 clients that have signing enabled. This option works
+   *                with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MandatoryEncryption</code>: If you use this option, file gateway only allows
+   *                connections from SMBv3 clients that have encryption enabled. This option is highly
+   *                recommended for environments that handle sensitive data. This option works with SMB
+   *                clients on Microsoft Windows 8, Windows Server 2012 or newer.</p>
+   *             </li>
+   *          </ul>
+   */
+  SMBSecurityStrategy?: SMBSecurityStrategy | string;
 
   /**
    * <p>The shares on this gateway appear when listing shares.</p>
@@ -3655,28 +3767,16 @@ export namespace DescribeSnapshotScheduleInput {
 
 export interface DescribeSnapshotScheduleOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the volume that was specified in the request.</p>
+   */
+  VolumeARN?: string;
+
+  /**
    * <p>The hour of the day at which the snapshot schedule begins represented as
    *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
    *          of the day is in the time zone of the gateway.</p>
    */
   StartAt?: number;
-
-  /**
-   * <p>A list of up to 50 tags assigned to the snapshot schedule, sorted alphabetically by key
-   *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
-   *          view all tags using the <code>ListTagsForResource</code> API operation.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A value that indicates the time zone of the gateway.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume that was specified in the request.</p>
-   */
-  VolumeARN?: string;
 
   /**
    * <p>The number of hours between snapshots.</p>
@@ -3687,6 +3787,18 @@ export interface DescribeSnapshotScheduleOutput {
    * <p>The snapshot description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A value that indicates the time zone of the gateway.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>A list of up to 50 tags assigned to the snapshot schedule, sorted alphabetically by key
+   *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
+   *          view all tags using the <code>ListTagsForResource</code> API operation.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace DescribeSnapshotScheduleOutput {
@@ -3717,49 +3829,24 @@ export namespace DescribeStorediSCSIVolumesInput {
  */
 export interface StorediSCSIVolume {
   /**
-   * <p>The unique identifier of the volume, e.g., vol-AE4B946D.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the storage volume.</p>
    */
   VolumeARN?: string;
 
   /**
-   * <p>An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI
-   *          attributes for one stored volume.</p>
+   * <p>The unique identifier of the volume, e.g., vol-AE4B946D.</p>
    */
-  VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
-
-  /**
-   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
-   */
-  VolumeStatus?: string;
-
-  /**
-   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
-   *          suffix for the target ARN. For example, specifying <code>TargetName</code> as
-   *             <i>myvolume</i> results in the target ARN of
-   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
-   *          The target name must be unique across all volumes on a gateway.</p>
-   *
-   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously
-   *          used for this volume as the new target name.</p>
-   */
-  TargetName?: string;
+  VolumeId?: string;
 
   /**
    * <p>One of the VolumeType enumeration values describing the type of the volume.</p>
    */
   VolumeType?: string;
+
+  /**
+   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
+   */
+  VolumeStatus?: string;
 
   /**
    * <p>A value that indicates whether a storage volume is attached to, detached from, or is in
@@ -3774,6 +3861,13 @@ export interface StorediSCSIVolume {
   VolumeSizeInBytes?: number;
 
   /**
+   * <p>Represents the percentage complete if the volume is restoring or bootstrapping that
+   *          represents the percent of data transferred. This field does not appear in the response if
+   *          the stored volume is not restoring or bootstrapping.</p>
+   */
+  VolumeProgress?: number;
+
+  /**
    * <p>The ID of the local disk that was specified in the <a>CreateStorediSCSIVolume</a> operation.</p>
    */
   VolumeDiskId?: string;
@@ -3783,6 +3877,27 @@ export interface StorediSCSIVolume {
    *          used, e.g. snap-78e22663. Otherwise, this field is not included.</p>
    */
   SourceSnapshotId?: string;
+
+  /**
+   * <p>Indicates if when the stored volume was created, existing data on the underlying local
+   *          disk was preserved.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  PreservedExistingData?: boolean;
+
+  /**
+   * <p>An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI
+   *          attributes for one stored volume.</p>
+   */
+  VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
+
+  /**
+   * <p>The date the volume was created. Volumes created prior to March 28, 2017 don’t have this
+   *          timestamp.</p>
+   */
+  CreatedDate?: Date;
 
   /**
    * <p>The size of the data stored on the volume in bytes. This value is calculated based on
@@ -3799,26 +3914,23 @@ export interface StorediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
-   * <p>Represents the percentage complete if the volume is restoring or bootstrapping that
-   *          represents the percent of data transferred. This field does not appear in the response if
-   *          the stored volume is not restoring or bootstrapping.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
-  VolumeProgress?: number;
+  KMSKey?: string;
 
   /**
-   * <p>The date the volume was created. Volumes created prior to March 28, 2017 don’t have this
-   *          timestamp.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>Indicates if when the stored volume was created, existing data on the underlying local
-   *          disk was preserved.</p>
+   * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as a
+   *          suffix for the target ARN. For example, specifying <code>TargetName</code> as
+   *             <i>myvolume</i> results in the target ARN of
+   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+   *          The target name must be unique across all volumes on a gateway.</p>
    *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously
+   *          used for this volume as the new target name.</p>
    */
-  PreservedExistingData?: boolean;
+  TargetName?: string;
 }
 
 export namespace StorediSCSIVolume {
@@ -3928,10 +4040,10 @@ export namespace DescribeStorediSCSIVolumesOutput {
  */
 export interface DescribeTapeArchivesInput {
   /**
-   * <p>Specifies that the number of virtual tapes described be limited to the specified
-   *          number.</p>
+   * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
+   *          tapes you want to describe.</p>
    */
-  Limit?: number;
+  TapeARNs?: string[];
 
   /**
    * <p>An opaque string that indicates the position at which to begin describing virtual
@@ -3940,10 +4052,10 @@ export interface DescribeTapeArchivesInput {
   Marker?: string;
 
   /**
-   * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
-   *          tapes you want to describe.</p>
+   * <p>Specifies that the number of virtual tapes described be limited to the specified
+   *          number.</p>
    */
-  TapeARNs?: string[];
+  Limit?: number;
 }
 
 export namespace DescribeTapeArchivesInput {
@@ -3957,6 +4069,11 @@ export namespace DescribeTapeArchivesInput {
  */
 export interface TapeArchive {
   /**
+   * <p>The Amazon Resource Name (ARN) of an archived virtual tape.</p>
+   */
+  TapeARN?: string;
+
+  /**
    * <p>The barcode that identifies the archived virtual tape.</p>
    */
   TapeBarcode?: string;
@@ -3967,13 +4084,9 @@ export interface TapeArchive {
   TapeCreatedDate?: Date;
 
   /**
-   * <p>The size, in bytes, of data stored on the virtual tape.</p>
-   *
-   *          <note>
-   *             <p>This value is not available for tapes created prior to May 13, 2015.</p>
-   *          </note>
+   * <p>The size, in bytes, of the archived virtual tape.</p>
    */
-  TapeUsedInBytes?: number;
+  TapeSizeInBytes?: number;
 
   /**
    * <p>The time that the archiving of the virtual tape was completed.</p>
@@ -3992,10 +4105,18 @@ export interface TapeArchive {
   RetrievedTo?: string;
 
   /**
-   * <p>Set to <code>true</code> if the archived tape is stored as write-once-read-many
-   *          (WORM).</p>
+   * <p>The current state of the archived virtual tape.</p>
    */
-  Worm?: boolean;
+  TapeStatus?: string;
+
+  /**
+   * <p>The size, in bytes, of data stored on the virtual tape.</p>
+   *
+   *          <note>
+   *             <p>This value is not available for tapes created prior to May 13, 2015.</p>
+   *          </note>
+   */
+  TapeUsedInBytes?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
@@ -4003,12 +4124,6 @@ export interface TapeArchive {
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
-
-  /**
-   * <p>If the archived tape is subject to tape retention lock, the date that the archived tape
-   *          started being retained.</p>
-   */
-  RetentionStartDate?: Date;
 
   /**
    * <p>The ID of the pool that was used to archive the tape. The tapes in this pool are
@@ -4020,27 +4135,24 @@ export interface TapeArchive {
   PoolId?: string;
 
   /**
+   * <p>Set to <code>true</code> if the archived tape is stored as write-once-read-many
+   *          (WORM).</p>
+   */
+  Worm?: boolean;
+
+  /**
+   * <p>If the archived tape is subject to tape retention lock, the date that the archived tape
+   *          started being retained.</p>
+   */
+  RetentionStartDate?: Date;
+
+  /**
    * <p>The time that the tape entered the custom tape pool.</p>
    *
    *          <p>The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z'
    *          format.</p>
    */
   PoolEntryDate?: Date;
-
-  /**
-   * <p>The size, in bytes, of the archived virtual tape.</p>
-   */
-  TapeSizeInBytes?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an archived virtual tape.</p>
-   */
-  TapeARN?: string;
-
-  /**
-   * <p>The current state of the archived virtual tape.</p>
-   */
-  TapeStatus?: string;
 }
 
 export namespace TapeArchive {
@@ -4054,20 +4166,20 @@ export namespace TapeArchive {
  */
 export interface DescribeTapeArchivesOutput {
   /**
-   * <p>An opaque string that indicates the position at which the virtual tapes that were
-   *          fetched for description ended. Use this marker in your next request to fetch the next set
-   *          of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to
-   *          describe, this field does not appear in the response.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>An array of virtual tape objects in the virtual tape shelf (VTS). The description
    *          includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned
    *          includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the
    *          tapes, progress of the description, and tape barcode.</p>
    */
   TapeArchives?: TapeArchive[];
+
+  /**
+   * <p>An opaque string that indicates the position at which the virtual tapes that were
+   *          fetched for description ended. Use this marker in your next request to fetch the next set
+   *          of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to
+   *          describe, this field does not appear in the response.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeTapeArchivesOutput {
@@ -4081,10 +4193,10 @@ export namespace DescribeTapeArchivesOutput {
  */
 export interface DescribeTapeRecoveryPointsInput {
   /**
-   * <p>Specifies that the number of virtual tape recovery points that are described be limited
-   *          to the specified number.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  Limit?: number;
+  GatewayARN: string | undefined;
 
   /**
    * <p>An opaque string that indicates the position at which to begin describing the virtual
@@ -4093,10 +4205,10 @@ export interface DescribeTapeRecoveryPointsInput {
   Marker?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>Specifies that the number of virtual tape recovery points that are described be limited
+   *          to the specified number.</p>
    */
-  GatewayARN: string | undefined;
+  Limit?: number;
 }
 
 export namespace DescribeTapeRecoveryPointsInput {
@@ -4110,14 +4222,9 @@ export namespace DescribeTapeRecoveryPointsInput {
  */
 export interface TapeRecoveryPointInfo {
   /**
-   * <p>The size, in bytes, of the virtual tapes to recover.</p>
+   * <p>The Amazon Resource Name (ARN) of the virtual tape.</p>
    */
-  TapeSizeInBytes?: number;
-
-  /**
-   * <p>The status of the virtual tapes.</p>
-   */
-  TapeStatus?: string;
+  TapeARN?: string;
 
   /**
    * <p>The time when the point-in-time view of the virtual tape was replicated for later
@@ -4129,9 +4236,14 @@ export interface TapeRecoveryPointInfo {
   TapeRecoveryPointTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the virtual tape.</p>
+   * <p>The size, in bytes, of the virtual tapes to recover.</p>
    */
-  TapeARN?: string;
+  TapeSizeInBytes?: number;
+
+  /**
+   * <p>The status of the virtual tapes.</p>
+   */
+  TapeStatus?: string;
 }
 
 export namespace TapeRecoveryPointInfo {
@@ -4145,6 +4257,17 @@ export namespace TapeRecoveryPointInfo {
  */
 export interface DescribeTapeRecoveryPointsOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>An array of TapeRecoveryPointInfos that are available for the specified gateway.</p>
+   */
+  TapeRecoveryPointInfos?: TapeRecoveryPointInfo[];
+
+  /**
    * <p>An opaque string that indicates the position at which the virtual tape recovery points
    *          that were listed for description ended.</p>
    *
@@ -4153,17 +4276,6 @@ export interface DescribeTapeRecoveryPointsOutput {
    *          appear in the response.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>An array of TapeRecoveryPointInfos that are available for the specified gateway.</p>
-   */
-  TapeRecoveryPointInfos?: TapeRecoveryPointInfo[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
 }
 
 export namespace DescribeTapeRecoveryPointsOutput {
@@ -4183,16 +4295,6 @@ export interface DescribeTapesInput {
   GatewayARN: string | undefined;
 
   /**
-   * <p>Specifies that the number of virtual tapes described be limited to the specified
-   *          number.</p>
-   *
-   *          <note>
-   *             <p>Amazon Web Services may impose its own limit, if this field is not set.</p>
-   *          </note>
-   */
-  Limit?: number;
-
-  /**
    * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
    *          tapes you want to describe. If this parameter is not specified, Tape gateway returns a
    *          description of all virtual tapes associated with the specified gateway.</p>
@@ -4206,6 +4308,16 @@ export interface DescribeTapesInput {
    *          <p>If not specified, the first page of results is retrieved.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Specifies that the number of virtual tapes described be limited to the specified
+   *          number.</p>
+   *
+   *          <note>
+   *             <p>Amazon Web Services may impose its own limit, if this field is not set.</p>
+   *          </note>
+   */
+  Limit?: number;
 }
 
 export namespace DescribeTapesInput {
@@ -4219,14 +4331,34 @@ export namespace DescribeTapesInput {
  */
 export interface Tape {
   /**
-   * <p>The current state of the virtual tape.</p>
+   * <p>The Amazon Resource Name (ARN) of the virtual tape.</p>
    */
-  TapeStatus?: string;
+  TapeARN?: string;
+
+  /**
+   * <p>The barcode that identifies a specific virtual tape.</p>
+   */
+  TapeBarcode?: string;
+
+  /**
+   * <p>The date the virtual tape was created.</p>
+   */
+  TapeCreatedDate?: Date;
 
   /**
    * <p>The size, in bytes, of the virtual tape capacity.</p>
    */
   TapeSizeInBytes?: number;
+
+  /**
+   * <p>The current state of the virtual tape.</p>
+   */
+  TapeStatus?: string;
+
+  /**
+   * <p>The virtual tape library (VTL) device that the virtual tape is associated with.</p>
+   */
+  VTLDevice?: string;
 
   /**
    * <p>For archiving virtual tapes, indicates how much data remains to be uploaded before
@@ -4246,9 +4378,11 @@ export interface Tape {
   TapeUsedInBytes?: number;
 
   /**
-   * <p>The virtual tape library (VTL) device that the virtual tape is associated with.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
-  VTLDevice?: string;
+  KMSKey?: string;
 
   /**
    * <p>The ID of the pool that contains tapes that will be archived. The tapes in this pool are
@@ -4262,37 +4396,15 @@ export interface Tape {
   PoolId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the virtual tape.</p>
-   */
-  TapeARN?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>The date the virtual tape was created.</p>
-   */
-  TapeCreatedDate?: Date;
-
-  /**
-   * <p>The date that the tape is first archived with tape retention lock enabled.</p>
-   */
-  RetentionStartDate?: Date;
-
-  /**
    * <p>If the tape is archived as write-once-read-many (WORM), this value is
    *          <code>true</code>.</p>
    */
   Worm?: boolean;
 
   /**
-   * <p>The barcode that identifies a specific virtual tape.</p>
+   * <p>The date that the tape is first archived with tape retention lock enabled.</p>
    */
-  TapeBarcode?: string;
+  RetentionStartDate?: Date;
 
   /**
    * <p>The date that the tape enters a custom tape pool.</p>
@@ -4347,11 +4459,6 @@ export namespace DescribeUploadBufferInput {
 
 export interface DescribeUploadBufferOutput {
   /**
-   * <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
-   */
-  UploadBufferAllocatedInBytes?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
@@ -4369,6 +4476,11 @@ export interface DescribeUploadBufferOutput {
    * <p>The total number of bytes being used in the gateway's upload buffer.</p>
    */
   UploadBufferUsedInBytes?: number;
+
+  /**
+   * <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
+   */
+  UploadBufferAllocatedInBytes?: number;
 }
 
 export namespace DescribeUploadBufferOutput {
@@ -4382,10 +4494,10 @@ export namespace DescribeUploadBufferOutput {
  */
 export interface DescribeVTLDevicesInput {
   /**
-   * <p>An opaque string that indicates the position at which to begin describing the VTL
-   *          devices.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  Marker?: string;
+  GatewayARN: string | undefined;
 
   /**
    * <p>An array of strings, where each string represents the Amazon Resource Name (ARN) of a
@@ -4399,10 +4511,10 @@ export interface DescribeVTLDevicesInput {
   VTLDeviceARNs?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>An opaque string that indicates the position at which to begin describing the VTL
+   *          devices.</p>
    */
-  GatewayARN: string | undefined;
+  Marker?: string;
 
   /**
    * <p>Specifies that the number of VTL devices described be limited to the specified
@@ -4422,15 +4534,15 @@ export namespace DescribeVTLDevicesInput {
  */
 export interface DeviceiSCSIAttributes {
   /**
-   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
-   */
-  ChapEnabled?: boolean;
-
-  /**
    * <p>Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified
    *          name(iqn) of a tape drive or media changer target.</p>
    */
   TargetARN?: string;
+
+  /**
+   * <p>The network interface identifier of the VTL device.</p>
+   */
+  NetworkInterfaceId?: string;
 
   /**
    * <p>The port used to communicate with iSCSI VTL device targets.</p>
@@ -4438,9 +4550,9 @@ export interface DeviceiSCSIAttributes {
   NetworkInterfacePort?: number;
 
   /**
-   * <p>The network interface identifier of the VTL device.</p>
+   * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
    */
-  NetworkInterfaceId?: string;
+  ChapEnabled?: boolean;
 }
 
 export namespace DeviceiSCSIAttributes {
@@ -4460,9 +4572,9 @@ export interface VTLDevice {
   VTLDeviceARN?: string;
 
   /**
-   * <p>Specifies the model number of device that the VTL device emulates.</p>
+   * <p>Specifies the type of device that the VTL device emulates.</p>
    */
-  VTLDeviceProductIdentifier?: string;
+  VTLDeviceType?: string;
 
   /**
    * <p>Specifies the vendor of the device that the VTL device object emulates.</p>
@@ -4470,9 +4582,9 @@ export interface VTLDevice {
   VTLDeviceVendor?: string;
 
   /**
-   * <p>Specifies the type of device that the VTL device emulates.</p>
+   * <p>Specifies the model number of device that the VTL device emulates.</p>
    */
-  VTLDeviceType?: string;
+  VTLDeviceProductIdentifier?: string;
 
   /**
    * <p>A list of iSCSI information about a VTL device.</p>
@@ -4491,6 +4603,12 @@ export namespace VTLDevice {
  */
 export interface DescribeVTLDevicesOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
    * <p>An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL
    *          devices.</p>
    */
@@ -4503,12 +4621,6 @@ export interface DescribeVTLDevicesOutput {
    *          appear in the response.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
 }
 
 export namespace DescribeVTLDevicesOutput {
@@ -4539,16 +4651,10 @@ export namespace DescribeWorkingStorageInput {
  */
 export interface DescribeWorkingStorageOutput {
   /**
-   * <p>The total working storage in bytes allocated for the gateway. If no working storage is
-   *          configured for the gateway, this field returns 0.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  WorkingStorageAllocatedInBytes?: number;
-
-  /**
-   * <p>The total working storage in bytes in use by the gateway. If no working storage is
-   *          configured for the gateway, this field returns 0.</p>
-   */
-  WorkingStorageUsedInBytes?: number;
+  GatewayARN?: string;
 
   /**
    * <p>An array of the gateway's local disk IDs that are configured as working storage.
@@ -4559,10 +4665,16 @@ export interface DescribeWorkingStorageOutput {
   DiskIds?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>The total working storage in bytes in use by the gateway. If no working storage is
+   *          configured for the gateway, this field returns 0.</p>
    */
-  GatewayARN?: string;
+  WorkingStorageUsedInBytes?: number;
+
+  /**
+   * <p>The total working storage in bytes allocated for the gateway. If no working storage is
+   *          configured for the gateway, this field returns 0.</p>
+   */
+  WorkingStorageAllocatedInBytes?: number;
 }
 
 export namespace DescribeWorkingStorageOutput {
@@ -4652,31 +4764,29 @@ export namespace DisableGatewayOutput {
  */
 export interface Disk {
   /**
-   * <p>The device node of a local disk as assigned by the virtualization environment.</p>
-   */
-  DiskNode?: string;
-
-  /**
-   * <p>The local disk size in bytes.</p>
-   */
-  DiskSizeInBytes?: number;
-
-  /**
    * <p>The unique device ID or other distinguishing data that identifies a local disk.</p>
    */
   DiskId?: string;
 
   /**
-   * <p>A list of values that represents attributes of a local disk.</p>
+   * <p>The path of a local disk in the gateway virtual machine (VM).</p>
    */
-  DiskAttributeList?: string[];
+  DiskPath?: string;
 
   /**
-   * <p>The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in
-   *          the response if the local disk is not defined as an iSCSI target. The format of this field
-   *          is <i>targetIqn::LUNNumber::region-volumeId</i>.</p>
+   * <p>The device node of a local disk as assigned by the virtualization environment.</p>
    */
-  DiskAllocationResource?: string;
+  DiskNode?: string;
+
+  /**
+   * <p>A value that represents the status of a local disk.</p>
+   */
+  DiskStatus?: string;
+
+  /**
+   * <p>The local disk size in bytes.</p>
+   */
+  DiskSizeInBytes?: number;
 
   /**
    * <p>One of the <code>DiskAllocationType</code> enumeration values that identifies how a
@@ -4688,14 +4798,16 @@ export interface Disk {
   DiskAllocationType?: string;
 
   /**
-   * <p>A value that represents the status of a local disk.</p>
+   * <p>The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in
+   *          the response if the local disk is not defined as an iSCSI target. The format of this field
+   *          is <i>targetIqn::LUNNumber::region-volumeId</i>.</p>
    */
-  DiskStatus?: string;
+  DiskAllocationResource?: string;
 
   /**
-   * <p>The path of a local disk in the gateway virtual machine (VM).</p>
+   * <p>A list of values that represents attributes of a local disk.</p>
    */
-  DiskPath?: string;
+  DiskAttributeList?: string[];
 }
 
 export namespace Disk {
@@ -4711,19 +4823,9 @@ export type FileShareType = "NFS" | "SMB";
  */
 export interface FileShareInfo {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>The type of the file share.</p>
    */
-  GatewayARN?: string;
-
-  /**
-   * <p>The status of the file share.</p>
-   *
-   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
-   *             <code>DELETING</code>
-   *          </p>
-   */
-  FileShareStatus?: string;
+  FileShareType?: FileShareType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
@@ -4736,9 +4838,19 @@ export interface FileShareInfo {
   FileShareId?: string;
 
   /**
-   * <p>The type of the file share.</p>
+   * <p>The status of the file share.</p>
+   *
+   *          <p>Valid Values: <code>CREATING</code> | <code>UPDATING</code> | <code>AVAILABLE</code> |
+   *             <code>DELETING</code>
+   *          </p>
    */
-  FileShareType?: FileShareType | string;
+  FileShareStatus?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
 }
 
 export namespace FileShareInfo {
@@ -4752,15 +4864,22 @@ export namespace FileShareInfo {
  */
 export interface GatewayInfo {
   /**
+   * <p>The unique identifier assigned to your gateway during activation. This ID becomes part
+   *          of the gateway Amazon Resource Name (ARN), which you use as input for other
+   *          operations.</p>
+   */
+  GatewayId?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
   GatewayARN?: string;
 
   /**
-   * <p>The ID of the Amazon EC2 instance that was used to launch the gateway.</p>
+   * <p>The type of the gateway.</p>
    */
-  Ec2InstanceId?: string;
+  GatewayType?: string;
 
   /**
    * <p>The state of the gateway.</p>
@@ -4771,26 +4890,19 @@ export interface GatewayInfo {
   GatewayOperationalState?: string;
 
   /**
-   * <p>The unique identifier assigned to your gateway during activation. This ID becomes part
-   *          of the gateway Amazon Resource Name (ARN), which you use as input for other
-   *          operations.</p>
-   */
-  GatewayId?: string;
-
-  /**
    * <p>The name of the gateway.</p>
    */
   GatewayName?: string;
 
   /**
+   * <p>The ID of the Amazon EC2 instance that was used to launch the gateway.</p>
+   */
+  Ec2InstanceId?: string;
+
+  /**
    * <p>The AWS Region where the Amazon EC2 instance is located.</p>
    */
   Ec2InstanceRegion?: string;
-
-  /**
-   * <p>The type of the gateway.</p>
-   */
-  GatewayType?: string;
 }
 
 export namespace GatewayInfo {
@@ -4804,10 +4916,15 @@ export namespace GatewayInfo {
  */
 export interface JoinDomainInput {
   /**
-   * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation must
-   *          complete. The default is 20 seconds.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  TimeoutInSeconds?: number;
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The name of the domain that you want the gateway to join.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The organizational unit (OU) is a container in an Active Directory that can hold users,
@@ -4817,18 +4934,6 @@ export interface JoinDomainInput {
   OrganizationalUnit?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>Sets the password of the user who has permission to add the gateway to the Active
-   *          Directory domain.</p>
-   */
-  Password: string | undefined;
-
-  /**
    * <p>List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need
    *          to specify the port number include it after the colon (“:”). For example,
    *             <code>mydc.mydomain.com:389</code>.</p>
@@ -4836,9 +4941,10 @@ export interface JoinDomainInput {
   DomainControllers?: string[];
 
   /**
-   * <p>The name of the domain that you want the gateway to join.</p>
+   * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation must
+   *          complete. The default is 20 seconds.</p>
    */
-  DomainName: string | undefined;
+  TimeoutInSeconds?: number;
 
   /**
    * <p>Sets the user name of user who has permission to add the gateway to the Active Directory
@@ -4847,6 +4953,12 @@ export interface JoinDomainInput {
    *          permissions to join computers to the domain.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>Sets the password of the user who has permission to add the gateway to the Active
+   *          Directory domain.</p>
+   */
+  Password: string | undefined;
 }
 
 export namespace JoinDomainInput {
@@ -4948,6 +5060,12 @@ export namespace ListAutomaticTapeCreationPoliciesOutput {
  */
 export interface ListFileSharesInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If
+   *          this field is not present, all file shares under your account are listed.</p>
+   */
+  GatewayARN?: string;
+
+  /**
    * <p>The maximum number of file shares to return in the response. The value must be an
    *          integer with a value greater than zero. Optional.</p>
    */
@@ -4959,12 +5077,6 @@ export interface ListFileSharesInput {
    *          ListFileShares. Optional.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If
-   *          this field is not present, all file shares under your account are listed.</p>
-   */
-  GatewayARN?: string;
 }
 
 export namespace ListFileSharesInput {
@@ -4978,17 +5090,17 @@ export namespace ListFileSharesInput {
  */
 export interface ListFileSharesOutput {
   /**
+   * <p>If the request includes <code>Marker</code>, the response returns that value in this
+   *          field.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>If a value is present, there are more file shares to return. In a subsequent request,
    *          use <code>NextMarker</code> as the value for <code>Marker</code> to retrieve the next set
    *          of file shares.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>If the request includes <code>Marker</code>, the response returns that value in this
-   *          field.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>An array of information about the file gateway's file shares.</p>
@@ -5020,16 +5132,16 @@ export namespace ListFileSharesOutput {
  */
 export interface ListGatewaysInput {
   /**
-   * <p>Specifies that the list of gateways returned be limited to the specified number of
-   *          items.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>An opaque string that indicates the position at which to begin the returned list of
    *          gateways.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Specifies that the list of gateways returned be limited to the specified number of
+   *          items.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListGatewaysInput {
@@ -5040,15 +5152,15 @@ export namespace ListGatewaysInput {
 
 export interface ListGatewaysOutput {
   /**
+   * <p>An array of <a>GatewayInfo</a> objects.</p>
+   */
+  Gateways?: GatewayInfo[];
+
+  /**
    * <p>Use the marker in your next request to fetch the next set of gateways in the list. If
    *          there are no more gateways to list, this field does not appear in the response.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>An array of <a>GatewayInfo</a> objects.</p>
-   */
-  Gateways?: GatewayInfo[];
 }
 
 export namespace ListGatewaysOutput {
@@ -5111,16 +5223,16 @@ export interface ListTagsForResourceInput {
   ResourceARN: string | undefined;
 
   /**
-   * <p>Specifies that the list of tags returned be limited to the specified number of
-   *          items.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>An opaque string that indicates the position at which to begin returning the list of
    *          tags.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Specifies that the list of tags returned be limited to the specified number of
+   *          items.</p>
+   */
+  Limit?: number;
 }
 
 export namespace ListTagsForResourceInput {
@@ -5139,15 +5251,15 @@ export interface ListTagsForResourceOutput {
   ResourceARN?: string;
 
   /**
-   * <p>An array that contains the tags for the specified resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>An opaque string that indicates the position at which to stop returning the list of
    *          tags.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>An array that contains the tags for the specified resource.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -5188,10 +5300,23 @@ export type PoolStatus = "ACTIVE" | "DELETED";
  */
 export interface PoolInfo {
   /**
-   * <p>Status of the custom tape pool. Pool can be <code>ACTIVE</code> or
-   *          <code>DELETED</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the custom tape pool. Use the <a>ListTapePools</a> operation to return a list of custom tape pools for your
+   *          account and AWS Region.</p>
    */
-  PoolStatus?: PoolStatus | string;
+  PoolARN?: string;
+
+  /**
+   * <p>The name of the custom tape pool. <code>PoolName</code> can use all ASCII characters,
+   *          except '/' and '\'.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * <p>The storage class that is associated with the custom pool. When you use your backup
+   *          application to eject the tape, the tape is archived directly into the storage class (S3
+   *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
+   */
+  StorageClass?: TapeStorageClass | string;
 
   /**
    * <p>Tape retention lock type, which can be configured in two modes. When configured in
@@ -5208,23 +5333,10 @@ export interface PoolInfo {
   RetentionLockTimeInDays?: number;
 
   /**
-   * <p>The name of the custom tape pool. <code>PoolName</code> can use all ASCII characters,
-   *          except '/' and '\'.</p>
+   * <p>Status of the custom tape pool. Pool can be <code>ACTIVE</code> or
+   *          <code>DELETED</code>.</p>
    */
-  PoolName?: string;
-
-  /**
-   * <p>The storage class that is associated with the custom pool. When you use your backup
-   *          application to eject the tape, the tape is archived directly into the storage class (S3
-   *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   */
-  StorageClass?: TapeStorageClass | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom tape pool. Use the <a>ListTapePools</a> operation to return a list of custom tape pools for your
-   *          account and AWS Region.</p>
-   */
-  PoolARN?: string;
+  PoolStatus?: PoolStatus | string;
 }
 
 export namespace PoolInfo {
@@ -5235,18 +5347,18 @@ export namespace PoolInfo {
 
 export interface ListTapePoolsOutput {
   /**
-   * <p>A string that indicates the position at which to begin the returned list of tape pools.
-   *          Use the marker in your next request to continue pagination of tape pools. If there are no
-   *          more tape pools to list, this element does not appear in the response body. </p>
-   */
-  Marker?: string;
-
-  /**
    * <p>An array of <code>PoolInfo</code> objects, where each object describes a single custom
    *          tape pool. If there are no custom tape pools, the <code>PoolInfos</code> is an empty array.
    *       </p>
    */
   PoolInfos?: PoolInfo[];
+
+  /**
+   * <p>A string that indicates the position at which to begin the returned list of tape pools.
+   *          Use the marker in your next request to continue pagination of tape pools. If there are no
+   *          more tape pools to list, this element does not appear in the response body. </p>
+   */
+  Marker?: string;
 }
 
 export namespace ListTapePoolsOutput {
@@ -5316,6 +5428,11 @@ export interface TapeInfo {
   TapeBarcode?: string;
 
   /**
+   * <p>The size, in bytes, of a virtual tape.</p>
+   */
+  TapeSizeInBytes?: number;
+
+  /**
    * <p>The status of the tape.</p>
    */
   TapeStatus?: string;
@@ -5327,22 +5444,6 @@ export interface TapeInfo {
   GatewayARN?: string;
 
   /**
-   * <p>The date that the tape entered the custom tape pool with tape retention lock
-   *          enabled.</p>
-   */
-  PoolEntryDate?: Date;
-
-  /**
-   * <p>The size, in bytes, of a virtual tape.</p>
-   */
-  TapeSizeInBytes?: number;
-
-  /**
-   * <p>The date that the tape became subject to tape retention lock.</p>
-   */
-  RetentionStartDate?: Date;
-
-  /**
    * <p>The ID of the pool that you want to add your tape to for archiving. The tape in this
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
@@ -5352,6 +5453,17 @@ export interface TapeInfo {
    *          </p>
    */
   PoolId?: string;
+
+  /**
+   * <p>The date that the tape became subject to tape retention lock.</p>
+   */
+  RetentionStartDate?: Date;
+
+  /**
+   * <p>The date that the tape entered the custom tape pool with tape retention lock
+   *          enabled.</p>
+   */
+  PoolEntryDate?: Date;
 }
 
 export namespace TapeInfo {
@@ -5451,6 +5563,11 @@ export namespace ListVolumeRecoveryPointsInput {
  */
 export interface VolumeRecoveryPointInfo {
   /**
+   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
+   */
+  VolumeARN?: string;
+
+  /**
    * <p>The size of the volume in bytes.</p>
    */
   VolumeSizeInBytes?: number;
@@ -5464,11 +5581,6 @@ export interface VolumeRecoveryPointInfo {
    *          </note>
    */
   VolumeUsageInBytes?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the volume target.</p>
-   */
-  VolumeARN?: string;
 
   /**
    * <p>The time the recovery point was taken.</p>
@@ -5519,6 +5631,12 @@ export namespace ListVolumeRecoveryPointsOutput {
  */
 export interface ListVolumesInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
    * <p>A string that indicates the position at which to begin the returned list of volumes.
    *          Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
    */
@@ -5529,12 +5647,6 @@ export interface ListVolumesInput {
    *          items.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
 }
 
 export namespace ListVolumesInput {
@@ -5547,33 +5659,6 @@ export namespace ListVolumesInput {
  * <p>Describes a storage volume object.</p>
  */
 export interface VolumeInfo {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN?: string;
-
-  /**
-   * <p>The unique identifier assigned to your gateway during activation. This ID becomes part
-   *          of the gateway Amazon Resource Name (ARN), which you use as input for other
-   *          operations.</p>
-   *
-   *          <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
-   */
-  VolumeAttachmentStatus?: string;
-
-  /**
-   * <p>The size of the volume in bytes.</p>
-   *
-   *          <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>
-   */
-  VolumeSizeInBytes?: number;
-
   /**
    * <p>The Amazon Resource Name (ARN) for the storage volume. For example, the following is a
    *          valid ARN:</p>
@@ -5595,9 +5680,36 @@ export interface VolumeInfo {
   VolumeId?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>The unique identifier assigned to your gateway during activation. This ID becomes part
+   *          of the gateway Amazon Resource Name (ARN), which you use as input for other
+   *          operations.</p>
+   *
+   *          <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>
+   */
+  GatewayId?: string;
+
+  /**
    * <p>One of the VolumeType enumeration values describing the type of the volume.</p>
    */
   VolumeType?: string;
+
+  /**
+   * <p>The size of the volume in bytes.</p>
+   *
+   *          <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>
+   */
+  VolumeSizeInBytes?: number;
+
+  /**
+   * <p>One of the VolumeStatus values that indicates the state of the storage volume.</p>
+   */
+  VolumeAttachmentStatus?: string;
 }
 
 export namespace VolumeInfo {
@@ -5624,11 +5736,10 @@ export namespace VolumeInfo {
  */
 export interface ListVolumesOutput {
   /**
-   * <p>An array of <a>VolumeInfo</a> objects, where each object describes an iSCSI
-   *          volume. If no volumes are defined for the gateway, then <code>VolumeInfos</code> is an
-   *          empty array "[]".</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
    */
-  VolumeInfos?: VolumeInfo[];
+  GatewayARN?: string;
 
   /**
    * <p>Use the marker in your next request to continue pagination of iSCSI volumes. If there
@@ -5637,10 +5748,11 @@ export interface ListVolumesOutput {
   Marker?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   * <p>An array of <a>VolumeInfo</a> objects, where each object describes an iSCSI
+   *          volume. If no volumes are defined for the gateway, then <code>VolumeInfos</code> is an
+   *          empty array "[]".</p>
    */
-  GatewayARN?: string;
+  VolumeInfos?: VolumeInfo[];
 }
 
 export namespace ListVolumesOutput {
@@ -5664,15 +5776,15 @@ export namespace NotifyWhenUploadedInput {
 
 export interface NotifyWhenUploadedOutput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the file share.</p>
+   */
+  FileShareARN?: string;
+
+  /**
    * <p>The randomly generated ID of the notification that was sent. This ID is in UUID
    *          format.</p>
    */
   NotificationId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file share.</p>
-   */
-  FileShareARN?: string;
 }
 
 export namespace NotifyWhenUploadedOutput {
@@ -5686,6 +5798,19 @@ export namespace NotifyWhenUploadedOutput {
  */
 export interface RefreshCacheInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the file share you want to refresh.</p>
+   */
+  FileShareARN: string | undefined;
+
+  /**
+   * <p>A comma-separated list of the paths of folders to refresh in the cache. The default is
+   *             [<code>"/"</code>]. The default refreshes objects and folders at the root of the Amazon
+   *          S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3 bucket that
+   *          the file share has access to is refreshed.</p>
+   */
+  FolderList?: string[];
+
+  /**
    * <p>A value that specifies whether to recursively refresh folders in the cache. The refresh
    *          includes folders that were in the cache the last time the gateway listed the folder's
    *          contents. If this value set to <code>true</code>, each folder that is listed in
@@ -5698,19 +5823,6 @@ export interface RefreshCacheInput {
    *          </p>
    */
   Recursive?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file share you want to refresh.</p>
-   */
-  FileShareARN: string | undefined;
-
-  /**
-   * <p>A comma-separated list of the paths of folders to refresh in the cache. The default is
-   *             [<code>"/"</code>]. The default refreshes objects and folders at the root of the Amazon
-   *          S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3 bucket that
-   *          the file share has access to is refreshed.</p>
-   */
-  FolderList?: string[];
 }
 
 export namespace RefreshCacheInput {
@@ -5855,16 +5967,16 @@ export namespace RetrieveTapeArchiveOutput {
  */
 export interface RetrieveTapeRecoveryPointInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the
    *          recovery point.</p>
    */
   TapeARN: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
 }
 
 export namespace RetrieveTapeRecoveryPointInput {
@@ -5932,15 +6044,15 @@ export namespace SetLocalConsolePasswordOutput {
  */
 export interface SetSMBGuestPasswordInput {
   /**
-   * <p>The password that you want to set for your SMB server.</p>
-   */
-  Password: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
    *          with.</p>
    */
   GatewayARN: string | undefined;
+
+  /**
+   * <p>The password that you want to set for your SMB server.</p>
+   */
+  Password: string | undefined;
 }
 
 export namespace SetSMBGuestPasswordInput {
@@ -6065,16 +6177,16 @@ export namespace StartGatewayOutput {
 
 export interface UpdateAutomaticTapeCreationPolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
    * <p>An automatic tape creation policy consists of a list of automatic tape creation rules.
    *          The rules determine when and how to automatically create new tapes.</p>
    */
   AutomaticTapeCreationRules: AutomaticTapeCreationRule[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
 }
 
 export namespace UpdateAutomaticTapeCreationPolicyInput {
@@ -6115,11 +6227,6 @@ export namespace UpdateAutomaticTapeCreationPolicyOutput {
  */
 export interface UpdateBandwidthRateLimitInput {
   /**
-   * <p>The average download bandwidth rate limit in bits per second.</p>
-   */
-  AverageDownloadRateLimitInBitsPerSec?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
@@ -6129,6 +6236,11 @@ export interface UpdateBandwidthRateLimitInput {
    * <p>The average upload bandwidth rate limit in bits per second.</p>
    */
   AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   * <p>The average download bandwidth rate limit in bits per second.</p>
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
 export namespace UpdateBandwidthRateLimitInput {
@@ -6151,6 +6263,42 @@ export interface UpdateBandwidthRateLimitOutput {
 
 export namespace UpdateBandwidthRateLimitOutput {
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBandwidthRateLimitScheduleInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>
+   *          An array containing bandwidth rate limit schedule intervals for a gateway.
+   *          When no bandwidth rate limit intervals have been scheduled, the array is empty.
+   *       </p>
+   */
+  BandwidthRateLimitIntervals: BandwidthRateLimitInterval[] | undefined;
+}
+
+export namespace UpdateBandwidthRateLimitScheduleInput {
+  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBandwidthRateLimitScheduleOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateBandwidthRateLimitScheduleOutput {
+  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleOutput): any => ({
     ...obj,
   });
 }
@@ -6184,21 +6332,10 @@ export namespace UpdateBandwidthRateLimitOutput {
  */
 export interface UpdateChapCredentialsInput {
   /**
-   * <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g. Windows client).</p>
-   *
-   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
-   *
-   *          <note>
-   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
+   *          VolumeARN.</p>
    */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   * <p>The iSCSI initiator that connects to the target.</p>
-   */
-  InitiatorName: string | undefined;
+  TargetARN: string | undefined;
 
   /**
    * <p>The secret key that the initiator (for example, the Windows client) must provide to
@@ -6211,17 +6348,28 @@ export interface UpdateChapCredentialsInput {
   SecretToAuthenticateInitiator: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
-   *          VolumeARN.</p>
+   * <p>The iSCSI initiator that connects to the target.</p>
    */
-  TargetARN: string | undefined;
+  InitiatorName: string | undefined;
+
+  /**
+   * <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g. Windows client).</p>
+   *
+   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
+   *
+   *          <note>
+   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
+   *          </note>
+   */
+  SecretToAuthenticateTarget?: string;
 }
 
 export namespace UpdateChapCredentialsInput {
   export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
     ...obj,
-    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
 }
 
@@ -6230,16 +6378,16 @@ export namespace UpdateChapCredentialsInput {
  */
 export interface UpdateChapCredentialsOutput {
   /**
-   * <p>The iSCSI initiator that connects to the target. This is the same initiator name
-   *          specified in the request.</p>
-   */
-  InitiatorName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in the
    *          request.</p>
    */
   TargetARN?: string;
+
+  /**
+   * <p>The iSCSI initiator that connects to the target. This is the same initiator name
+   *          specified in the request.</p>
+   */
+  InitiatorName?: string;
 }
 
 export namespace UpdateChapCredentialsOutput {
@@ -6249,6 +6397,12 @@ export namespace UpdateChapCredentialsOutput {
 }
 
 export interface UpdateGatewayInformationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
   /**
    * <p>The name you configured for your gateway.</p>
    */
@@ -6268,12 +6422,6 @@ export interface UpdateGatewayInformationInput {
    *          </p>
    */
   CloudWatchLogGroupARN?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
 }
 
 export namespace UpdateGatewayInformationInput {
@@ -6288,15 +6436,15 @@ export namespace UpdateGatewayInformationInput {
  */
 export interface UpdateGatewayInformationOutput {
   /**
-   * <p>The name you configured for your gateway.</p>
-   */
-  GatewayName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
    */
   GatewayARN?: string;
+
+  /**
+   * <p>The name you configured for your gateway.</p>
+   */
+  GatewayName?: string;
 }
 
 export namespace UpdateGatewayInformationOutput {
@@ -6368,6 +6516,19 @@ export namespace UpdateGatewaySoftwareNowOutput {
  */
 export interface UpdateMaintenanceStartTimeInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The hour component of the maintenance start time represented as <i>hh</i>,
+   *          where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time
+   *          zone of the gateway.</p>
+   */
+  HourOfDay: number | undefined;
+
+  /**
    * <p>The minute component of the maintenance start time represented as
    *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
    *          minute of the hour is in the time zone of the gateway.</p>
@@ -6386,19 +6547,6 @@ export interface UpdateMaintenanceStartTimeInput {
    *          last day of the month.</p>
    */
   DayOfMonth?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   * <p>The hour component of the maintenance start time represented as <i>hh</i>,
-   *          where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time
-   *          zone of the gateway.</p>
-   */
-  HourOfDay: number | undefined;
 }
 
 export namespace UpdateMaintenanceStartTimeInput {
@@ -6430,25 +6578,9 @@ export namespace UpdateMaintenanceStartTimeOutput {
  */
 export interface UpdateNFSFileShareInput {
   /**
-   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the file share to be updated.</p>
    */
-  ObjectACL?: ObjectACL | string;
-
-  /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
-   *          either valid IP addresses or valid CIDR blocks.</p>
-   */
-  ClientList?: string[];
-
-  /**
-   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
-   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  ReadOnly?: boolean;
+  FileShareARN: string | undefined;
 
   /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
@@ -6460,9 +6592,16 @@ export interface UpdateNFSFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the file share to be updated.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
-  FileShareARN: string | undefined;
+  KMSKey?: string;
+
+  /**
+   * <p>The default values for the file share. Optional.</p>
+   */
+  NFSFileShareDefaults?: NFSFileShareDefaults;
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
@@ -6475,55 +6614,16 @@ export interface UpdateNFSFileShareInput {
   DefaultStorageClass?: string;
 
   /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
+   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
    */
-  GuessMIMETypeEnabled?: boolean;
+  ObjectACL?: ObjectACL | string;
 
   /**
-   * <p>The name of the file share. Optional.</p>
-   *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
+   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   *          either valid IP addresses or valid CIDR blocks.</p>
    */
-  FileShareName?: string;
-
-  /**
-   * <p>A value that sets who pays the cost of the request and the cost associated with data
-   *          download from the S3 bucket. If this value is set to <code>true</code>, the requester pays
-   *          the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays
-   *          the cost of storing data.</p>
-   *
-   *          <note>
-   *             <p>
-   *                <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
-   *             share, so make sure that the configuration on the file share is the same as the S3
-   *             bucket configuration.</p>
-   *          </note>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  RequesterPays?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>Refresh cache information.</p>
-   */
-  CacheAttributes?: CacheAttributes;
+  ClientList?: string[];
 
   /**
    * <p>The user mapped to anonymous user.</p>
@@ -6548,14 +6648,62 @@ export interface UpdateNFSFileShareInput {
   Squash?: string;
 
   /**
+   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
+   *          to set the write status to read-only, otherwise set to <code>false</code>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  ReadOnly?: boolean;
+
+  /**
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  GuessMIMETypeEnabled?: boolean;
+
+  /**
+   * <p>A value that sets who pays the cost of the request and the cost associated with data
+   *          download from the S3 bucket. If this value is set to <code>true</code>, the requester pays
+   *          the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays
+   *          the cost of storing data.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+   *             share, so make sure that the configuration on the file share is the same as the S3
+   *             bucket configuration.</p>
+   *          </note>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  RequesterPays?: boolean;
+
+  /**
+   * <p>The name of the file share. Optional.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
+   */
+  FileShareName?: string;
+
+  /**
+   * <p>Refresh cache information.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+
+  /**
    * <p>The notification policy of the file share.</p>
    */
   NotificationPolicy?: string;
-
-  /**
-   * <p>The default values for the file share. Optional.</p>
-   */
-  NFSFileShareDefaults?: NFSFileShareDefaults;
 }
 
 export namespace UpdateNFSFileShareInput {
@@ -6585,47 +6733,9 @@ export namespace UpdateNFSFileShareOutput {
  */
 export interface UpdateSMBFileShareInput {
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-   *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
-   *
-   *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
-   *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
-   *          </p>
+   * <p>The Amazon Resource Name (ARN) of the SMB file share that you want to update.</p>
    */
-  DefaultStorageClass?: string;
-
-  /**
-   * <p>A list of users or groups in the Active Directory that are allowed to access the file
-   *          share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
-   */
-  ValidUserList?: string[];
-
-  /**
-   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
-   */
-  ObjectACL?: ObjectACL | string;
-
-  /**
-   * <p>A list of users or groups in the Active Directory that are not allowed to access the
-   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
-   */
-  InvalidUserList?: string[];
-
-  /**
-   * <p>A list of users or groups in the Active Directory that have administrator rights to the
-   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
-   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
-   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
-   *             <code>ActiveDirectory</code>.</p>
-   */
-  AdminUserList?: string[];
+  FileShareARN: string | undefined;
 
   /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
@@ -6637,15 +6747,46 @@ export interface UpdateSMBFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The name of the file share. Optional.</p>
-   *
-   *          <note>
-   *             <p>
-   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
-   *                <code>LocationARN</code>.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
-  FileShareName?: string;
+  KMSKey?: string;
+
+  /**
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *
+   *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
+   *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
+   *          </p>
+   */
+  DefaultStorageClass?: string;
+
+  /**
+   * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
+   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   */
+  ObjectACL?: ObjectACL | string;
+
+  /**
+   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
+   *          to set write status to read-only, otherwise set to <code>false</code>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  ReadOnly?: boolean;
+
+  /**
+   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
+   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
+   *          to <code>false</code>. The default value is <code>true</code>.</p>
+   *
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  GuessMIMETypeEnabled?: boolean;
 
   /**
    * <p>A value that sets who pays the cost of the request and the cost associated with data
@@ -6666,53 +6807,6 @@ export interface UpdateSMBFileShareInput {
   RequesterPays?: boolean;
 
   /**
-   * <p>A value that enables guessing of the MIME type for uploaded objects based on file
-   *          extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise set
-   *          to <code>false</code>. The default value is <code>true</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  GuessMIMETypeEnabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SMB file share that you want to update.</p>
-   */
-  FileShareARN: string | undefined;
-
-  /**
-   * <p>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>, the
-   *          client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway
-   *          determines the case sensitivity. The default value is <code>ClientSpecified</code>.</p>
-   */
-  CaseSensitivity?: CaseSensitivity | string;
-
-  /**
-   * <p>The files and folders on this share will only be visible to users with read
-   *          access.</p>
-   */
-  AccessBasedEnumeration?: boolean;
-
-  /**
-   * <p>Refresh cache information.</p>
-   */
-  CacheAttributes?: CacheAttributes;
-
-  /**
-   * <p>The notification policy of the file share.</p>
-   */
-  NotificationPolicy?: string;
-
-  /**
-   * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
-   *          to set write status to read-only, otherwise set to <code>false</code>.</p>
-   *
-   *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
-   */
-  ReadOnly?: boolean;
-
-  /**
    * <p>Set this value to <code>true</code> to enable access control list (ACL) on the SMB file
    *          share. Set it to <code>false</code> to map file and directory permissions to the POSIX
    *          permissions.</p>
@@ -6729,16 +6823,70 @@ export interface UpdateSMBFileShareInput {
   SMBACLEnabled?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
-   *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
+   * <p>The files and folders on this share will only be visible to users with read
+   *          access.</p>
    */
-  KMSKey?: string;
+  AccessBasedEnumeration?: boolean;
+
+  /**
+   * <p>A list of users or groups in the Active Directory that have administrator rights to the
+   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  AdminUserList?: string[];
+
+  /**
+   * <p>A list of users or groups in the Active Directory that are allowed to access the file
+   *          share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  ValidUserList?: string[];
+
+  /**
+   * <p>A list of users or groups in the Active Directory that are not allowed to access the
+   *          file share. A group must be prefixed with the @ character. Acceptable formats include:
+   *             <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+   *             <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to
+   *             <code>ActiveDirectory</code>.</p>
+   */
+  InvalidUserList?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
    */
   AuditDestinationARN?: string;
+
+  /**
+   * <p>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>, the
+   *          client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway
+   *          determines the case sensitivity. The default value is <code>ClientSpecified</code>.</p>
+   */
+  CaseSensitivity?: CaseSensitivity | string;
+
+  /**
+   * <p>The name of the file share. Optional.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>FileShareName</code> must be set if an S3 prefix name is set in
+   *                <code>LocationARN</code>.</p>
+   *          </note>
+   */
+  FileShareName?: string;
+
+  /**
+   * <p>Refresh cache information.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+
+  /**
+   * <p>The notification policy of the file share.</p>
+   */
+  NotificationPolicy?: string;
 }
 
 export namespace UpdateSMBFileShareInput {
@@ -6876,9 +7024,11 @@ export interface UpdateSnapshotScheduleInput {
   VolumeARN: string | undefined;
 
   /**
-   * <p>Optional description of the snapshot that overwrites the existing description.</p>
+   * <p>The hour of the day at which the snapshot schedule begins represented as
+   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
+   *          of the day is in the time zone of the gateway.</p>
    */
-  Description?: string;
+  StartAt: number | undefined;
 
   /**
    * <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
@@ -6886,11 +7036,9 @@ export interface UpdateSnapshotScheduleInput {
   RecurrenceInHours: number | undefined;
 
   /**
-   * <p>The hour of the day at which the snapshot schedule begins represented as
-   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
-   *          of the day is in the time zone of the gateway.</p>
+   * <p>Optional description of the snapshot that overwrites the existing description.</p>
    */
-  StartAt: number | undefined;
+  Description?: string;
 
   /**
    * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value
@@ -6932,6 +7080,11 @@ export namespace UpdateSnapshotScheduleOutput {
 
 export interface UpdateVTLDeviceTypeInput {
   /**
+   * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
+   */
+  VTLDeviceARN: string | undefined;
+
+  /**
    * <p>The type of medium changer you want to select.</p>
    *
    *          <p>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> |
@@ -6939,11 +7092,6 @@ export interface UpdateVTLDeviceTypeInput {
    *          </p>
    */
   DeviceType: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
-   */
-  VTLDeviceARN: string | undefined;
 }
 
 export namespace UpdateVTLDeviceTypeInput {

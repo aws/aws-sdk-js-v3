@@ -3037,6 +3037,11 @@ export interface CreateRouteRequest {
   DryRun?: boolean;
 
   /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
    * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
    */
   EgressOnlyInternetGatewayId?: string;
@@ -5453,6 +5458,7 @@ export namespace CreateVpcResult {
 
 export enum VpcEndpointType {
   Gateway = "Gateway",
+  GatewayLoadBalancer = "GatewayLoadBalancer",
   Interface = "Interface",
 }
 
@@ -5485,7 +5491,7 @@ export interface CreateVpcEndpointRequest {
   ServiceName: string | undefined;
 
   /**
-   * <p>A policy to attach to the endpoint that controls access to the
+   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the
    *             service. The policy must be in valid JSON format. If this parameter is not specified, we
    *             attach a default policy that allows full access to the service.</p>
    */
@@ -5497,8 +5503,8 @@ export interface CreateVpcEndpointRequest {
   RouteTableIds?: string[];
 
   /**
-   * <p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
-   *             network interface.</p>
+   * <p>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create an endpoint
+   *             network interface. For a Gateway Load Balancer endpoint, you can specify one subnet only.</p>
    */
   SubnetIds?: string[];
 
@@ -5872,7 +5878,7 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
   AcceptanceRequired?: boolean;
 
   /**
-   * <p>The private DNS name to assign to the VPC endpoint service.</p>
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
    */
   PrivateDnsName?: string;
 
@@ -5880,7 +5886,12 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
    * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
    *             service.</p>
    */
-  NetworkLoadBalancerArns: string[] | undefined;
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -5954,6 +5965,7 @@ export enum ServiceState {
 
 export enum ServiceType {
   Gateway = "Gateway",
+  GatewayLoadBalancer = "GatewayLoadBalancer",
   Interface = "Interface",
 }
 
@@ -6017,6 +6029,11 @@ export interface ServiceConfiguration {
    * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
    */
   NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
 
   /**
    * <p>The DNS names for the service.</p>

@@ -2089,6 +2089,10 @@
           {
             "value": "TagKey",
             "name": "TAG_KEY"
+          },
+          {
+            "value": "TargetResourceGroup",
+            "name": "TARGET_RESOURCE_GROUP"
           }
         ]
       }
@@ -19962,7 +19966,7 @@
         "value": {
           "target": "com.amazonaws.ssm#SessionFilterValue",
           "traits": {
-            "smithy.api#documentation": "<p>The filter value. Valid values for each filter key are as follows:</p>\n         <ul>\n            <li>\n               <p>InvokedAfter: Specify a timestamp to limit your results. For example, specify\n     2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.</p>\n            </li>\n            <li>\n               <p>InvokedBefore: Specify a timestamp to limit your results. For example, specify\n     2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>\n            </li>\n            <li>\n               <p>Target: Specify an instance to which session connections have been made.</p>\n            </li>\n            <li>\n               <p>Owner: Specify an AWS user account to see a list of sessions started by that user.</p>\n            </li>\n            <li>\n               <p>Status: Specify a valid session status to see a list of all sessions with that status.\n     Status values you can specify include:</p>\n               <ul>\n                  <li>\n                     <p>Connected</p>\n                  </li>\n                  <li>\n                     <p>Connecting</p>\n                  </li>\n                  <li>\n                     <p>Disconnected</p>\n                  </li>\n                  <li>\n                     <p>Terminated</p>\n                  </li>\n                  <li>\n                     <p>Terminating</p>\n                  </li>\n                  <li>\n                     <p>Failed</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filter value. Valid values for each filter key are as follows:</p>\n         <ul>\n            <li>\n               <p>InvokedAfter: Specify a timestamp to limit your results. For example, specify\n     2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.</p>\n            </li>\n            <li>\n               <p>InvokedBefore: Specify a timestamp to limit your results. For example, specify\n     2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.</p>\n            </li>\n            <li>\n               <p>Target: Specify an instance to which session connections have been made.</p>\n            </li>\n            <li>\n               <p>Owner: Specify an AWS user account to see a list of sessions started by that user.</p>\n            </li>\n            <li>\n               <p>Status: Specify a valid session status to see a list of all sessions with that status.\n     Status values you can specify include:</p>\n               <ul>\n                  <li>\n                     <p>Connected</p>\n                  </li>\n                  <li>\n                     <p>Connecting</p>\n                  </li>\n                  <li>\n                     <p>Disconnected</p>\n                  </li>\n                  <li>\n                     <p>Terminated</p>\n                  </li>\n                  <li>\n                     <p>Terminating</p>\n                  </li>\n                  <li>\n                     <p>Failed</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>SessionId: Specify a session ID to return details about the session.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -19994,6 +19998,10 @@
           {
             "value": "Status",
             "name": "STATUS"
+          },
+          {
+            "value": "SessionId",
+            "name": "SESSION_ID"
           }
         ]
       }
@@ -20006,7 +20014,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 5
+          "max": 6
         }
       }
     },

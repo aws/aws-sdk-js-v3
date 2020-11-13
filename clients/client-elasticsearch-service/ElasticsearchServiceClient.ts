@@ -72,6 +72,10 @@ import {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
+import {
+  GetPackageVersionHistoryCommandInput,
+  GetPackageVersionHistoryCommandOutput,
+} from "./commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
@@ -109,6 +113,7 @@ import {
   UpdateElasticsearchDomainConfigCommandInput,
   UpdateElasticsearchDomainConfigCommandOutput,
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
+import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
 import {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
@@ -186,6 +191,7 @@ export type ServiceInputTypes =
   | DescribeReservedElasticsearchInstancesCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleElasticsearchVersionsCommandInput
+  | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
   | ListDomainNamesCommandInput
@@ -199,6 +205,7 @@ export type ServiceInputTypes =
   | RemoveTagsCommandInput
   | StartElasticsearchServiceSoftwareUpdateCommandInput
   | UpdateElasticsearchDomainConfigCommandInput
+  | UpdatePackageCommandInput
   | UpgradeElasticsearchDomainCommandInput;
 
 export type ServiceOutputTypes =
@@ -225,6 +232,7 @@ export type ServiceOutputTypes =
   | DescribeReservedElasticsearchInstancesCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleElasticsearchVersionsCommandOutput
+  | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
   | ListDomainNamesCommandOutput
@@ -238,6 +246,7 @@ export type ServiceOutputTypes =
   | RemoveTagsCommandOutput
   | StartElasticsearchServiceSoftwareUpdateCommandOutput
   | UpdateElasticsearchDomainConfigCommandOutput
+  | UpdatePackageCommandOutput
   | UpgradeElasticsearchDomainCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

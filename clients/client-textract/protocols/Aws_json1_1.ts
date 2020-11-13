@@ -44,6 +44,7 @@ import {
   IdempotentParameterMismatchException,
   InternalServerError,
   InvalidJobIdException,
+  InvalidKMSKeyException,
   InvalidParameterException,
   InvalidS3ObjectException,
   LimitExceededException,
@@ -671,6 +672,14 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
       response = {
@@ -802,6 +811,14 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
     case "com.amazonaws.textract#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -969,6 +986,21 @@ const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidJobIdException(body, context);
   const contents: InvalidJobIdException = {
     name: "InvalidJobIdException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidKMSKeyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidKMSKeyException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidKMSKeyException(body, context);
+  const contents: InvalidKMSKeyException = {
+    name: "InvalidKMSKeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1186,6 +1218,7 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
       FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context),
     }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
@@ -1205,6 +1238,7 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
       DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
     }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
@@ -1277,6 +1311,7 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
     SelectionStatus:
       output.SelectionStatus !== undefined && output.SelectionStatus !== null ? output.SelectionStatus : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    TextType: output.TextType !== undefined && output.TextType !== null ? output.TextType : undefined,
   } as any;
 };
 
@@ -1459,6 +1494,13 @@ const deserializeAws_json1_1InternalServerError = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidKMSKeyException = (output: any, context: __SerdeContext): InvalidKMSKeyException => {
   return {
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,

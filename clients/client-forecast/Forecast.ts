@@ -228,7 +228,7 @@ export class Forecast extends ForecastClient {
    *       operation.</p>
    *          <note>
    *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
-   *         create use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+   *          use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
    *          </note>
    */
   public createDatasetGroup(
@@ -408,29 +408,33 @@ export class Forecast extends ForecastClient {
 
   /**
    * <p>Creates an Amazon Forecast predictor.</p>
-   *          <p>In the request, you provide a dataset group and either specify an algorithm or let
-   *       Amazon Forecast choose the algorithm for you using AutoML. If you specify an algorithm, you also can
+   *          <p>In the request, provide a dataset group and either specify an algorithm or let
+   *       Amazon Forecast choose an algorithm for you using AutoML. If you specify an algorithm, you also can
    *       override algorithm-specific hyperparameters.</p>
-   *          <p>Amazon Forecast uses the chosen algorithm to train a model using the latest version of the
-   *       datasets in the specified dataset group. The result is called a predictor. You then generate a
+   *          <p>Amazon Forecast uses the algorithm to train a predictor using the latest version of the
+   *       datasets in the specified dataset group. You can then generate a
    *       forecast using the <a>CreateForecast</a> operation.</p>
-   *          <p>After training a model, the <code>CreatePredictor</code> operation also evaluates it. To
-   *       see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. Always
-   *       review the evaluation metrics before deciding to use the predictor to generate a
-   *       forecast.</p>
-   *          <p>Optionally, you can specify a featurization configuration to fill and aggregate the data
+   *          <p>
+   *       To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation.
+   *     </p>
+   *          <p>You can specify a featurization configuration to fill and aggregate the data
    *       fields in the <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more
    *       information, see <a>FeaturizationConfig</a>.</p>
    *          <p>For RELATED_TIME_SERIES datasets, <code>CreatePredictor</code> verifies that the
    *         <code>DataFrequency</code> specified when the dataset was created matches the
    *         <code>ForecastFrequency</code>. TARGET_TIME_SERIES datasets don't have this restriction.
    *       Amazon Forecast also verifies the delimiter and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.</p>
+   *          <p>By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and 0.9
+   *       (P90) quantiles. You can choose custom forecast types to train and evaluate your predictor
+   *       by setting the <code>ForecastTypes</code>.
+   *     </p>
    *          <p>
    *             <b>AutoML</b>
    *          </p>
    *          <p>If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the
    *         <code>objective function</code>, set <code>PerformAutoML</code> to <code>true</code>. The
-   *         <code>objective function</code> is defined as the mean of the weighted p10, p50, and p90
+   *         <code>objective function</code> is defined as the mean of the weighted losses over the
+   *       forecast types. By default, these are the p10, p50, and p90
    *       quantile losses. For more information, see <a>EvaluationResult</a>.</p>
    *          <p>When AutoML is enabled, the following properties are disallowed:</p>
    *          <ul>
@@ -1065,10 +1069,10 @@ export class Forecast extends ForecastClient {
   }
 
   /**
-   * <p>Provides metrics on the accuracy of the models that were trained by the
-   *       <a>CreatePredictor</a> operation. Use metrics to see how well the model performed
-   *       and to decide whether to use the predictor to generate a forecast. For more information, see
-   *       <a>metrics</a>.</p>
+   * <p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and
+   *       to decide whether to use the predictor to generate a forecast. For more information, see
+   *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Predictor
+   *         Metrics</a>.</p>
    *          <p>This operation generates metrics for each backtest window that was evaluated. The number of backtest windows
    *       (<code>NumberOfBacktestWindows</code>) is specified using the
    *       <a>EvaluationParameters</a> object, which is optionally

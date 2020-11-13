@@ -3023,6 +3023,12 @@
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.iot#BatchMode": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
+      }
+    },
     "com.amazonaws.iot#Behavior": {
       "type": "structure",
       "members": {
@@ -12028,6 +12034,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A character separator that will be used to separate records written to the Firehose\n         stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ','\n         (comma).</p>"
           }
+        },
+        "batchMode": {
+          "target": "com.amazonaws.iot#BatchMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to deliver the Kinesis Data Firehose stream as a batch by using <a href=\"https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html\">\n               <code>PutRecordBatch</code>\n            </a>.  The default value is\n         <code>false</code>.</p>\n         <p>When <code>batchMode</code> is <code>true</code> and the rule's SQL statement\n         evaluates to an Array, each Array element forms one record in the <a href=\"https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html\">\n               <code>PutRecordBatch</code>\n            </a> request. The resulting array can't have more\n         than 500 records.</p>"
+          }
         }
       },
       "traits": {
@@ -13536,6 +13548,12 @@
             "smithy.api#documentation": "<p>The name of the IoT Analytics channel to which message data will be sent.</p>"
           }
         },
+        "batchMode": {
+          "target": "com.amazonaws.iot#BatchMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to process the action as a batch. The default value is\n         <code>false</code>.</p>\n         <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates\n         to an Array, each Array element is delivered as a separate message when passed by <a href=\"https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html\">\n               <code>BatchPutMessage</code>\n            </a> to the AWS IoT Analytics channel. The resulting array can't have more\n         than 100 messages.</p>"
+          }
+        },
         "roleArn": {
           "target": "com.amazonaws.iot#AwsArn",
           "traits": {
@@ -13560,7 +13578,13 @@
         "messageId": {
           "target": "com.amazonaws.iot#MessageId",
           "traits": {
-            "smithy.api#documentation": "<p>[Optional] Use this to ensure that only one input (message) with a given messageId will\n      be processed by an AWS IoT Events detector.</p>"
+            "smithy.api#documentation": "<p>The ID of the message. The default <code>messageId</code> is a new UUID value.</p>\n         <p>When <code>batchMode</code> is <code>true</code>, you can't specify a\n        <code>messageId</code>--a new UUID value will be assigned.</p>\n         <p>Assign a value to this property to ensure that only one input (message) with a given\n            <code>messageId</code> will be processed by an AWS IoT Events detector.</p>"
+          }
+        },
+        "batchMode": {
+          "target": "com.amazonaws.iot#BatchMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to process the event actions as a batch. The default value is\n            <code>false</code>.</p>\n         <p>When <code>batchMode</code> is <code>true</code>, you can't specify a\n            <code>messageId</code>. </p>\n         <p>When <code>batchMode</code> is <code>true</code> and the rule SQL statement evaluates\n         to an Array, each Array element is treated as a separate message when it's sent to AWS IoT\n         Events by calling <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html\">\n               <code>BatchPutMessage</code>\n            </a>.  The resulting array can't have more\n         than 10 messages.</p>"
           }
         },
         "roleArn": {
@@ -21257,7 +21281,7 @@
         "key": {
           "target": "com.amazonaws.iot#Key",
           "traits": {
-            "smithy.api#documentation": "<p>The object key.</p>",
+            "smithy.api#documentation": "<p>The object key. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html\">Actions, resources, and condition keys for Amazon S3</a>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -22080,7 +22104,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Use Sig V4 authorization.</p>"
+        "smithy.api#documentation": "<p>For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 signing process</a>.</p>"
       }
     },
     "com.amazonaws.iot#Signature": {

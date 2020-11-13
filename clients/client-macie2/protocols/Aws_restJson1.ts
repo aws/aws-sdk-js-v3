@@ -1293,8 +1293,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1319,9 +1319,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   };
   let resolvedPath = "/members";
   const query: any = {
-    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -8305,6 +8305,7 @@ const deserializeAws_restJson1Ranges = (output: any, context: __SerdeContext): R
 
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
+    jsonPath: output.jsonPath !== undefined && output.jsonPath !== null ? output.jsonPath : undefined,
     recordIndex: output.recordIndex !== undefined && output.recordIndex !== null ? output.recordIndex : undefined,
   } as any;
 };

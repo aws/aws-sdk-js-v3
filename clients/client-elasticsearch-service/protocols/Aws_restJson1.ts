@@ -72,6 +72,10 @@ import {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
 } from "../commands/GetCompatibleElasticsearchVersionsCommand";
+import {
+  GetPackageVersionHistoryCommandInput,
+  GetPackageVersionHistoryCommandOutput,
+} from "../commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "../commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "../commands/ListDomainNamesCommand";
@@ -109,6 +113,7 @@ import {
   UpdateElasticsearchDomainConfigCommandInput,
   UpdateElasticsearchDomainConfigCommandOutput,
 } from "../commands/UpdateElasticsearchDomainConfigCommand";
+import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
 import {
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
@@ -165,6 +170,7 @@ import {
   OutboundCrossClusterSearchConnectionStatus,
   PackageDetails,
   PackageSource,
+  PackageVersionHistory,
   RecurringCharge,
   ReservedElasticsearchInstance,
   ReservedElasticsearchInstanceOffering,
@@ -913,6 +919,41 @@ export const serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand = a
   });
 };
 
+export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
+  input: GetPackageVersionHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2015-01-01/packages/{PackageID}/history";
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
@@ -1313,6 +1354,35 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
       SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
     }),
     ...(input.VPCOptions !== undefined && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePackageCommand = async (
+  input: UpdatePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/packages/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CommitMessage !== undefined && { CommitMessage: input.CommitMessage }),
+    ...(input.PackageDescription !== undefined && { PackageDescription: input.PackageDescription }),
+    ...(input.PackageID !== undefined && { PackageID: input.PackageID }),
+    ...(input.PackageSource !== undefined && {
+      PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3270,6 +3340,104 @@ const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetPackageVersionHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPackageVersionHistoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPackageVersionHistoryCommandError(output, context);
+  }
+  const contents: GetPackageVersionHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    PackageID: undefined,
+    PackageVersionHistoryList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.PackageID !== undefined && data.PackageID !== null) {
+    contents.PackageID = data.PackageID;
+  }
+  if (data.PackageVersionHistoryList !== undefined && data.PackageVersionHistoryList !== null) {
+    contents.PackageVersionHistoryList = deserializeAws_restJson1PackageVersionHistoryList(
+      data.PackageVersionHistoryList,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetPackageVersionHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPackageVersionHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetUpgradeHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4367,6 +4535,101 @@ const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdatePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePackageCommandError(output, context);
+  }
+  const contents: UpdatePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PackageDetails: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.PackageDetails !== undefined && data.PackageDetails !== null) {
+    contents.PackageDetails = deserializeAws_restJson1PackageDetails(data.PackageDetails, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.elasticsearchservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.elasticsearchservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5088,6 +5351,8 @@ const deserializeAws_restJson1DomainPackageDetails = (output: any, context: __Se
     PackageID: output.PackageID !== undefined && output.PackageID !== null ? output.PackageID : undefined,
     PackageName: output.PackageName !== undefined && output.PackageName !== null ? output.PackageName : undefined,
     PackageType: output.PackageType !== undefined && output.PackageType !== null ? output.PackageType : undefined,
+    PackageVersion:
+      output.PackageVersion !== undefined && output.PackageVersion !== null ? output.PackageVersion : undefined,
     ReferencePath:
       output.ReferencePath !== undefined && output.ReferencePath !== null ? output.ReferencePath : undefined,
   } as any;
@@ -5612,6 +5877,10 @@ const deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus = (
 
 const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
   return {
+    AvailablePackageVersion:
+      output.AvailablePackageVersion !== undefined && output.AvailablePackageVersion !== null
+        ? output.AvailablePackageVersion
+        : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -5619,6 +5888,10 @@ const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeCon
     ErrorDetails:
       output.ErrorDetails !== undefined && output.ErrorDetails !== null
         ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context)
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
     PackageDescription:
       output.PackageDescription !== undefined && output.PackageDescription !== null
@@ -5634,6 +5907,26 @@ const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1PackageDetailsList = (output: any, context: __SerdeContext): PackageDetails[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1PackageDetails(entry, context));
+};
+
+const deserializeAws_restJson1PackageVersionHistory = (output: any, context: __SerdeContext): PackageVersionHistory => {
+  return {
+    CommitMessage:
+      output.CommitMessage !== undefined && output.CommitMessage !== null ? output.CommitMessage : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    PackageVersion:
+      output.PackageVersion !== undefined && output.PackageVersion !== null ? output.PackageVersion : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PackageVersionHistoryList = (
+  output: any,
+  context: __SerdeContext
+): PackageVersionHistory[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PackageVersionHistory(entry, context));
 };
 
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {

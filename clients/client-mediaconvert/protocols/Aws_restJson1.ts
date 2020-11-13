@@ -44,6 +44,8 @@ import {
   AudioNormalizationSettings,
   AudioSelector,
   AudioSelectorGroup,
+  AutomatedAbrSettings,
+  AutomatedEncodingSettings,
   Av1QvbrSettings,
   Av1Settings,
   AvailBlanking,
@@ -670,11 +672,11 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/2017-08-29/jobs";
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order }),
     ...(input.Queue !== undefined && { queue: input.Queue }),
     ...(input.Status !== undefined && { status: input.Status }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.Order !== undefined && { order: input.Order }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -699,11 +701,11 @@ export const serializeAws_restJson1ListJobTemplatesCommand = async (
   };
   let resolvedPath = "/2017-08-29/jobTemplates";
   const query: any = {
-    ...(input.ListBy !== undefined && { listBy: input.ListBy }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.Order !== undefined && { order: input.Order }),
     ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -728,11 +730,11 @@ export const serializeAws_restJson1ListPresetsCommand = async (
   };
   let resolvedPath = "/2017-08-29/presets";
   const query: any = {
-    ...(input.Order !== undefined && { order: input.Order }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Category !== undefined && { category: input.Category }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -757,8 +759,8 @@ export const serializeAws_restJson1ListQueuesCommand = async (
   };
   let resolvedPath = "/2017-08-29/queues";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Order !== undefined && { order: input.Order }),
   };
@@ -3813,6 +3815,25 @@ const serializeAws_restJson1AudioSelectorGroup = (input: AudioSelectorGroup, con
   };
 };
 
+const serializeAws_restJson1AutomatedAbrSettings = (input: AutomatedAbrSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxAbrBitrate !== undefined && { maxAbrBitrate: input.MaxAbrBitrate }),
+    ...(input.MaxRenditions !== undefined && { maxRenditions: input.MaxRenditions }),
+    ...(input.MinAbrBitrate !== undefined && { minAbrBitrate: input.MinAbrBitrate }),
+  };
+};
+
+const serializeAws_restJson1AutomatedEncodingSettings = (
+  input: AutomatedEncodingSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AbrSettings !== undefined && {
+      abrSettings: serializeAws_restJson1AutomatedAbrSettings(input.AbrSettings, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1Av1QvbrSettings = (input: Av1QvbrSettings, context: __SerdeContext): any => {
   return {
     ...(input.QvbrQualityLevel !== undefined && { qvbrQualityLevel: input.QvbrQualityLevel }),
@@ -5255,6 +5276,12 @@ const serializeAws_restJson1OutputChannelMapping = (input: OutputChannelMapping,
 
 const serializeAws_restJson1OutputGroup = (input: OutputGroup, context: __SerdeContext): any => {
   return {
+    ...(input.AutomatedEncodingSettings !== undefined && {
+      automatedEncodingSettings: serializeAws_restJson1AutomatedEncodingSettings(
+        input.AutomatedEncodingSettings,
+        context
+      ),
+    }),
     ...(input.CustomName !== undefined && { customName: input.CustomName }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.OutputGroupSettings !== undefined && {
@@ -6123,6 +6150,29 @@ const deserializeAws_restJson1AudioSelectorGroup = (output: any, context: __Serd
     AudioSelectorNames:
       output.audioSelectorNames !== undefined && output.audioSelectorNames !== null
         ? deserializeAws_restJson1__listOf__stringMin1(output.audioSelectorNames, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutomatedAbrSettings = (output: any, context: __SerdeContext): AutomatedAbrSettings => {
+  return {
+    MaxAbrBitrate:
+      output.maxAbrBitrate !== undefined && output.maxAbrBitrate !== null ? output.maxAbrBitrate : undefined,
+    MaxRenditions:
+      output.maxRenditions !== undefined && output.maxRenditions !== null ? output.maxRenditions : undefined,
+    MinAbrBitrate:
+      output.minAbrBitrate !== undefined && output.minAbrBitrate !== null ? output.minAbrBitrate : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutomatedEncodingSettings = (
+  output: any,
+  context: __SerdeContext
+): AutomatedEncodingSettings => {
+  return {
+    AbrSettings:
+      output.abrSettings !== undefined && output.abrSettings !== null
+        ? deserializeAws_restJson1AutomatedAbrSettings(output.abrSettings, context)
         : undefined,
   } as any;
 };
@@ -8313,6 +8363,10 @@ const deserializeAws_restJson1OutputDetail = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
   return {
+    AutomatedEncodingSettings:
+      output.automatedEncodingSettings !== undefined && output.automatedEncodingSettings !== null
+        ? deserializeAws_restJson1AutomatedEncodingSettings(output.automatedEncodingSettings, context)
+        : undefined,
     CustomName: output.customName !== undefined && output.customName !== null ? output.customName : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OutputGroupSettings:
