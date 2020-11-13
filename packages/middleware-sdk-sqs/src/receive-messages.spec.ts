@@ -14,6 +14,22 @@ describe("receiveMessageMiddleware", () => {
     mockHashDigest.mockClear();
   });
 
+  it("should only call next once", async () => {
+    const next = jest.fn().mockReturnValue({
+      output: {
+        Messages: [
+          { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
+          { Body: "bar", MD5OfBody: "00", MessageId: "barMessage" },
+        ],
+      },
+    });
+    const handler = receiveMessageMiddleware({
+      md5: MockHash,
+    })(next, {} as any);
+    await handler({ input: {} });
+    expect(next).toBeCalledTimes(1);
+  });
+
   it("should do nothing if the checksums match", async () => {
     const next = jest.fn().mockReturnValue({
       output: {
