@@ -5,14 +5,17 @@ jdk:
   - openjdk8
   - openjdk11
 
+env:
+  - PUBLISH_LOCAL="./gradlew clean build publishToMavenLocal"
+  - SMITHY_CODE=https://github.com/awslabs/smithy.git
+  - SMITHY="git clone --depth 1 $SMITHY_CODE && cd smithy && $PUBLISH_LOCAL && cd .."
+  - SMITHY_TYPESCRIPT_CODE=https://github.com/awslabs/smithy-typescript.git
+  - SMITHY_TYPESCRIPT="git clone --depth 1 $SMITHY_TYPESCRIPT_CODE && cd smithy-typescript && $PUBLISH_LOCAL && cd .."
+
 sudo: true
 
 dist: trusty
 
 install: /bin/true
 
-script: git clone --depth 1 https://github.com/awslabs/smithy.git &&
-  cd smithy && ./gradlew publishToMavenLocal && cd .. &&
-  git clone --depth 1 https://github.com/awslabs/smithy-typescript.git &&
-  cd smithy-typescript && ./gradlew clean build publishToMavenLocal && cd .. &&
-  cd ./codegen && ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests && cd .. &&
+script: $SMITHY && $SMITHY_TYPESCRIPT && cd ./codegen && ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests && cd .. &&
