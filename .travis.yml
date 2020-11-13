@@ -11,4 +11,9 @@ dist: trusty
 
 install: /bin/true
 
-script: cd ./codegen && ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests && cd ..
+script:
+  - git clone git@github.com:awslabs/smithy.git
+  - cd smithy && ./gradlew publishToMavenLocal && cd ..
+  - git clone git@github.com:awslabs/smithy-typescript.git
+  - cd smithy-typescript && ./gradlew clean build publishToMavenLocal && cd ..
+  - cd ./codegen && ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests && cd ..
