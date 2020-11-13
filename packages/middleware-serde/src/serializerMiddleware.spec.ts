@@ -83,14 +83,4 @@ describe("serializerMiddleware", () => {
     expect(logger.info).toHaveBeenCalledTimes(1);
     expect(logger.info).toHaveBeenCalledWith({ input: mockArgs.input });
   });
-
-  it("logs request if context.logger has debug function", async () => {
-    const logger = ({ debug: jest.fn() } as unknown) as Logger;
-
-    const response = await serializerMiddleware(mockOptions, mockSerializer)(mockNext, { logger })(mockArgs);
-
-    expect(response).toStrictEqual(mockReturn);
-    expect(logger.debug).toHaveBeenCalledTimes(1);
-    expect(logger.debug).toHaveBeenCalledWith({ httpRequest: mockRequest });
-  });
 });

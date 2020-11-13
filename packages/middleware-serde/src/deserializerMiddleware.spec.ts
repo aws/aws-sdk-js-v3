@@ -85,14 +85,4 @@ describe("deserializerMiddleware", () => {
     expect(logger.info).toHaveBeenCalledTimes(1);
     expect(logger.info).toHaveBeenCalledWith({ output: outputWithoutMetadata });
   });
-
-  it("logs response if context.logger has debug function", async () => {
-    const logger = ({ debug: jest.fn() } as unknown) as Logger;
-
-    const response = await deserializerMiddleware(mockOptions, mockDeserializer)(mockNext, { logger })(mockArgs);
-
-    expect(response).toStrictEqual(mockResponse);
-    expect(logger.debug).toHaveBeenCalledTimes(1);
-    expect(logger.debug).toHaveBeenCalledWith({ httpResponse: mockNextResponse.response });
-  });
 });
