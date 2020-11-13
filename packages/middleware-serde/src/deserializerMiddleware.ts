@@ -20,12 +20,6 @@ export const deserializerMiddleware = <Input extends object, Output extends obje
 
   const { response } = await next(args);
 
-  if (typeof logger?.debug === "function") {
-    logger.debug({
-      httpResponse: response,
-    });
-  }
-
   const parsed = await deserializer(response, options);
 
   // Log parsed after $metadata is removed in https://github.com/aws/aws-sdk-js-v3/issues/1490

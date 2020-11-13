@@ -27,12 +27,6 @@ export const serializerMiddleware = <Input extends object, Output extends object
 
   const request = await serializer(args.input, options);
 
-  if (typeof logger?.debug === "function") {
-    logger.debug({
-      httpRequest: request,
-    });
-  }
-
   return next({
     ...args,
     request,
