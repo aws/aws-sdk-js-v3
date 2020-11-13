@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeSpotPriceHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeSpotPriceHistoryCommand(input, ...args));
+  return await client.send(new DescribeSpotPriceHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

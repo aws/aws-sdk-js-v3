@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPlaybackKeyPairsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPlaybackKeyPairsCommand(input, ...args));
+  return await client.send(new ListPlaybackKeyPairsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Ivs,

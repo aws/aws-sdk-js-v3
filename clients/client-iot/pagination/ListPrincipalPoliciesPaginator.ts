@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPrincipalPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPrincipalPoliciesCommand(input, ...args));
+  return await client.send(new ListPrincipalPoliciesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListModelPackagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListModelPackagesCommand(input, ...args));
+  return await client.send(new ListModelPackagesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,

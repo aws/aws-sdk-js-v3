@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFileSharesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFileSharesCommand(input, ...args));
+  return await client.send(new ListFileSharesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,

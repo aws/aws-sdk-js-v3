@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVpcsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVpcsCommand(input, ...args));
+  return await client.send(new DescribeVpcsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

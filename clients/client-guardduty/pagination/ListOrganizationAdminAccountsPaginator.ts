@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOrganizationAdminAccountsCommand(input, ...args));
+  return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,

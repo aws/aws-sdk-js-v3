@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCustomerGatewayAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCustomerGatewayAssociationsCommand(input, ...args));
+  return await client.send(new GetCustomerGatewayAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,

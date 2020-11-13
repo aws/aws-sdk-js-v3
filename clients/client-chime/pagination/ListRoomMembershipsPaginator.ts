@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRoomMembershipsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRoomMembershipsCommand(input, ...args));
+  return await client.send(new ListRoomMembershipsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Chime,

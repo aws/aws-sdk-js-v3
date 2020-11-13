@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBatchInferenceJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBatchInferenceJobsCommand(input, ...args));
+  return await client.send(new ListBatchInferenceJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,

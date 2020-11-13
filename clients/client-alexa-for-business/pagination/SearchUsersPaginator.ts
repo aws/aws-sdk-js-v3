@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchUsersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchUsersCommand(input, ...args));
+  return await client.send(new SearchUsersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeRepositoriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeRepositoriesCommand(input, ...args));
+  return await client.send(new DescribeRepositoriesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECR,

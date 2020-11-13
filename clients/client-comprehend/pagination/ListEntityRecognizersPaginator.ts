@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntityRecognizersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntityRecognizersCommand(input, ...args));
+  return await client.send(new ListEntityRecognizersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,

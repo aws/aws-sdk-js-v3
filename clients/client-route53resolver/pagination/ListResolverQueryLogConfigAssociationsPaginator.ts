@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResolverQueryLogConfigAssociationsCommand(input, ...args));
+  return await client.send(new ListResolverQueryLogConfigAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Route53Resolver,

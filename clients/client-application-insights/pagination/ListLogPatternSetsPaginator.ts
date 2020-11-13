@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLogPatternSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLogPatternSetsCommand(input, ...args));
+  return await client.send(new ListLogPatternSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ApplicationInsights,

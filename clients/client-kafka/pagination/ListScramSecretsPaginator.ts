@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListScramSecretsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListScramSecretsCommand(input, ...args));
+  return await client.send(new ListScramSecretsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Kafka,

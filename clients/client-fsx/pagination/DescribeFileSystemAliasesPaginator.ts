@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFileSystemAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFileSystemAliasesCommand(input, ...args));
+  return await client.send(new DescribeFileSystemAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FSx,

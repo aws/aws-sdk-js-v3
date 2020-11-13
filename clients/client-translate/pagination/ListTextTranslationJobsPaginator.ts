@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTextTranslationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTextTranslationJobsCommand(input, ...args));
+  return await client.send(new ListTextTranslationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Translate,

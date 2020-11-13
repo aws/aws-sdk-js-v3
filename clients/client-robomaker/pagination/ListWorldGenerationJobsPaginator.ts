@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorldGenerationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorldGenerationJobsCommand(input, ...args));
+  return await client.send(new ListWorldGenerationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,

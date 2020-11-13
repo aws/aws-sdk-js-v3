@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountAliasesCommand(input, ...args));
+  return await client.send(new ListAccountAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,

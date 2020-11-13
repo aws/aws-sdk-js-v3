@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLanguageModelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLanguageModelsCommand(input, ...args));
+  return await client.send(new ListLanguageModelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transcribe,

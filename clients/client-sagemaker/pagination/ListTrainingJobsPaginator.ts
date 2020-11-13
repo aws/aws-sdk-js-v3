@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTrainingJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTrainingJobsCommand(input, ...args));
+  return await client.send(new ListTrainingJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,

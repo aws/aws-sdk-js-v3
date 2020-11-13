@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBSnapshotsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBSnapshotsCommand(input, ...args));
+  return await client.send(new DescribeDBSnapshotsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

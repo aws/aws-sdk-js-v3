@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchResourcesCommand(input, ...args));
+  return await client.send(new SearchResourcesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroups,

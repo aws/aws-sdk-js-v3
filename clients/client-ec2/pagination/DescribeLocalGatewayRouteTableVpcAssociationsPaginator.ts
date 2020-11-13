@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, ...args));
+  return await client.send(new DescribeLocalGatewayRouteTableVpcAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

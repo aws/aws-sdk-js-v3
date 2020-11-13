@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchQuantumTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchQuantumTasksCommand(input, ...args));
+  return await client.send(new SearchQuantumTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Braket,

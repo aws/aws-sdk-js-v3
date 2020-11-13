@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetClassifiersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetClassifiersCommand(input, ...args));
+  return await client.send(new GetClassifiersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

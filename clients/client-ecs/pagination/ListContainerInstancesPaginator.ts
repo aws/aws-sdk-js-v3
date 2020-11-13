@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContainerInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContainerInstancesCommand(input, ...args));
+  return await client.send(new ListContainerInstancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECS,

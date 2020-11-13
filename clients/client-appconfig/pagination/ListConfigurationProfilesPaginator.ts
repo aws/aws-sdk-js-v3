@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConfigurationProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConfigurationProfilesCommand(input, ...args));
+  return await client.send(new ListConfigurationProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppConfig,

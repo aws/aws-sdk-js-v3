@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRecipeVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRecipeVersionsCommand(input, ...args));
+  return await client.send(new ListRecipeVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataBrew,

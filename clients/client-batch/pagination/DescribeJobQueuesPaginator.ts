@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeJobQueuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeJobQueuesCommand(input, ...args));
+  return await client.send(new DescribeJobQueuesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Batch,

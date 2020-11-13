@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetPartitionIndexesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetPartitionIndexesCommand(input, ...args));
+  return await client.send(new GetPartitionIndexesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

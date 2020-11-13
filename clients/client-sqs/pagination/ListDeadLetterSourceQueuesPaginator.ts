@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeadLetterSourceQueuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeadLetterSourceQueuesCommand(input, ...args));
+  return await client.send(new ListDeadLetterSourceQueuesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SQS,

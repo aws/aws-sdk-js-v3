@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchProductsAsAdminCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchProductsAsAdminCommand(input, ...args));
+  return await client.send(new SearchProductsAsAdminCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

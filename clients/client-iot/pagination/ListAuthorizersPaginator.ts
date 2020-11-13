@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAuthorizersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAuthorizersCommand(input, ...args));
+  return await client.send(new ListAuthorizersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

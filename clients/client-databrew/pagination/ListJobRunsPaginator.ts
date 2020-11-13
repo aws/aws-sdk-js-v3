@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobRunsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobRunsCommand(input, ...args));
+  return await client.send(new ListJobRunsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataBrew,

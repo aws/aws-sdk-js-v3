@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeClusterSubnetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeClusterSubnetGroupsCommand(input, ...args));
+  return await client.send(new DescribeClusterSubnetGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Redshift,

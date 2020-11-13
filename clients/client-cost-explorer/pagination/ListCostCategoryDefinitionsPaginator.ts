@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCostCategoryDefinitionsCommand(input, ...args));
+  return await client.send(new ListCostCategoryDefinitionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CostExplorer,

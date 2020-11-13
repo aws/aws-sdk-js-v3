@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetParameterHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetParameterHistoryCommand(input, ...args));
+  return await client.send(new GetParameterHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSM,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualNodesCommand(input, ...args));
+  return await client.send(new ListVirtualNodesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppMesh,

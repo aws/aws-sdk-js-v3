@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListApplicationVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListApplicationVersionsCommand(input, ...args));
+  return await client.send(new ListApplicationVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServerlessApplicationRepository,

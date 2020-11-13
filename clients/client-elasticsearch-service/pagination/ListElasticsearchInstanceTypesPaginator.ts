@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListElasticsearchInstanceTypesCommand(input, ...args));
+  return await client.send(new ListElasticsearchInstanceTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticsearchService,

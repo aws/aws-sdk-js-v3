@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLocalGatewaysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLocalGatewaysCommand(input, ...args));
+  return await client.send(new DescribeLocalGatewaysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRegistriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRegistriesCommand(input, ...args));
+  return await client.send(new ListRegistriesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Schemas,

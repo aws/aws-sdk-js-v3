@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPromptsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPromptsCommand(input, ...args));
+  return await client.send(new ListPromptsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,

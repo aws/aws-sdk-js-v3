@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCodeCoveragesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCodeCoveragesCommand(input, ...args));
+  return await client.send(new DescribeCodeCoveragesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeBuild,

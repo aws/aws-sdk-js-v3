@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPartsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPartsCommand(input, ...args));
+  return await client.send(new ListPartsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: S3,

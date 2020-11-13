@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProvisionedConcurrencyConfigsCommand(input, ...args));
+  return await client.send(new ListProvisionedConcurrencyConfigsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Lambda,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChangedBlocksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChangedBlocksCommand(input, ...args));
+  return await client.send(new ListChangedBlocksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EBS,

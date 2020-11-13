@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPortfoliosForProductCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPortfoliosForProductCommand(input, ...args));
+  return await client.send(new ListPortfoliosForProductCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

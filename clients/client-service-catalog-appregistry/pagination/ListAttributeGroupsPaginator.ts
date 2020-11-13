@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAttributeGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAttributeGroupsCommand(input, ...args));
+  return await client.send(new ListAttributeGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceCatalogAppRegistry,

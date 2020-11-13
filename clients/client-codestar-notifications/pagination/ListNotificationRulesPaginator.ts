@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListNotificationRulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListNotificationRulesCommand(input, ...args));
+  return await client.send(new ListNotificationRulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodestarNotifications,

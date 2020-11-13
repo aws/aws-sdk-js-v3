@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTagKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTagKeysCommand(input, ...args));
+  return await client.send(new GetTagKeysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroupsTaggingAPI,

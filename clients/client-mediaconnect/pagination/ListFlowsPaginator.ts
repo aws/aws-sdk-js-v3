@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFlowsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFlowsCommand(input, ...args));
+  return await client.send(new ListFlowsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MediaConnect,

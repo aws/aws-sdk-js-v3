@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListThingRegistrationTaskReportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListThingRegistrationTaskReportsCommand(input, ...args));
+  return await client.send(new ListThingRegistrationTaskReportsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

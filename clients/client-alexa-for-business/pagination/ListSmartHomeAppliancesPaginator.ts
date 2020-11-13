@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSmartHomeAppliancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSmartHomeAppliancesCommand(input, ...args));
+  return await client.send(new ListSmartHomeAppliancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,

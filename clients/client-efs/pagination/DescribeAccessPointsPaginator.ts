@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAccessPointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAccessPointsCommand(input, ...args));
+  return await client.send(new DescribeAccessPointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EFS,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIdentityProvidersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIdentityProvidersCommand(input, ...args));
+  return await client.send(new ListIdentityProvidersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CognitoIdentityProvider,

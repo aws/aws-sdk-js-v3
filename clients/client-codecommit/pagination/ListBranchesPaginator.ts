@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBranchesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBranchesCommand(input, ...args));
+  return await client.send(new ListBranchesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,

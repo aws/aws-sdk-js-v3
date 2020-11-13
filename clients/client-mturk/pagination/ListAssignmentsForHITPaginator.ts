@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssignmentsForHITCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssignmentsForHITCommand(input, ...args));
+  return await client.send(new ListAssignmentsForHITCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MTurk,

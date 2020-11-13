@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTaskDefinitionFamiliesCommand(input, ...args));
+  return await client.send(new ListTaskDefinitionFamiliesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECS,

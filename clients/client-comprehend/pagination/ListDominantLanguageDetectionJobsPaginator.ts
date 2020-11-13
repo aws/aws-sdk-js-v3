@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDominantLanguageDetectionJobsCommand(input, ...args));
+  return await client.send(new ListDominantLanguageDetectionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,

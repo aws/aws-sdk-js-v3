@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSuitesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSuitesCommand(input, ...args));
+  return await client.send(new ListSuitesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DeviceFarm,

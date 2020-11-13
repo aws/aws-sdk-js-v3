@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeNetworkInterfacePermissionsCommand(input, ...args));
+  return await client.send(new DescribeNetworkInterfacePermissionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

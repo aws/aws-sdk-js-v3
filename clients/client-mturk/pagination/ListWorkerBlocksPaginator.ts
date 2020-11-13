@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorkerBlocksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorkerBlocksCommand(input, ...args));
+  return await client.send(new ListWorkerBlocksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MTurk,

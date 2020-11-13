@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTranscriptCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTranscriptCommand(input, ...args));
+  return await client.send(new GetTranscriptCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ConnectParticipant,

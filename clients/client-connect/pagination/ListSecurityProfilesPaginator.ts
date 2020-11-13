@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecurityProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecurityProfilesCommand(input, ...args));
+  return await client.send(new ListSecurityProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,

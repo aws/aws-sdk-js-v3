@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorkflowTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorkflowTypesCommand(input, ...args));
+  return await client.send(new ListWorkflowTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SWF,

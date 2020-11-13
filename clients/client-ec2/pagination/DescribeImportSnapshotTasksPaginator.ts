@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImportSnapshotTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImportSnapshotTasksCommand(input, ...args));
+  return await client.send(new DescribeImportSnapshotTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeMergeConflictsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeMergeConflictsCommand(input, ...args));
+  return await client.send(new DescribeMergeConflictsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,

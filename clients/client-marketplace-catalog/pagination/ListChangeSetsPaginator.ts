@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChangeSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChangeSetsCommand(input, ...args));
+  return await client.send(new ListChangeSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MarketplaceCatalog,

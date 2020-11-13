@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMitigationActionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMitigationActionsCommand(input, ...args));
+  return await client.send(new ListMitigationActionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

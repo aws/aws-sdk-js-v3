@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMailboxExportJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMailboxExportJobsCommand(input, ...args));
+  return await client.send(new ListMailboxExportJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkMail,

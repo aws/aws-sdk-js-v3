@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLocationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLocationsCommand(input, ...args));
+  return await client.send(new ListLocationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataSync,

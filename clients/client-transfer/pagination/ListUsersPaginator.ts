@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListUsersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListUsersCommand(input, ...args));
+  return await client.send(new ListUsersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transfer,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPackagingConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPackagingConfigurationsCommand(input, ...args));
+  return await client.send(new ListPackagingConfigurationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MediaPackageVod,

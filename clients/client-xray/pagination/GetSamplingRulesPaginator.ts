@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSamplingRulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSamplingRulesCommand(input, ...args));
+  return await client.send(new GetSamplingRulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,

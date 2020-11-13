@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeObjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeObjectsCommand(input, ...args));
+  return await client.send(new DescribeObjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataPipeline,
