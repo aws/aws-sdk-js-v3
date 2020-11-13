@@ -64,8 +64,6 @@ export class SdkClientTocPlugin extends RendererComponent {
     );
   }
 
-  private isClient(model: DeclarationReflection): boolean {}
-
   private isUnion(model: DeclarationReflection): boolean {
     return model.type?.type === "union";
   }

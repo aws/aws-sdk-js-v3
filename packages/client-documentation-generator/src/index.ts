@@ -11,10 +11,7 @@ import { SdkClientTocPlugin } from "./sdk-client-toc-plugin";
 module.exports = function load(pluginHost: PluginHost) {
   const application = pluginHost.owner;
 
-  // Add renderer plugins
   application.renderer.addComponent("SdkClientTocPlugin", SdkClientTocPlugin as any);
-
-  // Add converter plugins
   application.converter.addComponent("SdkClientCommentUpdatePlugin", SdkClientCommentUpdatePlugin as any);
   application.converter.addComponent("SdkClientNavigationUpdatePlugin", SdkClientNavigationUpdatePlugin as any);
 };

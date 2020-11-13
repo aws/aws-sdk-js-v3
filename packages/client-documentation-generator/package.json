@@ -30,6 +30,7 @@
     "typedoc": "^0.17.8",
     "typescript": "~4.0.2"
   },
+  "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/client-documentation-generator",
   "repository": {
     "type": "git",
