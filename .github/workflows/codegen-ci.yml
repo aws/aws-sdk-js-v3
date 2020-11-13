@@ -30,4 +30,4 @@ jobs:
           git clone --depth 1 $SMITHY_TYPESCRIPT_REPO && cd smithy-typescript && $PUBLISH_TO_MAVEN_LOCAL && cd ..
       
       - name: build and test codegen
-        run: ./codegen/gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
+        run: cd ./codegen && ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
