@@ -56,6 +56,12 @@ describe("isClockSkewError", () => {
 });
 
 describe("isThrottlingError", () => {
+  [429].forEach((httpStatusCode) => {
+    it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Throttling error`, () => {
+      checkForErrorType(isTransientError, { httpStatusCode }, false);
+    });
+  });
+
   THROTTLING_ERROR_CODES.forEach((name) => {
     it(`should declare error with the name "${name}" to be a Throttling error`, () => {
       checkForErrorType(isThrottlingError, { name }, true);
@@ -90,13 +96,13 @@ describe("isThrottlingError", () => {
 
 describe("isTransientError", () => {
   TRANSIENT_ERROR_CODES.forEach((name) => {
-    it(`should declare error with the name "${name}" to be a Throttling error`, () => {
+    it(`should declare error with the name "${name}" to be a Transient error`, () => {
       checkForErrorType(isTransientError, { name }, true);
     });
   });
 
   TRANSIENT_ERROR_STATUS_CODES.forEach((httpStatusCode) => {
-    it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Throttling error`, () => {
+    it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Transient error`, () => {
       checkForErrorType(isTransientError, { httpStatusCode }, true);
     });
   });
@@ -104,7 +110,7 @@ describe("isTransientError", () => {
   while (true) {
     const name = Math.random().toString(36).substring(2);
     if (!TRANSIENT_ERROR_CODES.includes(name)) {
-      it(`should not declare error with the name "${name}" to be a Throttling error`, () => {
+      it(`should not declare error with the name "${name}" to be a Transient error`, () => {
         checkForErrorType(isTransientError, { name }, false);
       });
       break;
@@ -114,7 +120,7 @@ describe("isTransientError", () => {
   while (true) {
     const httpStatusCode = Math.ceil(Math.random() * 10 ** 3);
     if (!TRANSIENT_ERROR_STATUS_CODES.includes(httpStatusCode)) {
-      it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Throttling error`, () => {
+      it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Transient error`, () => {
         checkForErrorType(isTransientError, { httpStatusCode }, false);
       });
       break;
