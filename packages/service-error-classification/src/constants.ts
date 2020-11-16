@@ -20,20 +20,20 @@ export const CLOCK_SKEW_ERROR_CODES = [
  * These errors are always retryable.
  */
 export const THROTTLING_ERROR_CODES = [
+  "BandwidthLimitExceeded",
+  "EC2ThrottledException",
+  "LimitExceededException",
+  "PriorRequestNotComplete",
+  "ProvisionedThroughputExceededException",
+  "RequestLimitExceeded",
+  "RequestThrottled",
+  "RequestThrottledException",
+  "SlowDown",
+  "ThrottledException",
   "Throttling",
   "ThrottlingException",
-  "ThrottledException",
-  "RequestThrottledException",
   "TooManyRequestsException",
-  "ProvisionedThroughputExceededException",
-  "TransactionInProgressException",
-  "RequestLimitExceeded",
-  "BandwidthLimitExceeded",
-  "LimitExceededException",
-  "RequestThrottled",
-  "SlowDown",
-  "PriorRequestNotComplete",
-  "EC2ThrottledException",
+  "TransactionInProgressException", // DynamoDB
 ];
 
 /**
