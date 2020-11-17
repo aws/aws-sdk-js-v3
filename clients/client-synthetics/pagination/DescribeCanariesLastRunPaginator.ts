@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCanariesLastRun(input, ...args);
 };
-export async function* describeCanariesLastRunPaginate(
+export async function* paginateDescribeCanariesLastRun(
   config: SyntheticsPaginationConfiguration,
   input: DescribeCanariesLastRunCommandInput,
   ...additionalArguments: any

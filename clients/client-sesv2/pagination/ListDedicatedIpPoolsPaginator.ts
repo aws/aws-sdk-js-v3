@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDedicatedIpPools(input, ...args);
 };
-export async function* listDedicatedIpPoolsPaginate(
+export async function* paginateListDedicatedIpPools(
   config: SESv2PaginationConfiguration,
   input: ListDedicatedIpPoolsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeadLetterSourceQueues(input, ...args);
 };
-export async function* listDeadLetterSourceQueuesPaginate(
+export async function* paginateListDeadLetterSourceQueues(
   config: SQSPaginationConfiguration,
   input: ListDeadLetterSourceQueuesCommandInput,
   ...additionalArguments: any

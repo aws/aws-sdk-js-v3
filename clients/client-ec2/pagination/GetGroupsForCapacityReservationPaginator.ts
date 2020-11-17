@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getGroupsForCapacityReservation(input, ...args);
 };
-export async function* getGroupsForCapacityReservationPaginate(
+export async function* paginateGetGroupsForCapacityReservation(
   config: EC2PaginationConfiguration,
   input: GetGroupsForCapacityReservationCommandInput,
   ...additionalArguments: any

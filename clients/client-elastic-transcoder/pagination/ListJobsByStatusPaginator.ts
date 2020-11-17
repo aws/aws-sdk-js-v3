@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobsByStatus(input, ...args);
 };
-export async function* listJobsByStatusPaginate(
+export async function* paginateListJobsByStatus(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListJobsByStatusCommandInput,
   ...additionalArguments: any

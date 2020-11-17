@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProfilingGroups(input, ...args);
 };
-export async function* listProfilingGroupsPaginate(
+export async function* paginateListProfilingGroups(
   config: CodeGuruProfilerPaginationConfiguration,
   input: ListProfilingGroupsCommandInput,
   ...additionalArguments: any

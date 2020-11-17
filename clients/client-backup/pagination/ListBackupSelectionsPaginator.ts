@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBackupSelections(input, ...args);
 };
-export async function* listBackupSelectionsPaginate(
+export async function* paginateListBackupSelections(
   config: BackupPaginationConfiguration,
   input: ListBackupSelectionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatasetImportJobs(input, ...args);
 };
-export async function* listDatasetImportJobsPaginate(
+export async function* paginateListDatasetImportJobs(
   config: PersonalizePaginationConfiguration,
   input: ListDatasetImportJobsCommandInput,
   ...additionalArguments: any

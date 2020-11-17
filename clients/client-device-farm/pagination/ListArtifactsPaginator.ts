@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listArtifacts(input, ...args);
 };
-export async function* listArtifactsPaginate(
+export async function* paginateListArtifacts(
   config: DeviceFarmPaginationConfiguration,
   input: ListArtifactsCommandInput,
   ...additionalArguments: any

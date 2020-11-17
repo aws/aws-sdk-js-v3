@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEndpointTypes(input, ...args);
 };
-export async function* describeEndpointTypesPaginate(
+export async function* paginateDescribeEndpointTypes(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeEndpointTypesCommandInput,
   ...additionalArguments: any

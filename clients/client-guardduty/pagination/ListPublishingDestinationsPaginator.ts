@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPublishingDestinations(input, ...args);
 };
-export async function* listPublishingDestinationsPaginate(
+export async function* paginateListPublishingDestinations(
   config: GuardDutyPaginationConfiguration,
   input: ListPublishingDestinationsCommandInput,
   ...additionalArguments: any

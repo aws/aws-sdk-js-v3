@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEndpoints(input, ...args);
 };
-export async function* listEndpointsPaginate(
+export async function* paginateListEndpoints(
   config: S3OutpostsPaginationConfiguration,
   input: ListEndpointsCommandInput,
   ...additionalArguments: any

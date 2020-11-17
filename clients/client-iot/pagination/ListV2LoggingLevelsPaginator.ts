@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listV2LoggingLevels(input, ...args);
 };
-export async function* listV2LoggingLevelsPaginate(
+export async function* paginateListV2LoggingLevels(
   config: IoTPaginationConfiguration,
   input: ListV2LoggingLevelsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeOptionGroupOptions(input, ...args);
 };
-export async function* describeOptionGroupOptionsPaginate(
+export async function* paginateDescribeOptionGroupOptions(
   config: RDSPaginationConfiguration,
   input: DescribeOptionGroupOptionsCommandInput,
   ...additionalArguments: any

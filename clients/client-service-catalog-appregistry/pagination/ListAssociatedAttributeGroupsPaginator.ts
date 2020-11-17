@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssociatedAttributeGroups(input, ...args);
 };
-export async function* listAssociatedAttributeGroupsPaginate(
+export async function* paginateListAssociatedAttributeGroups(
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListAssociatedAttributeGroupsCommandInput,
   ...additionalArguments: any

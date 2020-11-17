@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatasets(input, ...args);
 };
-export async function* listDatasetsPaginate(
+export async function* paginateListDatasets(
   config: PersonalizePaginationConfiguration,
   input: ListDatasetsCommandInput,
   ...additionalArguments: any

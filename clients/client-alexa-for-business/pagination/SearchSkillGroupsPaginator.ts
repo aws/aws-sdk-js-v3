@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchSkillGroups(input, ...args);
 };
-export async function* searchSkillGroupsPaginate(
+export async function* paginateSearchSkillGroups(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchSkillGroupsCommandInput,
   ...additionalArguments: any

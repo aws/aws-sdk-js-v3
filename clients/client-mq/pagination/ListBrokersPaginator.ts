@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBrokers(input, ...args);
 };
-export async function* listBrokersPaginate(
+export async function* paginateListBrokers(
   config: MqPaginationConfiguration,
   input: ListBrokersCommandInput,
   ...additionalArguments: any

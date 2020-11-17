@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHyperParameterTuningJobs(input, ...args);
 };
-export async function* listHyperParameterTuningJobsPaginate(
+export async function* paginateListHyperParameterTuningJobs(
   config: SageMakerPaginationConfiguration,
   input: ListHyperParameterTuningJobsCommandInput,
   ...additionalArguments: any

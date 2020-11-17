@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchProductsAsAdmin(input, ...args);
 };
-export async function* searchProductsAsAdminPaginate(
+export async function* paginateSearchProductsAsAdmin(
   config: ServiceCatalogPaginationConfiguration,
   input: SearchProductsAsAdminCommandInput,
   ...additionalArguments: any

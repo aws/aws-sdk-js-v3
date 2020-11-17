@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorlds(input, ...args);
 };
-export async function* listWorldsPaginate(
+export async function* paginateListWorlds(
   config: RoboMakerPaginationConfiguration,
   input: ListWorldsCommandInput,
   ...additionalArguments: any

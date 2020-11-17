@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCustomVerificationEmailTemplates(input, ...args);
 };
-export async function* listCustomVerificationEmailTemplatesPaginate(
+export async function* paginateListCustomVerificationEmailTemplates(
   config: SESPaginationConfiguration,
   input: ListCustomVerificationEmailTemplatesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAssetPropertyAggregates(input, ...args);
 };
-export async function* getAssetPropertyAggregatesPaginate(
+export async function* paginateGetAssetPropertyAggregates(
   config: IoTSiteWisePaginationConfiguration,
   input: GetAssetPropertyAggregatesCommandInput,
   ...additionalArguments: any

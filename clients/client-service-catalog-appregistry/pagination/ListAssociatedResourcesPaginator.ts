@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssociatedResources(input, ...args);
 };
-export async function* listAssociatedResourcesPaginate(
+export async function* paginateListAssociatedResources(
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListAssociatedResourcesCommandInput,
   ...additionalArguments: any

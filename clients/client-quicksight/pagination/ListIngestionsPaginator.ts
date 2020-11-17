@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIngestions(input, ...args);
 };
-export async function* listIngestionsPaginate(
+export async function* paginateListIngestions(
   config: QuickSightPaginationConfiguration,
   input: ListIngestionsCommandInput,
   ...additionalArguments: any

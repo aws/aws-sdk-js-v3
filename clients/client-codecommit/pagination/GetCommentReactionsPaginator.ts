@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCommentReactions(input, ...args);
 };
-export async function* getCommentReactionsPaginate(
+export async function* paginateGetCommentReactions(
   config: CodeCommitPaginationConfiguration,
   input: GetCommentReactionsCommandInput,
   ...additionalArguments: any

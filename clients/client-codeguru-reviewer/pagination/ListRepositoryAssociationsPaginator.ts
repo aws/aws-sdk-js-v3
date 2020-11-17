@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRepositoryAssociations(input, ...args);
 };
-export async function* listRepositoryAssociationsPaginate(
+export async function* paginateListRepositoryAssociations(
   config: CodeGuruReviewerPaginationConfiguration,
   input: ListRepositoryAssociationsCommandInput,
   ...additionalArguments: any

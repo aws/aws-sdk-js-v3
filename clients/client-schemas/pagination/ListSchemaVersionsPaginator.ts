@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSchemaVersions(input, ...args);
 };
-export async function* listSchemaVersionsPaginate(
+export async function* paginateListSchemaVersions(
   config: SchemasPaginationConfiguration,
   input: ListSchemaVersionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeHostReservationOfferings(input, ...args);
 };
-export async function* describeHostReservationOfferingsPaginate(
+export async function* paginateDescribeHostReservationOfferings(
   config: EC2PaginationConfiguration,
   input: DescribeHostReservationOfferingsCommandInput,
   ...additionalArguments: any

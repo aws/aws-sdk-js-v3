@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeStandards(input, ...args);
 };
-export async function* describeStandardsPaginate(
+export async function* paginateDescribeStandards(
   config: SecurityHubPaginationConfiguration,
   input: DescribeStandardsCommandInput,
   ...additionalArguments: any

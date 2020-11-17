@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTypedLinkFacetAttributes(input, ...args);
 };
-export async function* listTypedLinkFacetAttributesPaginate(
+export async function* paginateListTypedLinkFacetAttributes(
   config: CloudDirectoryPaginationConfiguration,
   input: ListTypedLinkFacetAttributesCommandInput,
   ...additionalArguments: any

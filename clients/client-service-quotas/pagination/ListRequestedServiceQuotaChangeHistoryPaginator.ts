@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRequestedServiceQuotaChangeHistory(input, ...args);
 };
-export async function* listRequestedServiceQuotaChangeHistoryPaginate(
+export async function* paginateListRequestedServiceQuotaChangeHistory(
   config: ServiceQuotasPaginationConfiguration,
   input: ListRequestedServiceQuotaChangeHistoryCommandInput,
   ...additionalArguments: any

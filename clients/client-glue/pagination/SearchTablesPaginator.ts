@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchTables(input, ...args);
 };
-export async function* searchTablesPaginate(
+export async function* paginateSearchTables(
   config: GluePaginationConfiguration,
   input: SearchTablesCommandInput,
   ...additionalArguments: any

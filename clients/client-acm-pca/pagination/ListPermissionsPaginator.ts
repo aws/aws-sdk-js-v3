@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPermissions(input, ...args);
 };
-export async function* listPermissionsPaginate(
+export async function* paginateListPermissions(
   config: ACMPCAPaginationConfiguration,
   input: ListPermissionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPipelineExecutions(input, ...args);
 };
-export async function* listPipelineExecutionsPaginate(
+export async function* paginateListPipelineExecutions(
   config: CodePipelinePaginationConfiguration,
   input: ListPipelineExecutionsCommandInput,
   ...additionalArguments: any

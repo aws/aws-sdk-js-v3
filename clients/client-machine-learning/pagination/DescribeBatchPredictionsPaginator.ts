@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeBatchPredictions(input, ...args);
 };
-export async function* describeBatchPredictionsPaginate(
+export async function* paginateDescribeBatchPredictions(
   config: MachineLearningPaginationConfiguration,
   input: DescribeBatchPredictionsCommandInput,
   ...additionalArguments: any

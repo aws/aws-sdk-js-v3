@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIPSets(input, ...args);
 };
-export async function* listIPSetsPaginate(
+export async function* paginateListIPSets(
   config: GuardDutyPaginationConfiguration,
   input: ListIPSetsCommandInput,
   ...additionalArguments: any

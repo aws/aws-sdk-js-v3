@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.adminListUserAuthEvents(input, ...args);
 };
-export async function* adminListUserAuthEventsPaginate(
+export async function* paginateAdminListUserAuthEvents(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: AdminListUserAuthEventsCommandInput,
   ...additionalArguments: any

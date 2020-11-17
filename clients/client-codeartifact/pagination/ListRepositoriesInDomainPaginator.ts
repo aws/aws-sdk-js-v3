@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRepositoriesInDomain(input, ...args);
 };
-export async function* listRepositoriesInDomainPaginate(
+export async function* paginateListRepositoriesInDomain(
   config: CodeartifactPaginationConfiguration,
   input: ListRepositoriesInDomainCommandInput,
   ...additionalArguments: any

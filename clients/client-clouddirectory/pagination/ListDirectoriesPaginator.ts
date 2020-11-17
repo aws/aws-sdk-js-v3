@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDirectories(input, ...args);
 };
-export async function* listDirectoriesPaginate(
+export async function* paginateListDirectories(
   config: CloudDirectoryPaginationConfiguration,
   input: ListDirectoriesCommandInput,
   ...additionalArguments: any

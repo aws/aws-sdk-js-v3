@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProfileTimes(input, ...args);
 };
-export async function* listProfileTimesPaginate(
+export async function* paginateListProfileTimes(
   config: CodeGuruProfilerPaginationConfiguration,
   input: ListProfileTimesCommandInput,
   ...additionalArguments: any

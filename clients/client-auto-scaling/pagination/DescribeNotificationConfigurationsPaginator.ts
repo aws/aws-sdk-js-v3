@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeNotificationConfigurations(input, ...args);
 };
-export async function* describeNotificationConfigurationsPaginate(
+export async function* paginateDescribeNotificationConfigurations(
   config: AutoScalingPaginationConfiguration,
   input: DescribeNotificationConfigurationsCommandInput,
   ...additionalArguments: any

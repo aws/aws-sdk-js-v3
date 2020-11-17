@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTables(input, ...args);
 };
-export async function* getTablesPaginate(
+export async function* paginateGetTables(
   config: GluePaginationConfiguration,
   input: GetTablesCommandInput,
   ...additionalArguments: any

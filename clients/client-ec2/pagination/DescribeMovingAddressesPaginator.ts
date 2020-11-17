@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMovingAddresses(input, ...args);
 };
-export async function* describeMovingAddressesPaginate(
+export async function* paginateDescribeMovingAddresses(
   config: EC2PaginationConfiguration,
   input: DescribeMovingAddressesCommandInput,
   ...additionalArguments: any

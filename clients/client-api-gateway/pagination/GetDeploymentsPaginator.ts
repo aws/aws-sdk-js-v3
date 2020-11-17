@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDeployments(input, ...args);
 };
-export async function* getDeploymentsPaginate(
+export async function* paginateGetDeployments(
   config: APIGatewayPaginationConfiguration,
   input: GetDeploymentsCommandInput,
   ...additionalArguments: any

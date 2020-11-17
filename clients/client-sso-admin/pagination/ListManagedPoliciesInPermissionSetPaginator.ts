@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listManagedPoliciesInPermissionSet(input, ...args);
 };
-export async function* listManagedPoliciesInPermissionSetPaginate(
+export async function* paginateListManagedPoliciesInPermissionSet(
   config: SSOAdminPaginationConfiguration,
   input: ListManagedPoliciesInPermissionSetCommandInput,
   ...additionalArguments: any

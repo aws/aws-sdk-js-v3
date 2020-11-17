@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLayers(input, ...args);
 };
-export async function* listLayersPaginate(
+export async function* paginateListLayers(
   config: LambdaPaginationConfiguration,
   input: ListLayersCommandInput,
   ...additionalArguments: any

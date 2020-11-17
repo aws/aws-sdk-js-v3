@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSubscriptionsByTopic(input, ...args);
 };
-export async function* listSubscriptionsByTopicPaginate(
+export async function* paginateListSubscriptionsByTopic(
   config: SNSPaginationConfiguration,
   input: ListSubscriptionsByTopicCommandInput,
   ...additionalArguments: any

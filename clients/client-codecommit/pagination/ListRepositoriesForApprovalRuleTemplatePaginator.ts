@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRepositoriesForApprovalRuleTemplate(input, ...args);
 };
-export async function* listRepositoriesForApprovalRuleTemplatePaginate(
+export async function* paginateListRepositoriesForApprovalRuleTemplate(
   config: CodeCommitPaginationConfiguration,
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   ...additionalArguments: any

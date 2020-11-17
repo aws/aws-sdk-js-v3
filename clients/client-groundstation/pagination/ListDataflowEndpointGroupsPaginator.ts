@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataflowEndpointGroups(input, ...args);
 };
-export async function* listDataflowEndpointGroupsPaginate(
+export async function* paginateListDataflowEndpointGroups(
   config: GroundStationPaginationConfiguration,
   input: ListDataflowEndpointGroupsCommandInput,
   ...additionalArguments: any

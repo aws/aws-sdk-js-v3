@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDevEndpoints(input, ...args);
 };
-export async function* listDevEndpointsPaginate(
+export async function* paginateListDevEndpoints(
   config: GluePaginationConfiguration,
   input: ListDevEndpointsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getVariables(input, ...args);
 };
-export async function* getVariablesPaginate(
+export async function* paginateGetVariables(
   config: FraudDetectorPaginationConfiguration,
   input: GetVariablesCommandInput,
   ...additionalArguments: any

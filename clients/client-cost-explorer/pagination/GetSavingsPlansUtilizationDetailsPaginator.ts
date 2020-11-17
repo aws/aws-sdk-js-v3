@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSavingsPlansUtilizationDetails(input, ...args);
 };
-export async function* getSavingsPlansUtilizationDetailsPaginate(
+export async function* paginateGetSavingsPlansUtilizationDetails(
   config: CostExplorerPaginationConfiguration,
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   ...additionalArguments: any

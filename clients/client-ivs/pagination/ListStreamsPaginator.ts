@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreams(input, ...args);
 };
-export async function* listStreamsPaginate(
+export async function* paginateListStreams(
   config: IvsPaginationConfiguration,
   input: ListStreamsCommandInput,
   ...additionalArguments: any

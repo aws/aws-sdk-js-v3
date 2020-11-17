@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCommunications(input, ...args);
 };
-export async function* describeCommunicationsPaginate(
+export async function* paginateDescribeCommunications(
   config: SupportPaginationConfiguration,
   input: DescribeCommunicationsCommandInput,
   ...additionalArguments: any

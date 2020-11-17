@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApplications(input, ...args);
 };
-export async function* listApplicationsPaginate(
+export async function* paginateListApplications(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListApplicationsCommandInput,
   ...additionalArguments: any

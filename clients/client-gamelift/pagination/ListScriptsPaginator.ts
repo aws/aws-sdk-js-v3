@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listScripts(input, ...args);
 };
-export async function* listScriptsPaginate(
+export async function* paginateListScripts(
   config: GameLiftPaginationConfiguration,
   input: ListScriptsCommandInput,
   ...additionalArguments: any

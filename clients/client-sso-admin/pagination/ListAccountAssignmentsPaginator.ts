@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountAssignments(input, ...args);
 };
-export async function* listAccountAssignmentsPaginate(
+export async function* paginateListAccountAssignments(
   config: SSOAdminPaginationConfiguration,
   input: ListAccountAssignmentsCommandInput,
   ...additionalArguments: any

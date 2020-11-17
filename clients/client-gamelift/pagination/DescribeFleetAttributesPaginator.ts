@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFleetAttributes(input, ...args);
 };
-export async function* describeFleetAttributesPaginate(
+export async function* paginateDescribeFleetAttributes(
   config: GameLiftPaginationConfiguration,
   input: DescribeFleetAttributesCommandInput,
   ...additionalArguments: any

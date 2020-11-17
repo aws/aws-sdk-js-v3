@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNotebookInstanceLifecycleConfigs(input, ...args);
 };
-export async function* listNotebookInstanceLifecycleConfigsPaginate(
+export async function* paginateListNotebookInstanceLifecycleConfigs(
   config: SageMakerPaginationConfiguration,
   input: ListNotebookInstanceLifecycleConfigsCommandInput,
   ...additionalArguments: any

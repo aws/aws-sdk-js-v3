@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNamespaces(input, ...args);
 };
-export async function* listNamespacesPaginate(
+export async function* paginateListNamespaces(
   config: QuickSightPaginationConfiguration,
   input: ListNamespacesCommandInput,
   ...additionalArguments: any

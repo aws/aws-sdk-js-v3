@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getGroup(input, ...args);
 };
-export async function* getGroupPaginate(
+export async function* paginateGetGroup(
   config: IAMPaginationConfiguration,
   input: GetGroupCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLocations(input, ...args);
 };
-export async function* listLocationsPaginate(
+export async function* paginateListLocations(
   config: DataSyncPaginationConfiguration,
   input: ListLocationsCommandInput,
   ...additionalArguments: any

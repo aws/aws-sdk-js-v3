@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssessmentRuns(input, ...args);
 };
-export async function* listAssessmentRunsPaginate(
+export async function* paginateListAssessmentRuns(
   config: InspectorPaginationConfiguration,
   input: ListAssessmentRunsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSmartHomeAppliances(input, ...args);
 };
-export async function* listSmartHomeAppliancesPaginate(
+export async function* paginateListSmartHomeAppliances(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListSmartHomeAppliancesCommandInput,
   ...additionalArguments: any

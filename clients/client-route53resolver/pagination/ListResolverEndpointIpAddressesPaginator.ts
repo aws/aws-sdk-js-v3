@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResolverEndpointIpAddresses(input, ...args);
 };
-export async function* listResolverEndpointIpAddressesPaginate(
+export async function* paginateListResolverEndpointIpAddresses(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverEndpointIpAddressesCommandInput,
   ...additionalArguments: any

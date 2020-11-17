@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFindings(input, ...args);
 };
-export async function* listFindingsPaginate(
+export async function* paginateListFindings(
   config: GuardDutyPaginationConfiguration,
   input: ListFindingsCommandInput,
   ...additionalArguments: any

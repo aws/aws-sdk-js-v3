@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLinkAssociations(input, ...args);
 };
-export async function* getLinkAssociationsPaginate(
+export async function* paginateGetLinkAssociations(
   config: NetworkManagerPaginationConfiguration,
   input: GetLinkAssociationsCommandInput,
   ...additionalArguments: any

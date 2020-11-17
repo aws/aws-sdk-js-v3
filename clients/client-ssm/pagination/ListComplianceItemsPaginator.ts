@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listComplianceItems(input, ...args);
 };
-export async function* listComplianceItemsPaginate(
+export async function* paginateListComplianceItems(
   config: SSMPaginationConfiguration,
   input: ListComplianceItemsCommandInput,
   ...additionalArguments: any

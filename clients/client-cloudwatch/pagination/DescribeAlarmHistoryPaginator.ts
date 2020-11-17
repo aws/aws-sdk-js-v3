@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAlarmHistory(input, ...args);
 };
-export async function* describeAlarmHistoryPaginate(
+export async function* paginateDescribeAlarmHistory(
   config: CloudWatchPaginationConfiguration,
   input: DescribeAlarmHistoryCommandInput,
   ...additionalArguments: any

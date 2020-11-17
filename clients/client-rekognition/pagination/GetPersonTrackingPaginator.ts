@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getPersonTracking(input, ...args);
 };
-export async function* getPersonTrackingPaginate(
+export async function* paginateGetPersonTracking(
   config: RekognitionPaginationConfiguration,
   input: GetPersonTrackingCommandInput,
   ...additionalArguments: any

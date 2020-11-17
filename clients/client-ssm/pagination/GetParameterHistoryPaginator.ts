@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getParameterHistory(input, ...args);
 };
-export async function* getParameterHistoryPaginate(
+export async function* paginateGetParameterHistory(
   config: SSMPaginationConfiguration,
   input: GetParameterHistoryCommandInput,
   ...additionalArguments: any

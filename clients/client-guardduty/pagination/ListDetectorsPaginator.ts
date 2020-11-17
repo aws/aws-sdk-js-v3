@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDetectors(input, ...args);
 };
-export async function* listDetectorsPaginate(
+export async function* paginateListDetectors(
   config: GuardDutyPaginationConfiguration,
   input: ListDetectorsCommandInput,
   ...additionalArguments: any

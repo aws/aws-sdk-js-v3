@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSecurityConfigurations(input, ...args);
 };
-export async function* getSecurityConfigurationsPaginate(
+export async function* paginateGetSecurityConfigurations(
   config: GluePaginationConfiguration,
   input: GetSecurityConfigurationsCommandInput,
   ...additionalArguments: any

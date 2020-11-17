@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChangeSets(input, ...args);
 };
-export async function* listChangeSetsPaginate(
+export async function* paginateListChangeSets(
   config: CloudFormationPaginationConfiguration,
   input: ListChangeSetsCommandInput,
   ...additionalArguments: any

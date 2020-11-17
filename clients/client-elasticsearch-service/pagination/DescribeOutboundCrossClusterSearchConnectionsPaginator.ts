@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeOutboundCrossClusterSearchConnections(input, ...args);
 };
-export async function* describeOutboundCrossClusterSearchConnectionsPaginate(
+export async function* paginateDescribeOutboundCrossClusterSearchConnections(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   ...additionalArguments: any

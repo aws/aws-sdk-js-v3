@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchGameSessions(input, ...args);
 };
-export async function* searchGameSessionsPaginate(
+export async function* paginateSearchGameSessions(
   config: GameLiftPaginationConfiguration,
   input: SearchGameSessionsCommandInput,
   ...additionalArguments: any

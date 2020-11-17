@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHosts(input, ...args);
 };
-export async function* listHostsPaginate(
+export async function* paginateListHosts(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListHostsCommandInput,
   ...additionalArguments: any

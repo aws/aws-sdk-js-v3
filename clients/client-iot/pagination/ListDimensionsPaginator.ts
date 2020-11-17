@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDimensions(input, ...args);
 };
-export async function* listDimensionsPaginate(
+export async function* paginateListDimensions(
   config: IoTPaginationConfiguration,
   input: ListDimensionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDocumentClassifiers(input, ...args);
 };
-export async function* listDocumentClassifiersPaginate(
+export async function* paginateListDocumentClassifiers(
   config: ComprehendPaginationConfiguration,
   input: ListDocumentClassifiersCommandInput,
   ...additionalArguments: any

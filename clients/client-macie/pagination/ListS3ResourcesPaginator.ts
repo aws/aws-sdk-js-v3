@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listS3Resources(input, ...args);
 };
-export async function* listS3ResourcesPaginate(
+export async function* paginateListS3Resources(
   config: MaciePaginationConfiguration,
   input: ListS3ResourcesCommandInput,
   ...additionalArguments: any

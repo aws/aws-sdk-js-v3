@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProxySessions(input, ...args);
 };
-export async function* listProxySessionsPaginate(
+export async function* paginateListProxySessions(
   config: ChimePaginationConfiguration,
   input: ListProxySessionsCommandInput,
   ...additionalArguments: any

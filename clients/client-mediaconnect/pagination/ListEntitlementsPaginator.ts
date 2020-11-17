@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntitlements(input, ...args);
 };
-export async function* listEntitlementsPaginate(
+export async function* paginateListEntitlements(
   config: MediaConnectPaginationConfiguration,
   input: ListEntitlementsCommandInput,
   ...additionalArguments: any

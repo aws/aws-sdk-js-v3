@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTransitGatewayPeeringAttachments(input, ...args);
 };
-export async function* describeTransitGatewayPeeringAttachmentsPaginate(
+export async function* paginateDescribeTransitGatewayPeeringAttachments(
   config: EC2PaginationConfiguration,
   input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
   ...additionalArguments: any

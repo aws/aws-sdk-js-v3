@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMeetings(input, ...args);
 };
-export async function* listMeetingsPaginate(
+export async function* paginateListMeetings(
   config: ChimePaginationConfiguration,
   input: ListMeetingsCommandInput,
   ...additionalArguments: any

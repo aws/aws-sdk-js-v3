@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTags(input, ...args);
 };
-export async function* describeTagsPaginate(
+export async function* paginateDescribeTags(
   config: EFSPaginationConfiguration,
   input: DescribeTagsCommandInput,
   ...additionalArguments: any

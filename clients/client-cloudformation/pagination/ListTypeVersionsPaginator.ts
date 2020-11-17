@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTypeVersions(input, ...args);
 };
-export async function* listTypeVersionsPaginate(
+export async function* paginateListTypeVersions(
   config: CloudFormationPaginationConfiguration,
   input: ListTypeVersionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCustomDataIdentifiers(input, ...args);
 };
-export async function* listCustomDataIdentifiersPaginate(
+export async function* paginateListCustomDataIdentifiers(
   config: Macie2PaginationConfiguration,
   input: ListCustomDataIdentifiersCommandInput,
   ...additionalArguments: any

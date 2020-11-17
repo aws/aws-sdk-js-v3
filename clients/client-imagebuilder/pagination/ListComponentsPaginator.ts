@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listComponents(input, ...args);
 };
-export async function* listComponentsPaginate(
+export async function* paginateListComponents(
   config: ImagebuilderPaginationConfiguration,
   input: ListComponentsCommandInput,
   ...additionalArguments: any

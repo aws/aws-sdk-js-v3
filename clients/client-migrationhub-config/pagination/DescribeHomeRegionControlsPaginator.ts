@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeHomeRegionControls(input, ...args);
 };
-export async function* describeHomeRegionControlsPaginate(
+export async function* paginateDescribeHomeRegionControls(
   config: MigrationHubConfigPaginationConfiguration,
   input: DescribeHomeRegionControlsCommandInput,
   ...additionalArguments: any

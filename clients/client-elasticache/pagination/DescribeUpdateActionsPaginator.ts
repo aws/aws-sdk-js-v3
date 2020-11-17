@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeUpdateActions(input, ...args);
 };
-export async function* describeUpdateActionsPaginate(
+export async function* paginateDescribeUpdateActions(
   config: ElastiCachePaginationConfiguration,
   input: DescribeUpdateActionsCommandInput,
   ...additionalArguments: any

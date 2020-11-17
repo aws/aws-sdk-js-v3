@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listQueryExecutions(input, ...args);
 };
-export async function* listQueryExecutionsPaginate(
+export async function* paginateListQueryExecutions(
   config: AthenaPaginationConfiguration,
   input: ListQueryExecutionsCommandInput,
   ...additionalArguments: any

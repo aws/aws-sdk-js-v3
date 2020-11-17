@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTable(input, ...args);
 };
-export async function* describeTablePaginate(
+export async function* paginateDescribeTable(
   config: RedshiftDataPaginationConfiguration,
   input: DescribeTableCommandInput,
   ...additionalArguments: any

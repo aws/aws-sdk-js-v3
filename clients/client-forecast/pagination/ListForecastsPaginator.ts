@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listForecasts(input, ...args);
 };
-export async function* listForecastsPaginate(
+export async function* paginateListForecasts(
   config: ForecastPaginationConfiguration,
   input: ListForecastsCommandInput,
   ...additionalArguments: any

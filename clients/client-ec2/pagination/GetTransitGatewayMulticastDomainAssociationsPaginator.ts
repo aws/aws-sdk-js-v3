@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTransitGatewayMulticastDomainAssociations(input, ...args);
 };
-export async function* getTransitGatewayMulticastDomainAssociationsPaginate(
+export async function* paginateGetTransitGatewayMulticastDomainAssociations(
   config: EC2PaginationConfiguration,
   input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
   ...additionalArguments: any

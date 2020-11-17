@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSolutions(input, ...args);
 };
-export async function* listSolutionsPaginate(
+export async function* paginateListSolutions(
   config: PersonalizePaginationConfiguration,
   input: ListSolutionsCommandInput,
   ...additionalArguments: any

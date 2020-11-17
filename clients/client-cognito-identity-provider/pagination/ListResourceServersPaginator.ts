@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourceServers(input, ...args);
 };
-export async function* listResourceServersPaginate(
+export async function* paginateListResourceServers(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListResourceServersCommandInput,
   ...additionalArguments: any

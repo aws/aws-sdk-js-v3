@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCandidatesForAutoMLJob(input, ...args);
 };
-export async function* listCandidatesForAutoMLJobPaginate(
+export async function* paginateListCandidatesForAutoMLJob(
   config: SageMakerPaginationConfiguration,
   input: ListCandidatesForAutoMLJobCommandInput,
   ...additionalArguments: any

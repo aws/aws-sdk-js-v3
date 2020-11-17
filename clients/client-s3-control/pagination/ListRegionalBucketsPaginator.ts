@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRegionalBuckets(input, ...args);
 };
-export async function* listRegionalBucketsPaginate(
+export async function* paginateListRegionalBuckets(
   config: S3ControlPaginationConfiguration,
   input: ListRegionalBucketsCommandInput,
   ...additionalArguments: any

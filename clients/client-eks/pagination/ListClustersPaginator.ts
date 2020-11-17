@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClusters(input, ...args);
 };
-export async function* listClustersPaginate(
+export async function* paginateListClusters(
   config: EKSPaginationConfiguration,
   input: ListClustersCommandInput,
   ...additionalArguments: any

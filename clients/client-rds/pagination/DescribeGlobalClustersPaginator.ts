@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeGlobalClusters(input, ...args);
 };
-export async function* describeGlobalClustersPaginate(
+export async function* paginateDescribeGlobalClusters(
   config: RDSPaginationConfiguration,
   input: DescribeGlobalClustersCommandInput,
   ...additionalArguments: any

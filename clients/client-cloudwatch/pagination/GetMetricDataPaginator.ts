@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getMetricData(input, ...args);
 };
-export async function* getMetricDataPaginate(
+export async function* paginateGetMetricData(
   config: CloudWatchPaginationConfiguration,
   input: GetMetricDataCommandInput,
   ...additionalArguments: any

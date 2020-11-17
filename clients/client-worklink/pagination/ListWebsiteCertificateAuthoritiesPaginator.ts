@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWebsiteCertificateAuthorities(input, ...args);
 };
-export async function* listWebsiteCertificateAuthoritiesPaginate(
+export async function* paginateListWebsiteCertificateAuthorities(
   config: WorkLinkPaginationConfiguration,
   input: ListWebsiteCertificateAuthoritiesCommandInput,
   ...additionalArguments: any

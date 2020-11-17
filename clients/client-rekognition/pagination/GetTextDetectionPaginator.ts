@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTextDetection(input, ...args);
 };
-export async function* getTextDetectionPaginate(
+export async function* paginateGetTextDetection(
   config: RekognitionPaginationConfiguration,
   input: GetTextDetectionCommandInput,
   ...additionalArguments: any

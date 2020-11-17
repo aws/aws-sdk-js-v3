@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProjects(input, ...args);
 };
-export async function* listProjectsPaginate(
+export async function* paginateListProjects(
   config: IoT1ClickProjectsPaginationConfiguration,
   input: ListProjectsCommandInput,
   ...additionalArguments: any

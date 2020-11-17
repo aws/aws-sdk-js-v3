@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getEffectivePermissionsForPath(input, ...args);
 };
-export async function* getEffectivePermissionsForPathPaginate(
+export async function* paginateGetEffectivePermissionsForPath(
   config: LakeFormationPaginationConfiguration,
   input: GetEffectivePermissionsForPathCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRecipeVersions(input, ...args);
 };
-export async function* listRecipeVersionsPaginate(
+export async function* paginateListRecipeVersions(
   config: DataBrewPaginationConfiguration,
   input: ListRecipeVersionsCommandInput,
   ...additionalArguments: any

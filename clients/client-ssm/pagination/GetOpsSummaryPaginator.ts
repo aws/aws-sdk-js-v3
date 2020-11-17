@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getOpsSummary(input, ...args);
 };
-export async function* getOpsSummaryPaginate(
+export async function* paginateGetOpsSummary(
   config: SSMPaginationConfiguration,
   input: GetOpsSummaryCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccessKeys(input, ...args);
 };
-export async function* listAccessKeysPaginate(
+export async function* paginateListAccessKeys(
   config: IAMPaginationConfiguration,
   input: ListAccessKeysCommandInput,
   ...additionalArguments: any

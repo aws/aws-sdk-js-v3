@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResolverQueryLogConfigAssociations(input, ...args);
 };
-export async function* listResolverQueryLogConfigAssociationsPaginate(
+export async function* paginateListResolverQueryLogConfigAssociations(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverQueryLogConfigAssociationsCommandInput,
   ...additionalArguments: any

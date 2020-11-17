@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBSecurityGroups(input, ...args);
 };
-export async function* describeDBSecurityGroupsPaginate(
+export async function* paginateDescribeDBSecurityGroups(
   config: RDSPaginationConfiguration,
   input: DescribeDBSecurityGroupsCommandInput,
   ...additionalArguments: any

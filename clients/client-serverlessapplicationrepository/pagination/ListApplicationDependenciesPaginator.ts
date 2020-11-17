@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApplicationDependencies(input, ...args);
 };
-export async function* listApplicationDependenciesPaginate(
+export async function* paginateListApplicationDependencies(
   config: ServerlessApplicationRepositoryPaginationConfiguration,
   input: ListApplicationDependenciesCommandInput,
   ...additionalArguments: any

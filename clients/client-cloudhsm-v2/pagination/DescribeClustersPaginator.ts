@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClusters(input, ...args);
 };
-export async function* describeClustersPaginate(
+export async function* paginateDescribeClusters(
   config: CloudHSMV2PaginationConfiguration,
   input: DescribeClustersCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listServers(input, ...args);
 };
-export async function* listServersPaginate(
+export async function* paginateListServers(
   config: TransferPaginationConfiguration,
   input: ListServersCommandInput,
   ...additionalArguments: any

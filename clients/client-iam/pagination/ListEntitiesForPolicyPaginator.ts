@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntitiesForPolicy(input, ...args);
 };
-export async function* listEntitiesForPolicyPaginate(
+export async function* paginateListEntitiesForPolicy(
   config: IAMPaginationConfiguration,
   input: ListEntitiesForPolicyCommandInput,
   ...additionalArguments: any

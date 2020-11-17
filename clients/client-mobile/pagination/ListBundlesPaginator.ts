@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBundles(input, ...args);
 };
-export async function* listBundlesPaginate(
+export async function* paginateListBundles(
   config: MobilePaginationConfiguration,
   input: ListBundlesCommandInput,
   ...additionalArguments: any

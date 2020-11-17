@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeContinuousExports(input, ...args);
 };
-export async function* describeContinuousExportsPaginate(
+export async function* paginateDescribeContinuousExports(
   config: ApplicationDiscoveryServicePaginationConfiguration,
   input: DescribeContinuousExportsCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssets(input, ...args);
 };
-export async function* listAssetsPaginate(
+export async function* paginateListAssets(
   config: MediaPackageVodPaginationConfiguration,
   input: ListAssetsCommandInput,
   ...additionalArguments: any

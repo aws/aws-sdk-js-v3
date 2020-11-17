@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeBudgetActionHistories(input, ...args);
 };
-export async function* describeBudgetActionHistoriesPaginate(
+export async function* paginateDescribeBudgetActionHistories(
   config: BudgetsPaginationConfiguration,
   input: DescribeBudgetActionHistoriesCommandInput,
   ...additionalArguments: any

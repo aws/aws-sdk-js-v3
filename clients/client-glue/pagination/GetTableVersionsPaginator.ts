@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTableVersions(input, ...args);
 };
-export async function* getTableVersionsPaginate(
+export async function* paginateGetTableVersions(
   config: GluePaginationConfiguration,
   input: GetTableVersionsCommandInput,
   ...additionalArguments: any

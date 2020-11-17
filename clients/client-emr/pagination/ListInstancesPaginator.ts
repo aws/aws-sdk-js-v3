@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInstances(input, ...args);
 };
-export async function* listInstancesPaginate(
+export async function* paginateListInstances(
   config: EMRPaginationConfiguration,
   input: ListInstancesCommandInput,
   ...additionalArguments: any

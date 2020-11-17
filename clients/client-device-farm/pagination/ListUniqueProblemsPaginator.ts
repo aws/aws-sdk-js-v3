@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUniqueProblems(input, ...args);
 };
-export async function* listUniqueProblemsPaginate(
+export async function* paginateListUniqueProblems(
   config: DeviceFarmPaginationConfiguration,
   input: ListUniqueProblemsCommandInput,
   ...additionalArguments: any

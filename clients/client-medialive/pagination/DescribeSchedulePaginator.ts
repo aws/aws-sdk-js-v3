@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSchedule(input, ...args);
 };
-export async function* describeSchedulePaginate(
+export async function* paginateDescribeSchedule(
   config: MediaLivePaginationConfiguration,
   input: DescribeScheduleCommandInput,
   ...additionalArguments: any

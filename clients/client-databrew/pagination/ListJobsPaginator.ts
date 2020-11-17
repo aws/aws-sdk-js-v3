@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobs(input, ...args);
 };
-export async function* listJobsPaginate(
+export async function* paginateListJobs(
   config: DataBrewPaginationConfiguration,
   input: ListJobsCommandInput,
   ...additionalArguments: any

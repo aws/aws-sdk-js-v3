@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInstancePatchStates(input, ...args);
 };
-export async function* describeInstancePatchStatesPaginate(
+export async function* paginateDescribeInstancePatchStates(
   config: SSMPaginationConfiguration,
   input: DescribeInstancePatchStatesCommandInput,
   ...additionalArguments: any

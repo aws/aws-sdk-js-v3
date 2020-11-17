@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTargetsForSecurityProfile(input, ...args);
 };
-export async function* listTargetsForSecurityProfilePaginate(
+export async function* paginateListTargetsForSecurityProfile(
   config: IoTPaginationConfiguration,
   input: ListTargetsForSecurityProfileCommandInput,
   ...additionalArguments: any

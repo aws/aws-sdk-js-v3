@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeHsmClientCertificates(input, ...args);
 };
-export async function* describeHsmClientCertificatesPaginate(
+export async function* paginateDescribeHsmClientCertificates(
   config: RedshiftPaginationConfiguration,
   input: DescribeHsmClientCertificatesCommandInput,
   ...additionalArguments: any

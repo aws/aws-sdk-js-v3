@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBProxies(input, ...args);
 };
-export async function* describeDBProxiesPaginate(
+export async function* paginateDescribeDBProxies(
   config: RDSPaginationConfiguration,
   input: DescribeDBProxiesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDocumentVersions(input, ...args);
 };
-export async function* describeDocumentVersionsPaginate(
+export async function* paginateDescribeDocumentVersions(
   config: WorkDocsPaginationConfiguration,
   input: DescribeDocumentVersionsCommandInput,
   ...additionalArguments: any

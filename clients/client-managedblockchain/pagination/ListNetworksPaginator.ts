@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNetworks(input, ...args);
 };
-export async function* listNetworksPaginate(
+export async function* paginateListNetworks(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListNetworksCommandInput,
   ...additionalArguments: any

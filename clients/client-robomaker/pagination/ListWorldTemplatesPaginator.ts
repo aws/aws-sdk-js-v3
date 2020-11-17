@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorldTemplates(input, ...args);
 };
-export async function* listWorldTemplatesPaginate(
+export async function* paginateListWorldTemplates(
   config: RoboMakerPaginationConfiguration,
   input: ListWorldTemplatesCommandInput,
   ...additionalArguments: any

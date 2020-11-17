@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getGroups(input, ...args);
 };
-export async function* getGroupsPaginate(
+export async function* paginateGetGroups(
   config: XRayPaginationConfiguration,
   input: GetGroupsCommandInput,
   ...additionalArguments: any

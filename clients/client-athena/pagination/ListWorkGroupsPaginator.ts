@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkGroups(input, ...args);
 };
-export async function* listWorkGroupsPaginate(
+export async function* paginateListWorkGroups(
   config: AthenaPaginationConfiguration,
   input: ListWorkGroupsCommandInput,
   ...additionalArguments: any

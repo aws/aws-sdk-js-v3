@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.simulateCustomPolicy(input, ...args);
 };
-export async function* simulateCustomPolicyPaginate(
+export async function* paginateSimulateCustomPolicy(
   config: IAMPaginationConfiguration,
   input: SimulateCustomPolicyCommandInput,
   ...additionalArguments: any

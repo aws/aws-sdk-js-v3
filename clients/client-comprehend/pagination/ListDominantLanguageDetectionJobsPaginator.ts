@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDominantLanguageDetectionJobs(input, ...args);
 };
-export async function* listDominantLanguageDetectionJobsPaginate(
+export async function* paginateListDominantLanguageDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListDominantLanguageDetectionJobsCommandInput,
   ...additionalArguments: any

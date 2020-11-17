@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInputs(input, ...args);
 };
-export async function* listInputsPaginate(
+export async function* paginateListInputs(
   config: MediaLivePaginationConfiguration,
   input: ListInputsCommandInput,
   ...additionalArguments: any

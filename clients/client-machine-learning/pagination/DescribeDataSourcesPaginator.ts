@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDataSources(input, ...args);
 };
-export async function* describeDataSourcesPaginate(
+export async function* paginateDescribeDataSources(
   config: MachineLearningPaginationConfiguration,
   input: DescribeDataSourcesCommandInput,
   ...additionalArguments: any

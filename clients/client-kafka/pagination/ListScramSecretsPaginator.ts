@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listScramSecrets(input, ...args);
 };
-export async function* listScramSecretsPaginate(
+export async function* paginateListScramSecrets(
   config: KafkaPaginationConfiguration,
   input: ListScramSecretsCommandInput,
   ...additionalArguments: any

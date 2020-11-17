@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEvaluations(input, ...args);
 };
-export async function* describeEvaluationsPaginate(
+export async function* paginateDescribeEvaluations(
   config: MachineLearningPaginationConfiguration,
   input: DescribeEvaluationsCommandInput,
   ...additionalArguments: any

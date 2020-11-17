@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLabels(input, ...args);
 };
-export async function* getLabelsPaginate(
+export async function* paginateGetLabels(
   config: FraudDetectorPaginationConfiguration,
   input: GetLabelsCommandInput,
   ...additionalArguments: any

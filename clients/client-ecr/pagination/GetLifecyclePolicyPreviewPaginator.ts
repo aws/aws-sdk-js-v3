@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLifecyclePolicyPreview(input, ...args);
 };
-export async function* getLifecyclePolicyPreviewPaginate(
+export async function* paginateGetLifecyclePolicyPreview(
   config: ECRPaginationConfiguration,
   input: GetLifecyclePolicyPreviewCommandInput,
   ...additionalArguments: any

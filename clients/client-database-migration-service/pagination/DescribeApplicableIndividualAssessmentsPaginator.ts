@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeApplicableIndividualAssessments(input, ...args);
 };
-export async function* describeApplicableIndividualAssessmentsPaginate(
+export async function* paginateDescribeApplicableIndividualAssessments(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeApplicableIndividualAssessmentsCommandInput,
   ...additionalArguments: any

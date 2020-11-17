@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBasePathMappings(input, ...args);
 };
-export async function* getBasePathMappingsPaginate(
+export async function* paginateGetBasePathMappings(
   config: APIGatewayPaginationConfiguration,
   input: GetBasePathMappingsCommandInput,
   ...additionalArguments: any

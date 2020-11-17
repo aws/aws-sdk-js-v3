@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClassificationJobs(input, ...args);
 };
-export async function* listClassificationJobsPaginate(
+export async function* paginateListClassificationJobs(
   config: Macie2PaginationConfiguration,
   input: ListClassificationJobsCommandInput,
   ...additionalArguments: any

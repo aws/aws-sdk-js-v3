@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAssetPropertyValueHistory(input, ...args);
 };
-export async function* getAssetPropertyValueHistoryPaginate(
+export async function* paginateGetAssetPropertyValueHistory(
   config: IoTSiteWisePaginationConfiguration,
   input: GetAssetPropertyValueHistoryCommandInput,
   ...additionalArguments: any

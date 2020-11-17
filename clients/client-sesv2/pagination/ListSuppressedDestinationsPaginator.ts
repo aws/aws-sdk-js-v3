@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSuppressedDestinations(input, ...args);
 };
-export async function* listSuppressedDestinationsPaginate(
+export async function* paginateListSuppressedDestinations(
   config: SESv2PaginationConfiguration,
   input: ListSuppressedDestinationsCommandInput,
   ...additionalArguments: any

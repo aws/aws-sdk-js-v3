@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listQueues(input, ...args);
 };
-export async function* listQueuesPaginate(
+export async function* paginateListQueues(
   config: ConnectPaginationConfiguration,
   input: ListQueuesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeRepositories(input, ...args);
 };
-export async function* describeRepositoriesPaginate(
+export async function* paginateDescribeRepositories(
   config: ECRPaginationConfiguration,
   input: DescribeRepositoriesCommandInput,
   ...additionalArguments: any

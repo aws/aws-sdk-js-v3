@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStateMachines(input, ...args);
 };
-export async function* listStateMachinesPaginate(
+export async function* paginateListStateMachines(
   config: SFNPaginationConfiguration,
   input: ListStateMachinesCommandInput,
   ...additionalArguments: any

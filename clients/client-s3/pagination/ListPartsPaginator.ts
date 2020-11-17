@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listParts(input, ...args);
 };
-export async function* listPartsPaginate(
+export async function* paginateListParts(
   config: S3PaginationConfiguration,
   input: ListPartsCommandInput,
   ...additionalArguments: any

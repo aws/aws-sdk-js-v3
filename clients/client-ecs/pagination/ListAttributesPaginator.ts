@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttributes(input, ...args);
 };
-export async function* listAttributesPaginate(
+export async function* paginateListAttributes(
   config: ECSPaginationConfiguration,
   input: ListAttributesCommandInput,
   ...additionalArguments: any

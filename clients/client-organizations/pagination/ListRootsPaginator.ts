@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoots(input, ...args);
 };
-export async function* listRootsPaginate(
+export async function* paginateListRoots(
   config: OrganizationsPaginationConfiguration,
   input: ListRootsCommandInput,
   ...additionalArguments: any

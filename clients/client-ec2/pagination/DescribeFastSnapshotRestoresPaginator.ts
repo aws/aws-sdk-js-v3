@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFastSnapshotRestores(input, ...args);
 };
-export async function* describeFastSnapshotRestoresPaginate(
+export async function* paginateDescribeFastSnapshotRestores(
   config: EC2PaginationConfiguration,
   input: DescribeFastSnapshotRestoresCommandInput,
   ...additionalArguments: any

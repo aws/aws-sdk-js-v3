@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getServers(input, ...args);
 };
-export async function* getServersPaginate(
+export async function* paginateGetServers(
   config: SMSPaginationConfiguration,
   input: GetServersCommandInput,
   ...additionalArguments: any

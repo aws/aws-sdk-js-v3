@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChannels(input, ...args);
 };
-export async function* listChannelsPaginate(
+export async function* paginateListChannels(
   config: IoTAnalyticsPaginationConfiguration,
   input: ListChannelsCommandInput,
   ...additionalArguments: any

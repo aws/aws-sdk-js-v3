@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSchemas(input, ...args);
 };
-export async function* listSchemasPaginate(
+export async function* paginateListSchemas(
   config: RedshiftDataPaginationConfiguration,
   input: ListSchemasCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getEntityTypes(input, ...args);
 };
-export async function* getEntityTypesPaginate(
+export async function* paginateGetEntityTypes(
   config: FraudDetectorPaginationConfiguration,
   input: GetEntityTypesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBClusterBacktracks(input, ...args);
 };
-export async function* describeDBClusterBacktracksPaginate(
+export async function* paginateDescribeDBClusterBacktracks(
   config: RDSPaginationConfiguration,
   input: DescribeDBClusterBacktracksCommandInput,
   ...additionalArguments: any

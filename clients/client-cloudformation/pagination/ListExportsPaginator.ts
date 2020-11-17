@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listExports(input, ...args);
 };
-export async function* listExportsPaginate(
+export async function* paginateListExports(
   config: CloudFormationPaginationConfiguration,
   input: ListExportsCommandInput,
   ...additionalArguments: any

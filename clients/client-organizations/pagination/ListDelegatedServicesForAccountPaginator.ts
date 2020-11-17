@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDelegatedServicesForAccount(input, ...args);
 };
-export async function* listDelegatedServicesForAccountPaginate(
+export async function* paginateListDelegatedServicesForAccount(
   config: OrganizationsPaginationConfiguration,
   input: ListDelegatedServicesForAccountCommandInput,
   ...additionalArguments: any

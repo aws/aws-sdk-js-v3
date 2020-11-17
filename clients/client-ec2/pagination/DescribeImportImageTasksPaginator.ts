@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImportImageTasks(input, ...args);
 };
-export async function* describeImportImageTasksPaginate(
+export async function* paginateDescribeImportImageTasks(
   config: EC2PaginationConfiguration,
   input: DescribeImportImageTasksCommandInput,
   ...additionalArguments: any

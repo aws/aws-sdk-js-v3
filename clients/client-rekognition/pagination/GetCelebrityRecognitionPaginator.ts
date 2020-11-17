@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCelebrityRecognition(input, ...args);
 };
-export async function* getCelebrityRecognitionPaginate(
+export async function* paginateGetCelebrityRecognition(
   config: RekognitionPaginationConfiguration,
   input: GetCelebrityRecognitionCommandInput,
   ...additionalArguments: any

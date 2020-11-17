@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTableMetadata(input, ...args);
 };
-export async function* listTableMetadataPaginate(
+export async function* paginateListTableMetadata(
   config: AthenaPaginationConfiguration,
   input: ListTableMetadataCommandInput,
   ...additionalArguments: any

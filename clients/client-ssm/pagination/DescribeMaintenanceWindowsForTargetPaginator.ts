@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMaintenanceWindowsForTarget(input, ...args);
 };
-export async function* describeMaintenanceWindowsForTargetPaginate(
+export async function* paginateDescribeMaintenanceWindowsForTarget(
   config: SSMPaginationConfiguration,
   input: DescribeMaintenanceWindowsForTargetCommandInput,
   ...additionalArguments: any

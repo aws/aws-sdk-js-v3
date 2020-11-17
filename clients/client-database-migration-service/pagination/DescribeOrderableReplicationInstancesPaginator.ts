@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeOrderableReplicationInstances(input, ...args);
 };
-export async function* describeOrderableReplicationInstancesPaginate(
+export async function* paginateDescribeOrderableReplicationInstances(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeOrderableReplicationInstancesCommandInput,
   ...additionalArguments: any

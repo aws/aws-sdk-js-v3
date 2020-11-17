@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLabelingJobs(input, ...args);
 };
-export async function* listLabelingJobsPaginate(
+export async function* paginateListLabelingJobs(
   config: SageMakerPaginationConfiguration,
   input: ListLabelingJobsCommandInput,
   ...additionalArguments: any

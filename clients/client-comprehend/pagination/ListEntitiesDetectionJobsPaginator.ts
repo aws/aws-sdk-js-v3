@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntitiesDetectionJobs(input, ...args);
 };
-export async function* listEntitiesDetectionJobsPaginate(
+export async function* paginateListEntitiesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEntitiesDetectionJobsCommandInput,
   ...additionalArguments: any

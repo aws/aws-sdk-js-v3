@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTopicsDetectionJobs(input, ...args);
 };
-export async function* listTopicsDetectionJobsPaginate(
+export async function* paginateListTopicsDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListTopicsDetectionJobsCommandInput,
   ...additionalArguments: any

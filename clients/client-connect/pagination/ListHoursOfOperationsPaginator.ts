@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHoursOfOperations(input, ...args);
 };
-export async function* listHoursOfOperationsPaginate(
+export async function* paginateListHoursOfOperations(
   config: ConnectPaginationConfiguration,
   input: ListHoursOfOperationsCommandInput,
   ...additionalArguments: any

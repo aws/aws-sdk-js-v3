@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFlowExecutionRecords(input, ...args);
 };
-export async function* describeFlowExecutionRecordsPaginate(
+export async function* paginateDescribeFlowExecutionRecords(
   config: AppflowPaginationConfiguration,
   input: DescribeFlowExecutionRecordsCommandInput,
   ...additionalArguments: any

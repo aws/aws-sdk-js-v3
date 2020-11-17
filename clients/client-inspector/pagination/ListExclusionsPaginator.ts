@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listExclusions(input, ...args);
 };
-export async function* listExclusionsPaginate(
+export async function* paginateListExclusions(
   config: InspectorPaginationConfiguration,
   input: ListExclusionsCommandInput,
   ...additionalArguments: any

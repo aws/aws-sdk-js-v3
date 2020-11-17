@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRepositories(input, ...args);
 };
-export async function* listRepositoriesPaginate(
+export async function* paginateListRepositories(
   config: CodeCommitPaginationConfiguration,
   input: ListRepositoriesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatabases(input, ...args);
 };
-export async function* listDatabasesPaginate(
+export async function* paginateListDatabases(
   config: TimestreamWritePaginationConfiguration,
   input: ListDatabasesCommandInput,
   ...additionalArguments: any

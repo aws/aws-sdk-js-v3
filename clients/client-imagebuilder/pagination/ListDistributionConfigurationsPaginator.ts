@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDistributionConfigurations(input, ...args);
 };
-export async function* listDistributionConfigurationsPaginate(
+export async function* paginateListDistributionConfigurations(
   config: ImagebuilderPaginationConfiguration,
   input: ListDistributionConfigurationsCommandInput,
   ...additionalArguments: any

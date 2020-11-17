@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCrawlerMetrics(input, ...args);
 };
-export async function* getCrawlerMetricsPaginate(
+export async function* paginateGetCrawlerMetrics(
   config: GluePaginationConfiguration,
   input: GetCrawlerMetricsCommandInput,
   ...additionalArguments: any

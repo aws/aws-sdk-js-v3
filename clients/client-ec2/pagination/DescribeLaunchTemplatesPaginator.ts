@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeLaunchTemplates(input, ...args);
 };
-export async function* describeLaunchTemplatesPaginate(
+export async function* paginateDescribeLaunchTemplates(
   config: EC2PaginationConfiguration,
   input: DescribeLaunchTemplatesCommandInput,
   ...additionalArguments: any

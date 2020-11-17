@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeNodeConfigurationOptions(input, ...args);
 };
-export async function* describeNodeConfigurationOptionsPaginate(
+export async function* paginateDescribeNodeConfigurationOptions(
   config: RedshiftPaginationConfiguration,
   input: DescribeNodeConfigurationOptionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUserPoolClients(input, ...args);
 };
-export async function* listUserPoolClientsPaginate(
+export async function* paginateListUserPoolClients(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListUserPoolClientsCommandInput,
   ...additionalArguments: any

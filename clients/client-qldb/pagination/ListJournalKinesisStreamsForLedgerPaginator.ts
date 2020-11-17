@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJournalKinesisStreamsForLedger(input, ...args);
 };
-export async function* listJournalKinesisStreamsForLedgerPaginate(
+export async function* paginateListJournalKinesisStreamsForLedger(
   config: QLDBPaginationConfiguration,
   input: ListJournalKinesisStreamsForLedgerCommandInput,
   ...additionalArguments: any

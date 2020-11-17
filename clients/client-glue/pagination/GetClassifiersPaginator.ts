@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getClassifiers(input, ...args);
 };
-export async function* getClassifiersPaginate(
+export async function* paginateGetClassifiers(
   config: GluePaginationConfiguration,
   input: GetClassifiersCommandInput,
   ...additionalArguments: any

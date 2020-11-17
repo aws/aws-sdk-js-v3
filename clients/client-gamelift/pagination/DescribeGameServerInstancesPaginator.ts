@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeGameServerInstances(input, ...args);
 };
-export async function* describeGameServerInstancesPaginate(
+export async function* paginateDescribeGameServerInstances(
   config: GameLiftPaginationConfiguration,
   input: DescribeGameServerInstancesCommandInput,
   ...additionalArguments: any

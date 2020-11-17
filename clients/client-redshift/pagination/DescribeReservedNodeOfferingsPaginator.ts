@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedNodeOfferings(input, ...args);
 };
-export async function* describeReservedNodeOfferingsPaginate(
+export async function* paginateDescribeReservedNodeOfferings(
   config: RedshiftPaginationConfiguration,
   input: DescribeReservedNodeOfferingsCommandInput,
   ...additionalArguments: any

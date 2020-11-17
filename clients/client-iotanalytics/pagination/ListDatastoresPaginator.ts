@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatastores(input, ...args);
 };
-export async function* listDatastoresPaginate(
+export async function* paginateListDatastores(
   config: IoTAnalyticsPaginationConfiguration,
   input: ListDatastoresCommandInput,
   ...additionalArguments: any

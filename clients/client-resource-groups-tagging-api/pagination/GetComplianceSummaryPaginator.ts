@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getComplianceSummary(input, ...args);
 };
-export async function* getComplianceSummaryPaginate(
+export async function* paginateGetComplianceSummary(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetComplianceSummaryCommandInput,
   ...additionalArguments: any

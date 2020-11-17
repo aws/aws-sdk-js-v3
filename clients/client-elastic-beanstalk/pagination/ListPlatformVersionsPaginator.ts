@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlatformVersions(input, ...args);
 };
-export async function* listPlatformVersionsPaginate(
+export async function* paginateListPlatformVersions(
   config: ElasticBeanstalkPaginationConfiguration,
   input: ListPlatformVersionsCommandInput,
   ...additionalArguments: any

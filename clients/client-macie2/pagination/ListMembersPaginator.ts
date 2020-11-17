@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMembers(input, ...args);
 };
-export async function* listMembersPaginate(
+export async function* paginateListMembers(
   config: Macie2PaginationConfiguration,
   input: ListMembersCommandInput,
   ...additionalArguments: any

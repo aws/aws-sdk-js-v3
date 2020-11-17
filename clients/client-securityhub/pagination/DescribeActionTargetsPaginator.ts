@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeActionTargets(input, ...args);
 };
-export async function* describeActionTargetsPaginate(
+export async function* paginateDescribeActionTargets(
   config: SecurityHubPaginationConfiguration,
   input: DescribeActionTargetsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInvitations(input, ...args);
 };
-export async function* listInvitationsPaginate(
+export async function* paginateListInvitations(
   config: GuardDutyPaginationConfiguration,
   input: ListInvitationsCommandInput,
   ...additionalArguments: any

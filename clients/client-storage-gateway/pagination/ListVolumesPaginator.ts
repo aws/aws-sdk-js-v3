@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVolumes(input, ...args);
 };
-export async function* listVolumesPaginate(
+export async function* paginateListVolumes(
   config: StorageGatewayPaginationConfiguration,
   input: ListVolumesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listQualificationTypes(input, ...args);
 };
-export async function* listQualificationTypesPaginate(
+export async function* paginateListQualificationTypes(
   config: MTurkPaginationConfiguration,
   input: ListQualificationTypesCommandInput,
   ...additionalArguments: any

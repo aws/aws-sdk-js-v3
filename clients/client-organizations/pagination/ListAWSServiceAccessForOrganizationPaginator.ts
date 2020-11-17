@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAWSServiceAccessForOrganization(input, ...args);
 };
-export async function* listAWSServiceAccessForOrganizationPaginate(
+export async function* paginateListAWSServiceAccessForOrganization(
   config: OrganizationsPaginationConfiguration,
   input: ListAWSServiceAccessForOrganizationCommandInput,
   ...additionalArguments: any

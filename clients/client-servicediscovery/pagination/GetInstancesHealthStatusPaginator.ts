@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getInstancesHealthStatus(input, ...args);
 };
-export async function* getInstancesHealthStatusPaginate(
+export async function* paginateGetInstancesHealthStatus(
   config: ServiceDiscoveryPaginationConfiguration,
   input: GetInstancesHealthStatusCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProvisionedConcurrencyConfigs(input, ...args);
 };
-export async function* listProvisionedConcurrencyConfigsPaginate(
+export async function* paginateListProvisionedConcurrencyConfigs(
   config: LambdaPaginationConfiguration,
   input: ListProvisionedConcurrencyConfigsCommandInput,
   ...additionalArguments: any

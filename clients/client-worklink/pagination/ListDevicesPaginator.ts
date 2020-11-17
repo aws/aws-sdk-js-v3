@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDevices(input, ...args);
 };
-export async function* listDevicesPaginate(
+export async function* paginateListDevices(
   config: WorkLinkPaginationConfiguration,
   input: ListDevicesCommandInput,
   ...additionalArguments: any

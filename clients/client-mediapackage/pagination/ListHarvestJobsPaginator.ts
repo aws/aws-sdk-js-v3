@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHarvestJobs(input, ...args);
 };
-export async function* listHarvestJobsPaginate(
+export async function* paginateListHarvestJobs(
   config: MediaPackagePaginationConfiguration,
   input: ListHarvestJobsCommandInput,
   ...additionalArguments: any

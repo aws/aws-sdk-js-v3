@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEngineDefaultParameters(input, ...args);
 };
-export async function* describeEngineDefaultParametersPaginate(
+export async function* paginateDescribeEngineDefaultParameters(
   config: NeptunePaginationConfiguration,
   input: DescribeEngineDefaultParametersCommandInput,
   ...additionalArguments: any

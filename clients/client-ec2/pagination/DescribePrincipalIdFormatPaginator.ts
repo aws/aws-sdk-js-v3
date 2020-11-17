@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePrincipalIdFormat(input, ...args);
 };
-export async function* describePrincipalIdFormatPaginate(
+export async function* paginateDescribePrincipalIdFormat(
   config: EC2PaginationConfiguration,
   input: DescribePrincipalIdFormatCommandInput,
   ...additionalArguments: any

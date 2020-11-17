@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJournalS3ExportsForLedger(input, ...args);
 };
-export async function* listJournalS3ExportsForLedgerPaginate(
+export async function* paginateListJournalS3ExportsForLedger(
   config: QLDBPaginationConfiguration,
   input: ListJournalS3ExportsForLedgerCommandInput,
   ...additionalArguments: any

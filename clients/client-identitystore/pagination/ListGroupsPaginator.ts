@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGroups(input, ...args);
 };
-export async function* listGroupsPaginate(
+export async function* paginateListGroups(
   config: IdentitystorePaginationConfiguration,
   input: ListGroupsCommandInput,
   ...additionalArguments: any

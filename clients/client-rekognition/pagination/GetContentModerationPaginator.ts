@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getContentModeration(input, ...args);
 };
-export async function* getContentModerationPaginate(
+export async function* paginateGetContentModeration(
   config: RekognitionPaginationConfiguration,
   input: GetContentModerationCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConfigurationHistory(input, ...args);
 };
-export async function* listConfigurationHistoryPaginate(
+export async function* paginateListConfigurationHistory(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListConfigurationHistoryCommandInput,
   ...additionalArguments: any

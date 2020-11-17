@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInputDeviceTransfers(input, ...args);
 };
-export async function* listInputDeviceTransfersPaginate(
+export async function* paginateListInputDeviceTransfers(
   config: MediaLivePaginationConfiguration,
   input: ListInputDeviceTransfersCommandInput,
   ...additionalArguments: any

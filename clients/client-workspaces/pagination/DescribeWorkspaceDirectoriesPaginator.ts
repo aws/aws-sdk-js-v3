@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeWorkspaceDirectories(input, ...args);
 };
-export async function* describeWorkspaceDirectoriesPaginate(
+export async function* paginateDescribeWorkspaceDirectories(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspaceDirectoriesCommandInput,
   ...additionalArguments: any

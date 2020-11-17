@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMultiplexes(input, ...args);
 };
-export async function* listMultiplexesPaginate(
+export async function* paginateListMultiplexes(
   config: MediaLivePaginationConfiguration,
   input: ListMultiplexesCommandInput,
   ...additionalArguments: any

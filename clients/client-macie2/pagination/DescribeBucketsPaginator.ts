@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeBuckets(input, ...args);
 };
-export async function* describeBucketsPaginate(
+export async function* paginateDescribeBuckets(
   config: Macie2PaginationConfiguration,
   input: DescribeBucketsCommandInput,
   ...additionalArguments: any

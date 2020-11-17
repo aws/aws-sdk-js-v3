@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getInsights(input, ...args);
 };
-export async function* getInsightsPaginate(
+export async function* paginateGetInsights(
   config: SecurityHubPaginationConfiguration,
   input: GetInsightsCommandInput,
   ...additionalArguments: any

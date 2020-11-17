@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCreateAccountStatus(input, ...args);
 };
-export async function* listCreateAccountStatusPaginate(
+export async function* paginateListCreateAccountStatus(
   config: OrganizationsPaginationConfiguration,
   input: ListCreateAccountStatusCommandInput,
   ...additionalArguments: any

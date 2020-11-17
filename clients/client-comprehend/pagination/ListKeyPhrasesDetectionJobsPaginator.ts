@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listKeyPhrasesDetectionJobs(input, ...args);
 };
-export async function* listKeyPhrasesDetectionJobsPaginate(
+export async function* paginateListKeyPhrasesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListKeyPhrasesDetectionJobsCommandInput,
   ...additionalArguments: any

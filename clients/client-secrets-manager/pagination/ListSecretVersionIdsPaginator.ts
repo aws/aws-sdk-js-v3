@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecretVersionIds(input, ...args);
 };
-export async function* listSecretVersionIdsPaginate(
+export async function* paginateListSecretVersionIds(
   config: SecretsManagerPaginationConfiguration,
   input: ListSecretVersionIdsCommandInput,
   ...additionalArguments: any

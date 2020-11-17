@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCommentsForPullRequest(input, ...args);
 };
-export async function* getCommentsForPullRequestPaginate(
+export async function* paginateGetCommentsForPullRequest(
   config: CodeCommitPaginationConfiguration,
   input: GetCommentsForPullRequestCommandInput,
   ...additionalArguments: any

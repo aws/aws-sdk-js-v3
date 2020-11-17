@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBInstanceAutomatedBackups(input, ...args);
 };
-export async function* describeDBInstanceAutomatedBackupsPaginate(
+export async function* paginateDescribeDBInstanceAutomatedBackups(
   config: RDSPaginationConfiguration,
   input: DescribeDBInstanceAutomatedBackupsCommandInput,
   ...additionalArguments: any

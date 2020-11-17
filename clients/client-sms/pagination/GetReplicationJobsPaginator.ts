@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getReplicationJobs(input, ...args);
 };
-export async function* getReplicationJobsPaginate(
+export async function* paginateGetReplicationJobs(
   config: SMSPaginationConfiguration,
   input: GetReplicationJobsCommandInput,
   ...additionalArguments: any

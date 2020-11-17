@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGatewayRoutes(input, ...args);
 };
-export async function* listGatewayRoutesPaginate(
+export async function* paginateListGatewayRoutes(
   config: AppMeshPaginationConfiguration,
   input: ListGatewayRoutesCommandInput,
   ...additionalArguments: any

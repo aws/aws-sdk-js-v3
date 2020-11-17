@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFaces(input, ...args);
 };
-export async function* listFacesPaginate(
+export async function* paginateListFaces(
   config: RekognitionPaginationConfiguration,
   input: ListFacesCommandInput,
   ...additionalArguments: any

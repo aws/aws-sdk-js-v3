@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReviewableHITs(input, ...args);
 };
-export async function* listReviewableHITsPaginate(
+export async function* paginateListReviewableHITs(
   config: MTurkPaginationConfiguration,
   input: ListReviewableHITsCommandInput,
   ...additionalArguments: any

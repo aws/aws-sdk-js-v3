@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getIntentVersions(input, ...args);
 };
-export async function* getIntentVersionsPaginate(
+export async function* paginateGetIntentVersions(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetIntentVersionsCommandInput,
   ...additionalArguments: any

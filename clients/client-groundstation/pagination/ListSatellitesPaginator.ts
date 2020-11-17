@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSatellites(input, ...args);
 };
-export async function* listSatellitesPaginate(
+export async function* paginateListSatellites(
   config: GroundStationPaginationConfiguration,
   input: ListSatellitesCommandInput,
   ...additionalArguments: any

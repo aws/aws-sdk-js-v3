@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listObjectsV2(input, ...args);
 };
-export async function* listObjectsV2Paginate(
+export async function* paginateListObjectsV2(
   config: S3PaginationConfiguration,
   input: ListObjectsV2CommandInput,
   ...additionalArguments: any

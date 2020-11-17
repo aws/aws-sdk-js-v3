@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTimeSeriesServiceStatistics(input, ...args);
 };
-export async function* getTimeSeriesServiceStatisticsPaginate(
+export async function* paginateGetTimeSeriesServiceStatistics(
   config: XRayPaginationConfiguration,
   input: GetTimeSeriesServiceStatisticsCommandInput,
   ...additionalArguments: any

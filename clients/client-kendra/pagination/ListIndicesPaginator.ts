@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIndices(input, ...args);
 };
-export async function* listIndicesPaginate(
+export async function* paginateListIndices(
   config: KendraPaginationConfiguration,
   input: ListIndicesCommandInput,
   ...additionalArguments: any

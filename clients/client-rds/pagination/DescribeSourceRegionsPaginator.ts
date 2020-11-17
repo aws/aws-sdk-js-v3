@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSourceRegions(input, ...args);
 };
-export async function* describeSourceRegionsPaginate(
+export async function* paginateDescribeSourceRegions(
   config: RDSPaginationConfiguration,
   input: DescribeSourceRegionsCommandInput,
   ...additionalArguments: any

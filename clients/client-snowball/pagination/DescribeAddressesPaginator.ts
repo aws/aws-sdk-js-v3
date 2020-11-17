@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAddresses(input, ...args);
 };
-export async function* describeAddressesPaginate(
+export async function* paginateDescribeAddresses(
   config: SnowballPaginationConfiguration,
   input: DescribeAddressesCommandInput,
   ...additionalArguments: any

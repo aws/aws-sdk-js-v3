@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTranscript(input, ...args);
 };
-export async function* getTranscriptPaginate(
+export async function* paginateGetTranscript(
   config: ConnectParticipantPaginationConfiguration,
   input: GetTranscriptCommandInput,
   ...additionalArguments: any

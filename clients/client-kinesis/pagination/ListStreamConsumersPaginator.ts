@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamConsumers(input, ...args);
 };
-export async function* listStreamConsumersPaginate(
+export async function* paginateListStreamConsumers(
   config: KinesisPaginationConfiguration,
   input: ListStreamConsumersCommandInput,
   ...additionalArguments: any

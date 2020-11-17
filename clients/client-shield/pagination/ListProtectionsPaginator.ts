@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProtections(input, ...args);
 };
-export async function* listProtectionsPaginate(
+export async function* paginateListProtections(
   config: ShieldPaginationConfiguration,
   input: ListProtectionsCommandInput,
   ...additionalArguments: any

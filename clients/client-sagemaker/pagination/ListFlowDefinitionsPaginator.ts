@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFlowDefinitions(input, ...args);
 };
-export async function* listFlowDefinitionsPaginate(
+export async function* paginateListFlowDefinitions(
   config: SageMakerPaginationConfiguration,
   input: ListFlowDefinitionsCommandInput,
   ...additionalArguments: any

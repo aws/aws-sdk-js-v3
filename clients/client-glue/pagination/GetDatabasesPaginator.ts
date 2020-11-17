@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDatabases(input, ...args);
 };
-export async function* getDatabasesPaginate(
+export async function* paginateGetDatabases(
   config: GluePaginationConfiguration,
   input: GetDatabasesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobExecutionsForThing(input, ...args);
 };
-export async function* listJobExecutionsForThingPaginate(
+export async function* paginateListJobExecutionsForThing(
   config: IoTPaginationConfiguration,
   input: ListJobExecutionsForThingCommandInput,
   ...additionalArguments: any

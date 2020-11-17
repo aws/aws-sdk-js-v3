@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInstanceCreditSpecifications(input, ...args);
 };
-export async function* describeInstanceCreditSpecificationsPaginate(
+export async function* paginateDescribeInstanceCreditSpecifications(
   config: EC2PaginationConfiguration,
   input: DescribeInstanceCreditSpecificationsCommandInput,
   ...additionalArguments: any

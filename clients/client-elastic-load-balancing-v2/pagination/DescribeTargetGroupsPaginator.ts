@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTargetGroups(input, ...args);
 };
-export async function* describeTargetGroupsPaginate(
+export async function* paginateDescribeTargetGroups(
   config: ElasticLoadBalancingV2PaginationConfiguration,
   input: DescribeTargetGroupsCommandInput,
   ...additionalArguments: any

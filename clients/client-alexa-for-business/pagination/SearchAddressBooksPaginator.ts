@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchAddressBooks(input, ...args);
 };
-export async function* searchAddressBooksPaginate(
+export async function* paginateSearchAddressBooks(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchAddressBooksCommandInput,
   ...additionalArguments: any

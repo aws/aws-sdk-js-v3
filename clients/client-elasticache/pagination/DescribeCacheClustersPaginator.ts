@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCacheClusters(input, ...args);
 };
-export async function* describeCacheClustersPaginate(
+export async function* paginateDescribeCacheClusters(
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheClustersCommandInput,
   ...additionalArguments: any

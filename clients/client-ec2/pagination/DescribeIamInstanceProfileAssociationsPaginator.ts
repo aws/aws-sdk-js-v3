@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeIamInstanceProfileAssociations(input, ...args);
 };
-export async function* describeIamInstanceProfileAssociationsPaginate(
+export async function* paginateDescribeIamInstanceProfileAssociations(
   config: EC2PaginationConfiguration,
   input: DescribeIamInstanceProfileAssociationsCommandInput,
   ...additionalArguments: any

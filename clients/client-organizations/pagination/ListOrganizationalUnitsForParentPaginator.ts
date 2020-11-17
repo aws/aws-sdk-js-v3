@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOrganizationalUnitsForParent(input, ...args);
 };
-export async function* listOrganizationalUnitsForParentPaginate(
+export async function* paginateListOrganizationalUnitsForParent(
   config: OrganizationsPaginationConfiguration,
   input: ListOrganizationalUnitsForParentCommandInput,
   ...additionalArguments: any

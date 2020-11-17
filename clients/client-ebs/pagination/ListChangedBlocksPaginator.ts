@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChangedBlocks(input, ...args);
 };
-export async function* listChangedBlocksPaginate(
+export async function* paginateListChangedBlocks(
   config: EBSPaginationConfiguration,
   input: ListChangedBlocksCommandInput,
   ...additionalArguments: any

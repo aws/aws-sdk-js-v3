@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMLTransforms(input, ...args);
 };
-export async function* listMLTransformsPaginate(
+export async function* paginateListMLTransforms(
   config: GluePaginationConfiguration,
   input: ListMLTransformsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getInsightEvents(input, ...args);
 };
-export async function* getInsightEventsPaginate(
+export async function* paginateGetInsightEvents(
   config: XRayPaginationConfiguration,
   input: GetInsightEventsCommandInput,
   ...additionalArguments: any

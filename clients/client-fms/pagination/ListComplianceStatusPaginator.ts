@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listComplianceStatus(input, ...args);
 };
-export async function* listComplianceStatusPaginate(
+export async function* paginateListComplianceStatus(
   config: FMSPaginationConfiguration,
   input: ListComplianceStatusCommandInput,
   ...additionalArguments: any

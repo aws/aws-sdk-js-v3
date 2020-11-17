@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIndex(input, ...args);
 };
-export async function* listIndexPaginate(
+export async function* paginateListIndex(
   config: CloudDirectoryPaginationConfiguration,
   input: ListIndexCommandInput,
   ...additionalArguments: any

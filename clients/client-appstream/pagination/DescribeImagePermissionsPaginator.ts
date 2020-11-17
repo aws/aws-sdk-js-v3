@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImagePermissions(input, ...args);
 };
-export async function* describeImagePermissionsPaginate(
+export async function* paginateDescribeImagePermissions(
   config: AppStreamPaginationConfiguration,
   input: DescribeImagePermissionsCommandInput,
   ...additionalArguments: any

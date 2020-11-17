@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBInstances(input, ...args);
 };
-export async function* describeDBInstancesPaginate(
+export async function* paginateDescribeDBInstances(
   config: NeptunePaginationConfiguration,
   input: DescribeDBInstancesCommandInput,
   ...additionalArguments: any

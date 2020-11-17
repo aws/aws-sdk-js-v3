@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getMLTaskRuns(input, ...args);
 };
-export async function* getMLTaskRunsPaginate(
+export async function* paginateGetMLTaskRuns(
   config: GluePaginationConfiguration,
   input: GetMLTaskRunsCommandInput,
   ...additionalArguments: any

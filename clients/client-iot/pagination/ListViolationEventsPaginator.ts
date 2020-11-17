@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listViolationEvents(input, ...args);
 };
-export async function* listViolationEventsPaginate(
+export async function* paginateListViolationEvents(
   config: IoTPaginationConfiguration,
   input: ListViolationEventsCommandInput,
   ...additionalArguments: any

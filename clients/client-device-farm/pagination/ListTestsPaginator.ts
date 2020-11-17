@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTests(input, ...args);
 };
-export async function* listTestsPaginate(
+export async function* paginateListTests(
   config: DeviceFarmPaginationConfiguration,
   input: ListTestsCommandInput,
   ...additionalArguments: any

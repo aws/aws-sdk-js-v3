@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkteams(input, ...args);
 };
-export async function* listWorkteamsPaginate(
+export async function* paginateListWorkteams(
   config: SageMakerPaginationConfiguration,
   input: ListWorkteamsCommandInput,
   ...additionalArguments: any

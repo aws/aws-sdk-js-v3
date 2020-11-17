@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProgressUpdateStreams(input, ...args);
 };
-export async function* listProgressUpdateStreamsPaginate(
+export async function* paginateListProgressUpdateStreams(
   config: MigrationHubPaginationConfiguration,
   input: ListProgressUpdateStreamsCommandInput,
   ...additionalArguments: any

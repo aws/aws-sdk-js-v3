@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRecoveryPointsByBackupVault(input, ...args);
 };
-export async function* listRecoveryPointsByBackupVaultPaginate(
+export async function* paginateListRecoveryPointsByBackupVault(
   config: BackupPaginationConfiguration,
   input: ListRecoveryPointsByBackupVaultCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVirtualMFADevices(input, ...args);
 };
-export async function* listVirtualMFADevicesPaginate(
+export async function* paginateListVirtualMFADevices(
   config: IAMPaginationConfiguration,
   input: ListVirtualMFADevicesCommandInput,
   ...additionalArguments: any

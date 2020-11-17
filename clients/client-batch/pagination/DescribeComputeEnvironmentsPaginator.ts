@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeComputeEnvironments(input, ...args);
 };
-export async function* describeComputeEnvironmentsPaginate(
+export async function* paginateDescribeComputeEnvironments(
   config: BatchPaginationConfiguration,
   input: DescribeComputeEnvironmentsCommandInput,
   ...additionalArguments: any

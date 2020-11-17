@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNodegroups(input, ...args);
 };
-export async function* listNodegroupsPaginate(
+export async function* paginateListNodegroups(
   config: EKSPaginationConfiguration,
   input: ListNodegroupsCommandInput,
   ...additionalArguments: any

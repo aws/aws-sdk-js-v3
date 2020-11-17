@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConferenceProviders(input, ...args);
 };
-export async function* listConferenceProvidersPaginate(
+export async function* paginateListConferenceProviders(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListConferenceProvidersCommandInput,
   ...additionalArguments: any

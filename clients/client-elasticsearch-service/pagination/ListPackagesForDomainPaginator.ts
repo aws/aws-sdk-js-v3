@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPackagesForDomain(input, ...args);
 };
-export async function* listPackagesForDomainPaginate(
+export async function* paginateListPackagesForDomain(
   config: ElasticsearchServicePaginationConfiguration,
   input: ListPackagesForDomainCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReplicationGroups(input, ...args);
 };
-export async function* describeReplicationGroupsPaginate(
+export async function* paginateDescribeReplicationGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeReplicationGroupsCommandInput,
   ...additionalArguments: any

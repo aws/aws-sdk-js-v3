@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourcesForTagOption(input, ...args);
 };
-export async function* listResourcesForTagOptionPaginate(
+export async function* paginateListResourcesForTagOption(
   config: ServiceCatalogPaginationConfiguration,
   input: ListResourcesForTagOptionCommandInput,
   ...additionalArguments: any

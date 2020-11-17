@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBClusterEndpoints(input, ...args);
 };
-export async function* describeDBClusterEndpointsPaginate(
+export async function* paginateDescribeDBClusterEndpoints(
   config: RDSPaginationConfiguration,
   input: DescribeDBClusterEndpointsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBotChannelAssociations(input, ...args);
 };
-export async function* getBotChannelAssociationsPaginate(
+export async function* paginateGetBotChannelAssociations(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotChannelAssociationsCommandInput,
   ...additionalArguments: any

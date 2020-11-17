@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTransitGatewayRegistrations(input, ...args);
 };
-export async function* getTransitGatewayRegistrationsPaginate(
+export async function* paginateGetTransitGatewayRegistrations(
   config: NetworkManagerPaginationConfiguration,
   input: GetTransitGatewayRegistrationsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEnabledProductsForImport(input, ...args);
 };
-export async function* listEnabledProductsForImportPaginate(
+export async function* paginateListEnabledProductsForImport(
   config: SecurityHubPaginationConfiguration,
   input: ListEnabledProductsForImportCommandInput,
   ...additionalArguments: any

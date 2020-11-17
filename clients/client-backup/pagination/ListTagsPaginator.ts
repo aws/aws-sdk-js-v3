@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTags(input, ...args);
 };
-export async function* listTagsPaginate(
+export async function* paginateListTags(
   config: BackupPaginationConfiguration,
   input: ListTagsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApplicationVersions(input, ...args);
 };
-export async function* listApplicationVersionsPaginate(
+export async function* paginateListApplicationVersions(
   config: ServerlessApplicationRepositoryPaginationConfiguration,
   input: ListApplicationVersionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssignmentsForHIT(input, ...args);
 };
-export async function* listAssignmentsForHITPaginate(
+export async function* paginateListAssignmentsForHIT(
   config: MTurkPaginationConfiguration,
   input: ListAssignmentsForHITCommandInput,
   ...additionalArguments: any

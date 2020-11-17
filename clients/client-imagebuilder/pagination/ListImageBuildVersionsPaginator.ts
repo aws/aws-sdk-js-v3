@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listImageBuildVersions(input, ...args);
 };
-export async function* listImageBuildVersionsPaginate(
+export async function* paginateListImageBuildVersions(
   config: ImagebuilderPaginationConfiguration,
   input: ListImageBuildVersionsCommandInput,
   ...additionalArguments: any

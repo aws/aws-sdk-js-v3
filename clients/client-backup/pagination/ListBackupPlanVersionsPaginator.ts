@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBackupPlanVersions(input, ...args);
 };
-export async function* listBackupPlanVersionsPaginate(
+export async function* paginateListBackupPlanVersions(
   config: BackupPaginationConfiguration,
   input: ListBackupPlanVersionsCommandInput,
   ...additionalArguments: any

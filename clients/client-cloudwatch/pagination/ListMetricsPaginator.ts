@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMetrics(input, ...args);
 };
-export async function* listMetricsPaginate(
+export async function* paginateListMetrics(
   config: CloudWatchPaginationConfiguration,
   input: ListMetricsCommandInput,
   ...additionalArguments: any

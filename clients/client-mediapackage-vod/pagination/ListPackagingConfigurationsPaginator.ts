@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPackagingConfigurations(input, ...args);
 };
-export async function* listPackagingConfigurationsPaginate(
+export async function* paginateListPackagingConfigurations(
   config: MediaPackageVodPaginationConfiguration,
   input: ListPackagingConfigurationsCommandInput,
   ...additionalArguments: any

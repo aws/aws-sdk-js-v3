@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAlgorithms(input, ...args);
 };
-export async function* listAlgorithmsPaginate(
+export async function* paginateListAlgorithms(
   config: SageMakerPaginationConfiguration,
   input: ListAlgorithmsCommandInput,
   ...additionalArguments: any

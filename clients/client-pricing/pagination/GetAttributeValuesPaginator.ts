@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAttributeValues(input, ...args);
 };
-export async function* getAttributeValuesPaginate(
+export async function* paginateGetAttributeValues(
   config: PricingPaginationConfiguration,
   input: GetAttributeValuesCommandInput,
   ...additionalArguments: any

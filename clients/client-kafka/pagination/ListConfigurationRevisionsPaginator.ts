@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConfigurationRevisions(input, ...args);
 };
-export async function* listConfigurationRevisionsPaginate(
+export async function* paginateListConfigurationRevisions(
   config: KafkaPaginationConfiguration,
   input: ListConfigurationRevisionsCommandInput,
   ...additionalArguments: any

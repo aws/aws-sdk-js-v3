@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTerminologies(input, ...args);
 };
-export async function* listTerminologiesPaginate(
+export async function* paginateListTerminologies(
   config: TranslatePaginationConfiguration,
   input: ListTerminologiesCommandInput,
   ...additionalArguments: any

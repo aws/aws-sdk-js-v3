@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTrialComponents(input, ...args);
 };
-export async function* listTrialComponentsPaginate(
+export async function* paginateListTrialComponents(
   config: SageMakerPaginationConfiguration,
   input: ListTrialComponentsCommandInput,
   ...additionalArguments: any

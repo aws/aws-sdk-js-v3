@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCodeRepositories(input, ...args);
 };
-export async function* listCodeRepositoriesPaginate(
+export async function* paginateListCodeRepositories(
   config: SageMakerPaginationConfiguration,
   input: ListCodeRepositoriesCommandInput,
   ...additionalArguments: any

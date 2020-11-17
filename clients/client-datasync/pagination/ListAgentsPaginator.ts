@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAgents(input, ...args);
 };
-export async function* listAgentsPaginate(
+export async function* paginateListAgents(
   config: DataSyncPaginationConfiguration,
   input: ListAgentsCommandInput,
   ...additionalArguments: any

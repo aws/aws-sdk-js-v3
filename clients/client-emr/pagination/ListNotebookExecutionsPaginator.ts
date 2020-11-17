@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNotebookExecutions(input, ...args);
 };
-export async function* listNotebookExecutionsPaginate(
+export async function* paginateListNotebookExecutions(
   config: EMRPaginationConfiguration,
   input: ListNotebookExecutionsCommandInput,
   ...additionalArguments: any

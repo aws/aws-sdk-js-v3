@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getPartitions(input, ...args);
 };
-export async function* getPartitionsPaginate(
+export async function* paginateGetPartitions(
   config: GluePaginationConfiguration,
   input: GetPartitionsCommandInput,
   ...additionalArguments: any

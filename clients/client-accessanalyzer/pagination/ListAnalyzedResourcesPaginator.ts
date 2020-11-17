@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAnalyzedResources(input, ...args);
 };
-export async function* listAnalyzedResourcesPaginate(
+export async function* paginateListAnalyzedResources(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListAnalyzedResourcesCommandInput,
   ...additionalArguments: any

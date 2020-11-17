@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGroundStations(input, ...args);
 };
-export async function* listGroundStationsPaginate(
+export async function* paginateListGroundStations(
   config: GroundStationPaginationConfiguration,
   input: ListGroundStationsCommandInput,
   ...additionalArguments: any

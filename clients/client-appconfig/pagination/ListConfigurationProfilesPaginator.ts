@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConfigurationProfiles(input, ...args);
 };
-export async function* listConfigurationProfilesPaginate(
+export async function* paginateListConfigurationProfiles(
   config: AppConfigPaginationConfiguration,
   input: ListConfigurationProfilesCommandInput,
   ...additionalArguments: any

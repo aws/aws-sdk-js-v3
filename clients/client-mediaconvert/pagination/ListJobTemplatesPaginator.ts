@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobTemplates(input, ...args);
 };
-export async function* listJobTemplatesPaginate(
+export async function* paginateListJobTemplates(
   config: MediaConvertPaginationConfiguration,
   input: ListJobTemplatesCommandInput,
   ...additionalArguments: any

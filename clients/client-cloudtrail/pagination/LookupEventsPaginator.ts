@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.lookupEvents(input, ...args);
 };
-export async function* lookupEventsPaginate(
+export async function* paginateLookupEvents(
   config: CloudTrailPaginationConfiguration,
   input: LookupEventsCommandInput,
   ...additionalArguments: any

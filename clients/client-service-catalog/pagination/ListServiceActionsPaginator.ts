@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listServiceActions(input, ...args);
 };
-export async function* listServiceActionsPaginate(
+export async function* paginateListServiceActions(
   config: ServiceCatalogPaginationConfiguration,
   input: ListServiceActionsCommandInput,
   ...additionalArguments: any

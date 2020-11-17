@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBotVersions(input, ...args);
 };
-export async function* getBotVersionsPaginate(
+export async function* paginateGetBotVersions(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotVersionsCommandInput,
   ...additionalArguments: any

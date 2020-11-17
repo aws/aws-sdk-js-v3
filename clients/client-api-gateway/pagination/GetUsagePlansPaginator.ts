@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUsagePlans(input, ...args);
 };
-export async function* getUsagePlansPaginate(
+export async function* paginateGetUsagePlans(
   config: APIGatewayPaginationConfiguration,
   input: GetUsagePlansCommandInput,
   ...additionalArguments: any

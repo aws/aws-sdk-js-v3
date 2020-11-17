@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.pollForDecisionTask(input, ...args);
 };
-export async function* pollForDecisionTaskPaginate(
+export async function* paginatePollForDecisionTask(
   config: SWFPaginationConfiguration,
   input: PollForDecisionTaskCommandInput,
   ...additionalArguments: any

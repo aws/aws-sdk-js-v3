@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBSnapshots(input, ...args);
 };
-export async function* describeDBSnapshotsPaginate(
+export async function* paginateDescribeDBSnapshots(
   config: RDSPaginationConfiguration,
   input: DescribeDBSnapshotsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataSources(input, ...args);
 };
-export async function* listDataSourcesPaginate(
+export async function* paginateListDataSources(
   config: KendraPaginationConfiguration,
   input: ListDataSourcesCommandInput,
   ...additionalArguments: any

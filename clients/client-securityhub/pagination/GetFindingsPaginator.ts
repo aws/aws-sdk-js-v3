@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getFindings(input, ...args);
 };
-export async function* getFindingsPaginate(
+export async function* paginateGetFindings(
   config: SecurityHubPaginationConfiguration,
   input: GetFindingsCommandInput,
   ...additionalArguments: any

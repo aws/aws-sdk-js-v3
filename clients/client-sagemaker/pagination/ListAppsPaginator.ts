@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApps(input, ...args);
 };
-export async function* listAppsPaginate(
+export async function* paginateListApps(
   config: SageMakerPaginationConfiguration,
   input: ListAppsCommandInput,
   ...additionalArguments: any

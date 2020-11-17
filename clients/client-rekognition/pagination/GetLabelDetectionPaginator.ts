@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLabelDetection(input, ...args);
 };
-export async function* getLabelDetectionPaginate(
+export async function* paginateGetLabelDetection(
   config: RekognitionPaginationConfiguration,
   input: GetLabelDetectionCommandInput,
   ...additionalArguments: any

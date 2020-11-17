@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listKeys(input, ...args);
 };
-export async function* listKeysPaginate(
+export async function* paginateListKeys(
   config: KMSPaginationConfiguration,
   input: ListKeysCommandInput,
   ...additionalArguments: any

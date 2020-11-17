@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUpgradeHistory(input, ...args);
 };
-export async function* getUpgradeHistoryPaginate(
+export async function* paginateGetUpgradeHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,
   ...additionalArguments: any

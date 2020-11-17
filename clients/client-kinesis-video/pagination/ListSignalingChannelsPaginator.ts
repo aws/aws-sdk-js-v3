@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSignalingChannels(input, ...args);
 };
-export async function* listSignalingChannelsPaginate(
+export async function* paginateListSignalingChannels(
   config: KinesisVideoPaginationConfiguration,
   input: ListSignalingChannelsCommandInput,
   ...additionalArguments: any

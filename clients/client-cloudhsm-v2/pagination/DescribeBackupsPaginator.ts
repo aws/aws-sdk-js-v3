@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeBackups(input, ...args);
 };
-export async function* describeBackupsPaginate(
+export async function* paginateDescribeBackups(
   config: CloudHSMV2PaginationConfiguration,
   input: DescribeBackupsCommandInput,
   ...additionalArguments: any

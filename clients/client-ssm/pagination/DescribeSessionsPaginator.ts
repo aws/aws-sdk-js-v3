@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSessions(input, ...args);
 };
-export async function* describeSessionsPaginate(
+export async function* paginateDescribeSessions(
   config: SSMPaginationConfiguration,
   input: DescribeSessionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchQuantumTasks(input, ...args);
 };
-export async function* searchQuantumTasksPaginate(
+export async function* paginateSearchQuantumTasks(
   config: BraketPaginationConfiguration,
   input: SearchQuantumTasksCommandInput,
   ...additionalArguments: any

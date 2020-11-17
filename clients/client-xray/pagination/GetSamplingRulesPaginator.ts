@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSamplingRules(input, ...args);
 };
-export async function* getSamplingRulesPaginate(
+export async function* paginateGetSamplingRules(
   config: XRayPaginationConfiguration,
   input: GetSamplingRulesCommandInput,
   ...additionalArguments: any

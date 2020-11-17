@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUsersInGroup(input, ...args);
 };
-export async function* listUsersInGroupPaginate(
+export async function* paginateListUsersInGroup(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListUsersInGroupCommandInput,
   ...additionalArguments: any

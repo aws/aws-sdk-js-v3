@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchTransitGatewayMulticastGroups(input, ...args);
 };
-export async function* searchTransitGatewayMulticastGroupsPaginate(
+export async function* paginateSearchTransitGatewayMulticastGroups(
   config: EC2PaginationConfiguration,
   input: SearchTransitGatewayMulticastGroupsCommandInput,
   ...additionalArguments: any

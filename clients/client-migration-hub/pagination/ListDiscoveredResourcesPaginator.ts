@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDiscoveredResources(input, ...args);
 };
-export async function* listDiscoveredResourcesPaginate(
+export async function* paginateListDiscoveredResources(
   config: MigrationHubPaginationConfiguration,
   input: ListDiscoveredResourcesCommandInput,
   ...additionalArguments: any

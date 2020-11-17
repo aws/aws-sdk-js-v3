@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPoliciesForTarget(input, ...args);
 };
-export async function* listPoliciesForTargetPaginate(
+export async function* paginateListPoliciesForTarget(
   config: OrganizationsPaginationConfiguration,
   input: ListPoliciesForTargetCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeScalingActivities(input, ...args);
 };
-export async function* describeScalingActivitiesPaginate(
+export async function* paginateDescribeScalingActivities(
   config: AutoScalingPaginationConfiguration,
   input: DescribeScalingActivitiesCommandInput,
   ...additionalArguments: any

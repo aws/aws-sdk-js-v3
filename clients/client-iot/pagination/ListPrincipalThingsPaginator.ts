@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPrincipalThings(input, ...args);
 };
-export async function* listPrincipalThingsPaginate(
+export async function* paginateListPrincipalThings(
   config: IoTPaginationConfiguration,
   input: ListPrincipalThingsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDomainDeliverabilityCampaigns(input, ...args);
 };
-export async function* listDomainDeliverabilityCampaignsPaginate(
+export async function* paginateListDomainDeliverabilityCampaigns(
   config: SESv2PaginationConfiguration,
   input: ListDomainDeliverabilityCampaignsCommandInput,
   ...additionalArguments: any

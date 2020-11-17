@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBClusters(input, ...args);
 };
-export async function* describeDBClustersPaginate(
+export async function* paginateDescribeDBClusters(
   config: DocDBPaginationConfiguration,
   input: DescribeDBClustersCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReportDefinitions(input, ...args);
 };
-export async function* describeReportDefinitionsPaginate(
+export async function* paginateDescribeReportDefinitions(
   config: CostAndUsageReportServicePaginationConfiguration,
   input: DescribeReportDefinitionsCommandInput,
   ...additionalArguments: any

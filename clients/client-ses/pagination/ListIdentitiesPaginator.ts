@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIdentities(input, ...args);
 };
-export async function* listIdentitiesPaginate(
+export async function* paginateListIdentities(
   config: SESPaginationConfiguration,
   input: ListIdentitiesCommandInput,
   ...additionalArguments: any

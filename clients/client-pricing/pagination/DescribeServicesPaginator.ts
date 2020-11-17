@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeServices(input, ...args);
 };
-export async function* describeServicesPaginate(
+export async function* paginateDescribeServices(
   config: PricingPaginationConfiguration,
   input: DescribeServicesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAffectedEntitiesForOrganization(input, ...args);
 };
-export async function* describeAffectedEntitiesForOrganizationPaginate(
+export async function* paginateDescribeAffectedEntitiesForOrganization(
   config: HealthPaginationConfiguration,
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   ...additionalArguments: any

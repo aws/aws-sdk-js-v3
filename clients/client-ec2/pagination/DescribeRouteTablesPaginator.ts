@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeRouteTables(input, ...args);
 };
-export async function* describeRouteTablesPaginate(
+export async function* paginateDescribeRouteTables(
   config: EC2PaginationConfiguration,
   input: DescribeRouteTablesCommandInput,
   ...additionalArguments: any

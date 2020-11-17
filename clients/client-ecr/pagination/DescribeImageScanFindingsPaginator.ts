@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImageScanFindings(input, ...args);
 };
-export async function* describeImageScanFindingsPaginate(
+export async function* paginateDescribeImageScanFindings(
   config: ECRPaginationConfiguration,
   input: DescribeImageScanFindingsCommandInput,
   ...additionalArguments: any

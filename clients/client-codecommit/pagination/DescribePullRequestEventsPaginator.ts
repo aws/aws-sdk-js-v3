@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePullRequestEvents(input, ...args);
 };
-export async function* describePullRequestEventsPaginate(
+export async function* paginateDescribePullRequestEvents(
   config: CodeCommitPaginationConfiguration,
   input: DescribePullRequestEventsCommandInput,
   ...additionalArguments: any

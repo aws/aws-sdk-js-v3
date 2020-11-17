@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRegistries(input, ...args);
 };
-export async function* listRegistriesPaginate(
+export async function* paginateListRegistries(
   config: SchemasPaginationConfiguration,
   input: ListRegistriesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLaunchPaths(input, ...args);
 };
-export async function* listLaunchPathsPaginate(
+export async function* paginateListLaunchPaths(
   config: ServiceCatalogPaginationConfiguration,
   input: ListLaunchPathsCommandInput,
   ...additionalArguments: any

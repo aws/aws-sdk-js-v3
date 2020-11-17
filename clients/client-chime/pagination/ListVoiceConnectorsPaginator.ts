@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVoiceConnectors(input, ...args);
 };
-export async function* listVoiceConnectorsPaginate(
+export async function* paginateListVoiceConnectors(
   config: ChimePaginationConfiguration,
   input: ListVoiceConnectorsCommandInput,
   ...additionalArguments: any

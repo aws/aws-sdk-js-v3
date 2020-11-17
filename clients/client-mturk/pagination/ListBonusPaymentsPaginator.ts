@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBonusPayments(input, ...args);
 };
-export async function* listBonusPaymentsPaginate(
+export async function* paginateListBonusPayments(
   config: MTurkPaginationConfiguration,
   input: ListBonusPaymentsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeJobQueues(input, ...args);
 };
-export async function* describeJobQueuesPaginate(
+export async function* paginateDescribeJobQueues(
   config: BatchPaginationConfiguration,
   input: DescribeJobQueuesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReservations(input, ...args);
 };
-export async function* listReservationsPaginate(
+export async function* paginateListReservations(
   config: MediaLivePaginationConfiguration,
   input: ListReservationsCommandInput,
   ...additionalArguments: any

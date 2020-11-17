@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoleAliases(input, ...args);
 };
-export async function* listRoleAliasesPaginate(
+export async function* paginateListRoleAliases(
   config: IoTPaginationConfiguration,
   input: ListRoleAliasesCommandInput,
   ...additionalArguments: any

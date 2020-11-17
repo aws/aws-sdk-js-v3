@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResourceConfigHistory(input, ...args);
 };
-export async function* getResourceConfigHistoryPaginate(
+export async function* paginateGetResourceConfigHistory(
   config: ConfigServicePaginationConfiguration,
   input: GetResourceConfigHistoryCommandInput,
   ...additionalArguments: any

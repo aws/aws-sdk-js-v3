@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImportSnapshotTasks(input, ...args);
 };
-export async function* describeImportSnapshotTasksPaginate(
+export async function* paginateDescribeImportSnapshotTasks(
   config: EC2PaginationConfiguration,
   input: DescribeImportSnapshotTasksCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUserHierarchyGroups(input, ...args);
 };
-export async function* listUserHierarchyGroupsPaginate(
+export async function* paginateListUserHierarchyGroups(
   config: ConnectPaginationConfiguration,
   input: ListUserHierarchyGroupsCommandInput,
   ...additionalArguments: any

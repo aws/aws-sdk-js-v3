@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOpenWorkflowExecutions(input, ...args);
 };
-export async function* listOpenWorkflowExecutionsPaginate(
+export async function* paginateListOpenWorkflowExecutions(
   config: SWFPaginationConfiguration,
   input: ListOpenWorkflowExecutionsCommandInput,
   ...additionalArguments: any

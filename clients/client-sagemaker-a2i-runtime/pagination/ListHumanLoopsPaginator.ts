@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHumanLoops(input, ...args);
 };
-export async function* listHumanLoopsPaginate(
+export async function* paginateListHumanLoops(
   config: SageMakerA2IRuntimePaginationConfiguration,
   input: ListHumanLoopsCommandInput,
   ...additionalArguments: any

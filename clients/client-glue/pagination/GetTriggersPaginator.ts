@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTriggers(input, ...args);
 };
-export async function* getTriggersPaginate(
+export async function* paginateGetTriggers(
   config: GluePaginationConfiguration,
   input: GetTriggersCommandInput,
   ...additionalArguments: any

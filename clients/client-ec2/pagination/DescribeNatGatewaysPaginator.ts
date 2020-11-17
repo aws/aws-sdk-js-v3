@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeNatGateways(input, ...args);
 };
-export async function* describeNatGatewaysPaginate(
+export async function* paginateDescribeNatGateways(
   config: EC2PaginationConfiguration,
   input: DescribeNatGatewaysCommandInput,
   ...additionalArguments: any

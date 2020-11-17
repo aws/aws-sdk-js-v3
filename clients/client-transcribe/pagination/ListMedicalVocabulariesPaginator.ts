@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMedicalVocabularies(input, ...args);
 };
-export async function* listMedicalVocabulariesPaginate(
+export async function* paginateListMedicalVocabularies(
   config: TranscribePaginationConfiguration,
   input: ListMedicalVocabulariesCommandInput,
   ...additionalArguments: any

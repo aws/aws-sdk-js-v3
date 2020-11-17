@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDataRepositoryTasks(input, ...args);
 };
-export async function* describeDataRepositoryTasksPaginate(
+export async function* paginateDescribeDataRepositoryTasks(
   config: FSxPaginationConfiguration,
   input: DescribeDataRepositoryTasksCommandInput,
   ...additionalArguments: any

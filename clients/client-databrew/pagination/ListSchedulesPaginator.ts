@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSchedules(input, ...args);
 };
-export async function* listSchedulesPaginate(
+export async function* paginateListSchedules(
   config: DataBrewPaginationConfiguration,
   input: ListSchedulesCommandInput,
   ...additionalArguments: any

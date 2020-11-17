@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccounts(input, ...args);
 };
-export async function* listAccountsPaginate(
+export async function* paginateListAccounts(
   config: SSOPaginationConfiguration,
   input: ListAccountsCommandInput,
   ...additionalArguments: any

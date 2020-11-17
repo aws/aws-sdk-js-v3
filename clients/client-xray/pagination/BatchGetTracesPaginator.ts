@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.batchGetTraces(input, ...args);
 };
-export async function* batchGetTracesPaginate(
+export async function* paginateBatchGetTraces(
   config: XRayPaginationConfiguration,
   input: BatchGetTracesCommandInput,
   ...additionalArguments: any

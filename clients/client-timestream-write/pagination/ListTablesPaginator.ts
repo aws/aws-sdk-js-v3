@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTables(input, ...args);
 };
-export async function* listTablesPaginate(
+export async function* paginateListTables(
   config: TimestreamWritePaginationConfiguration,
   input: ListTablesCommandInput,
   ...additionalArguments: any

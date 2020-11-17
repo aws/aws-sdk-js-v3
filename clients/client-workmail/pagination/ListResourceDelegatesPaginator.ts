@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourceDelegates(input, ...args);
 };
-export async function* listResourceDelegatesPaginate(
+export async function* paginateListResourceDelegates(
   config: WorkMailPaginationConfiguration,
   input: ListResourceDelegatesCommandInput,
   ...additionalArguments: any

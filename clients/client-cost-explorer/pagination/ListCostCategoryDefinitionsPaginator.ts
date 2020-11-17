@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCostCategoryDefinitions(input, ...args);
 };
-export async function* listCostCategoryDefinitionsPaginate(
+export async function* paginateListCostCategoryDefinitions(
   config: CostExplorerPaginationConfiguration,
   input: ListCostCategoryDefinitionsCommandInput,
   ...additionalArguments: any
