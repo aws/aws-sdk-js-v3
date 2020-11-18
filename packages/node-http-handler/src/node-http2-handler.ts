@@ -9,7 +9,7 @@ import { writeRequestBody } from "./write-request-body";
 /**
  * Represents the http2 options that can be passed to a node http2 client.
  */
-export interface NodeHttp2Options {
+export interface NodeHttp2HandlerOptions {
   /**
    * The maximum time in milliseconds that a stream may remain idle before it
    * is closed.
@@ -28,7 +28,7 @@ export class NodeHttp2Handler implements HttpHandler {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
   public readonly metadata = { handlerProtocol: "h2" };
 
-  constructor(private readonly http2Options: NodeHttp2Options = {}) {
+  constructor(private readonly http2Options: NodeHttp2HandlerOptions = {}) {
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 

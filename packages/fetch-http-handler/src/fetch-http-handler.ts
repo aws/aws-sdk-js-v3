@@ -9,7 +9,7 @@ declare let AbortController: any;
 /**
  * Represents the http options that can be passed to a browser http client.
  */
-export interface BrowserHttpOptions {
+export interface FetchHttpHandlerOptions {
   /**
    * The number of milliseconds a request can take before being automatically
    * terminated.
@@ -18,7 +18,7 @@ export interface BrowserHttpOptions {
 }
 
 export class FetchHttpHandler implements HttpHandler {
-  constructor(private readonly httpOptions: BrowserHttpOptions = {}) {}
+  constructor(private readonly httpOptions: FetchHttpHandlerOptions = {}) {}
 
   destroy(): void {
     // Do nothing. TLS and HTTP/2 connection pooling is handled by the
