@@ -3,7 +3,7 @@
   "description": "AWS SDK for JavaScript S3outposts Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.6",
   "scripts": {
-    "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-documentation",
+    "clean": "npm run remove-definitions && npm run remove-dist",
     "build-documentation": "npm run clean && typedoc ./",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build:cjs",
@@ -63,7 +63,7 @@
     "@types/node": "^12.7.5",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.17.8",
     "typescript": "~4.0.2"
   },
   "engines": {
