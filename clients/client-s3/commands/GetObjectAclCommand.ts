@@ -21,33 +21,6 @@ import {
 export type GetObjectAclCommandInput = GetObjectAclRequest;
 export type GetObjectAclCommandOutput = GetObjectAclOutput & __MetadataBearer;
 
-/**
- * <p>Returns the access control list (ACL) of an object. To use this operation, you must have READ_ACP access to the object.</p>
- *
- *          <p>
- *             <b>Versioning</b>
- *          </p>
- *          <p>By default, GET returns ACL information about the current version of an object. To return ACL information about a different version, use the versionId subresource.</p>
- *
- *          <p>The following operations are related to <code>GetObjectAcl</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>PutObject</a>
- *                </p>
- *             </li>
- *          </ul>
- */
 export class GetObjectAclCommand extends $Command<
   GetObjectAclCommandInput,
   GetObjectAclCommandOutput,
@@ -62,9 +35,6 @@ export class GetObjectAclCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

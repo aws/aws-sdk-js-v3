@@ -21,10 +21,6 @@ import {
 export type GetObjectLegalHoldCommandInput = GetObjectLegalHoldRequest;
 export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput & __MetadataBearer;
 
-/**
- * <p>Gets an object's current Legal Hold
- *        status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
- */
 export class GetObjectLegalHoldCommand extends $Command<
   GetObjectLegalHoldCommandInput,
   GetObjectLegalHoldCommandOutput,
@@ -39,9 +35,6 @@ export class GetObjectLegalHoldCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

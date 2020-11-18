@@ -21,29 +21,6 @@ import {
 export type DeleteBucketCorsCommandInput = DeleteBucketCorsRequest;
 export type DeleteBucketCorsCommandOutput = __MetadataBearer;
 
-/**
- * <p>Deletes the <code>cors</code> configuration information set for the bucket.</p>
- *          <p>To use this operation, you must have permission to perform the <code>s3:PutBucketCORS</code> action.
- *         The bucket owner has this permission by default and can grant this permission to others. </p>
- *          <p>For information about <code>cors</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
- *             Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
- *
- *          <p class="title">
- *             <b>Related Resources:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *
- *             </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RESTOPTIONSobject</a>
- *                </p>
- *             </li>
- *          </ul>
- */
 export class DeleteBucketCorsCommand extends $Command<
   DeleteBucketCorsCommandInput,
   DeleteBucketCorsCommandOutput,
@@ -58,9 +35,6 @@ export class DeleteBucketCorsCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

@@ -21,22 +21,6 @@ import {
 export type GetBucketAclCommandInput = GetBucketAclRequest;
 export type GetBucketAclCommandOutput = GetBucketAclOutput & __MetadataBearer;
 
-/**
- * <p>This implementation of the <code>GET</code> operation uses the <code>acl</code> subresource to return the access control list (ACL) of a bucket.
- *         To use <code>GET</code> to return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If <code>READ_ACP</code>
- *         permission is granted to the anonymous user, you can return the ACL of the bucket without using an authorization header.</p>
- *
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *
- *             </p>
- *             </li>
- *          </ul>
- */
 export class GetBucketAclCommand extends $Command<
   GetBucketAclCommandInput,
   GetBucketAclCommandOutput,
@@ -51,9 +35,6 @@ export class GetBucketAclCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

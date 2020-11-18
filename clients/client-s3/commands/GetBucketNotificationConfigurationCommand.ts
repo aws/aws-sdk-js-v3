@@ -21,23 +21,6 @@ import {
 export type GetBucketNotificationConfigurationCommandInput = GetBucketNotificationConfigurationRequest;
 export type GetBucketNotificationConfigurationCommandOutput = NotificationConfiguration & __MetadataBearer;
 
-/**
- * <p>Returns the notification configuration of a bucket.</p>
- *          <p>If notifications are not enabled on the bucket, the operation returns an empty <code>NotificationConfiguration</code> element.</p>
- *
- *          <p>By default, you must be the bucket owner to read the notification configuration of a bucket. However, the bucket owner can use a bucket policy to grant permission to other users to read this configuration with the <code>s3:GetBucketNotification</code> permission.</p>
- *
- *          <p>For more information about setting and reading the notification configuration on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Setting Up Notification of Bucket Events</a>. For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies</a>.</p>
- *
- *          <p>The following operation is related to <code>GetBucketNotification</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>PutBucketNotification</a>
- *                </p>
- *             </li>
- *          </ul>
- */
 export class GetBucketNotificationConfigurationCommand extends $Command<
   GetBucketNotificationConfigurationCommandInput,
   GetBucketNotificationConfigurationCommandOutput,
@@ -52,9 +35,6 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

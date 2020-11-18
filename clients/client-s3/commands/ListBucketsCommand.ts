@@ -20,9 +20,6 @@ import {
 export type ListBucketsCommandInput = {};
 export type ListBucketsCommandOutput = ListBucketsOutput & __MetadataBearer;
 
-/**
- * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
- */
 export class ListBucketsCommand extends $Command<
   ListBucketsCommandInput,
   ListBucketsCommandOutput,
@@ -37,9 +34,6 @@ export class ListBucketsCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

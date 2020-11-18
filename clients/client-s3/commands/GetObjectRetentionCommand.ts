@@ -21,9 +21,6 @@ import {
 export type GetObjectRetentionCommandInput = GetObjectRetentionRequest;
 export type GetObjectRetentionCommandOutput = GetObjectRetentionOutput & __MetadataBearer;
 
-/**
- * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
- */
 export class GetObjectRetentionCommand extends $Command<
   GetObjectRetentionCommandInput,
   GetObjectRetentionCommandOutput,
@@ -38,9 +35,6 @@ export class GetObjectRetentionCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

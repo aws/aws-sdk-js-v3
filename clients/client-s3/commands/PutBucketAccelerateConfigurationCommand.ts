@@ -21,44 +21,6 @@ import {
 export type PutBucketAccelerateConfigurationCommandInput = PutBucketAccelerateConfigurationRequest;
 export type PutBucketAccelerateConfigurationCommandOutput = __MetadataBearer;
 
-/**
- * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
- *
- *          <p> To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
- *
- *          <p> The Transfer Acceleration state of a bucket can be set to one of the following two values:</p>
- *          <ul>
- *             <li>
- *                <p> Enabled – Enables accelerated data transfers to the bucket.</p>
- *             </li>
- *             <li>
- *                <p>  Suspended – Disables accelerated data transfers to the bucket.</p>
- *             </li>
- *          </ul>
- *
- *
- *          <p>The <a>GetBucketAccelerateConfiguration</a> operation returns the transfer acceleration state of a bucket.</p>
- *
- *          <p>After setting the Transfer Acceleration state of a bucket to Enabled, it might take up to thirty minutes before the data transfer rates to the bucket increase.</p>
- *
- *          <p> The name of the bucket used for Transfer Acceleration must be DNS-compliant and must not contain periods (".").</p>
- *
- *          <p> For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
- *
- *          <p>The following operations are related to <code>PutBucketAccelerateConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetBucketAccelerateConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateBucket</a>
- *                </p>
- *             </li>
- *          </ul>
- */
 export class PutBucketAccelerateConfigurationCommand extends $Command<
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput,
@@ -73,9 +35,6 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
-  /**
-   * @internal
-   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
