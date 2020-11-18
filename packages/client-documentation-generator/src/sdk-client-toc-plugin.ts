@@ -4,11 +4,14 @@ import { Component, RendererComponent } from "typedoc/dist/lib/output/components
 import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
 
+/**
+ * Group the ToC for easier observability.
+ */
 @Component({ name: "SdkClientTocPlugin" })
 export class SdkClientTocPlugin extends RendererComponent {
-  private commandToNavigationItems: Map<string, NavigationItem> = new Map();
   private commandsNavigationItem?: NavigationItem;
-  private exceptionsNavigationItem?: NavigationItem;
+  private clientsNavigationItem?: NavigationItem;
+  private paginatorsNavigationItem?: NavigationItem;
 
   initialize() {
     // disable existing toc plugin
@@ -40,36 +43,43 @@ export class SdkClientTocPlugin extends RendererComponent {
     page.toc = new NavigationItem(model.name);
 
     if (!model.parent && !trail.length) {
+      this.clientsNavigationItem = new NavigationItem("Clients", void 0, page.toc);
       this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
-      this.exceptionsNavigationItem = new NavigationItem("Exceptions", void 0, page.toc);
+      this.paginatorsNavigationItem = new NavigationItem("Paginators", void 0, page.toc);
     }
 
     this.buildToc(model, trail, page.toc, tocRestriction);
   }
 
-  private isCommand({ implementedTypes = [] }: DeclarationReflection): boolean {
+  private isClient(model: DeclarationReflection): boolean {
+    const { extendedTypes = [] } = model;
     return (
-      implementedTypes.length === 1 &&
-      implementedTypes[0].type === "reference" &&
-      (implementedTypes[0] as ReferenceType).name === "Command"
+      model.kindOf(ReflectionKind.Class) &&
+      model.getFullName() !== "Client" && // Exclude the Smithy Client class.
+      (model.name.endsWith("Client") /* Modular client like S3Client */ ||
+        (extendedTypes.length === 1 &&
+          (extendedTypes[0] as ReferenceType).name.endsWith("Client"))) /* Legacy client like S3 */
     );
   }
 
-  private isException(model: DeclarationReflection): boolean {
-    const extendedTypes = model.extendedTypes || [];
+  private isCommand(model: DeclarationReflection): boolean {
     return (
-      extendedTypes.length === 1 &&
-      extendedTypes[0].type === "reference" &&
-      (extendedTypes[0] as ReferenceType).name === "ServiceException"
+      model.kindOf(ReflectionKind.Class) &&
+      model.getFullName() !== "Command" && // Exclude the Smithy Command class.
+      model.name.endsWith("Command") &&
+      model.children?.some((child) => child.name === "resolveMiddleware")
     );
   }
 
-  private isUnion(model: DeclarationReflection): boolean {
-    return model.type?.type === "union";
+  private isPaginator(model: DeclarationReflection): boolean {
+    return model.name.startsWith("paginate") && model.kindOf(ReflectionKind.Function);
   }
 
   private isInputOrOutput(model: DeclarationReflection): boolean {
-    return model.kindString === "Interface" && (model.name.endsWith("Input") || model.name.endsWith("Output"));
+    return (
+      model.kindOf(ReflectionKind.TypeAlias) &&
+      (model.name.endsWith("CommandInput") || model.name.endsWith("CommandOutput"))
+    );
   }
 
   /**
@@ -92,7 +102,7 @@ export class SdkClientTocPlugin extends RendererComponent {
       this.buildToc(child, trail, item);
     } else {
       children.forEach((child: DeclarationReflection) => {
-        if (restriction && restriction.length > 0 && restriction.indexOf(child.name) === -1) {
+        if (restriction && restriction.length > 0 && !restriction.includes(child.name)) {
           return;
         }
 
@@ -100,49 +110,25 @@ export class SdkClientTocPlugin extends RendererComponent {
           return;
         }
 
-        if (trail.length) {
-          const item = NavigationItem.create(child, parent, true);
-          if (trail.indexOf(child) !== -1) {
-            item.isInPath = true;
-            item.isCurrent = trail[trail.length - 1] === child;
-            this.buildToc(child, trail, item);
-          }
-          return;
-        }
-
-        if (this.isCommand(child)) {
-          const item = NavigationItem.create(child, this.commandsNavigationItem, true);
-          // create an entry for the command
-          const commandName = child.name.toLowerCase();
-          if (!this.commandToNavigationItems.get(commandName)) {
-            this.commandToNavigationItems.set(commandName, item);
-          }
-        } else if (this.isException(child)) {
-          NavigationItem.create(child, this.exceptionsNavigationItem, true);
-        } else if (
-          this.isUnion(child) &&
-          (child as any).type.types.every((type: ReferenceType) => {
-            return type.reflection && this.isException(type.reflection as DeclarationReflection);
-          })
-        ) {
-          // get command from name
-          const commandName = child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
-          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
+        if (this.isClient(child)) {
+          NavigationItem.create(child, this.clientsNavigationItem, true);
+        } else if (this.isCommand(child)) {
+          NavigationItem.create(child, this.commandsNavigationItem, true);
+        } else if (this.isPaginator(child)) {
+          NavigationItem.create(child, this.paginatorsNavigationItem, true);
         } else if (this.isInputOrOutput(child)) {
-          // get command from name
-          const commandName = child.name.replace(/Input|Output/, "").toLowerCase() + "command";
-          NavigationItem.create(child, this.commandToNavigationItems.get(commandName), true);
-        } else if (child.name.startsWith("_")) {
-          return;
+          NavigationItem.create(child, this.commandsNavigationItem, true);
         } else {
           const item = NavigationItem.create(child, parent, true);
-          if (trail.indexOf(child) !== -1) {
+          if (trail.includes(child)) {
             item.isInPath = true;
             item.isCurrent = trail[trail.length - 1] === child;
             this.buildToc(child, trail, item);
           }
         }
       });
+      // Group commands and input/output interface of each command.
+      this.commandsNavigationItem?.children.sort((childA, childB) => childA.title.localeCompare(childB.title));
     }
   }
 }

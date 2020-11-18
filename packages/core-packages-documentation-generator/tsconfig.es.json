@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "lib": ["es2015"],
+    "rootDir": "./src",
+    "outDir": "./dist/es",
+    "experimentalDecorators": true,
+    "pretty": true,
+    "baseUrl": "."
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
+}
