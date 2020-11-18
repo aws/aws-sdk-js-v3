@@ -1,19 +1,20 @@
-import { sep } from "path";
+import { isAbsolute, join, relative, resolve, sep } from "path";
 import { BindOption } from "typedoc";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import { PageEvent } from "typedoc/dist/lib/output/events";
 
+const PROJECT_ROOT = join(__dirname, "..", "..", "..", "..");
 @Component({ name: "SdkIndexLinkClientPlugin" })
 export class SdkIndexLinkClientPlugin extends RendererComponent {
   @BindOption("out")
-  out!: string;
+  readonly out!: string;
   /**
    * The path pattern denotes the location of individual service client doc.
    * "{{CLIENT}}" will be replaced with the client name.
-   * For example: `path/{{CLIENT}}/docs`
+   * For example: `path/{{CLIENT}}/docs` will target s3 docs at `path/client-s3/docs`
    */
-  @BindOption("clientsDocPath")
-  clientsDocPath!: string;
+  @BindOption("clientDocs")
+  readonly clientDocs!: string;
 
   initialize() {
     this.listenTo(this.owner, {
@@ -22,7 +23,10 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
   }
 
   onPageBegin(page: PageEvent) {
-    const prefix = new Array(this.out.split(sep).length).fill("..").join(sep);
+    const out = isAbsolute(this.out) ? this.out : resolve(PROJECT_ROOT, this.out);
+    const clientDocs = isAbsolute(this.clientDocs) ? this.clientDocs : resolve(PROJECT_ROOT, this.clientDocs);
+    // Get relative path from core packages doc to clients' doc
+    const clientDocsPattern = relative(out, clientDocs);
     if (page.model === page.project) {
       // Entry point index.html and global.html page.
       page.project.children
@@ -30,8 +34,8 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
         .forEach((child) => {
           // "clients/client-s3" => "client-s3"
           const clientName = child.sources[0].fileName.split(sep)[1];
-          const clientDocDir = this.clientsDocPath.replace(/{{CLIENT}}/g, clientName);
-          child.url = [prefix, clientDocDir, "index.html"].join(sep);
+          const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
+          child.url = join(clientDocDir, "index.html");
           //@ts-ignore attach temporary flag
           child._skipRendering = true;
         });
