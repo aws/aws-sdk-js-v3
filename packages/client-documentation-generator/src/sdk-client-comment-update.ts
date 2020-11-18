@@ -25,7 +25,7 @@ export class SdkClientCommentUpdatePlugin extends ConverterComponent {
   }
 
   /**
-   * Update documentation block to exclude empty lines
+   * Update documentation block to exclude empty lines.
    */
   private cleanEmptyCommentLines(comment: string): string {
     return comment.startsWith("/*") && comment.endsWith("*/")

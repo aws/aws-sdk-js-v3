@@ -33,7 +33,7 @@
     "out": "docs",
     "exclude": ["**/node_modules/**", "**/*.spec.ts"],
     "excludeExternals": true,
-    "name": "AWS SDK v3",
+    "name": "AWS SDK for JavaScript v3",
     "ignoreCompilerErrors": true,
     "theme": "minimal",
     "hideGenerator": true,

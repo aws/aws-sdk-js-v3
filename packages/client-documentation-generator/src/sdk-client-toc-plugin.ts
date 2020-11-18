@@ -5,7 +5,7 @@ import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
 
 /**
- * Group the ToC for easier observability
+ * Group the ToC for easier observability.
  */
 @Component({ name: "SdkClientTocPlugin" })
 export class SdkClientTocPlugin extends RendererComponent {
@@ -55,7 +55,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     const { extendedTypes = [] } = model;
     return (
       model.kindOf(ReflectionKind.Class) &&
-      model.getFullName() !== "Client" && // Exclude the Smithy Client class
+      model.getFullName() !== "Client" && // Exclude the Smithy Client class.
       (model.name.endsWith("Client") /* Modular client like S3Client */ ||
         (extendedTypes.length === 1 &&
           (extendedTypes[0] as ReferenceType).name.endsWith("Client"))) /* Legacy client like S3 */
@@ -65,7 +65,7 @@ export class SdkClientTocPlugin extends RendererComponent {
   private isCommand(model: DeclarationReflection): boolean {
     return (
       model.kindOf(ReflectionKind.Class) &&
-      model.getFullName() !== "Command" && // Exclude the Smithy Command class
+      model.getFullName() !== "Command" && // Exclude the Smithy Command class.
       model.name.endsWith("Command") &&
       model.children?.some((child) => child.name === "resolveMiddleware")
     );
@@ -127,7 +127,7 @@ export class SdkClientTocPlugin extends RendererComponent {
           }
         }
       });
-      // Group commands and input/output interface of each command
+      // Group commands and input/output interface of each command.
       this.commandsNavigationItem?.children.sort((childA, childB) => childA.title.localeCompare(childB.title));
     }
   }

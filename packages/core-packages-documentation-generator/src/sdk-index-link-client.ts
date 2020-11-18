@@ -25,7 +25,8 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
   onPageBegin(page: PageEvent) {
     const out = isAbsolute(this.out) ? this.out : resolve(PROJECT_ROOT, this.out);
     const clientDocs = isAbsolute(this.clientDocs) ? this.clientDocs : resolve(PROJECT_ROOT, this.clientDocs);
-    // Get relative path from core packages doc to clients' doc
+
+    // Get relative path from core packages doc to clients' doc.
     const clientDocsPattern = relative(out, clientDocs);
     if (page.model === page.project) {
       // Entry point index.html and global.html page.
@@ -36,11 +37,12 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
           const clientName = child.sources[0].fileName.split(sep)[1];
           const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
           child.url = join(clientDocDir, "index.html");
-          //@ts-ignore attach temporary flag
+          // @ts-ignore attach temporary flag.
           child._skipRendering = true;
         });
     }
-    // Skip rendering empty landing page for each client
+
+    // Skip rendering empty landing page for each client.
     if (page.model._skipRendering) {
       page.preventDefault();
     }

@@ -3,7 +3,7 @@ import { Component, RendererComponent } from "typedoc/dist/lib/output/components
 import { RendererEvent } from "typedoc/dist/lib/output/events";
 
 /**
- * Correct the package name in the navigator
+ * Correct the package name in the navigator.
  */
 @Component({ name: "SdkClientRenameProject" })
 export class SdkClientRenameProjectPlugin extends RendererComponent {

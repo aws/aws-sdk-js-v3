@@ -3,12 +3,12 @@ import { ParameterType, PluginHost } from "typedoc/dist/lib/utils";
 import { SdkIndexLinkClientPlugin } from "./sdk-index-link-client";
 
 /**
- *
  * @param pluginHost An instance of PluginHost.
  */
 module.exports = function load(pluginHost: PluginHost) {
   const application = pluginHost.owner;
-  // Core packages doc generator plugins
+
+  // Core packages doc generator plugins.
   application.options.addDeclaration({
     name: "clientDocs",
     help:
