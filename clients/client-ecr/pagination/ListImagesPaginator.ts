@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listImages(input, ...args);
 };
-export async function* listImagesPaginate(
+export async function* paginateListImages(
   config: ECRPaginationConfiguration,
   input: ListImagesCommandInput,
   ...additionalArguments: any

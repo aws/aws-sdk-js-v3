@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTraceSummaries(input, ...args);
 };
-export async function* getTraceSummariesPaginate(
+export async function* paginateGetTraceSummaries(
   config: XRayPaginationConfiguration,
   input: GetTraceSummariesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDhcpOptions(input, ...args);
 };
-export async function* describeDhcpOptionsPaginate(
+export async function* paginateDescribeDhcpOptions(
   config: EC2PaginationConfiguration,
   input: DescribeDhcpOptionsCommandInput,
   ...additionalArguments: any

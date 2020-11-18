@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEventSubscriptions(input, ...args);
 };
-export async function* describeEventSubscriptionsPaginate(
+export async function* paginateDescribeEventSubscriptions(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeEventSubscriptionsCommandInput,
   ...additionalArguments: any

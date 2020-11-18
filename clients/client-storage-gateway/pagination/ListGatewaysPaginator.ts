@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGateways(input, ...args);
 };
-export async function* listGatewaysPaginate(
+export async function* paginateListGateways(
   config: StorageGatewayPaginationConfiguration,
   input: ListGatewaysCommandInput,
   ...additionalArguments: any

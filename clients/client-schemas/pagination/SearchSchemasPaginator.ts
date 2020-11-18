@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchSchemas(input, ...args);
 };
-export async function* searchSchemasPaginate(
+export async function* paginateSearchSchemas(
   config: SchemasPaginationConfiguration,
   input: SearchSchemasCommandInput,
   ...additionalArguments: any

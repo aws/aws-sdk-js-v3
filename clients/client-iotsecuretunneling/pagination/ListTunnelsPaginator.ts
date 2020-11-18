@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTunnels(input, ...args);
 };
-export async function* listTunnelsPaginate(
+export async function* paginateListTunnels(
   config: IoTSecureTunnelingPaginationConfiguration,
   input: ListTunnelsCommandInput,
   ...additionalArguments: any

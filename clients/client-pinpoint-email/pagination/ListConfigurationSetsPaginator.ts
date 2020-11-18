@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConfigurationSets(input, ...args);
 };
-export async function* listConfigurationSetsPaginate(
+export async function* paginateListConfigurationSets(
   config: PinpointEmailPaginationConfiguration,
   input: ListConfigurationSetsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSharedProjects(input, ...args);
 };
-export async function* listSharedProjectsPaginate(
+export async function* paginateListSharedProjects(
   config: CodeBuildPaginationConfiguration,
   input: ListSharedProjectsCommandInput,
   ...additionalArguments: any

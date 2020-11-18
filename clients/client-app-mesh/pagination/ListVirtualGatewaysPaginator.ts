@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVirtualGateways(input, ...args);
 };
-export async function* listVirtualGatewaysPaginate(
+export async function* paginateListVirtualGateways(
   config: AppMeshPaginationConfiguration,
   input: ListVirtualGatewaysCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEnvironments(input, ...args);
 };
-export async function* listEnvironmentsPaginate(
+export async function* paginateListEnvironments(
   config: AppConfigPaginationConfiguration,
   input: ListEnvironmentsCommandInput,
   ...additionalArguments: any

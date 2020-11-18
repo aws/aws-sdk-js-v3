@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDomainControllers(input, ...args);
 };
-export async function* describeDomainControllersPaginate(
+export async function* paginateDescribeDomainControllers(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeDomainControllersCommandInput,
   ...additionalArguments: any

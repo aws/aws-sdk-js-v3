@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTestGridSessionArtifacts(input, ...args);
 };
-export async function* listTestGridSessionArtifactsPaginate(
+export async function* paginateListTestGridSessionArtifacts(
   config: DeviceFarmPaginationConfiguration,
   input: ListTestGridSessionArtifactsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePublicIpv4Pools(input, ...args);
 };
-export async function* describePublicIpv4PoolsPaginate(
+export async function* paginateDescribePublicIpv4Pools(
   config: EC2PaginationConfiguration,
   input: DescribePublicIpv4PoolsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClusterSecurityGroups(input, ...args);
 };
-export async function* describeClusterSecurityGroupsPaginate(
+export async function* paginateDescribeClusterSecurityGroups(
   config: RedshiftPaginationConfiguration,
   input: DescribeClusterSecurityGroupsCommandInput,
   ...additionalArguments: any

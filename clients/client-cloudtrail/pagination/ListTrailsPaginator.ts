@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTrails(input, ...args);
 };
-export async function* listTrailsPaginate(
+export async function* paginateListTrails(
   config: CloudTrailPaginationConfiguration,
   input: ListTrailsCommandInput,
   ...additionalArguments: any

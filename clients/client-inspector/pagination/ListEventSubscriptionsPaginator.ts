@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEventSubscriptions(input, ...args);
 };
-export async function* listEventSubscriptionsPaginate(
+export async function* paginateListEventSubscriptions(
   config: InspectorPaginationConfiguration,
   input: ListEventSubscriptionsCommandInput,
   ...additionalArguments: any

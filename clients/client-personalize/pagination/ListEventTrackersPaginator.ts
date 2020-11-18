@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEventTrackers(input, ...args);
 };
-export async function* listEventTrackersPaginate(
+export async function* paginateListEventTrackers(
   config: PersonalizePaginationConfiguration,
   input: ListEventTrackersCommandInput,
   ...additionalArguments: any

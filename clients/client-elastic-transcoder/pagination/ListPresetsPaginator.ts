@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPresets(input, ...args);
 };
-export async function* listPresetsPaginate(
+export async function* paginateListPresets(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListPresetsCommandInput,
   ...additionalArguments: any

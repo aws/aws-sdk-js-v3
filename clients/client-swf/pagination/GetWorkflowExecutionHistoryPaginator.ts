@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getWorkflowExecutionHistory(input, ...args);
 };
-export async function* getWorkflowExecutionHistoryPaginate(
+export async function* paginateGetWorkflowExecutionHistory(
   config: SWFPaginationConfiguration,
   input: GetWorkflowExecutionHistoryCommandInput,
   ...additionalArguments: any

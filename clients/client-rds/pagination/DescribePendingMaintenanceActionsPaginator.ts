@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePendingMaintenanceActions(input, ...args);
 };
-export async function* describePendingMaintenanceActionsPaginate(
+export async function* paginateDescribePendingMaintenanceActions(
   config: RDSPaginationConfiguration,
   input: DescribePendingMaintenanceActionsCommandInput,
   ...additionalArguments: any

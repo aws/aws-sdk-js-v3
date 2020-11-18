@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOfferingTransactions(input, ...args);
 };
-export async function* listOfferingTransactionsPaginate(
+export async function* paginateListOfferingTransactions(
   config: DeviceFarmPaginationConfiguration,
   input: ListOfferingTransactionsCommandInput,
   ...additionalArguments: any

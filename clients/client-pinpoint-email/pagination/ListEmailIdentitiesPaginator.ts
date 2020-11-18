@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEmailIdentities(input, ...args);
 };
-export async function* listEmailIdentitiesPaginate(
+export async function* paginateListEmailIdentities(
   config: PinpointEmailPaginationConfiguration,
   input: ListEmailIdentitiesCommandInput,
   ...additionalArguments: any

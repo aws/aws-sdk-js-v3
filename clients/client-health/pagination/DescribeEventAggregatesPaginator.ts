@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEventAggregates(input, ...args);
 };
-export async function* describeEventAggregatesPaginate(
+export async function* paginateDescribeEventAggregates(
   config: HealthPaginationConfiguration,
   input: DescribeEventAggregatesCommandInput,
   ...additionalArguments: any

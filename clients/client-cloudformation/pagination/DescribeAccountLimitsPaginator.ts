@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAccountLimits(input, ...args);
 };
-export async function* describeAccountLimitsPaginate(
+export async function* paginateDescribeAccountLimits(
   config: CloudFormationPaginationConfiguration,
   input: DescribeAccountLimitsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResourcePolicies(input, ...args);
 };
-export async function* getResourcePoliciesPaginate(
+export async function* paginateGetResourcePolicies(
   config: RAMPaginationConfiguration,
   input: GetResourcePoliciesCommandInput,
   ...additionalArguments: any

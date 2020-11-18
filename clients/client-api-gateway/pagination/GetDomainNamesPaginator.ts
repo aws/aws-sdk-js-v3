@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDomainNames(input, ...args);
 };
-export async function* getDomainNamesPaginate(
+export async function* paginateGetDomainNames(
   config: APIGatewayPaginationConfiguration,
   input: GetDomainNamesCommandInput,
   ...additionalArguments: any

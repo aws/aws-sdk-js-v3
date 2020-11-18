@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFileSystemAliases(input, ...args);
 };
-export async function* describeFileSystemAliasesPaginate(
+export async function* paginateDescribeFileSystemAliases(
   config: FSxPaginationConfiguration,
   input: DescribeFileSystemAliasesCommandInput,
   ...additionalArguments: any

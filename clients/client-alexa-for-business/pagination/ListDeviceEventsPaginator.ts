@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeviceEvents(input, ...args);
 };
-export async function* listDeviceEventsPaginate(
+export async function* paginateListDeviceEvents(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListDeviceEventsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOrganizations(input, ...args);
 };
-export async function* listOrganizationsPaginate(
+export async function* paginateListOrganizations(
   config: WorkMailPaginationConfiguration,
   input: ListOrganizationsCommandInput,
   ...additionalArguments: any

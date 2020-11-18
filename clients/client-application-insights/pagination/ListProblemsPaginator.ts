@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProblems(input, ...args);
 };
-export async function* listProblemsPaginate(
+export async function* paginateListProblems(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListProblemsCommandInput,
   ...additionalArguments: any

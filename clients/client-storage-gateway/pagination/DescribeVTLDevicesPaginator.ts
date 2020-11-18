@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVTLDevices(input, ...args);
 };
-export async function* describeVTLDevicesPaginate(
+export async function* paginateDescribeVTLDevices(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeVTLDevicesCommandInput,
   ...additionalArguments: any

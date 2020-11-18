@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFolderContents(input, ...args);
 };
-export async function* describeFolderContentsPaginate(
+export async function* paginateDescribeFolderContents(
   config: WorkDocsPaginationConfiguration,
   input: DescribeFolderContentsCommandInput,
   ...additionalArguments: any

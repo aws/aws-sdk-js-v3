@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTableStatistics(input, ...args);
 };
-export async function* describeTableStatisticsPaginate(
+export async function* paginateDescribeTableStatistics(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeTableStatisticsCommandInput,
   ...additionalArguments: any

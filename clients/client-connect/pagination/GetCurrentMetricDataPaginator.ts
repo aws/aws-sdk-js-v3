@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCurrentMetricData(input, ...args);
 };
-export async function* getCurrentMetricDataPaginate(
+export async function* paginateGetCurrentMetricData(
   config: ConnectPaginationConfiguration,
   input: GetCurrentMetricDataCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBudgetsForResource(input, ...args);
 };
-export async function* listBudgetsForResourcePaginate(
+export async function* paginateListBudgetsForResource(
   config: ServiceCatalogPaginationConfiguration,
   input: ListBudgetsForResourceCommandInput,
   ...additionalArguments: any

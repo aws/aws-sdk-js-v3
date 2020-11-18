@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPhoneNumbers(input, ...args);
 };
-export async function* listPhoneNumbersPaginate(
+export async function* paginateListPhoneNumbers(
   config: ConnectPaginationConfiguration,
   input: ListPhoneNumbersCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPortals(input, ...args);
 };
-export async function* listPortalsPaginate(
+export async function* paginateListPortals(
   config: IoTSiteWisePaginationConfiguration,
   input: ListPortalsCommandInput,
   ...additionalArguments: any

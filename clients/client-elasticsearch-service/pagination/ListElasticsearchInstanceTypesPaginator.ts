@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listElasticsearchInstanceTypes(input, ...args);
 };
-export async function* listElasticsearchInstanceTypesPaginate(
+export async function* paginateListElasticsearchInstanceTypes(
   config: ElasticsearchServicePaginationConfiguration,
   input: ListElasticsearchInstanceTypesCommandInput,
   ...additionalArguments: any

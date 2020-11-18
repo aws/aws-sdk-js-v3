@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSimulationJobs(input, ...args);
 };
-export async function* listSimulationJobsPaginate(
+export async function* paginateListSimulationJobs(
   config: RoboMakerPaginationConfiguration,
   input: ListSimulationJobsCommandInput,
   ...additionalArguments: any

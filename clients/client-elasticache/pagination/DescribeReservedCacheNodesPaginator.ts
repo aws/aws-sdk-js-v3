@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedCacheNodes(input, ...args);
 };
-export async function* describeReservedCacheNodesPaginate(
+export async function* paginateDescribeReservedCacheNodes(
   config: ElastiCachePaginationConfiguration,
   input: DescribeReservedCacheNodesCommandInput,
   ...additionalArguments: any

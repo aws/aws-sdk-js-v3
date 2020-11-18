@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeModelVersions(input, ...args);
 };
-export async function* describeModelVersionsPaginate(
+export async function* paginateDescribeModelVersions(
   config: FraudDetectorPaginationConfiguration,
   input: DescribeModelVersionsCommandInput,
   ...additionalArguments: any

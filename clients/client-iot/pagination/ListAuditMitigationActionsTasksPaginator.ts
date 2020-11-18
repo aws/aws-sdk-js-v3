@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAuditMitigationActionsTasks(input, ...args);
 };
-export async function* listAuditMitigationActionsTasksPaginate(
+export async function* paginateListAuditMitigationActionsTasks(
   config: IoTPaginationConfiguration,
   input: ListAuditMitigationActionsTasksCommandInput,
   ...additionalArguments: any

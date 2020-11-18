@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContainers(input, ...args);
 };
-export async function* listContainersPaginate(
+export async function* paginateListContainers(
   config: MediaStorePaginationConfiguration,
   input: ListContainersCommandInput,
   ...additionalArguments: any

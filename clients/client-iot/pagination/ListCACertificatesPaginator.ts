@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCACertificates(input, ...args);
 };
-export async function* listCACertificatesPaginate(
+export async function* paginateListCACertificates(
   config: IoTPaginationConfiguration,
   input: ListCACertificatesCommandInput,
   ...additionalArguments: any

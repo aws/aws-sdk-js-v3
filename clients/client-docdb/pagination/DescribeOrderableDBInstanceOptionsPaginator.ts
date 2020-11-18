@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeOrderableDBInstanceOptions(input, ...args);
 };
-export async function* describeOrderableDBInstanceOptionsPaginate(
+export async function* paginateDescribeOrderableDBInstanceOptions(
   config: DocDBPaginationConfiguration,
   input: DescribeOrderableDBInstanceOptionsCommandInput,
   ...additionalArguments: any

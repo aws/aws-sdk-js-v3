@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchResources(input, ...args);
 };
-export async function* searchResourcesPaginate(
+export async function* paginateSearchResources(
   config: ResourceGroupsPaginationConfiguration,
   input: SearchResourcesCommandInput,
   ...additionalArguments: any

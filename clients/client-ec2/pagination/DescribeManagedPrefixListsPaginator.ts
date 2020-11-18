@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeManagedPrefixLists(input, ...args);
 };
-export async function* describeManagedPrefixListsPaginate(
+export async function* paginateDescribeManagedPrefixLists(
   config: EC2PaginationConfiguration,
   input: DescribeManagedPrefixListsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntityRecognizers(input, ...args);
 };
-export async function* listEntityRecognizersPaginate(
+export async function* paginateListEntityRecognizers(
   config: ComprehendPaginationConfiguration,
   input: ListEntityRecognizersCommandInput,
   ...additionalArguments: any

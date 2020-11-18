@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttachedGroupPolicies(input, ...args);
 };
-export async function* listAttachedGroupPoliciesPaginate(
+export async function* paginateListAttachedGroupPolicies(
   config: IAMPaginationConfiguration,
   input: ListAttachedGroupPoliciesCommandInput,
   ...additionalArguments: any

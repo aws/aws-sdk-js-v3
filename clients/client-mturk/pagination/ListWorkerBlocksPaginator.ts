@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkerBlocks(input, ...args);
 };
-export async function* listWorkerBlocksPaginate(
+export async function* paginateListWorkerBlocks(
   config: MTurkPaginationConfiguration,
   input: ListWorkerBlocksCommandInput,
   ...additionalArguments: any

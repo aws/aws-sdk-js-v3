@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedElasticsearchInstances(input, ...args);
 };
-export async function* describeReservedElasticsearchInstancesPaginate(
+export async function* paginateDescribeReservedElasticsearchInstances(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeReservedElasticsearchInstancesCommandInput,
   ...additionalArguments: any

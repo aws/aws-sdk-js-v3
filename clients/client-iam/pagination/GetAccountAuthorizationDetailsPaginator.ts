@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAccountAuthorizationDetails(input, ...args);
 };
-export async function* getAccountAuthorizationDetailsPaginate(
+export async function* paginateGetAccountAuthorizationDetails(
   config: IAMPaginationConfiguration,
   input: GetAccountAuthorizationDetailsCommandInput,
   ...additionalArguments: any

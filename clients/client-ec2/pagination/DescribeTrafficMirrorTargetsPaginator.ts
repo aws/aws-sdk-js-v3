@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTrafficMirrorTargets(input, ...args);
 };
-export async function* describeTrafficMirrorTargetsPaginate(
+export async function* paginateDescribeTrafficMirrorTargets(
   config: EC2PaginationConfiguration,
   input: DescribeTrafficMirrorTargetsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAccessPoints(input, ...args);
 };
-export async function* describeAccessPointsPaginate(
+export async function* paginateDescribeAccessPoints(
   config: EFSPaginationConfiguration,
   input: DescribeAccessPointsCommandInput,
   ...additionalArguments: any

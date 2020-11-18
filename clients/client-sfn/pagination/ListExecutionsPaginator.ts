@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listExecutions(input, ...args);
 };
-export async function* listExecutionsPaginate(
+export async function* paginateListExecutions(
   config: SFNPaginationConfiguration,
   input: ListExecutionsCommandInput,
   ...additionalArguments: any

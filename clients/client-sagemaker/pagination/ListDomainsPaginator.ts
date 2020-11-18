@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDomains(input, ...args);
 };
-export async function* listDomainsPaginate(
+export async function* paginateListDomains(
   config: SageMakerPaginationConfiguration,
   input: ListDomainsCommandInput,
   ...additionalArguments: any

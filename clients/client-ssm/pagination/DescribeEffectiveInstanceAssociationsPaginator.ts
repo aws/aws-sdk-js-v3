@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEffectiveInstanceAssociations(input, ...args);
 };
-export async function* describeEffectiveInstanceAssociationsPaginate(
+export async function* paginateDescribeEffectiveInstanceAssociations(
   config: SSMPaginationConfiguration,
   input: DescribeEffectiveInstanceAssociationsCommandInput,
   ...additionalArguments: any

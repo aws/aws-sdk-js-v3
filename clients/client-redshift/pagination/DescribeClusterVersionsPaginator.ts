@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClusterVersions(input, ...args);
 };
-export async function* describeClusterVersionsPaginate(
+export async function* paginateDescribeClusterVersions(
   config: RedshiftPaginationConfiguration,
   input: DescribeClusterVersionsCommandInput,
   ...additionalArguments: any

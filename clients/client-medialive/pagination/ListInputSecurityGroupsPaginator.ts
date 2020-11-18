@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInputSecurityGroups(input, ...args);
 };
-export async function* listInputSecurityGroupsPaginate(
+export async function* paginateListInputSecurityGroups(
   config: MediaLivePaginationConfiguration,
   input: ListInputSecurityGroupsCommandInput,
   ...additionalArguments: any

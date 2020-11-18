@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCanaryRuns(input, ...args);
 };
-export async function* getCanaryRunsPaginate(
+export async function* paginateGetCanaryRuns(
   config: SyntheticsPaginationConfiguration,
   input: GetCanaryRunsCommandInput,
   ...additionalArguments: any

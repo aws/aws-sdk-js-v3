@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecurityProfiles(input, ...args);
 };
-export async function* listSecurityProfilesPaginate(
+export async function* paginateListSecurityProfiles(
   config: ConnectPaginationConfiguration,
   input: ListSecurityProfilesCommandInput,
   ...additionalArguments: any

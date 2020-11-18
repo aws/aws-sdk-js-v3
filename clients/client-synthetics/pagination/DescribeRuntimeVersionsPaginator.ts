@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeRuntimeVersions(input, ...args);
 };
-export async function* describeRuntimeVersionsPaginate(
+export async function* paginateDescribeRuntimeVersions(
   config: SyntheticsPaginationConfiguration,
   input: DescribeRuntimeVersionsCommandInput,
   ...additionalArguments: any

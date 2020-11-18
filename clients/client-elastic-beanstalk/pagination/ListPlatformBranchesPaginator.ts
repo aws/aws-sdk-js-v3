@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlatformBranches(input, ...args);
 };
-export async function* listPlatformBranchesPaginate(
+export async function* paginateListPlatformBranches(
   config: ElasticBeanstalkPaginationConfiguration,
   input: ListPlatformBranchesCommandInput,
   ...additionalArguments: any

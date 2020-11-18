@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMLModels(input, ...args);
 };
-export async function* describeMLModelsPaginate(
+export async function* paginateDescribeMLModels(
   config: MachineLearningPaginationConfiguration,
   input: DescribeMLModelsCommandInput,
   ...additionalArguments: any

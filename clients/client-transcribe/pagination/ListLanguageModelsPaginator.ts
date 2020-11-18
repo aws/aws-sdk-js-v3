@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLanguageModels(input, ...args);
 };
-export async function* listLanguageModelsPaginate(
+export async function* paginateListLanguageModels(
   config: TranscribePaginationConfiguration,
   input: ListLanguageModelsCommandInput,
   ...additionalArguments: any

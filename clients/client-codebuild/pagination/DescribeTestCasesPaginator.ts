@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTestCases(input, ...args);
 };
-export async function* describeTestCasesPaginate(
+export async function* paginateDescribeTestCases(
   config: CodeBuildPaginationConfiguration,
   input: DescribeTestCasesCommandInput,
   ...additionalArguments: any

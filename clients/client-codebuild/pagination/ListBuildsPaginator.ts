@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBuilds(input, ...args);
 };
-export async function* listBuildsPaginate(
+export async function* paginateListBuilds(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildsCommandInput,
   ...additionalArguments: any

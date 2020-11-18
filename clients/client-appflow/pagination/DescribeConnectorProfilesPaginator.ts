@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeConnectorProfiles(input, ...args);
 };
-export async function* describeConnectorProfilesPaginate(
+export async function* paginateDescribeConnectorProfiles(
   config: AppflowPaginationConfiguration,
   input: DescribeConnectorProfilesCommandInput,
   ...additionalArguments: any

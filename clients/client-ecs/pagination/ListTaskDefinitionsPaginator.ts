@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTaskDefinitions(input, ...args);
 };
-export async function* listTaskDefinitionsPaginate(
+export async function* paginateListTaskDefinitions(
   config: ECSPaginationConfiguration,
   input: ListTaskDefinitionsCommandInput,
   ...additionalArguments: any

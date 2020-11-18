@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOTAUpdates(input, ...args);
 };
-export async function* listOTAUpdatesPaginate(
+export async function* paginateListOTAUpdates(
   config: IoTPaginationConfiguration,
   input: ListOTAUpdatesCommandInput,
   ...additionalArguments: any

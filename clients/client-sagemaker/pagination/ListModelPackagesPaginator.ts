@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listModelPackages(input, ...args);
 };
-export async function* listModelPackagesPaginate(
+export async function* paginateListModelPackages(
   config: SageMakerPaginationConfiguration,
   input: ListModelPackagesCommandInput,
   ...additionalArguments: any

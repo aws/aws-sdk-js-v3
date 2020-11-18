@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPendingInvitationResources(input, ...args);
 };
-export async function* listPendingInvitationResourcesPaginate(
+export async function* paginateListPendingInvitationResources(
   config: RAMPaginationConfiguration,
   input: ListPendingInvitationResourcesCommandInput,
   ...additionalArguments: any

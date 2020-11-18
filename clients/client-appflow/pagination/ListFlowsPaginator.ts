@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFlows(input, ...args);
 };
-export async function* listFlowsPaginate(
+export async function* paginateListFlows(
   config: AppflowPaginationConfiguration,
   input: ListFlowsCommandInput,
   ...additionalArguments: any

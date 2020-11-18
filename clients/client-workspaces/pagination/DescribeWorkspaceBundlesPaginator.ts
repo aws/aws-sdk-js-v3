@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeWorkspaceBundles(input, ...args);
 };
-export async function* describeWorkspaceBundlesPaginate(
+export async function* paginateDescribeWorkspaceBundles(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspaceBundlesCommandInput,
   ...additionalArguments: any

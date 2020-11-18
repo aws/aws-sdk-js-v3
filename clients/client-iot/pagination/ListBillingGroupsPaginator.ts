@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBillingGroups(input, ...args);
 };
-export async function* listBillingGroupsPaginate(
+export async function* paginateListBillingGroups(
   config: IoTPaginationConfiguration,
   input: ListBillingGroupsCommandInput,
   ...additionalArguments: any

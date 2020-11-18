@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInstallationMedia(input, ...args);
 };
-export async function* describeInstallationMediaPaginate(
+export async function* paginateDescribeInstallationMedia(
   config: RDSPaginationConfiguration,
   input: DescribeInstallationMediaCommandInput,
   ...additionalArguments: any

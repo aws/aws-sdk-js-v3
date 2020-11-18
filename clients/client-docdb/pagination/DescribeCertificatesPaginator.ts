@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCertificates(input, ...args);
 };
-export async function* describeCertificatesPaginate(
+export async function* paginateDescribeCertificates(
   config: DocDBPaginationConfiguration,
   input: DescribeCertificatesCommandInput,
   ...additionalArguments: any

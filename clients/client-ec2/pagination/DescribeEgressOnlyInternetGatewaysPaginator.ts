@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEgressOnlyInternetGateways(input, ...args);
 };
-export async function* describeEgressOnlyInternetGatewaysPaginate(
+export async function* paginateDescribeEgressOnlyInternetGateways(
   config: EC2PaginationConfiguration,
   input: DescribeEgressOnlyInternetGatewaysCommandInput,
   ...additionalArguments: any

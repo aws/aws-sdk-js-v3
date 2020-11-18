@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClassicLinkInstances(input, ...args);
 };
-export async function* describeClassicLinkInstancesPaginate(
+export async function* paginateDescribeClassicLinkInstances(
   config: EC2PaginationConfiguration,
   input: DescribeClassicLinkInstancesCommandInput,
   ...additionalArguments: any

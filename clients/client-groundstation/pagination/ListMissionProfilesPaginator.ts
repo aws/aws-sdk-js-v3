@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMissionProfiles(input, ...args);
 };
-export async function* listMissionProfilesPaginate(
+export async function* paginateListMissionProfiles(
   config: GroundStationPaginationConfiguration,
   input: ListMissionProfilesCommandInput,
   ...additionalArguments: any

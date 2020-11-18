@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLinks(input, ...args);
 };
-export async function* getLinksPaginate(
+export async function* paginateGetLinks(
   config: NetworkManagerPaginationConfiguration,
   input: GetLinksCommandInput,
   ...additionalArguments: any

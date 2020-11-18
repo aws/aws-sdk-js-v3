@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPolicyAttachments(input, ...args);
 };
-export async function* listPolicyAttachmentsPaginate(
+export async function* paginateListPolicyAttachments(
   config: CloudDirectoryPaginationConfiguration,
   input: ListPolicyAttachmentsCommandInput,
   ...additionalArguments: any

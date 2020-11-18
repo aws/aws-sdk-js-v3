@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEvents(input, ...args);
 };
-export async function* describeEventsPaginate(
+export async function* paginateDescribeEvents(
   config: RedshiftPaginationConfiguration,
   input: DescribeEventsCommandInput,
   ...additionalArguments: any

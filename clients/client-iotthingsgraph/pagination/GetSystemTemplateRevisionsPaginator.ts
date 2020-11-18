@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSystemTemplateRevisions(input, ...args);
 };
-export async function* getSystemTemplateRevisionsPaginate(
+export async function* paginateGetSystemTemplateRevisions(
   config: IoTThingsGraphPaginationConfiguration,
   input: GetSystemTemplateRevisionsCommandInput,
   ...additionalArguments: any

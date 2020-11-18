@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSpotPriceHistory(input, ...args);
 };
-export async function* describeSpotPriceHistoryPaginate(
+export async function* paginateDescribeSpotPriceHistory(
   config: EC2PaginationConfiguration,
   input: DescribeSpotPriceHistoryCommandInput,
   ...additionalArguments: any

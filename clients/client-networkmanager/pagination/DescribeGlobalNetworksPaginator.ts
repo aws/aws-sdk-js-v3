@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeGlobalNetworks(input, ...args);
 };
-export async function* describeGlobalNetworksPaginate(
+export async function* paginateDescribeGlobalNetworks(
   config: NetworkManagerPaginationConfiguration,
   input: DescribeGlobalNetworksCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOriginEndpoints(input, ...args);
 };
-export async function* listOriginEndpointsPaginate(
+export async function* paginateListOriginEndpoints(
   config: MediaPackagePaginationConfiguration,
   input: ListOriginEndpointsCommandInput,
   ...additionalArguments: any

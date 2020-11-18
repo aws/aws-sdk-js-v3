@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeploymentJobs(input, ...args);
 };
-export async function* listDeploymentJobsPaginate(
+export async function* paginateListDeploymentJobs(
   config: RoboMakerPaginationConfiguration,
   input: ListDeploymentJobsCommandInput,
   ...additionalArguments: any

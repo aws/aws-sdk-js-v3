@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCommentsForComparedCommit(input, ...args);
 };
-export async function* getCommentsForComparedCommitPaginate(
+export async function* paginateGetCommentsForComparedCommit(
   config: CodeCommitPaginationConfiguration,
   input: GetCommentsForComparedCommitCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEventTypes(input, ...args);
 };
-export async function* listEventTypesPaginate(
+export async function* paginateListEventTypes(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListEventTypesCommandInput,
   ...additionalArguments: any

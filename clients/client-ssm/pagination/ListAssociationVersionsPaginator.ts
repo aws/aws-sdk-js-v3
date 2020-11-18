@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssociationVersions(input, ...args);
 };
-export async function* listAssociationVersionsPaginate(
+export async function* paginateListAssociationVersions(
   config: SSMPaginationConfiguration,
   input: ListAssociationVersionsCommandInput,
   ...additionalArguments: any

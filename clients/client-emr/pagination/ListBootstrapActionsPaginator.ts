@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBootstrapActions(input, ...args);
 };
-export async function* listBootstrapActionsPaginate(
+export async function* paginateListBootstrapActions(
   config: EMRPaginationConfiguration,
   input: ListBootstrapActionsCommandInput,
   ...additionalArguments: any

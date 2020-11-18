@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGroupsForUser(input, ...args);
 };
-export async function* listGroupsForUserPaginate(
+export async function* paginateListGroupsForUser(
   config: IAMPaginationConfiguration,
   input: ListGroupsForUserCommandInput,
   ...additionalArguments: any

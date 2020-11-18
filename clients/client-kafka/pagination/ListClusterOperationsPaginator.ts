@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClusterOperations(input, ...args);
 };
-export async function* listClusterOperationsPaginate(
+export async function* paginateListClusterOperations(
   config: KafkaPaginationConfiguration,
   input: ListClusterOperationsCommandInput,
   ...additionalArguments: any

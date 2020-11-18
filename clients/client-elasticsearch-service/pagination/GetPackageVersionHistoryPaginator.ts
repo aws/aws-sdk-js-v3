@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getPackageVersionHistory(input, ...args);
 };
-export async function* getPackageVersionHistoryPaginate(
+export async function* paginateGetPackageVersionHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetPackageVersionHistoryCommandInput,
   ...additionalArguments: any

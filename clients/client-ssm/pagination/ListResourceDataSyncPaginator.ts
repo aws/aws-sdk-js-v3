@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourceDataSync(input, ...args);
 };
-export async function* listResourceDataSyncPaginate(
+export async function* paginateListResourceDataSync(
   config: SSMPaginationConfiguration,
   input: ListResourceDataSyncCommandInput,
   ...additionalArguments: any

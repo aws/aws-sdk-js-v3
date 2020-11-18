@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCodeCoverages(input, ...args);
 };
-export async function* describeCodeCoveragesPaginate(
+export async function* paginateDescribeCodeCoverages(
   config: CodeBuildPaginationConfiguration,
   input: DescribeCodeCoveragesCommandInput,
   ...additionalArguments: any

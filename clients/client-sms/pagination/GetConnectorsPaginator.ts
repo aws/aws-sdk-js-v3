@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getConnectors(input, ...args);
 };
-export async function* getConnectorsPaginate(
+export async function* paginateGetConnectors(
   config: SMSPaginationConfiguration,
   input: GetConnectorsCommandInput,
   ...additionalArguments: any

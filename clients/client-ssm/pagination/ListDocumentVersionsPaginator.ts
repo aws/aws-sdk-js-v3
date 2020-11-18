@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDocumentVersions(input, ...args);
 };
-export async function* listDocumentVersionsPaginate(
+export async function* paginateListDocumentVersions(
   config: SSMPaginationConfiguration,
   input: ListDocumentVersionsCommandInput,
   ...additionalArguments: any

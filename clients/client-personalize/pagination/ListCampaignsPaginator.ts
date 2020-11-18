@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCampaigns(input, ...args);
 };
-export async function* listCampaignsPaginate(
+export async function* paginateListCampaigns(
   config: PersonalizePaginationConfiguration,
   input: ListCampaignsCommandInput,
   ...additionalArguments: any

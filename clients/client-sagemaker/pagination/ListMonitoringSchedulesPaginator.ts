@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMonitoringSchedules(input, ...args);
 };
-export async function* listMonitoringSchedulesPaginate(
+export async function* paginateListMonitoringSchedules(
   config: SageMakerPaginationConfiguration,
   input: ListMonitoringSchedulesCommandInput,
   ...additionalArguments: any

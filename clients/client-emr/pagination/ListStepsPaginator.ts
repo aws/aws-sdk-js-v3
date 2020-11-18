@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSteps(input, ...args);
 };
-export async function* listStepsPaginate(
+export async function* paginateListSteps(
   config: EMRPaginationConfiguration,
   input: ListStepsCommandInput,
   ...additionalArguments: any

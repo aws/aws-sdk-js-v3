@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVpcPeeringConnections(input, ...args);
 };
-export async function* describeVpcPeeringConnectionsPaginate(
+export async function* paginateDescribeVpcPeeringConnections(
   config: EC2PaginationConfiguration,
   input: DescribeVpcPeeringConnectionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVirtualRouters(input, ...args);
 };
-export async function* listVirtualRoutersPaginate(
+export async function* paginateListVirtualRouters(
   config: AppMeshPaginationConfiguration,
   input: ListVirtualRoutersCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntities(input, ...args);
 };
-export async function* listEntitiesPaginate(
+export async function* paginateListEntities(
   config: MarketplaceCatalogPaginationConfiguration,
   input: ListEntitiesCommandInput,
   ...additionalArguments: any

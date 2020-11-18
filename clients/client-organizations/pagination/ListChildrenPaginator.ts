@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChildren(input, ...args);
 };
-export async function* listChildrenPaginate(
+export async function* paginateListChildren(
   config: OrganizationsPaginationConfiguration,
   input: ListChildrenCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTemplateAliases(input, ...args);
 };
-export async function* listTemplateAliasesPaginate(
+export async function* paginateListTemplateAliases(
   config: QuickSightPaginationConfiguration,
   input: ListTemplateAliasesCommandInput,
   ...additionalArguments: any

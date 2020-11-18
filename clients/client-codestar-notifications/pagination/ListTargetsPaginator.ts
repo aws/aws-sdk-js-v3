@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTargets(input, ...args);
 };
-export async function* listTargetsPaginate(
+export async function* paginateListTargets(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListTargetsCommandInput,
   ...additionalArguments: any

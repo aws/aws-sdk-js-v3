@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoomMemberships(input, ...args);
 };
-export async function* listRoomMembershipsPaginate(
+export async function* paginateListRoomMemberships(
   config: ChimePaginationConfiguration,
   input: ListRoomMembershipsCommandInput,
   ...additionalArguments: any

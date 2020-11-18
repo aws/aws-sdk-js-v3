@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getRestApis(input, ...args);
 };
-export async function* getRestApisPaginate(
+export async function* paginateGetRestApis(
   config: APIGatewayPaginationConfiguration,
   input: GetRestApisCommandInput,
   ...additionalArguments: any

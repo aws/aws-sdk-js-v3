@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeLocalGatewayVirtualInterfaceGroups(input, ...args);
 };
-export async function* describeLocalGatewayVirtualInterfaceGroupsPaginate(
+export async function* paginateDescribeLocalGatewayVirtualInterfaceGroups(
   config: EC2PaginationConfiguration,
   input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   ...additionalArguments: any

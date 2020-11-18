@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.query(input, ...args);
 };
-export async function* queryPaginate(
+export async function* paginateQuery(
   config: TimestreamQueryPaginationConfiguration,
   input: QueryCommandInput,
   ...additionalArguments: any

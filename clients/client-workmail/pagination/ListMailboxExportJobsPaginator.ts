@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMailboxExportJobs(input, ...args);
 };
-export async function* listMailboxExportJobsPaginate(
+export async function* paginateListMailboxExportJobs(
   config: WorkMailPaginationConfiguration,
   input: ListMailboxExportJobsCommandInput,
   ...additionalArguments: any

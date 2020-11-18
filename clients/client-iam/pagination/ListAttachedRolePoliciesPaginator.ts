@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttachedRolePolicies(input, ...args);
 };
-export async function* listAttachedRolePoliciesPaginate(
+export async function* paginateListAttachedRolePolicies(
   config: IAMPaginationConfiguration,
   input: ListAttachedRolePoliciesCommandInput,
   ...additionalArguments: any

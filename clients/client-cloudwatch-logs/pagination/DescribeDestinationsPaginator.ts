@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDestinations(input, ...args);
 };
-export async function* describeDestinationsPaginate(
+export async function* paginateDescribeDestinations(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeDestinationsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecurityConfigurations(input, ...args);
 };
-export async function* listSecurityConfigurationsPaginate(
+export async function* paginateListSecurityConfigurations(
   config: EMRPaginationConfiguration,
   input: ListSecurityConfigurationsCommandInput,
   ...additionalArguments: any

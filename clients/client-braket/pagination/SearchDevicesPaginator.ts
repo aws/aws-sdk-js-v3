@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchDevices(input, ...args);
 };
-export async function* searchDevicesPaginate(
+export async function* paginateSearchDevices(
   config: BraketPaginationConfiguration,
   input: SearchDevicesCommandInput,
   ...additionalArguments: any

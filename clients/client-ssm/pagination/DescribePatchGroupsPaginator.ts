@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePatchGroups(input, ...args);
 };
-export async function* describePatchGroupsPaginate(
+export async function* paginateDescribePatchGroups(
   config: SSMPaginationConfiguration,
   input: DescribePatchGroupsCommandInput,
   ...additionalArguments: any

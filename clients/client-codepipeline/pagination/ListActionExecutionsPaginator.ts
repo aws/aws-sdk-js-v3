@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listActionExecutions(input, ...args);
 };
-export async function* listActionExecutionsPaginate(
+export async function* paginateListActionExecutions(
   config: CodePipelinePaginationConfiguration,
   input: ListActionExecutionsCommandInput,
   ...additionalArguments: any

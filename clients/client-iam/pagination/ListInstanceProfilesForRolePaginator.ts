@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInstanceProfilesForRole(input, ...args);
 };
-export async function* listInstanceProfilesForRolePaginate(
+export async function* paginateListInstanceProfilesForRole(
   config: IAMPaginationConfiguration,
   input: ListInstanceProfilesForRoleCommandInput,
   ...additionalArguments: any

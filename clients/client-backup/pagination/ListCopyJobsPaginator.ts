@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCopyJobs(input, ...args);
 };
-export async function* listCopyJobsPaginate(
+export async function* paginateListCopyJobs(
   config: BackupPaginationConfiguration,
   input: ListCopyJobsCommandInput,
   ...additionalArguments: any

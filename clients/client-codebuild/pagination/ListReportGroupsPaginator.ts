@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReportGroups(input, ...args);
 };
-export async function* listReportGroupsPaginate(
+export async function* paginateListReportGroups(
   config: CodeBuildPaginationConfiguration,
   input: ListReportGroupsCommandInput,
   ...additionalArguments: any

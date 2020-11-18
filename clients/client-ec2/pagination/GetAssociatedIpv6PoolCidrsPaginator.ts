@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAssociatedIpv6PoolCidrs(input, ...args);
 };
-export async function* getAssociatedIpv6PoolCidrsPaginate(
+export async function* paginateGetAssociatedIpv6PoolCidrs(
   config: EC2PaginationConfiguration,
   input: GetAssociatedIpv6PoolCidrsCommandInput,
   ...additionalArguments: any

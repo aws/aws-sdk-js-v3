@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchDashboards(input, ...args);
 };
-export async function* searchDashboardsPaginate(
+export async function* paginateSearchDashboards(
   config: QuickSightPaginationConfiguration,
   input: SearchDashboardsCommandInput,
   ...additionalArguments: any

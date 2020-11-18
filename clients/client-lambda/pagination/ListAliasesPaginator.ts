@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAliases(input, ...args);
 };
-export async function* listAliasesPaginate(
+export async function* paginateListAliases(
   config: LambdaPaginationConfiguration,
   input: ListAliasesCommandInput,
   ...additionalArguments: any

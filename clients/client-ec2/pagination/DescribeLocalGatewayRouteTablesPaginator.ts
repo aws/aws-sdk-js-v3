@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeLocalGatewayRouteTables(input, ...args);
 };
-export async function* describeLocalGatewayRouteTablesPaginate(
+export async function* paginateDescribeLocalGatewayRouteTables(
   config: EC2PaginationConfiguration,
   input: DescribeLocalGatewayRouteTablesCommandInput,
   ...additionalArguments: any

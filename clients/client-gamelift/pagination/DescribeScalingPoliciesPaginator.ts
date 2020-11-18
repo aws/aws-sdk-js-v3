@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeScalingPolicies(input, ...args);
 };
-export async function* describeScalingPoliciesPaginate(
+export async function* paginateDescribeScalingPolicies(
   config: GameLiftPaginationConfiguration,
   input: DescribeScalingPoliciesCommandInput,
   ...additionalArguments: any

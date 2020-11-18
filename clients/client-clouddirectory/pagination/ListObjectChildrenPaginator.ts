@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listObjectChildren(input, ...args);
 };
-export async function* listObjectChildrenPaginate(
+export async function* paginateListObjectChildren(
   config: CloudDirectoryPaginationConfiguration,
   input: ListObjectChildrenCommandInput,
   ...additionalArguments: any

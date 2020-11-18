@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSchemas(input, ...args);
 };
-export async function* describeSchemasPaginate(
+export async function* paginateDescribeSchemas(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeSchemasCommandInput,
   ...additionalArguments: any

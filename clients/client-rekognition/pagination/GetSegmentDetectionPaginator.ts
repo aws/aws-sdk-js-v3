@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSegmentDetection(input, ...args);
 };
-export async function* getSegmentDetectionPaginate(
+export async function* paginateGetSegmentDetection(
   config: RekognitionPaginationConfiguration,
   input: GetSegmentDetectionCommandInput,
   ...additionalArguments: any

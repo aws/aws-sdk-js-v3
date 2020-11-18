@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVpcEndpoints(input, ...args);
 };
-export async function* describeVpcEndpointsPaginate(
+export async function* paginateDescribeVpcEndpoints(
   config: EC2PaginationConfiguration,
   input: DescribeVpcEndpointsCommandInput,
   ...additionalArguments: any

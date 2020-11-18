@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContributorInsights(input, ...args);
 };
-export async function* listContributorInsightsPaginate(
+export async function* paginateListContributorInsights(
   config: DynamoDBPaginationConfiguration,
   input: ListContributorInsightsCommandInput,
   ...additionalArguments: any

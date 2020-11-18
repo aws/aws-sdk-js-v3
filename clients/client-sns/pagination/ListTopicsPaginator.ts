@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTopics(input, ...args);
 };
-export async function* listTopicsPaginate(
+export async function* paginateListTopics(
   config: SNSPaginationConfiguration,
   input: ListTopicsCommandInput,
   ...additionalArguments: any

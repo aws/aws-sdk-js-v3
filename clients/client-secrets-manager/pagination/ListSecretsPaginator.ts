@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecrets(input, ...args);
 };
-export async function* listSecretsPaginate(
+export async function* paginateListSecrets(
   config: SecretsManagerPaginationConfiguration,
   input: ListSecretsCommandInput,
   ...additionalArguments: any

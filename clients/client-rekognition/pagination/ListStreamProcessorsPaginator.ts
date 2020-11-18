@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamProcessors(input, ...args);
 };
-export async function* listStreamProcessorsPaginate(
+export async function* paginateListStreamProcessors(
   config: RekognitionPaginationConfiguration,
   input: ListStreamProcessorsCommandInput,
   ...additionalArguments: any

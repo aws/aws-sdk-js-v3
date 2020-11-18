@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSigningProfiles(input, ...args);
 };
-export async function* listSigningProfilesPaginate(
+export async function* paginateListSigningProfiles(
   config: SignerPaginationConfiguration,
   input: ListSigningProfilesCommandInput,
   ...additionalArguments: any

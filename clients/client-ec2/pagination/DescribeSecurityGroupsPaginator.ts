@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSecurityGroups(input, ...args);
 };
-export async function* describeSecurityGroupsPaginate(
+export async function* paginateDescribeSecurityGroups(
   config: EC2PaginationConfiguration,
   input: DescribeSecurityGroupsCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDevices(input, ...args);
 };
-export async function* getDevicesPaginate(
+export async function* paginateGetDevices(
   config: NetworkManagerPaginationConfiguration,
   input: GetDevicesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBEngineVersions(input, ...args);
 };
-export async function* describeDBEngineVersionsPaginate(
+export async function* paginateDescribeDBEngineVersions(
   config: DocDBPaginationConfiguration,
   input: DescribeDBEngineVersionsCommandInput,
   ...additionalArguments: any

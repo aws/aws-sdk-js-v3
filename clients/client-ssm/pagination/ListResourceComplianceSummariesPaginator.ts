@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourceComplianceSummaries(input, ...args);
 };
-export async function* listResourceComplianceSummariesPaginate(
+export async function* paginateListResourceComplianceSummaries(
   config: SSMPaginationConfiguration,
   input: ListResourceComplianceSummariesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeServers(input, ...args);
 };
-export async function* describeServersPaginate(
+export async function* paginateDescribeServers(
   config: OpsWorksCMPaginationConfiguration,
   input: DescribeServersCommandInput,
   ...additionalArguments: any

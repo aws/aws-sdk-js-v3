@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listObjectParentPaths(input, ...args);
 };
-export async function* listObjectParentPathsPaginate(
+export async function* paginateListObjectParentPaths(
   config: CloudDirectoryPaginationConfiguration,
   input: ListObjectParentPathsCommandInput,
   ...additionalArguments: any

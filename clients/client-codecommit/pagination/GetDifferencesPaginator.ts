@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDifferences(input, ...args);
 };
-export async function* getDifferencesPaginate(
+export async function* paginateGetDifferences(
   config: CodeCommitPaginationConfiguration,
   input: GetDifferencesCommandInput,
   ...additionalArguments: any

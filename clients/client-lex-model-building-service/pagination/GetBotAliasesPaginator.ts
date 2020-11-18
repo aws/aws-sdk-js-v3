@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBotAliases(input, ...args);
 };
-export async function* getBotAliasesPaginate(
+export async function* paginateGetBotAliases(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotAliasesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBLogFiles(input, ...args);
 };
-export async function* describeDBLogFilesPaginate(
+export async function* paginateDescribeDBLogFiles(
   config: RDSPaginationConfiguration,
   input: DescribeDBLogFilesCommandInput,
   ...additionalArguments: any

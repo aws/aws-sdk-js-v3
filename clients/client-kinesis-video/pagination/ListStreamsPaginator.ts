@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreams(input, ...args);
 };
-export async function* listStreamsPaginate(
+export async function* paginateListStreams(
   config: KinesisVideoPaginationConfiguration,
   input: ListStreamsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEmailTemplates(input, ...args);
 };
-export async function* listEmailTemplatesPaginate(
+export async function* paginateListEmailTemplates(
   config: SESv2PaginationConfiguration,
   input: ListEmailTemplatesCommandInput,
   ...additionalArguments: any

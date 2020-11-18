@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFileShares(input, ...args);
 };
-export async function* listFileSharesPaginate(
+export async function* paginateListFileShares(
   config: StorageGatewayPaginationConfiguration,
   input: ListFileSharesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamKeys(input, ...args);
 };
-export async function* listStreamKeysPaginate(
+export async function* paginateListStreamKeys(
   config: IvsPaginationConfiguration,
   input: ListStreamKeysCommandInput,
   ...additionalArguments: any

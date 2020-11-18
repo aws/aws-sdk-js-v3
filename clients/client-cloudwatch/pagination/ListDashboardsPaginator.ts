@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDashboards(input, ...args);
 };
-export async function* listDashboardsPaginate(
+export async function* paginateListDashboards(
   config: CloudWatchPaginationConfiguration,
   input: ListDashboardsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeIpv6Pools(input, ...args);
 };
-export async function* describeIpv6PoolsPaginate(
+export async function* paginateDescribeIpv6Pools(
   config: EC2PaginationConfiguration,
   input: DescribeIpv6PoolsCommandInput,
   ...additionalArguments: any

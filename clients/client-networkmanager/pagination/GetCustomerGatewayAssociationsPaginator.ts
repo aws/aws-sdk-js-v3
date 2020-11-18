@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCustomerGatewayAssociations(input, ...args);
 };
-export async function* getCustomerGatewayAssociationsPaginate(
+export async function* paginateGetCustomerGatewayAssociations(
   config: NetworkManagerPaginationConfiguration,
   input: GetCustomerGatewayAssociationsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTaskExecutions(input, ...args);
 };
-export async function* listTaskExecutionsPaginate(
+export async function* paginateListTaskExecutions(
   config: DataSyncPaginationConfiguration,
   input: ListTaskExecutionsCommandInput,
   ...additionalArguments: any

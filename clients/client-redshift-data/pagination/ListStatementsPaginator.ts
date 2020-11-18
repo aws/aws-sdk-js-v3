@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStatements(input, ...args);
 };
-export async function* listStatementsPaginate(
+export async function* paginateListStatements(
   config: RedshiftDataPaginationConfiguration,
   input: ListStatementsCommandInput,
   ...additionalArguments: any

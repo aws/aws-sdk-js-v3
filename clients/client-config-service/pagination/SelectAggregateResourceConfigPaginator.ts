@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.selectAggregateResourceConfig(input, ...args);
 };
-export async function* selectAggregateResourceConfigPaginate(
+export async function* paginateSelectAggregateResourceConfig(
   config: ConfigServicePaginationConfiguration,
   input: SelectAggregateResourceConfigCommandInput,
   ...additionalArguments: any

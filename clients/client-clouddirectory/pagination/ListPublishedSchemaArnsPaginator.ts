@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPublishedSchemaArns(input, ...args);
 };
-export async function* listPublishedSchemaArnsPaginate(
+export async function* paginateListPublishedSchemaArns(
   config: CloudDirectoryPaginationConfiguration,
   input: ListPublishedSchemaArnsCommandInput,
   ...additionalArguments: any

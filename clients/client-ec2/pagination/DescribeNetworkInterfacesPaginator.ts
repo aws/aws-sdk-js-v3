@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeNetworkInterfaces(input, ...args);
 };
-export async function* describeNetworkInterfacesPaginate(
+export async function* paginateDescribeNetworkInterfaces(
   config: EC2PaginationConfiguration,
   input: DescribeNetworkInterfacesCommandInput,
   ...additionalArguments: any

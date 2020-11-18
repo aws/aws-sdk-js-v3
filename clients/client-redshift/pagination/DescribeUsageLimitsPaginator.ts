@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeUsageLimits(input, ...args);
 };
-export async function* describeUsageLimitsPaginate(
+export async function* paginateDescribeUsageLimits(
   config: RedshiftPaginationConfiguration,
   input: DescribeUsageLimitsCommandInput,
   ...additionalArguments: any

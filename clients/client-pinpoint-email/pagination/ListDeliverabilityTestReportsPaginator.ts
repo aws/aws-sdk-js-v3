@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeliverabilityTestReports(input, ...args);
 };
-export async function* listDeliverabilityTestReportsPaginate(
+export async function* paginateListDeliverabilityTestReports(
   config: PinpointEmailPaginationConfiguration,
   input: ListDeliverabilityTestReportsCommandInput,
   ...additionalArguments: any

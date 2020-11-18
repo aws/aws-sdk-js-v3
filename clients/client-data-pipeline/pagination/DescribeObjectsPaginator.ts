@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeObjects(input, ...args);
 };
-export async function* describeObjectsPaginate(
+export async function* paginateDescribeObjects(
   config: DataPipelinePaginationConfiguration,
   input: DescribeObjectsCommandInput,
   ...additionalArguments: any

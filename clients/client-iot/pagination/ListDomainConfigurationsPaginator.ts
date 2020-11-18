@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDomainConfigurations(input, ...args);
 };
-export async function* listDomainConfigurationsPaginate(
+export async function* paginateListDomainConfigurations(
   config: IoTPaginationConfiguration,
   input: ListDomainConfigurationsCommandInput,
   ...additionalArguments: any

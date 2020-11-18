@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchLocalGatewayRoutes(input, ...args);
 };
-export async function* searchLocalGatewayRoutesPaginate(
+export async function* paginateSearchLocalGatewayRoutes(
   config: EC2PaginationConfiguration,
   input: SearchLocalGatewayRoutesCommandInput,
   ...additionalArguments: any

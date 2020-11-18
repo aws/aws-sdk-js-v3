@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFlowLogs(input, ...args);
 };
-export async function* describeFlowLogsPaginate(
+export async function* paginateDescribeFlowLogs(
   config: EC2PaginationConfiguration,
   input: DescribeFlowLogsCommandInput,
   ...additionalArguments: any

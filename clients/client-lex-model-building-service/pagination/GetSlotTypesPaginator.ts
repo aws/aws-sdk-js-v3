@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSlotTypes(input, ...args);
 };
-export async function* getSlotTypesPaginate(
+export async function* paginateGetSlotTypes(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetSlotTypesCommandInput,
   ...additionalArguments: any

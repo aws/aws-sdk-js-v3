@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPortfolioAccess(input, ...args);
 };
-export async function* listPortfolioAccessPaginate(
+export async function* paginateListPortfolioAccess(
   config: ServiceCatalogPaginationConfiguration,
   input: ListPortfolioAccessCommandInput,
   ...additionalArguments: any

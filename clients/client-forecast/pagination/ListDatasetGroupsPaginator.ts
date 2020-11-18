@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatasetGroups(input, ...args);
 };
-export async function* listDatasetGroupsPaginate(
+export async function* paginateListDatasetGroups(
   config: ForecastPaginationConfiguration,
   input: ListDatasetGroupsCommandInput,
   ...additionalArguments: any

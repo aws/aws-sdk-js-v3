@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContactFlows(input, ...args);
 };
-export async function* listContactFlowsPaginate(
+export async function* paginateListContactFlows(
   config: ConnectPaginationConfiguration,
   input: ListContactFlowsCommandInput,
   ...additionalArguments: any

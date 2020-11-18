@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeProjectVersions(input, ...args);
 };
-export async function* describeProjectVersionsPaginate(
+export async function* paginateDescribeProjectVersions(
   config: RekognitionPaginationConfiguration,
   input: DescribeProjectVersionsCommandInput,
   ...additionalArguments: any

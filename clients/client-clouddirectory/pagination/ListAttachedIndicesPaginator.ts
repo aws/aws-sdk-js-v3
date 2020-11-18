@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttachedIndices(input, ...args);
 };
-export async function* listAttachedIndicesPaginate(
+export async function* paginateListAttachedIndices(
   config: CloudDirectoryPaginationConfiguration,
   input: ListAttachedIndicesCommandInput,
   ...additionalArguments: any

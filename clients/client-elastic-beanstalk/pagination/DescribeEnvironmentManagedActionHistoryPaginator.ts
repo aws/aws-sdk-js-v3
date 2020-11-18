@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEnvironmentManagedActionHistory(input, ...args);
 };
-export async function* describeEnvironmentManagedActionHistoryPaginate(
+export async function* paginateDescribeEnvironmentManagedActionHistory(
   config: ElasticBeanstalkPaginationConfiguration,
   input: DescribeEnvironmentManagedActionHistoryCommandInput,
   ...additionalArguments: any

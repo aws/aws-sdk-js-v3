@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRecommendationFeedback(input, ...args);
 };
-export async function* listRecommendationFeedbackPaginate(
+export async function* paginateListRecommendationFeedback(
   config: CodeGuruReviewerPaginationConfiguration,
   input: ListRecommendationFeedbackCommandInput,
   ...additionalArguments: any

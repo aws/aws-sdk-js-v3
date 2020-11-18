@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConnections(input, ...args);
 };
-export async function* listConnectionsPaginate(
+export async function* paginateListConnections(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListConnectionsCommandInput,
   ...additionalArguments: any

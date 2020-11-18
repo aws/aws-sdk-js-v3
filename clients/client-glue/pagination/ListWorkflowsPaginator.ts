@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkflows(input, ...args);
 };
-export async function* listWorkflowsPaginate(
+export async function* paginateListWorkflows(
   config: GluePaginationConfiguration,
   input: ListWorkflowsCommandInput,
   ...additionalArguments: any

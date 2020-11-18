@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSSHPublicKeys(input, ...args);
 };
-export async function* listSSHPublicKeysPaginate(
+export async function* paginateListSSHPublicKeys(
   config: IAMPaginationConfiguration,
   input: ListSSHPublicKeysCommandInput,
   ...additionalArguments: any

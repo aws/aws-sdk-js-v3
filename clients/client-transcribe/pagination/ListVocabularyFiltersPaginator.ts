@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVocabularyFilters(input, ...args);
 };
-export async function* listVocabularyFiltersPaginate(
+export async function* paginateListVocabularyFilters(
   config: TranscribePaginationConfiguration,
   input: ListVocabularyFiltersCommandInput,
   ...additionalArguments: any

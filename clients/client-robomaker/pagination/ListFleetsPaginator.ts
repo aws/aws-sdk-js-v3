@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFleets(input, ...args);
 };
-export async function* listFleetsPaginate(
+export async function* paginateListFleets(
   config: RoboMakerPaginationConfiguration,
   input: ListFleetsCommandInput,
   ...additionalArguments: any

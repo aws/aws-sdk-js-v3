@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClusterSubnetGroups(input, ...args);
 };
-export async function* describeClusterSubnetGroupsPaginate(
+export async function* paginateDescribeClusterSubnetGroups(
   config: RedshiftPaginationConfiguration,
   input: DescribeClusterSubnetGroupsCommandInput,
   ...additionalArguments: any

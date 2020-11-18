@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAutomationExecutions(input, ...args);
 };
-export async function* describeAutomationExecutionsPaginate(
+export async function* paginateDescribeAutomationExecutions(
   config: SSMPaginationConfiguration,
   input: DescribeAutomationExecutionsCommandInput,
   ...additionalArguments: any

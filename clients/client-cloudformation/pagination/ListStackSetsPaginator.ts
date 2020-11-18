@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStackSets(input, ...args);
 };
-export async function* listStackSetsPaginate(
+export async function* paginateListStackSets(
   config: CloudFormationPaginationConfiguration,
   input: ListStackSetsCommandInput,
   ...additionalArguments: any

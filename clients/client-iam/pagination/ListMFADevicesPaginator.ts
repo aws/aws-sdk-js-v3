@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMFADevices(input, ...args);
 };
-export async function* listMFADevicesPaginate(
+export async function* paginateListMFADevices(
   config: IAMPaginationConfiguration,
   input: ListMFADevicesCommandInput,
   ...additionalArguments: any

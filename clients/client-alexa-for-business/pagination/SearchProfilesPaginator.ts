@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchProfiles(input, ...args);
 };
-export async function* searchProfilesPaginate(
+export async function* paginateSearchProfiles(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchProfilesCommandInput,
   ...additionalArguments: any

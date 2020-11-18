@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchFlowTemplates(input, ...args);
 };
-export async function* searchFlowTemplatesPaginate(
+export async function* paginateSearchFlowTemplates(
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchFlowTemplatesCommandInput,
   ...additionalArguments: any

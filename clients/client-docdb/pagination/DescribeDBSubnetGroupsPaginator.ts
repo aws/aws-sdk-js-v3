@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBSubnetGroups(input, ...args);
 };
-export async function* describeDBSubnetGroupsPaginate(
+export async function* paginateDescribeDBSubnetGroups(
   config: DocDBPaginationConfiguration,
   input: DescribeDBSubnetGroupsCommandInput,
   ...additionalArguments: any

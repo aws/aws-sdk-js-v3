@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPullRequests(input, ...args);
 };
-export async function* listPullRequestsPaginate(
+export async function* paginateListPullRequests(
   config: CodeCommitPaginationConfiguration,
   input: ListPullRequestsCommandInput,
   ...additionalArguments: any

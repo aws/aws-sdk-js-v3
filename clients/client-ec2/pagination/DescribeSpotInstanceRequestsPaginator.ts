@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSpotInstanceRequests(input, ...args);
 };
-export async function* describeSpotInstanceRequestsPaginate(
+export async function* paginateDescribeSpotInstanceRequests(
   config: EC2PaginationConfiguration,
   input: DescribeSpotInstanceRequestsCommandInput,
   ...additionalArguments: any

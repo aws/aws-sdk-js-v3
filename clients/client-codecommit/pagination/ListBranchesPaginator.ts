@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBranches(input, ...args);
 };
-export async function* listBranchesPaginate(
+export async function* paginateListBranches(
   config: CodeCommitPaginationConfiguration,
   input: ListBranchesCommandInput,
   ...additionalArguments: any

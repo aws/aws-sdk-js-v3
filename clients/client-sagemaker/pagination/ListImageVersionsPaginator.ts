@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listImageVersions(input, ...args);
 };
-export async function* listImageVersionsPaginate(
+export async function* paginateListImageVersions(
   config: SageMakerPaginationConfiguration,
   input: ListImageVersionsCommandInput,
   ...additionalArguments: any

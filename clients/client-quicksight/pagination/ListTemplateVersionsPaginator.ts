@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTemplateVersions(input, ...args);
 };
-export async function* listTemplateVersionsPaginate(
+export async function* paginateListTemplateVersions(
   config: QuickSightPaginationConfiguration,
   input: ListTemplateVersionsCommandInput,
   ...additionalArguments: any

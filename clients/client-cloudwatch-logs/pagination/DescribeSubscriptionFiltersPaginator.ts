@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSubscriptionFilters(input, ...args);
 };
-export async function* describeSubscriptionFiltersPaginate(
+export async function* paginateDescribeSubscriptionFilters(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeSubscriptionFiltersCommandInput,
   ...additionalArguments: any

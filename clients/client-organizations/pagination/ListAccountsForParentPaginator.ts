@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountsForParent(input, ...args);
 };
-export async function* listAccountsForParentPaginate(
+export async function* paginateListAccountsForParent(
   config: OrganizationsPaginationConfiguration,
   input: ListAccountsForParentCommandInput,
   ...additionalArguments: any

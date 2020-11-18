@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeploymentStrategies(input, ...args);
 };
-export async function* listDeploymentStrategiesPaginate(
+export async function* paginateListDeploymentStrategies(
   config: AppConfigPaginationConfiguration,
   input: ListDeploymentStrategiesCommandInput,
   ...additionalArguments: any

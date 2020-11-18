@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContacts(input, ...args);
 };
-export async function* listContactsPaginate(
+export async function* paginateListContacts(
   config: SESv2PaginationConfiguration,
   input: ListContactsCommandInput,
   ...additionalArguments: any

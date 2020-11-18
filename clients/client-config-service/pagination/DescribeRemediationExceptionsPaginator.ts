@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeRemediationExceptions(input, ...args);
 };
-export async function* describeRemediationExceptionsPaginate(
+export async function* paginateDescribeRemediationExceptions(
   config: ConfigServicePaginationConfiguration,
   input: DescribeRemediationExceptionsCommandInput,
   ...additionalArguments: any

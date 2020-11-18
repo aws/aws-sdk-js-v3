@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listArchiveRules(input, ...args);
 };
-export async function* listArchiveRulesPaginate(
+export async function* paginateListArchiveRules(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListArchiveRulesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCollections(input, ...args);
 };
-export async function* listCollectionsPaginate(
+export async function* paginateListCollections(
   config: RekognitionPaginationConfiguration,
   input: ListCollectionsCommandInput,
   ...additionalArguments: any

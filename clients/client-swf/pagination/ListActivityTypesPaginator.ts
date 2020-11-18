@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listActivityTypes(input, ...args);
 };
-export async function* listActivityTypesPaginate(
+export async function* paginateListActivityTypes(
   config: SWFPaginationConfiguration,
   input: ListActivityTypesCommandInput,
   ...additionalArguments: any

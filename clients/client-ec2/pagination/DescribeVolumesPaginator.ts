@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVolumes(input, ...args);
 };
-export async function* describeVolumesPaginate(
+export async function* paginateDescribeVolumes(
   config: EC2PaginationConfiguration,
   input: DescribeVolumesCommandInput,
   ...additionalArguments: any

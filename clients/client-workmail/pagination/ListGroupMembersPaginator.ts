@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGroupMembers(input, ...args);
 };
-export async function* listGroupMembersPaginate(
+export async function* paginateListGroupMembers(
   config: WorkMailPaginationConfiguration,
   input: ListGroupMembersCommandInput,
   ...additionalArguments: any

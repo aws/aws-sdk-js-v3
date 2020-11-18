@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSkills(input, ...args);
 };
-export async function* listSkillsPaginate(
+export async function* paginateListSkills(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListSkillsCommandInput,
   ...additionalArguments: any

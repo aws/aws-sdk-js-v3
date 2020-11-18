@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataCatalogs(input, ...args);
 };
-export async function* listDataCatalogsPaginate(
+export async function* paginateListDataCatalogs(
   config: AthenaPaginationConfiguration,
   input: ListDataCatalogsCommandInput,
   ...additionalArguments: any

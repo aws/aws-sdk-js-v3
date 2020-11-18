@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBots(input, ...args);
 };
-export async function* listBotsPaginate(
+export async function* paginateListBots(
   config: ChimePaginationConfiguration,
   input: ListBotsCommandInput,
   ...additionalArguments: any

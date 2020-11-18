@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBuildBatches(input, ...args);
 };
-export async function* listBuildBatchesPaginate(
+export async function* paginateListBuildBatches(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildBatchesCommandInput,
   ...additionalArguments: any

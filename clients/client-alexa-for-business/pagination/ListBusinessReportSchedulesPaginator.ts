@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBusinessReportSchedules(input, ...args);
 };
-export async function* listBusinessReportSchedulesPaginate(
+export async function* paginateListBusinessReportSchedules(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListBusinessReportSchedulesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTranscriptionJobs(input, ...args);
 };
-export async function* listTranscriptionJobsPaginate(
+export async function* paginateListTranscriptionJobs(
   config: TranscribePaginationConfiguration,
   input: ListTranscriptionJobsCommandInput,
   ...additionalArguments: any

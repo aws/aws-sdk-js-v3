@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTopicRuleDestinations(input, ...args);
 };
-export async function* listTopicRuleDestinationsPaginate(
+export async function* paginateListTopicRuleDestinations(
   config: IoTPaginationConfiguration,
   input: ListTopicRuleDestinationsCommandInput,
   ...additionalArguments: any

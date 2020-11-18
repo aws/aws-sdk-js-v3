@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSigningCertificates(input, ...args);
 };
-export async function* listSigningCertificatesPaginate(
+export async function* paginateListSigningCertificates(
   config: IAMPaginationConfiguration,
   input: ListSigningCertificatesCommandInput,
   ...additionalArguments: any

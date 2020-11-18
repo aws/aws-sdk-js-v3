@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getOutcomes(input, ...args);
 };
-export async function* getOutcomesPaginate(
+export async function* paginateGetOutcomes(
   config: FraudDetectorPaginationConfiguration,
   input: GetOutcomesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResolverRules(input, ...args);
 };
-export async function* listResolverRulesPaginate(
+export async function* paginateListResolverRules(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverRulesCommandInput,
   ...additionalArguments: any

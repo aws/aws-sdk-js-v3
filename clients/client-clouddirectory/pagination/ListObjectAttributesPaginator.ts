@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listObjectAttributes(input, ...args);
 };
-export async function* listObjectAttributesPaginate(
+export async function* paginateListObjectAttributes(
   config: CloudDirectoryPaginationConfiguration,
   input: ListObjectAttributesCommandInput,
   ...additionalArguments: any

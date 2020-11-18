@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOrganizationPortfolioAccess(input, ...args);
 };
-export async function* listOrganizationPortfolioAccessPaginate(
+export async function* paginateListOrganizationPortfolioAccess(
   config: ServiceCatalogPaginationConfiguration,
   input: ListOrganizationPortfolioAccessCommandInput,
   ...additionalArguments: any

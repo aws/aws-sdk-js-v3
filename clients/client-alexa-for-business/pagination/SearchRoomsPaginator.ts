@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchRooms(input, ...args);
 };
-export async function* searchRoomsPaginate(
+export async function* paginateSearchRooms(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchRoomsCommandInput,
   ...additionalArguments: any

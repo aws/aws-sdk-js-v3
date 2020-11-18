@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTagValues(input, ...args);
 };
-export async function* getTagValuesPaginate(
+export async function* paginateGetTagValues(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetTagValuesCommandInput,
   ...additionalArguments: any

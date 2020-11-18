@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFilters(input, ...args);
 };
-export async function* listFiltersPaginate(
+export async function* paginateListFilters(
   config: GuardDutyPaginationConfiguration,
   input: ListFiltersCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getServiceGraph(input, ...args);
 };
-export async function* getServiceGraphPaginate(
+export async function* paginateGetServiceGraph(
   config: XRayPaginationConfiguration,
   input: GetServiceGraphCommandInput,
   ...additionalArguments: any

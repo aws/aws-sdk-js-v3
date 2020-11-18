@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClientVpnConnections(input, ...args);
 };
-export async function* describeClientVpnConnectionsPaginate(
+export async function* paginateDescribeClientVpnConnections(
   config: EC2PaginationConfiguration,
   input: DescribeClientVpnConnectionsCommandInput,
   ...additionalArguments: any

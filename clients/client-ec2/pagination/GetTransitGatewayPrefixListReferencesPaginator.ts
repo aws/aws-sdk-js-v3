@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTransitGatewayPrefixListReferences(input, ...args);
 };
-export async function* getTransitGatewayPrefixListReferencesPaginate(
+export async function* paginateGetTransitGatewayPrefixListReferences(
   config: EC2PaginationConfiguration,
   input: GetTransitGatewayPrefixListReferencesCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttacks(input, ...args);
 };
-export async function* listAttacksPaginate(
+export async function* paginateListAttacks(
   config: ShieldPaginationConfiguration,
   input: ListAttacksCommandInput,
   ...additionalArguments: any

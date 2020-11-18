@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBackupJobs(input, ...args);
 };
-export async function* listBackupJobsPaginate(
+export async function* paginateListBackupJobs(
   config: BackupPaginationConfiguration,
   input: ListBackupJobsCommandInput,
   ...additionalArguments: any

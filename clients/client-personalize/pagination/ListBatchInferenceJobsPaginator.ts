@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBatchInferenceJobs(input, ...args);
 };
-export async function* listBatchInferenceJobsPaginate(
+export async function* paginateListBatchInferenceJobs(
   config: PersonalizePaginationConfiguration,
   input: ListBatchInferenceJobsCommandInput,
   ...additionalArguments: any

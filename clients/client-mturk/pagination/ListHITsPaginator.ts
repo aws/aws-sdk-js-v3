@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHITs(input, ...args);
 };
-export async function* listHITsPaginate(
+export async function* paginateListHITs(
   config: MTurkPaginationConfiguration,
   input: ListHITsCommandInput,
   ...additionalArguments: any

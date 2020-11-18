@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResourcesInProtectionGroup(input, ...args);
 };
-export async function* listResourcesInProtectionGroupPaginate(
+export async function* paginateListResourcesInProtectionGroup(
   config: ShieldPaginationConfiguration,
   input: ListResourcesInProtectionGroupCommandInput,
   ...additionalArguments: any

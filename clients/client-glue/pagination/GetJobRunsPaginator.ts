@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getJobRuns(input, ...args);
 };
-export async function* getJobRunsPaginate(
+export async function* paginateGetJobRuns(
   config: GluePaginationConfiguration,
   input: GetJobRunsCommandInput,
   ...additionalArguments: any

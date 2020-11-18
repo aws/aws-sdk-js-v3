@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProposalVotes(input, ...args);
 };
-export async function* listProposalVotesPaginate(
+export async function* paginateListProposalVotes(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListProposalVotesCommandInput,
   ...additionalArguments: any

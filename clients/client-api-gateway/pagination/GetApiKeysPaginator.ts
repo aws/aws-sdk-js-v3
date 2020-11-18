@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getApiKeys(input, ...args);
 };
-export async function* getApiKeysPaginate(
+export async function* paginateGetApiKeys(
   config: APIGatewayPaginationConfiguration,
   input: GetApiKeysCommandInput,
   ...additionalArguments: any

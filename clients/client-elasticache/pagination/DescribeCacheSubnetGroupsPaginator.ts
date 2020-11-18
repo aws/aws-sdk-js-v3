@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCacheSubnetGroups(input, ...args);
 };
-export async function* describeCacheSubnetGroupsPaginate(
+export async function* paginateDescribeCacheSubnetGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheSubnetGroupsCommandInput,
   ...additionalArguments: any

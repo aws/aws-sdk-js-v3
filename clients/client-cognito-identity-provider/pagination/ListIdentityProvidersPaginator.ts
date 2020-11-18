@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIdentityProviders(input, ...args);
 };
-export async function* listIdentityProvidersPaginate(
+export async function* paginateListIdentityProviders(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListIdentityProvidersCommandInput,
   ...additionalArguments: any

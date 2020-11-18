@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeScheduledInstances(input, ...args);
 };
-export async function* describeScheduledInstancesPaginate(
+export async function* paginateDescribeScheduledInstances(
   config: EC2PaginationConfiguration,
   input: DescribeScheduledInstancesCommandInput,
   ...additionalArguments: any

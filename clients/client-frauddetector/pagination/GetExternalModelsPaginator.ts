@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getExternalModels(input, ...args);
 };
-export async function* getExternalModelsPaginate(
+export async function* paginateGetExternalModels(
   config: FraudDetectorPaginationConfiguration,
   input: GetExternalModelsCommandInput,
   ...additionalArguments: any

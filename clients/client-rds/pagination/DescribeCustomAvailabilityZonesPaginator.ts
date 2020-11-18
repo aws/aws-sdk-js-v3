@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCustomAvailabilityZones(input, ...args);
 };
-export async function* describeCustomAvailabilityZonesPaginate(
+export async function* paginateDescribeCustomAvailabilityZones(
   config: RDSPaginationConfiguration,
   input: DescribeCustomAvailabilityZonesCommandInput,
   ...additionalArguments: any

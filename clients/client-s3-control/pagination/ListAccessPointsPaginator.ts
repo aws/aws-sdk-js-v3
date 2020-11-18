@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccessPoints(input, ...args);
 };
-export async function* listAccessPointsPaginate(
+export async function* paginateListAccessPoints(
   config: S3ControlPaginationConfiguration,
   input: ListAccessPointsCommandInput,
   ...additionalArguments: any

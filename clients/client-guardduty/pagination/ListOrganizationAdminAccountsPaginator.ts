@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOrganizationAdminAccounts(input, ...args);
 };
-export async function* listOrganizationAdminAccountsPaginate(
+export async function* paginateListOrganizationAdminAccounts(
   config: GuardDutyPaginationConfiguration,
   input: ListOrganizationAdminAccountsCommandInput,
   ...additionalArguments: any

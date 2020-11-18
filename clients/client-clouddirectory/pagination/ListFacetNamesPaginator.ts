@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFacetNames(input, ...args);
 };
-export async function* listFacetNamesPaginate(
+export async function* paginateListFacetNames(
   config: CloudDirectoryPaginationConfiguration,
   input: ListFacetNamesCommandInput,
   ...additionalArguments: any

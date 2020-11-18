@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNotificationRules(input, ...args);
 };
-export async function* listNotificationRulesPaginate(
+export async function* paginateListNotificationRules(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListNotificationRulesCommandInput,
   ...additionalArguments: any

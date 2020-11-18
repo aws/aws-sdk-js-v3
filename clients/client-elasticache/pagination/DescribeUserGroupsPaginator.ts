@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeUserGroups(input, ...args);
 };
-export async function* describeUserGroupsPaginate(
+export async function* paginateDescribeUserGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeUserGroupsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorldExportJobs(input, ...args);
 };
-export async function* listWorldExportJobsPaginate(
+export async function* paginateListWorldExportJobs(
   config: RoboMakerPaginationConfiguration,
   input: ListWorldExportJobsCommandInput,
   ...additionalArguments: any

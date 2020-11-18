@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProvisioningTemplates(input, ...args);
 };
-export async function* listProvisioningTemplatesPaginate(
+export async function* paginateListProvisioningTemplates(
   config: IoTPaginationConfiguration,
   input: ListProvisioningTemplatesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeStacks(input, ...args);
 };
-export async function* describeStacksPaginate(
+export async function* paginateDescribeStacks(
   config: CloudFormationPaginationConfiguration,
   input: DescribeStacksCommandInput,
   ...additionalArguments: any

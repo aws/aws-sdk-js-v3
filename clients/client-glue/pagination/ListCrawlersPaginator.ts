@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCrawlers(input, ...args);
 };
-export async function* listCrawlersPaginate(
+export async function* paginateListCrawlers(
   config: GluePaginationConfiguration,
   input: ListCrawlersCommandInput,
   ...additionalArguments: any

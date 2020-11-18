@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getRules(input, ...args);
 };
-export async function* getRulesPaginate(
+export async function* paginateGetRules(
   config: FraudDetectorPaginationConfiguration,
   input: GetRulesCommandInput,
   ...additionalArguments: any

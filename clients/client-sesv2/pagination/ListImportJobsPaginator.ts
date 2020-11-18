@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listImportJobs(input, ...args);
 };
-export async function* listImportJobsPaginate(
+export async function* paginateListImportJobs(
   config: SESv2PaginationConfiguration,
   input: ListImportJobsCommandInput,
   ...additionalArguments: any

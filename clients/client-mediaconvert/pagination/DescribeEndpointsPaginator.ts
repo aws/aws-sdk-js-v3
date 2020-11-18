@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEndpoints(input, ...args);
 };
-export async function* describeEndpointsPaginate(
+export async function* paginateDescribeEndpoints(
   config: MediaConvertPaginationConfiguration,
   input: DescribeEndpointsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVpcClassicLinkDnsSupport(input, ...args);
 };
-export async function* describeVpcClassicLinkDnsSupportPaginate(
+export async function* paginateDescribeVpcClassicLinkDnsSupport(
   config: EC2PaginationConfiguration,
   input: DescribeVpcClassicLinkDnsSupportCommandInput,
   ...additionalArguments: any

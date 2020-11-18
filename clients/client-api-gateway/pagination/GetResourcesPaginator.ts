@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResources(input, ...args);
 };
-export async function* getResourcesPaginate(
+export async function* paginateGetResources(
   config: APIGatewayPaginationConfiguration,
   input: GetResourcesCommandInput,
   ...additionalArguments: any

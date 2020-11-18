@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCreatedArtifacts(input, ...args);
 };
-export async function* listCreatedArtifactsPaginate(
+export async function* paginateListCreatedArtifacts(
   config: MigrationHubPaginationConfiguration,
   input: ListCreatedArtifactsCommandInput,
   ...additionalArguments: any

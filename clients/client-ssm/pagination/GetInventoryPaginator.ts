@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getInventory(input, ...args);
 };
-export async function* getInventoryPaginate(
+export async function* paginateGetInventory(
   config: SSMPaginationConfiguration,
   input: GetInventoryCommandInput,
   ...additionalArguments: any

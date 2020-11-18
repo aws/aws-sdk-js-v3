@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDocuments(input, ...args);
 };
-export async function* listDocumentsPaginate(
+export async function* paginateListDocuments(
   config: SSMPaginationConfiguration,
   input: ListDocumentsCommandInput,
   ...additionalArguments: any

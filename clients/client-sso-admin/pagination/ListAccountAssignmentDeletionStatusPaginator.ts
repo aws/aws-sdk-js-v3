@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountAssignmentDeletionStatus(input, ...args);
 };
-export async function* listAccountAssignmentDeletionStatusPaginate(
+export async function* paginateListAccountAssignmentDeletionStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListAccountAssignmentDeletionStatusCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.search(input, ...args);
 };
-export async function* searchPaginate(
+export async function* paginateSearch(
   config: SageMakerPaginationConfiguration,
   input: SearchCommandInput,
   ...additionalArguments: any

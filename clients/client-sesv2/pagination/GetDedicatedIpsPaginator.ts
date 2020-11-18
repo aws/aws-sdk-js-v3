@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDedicatedIps(input, ...args);
 };
-export async function* getDedicatedIpsPaginate(
+export async function* paginateGetDedicatedIps(
   config: SESv2PaginationConfiguration,
   input: GetDedicatedIpsCommandInput,
   ...additionalArguments: any

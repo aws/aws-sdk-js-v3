@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEnvironmentMemberships(input, ...args);
 };
-export async function* describeEnvironmentMembershipsPaginate(
+export async function* paginateDescribeEnvironmentMemberships(
   config: Cloud9PaginationConfiguration,
   input: DescribeEnvironmentMembershipsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUsageStatistics(input, ...args);
 };
-export async function* getUsageStatisticsPaginate(
+export async function* paginateGetUsageStatistics(
   config: GuardDutyPaginationConfiguration,
   input: GetUsageStatisticsCommandInput,
   ...additionalArguments: any

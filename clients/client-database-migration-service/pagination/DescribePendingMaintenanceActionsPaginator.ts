@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePendingMaintenanceActions(input, ...args);
 };
-export async function* describePendingMaintenanceActionsPaginate(
+export async function* paginateDescribePendingMaintenanceActions(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribePendingMaintenanceActionsCommandInput,
   ...additionalArguments: any

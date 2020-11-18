@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountAliases(input, ...args);
 };
-export async function* listAccountAliasesPaginate(
+export async function* paginateListAccountAliases(
   config: IAMPaginationConfiguration,
   input: ListAccountAliasesCommandInput,
   ...additionalArguments: any

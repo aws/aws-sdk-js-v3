@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDetectors(input, ...args);
 };
-export async function* getDetectorsPaginate(
+export async function* paginateGetDetectors(
   config: FraudDetectorPaginationConfiguration,
   input: GetDetectorsCommandInput,
   ...additionalArguments: any

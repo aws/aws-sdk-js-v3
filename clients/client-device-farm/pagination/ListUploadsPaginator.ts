@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUploads(input, ...args);
 };
-export async function* listUploadsPaginate(
+export async function* paginateListUploads(
   config: DeviceFarmPaginationConfiguration,
   input: ListUploadsCommandInput,
   ...additionalArguments: any

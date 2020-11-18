@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFindingsFilters(input, ...args);
 };
-export async function* listFindingsFiltersPaginate(
+export async function* paginateListFindingsFilters(
   config: Macie2PaginationConfiguration,
   input: ListFindingsFiltersCommandInput,
   ...additionalArguments: any

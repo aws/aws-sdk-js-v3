@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImportTasks(input, ...args);
 };
-export async function* describeImportTasksPaginate(
+export async function* paginateDescribeImportTasks(
   config: ApplicationDiscoveryServicePaginationConfiguration,
   input: DescribeImportTasksCommandInput,
   ...additionalArguments: any

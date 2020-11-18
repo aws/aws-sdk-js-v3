@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTapeArchives(input, ...args);
 };
-export async function* describeTapeArchivesPaginate(
+export async function* paginateDescribeTapeArchives(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeTapeArchivesCommandInput,
   ...additionalArguments: any

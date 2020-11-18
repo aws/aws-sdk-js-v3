@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoutingProfileQueues(input, ...args);
 };
-export async function* listRoutingProfileQueuesPaginate(
+export async function* paginateListRoutingProfileQueues(
   config: ConnectPaginationConfiguration,
   input: ListRoutingProfileQueuesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getClientCertificates(input, ...args);
 };
-export async function* getClientCertificatesPaginate(
+export async function* paginateGetClientCertificates(
   config: APIGatewayPaginationConfiguration,
   input: GetClientCertificatesCommandInput,
   ...additionalArguments: any

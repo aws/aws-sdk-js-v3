@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchThings(input, ...args);
 };
-export async function* searchThingsPaginate(
+export async function* paginateSearchThings(
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchThingsCommandInput,
   ...additionalArguments: any

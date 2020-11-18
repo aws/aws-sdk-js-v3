@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountRoles(input, ...args);
 };
-export async function* listAccountRolesPaginate(
+export async function* paginateListAccountRoles(
   config: SSOPaginationConfiguration,
   input: ListAccountRolesCommandInput,
   ...additionalArguments: any

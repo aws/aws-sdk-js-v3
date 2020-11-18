@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getModels(input, ...args);
 };
-export async function* getModelsPaginate(
+export async function* paginateGetModels(
   config: APIGatewayPaginationConfiguration,
   input: GetModelsCommandInput,
   ...additionalArguments: any

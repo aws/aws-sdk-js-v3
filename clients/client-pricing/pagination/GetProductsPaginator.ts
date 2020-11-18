@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getProducts(input, ...args);
 };
-export async function* getProductsPaginate(
+export async function* paginateGetProducts(
   config: PricingPaginationConfiguration,
   input: GetProductsCommandInput,
   ...additionalArguments: any

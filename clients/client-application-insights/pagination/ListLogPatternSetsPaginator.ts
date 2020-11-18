@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLogPatternSets(input, ...args);
 };
-export async function* listLogPatternSetsPaginate(
+export async function* paginateListLogPatternSets(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListLogPatternSetsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAttendees(input, ...args);
 };
-export async function* listAttendeesPaginate(
+export async function* paginateListAttendees(
   config: ChimePaginationConfiguration,
   input: ListAttendeesCommandInput,
   ...additionalArguments: any

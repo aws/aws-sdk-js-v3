@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMergeConflicts(input, ...args);
 };
-export async function* describeMergeConflictsPaginate(
+export async function* paginateDescribeMergeConflicts(
   config: CodeCommitPaginationConfiguration,
   input: DescribeMergeConflictsCommandInput,
   ...additionalArguments: any

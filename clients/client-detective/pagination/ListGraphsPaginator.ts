@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGraphs(input, ...args);
 };
-export async function* listGraphsPaginate(
+export async function* paginateListGraphs(
   config: DetectivePaginationConfiguration,
   input: ListGraphsCommandInput,
   ...additionalArguments: any

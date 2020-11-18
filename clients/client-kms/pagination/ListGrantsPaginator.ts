@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGrants(input, ...args);
 };
-export async function* listGrantsPaginate(
+export async function* paginateListGrants(
   config: KMSPaginationConfiguration,
   input: ListGrantsCommandInput,
   ...additionalArguments: any

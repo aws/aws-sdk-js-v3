@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTagsForResource(input, ...args);
 };
-export async function* listTagsForResourcePaginate(
+export async function* paginateListTagsForResource(
   config: DataSyncPaginationConfiguration,
   input: ListTagsForResourceCommandInput,
   ...additionalArguments: any

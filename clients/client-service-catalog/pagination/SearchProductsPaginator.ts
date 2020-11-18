@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchProducts(input, ...args);
 };
-export async function* searchProductsPaginate(
+export async function* paginateSearchProducts(
   config: ServiceCatalogPaginationConfiguration,
   input: SearchProductsCommandInput,
   ...additionalArguments: any

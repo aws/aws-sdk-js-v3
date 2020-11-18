@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDiscoverers(input, ...args);
 };
-export async function* listDiscoverersPaginate(
+export async function* paginateListDiscoverers(
   config: SchemasPaginationConfiguration,
   input: ListDiscoverersCommandInput,
   ...additionalArguments: any

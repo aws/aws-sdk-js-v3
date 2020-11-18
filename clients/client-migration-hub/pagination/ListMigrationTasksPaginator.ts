@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMigrationTasks(input, ...args);
 };
-export async function* listMigrationTasksPaginate(
+export async function* paginateListMigrationTasks(
   config: MigrationHubPaginationConfiguration,
   input: ListMigrationTasksCommandInput,
   ...additionalArguments: any

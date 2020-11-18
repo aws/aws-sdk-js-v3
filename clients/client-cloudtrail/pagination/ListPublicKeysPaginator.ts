@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPublicKeys(input, ...args);
 };
-export async function* listPublicKeysPaginate(
+export async function* paginateListPublicKeys(
   config: CloudTrailPaginationConfiguration,
   input: ListPublicKeysCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClosedWorkflowExecutions(input, ...args);
 };
-export async function* listClosedWorkflowExecutionsPaginate(
+export async function* paginateListClosedWorkflowExecutions(
   config: SWFPaginationConfiguration,
   input: ListClosedWorkflowExecutionsCommandInput,
   ...additionalArguments: any

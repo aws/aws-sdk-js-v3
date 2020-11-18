@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContainerInstances(input, ...args);
 };
-export async function* listContainerInstancesPaginate(
+export async function* paginateListContainerInstances(
   config: ECSPaginationConfiguration,
   input: ListContainerInstancesCommandInput,
   ...additionalArguments: any

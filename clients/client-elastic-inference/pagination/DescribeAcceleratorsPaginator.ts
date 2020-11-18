@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAccelerators(input, ...args);
 };
-export async function* describeAcceleratorsPaginate(
+export async function* paginateDescribeAccelerators(
   config: ElasticInferencePaginationConfiguration,
   input: DescribeAcceleratorsCommandInput,
   ...additionalArguments: any

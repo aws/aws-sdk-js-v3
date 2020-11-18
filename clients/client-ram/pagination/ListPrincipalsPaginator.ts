@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPrincipals(input, ...args);
 };
-export async function* listPrincipalsPaginate(
+export async function* paginateListPrincipals(
   config: RAMPaginationConfiguration,
   input: ListPrincipalsCommandInput,
   ...additionalArguments: any

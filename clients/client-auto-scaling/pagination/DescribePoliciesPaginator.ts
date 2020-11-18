@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePolicies(input, ...args);
 };
-export async function* describePoliciesPaginate(
+export async function* paginateDescribePolicies(
   config: AutoScalingPaginationConfiguration,
   input: DescribePoliciesCommandInput,
   ...additionalArguments: any

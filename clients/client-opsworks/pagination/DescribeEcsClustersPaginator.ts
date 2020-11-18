@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEcsClusters(input, ...args);
 };
-export async function* describeEcsClustersPaginate(
+export async function* paginateDescribeEcsClusters(
   config: OpsWorksPaginationConfiguration,
   input: DescribeEcsClustersCommandInput,
   ...additionalArguments: any

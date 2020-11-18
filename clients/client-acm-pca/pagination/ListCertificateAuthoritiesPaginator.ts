@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCertificateAuthorities(input, ...args);
 };
-export async function* listCertificateAuthoritiesPaginate(
+export async function* paginateListCertificateAuthorities(
   config: ACMPCAPaginationConfiguration,
   input: ListCertificateAuthoritiesCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMatchmakingConfigurations(input, ...args);
 };
-export async function* describeMatchmakingConfigurationsPaginate(
+export async function* paginateDescribeMatchmakingConfigurations(
   config: GameLiftPaginationConfiguration,
   input: DescribeMatchmakingConfigurationsCommandInput,
   ...additionalArguments: any

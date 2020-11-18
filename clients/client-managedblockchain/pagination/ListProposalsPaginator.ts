@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProposals(input, ...args);
 };
-export async function* listProposalsPaginate(
+export async function* paginateListProposals(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListProposalsCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRobots(input, ...args);
 };
-export async function* listRobotsPaginate(
+export async function* paginateListRobots(
   config: RoboMakerPaginationConfiguration,
   input: ListRobotsCommandInput,
   ...additionalArguments: any

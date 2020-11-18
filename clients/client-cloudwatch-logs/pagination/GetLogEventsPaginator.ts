@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLogEvents(input, ...args);
 };
-export async function* getLogEventsPaginate(
+export async function* paginateGetLogEvents(
   config: CloudWatchLogsPaginationConfiguration,
   input: GetLogEventsCommandInput,
   ...additionalArguments: any

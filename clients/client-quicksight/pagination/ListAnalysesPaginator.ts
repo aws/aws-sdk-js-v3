@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAnalyses(input, ...args);
 };
-export async function* listAnalysesPaginate(
+export async function* paginateListAnalyses(
   config: QuickSightPaginationConfiguration,
   input: ListAnalysesCommandInput,
   ...additionalArguments: any

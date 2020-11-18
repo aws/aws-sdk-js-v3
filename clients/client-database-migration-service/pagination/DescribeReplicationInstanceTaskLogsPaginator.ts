@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReplicationInstanceTaskLogs(input, ...args);
 };
-export async function* describeReplicationInstanceTaskLogsPaginate(
+export async function* paginateDescribeReplicationInstanceTaskLogs(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeReplicationInstanceTaskLogsCommandInput,
   ...additionalArguments: any

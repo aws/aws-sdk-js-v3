@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getFaceSearch(input, ...args);
 };
-export async function* getFaceSearchPaginate(
+export async function* paginateGetFaceSearch(
   config: RekognitionPaginationConfiguration,
   input: GetFaceSearchCommandInput,
   ...additionalArguments: any

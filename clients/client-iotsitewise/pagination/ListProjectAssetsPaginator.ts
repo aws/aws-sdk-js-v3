@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProjectAssets(input, ...args);
 };
-export async function* listProjectAssetsPaginate(
+export async function* paginateListProjectAssets(
   config: IoTSiteWisePaginationConfiguration,
   input: ListProjectAssetsCommandInput,
   ...additionalArguments: any

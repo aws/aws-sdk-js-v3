@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPackages(input, ...args);
 };
-export async function* listPackagesPaginate(
+export async function* paginateListPackages(
   config: CodeartifactPaginationConfiguration,
   input: ListPackagesCommandInput,
   ...additionalArguments: any

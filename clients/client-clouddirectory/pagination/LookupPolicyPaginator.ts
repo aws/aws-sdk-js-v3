@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.lookupPolicy(input, ...args);
 };
-export async function* lookupPolicyPaginate(
+export async function* paginateLookupPolicy(
   config: CloudDirectoryPaginationConfiguration,
   input: LookupPolicyCommandInput,
   ...additionalArguments: any

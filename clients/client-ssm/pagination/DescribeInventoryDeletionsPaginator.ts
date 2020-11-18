@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInventoryDeletions(input, ...args);
 };
-export async function* describeInventoryDeletionsPaginate(
+export async function* paginateDescribeInventoryDeletions(
   config: SSMPaginationConfiguration,
   input: DescribeInventoryDeletionsCommandInput,
   ...additionalArguments: any

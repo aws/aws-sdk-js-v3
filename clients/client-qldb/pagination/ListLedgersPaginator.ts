@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLedgers(input, ...args);
 };
-export async function* listLedgersPaginate(
+export async function* paginateListLedgers(
   config: QLDBPaginationConfiguration,
   input: ListLedgersCommandInput,
   ...additionalArguments: any

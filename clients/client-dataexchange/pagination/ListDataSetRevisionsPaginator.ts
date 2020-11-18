@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataSetRevisions(input, ...args);
 };
-export async function* listDataSetRevisionsPaginate(
+export async function* paginateListDataSetRevisions(
   config: DataExchangePaginationConfiguration,
   input: ListDataSetRevisionsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeListeners(input, ...args);
 };
-export async function* describeListenersPaginate(
+export async function* paginateDescribeListeners(
   config: ElasticLoadBalancingV2PaginationConfiguration,
   input: DescribeListenersCommandInput,
   ...additionalArguments: any

@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getVpcLinks(input, ...args);
 };
-export async function* getVpcLinksPaginate(
+export async function* paginateGetVpcLinks(
   config: APIGatewayPaginationConfiguration,
   input: GetVpcLinksCommandInput,
   ...additionalArguments: any

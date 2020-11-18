@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccessPolicies(input, ...args);
 };
-export async function* listAccessPoliciesPaginate(
+export async function* paginateListAccessPolicies(
   config: IoTSiteWisePaginationConfiguration,
   input: ListAccessPoliciesCommandInput,
   ...additionalArguments: any

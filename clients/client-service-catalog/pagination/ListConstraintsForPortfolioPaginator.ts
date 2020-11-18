@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConstraintsForPortfolio(input, ...args);
 };
-export async function* listConstraintsForPortfolioPaginate(
+export async function* paginateListConstraintsForPortfolio(
   config: ServiceCatalogPaginationConfiguration,
   input: ListConstraintsForPortfolioCommandInput,
   ...additionalArguments: any

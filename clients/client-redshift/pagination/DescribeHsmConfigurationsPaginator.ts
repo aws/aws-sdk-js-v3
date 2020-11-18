@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeHsmConfigurations(input, ...args);
 };
-export async function* describeHsmConfigurationsPaginate(
+export async function* paginateDescribeHsmConfigurations(
   config: RedshiftPaginationConfiguration,
   input: DescribeHsmConfigurationsCommandInput,
   ...additionalArguments: any

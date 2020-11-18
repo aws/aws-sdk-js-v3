@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFargateProfiles(input, ...args);
 };
-export async function* listFargateProfilesPaginate(
+export async function* paginateListFargateProfiles(
   config: EKSPaginationConfiguration,
   input: ListFargateProfilesCommandInput,
   ...additionalArguments: any

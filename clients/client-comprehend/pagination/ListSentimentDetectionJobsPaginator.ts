@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSentimentDetectionJobs(input, ...args);
 };
-export async function* listSentimentDetectionJobsPaginate(
+export async function* paginateListSentimentDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListSentimentDetectionJobsCommandInput,
   ...additionalArguments: any

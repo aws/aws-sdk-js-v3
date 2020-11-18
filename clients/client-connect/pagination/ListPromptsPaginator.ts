@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPrompts(input, ...args);
 };
-export async function* listPromptsPaginate(
+export async function* paginateListPrompts(
   config: ConnectPaginationConfiguration,
   input: ListPromptsCommandInput,
   ...additionalArguments: any

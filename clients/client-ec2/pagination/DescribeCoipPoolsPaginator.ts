@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCoipPools(input, ...args);
 };
-export async function* describeCoipPoolsPaginate(
+export async function* paginateDescribeCoipPools(
   config: EC2PaginationConfiguration,
   input: DescribeCoipPoolsCommandInput,
   ...additionalArguments: any

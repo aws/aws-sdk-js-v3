@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAcceptedPortfolioShares(input, ...args);
 };
-export async function* listAcceptedPortfolioSharesPaginate(
+export async function* paginateListAcceptedPortfolioShares(
   config: ServiceCatalogPaginationConfiguration,
   input: ListAcceptedPortfolioSharesCommandInput,
   ...additionalArguments: any

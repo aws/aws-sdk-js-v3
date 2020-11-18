@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDashboardVersions(input, ...args);
 };
-export async function* listDashboardVersionsPaginate(
+export async function* paginateListDashboardVersions(
   config: QuickSightPaginationConfiguration,
   input: ListDashboardVersionsCommandInput,
   ...additionalArguments: any

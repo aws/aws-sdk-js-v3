@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResourceShares(input, ...args);
 };
-export async function* getResourceSharesPaginate(
+export async function* paginateGetResourceShares(
   config: RAMPaginationConfiguration,
   input: GetResourceSharesCommandInput,
   ...additionalArguments: any

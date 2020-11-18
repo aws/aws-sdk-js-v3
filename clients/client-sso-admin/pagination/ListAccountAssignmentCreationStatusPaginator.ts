@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountAssignmentCreationStatus(input, ...args);
 };
-export async function* listAccountAssignmentCreationStatusPaginate(
+export async function* paginateListAccountAssignmentCreationStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListAccountAssignmentCreationStatusCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMedicalTranscriptionJobs(input, ...args);
 };
-export async function* listMedicalTranscriptionJobsPaginate(
+export async function* paginateListMedicalTranscriptionJobs(
   config: TranscribePaginationConfiguration,
   input: ListMedicalTranscriptionJobsCommandInput,
   ...additionalArguments: any

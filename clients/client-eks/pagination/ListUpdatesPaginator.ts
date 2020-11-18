@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUpdates(input, ...args);
 };
-export async function* listUpdatesPaginate(
+export async function* paginateListUpdates(
   config: EKSPaginationConfiguration,
   input: ListUpdatesCommandInput,
   ...additionalArguments: any

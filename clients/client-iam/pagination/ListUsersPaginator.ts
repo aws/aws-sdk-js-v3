@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUsers(input, ...args);
 };
-export async function* listUsersPaginate(
+export async function* paginateListUsers(
   config: IAMPaginationConfiguration,
   input: ListUsersCommandInput,
   ...additionalArguments: any

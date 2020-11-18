@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReviewPolicyResultsForHIT(input, ...args);
 };
-export async function* listReviewPolicyResultsForHITPaginate(
+export async function* paginateListReviewPolicyResultsForHIT(
   config: MTurkPaginationConfiguration,
   input: ListReviewPolicyResultsForHITCommandInput,
   ...additionalArguments: any

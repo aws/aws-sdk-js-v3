@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVersionsByFunction(input, ...args);
 };
-export async function* listVersionsByFunctionPaginate(
+export async function* paginateListVersionsByFunction(
   config: LambdaPaginationConfiguration,
   input: ListVersionsByFunctionCommandInput,
   ...additionalArguments: any

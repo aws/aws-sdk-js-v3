@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.previewAgents(input, ...args);
 };
-export async function* previewAgentsPaginate(
+export async function* paginatePreviewAgents(
   config: InspectorPaginationConfiguration,
   input: PreviewAgentsCommandInput,
   ...additionalArguments: any

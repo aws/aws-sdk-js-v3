@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMeshes(input, ...args);
 };
-export async function* listMeshesPaginate(
+export async function* paginateListMeshes(
   config: AppMeshPaginationConfiguration,
   input: ListMeshesCommandInput,
   ...additionalArguments: any

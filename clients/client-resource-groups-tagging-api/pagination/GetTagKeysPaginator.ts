@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTagKeys(input, ...args);
 };
-export async function* getTagKeysPaginate(
+export async function* paginateGetTagKeys(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetTagKeysCommandInput,
   ...additionalArguments: any

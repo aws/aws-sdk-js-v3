@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUserProfiles(input, ...args);
 };
-export async function* listUserProfilesPaginate(
+export async function* paginateListUserProfiles(
   config: SageMakerPaginationConfiguration,
   input: ListUserProfilesCommandInput,
   ...additionalArguments: any

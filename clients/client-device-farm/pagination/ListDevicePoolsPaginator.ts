@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDevicePools(input, ...args);
 };
-export async function* listDevicePoolsPaginate(
+export async function* paginateListDevicePools(
   config: DeviceFarmPaginationConfiguration,
   input: ListDevicePoolsCommandInput,
   ...additionalArguments: any

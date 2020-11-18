@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSubnets(input, ...args);
 };
-export async function* describeSubnetsPaginate(
+export async function* paginateDescribeSubnets(
   config: EC2PaginationConfiguration,
   input: DescribeSubnetsCommandInput,
   ...additionalArguments: any

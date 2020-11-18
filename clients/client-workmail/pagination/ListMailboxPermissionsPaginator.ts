@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMailboxPermissions(input, ...args);
 };
-export async function* listMailboxPermissionsPaginate(
+export async function* paginateListMailboxPermissions(
   config: WorkMailPaginationConfiguration,
   input: ListMailboxPermissionsCommandInput,
   ...additionalArguments: any

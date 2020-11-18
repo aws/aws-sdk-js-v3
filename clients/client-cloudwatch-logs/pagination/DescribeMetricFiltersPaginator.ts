@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeMetricFilters(input, ...args);
 };
-export async function* describeMetricFiltersPaginate(
+export async function* paginateDescribeMetricFilters(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeMetricFiltersCommandInput,
   ...additionalArguments: any

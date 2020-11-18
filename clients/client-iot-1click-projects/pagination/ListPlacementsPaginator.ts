@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlacements(input, ...args);
 };
-export async function* listPlacementsPaginate(
+export async function* paginateListPlacements(
   config: IoT1ClickProjectsPaginationConfiguration,
   input: ListPlacementsCommandInput,
   ...additionalArguments: any

@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getConnections(input, ...args);
 };
-export async function* getConnectionsPaginate(
+export async function* paginateGetConnections(
   config: GluePaginationConfiguration,
   input: GetConnectionsCommandInput,
   ...additionalArguments: any

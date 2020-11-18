@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUserDefinedFunctions(input, ...args);
 };
-export async function* getUserDefinedFunctionsPaginate(
+export async function* paginateGetUserDefinedFunctions(
   config: GluePaginationConfiguration,
   input: GetUserDefinedFunctionsCommandInput,
   ...additionalArguments: any

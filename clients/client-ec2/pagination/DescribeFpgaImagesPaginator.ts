@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFpgaImages(input, ...args);
 };
-export async function* describeFpgaImagesPaginate(
+export async function* paginateDescribeFpgaImages(
   config: EC2PaginationConfiguration,
   input: DescribeFpgaImagesCommandInput,
   ...additionalArguments: any

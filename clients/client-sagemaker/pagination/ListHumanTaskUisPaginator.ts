@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHumanTaskUis(input, ...args);
 };
-export async function* listHumanTaskUisPaginate(
+export async function* paginateListHumanTaskUis(
   config: SageMakerPaginationConfiguration,
   input: ListHumanTaskUisCommandInput,
   ...additionalArguments: any

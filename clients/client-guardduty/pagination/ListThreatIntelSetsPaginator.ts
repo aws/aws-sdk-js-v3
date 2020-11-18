@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listThreatIntelSets(input, ...args);
 };
-export async function* listThreatIntelSetsPaginate(
+export async function* paginateListThreatIntelSets(
   config: GuardDutyPaginationConfiguration,
   input: ListThreatIntelSetsCommandInput,
   ...additionalArguments: any

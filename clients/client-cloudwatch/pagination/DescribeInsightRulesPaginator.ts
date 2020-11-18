@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInsightRules(input, ...args);
 };
-export async function* describeInsightRulesPaginate(
+export async function* paginateDescribeInsightRules(
   config: CloudWatchPaginationConfiguration,
   input: DescribeInsightRulesCommandInput,
   ...additionalArguments: any

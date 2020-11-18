@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGatewayGroups(input, ...args);
 };
-export async function* listGatewayGroupsPaginate(
+export async function* paginateListGatewayGroups(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListGatewayGroupsCommandInput,
   ...additionalArguments: any

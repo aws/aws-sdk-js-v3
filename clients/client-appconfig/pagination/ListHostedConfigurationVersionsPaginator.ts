@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHostedConfigurationVersions(input, ...args);
 };
-export async function* listHostedConfigurationVersionsPaginate(
+export async function* paginateListHostedConfigurationVersions(
   config: AppConfigPaginationConfiguration,
   input: ListHostedConfigurationVersionsCommandInput,
   ...additionalArguments: any

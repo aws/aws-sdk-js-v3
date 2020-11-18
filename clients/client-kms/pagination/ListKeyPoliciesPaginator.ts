@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listKeyPolicies(input, ...args);
 };
-export async function* listKeyPoliciesPaginate(
+export async function* paginateListKeyPolicies(
   config: KMSPaginationConfiguration,
   input: ListKeyPoliciesCommandInput,
   ...additionalArguments: any

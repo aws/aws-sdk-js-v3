@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNodes(input, ...args);
 };
-export async function* listNodesPaginate(
+export async function* paginateListNodes(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListNodesCommandInput,
   ...additionalArguments: any

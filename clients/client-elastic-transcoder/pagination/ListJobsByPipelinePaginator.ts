@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobsByPipeline(input, ...args);
 };
-export async function* listJobsByPipelinePaginate(
+export async function* paginateListJobsByPipeline(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListJobsByPipelineCommandInput,
   ...additionalArguments: any

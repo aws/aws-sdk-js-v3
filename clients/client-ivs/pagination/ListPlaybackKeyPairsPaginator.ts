@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlaybackKeyPairs(input, ...args);
 };
-export async function* listPlaybackKeyPairsPaginate(
+export async function* paginateListPlaybackKeyPairs(
   config: IvsPaginationConfiguration,
   input: ListPlaybackKeyPairsCommandInput,
   ...additionalArguments: any

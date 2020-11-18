@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHandshakesForOrganization(input, ...args);
 };
-export async function* listHandshakesForOrganizationPaginate(
+export async function* paginateListHandshakesForOrganization(
   config: OrganizationsPaginationConfiguration,
   input: ListHandshakesForOrganizationCommandInput,
   ...additionalArguments: any

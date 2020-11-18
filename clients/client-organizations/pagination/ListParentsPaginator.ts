@@ -20,7 +20,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listParents(input, ...args);
 };
-export async function* listParentsPaginate(
+export async function* paginateListParents(
   config: OrganizationsPaginationConfiguration,
   input: ListParentsCommandInput,
   ...additionalArguments: any

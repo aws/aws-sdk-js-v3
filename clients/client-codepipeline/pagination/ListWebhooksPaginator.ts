@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWebhooks(input, ...args);
 };
-export async function* listWebhooksPaginate(
+export async function* paginateListWebhooks(
   config: CodePipelinePaginationConfiguration,
   input: ListWebhooksCommandInput,
   ...additionalArguments: any

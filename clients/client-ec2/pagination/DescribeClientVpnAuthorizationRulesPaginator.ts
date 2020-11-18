@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClientVpnAuthorizationRules(input, ...args);
 };
-export async function* describeClientVpnAuthorizationRulesPaginate(
+export async function* paginateDescribeClientVpnAuthorizationRules(
   config: EC2PaginationConfiguration,
   input: DescribeClientVpnAuthorizationRulesCommandInput,
   ...additionalArguments: any

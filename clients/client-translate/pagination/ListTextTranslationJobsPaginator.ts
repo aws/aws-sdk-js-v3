@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTextTranslationJobs(input, ...args);
 };
-export async function* listTextTranslationJobsPaginate(
+export async function* paginateListTextTranslationJobs(
   config: TranslatePaginationConfiguration,
   input: ListTextTranslationJobsCommandInput,
   ...additionalArguments: any

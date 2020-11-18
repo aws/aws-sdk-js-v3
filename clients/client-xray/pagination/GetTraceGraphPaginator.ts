@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTraceGraph(input, ...args);
 };
-export async function* getTraceGraphPaginate(
+export async function* paginateGetTraceGraph(
   config: XRayPaginationConfiguration,
   input: GetTraceGraphCommandInput,
   ...additionalArguments: any

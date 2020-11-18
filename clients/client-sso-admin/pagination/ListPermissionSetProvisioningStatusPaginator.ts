@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPermissionSetProvisioningStatus(input, ...args);
 };
-export async function* listPermissionSetProvisioningStatusPaginate(
+export async function* paginateListPermissionSetProvisioningStatus(
   config: SSOAdminPaginationConfiguration,
   input: ListPermissionSetProvisioningStatusCommandInput,
   ...additionalArguments: any

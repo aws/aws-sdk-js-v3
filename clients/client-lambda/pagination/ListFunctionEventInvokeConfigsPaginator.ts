@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFunctionEventInvokeConfigs(input, ...args);
 };
-export async function* listFunctionEventInvokeConfigsPaginate(
+export async function* paginateListFunctionEventInvokeConfigs(
   config: LambdaPaginationConfiguration,
   input: ListFunctionEventInvokeConfigsCommandInput,
   ...additionalArguments: any

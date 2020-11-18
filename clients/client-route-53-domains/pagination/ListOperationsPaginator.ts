@@ -24,7 +24,7 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOperations(input, ...args);
 };
-export async function* listOperationsPaginate(
+export async function* paginateListOperations(
   config: Route53DomainsPaginationConfiguration,
   input: ListOperationsCommandInput,
   ...additionalArguments: any
