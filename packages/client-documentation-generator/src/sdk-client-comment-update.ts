@@ -5,6 +5,9 @@ import { getRawComment, parseComment } from "typedoc/dist/lib/converter/factorie
 import { Reflection } from "typedoc/dist/lib/models/reflections";
 import ts from "typescript";
 
+/**
+ * Best effort make the service docs markdown looks better.
+ */
 @Component({ name: "SdkClientCommentUpdatePlugin" })
 export class SdkClientCommentUpdatePlugin extends ConverterComponent {
   initialize() {

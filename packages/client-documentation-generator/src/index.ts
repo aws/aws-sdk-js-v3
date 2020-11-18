@@ -1,17 +1,20 @@
 import { PluginHost } from "typedoc/dist/lib/utils";
 
 import { SdkClientCommentUpdatePlugin } from "./sdk-client-comment-update";
-import { SdkClientNavigationUpdatePlugin } from "./sdk-client-navigation-update";
+import { SdkClientRenameProjectPlugin } from "./sdk-client-rename-project";
 import { SdkClientTocPlugin } from "./sdk-client-toc-plugin";
 
-/**
- *
- * @param pluginHost An instance of PluginHost.
- */
 module.exports = function load(pluginHost: PluginHost) {
   const application = pluginHost.owner;
 
-  application.renderer.addComponent("SdkClientTocPlugin", SdkClientTocPlugin as any);
-  application.converter.addComponent("SdkClientCommentUpdatePlugin", SdkClientCommentUpdatePlugin as any);
-  application.converter.addComponent("SdkClientNavigationUpdatePlugin", SdkClientNavigationUpdatePlugin as any);
+  application.converter.addComponent(
+    "SdkClientCommentUpdatePlugin",
+    new SdkClientCommentUpdatePlugin(application.converter)
+  );
+
+  application.renderer.addComponent("SdkClientTocPlugin", new SdkClientTocPlugin(application.renderer));
+  application.renderer.addComponent(
+    "SdkClientRenameProjectPlugin",
+    new SdkClientRenameProjectPlugin(application.renderer)
+  );
 };
