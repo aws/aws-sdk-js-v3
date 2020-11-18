@@ -18,7 +18,11 @@ export interface FetchHttpHandlerOptions {
 }
 
 export class FetchHttpHandler implements HttpHandler {
-  constructor(private readonly httpOptions: FetchHttpHandlerOptions = {}) {}
+  private readonly requestTimeout?: number;
+
+  constructor({ requestTimeout }: FetchHttpHandlerOptions = {}) {
+    this.requestTimeout = requestTimeout;
+  }
 
   destroy(): void {
     // Do nothing. TLS and HTTP/2 connection pooling is handled by the
@@ -27,7 +31,7 @@ export class FetchHttpHandler implements HttpHandler {
 
   handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     const abortSignal = options?.abortSignal;
-    const requestTimeoutInMs = this.httpOptions.requestTimeout;
+    const requestTimeoutInMs = this.requestTimeout;
 
     // if the request was already aborted, prevent doing extra work
     if (abortSignal?.aborted) {
