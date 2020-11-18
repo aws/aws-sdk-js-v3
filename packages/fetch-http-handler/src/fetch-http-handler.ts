@@ -25,12 +25,10 @@ export class FetchHttpHandler implements HttpHandler {
   }
 
   destroy(): void {
-    // Do nothing. TLS and HTTP/2 connection pooling is handled by the
-    // browser.
+    // Do nothing. TLS and HTTP/2 connection pooling is handled by the browser.
   }
 
-  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
-    const abortSignal = options?.abortSignal;
+  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     const requestTimeoutInMs = this.requestTimeout;
 
     // if the request was already aborted, prevent doing extra work
