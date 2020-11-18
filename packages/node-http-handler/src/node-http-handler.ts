@@ -4,6 +4,7 @@ import { HttpHandlerOptions } from "@aws-sdk/types";
 import { Agent as hAgent, request as hRequest } from "http";
 import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
+import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants";
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
@@ -83,7 +84,13 @@ export class NodeHttpHandler implements HttpHandler {
         resolve({ response: httpResponse });
       });
 
-      req.on("error", reject);
+      req.on("error", (err: Error) => {
+        if (NODEJS_TIMEOUT_ERROR_CODES.includes((err as any).code)) {
+          reject(Object.assign(err, { name: "TimeoutError" }));
+        } else {
+          reject(err);
+        }
+      });
 
       // wire-up any timeout logic
       setConnectionTimeout(req, reject, this.connectionTimeout);
