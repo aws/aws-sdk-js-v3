@@ -83,7 +83,13 @@ export class NodeHttpHandler implements HttpHandler {
         resolve({ response: httpResponse });
       });
 
-      req.on("error", reject);
+      req.on("error", (err: Error) => {
+        if (["ECONNRESET", "EPIPE", "ETIMEDOUT"].includes((err as any).code)) {
+          reject(Object.assign(err, { name: "TimeoutError" }));
+        } else {
+          reject(err);
+        }
+      });
 
       // wire-up any timeout logic
       setConnectionTimeout(req, reject, this.connectionTimeout);
