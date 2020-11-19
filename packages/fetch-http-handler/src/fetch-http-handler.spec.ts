@@ -86,6 +86,56 @@ describe.skip(FetchHttpHandler.name, () => {
     expect(requestCall[0]).toBe("https://foo.amazonaws.com:443/test/?bar=baz");
   });
 
+  it("will omit body if method is GET", async () => {
+    const mockResponse = {
+      headers: { entries: jest.fn().mockReturnValue([]) },
+      blob: jest.fn().mockResolvedValue(new Blob()),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+
+    (global as any).fetch = mockFetch;
+
+    const httpRequest = new HttpRequest({
+      headers: {},
+      hostname: "foo.amazonaws.com",
+      method: "GET",
+      path: "/",
+      body: "will be omitted",
+    });
+    const fetchHttpHandler = new FetchHttpHandler();
+
+    await fetchHttpHandler.handle(httpRequest, {});
+
+    expect(mockFetch.mock.calls.length).toBe(1);
+    const requestCall = mockRequest.mock.calls[0];
+    expect(requestCall[1].body).toBeUndefined();
+  });
+
+  it("will omit body if method is HEAD", async () => {
+    const mockResponse = {
+      headers: { entries: jest.fn().mockReturnValue([]) },
+      blob: jest.fn().mockResolvedValue(new Blob()),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+
+    (global as any).fetch = mockFetch;
+
+    const httpRequest = new HttpRequest({
+      headers: {},
+      hostname: "foo.amazonaws.com",
+      method: "HEAD",
+      path: "/",
+      body: "will be omitted",
+    });
+    const fetchHttpHandler = new FetchHttpHandler();
+
+    await fetchHttpHandler.handle(httpRequest, {});
+
+    expect(mockFetch.mock.calls.length).toBe(1);
+    const requestCall = mockRequest.mock.calls[0];
+    expect(requestCall[1].body).toBeUndefined();
+  });
+
   it("will not make request if already aborted", async () => {
     const mockResponse = {
       headers: {
