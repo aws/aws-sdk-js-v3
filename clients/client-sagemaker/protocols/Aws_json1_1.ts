@@ -11470,6 +11470,7 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
     ...(input.HomeEfsFileSystemKmsKeyId !== undefined && {
       HomeEfsFileSystemKmsKeyId: input.HomeEfsFileSystemKmsKeyId,
     }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1Subnets(input.SubnetIds, context) }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
@@ -16702,6 +16703,7 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
       output.HomeEfsFileSystemKmsKeyId !== undefined && output.HomeEfsFileSystemKmsKeyId !== null
         ? output.HomeEfsFileSystemKmsKeyId
         : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))

@@ -118,6 +118,7 @@ export * from "./commands/DescribeSourceRegionsCommand";
 export * from "./pagination/DescribeSourceRegionsPaginator";
 export * from "./commands/DescribeValidDBInstanceModificationsCommand";
 export * from "./commands/DownloadDBLogFilePortionCommand";
+export * from "./pagination/DownloadDBLogFilePortionPaginator";
 export * from "./commands/FailoverDBClusterCommand";
 export * from "./commands/ImportInstallationMediaCommand";
 export * from "./commands/ListTagsForResourceCommand";

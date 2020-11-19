@@ -161,6 +161,10 @@ import {
   GetProvisionedProductOutputsCommandOutput,
 } from "../commands/GetProvisionedProductOutputsCommand";
 import {
+  ImportAsProvisionedProductCommandInput,
+  ImportAsProvisionedProductCommandOutput,
+} from "../commands/ImportAsProvisionedProductCommand";
+import {
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
 } from "../commands/ListAcceptedPortfolioSharesCommand";
@@ -371,6 +375,8 @@ import {
   GetAWSOrganizationsAccessStatusOutput,
   GetProvisionedProductOutputsInput,
   GetProvisionedProductOutputsOutput,
+  ImportAsProvisionedProductInput,
+  ImportAsProvisionedProductOutput,
   InvalidParametersException,
   InvalidStateException,
   LaunchPath,
@@ -1169,6 +1175,19 @@ export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProvisionedProductOutputsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ImportAsProvisionedProductCommand = async (
+  input: ImportAsProvisionedProductCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportAsProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5014,6 +5033,85 @@ const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ImportAsProvisionedProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAsProvisionedProductCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportAsProvisionedProductCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportAsProvisionedProductOutput(data, context);
+  const response: ImportAsProvisionedProductCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAsProvisionedProductCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7826,6 +7924,20 @@ const serializeAws_json1_1GetProvisionedProductOutputsInput = (
   };
 };
 
+const serializeAws_json1_1ImportAsProvisionedProductInput = (
+  input: ImportAsProvisionedProductInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.PhysicalId !== undefined && { PhysicalId: input.PhysicalId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+  };
+};
+
 const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
   input: ListAcceptedPortfolioSharesInput,
   context: __SerdeContext
@@ -8351,6 +8463,7 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
     ...(input.IgnoreErrors !== undefined && { IgnoreErrors: input.IgnoreErrors }),
     ...(input.ProvisionedProductId !== undefined && { ProvisionedProductId: input.ProvisionedProductId }),
     ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.RetainPhysicalResources !== undefined && { RetainPhysicalResources: input.RetainPhysicalResources }),
     TerminateToken: input.TerminateToken ?? generateIdempotencyToken(),
   };
 };
@@ -9225,6 +9338,18 @@ const deserializeAws_json1_1GetProvisionedProductOutputsOutput = (
     Outputs:
       output.Outputs !== undefined && output.Outputs !== null
         ? deserializeAws_json1_1RecordOutputs(output.Outputs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportAsProvisionedProductOutput = (
+  output: any,
+  context: __SerdeContext
+): ImportAsProvisionedProductOutput => {
+  return {
+    RecordDetail:
+      output.RecordDetail !== undefined && output.RecordDetail !== null
+        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
         : undefined,
   } as any;
 };

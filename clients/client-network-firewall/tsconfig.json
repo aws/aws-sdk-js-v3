@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "target": "ES2018",
+    "module": "commonjs",
+    "declaration": true,
+    "strict": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "declarationDir": "./types",
+    "outDir": "dist/cjs"
+  },
+  "typedocOptions": {
+    "exclude": "**/node_modules/**",
+    "excludedNotExported": true,
+    "excludePrivate": true,
+    "hideGenerator": true,
+    "ignoreCompilerErrors": true,
+    "mode": "file",
+    "out": "./docs",
+    "plugin": "@aws-sdk/client-documentation-generator"
+  }
+}

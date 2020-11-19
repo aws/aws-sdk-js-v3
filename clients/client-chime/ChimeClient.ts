@@ -38,6 +38,10 @@ import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./comma
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
+  CreateMeetingDialOutCommandInput,
+  CreateMeetingDialOutCommandOutput,
+} from "./commands/CreateMeetingDialOutCommand";
+import {
   CreateMeetingWithAttendeesCommandInput,
   CreateMeetingWithAttendeesCommandOutput,
 } from "./commands/CreateMeetingWithAttendeesCommand";
@@ -51,6 +55,15 @@ import {
   CreateRoomMembershipCommandInput,
   CreateRoomMembershipCommandOutput,
 } from "./commands/CreateRoomMembershipCommand";
+import {
+  CreateSipMediaApplicationCallCommandInput,
+  CreateSipMediaApplicationCallCommandOutput,
+} from "./commands/CreateSipMediaApplicationCallCommand";
+import {
+  CreateSipMediaApplicationCommandInput,
+  CreateSipMediaApplicationCommandOutput,
+} from "./commands/CreateSipMediaApplicationCommand";
+import { CreateSipRuleCommandInput, CreateSipRuleCommandOutput } from "./commands/CreateSipRuleCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateVoiceConnectorCommandInput,
@@ -74,6 +87,11 @@ import {
   DeleteRoomMembershipCommandInput,
   DeleteRoomMembershipCommandOutput,
 } from "./commands/DeleteRoomMembershipCommand";
+import {
+  DeleteSipMediaApplicationCommandInput,
+  DeleteSipMediaApplicationCommandOutput,
+} from "./commands/DeleteSipMediaApplicationCommand";
+import { DeleteSipRuleCommandInput, DeleteSipRuleCommandOutput } from "./commands/DeleteSipRuleCommand";
 import {
   DeleteVoiceConnectorCommandInput,
   DeleteVoiceConnectorCommandOutput,
@@ -147,6 +165,15 @@ import {
   GetRetentionSettingsCommandOutput,
 } from "./commands/GetRetentionSettingsCommand";
 import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import {
+  GetSipMediaApplicationCommandInput,
+  GetSipMediaApplicationCommandOutput,
+} from "./commands/GetSipMediaApplicationCommand";
+import {
+  GetSipMediaApplicationLoggingConfigurationCommandInput,
+  GetSipMediaApplicationLoggingConfigurationCommandOutput,
+} from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
+import { GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand";
 import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand";
@@ -201,6 +228,11 @@ import {
 } from "./commands/ListRoomMembershipsCommand";
 import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
 import {
+  ListSipMediaApplicationsCommandInput,
+  ListSipMediaApplicationsCommandOutput,
+} from "./commands/ListSipMediaApplicationsCommand";
+import { ListSipRulesCommandInput, ListSipRulesCommandOutput } from "./commands/ListSipRulesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -226,6 +258,10 @@ import {
   PutRetentionSettingsCommandInput,
   PutRetentionSettingsCommandOutput,
 } from "./commands/PutRetentionSettingsCommand";
+import {
+  PutSipMediaApplicationLoggingConfigurationCommandInput,
+  PutSipMediaApplicationLoggingConfigurationCommandOutput,
+} from "./commands/PutSipMediaApplicationLoggingConfigurationCommand";
 import {
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
@@ -296,6 +332,11 @@ import {
   UpdateRoomMembershipCommandInput,
   UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand";
+import {
+  UpdateSipMediaApplicationCommandInput,
+  UpdateSipMediaApplicationCommandOutput,
+} from "./commands/UpdateSipMediaApplicationCommand";
+import { UpdateSipRuleCommandInput, UpdateSipRuleCommandOutput } from "./commands/UpdateSipRuleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "./commands/UpdateUserSettingsCommand";
 import {
@@ -371,11 +412,15 @@ export type ServiceInputTypes =
   | CreateAttendeeCommandInput
   | CreateBotCommandInput
   | CreateMeetingCommandInput
+  | CreateMeetingDialOutCommandInput
   | CreateMeetingWithAttendeesCommandInput
   | CreatePhoneNumberOrderCommandInput
   | CreateProxySessionCommandInput
   | CreateRoomCommandInput
   | CreateRoomMembershipCommandInput
+  | CreateSipMediaApplicationCallCommandInput
+  | CreateSipMediaApplicationCommandInput
+  | CreateSipRuleCommandInput
   | CreateUserCommandInput
   | CreateVoiceConnectorCommandInput
   | CreateVoiceConnectorGroupCommandInput
@@ -387,6 +432,8 @@ export type ServiceInputTypes =
   | DeleteProxySessionCommandInput
   | DeleteRoomCommandInput
   | DeleteRoomMembershipCommandInput
+  | DeleteSipMediaApplicationCommandInput
+  | DeleteSipRuleCommandInput
   | DeleteVoiceConnectorCommandInput
   | DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   | DeleteVoiceConnectorGroupCommandInput
@@ -412,6 +459,9 @@ export type ServiceInputTypes =
   | GetProxySessionCommandInput
   | GetRetentionSettingsCommandInput
   | GetRoomCommandInput
+  | GetSipMediaApplicationCommandInput
+  | GetSipMediaApplicationLoggingConfigurationCommandInput
+  | GetSipRuleCommandInput
   | GetUserCommandInput
   | GetUserSettingsCommandInput
   | GetVoiceConnectorCommandInput
@@ -435,6 +485,8 @@ export type ServiceInputTypes =
   | ListProxySessionsCommandInput
   | ListRoomMembershipsCommandInput
   | ListRoomsCommandInput
+  | ListSipMediaApplicationsCommandInput
+  | ListSipRulesCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | ListVoiceConnectorGroupsCommandInput
@@ -443,6 +495,7 @@ export type ServiceInputTypes =
   | LogoutUserCommandInput
   | PutEventsConfigurationCommandInput
   | PutRetentionSettingsCommandInput
+  | PutSipMediaApplicationLoggingConfigurationCommandInput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandInput
   | PutVoiceConnectorLoggingConfigurationCommandInput
   | PutVoiceConnectorOriginationCommandInput
@@ -471,6 +524,8 @@ export type ServiceInputTypes =
   | UpdateProxySessionCommandInput
   | UpdateRoomCommandInput
   | UpdateRoomMembershipCommandInput
+  | UpdateSipMediaApplicationCommandInput
+  | UpdateSipRuleCommandInput
   | UpdateUserCommandInput
   | UpdateUserSettingsCommandInput
   | UpdateVoiceConnectorCommandInput
@@ -492,11 +547,15 @@ export type ServiceOutputTypes =
   | CreateAttendeeCommandOutput
   | CreateBotCommandOutput
   | CreateMeetingCommandOutput
+  | CreateMeetingDialOutCommandOutput
   | CreateMeetingWithAttendeesCommandOutput
   | CreatePhoneNumberOrderCommandOutput
   | CreateProxySessionCommandOutput
   | CreateRoomCommandOutput
   | CreateRoomMembershipCommandOutput
+  | CreateSipMediaApplicationCallCommandOutput
+  | CreateSipMediaApplicationCommandOutput
+  | CreateSipRuleCommandOutput
   | CreateUserCommandOutput
   | CreateVoiceConnectorCommandOutput
   | CreateVoiceConnectorGroupCommandOutput
@@ -508,6 +567,8 @@ export type ServiceOutputTypes =
   | DeleteProxySessionCommandOutput
   | DeleteRoomCommandOutput
   | DeleteRoomMembershipCommandOutput
+  | DeleteSipMediaApplicationCommandOutput
+  | DeleteSipRuleCommandOutput
   | DeleteVoiceConnectorCommandOutput
   | DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | DeleteVoiceConnectorGroupCommandOutput
@@ -533,6 +594,9 @@ export type ServiceOutputTypes =
   | GetProxySessionCommandOutput
   | GetRetentionSettingsCommandOutput
   | GetRoomCommandOutput
+  | GetSipMediaApplicationCommandOutput
+  | GetSipMediaApplicationLoggingConfigurationCommandOutput
+  | GetSipRuleCommandOutput
   | GetUserCommandOutput
   | GetUserSettingsCommandOutput
   | GetVoiceConnectorCommandOutput
@@ -556,6 +620,8 @@ export type ServiceOutputTypes =
   | ListProxySessionsCommandOutput
   | ListRoomMembershipsCommandOutput
   | ListRoomsCommandOutput
+  | ListSipMediaApplicationsCommandOutput
+  | ListSipRulesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | ListVoiceConnectorGroupsCommandOutput
@@ -564,6 +630,7 @@ export type ServiceOutputTypes =
   | LogoutUserCommandOutput
   | PutEventsConfigurationCommandOutput
   | PutRetentionSettingsCommandOutput
+  | PutSipMediaApplicationLoggingConfigurationCommandOutput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | PutVoiceConnectorLoggingConfigurationCommandOutput
   | PutVoiceConnectorOriginationCommandOutput
@@ -592,6 +659,8 @@ export type ServiceOutputTypes =
   | UpdateProxySessionCommandOutput
   | UpdateRoomCommandOutput
   | UpdateRoomMembershipCommandOutput
+  | UpdateSipMediaApplicationCommandOutput
+  | UpdateSipRuleCommandOutput
   | UpdateUserCommandOutput
   | UpdateUserSettingsCommandOutput
   | UpdateVoiceConnectorCommandOutput
@@ -737,7 +806,7 @@ export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
  *             <dt>Using REST API</dt>
  *             <dd>
  *                <p>If you use REST to make API calls, you must authenticate your request by providing
- *             a signature. Amazon Chime supports signature version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+ *             a signature. Amazon Chime supports Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
  *               Version 4 Signing Process</a> in the <i>Amazon Web Services General
  *               Reference</i>.</p>
  *                <p>When making REST API calls, use the service name <code>chime</code> and REST

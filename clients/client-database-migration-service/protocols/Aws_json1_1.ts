@@ -145,6 +145,10 @@ import {
   ModifyReplicationTaskCommandOutput,
 } from "../commands/ModifyReplicationTaskCommand";
 import {
+  MoveReplicationTaskCommandInput,
+  MoveReplicationTaskCommandOutput,
+} from "../commands/MoveReplicationTaskCommand";
+import {
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
 } from "../commands/RebootReplicationInstanceCommand";
@@ -290,6 +294,8 @@ import {
   ModifyReplicationTaskMessage,
   ModifyReplicationTaskResponse,
   MongoDbSettings,
+  MoveReplicationTaskMessage,
+  MoveReplicationTaskResponse,
   MySQLSettings,
   NeptuneSettings,
   OracleSettings,
@@ -929,6 +935,19 @@ export const serializeAws_json1_1ModifyReplicationTaskCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1MoveReplicationTaskCommand = async (
+  input: MoveReplicationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDMSv20160101.MoveReplicationTask",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1MoveReplicationTaskMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RebootReplicationInstanceCommand = async (
   input: RebootReplicationInstanceCommandInput,
   context: __SerdeContext
@@ -1301,6 +1320,14 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
     case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       response = {
         ...(await deserializeAws_json1_1ResourceQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      response = {
+        ...(await deserializeAws_json1_1S3AccessDeniedFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4058,6 +4085,77 @@ const deserializeAws_json1_1ModifyReplicationTaskCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1MoveReplicationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveReplicationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1MoveReplicationTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1MoveReplicationTaskResponse(data, context);
+  const response: MoveReplicationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1MoveReplicationTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveReplicationTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RebootReplicationInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5902,6 +6000,18 @@ const serializeAws_json1_1MongoDbSettings = (input: MongoDbSettings, context: __
   };
 };
 
+const serializeAws_json1_1MoveReplicationTaskMessage = (
+  input: MoveReplicationTaskMessage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ReplicationTaskArn !== undefined && { ReplicationTaskArn: input.ReplicationTaskArn }),
+    ...(input.TargetReplicationInstanceArn !== undefined && {
+      TargetReplicationInstanceArn: input.TargetReplicationInstanceArn,
+    }),
+  };
+};
+
 const serializeAws_json1_1MySQLSettings = (input: MySQLSettings, context: __SerdeContext): any => {
   return {
     ...(input.AfterConnectScript !== undefined && { AfterConnectScript: input.AfterConnectScript }),
@@ -7273,6 +7383,18 @@ const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1MoveReplicationTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): MoveReplicationTaskResponse => {
+  return {
+    ReplicationTask:
+      output.ReplicationTask !== undefined && output.ReplicationTask !== null
+        ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContext): MySQLSettings => {
   return {
     AfterConnectScript:
@@ -7876,6 +7998,10 @@ const deserializeAws_json1_1ReplicationTask = (output: any, context: __SerdeCont
     TargetEndpointArn:
       output.TargetEndpointArn !== undefined && output.TargetEndpointArn !== null
         ? output.TargetEndpointArn
+        : undefined,
+    TargetReplicationInstanceArn:
+      output.TargetReplicationInstanceArn !== undefined && output.TargetReplicationInstanceArn !== null
+        ? output.TargetReplicationInstanceArn
         : undefined,
     TaskData: output.TaskData !== undefined && output.TaskData !== null ? output.TaskData : undefined,
   } as any;

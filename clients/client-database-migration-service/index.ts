@@ -62,6 +62,7 @@ export * from "./commands/ModifyEventSubscriptionCommand";
 export * from "./commands/ModifyReplicationInstanceCommand";
 export * from "./commands/ModifyReplicationSubnetGroupCommand";
 export * from "./commands/ModifyReplicationTaskCommand";
+export * from "./commands/MoveReplicationTaskCommand";
 export * from "./commands/RebootReplicationInstanceCommand";
 export * from "./commands/RefreshSchemasCommand";
 export * from "./commands/ReloadTablesCommand";

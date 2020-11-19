@@ -190,6 +190,7 @@ import {
   JobScopingBlock,
   JobSummary,
   KeyValuePair,
+  LastRunErrorStatus,
   ListJobsFilterCriteria,
   ListJobsFilterTerm,
   ListJobsSortCriteria,
@@ -3140,6 +3141,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     jobId: undefined,
     jobStatus: undefined,
     jobType: undefined,
+    lastRunErrorStatus: undefined,
     lastRunTime: undefined,
     name: undefined,
     s3JobDefinition: undefined,
@@ -3176,6 +3178,9 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   }
   if (data.jobType !== undefined && data.jobType !== null) {
     contents.jobType = data.jobType;
+  }
+  if (data.lastRunErrorStatus !== undefined && data.lastRunErrorStatus !== null) {
+    contents.lastRunErrorStatus = deserializeAws_restJson1LastRunErrorStatus(data.lastRunErrorStatus, context);
   }
   if (data.lastRunTime !== undefined && data.lastRunTime !== null) {
     contents.lastRunTime = new Date(data.lastRunTime);
@@ -8169,6 +8174,10 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     jobStatus: output.jobStatus !== undefined && output.jobStatus !== null ? output.jobStatus : undefined,
     jobType: output.jobType !== undefined && output.jobType !== null ? output.jobType : undefined,
+    lastRunErrorStatus:
+      output.lastRunErrorStatus !== undefined && output.lastRunErrorStatus !== null
+        ? deserializeAws_restJson1LastRunErrorStatus(output.lastRunErrorStatus, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     userPausedDetails:
       output.userPausedDetails !== undefined && output.userPausedDetails !== null
@@ -8186,6 +8195,12 @@ const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1KeyValuePairList = (output: any, context: __SerdeContext): KeyValuePair[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1KeyValuePair(entry, context));
+};
+
+const deserializeAws_restJson1LastRunErrorStatus = (output: any, context: __SerdeContext): LastRunErrorStatus => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {

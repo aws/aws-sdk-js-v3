@@ -251,6 +251,11 @@ import {
   GetProvisionedProductOutputsCommandOutput,
 } from "./commands/GetProvisionedProductOutputsCommand";
 import {
+  ImportAsProvisionedProductCommand,
+  ImportAsProvisionedProductCommandInput,
+  ImportAsProvisionedProductCommandOutput,
+} from "./commands/ImportAsProvisionedProductCommand";
+import {
   ListAcceptedPortfolioSharesCommand,
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
@@ -421,10 +426,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <fullname>AWS Service Catalog</fullname>
  *          <p>
  *             <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables
- *          organizations to create and manage catalogs of IT services that are approved for use on
- *          AWS. To get the most out of this
- *          documentation, you should be familiar with the
- *          terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p>
+ *          organizations to create and manage catalogs of IT services that are approved for AWS. To
+ *          get the most out of this documentation, you should be familiar with the terminology
+ *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog
+ *          Concepts</a>.</p>
  */
 export class ServiceCatalog extends ServiceCatalogClient {
   /**
@@ -2121,6 +2126,48 @@ export class ServiceCatalog extends ServiceCatalogClient {
     cb?: (err: any, data?: GetProvisionedProductOutputsCommandOutput) => void
   ): Promise<GetProvisionedProductOutputsCommandOutput> | void {
     const command = new GetProvisionedProductOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Requests the import of a resource as a Service Catalog provisioned product that is
+   *          associated to a Service Catalog product and provisioning artifact. Once imported all
+   *          supported Service Catalog governance actions are supported on the provisioned
+   *          product.</p>
+   *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
+   *          non-root nested stacks are not supported.</p>
+   *          <p>The CloudFormation stack must have one of the following statuses to be imported:
+   *          CREATE_COMPLETE, UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE,
+   *          IMPORT_ROLLBACK_COMPLETE.</p>
+   *          <p>Import of the resource requires that the CloudFormation stack template matches the
+   *          associated Service Catalog product provisioning artifact. </p>
+   */
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportAsProvisionedProductCommandOutput>;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    cb: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): void;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): void;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportAsProvisionedProductCommandOutput) => void),
+    cb?: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): Promise<ImportAsProvisionedProductCommandOutput> | void {
+    const command = new ImportAsProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

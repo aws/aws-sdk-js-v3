@@ -145,6 +145,10 @@ import {
   ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand";
 import {
+  MoveReplicationTaskCommandInput,
+  MoveReplicationTaskCommandOutput,
+} from "./commands/MoveReplicationTaskCommand";
+import {
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand";
@@ -265,6 +269,7 @@ export type ServiceInputTypes =
   | ModifyReplicationInstanceCommandInput
   | ModifyReplicationSubnetGroupCommandInput
   | ModifyReplicationTaskCommandInput
+  | MoveReplicationTaskCommandInput
   | RebootReplicationInstanceCommandInput
   | RefreshSchemasCommandInput
   | ReloadTablesCommandInput
@@ -320,6 +325,7 @@ export type ServiceOutputTypes =
   | ModifyReplicationInstanceCommandOutput
   | ModifyReplicationSubnetGroupCommandOutput
   | ModifyReplicationTaskCommandOutput
+  | MoveReplicationTaskCommandOutput
   | RebootReplicationInstanceCommandOutput
   | RefreshSchemasCommandOutput
   | ReloadTablesCommandOutput

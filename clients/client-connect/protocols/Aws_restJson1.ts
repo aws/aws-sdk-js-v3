@@ -8,7 +8,15 @@ import {
   CreateRoutingProfileCommandOutput,
 } from "../commands/CreateRoutingProfileCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import {
+  CreateUserHierarchyGroupCommandInput,
+  CreateUserHierarchyGroupCommandOutput,
+} from "../commands/CreateUserHierarchyGroupCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import {
+  DeleteUserHierarchyGroupCommandInput,
+  DeleteUserHierarchyGroupCommandOutput,
+} from "../commands/DeleteUserHierarchyGroupCommand";
 import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -126,6 +134,14 @@ import {
   UpdateUserHierarchyCommandOutput,
 } from "../commands/UpdateUserHierarchyCommand";
 import {
+  UpdateUserHierarchyGroupNameCommandInput,
+  UpdateUserHierarchyGroupNameCommandOutput,
+} from "../commands/UpdateUserHierarchyGroupNameCommand";
+import {
+  UpdateUserHierarchyStructureCommandInput,
+  UpdateUserHierarchyStructureCommandOutput,
+} from "../commands/UpdateUserHierarchyStructureCommand";
+import {
   UpdateUserIdentityInfoCommandInput,
   UpdateUserIdentityInfoCommandOutput,
 } from "../commands/UpdateUserIdentityInfoCommand";
@@ -160,8 +176,10 @@ import {
   HierarchyGroup,
   HierarchyGroupSummary,
   HierarchyLevel,
+  HierarchyLevelUpdate,
   HierarchyPath,
   HierarchyStructure,
+  HierarchyStructureUpdate,
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
@@ -179,6 +197,7 @@ import {
   PromptSummary,
   QueueReference,
   QueueSummary,
+  ResourceInUseException,
   ResourceNotFoundException,
   RoutingProfile,
   RoutingProfileQueueConfig,
@@ -378,6 +397,40 @@ export const serializeAws_restJson1CreateUserCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateUserHierarchyGroupCommand = async (
+  input: CreateUserHierarchyGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/user-hierarchy-groups/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParentGroupId !== undefined && { ParentGroupId: input.ParentGroupId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
@@ -386,6 +439,15 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -394,6 +456,36 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteUserHierarchyGroupCommand = async (
+  input: DeleteUserHierarchyGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
+  if (input.HierarchyGroupId !== undefined) {
+    const labelValue: string = input.HierarchyGroupId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HierarchyGroupId.");
+    }
+    resolvedPath = resolvedPath.replace("{HierarchyGroupId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HierarchyGroupId.");
   }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -425,15 +517,6 @@ export const serializeAws_restJson1DescribeContactFlowCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}";
-  if (input.ContactFlowId !== undefined) {
-    const labelValue: string = input.ContactFlowId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
-    }
-    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ContactFlowId.");
-  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -442,6 +525,15 @@ export const serializeAws_restJson1DescribeContactFlowCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactFlowId !== undefined) {
+    const labelValue: string = input.ContactFlowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactFlowId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -542,15 +634,6 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: string = input.HierarchyGroupId;
     if (labelValue.length <= 0) {
@@ -559,6 +642,15 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
     resolvedPath = resolvedPath.replace("{HierarchyGroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: HierarchyGroupId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -814,11 +906,11 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ContactFlowTypes !== undefined && {
       contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry),
     }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -852,8 +944,8 @@ export const serializeAws_restJson1ListHoursOfOperationsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -890,11 +982,11 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
     ...(input.PhoneNumberTypes !== undefined && {
       phoneNumberTypes: (input.PhoneNumberTypes || []).map((_entry) => _entry),
     }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.PhoneNumberCountryCodes !== undefined && {
       phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
     }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -963,9 +1055,9 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
+    ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -989,15 +1081,6 @@ export const serializeAws_restJson1ListRoutingProfileQueuesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
-  if (input.RoutingProfileId !== undefined) {
-    const labelValue: string = input.RoutingProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
-  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1006,6 +1089,15 @@ export const serializeAws_restJson1ListRoutingProfileQueuesCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1143,8 +1235,8 @@ export const serializeAws_restJson1ListUserHierarchyGroupsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1494,15 +1586,6 @@ export const serializeAws_restJson1UpdateContactFlowContentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}/content";
-  if (input.ContactFlowId !== undefined) {
-    const labelValue: string = input.ContactFlowId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
-    }
-    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ContactFlowId.");
-  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1511,6 +1594,15 @@ export const serializeAws_restJson1UpdateContactFlowContentCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactFlowId !== undefined) {
+    const labelValue: string = input.ContactFlowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactFlowId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1752,15 +1844,6 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1770,9 +1853,95 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
   let body: any;
   body = JSON.stringify({
     ...(input.HierarchyGroupId !== undefined && { HierarchyGroupId: input.HierarchyGroupId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateUserHierarchyGroupNameCommand = async (
+  input: UpdateUserHierarchyGroupNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name";
+  if (input.HierarchyGroupId !== undefined) {
+    const labelValue: string = input.HierarchyGroupId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HierarchyGroupId.");
+    }
+    resolvedPath = resolvedPath.replace("{HierarchyGroupId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HierarchyGroupId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateUserHierarchyStructureCommand = async (
+  input: UpdateUserHierarchyStructureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.HierarchyStructure !== undefined && {
+      HierarchyStructure: serializeAws_restJson1HierarchyStructureUpdate(input.HierarchyStructure, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1794,15 +1963,6 @@ export const serializeAws_restJson1UpdateUserIdentityInfoCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/identity-info";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1811,6 +1971,15 @@ export const serializeAws_restJson1UpdateUserIdentityInfoCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1924,15 +2093,6 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1941,6 +2101,15 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2372,6 +2541,113 @@ const deserializeAws_restJson1CreateUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateUserHierarchyGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserHierarchyGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateUserHierarchyGroupCommandError(output, context);
+  }
+  const contents: CreateUserHierarchyGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    HierarchyGroupArn: undefined,
+    HierarchyGroupId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.HierarchyGroupArn !== undefined && data.HierarchyGroupArn !== null) {
+    contents.HierarchyGroupArn = data.HierarchyGroupArn;
+  }
+  if (data.HierarchyGroupId !== undefined && data.HierarchyGroupId !== null) {
+    contents.HierarchyGroupId = data.HierarchyGroupId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateUserHierarchyGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserHierarchyGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2418,6 +2694,97 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
     case "com.amazonaws.connect#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteUserHierarchyGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserHierarchyGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteUserHierarchyGroupCommandError(output, context);
+  }
+  const contents: DeleteUserHierarchyGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteUserHierarchyGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserHierarchyGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5754,6 +6121,188 @@ const deserializeAws_restJson1UpdateUserHierarchyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserHierarchyGroupNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateUserHierarchyGroupNameCommandError(output, context);
+  }
+  const contents: UpdateUserHierarchyGroupNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateUserHierarchyGroupNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserHierarchyGroupNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateUserHierarchyStructureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserHierarchyStructureCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateUserHierarchyStructureCommandError(output, context);
+  }
+  const contents: UpdateUserHierarchyStructureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateUserHierarchyStructureCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserHierarchyStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateUserIdentityInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6256,6 +6805,31 @@ const deserializeAws_restJson1OutboundContactNotPermittedExceptionResponse = asy
   return contents;
 };
 
+const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.ResourceId !== undefined && data.ResourceId !== null) {
+    contents.ResourceId = data.ResourceId;
+  }
+  if (data.ResourceType !== undefined && data.ResourceType !== null) {
+    contents.ResourceType = data.ResourceType;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6348,6 +6922,35 @@ const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext):
 
 const serializeAws_restJson1Groupings = (input: (Grouping | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1HierarchyLevelUpdate = (input: HierarchyLevelUpdate, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1HierarchyStructureUpdate = (
+  input: HierarchyStructureUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LevelFive !== undefined && {
+      LevelFive: serializeAws_restJson1HierarchyLevelUpdate(input.LevelFive, context),
+    }),
+    ...(input.LevelFour !== undefined && {
+      LevelFour: serializeAws_restJson1HierarchyLevelUpdate(input.LevelFour, context),
+    }),
+    ...(input.LevelOne !== undefined && {
+      LevelOne: serializeAws_restJson1HierarchyLevelUpdate(input.LevelOne, context),
+    }),
+    ...(input.LevelThree !== undefined && {
+      LevelThree: serializeAws_restJson1HierarchyLevelUpdate(input.LevelThree, context),
+    }),
+    ...(input.LevelTwo !== undefined && {
+      LevelTwo: serializeAws_restJson1HierarchyLevelUpdate(input.LevelTwo, context),
+    }),
+  };
 };
 
 const serializeAws_restJson1HistoricalMetric = (input: HistoricalMetric, context: __SerdeContext): any => {

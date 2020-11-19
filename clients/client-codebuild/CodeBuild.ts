@@ -1515,7 +1515,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>Restarts a batch build.</p>
+   * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
    */
   public retryBuildBatch(
     args: RetryBuildBatchCommandInput,

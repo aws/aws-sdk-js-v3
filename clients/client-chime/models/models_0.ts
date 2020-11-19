@@ -70,39 +70,19 @@ export namespace SigninDelegateGroup {
  */
 export interface Account {
   /**
-   * <p>The default license for the Amazon Chime account.</p>
-   */
-  DefaultLicense?: License | string;
-
-  /**
-   * <p>The sign-in delegate groups associated with the account.</p>
-   */
-  SigninDelegateGroups?: SigninDelegateGroup[];
-
-  /**
-   * <p>Supported licenses for the Amazon Chime account.</p>
-   */
-  SupportedLicenses?: (License | string)[];
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account creation timestamp, in ISO 8601 format.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  CreatedTimestamp?: Date;
+  AccountId: string | undefined;
 
   /**
    * <p>The Amazon Chime account name.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
 
   /**
    * <p>The Amazon Chime account type. For more information
@@ -111,6 +91,26 @@ export interface Account {
    *          Chime Administration Guide</i>.</p>
    */
   AccountType?: AccountType | string;
+
+  /**
+   * <p>The Amazon Chime account creation timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The default license for the Amazon Chime account.</p>
+   */
+  DefaultLicense?: License | string;
+
+  /**
+   * <p>Supported licenses for the Amazon Chime account.</p>
+   */
+  SupportedLicenses?: (License | string)[];
+
+  /**
+   * <p>The sign-in delegate groups associated with the account.</p>
+   */
+  SigninDelegateGroups?: SigninDelegateGroup[];
 }
 
 export namespace Account {
@@ -168,9 +168,9 @@ export namespace AlexaForBusinessMetadata {
 
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
-   * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
+   * <p>The Amazon Chime Voice Connector ID.</p>
    */
-  ForceAssociate?: boolean;
+  VoiceConnectorId: string | undefined;
 
   /**
    * <p>List of phone numbers, in E.164 format.</p>
@@ -178,9 +178,9 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   E164PhoneNumbers: string[] | undefined;
 
   /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
+   * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
    */
-  VoiceConnectorId: string | undefined;
+  ForceAssociate?: boolean;
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
@@ -201,14 +201,14 @@ export interface PhoneNumberError {
   PhoneNumberId?: string;
 
   /**
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The error code.</p>
    */
   ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace PhoneNumberError {
@@ -269,8 +269,8 @@ export namespace ForbiddenException {
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace NotFoundException {
@@ -285,8 +285,8 @@ export namespace NotFoundException {
 export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
   name: "ServiceFailureException";
   $fault: "server";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace ServiceFailureException {
@@ -333,8 +333,8 @@ export namespace ThrottledClientException {
 export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedClientException";
   $fault: "client";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace UnauthorizedClientException {
@@ -345,14 +345,14 @@ export namespace UnauthorizedClientException {
 
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   /**
-   * <p>List of phone numbers, in E.164 format.</p>
-   */
-  E164PhoneNumbers: string[] | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
+
+  /**
+   * <p>List of phone numbers, in E.164 format.</p>
+   */
+  E164PhoneNumbers: string[] | undefined;
 
   /**
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector Group and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
@@ -382,14 +382,14 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
 
 export interface AssociatePhoneNumberWithUserRequest {
   /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>The Amazon Chime account ID.</p>
    */
   AccountId: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
 
   /**
    * <p>The phone number, in E.164 format.</p>
@@ -414,14 +414,14 @@ export namespace AssociatePhoneNumberWithUserResponse {
 
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
   /**
-   * <p>The sign-in delegate groups.</p>
-   */
-  SigninDelegateGroups: SigninDelegateGroup[] | undefined;
-
-  /**
    * <p>The Amazon Chime account ID.</p>
    */
   AccountId: string | undefined;
+
+  /**
+   * <p>The sign-in delegate groups.</p>
+   */
+  SigninDelegateGroups: SigninDelegateGroup[] | undefined;
 }
 
 export namespace AssociateSigninDelegateGroupsWithAccountRequest {
@@ -446,9 +446,10 @@ export namespace AssociateSigninDelegateGroupsWithAccountResponse {
  */
 export interface Attendee {
   /**
-   * <p>The join token used by the Amazon Chime SDK attendee.</p>
+   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *       If you create an attendee with the same external user id, the service returns the existing record.</p>
    */
-  JoinToken?: string;
+  ExternalUserId?: string;
 
   /**
    * <p>The Amazon Chime SDK attendee ID.</p>
@@ -456,16 +457,16 @@ export interface Attendee {
   AttendeeId?: string;
 
   /**
-   * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
+   * <p>The join token used by the Amazon Chime SDK attendee.</p>
    */
-  ExternalUserId?: string;
+  JoinToken?: string;
 }
 
 export namespace Attendee {
   export const filterSensitiveLog = (obj: Attendee): any => ({
     ...obj,
-    ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+    ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
   });
 }
 
@@ -497,34 +498,35 @@ export namespace Tag {
  */
 export interface CreateAttendeeRequestItem {
   /**
+   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *       If you create an attendee with the same external user id, the service returns the existing record.</p>
+   */
+  ExternalUserId: string | undefined;
+
+  /**
    * <p>The tag key-value pairs.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
-   */
-  ExternalUserId: string | undefined;
 }
 
 export namespace CreateAttendeeRequestItem {
   export const filterSensitiveLog = (obj: CreateAttendeeRequestItem): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
 }
 
 export interface BatchCreateAttendeeRequest {
   /**
-   * <p>The request containing the attendees to create.</p>
-   */
-  Attendees: CreateAttendeeRequestItem[] | undefined;
-
-  /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
   MeetingId: string | undefined;
+
+  /**
+   * <p>The request containing the attendees to create.</p>
+   */
+  Attendees: CreateAttendeeRequestItem[] | undefined;
 }
 
 export namespace BatchCreateAttendeeRequest {
@@ -541,12 +543,8 @@ export namespace BatchCreateAttendeeRequest {
  */
 export interface CreateAttendeeError {
   /**
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
+   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *       If you create an attendee with the same external user id, the service returns the existing record.</p>
    */
   ExternalUserId?: string;
 
@@ -554,6 +552,11 @@ export interface CreateAttendeeError {
    * <p>The error code.</p>
    */
   ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace CreateAttendeeError {
@@ -589,8 +592,8 @@ export namespace BatchCreateAttendeeResponse {
 export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace ResourceLimitExceededException {
@@ -627,9 +630,9 @@ export namespace MembershipItem {
 
 export interface BatchCreateRoomMembershipRequest {
   /**
-   * <p>The list of membership items.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  MembershipItemList: MembershipItem[] | undefined;
+  AccountId: string | undefined;
 
   /**
    * <p>The room ID.</p>
@@ -637,9 +640,9 @@ export interface BatchCreateRoomMembershipRequest {
   RoomId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The list of membership items.</p>
    */
-  AccountId: string | undefined;
+  MembershipItemList: MembershipItem[] | undefined;
 }
 
 export namespace BatchCreateRoomMembershipRequest {
@@ -653,6 +656,11 @@ export namespace BatchCreateRoomMembershipRequest {
  */
 export interface MemberError {
   /**
+   * <p>The member ID.</p>
+   */
+  MemberId?: string;
+
+  /**
    * <p>The error code.</p>
    */
   ErrorCode?: ErrorCode | string;
@@ -661,11 +669,6 @@ export interface MemberError {
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The member ID.</p>
-   */
-  MemberId?: string;
 }
 
 export namespace MemberError {
@@ -884,11 +887,6 @@ export interface UpdateUserRequestItem {
   UserId: string | undefined;
 
   /**
-   * <p>The Alexa for Business metadata.</p>
-   */
-  AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
-
-  /**
    * <p>The user license type.</p>
    */
   LicenseType?: License | string;
@@ -897,6 +895,11 @@ export interface UpdateUserRequestItem {
    * <p>The user type.</p>
    */
   UserType?: UserType | string;
+
+  /**
+   * <p>The Alexa for Business metadata.</p>
+   */
+  AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
 }
 
 export namespace UpdateUserRequestItem {
@@ -953,29 +956,9 @@ export enum BotType {
  */
 export interface Bot {
   /**
-   * <p>When true, the bot is stopped from running in your account.</p>
-   */
-  Disabled?: boolean;
-
-  /**
-   * <p>The updated bot timestamp, in ISO 8601 format.</p>
-   */
-  UpdatedTimestamp?: Date;
-
-  /**
-   * <p>The bot creation timestamp, in ISO 8601 format.</p>
-   */
-  CreatedTimestamp?: Date;
-
-  /**
    * <p>The bot ID.</p>
    */
   BotId?: string;
-
-  /**
-   * <p>The bot email address.</p>
-   */
-  BotEmail?: string;
 
   /**
    * <p>The unique ID for the bot user.</p>
@@ -993,6 +976,26 @@ export interface Bot {
   BotType?: BotType | string;
 
   /**
+   * <p>When true, the bot is stopped from running in your account.</p>
+   */
+  Disabled?: boolean;
+
+  /**
+   * <p>The bot creation timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The updated bot timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The bot email address.</p>
+   */
+  BotEmail?: string;
+
+  /**
    * <p>The security token used to authenticate Amazon Chime with the outgoing event endpoint.</p>
    */
   SecurityToken?: string;
@@ -1001,8 +1004,8 @@ export interface Bot {
 export namespace Bot {
   export const filterSensitiveLog = (obj: Bot): any => ({
     ...obj,
-    ...(obj.BotEmail && { BotEmail: SENSITIVE_STRING }),
     ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+    ...(obj.BotEmail && { BotEmail: SENSITIVE_STRING }),
     ...(obj.SecurityToken && { SecurityToken: SENSITIVE_STRING }),
   });
 }
@@ -1043,8 +1046,8 @@ export enum Capability {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace ConflictException {
@@ -1084,7 +1087,7 @@ export namespace CreateAccountRequest {
 
 export interface CreateAccountResponse {
   /**
-   * <p>The Amazon Chime account details.</p>
+   * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
    */
   Account?: Account;
 }
@@ -1097,26 +1100,27 @@ export namespace CreateAccountResponse {
 
 export interface CreateAttendeeRequest {
   /**
-   * <p>The tag key-value pairs.</p>
+   * <p>The Amazon Chime SDK meeting ID.</p>
    */
-  Tags?: Tag[];
+  MeetingId: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
+   * <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.
+   *       If you create an attendee with the same external user id, the service returns the existing record.</p>
    */
   ExternalUserId: string | undefined;
 
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * <p>The tag key-value pairs.</p>
    */
-  MeetingId: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateAttendeeRequest {
   export const filterSensitiveLog = (obj: CreateAttendeeRequest): any => ({
     ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1141,14 +1145,14 @@ export interface CreateBotRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The domain of the Amazon Chime Enterprise account.</p>
-   */
-  Domain?: string;
-
-  /**
    * <p>The bot display name.</p>
    */
   DisplayName: string | undefined;
+
+  /**
+   * <p>The domain of the Amazon Chime Enterprise account.</p>
+   */
+  Domain?: string;
 }
 
 export namespace CreateBotRequest {
@@ -1177,34 +1181,29 @@ export namespace CreateBotResponse {
  */
 export interface MeetingNotificationConfiguration {
   /**
-   * <p>The SQS queue ARN.</p>
-   */
-  SqsQueueArn?: string;
-
-  /**
    * <p>The SNS topic ARN.</p>
    */
   SnsTopicArn?: string;
+
+  /**
+   * <p>The SQS queue ARN.</p>
+   */
+  SqsQueueArn?: string;
 }
 
 export namespace MeetingNotificationConfiguration {
   export const filterSensitiveLog = (obj: MeetingNotificationConfiguration): any => ({
     ...obj,
-    ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
     ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
+    ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
   });
 }
 
 export interface CreateMeetingRequest {
   /**
-   * <p>The tag key-value pairs.</p>
+   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
-   */
-  NotificationsConfiguration?: MeetingNotificationConfiguration;
+  ClientRequestToken?: string;
 
   /**
    * <p>The external meeting ID.</p>
@@ -1223,21 +1222,26 @@ export interface CreateMeetingRequest {
   MediaRegion?: string;
 
   /**
-   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
+   * <p>The tag key-value pairs.</p>
    */
-  ClientRequestToken?: string;
+  Tags?: Tag[];
+
+  /**
+   * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
+   */
+  NotificationsConfiguration?: MeetingNotificationConfiguration;
 }
 
 export namespace CreateMeetingRequest {
   export const filterSensitiveLog = (obj: CreateMeetingRequest): any => ({
     ...obj,
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
+    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
     ...(obj.NotificationsConfiguration && {
       NotificationsConfiguration: MeetingNotificationConfiguration.filterSensitiveLog(obj.NotificationsConfiguration),
     }),
-    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
-    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   });
 }
 
@@ -1246,24 +1250,14 @@ export namespace CreateMeetingRequest {
  */
 export interface MediaPlacement {
   /**
-   * <p>The signaling URL.</p>
-   */
-  SignalingUrl?: string;
-
-  /**
-   * <p>The screen sharing URL.</p>
-   */
-  ScreenSharingUrl?: string;
-
-  /**
    * <p>The audio host URL.</p>
    */
   AudioHostUrl?: string;
 
   /**
-   * <p>The screen viewing URL.</p>
+   * <p>The audio fallback URL.</p>
    */
-  ScreenViewingUrl?: string;
+  AudioFallbackUrl?: string;
 
   /**
    * <p>The screen data URL.</p>
@@ -1271,14 +1265,24 @@ export interface MediaPlacement {
   ScreenDataUrl?: string;
 
   /**
+   * <p>The screen sharing URL.</p>
+   */
+  ScreenSharingUrl?: string;
+
+  /**
+   * <p>The screen viewing URL.</p>
+   */
+  ScreenViewingUrl?: string;
+
+  /**
+   * <p>The signaling URL.</p>
+   */
+  SignalingUrl?: string;
+
+  /**
    * <p>The turn control URL.</p>
    */
   TurnControlUrl?: string;
-
-  /**
-   * <p>The audio fallback URL.</p>
-   */
-  AudioFallbackUrl?: string;
 }
 
 export namespace MediaPlacement {
@@ -1292,16 +1296,6 @@ export namespace MediaPlacement {
  */
 export interface Meeting {
   /**
-   * <p>The Region in which to create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>
-   */
-  MediaRegion?: string;
-
-  /**
-   * <p>The media placement for the meeting.</p>
-   */
-  MediaPlacement?: MediaPlacement;
-
-  /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
   MeetingId?: string;
@@ -1310,6 +1304,16 @@ export interface Meeting {
    * <p>The external meeting ID.</p>
    */
   ExternalMeetingId?: string;
+
+  /**
+   * <p>The media placement for the meeting.</p>
+   */
+  MediaPlacement?: MediaPlacement;
+
+  /**
+   * <p>The Region in which to create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>
+   */
+  MediaRegion?: string;
 }
 
 export namespace Meeting {
@@ -1333,26 +1337,72 @@ export namespace CreateMeetingResponse {
   });
 }
 
+export interface CreateMeetingDialOutRequest {
+  /**
+   * <p>The Amazon Chime SDK meeting ID.</p>
+   *
+   *          <p>Type: String</p>
+   *
+   *          <p>Pattern: [a-fA-F0-9]{8}(?:-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12}</p>
+   *
+   *          <p>Required: No</p>
+   */
+  MeetingId: string | undefined;
+
+  /**
+   * <p>Phone number used as the caller ID when the remote party receives a call.</p>
+   */
+  FromPhoneNumber: string | undefined;
+
+  /**
+   * <p>Phone number called when inviting someone to a meeting.</p>
+   */
+  ToPhoneNumber: string | undefined;
+
+  /**
+   * <p>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.html">
+   *         CreateAttendee API</a> to get a join token. </p>
+   */
+  JoinToken: string | undefined;
+}
+
+export namespace CreateMeetingDialOutRequest {
+  export const filterSensitiveLog = (obj: CreateMeetingDialOutRequest): any => ({
+    ...obj,
+    ...(obj.FromPhoneNumber && { FromPhoneNumber: SENSITIVE_STRING }),
+    ...(obj.ToPhoneNumber && { ToPhoneNumber: SENSITIVE_STRING }),
+    ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateMeetingDialOutResponse {
+  /**
+   * <p>Unique ID that tracks API calls.</p>
+   */
+  TransactionId?: string;
+}
+
+export namespace CreateMeetingDialOutResponse {
+  export const filterSensitiveLog = (obj: CreateMeetingDialOutResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateMeetingWithAttendeesRequest {
   /**
-   * <p>The configuration for resource targets to receive notifications when Amazon Chime SDK meeting and attendee events occur. The Amazon Chime SDK supports resource targets located in the US East (N. Virginia) AWS Region (<code>us-east-1</code>).</p>
+   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
    */
-  NotificationsConfiguration?: MeetingNotificationConfiguration;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  MeetingHostId?: string;
-
-  /**
-   * <p>The tag key-value pairs.</p>
-   */
-  Tags?: Tag[];
+  ClientRequestToken?: string;
 
   /**
    * <p>The external meeting ID.</p>
    */
   ExternalMeetingId?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  MeetingHostId?: string;
 
   /**
    * <p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p>
@@ -1361,9 +1411,14 @@ export interface CreateMeetingWithAttendeesRequest {
   MediaRegion?: string;
 
   /**
-   * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
+   * <p>The tag key-value pairs.</p>
    */
-  ClientRequestToken?: string;
+  Tags?: Tag[];
+
+  /**
+   * <p>The configuration for resource targets to receive notifications when Amazon Chime SDK meeting and attendee events occur. The Amazon Chime SDK supports resource targets located in the US East (N. Virginia) AWS Region (<code>us-east-1</code>).</p>
+   */
+  NotificationsConfiguration?: MeetingNotificationConfiguration;
 
   /**
    * <p>The request containing the attendees to create.</p>
@@ -1374,13 +1429,13 @@ export interface CreateMeetingWithAttendeesRequest {
 export namespace CreateMeetingWithAttendeesRequest {
   export const filterSensitiveLog = (obj: CreateMeetingWithAttendeesRequest): any => ({
     ...obj,
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
+    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
     ...(obj.NotificationsConfiguration && {
       NotificationsConfiguration: MeetingNotificationConfiguration.filterSensitiveLog(obj.NotificationsConfiguration),
     }),
-    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
     ...(obj.Attendees && {
       Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItem.filterSensitiveLog(item)),
     }),
@@ -1388,11 +1443,6 @@ export namespace CreateMeetingWithAttendeesRequest {
 }
 
 export interface CreateMeetingWithAttendeesResponse {
-  /**
-   * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
-   */
-  Errors?: CreateAttendeeError[];
-
   /**
    * <p>A meeting created using the Amazon Chime SDK.</p>
    */
@@ -1402,14 +1452,19 @@ export interface CreateMeetingWithAttendeesResponse {
    * <p>The attendee information, including attendees IDs and join tokens.</p>
    */
   Attendees?: Attendee[];
+
+  /**
+   * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
+   */
+  Errors?: CreateAttendeeError[];
 }
 
 export namespace CreateMeetingWithAttendeesResponse {
   export const filterSensitiveLog = (obj: CreateMeetingWithAttendeesResponse): any => ({
     ...obj,
-    ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeError.filterSensitiveLog(item)) }),
     ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
     ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
+    ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeError.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1443,14 +1498,14 @@ export enum OrderedPhoneNumberStatus {
  */
 export interface OrderedPhoneNumber {
   /**
-   * <p>The phone number status.</p>
-   */
-  Status?: OrderedPhoneNumberStatus | string;
-
-  /**
    * <p>The phone number, in E.164 format.</p>
    */
   E164PhoneNumber?: string;
+
+  /**
+   * <p>The phone number status.</p>
+   */
+  Status?: OrderedPhoneNumberStatus | string;
 }
 
 export namespace OrderedPhoneNumber {
@@ -1472,22 +1527,6 @@ export enum PhoneNumberOrderStatus {
  */
 export interface PhoneNumberOrder {
   /**
-   * <p>The ordered phone number details, such as the phone number in E.164 format and the
-   *      phone number status.</p>
-   */
-  OrderedPhoneNumbers?: OrderedPhoneNumber[];
-
-  /**
-   * <p>The updated phone number order timestamp, in ISO 8601 format.</p>
-   */
-  UpdatedTimestamp?: Date;
-
-  /**
-   * <p>The status of the phone number order.</p>
-   */
-  Status?: PhoneNumberOrderStatus | string;
-
-  /**
    * <p>The phone number order ID.</p>
    */
   PhoneNumberOrderId?: string;
@@ -1498,9 +1537,25 @@ export interface PhoneNumberOrder {
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * <p>The status of the phone number order.</p>
+   */
+  Status?: PhoneNumberOrderStatus | string;
+
+  /**
+   * <p>The ordered phone number details, such as the phone number in E.164 format and the
+   *      phone number status.</p>
+   */
+  OrderedPhoneNumbers?: OrderedPhoneNumber[];
+
+  /**
    * <p>The phone number order creation timestamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * <p>The updated phone number order timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
 }
 
 export namespace PhoneNumberOrder {
@@ -1536,14 +1591,14 @@ export enum GeoMatchLevel {
  */
 export interface GeoMatchParams {
   /**
-   * <p>The area code.</p>
-   */
-  AreaCode: string | undefined;
-
-  /**
    * <p>The country.</p>
    */
   Country: string | undefined;
+
+  /**
+   * <p>The area code.</p>
+   */
+  AreaCode: string | undefined;
 }
 
 export namespace GeoMatchParams {
@@ -1559,26 +1614,6 @@ export enum NumberSelectionBehavior {
 
 export interface CreateProxySessionRequest {
   /**
-   * <p>The country and area code for the proxy phone number.</p>
-   */
-  GeoMatchParams?: GeoMatchParams;
-
-  /**
-   * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
-   */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
-
-  /**
-   * <p>The proxy session capabilities.</p>
-   */
-  Capabilities: (Capability | string)[] | undefined;
-
-  /**
-   * <p>The number of minutes allowed for the proxy session.</p>
-   */
-  ExpiryMinutes?: number;
-
-  /**
    * <p>The Amazon Chime voice connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1589,14 +1624,34 @@ export interface CreateProxySessionRequest {
   ParticipantPhoneNumbers: string[] | undefined;
 
   /**
+   * <p>The name of the proxy session.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The number of minutes allowed for the proxy session.</p>
+   */
+  ExpiryMinutes?: number;
+
+  /**
+   * <p>The proxy session capabilities.</p>
+   */
+  Capabilities: (Capability | string)[] | undefined;
+
+  /**
+   * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
+   */
+  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+
+  /**
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
   GeoMatchLevel?: GeoMatchLevel | string;
 
   /**
-   * <p>The name of the proxy session.</p>
+   * <p>The country and area code for the proxy phone number.</p>
    */
-  Name?: string;
+  GeoMatchParams?: GeoMatchParams;
 }
 
 export namespace CreateProxySessionRequest {
@@ -1612,21 +1667,21 @@ export namespace CreateProxySessionRequest {
  */
 export interface Participant {
   /**
-   * <p>The participant's proxy phone number.</p>
-   */
-  ProxyPhoneNumber?: string;
-
-  /**
    * <p>The participant's phone number.</p>
    */
   PhoneNumber?: string;
+
+  /**
+   * <p>The participant's proxy phone number.</p>
+   */
+  ProxyPhoneNumber?: string;
 }
 
 export namespace Participant {
   export const filterSensitiveLog = (obj: Participant): any => ({
     ...obj,
-    ...(obj.ProxyPhoneNumber && { ProxyPhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+    ...(obj.ProxyPhoneNumber && { ProxyPhoneNumber: SENSITIVE_STRING }),
   });
 }
 
@@ -1641,19 +1696,14 @@ export enum ProxySessionStatus {
  */
 export interface ProxySession {
   /**
-   * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
-   */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
-
-  /**
    * <p>The Amazon Chime voice connector ID.</p>
    */
   VoiceConnectorId?: string;
 
   /**
-   * <p>The created timestamp, in ISO 8601 format.</p>
+   * <p>The proxy session ID.</p>
    */
-  CreatedTimestamp?: Date;
+  ProxySessionId?: string;
 
   /**
    * <p>The name of the proxy session.</p>
@@ -1661,34 +1711,9 @@ export interface ProxySession {
   Name?: string;
 
   /**
-   * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
+   * <p>The status of the proxy session.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
-
-  /**
-   * <p>The ended timestamp, in ISO 8601 format.</p>
-   */
-  EndedTimestamp?: Date;
-
-  /**
-   * <p>The updated timestamp, in ISO 8601 format.</p>
-   */
-  UpdatedTimestamp?: Date;
-
-  /**
-   * <p>The proxy session capabilities.</p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>The country and area code for the proxy phone number.</p>
-   */
-  GeoMatchParams?: GeoMatchParams;
-
-  /**
-   * <p>The proxy session participants.</p>
-   */
-  Participants?: Participant[];
+  Status?: ProxySessionStatus | string;
 
   /**
    * <p>The number of minutes allowed for the proxy session.</p>
@@ -1696,14 +1721,44 @@ export interface ProxySession {
   ExpiryMinutes?: number;
 
   /**
-   * <p>The status of the proxy session.</p>
+   * <p>The proxy session capabilities.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Capabilities?: (Capability | string)[];
 
   /**
-   * <p>The proxy session ID.</p>
+   * <p>The created timestamp, in ISO 8601 format.</p>
    */
-  ProxySessionId?: string;
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The updated timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ended timestamp, in ISO 8601 format.</p>
+   */
+  EndedTimestamp?: Date;
+
+  /**
+   * <p>The proxy session participants.</p>
+   */
+  Participants?: Participant[];
+
+  /**
+   * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
+   */
+  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+
+  /**
+   * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
+   */
+  GeoMatchLevel?: GeoMatchLevel | string;
+
+  /**
+   * <p>The country and area code for the proxy phone number.</p>
+   */
+  GeoMatchParams?: GeoMatchParams;
 }
 
 export namespace ProxySession {
@@ -1728,11 +1783,6 @@ export namespace CreateProxySessionResponse {
 
 export interface CreateRoomRequest {
   /**
-   * <p>The idempotency token for the request.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
    * <p>The Amazon Chime account ID.</p>
    */
   AccountId: string | undefined;
@@ -1741,13 +1791,18 @@ export interface CreateRoomRequest {
    * <p>The room name.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The idempotency token for the request.</p>
+   */
+  ClientRequestToken?: string;
 }
 
 export namespace CreateRoomRequest {
   export const filterSensitiveLog = (obj: CreateRoomRequest): any => ({
     ...obj,
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
     ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   });
 }
 
@@ -1756,19 +1811,9 @@ export namespace CreateRoomRequest {
  */
 export interface Room {
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The room ID.</p>
    */
-  AccountId?: string;
-
-  /**
-   * <p>The room creation timestamp, in ISO 8601 format.</p>
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   * <p>The identifier of the room creator.</p>
-   */
-  CreatedBy?: string;
+  RoomId?: string;
 
   /**
    * <p>The room name.</p>
@@ -1776,9 +1821,19 @@ export interface Room {
   Name?: string;
 
   /**
-   * <p>The room ID.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  RoomId?: string;
+  AccountId?: string;
+
+  /**
+   * <p>The identifier of the room creator.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The room creation timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
 
   /**
    * <p>The room update timestamp, in ISO 8601 format.</p>
@@ -1809,16 +1864,6 @@ export namespace CreateRoomResponse {
 
 export interface CreateRoomMembershipRequest {
   /**
-   * <p>The role of the member.</p>
-   */
-  Role?: RoomMembershipRole | string;
-
-  /**
-   * <p>The Amazon Chime member ID (user ID or bot ID).</p>
-   */
-  MemberId: string | undefined;
-
-  /**
    * <p>The Amazon Chime account ID.</p>
    */
   AccountId: string | undefined;
@@ -1827,6 +1872,16 @@ export interface CreateRoomMembershipRequest {
    * <p>The room ID.</p>
    */
   RoomId: string | undefined;
+
+  /**
+   * <p>The Amazon Chime member ID (user ID or bot ID).</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The role of the member.</p>
+   */
+  Role?: RoomMembershipRole | string;
 }
 
 export namespace CreateRoomMembershipRequest {
@@ -1846,24 +1901,24 @@ export enum MemberType {
  */
 export interface Member {
   /**
-   * <p>The member type.</p>
-   */
-  MemberType?: MemberType | string;
-
-  /**
-   * <p>The member name.</p>
-   */
-  FullName?: string;
-
-  /**
    * <p>The member ID (user ID or bot ID).</p>
    */
   MemberId?: string;
 
   /**
+   * <p>The member type.</p>
+   */
+  MemberType?: MemberType | string;
+
+  /**
    * <p>The member email address.</p>
    */
   Email?: string;
+
+  /**
+   * <p>The member name.</p>
+   */
+  FullName?: string;
 
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1874,8 +1929,8 @@ export interface Member {
 export namespace Member {
   export const filterSensitiveLog = (obj: Member): any => ({
     ...obj,
-    ...(obj.FullName && { FullName: SENSITIVE_STRING }),
     ...(obj.Email && { Email: SENSITIVE_STRING }),
+    ...(obj.FullName && { FullName: SENSITIVE_STRING }),
   });
 }
 
@@ -1889,16 +1944,6 @@ export interface RoomMembership {
   RoomId?: string;
 
   /**
-   * <p>The identifier of the user that invited the room member.</p>
-   */
-  InvitedBy?: string;
-
-  /**
-   * <p>The room membership update timestamp, in ISO 8601 format.</p>
-   */
-  UpdatedTimestamp?: Date;
-
-  /**
    * <p>The member details, such as email address, name, member ID, and member type.</p>
    */
   Member?: Member;
@@ -1907,6 +1952,16 @@ export interface RoomMembership {
    * <p>The membership role.</p>
    */
   Role?: RoomMembershipRole | string;
+
+  /**
+   * <p>The identifier of the user that invited the room member.</p>
+   */
+  InvitedBy?: string;
+
+  /**
+   * <p>The room membership update timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
 }
 
 export namespace RoomMembership {
@@ -1930,17 +1985,314 @@ export namespace CreateRoomMembershipResponse {
   });
 }
 
+/**
+ * <p>Endpoints to specify as part of a SIP media application.</p>
+ */
+export interface SipMediaApplicationEndpoint {
+  /**
+   * <p>Valid Amazon Resource Name (ARN) of the Lambda function of the same AWS Region where the
+   *       SIP media application is created.</p>
+   */
+  LambdaArn?: string;
+}
+
+export namespace SipMediaApplicationEndpoint {
+  export const filterSensitiveLog = (obj: SipMediaApplicationEndpoint): any => ({
+    ...obj,
+    ...(obj.LambdaArn && { LambdaArn: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateSipMediaApplicationRequest {
+  /**
+   * <p>AWS Region assigned to the SIP media application.</p>
+   */
+  AwsRegion: string | undefined;
+
+  /**
+   * <p>The SIP media application name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>List of endpoints (Lambda Amazon Resource Names) specified for the SIP media
+   *       application. Currently, only one endpoint is supported.</p>
+   */
+  Endpoints: SipMediaApplicationEndpoint[] | undefined;
+}
+
+export namespace CreateSipMediaApplicationRequest {
+  export const filterSensitiveLog = (obj: CreateSipMediaApplicationRequest): any => ({
+    ...obj,
+    ...(obj.Endpoints && {
+      Endpoints: obj.Endpoints.map((item) => SipMediaApplicationEndpoint.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+/**
+ * <p>The SIP media application details, including name and endpoints. An AWS account can have multiple SIP media applications.</p>
+ */
+export interface SipMediaApplication {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId?: string;
+
+  /**
+   * <p>The AWS Region in which the SIP media application is created.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The name of the SIP media application.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>List of endpoints for SIP media application. Currently, only one endpoint per SIP media
+   *       application is permitted.</p>
+   */
+  Endpoints?: SipMediaApplicationEndpoint[];
+
+  /**
+   * <p>The SIP media application creation timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The SIP media application updated timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace SipMediaApplication {
+  export const filterSensitiveLog = (obj: SipMediaApplication): any => ({
+    ...obj,
+    ...(obj.Endpoints && {
+      Endpoints: obj.Endpoints.map((item) => SipMediaApplicationEndpoint.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface CreateSipMediaApplicationResponse {
+  /**
+   * <p>The Sip media application details.</p>
+   */
+  SipMediaApplication?: SipMediaApplication;
+}
+
+export namespace CreateSipMediaApplicationResponse {
+  export const filterSensitiveLog = (obj: CreateSipMediaApplicationResponse): any => ({
+    ...obj,
+    ...(obj.SipMediaApplication && {
+      SipMediaApplication: SipMediaApplication.filterSensitiveLog(obj.SipMediaApplication),
+    }),
+  });
+}
+
+export interface CreateSipMediaApplicationCallRequest {
+  /**
+   * <p>The phone number that a user calls from.</p>
+   */
+  FromPhoneNumber?: string;
+
+  /**
+   * <p>The phone number that the user dials in order to connect to a meeting</p>
+   */
+  ToPhoneNumber?: string;
+
+  /**
+   * <p>The ID of the SIP media application.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace CreateSipMediaApplicationCallRequest {
+  export const filterSensitiveLog = (obj: CreateSipMediaApplicationCallRequest): any => ({
+    ...obj,
+    ...(obj.FromPhoneNumber && { FromPhoneNumber: SENSITIVE_STRING }),
+    ...(obj.ToPhoneNumber && { ToPhoneNumber: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>A <code>Call</code> instance for a SIP media application.</p>
+ */
+export interface SipMediaApplicationCall {
+  /**
+   * <p>The transaction ID of a call.</p>
+   */
+  TransactionId?: string;
+}
+
+export namespace SipMediaApplicationCall {
+  export const filterSensitiveLog = (obj: SipMediaApplicationCall): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSipMediaApplicationCallResponse {
+  /**
+   * <p>The actual call.</p>
+   */
+  SipMediaApplicationCall?: SipMediaApplicationCall;
+}
+
+export namespace CreateSipMediaApplicationCallResponse {
+  export const filterSensitiveLog = (obj: CreateSipMediaApplicationCallResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Target SIP media application along with other details like priority and AWS Region to be
+ *       specified in the SIP rule. Only one SIP rule per AWS Region can be provided.</p>
+ */
+export interface SipRuleTargetApplication {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId?: string;
+
+  /**
+   * <p>Priority of the SIP media application in the target list.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>AWS Region of target application.</p>
+   */
+  AwsRegion?: string;
+}
+
+export namespace SipRuleTargetApplication {
+  export const filterSensitiveLog = (obj: SipRuleTargetApplication): any => ({
+    ...obj,
+  });
+}
+
+export enum SipRuleTriggerType {
+  RequestUriHostname = "RequestUriHostname",
+  ToPhoneNumber = "ToPhoneNumber",
+}
+
+export interface CreateSipRuleRequest {
+  /**
+   * <p>The name of the SIP rule.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of trigger whose value is assigned to the SIP rule in
+   *         <code>TriggerValue</code>. Allowed trigger values are <code>RequestUriHostname</code> and <code>ToPhoneNumber</code>.</p>
+   */
+  TriggerType: SipRuleTriggerType | string | undefined;
+
+  /**
+   * <p>If <code>TriggerType</code> is <code>RequestUriHostname</code> then the value can be the
+   *       outbound host name of an Amazon Chime Voice Connector. If <code>TriggerType</code> is
+   *         <code>ToPhoneNumber</code> then the value can be a customer-owned phone number in E164
+   *       format. <code>SipRule</code> is triggered if the SIP application requests a host name, or a If
+   *         <code>TriggerType</code> is <code>RequestUriHostname</code>, then the value can be the
+   *       outbound hostname of an Amazon Chime Voice Connector. If <code>TriggerType</code> is
+   *         <code>ToPhoneNumber</code>, then the value can be a customer-owned phone number in E164
+   *       format. <code>SipRule</code> is triggered if the SIP application requests a host name, or a
+   *         <code>ToPhoneNumber</code> value matches the incoming SIP request.</p>
+   */
+  TriggerValue: string | undefined;
+
+  /**
+   * <p>Enables or disables a rule. You must disable rules before you can delete them.</p>
+   */
+  Disabled?: boolean;
+
+  /**
+   * <p>List of SIP media applications with priority and AWS Region. Only one SIP application
+   *       per AWS Region can be used.</p>
+   */
+  TargetApplications: SipRuleTargetApplication[] | undefined;
+}
+
+export namespace CreateSipRuleRequest {
+  export const filterSensitiveLog = (obj: CreateSipRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The SIP rule details, including name, triggers, and target applications. An AWS account
+ *       can have multiple SIP rules.</p>
+ */
+export interface SipRule {
+  /**
+   * <p>The SIP rule ID.</p>
+   */
+  SipRuleId?: string;
+
+  /**
+   * <p>The name of the SIP rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Indicates if the SIP rule is enabled or disabled. You must disable a rule before you can
+   *       delete it.</p>
+   */
+  Disabled?: boolean;
+
+  /**
+   * <p>The type of trigger whose value is assigned to the SIP rule in
+   *       <code>TriggerValue</code>.</p>
+   */
+  TriggerType?: SipRuleTriggerType | string;
+
+  /**
+   * <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, then the value can be the
+   *       outbound host name of the Amazon Chime Voice Connector. If <code>TriggerType</code> is
+   *         <code>ToPhoneNumber</code>, then  the value can be a customer-owned phone number in E164
+   *       format. <code>SipRule</code> is triggered when a SIP rule requests host name or
+   *         <code>ToPhoneNumber</code> matches in the incoming SIP request.</p>
+   */
+  TriggerValue?: string;
+
+  /**
+   * <p>List of SIP media applications with priority and AWS Region. You can only use one SIP
+   *       application per AWS Region and priority combination.</p>
+   */
+  TargetApplications?: SipRuleTargetApplication[];
+
+  /**
+   * <p>The SIP rule created timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The SIP rule updated timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace SipRule {
+  export const filterSensitiveLog = (obj: SipRule): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSipRuleResponse {
+  /**
+   * <p>Returns the SIP rule information, including the rule ID, triggers, and target applications.</p>
+   */
+  SipRule?: SipRule;
+}
+
+export namespace CreateSipRuleResponse {
+  export const filterSensitiveLog = (obj: CreateSipRuleResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateUserRequest {
-  /**
-   * <p>The user type.</p>
-   */
-  UserType?: UserType | string;
-
-  /**
-   * <p>The user's email address.</p>
-   */
-  Email?: string;
-
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1950,6 +2302,16 @@ export interface CreateUserRequest {
    * <p>The user name.</p>
    */
   Username?: string;
+
+  /**
+   * <p>The user's email address.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>The user type.</p>
+   */
+  UserType?: UserType | string;
 }
 
 export namespace CreateUserRequest {
@@ -1981,50 +2343,9 @@ export interface User {
   UserId: string | undefined;
 
   /**
-   * <p>Date and time when the user is invited to the Amazon Chime account, in ISO 8601
-   *       format.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  InvitedOn?: Date;
-
-  /**
-   * <p>Date and time when the user is registered, in ISO 8601 format.</p>
-   */
-  RegisteredOn?: Date;
-
-  /**
-   * <p>The display name of the user.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The user registration status.</p>
-   */
-  UserRegistrationStatus?: RegistrationStatus | string;
-
-  /**
-   * <p>The user's personal meeting PIN.</p>
-   */
-  PersonalPIN?: string;
-
-  /**
-   * <p>The Alexa for Business metadata.</p>
-   */
-  AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
-
-  /**
-   * <p>The user type.</p>
-   */
-  UserType?: UserType | string;
-
-  /**
-   * <p>The primary phone number associated with the user.</p>
-   */
-  PrimaryProvisionedNumber?: string;
-
-  /**
-   * <p>The user invite status.</p>
-   */
-  UserInvitationStatus?: InviteStatus | string;
+  AccountId?: string;
 
   /**
    * <p>The primary email address of the user.</p>
@@ -2032,25 +2353,66 @@ export interface User {
   PrimaryEmail?: string;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The primary phone number associated with the user.</p>
    */
-  AccountId?: string;
+  PrimaryProvisionedNumber?: string;
+
+  /**
+   * <p>The display name of the user.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The license type for the user.</p>
    */
   LicenseType?: License | string;
+
+  /**
+   * <p>The user type.</p>
+   */
+  UserType?: UserType | string;
+
+  /**
+   * <p>The user registration status.</p>
+   */
+  UserRegistrationStatus?: RegistrationStatus | string;
+
+  /**
+   * <p>The user invite status.</p>
+   */
+  UserInvitationStatus?: InviteStatus | string;
+
+  /**
+   * <p>Date and time when the user is registered, in ISO 8601 format.</p>
+   */
+  RegisteredOn?: Date;
+
+  /**
+   * <p>Date and time when the user is invited to the Amazon Chime account, in ISO 8601
+   *       format.</p>
+   */
+  InvitedOn?: Date;
+
+  /**
+   * <p>The Alexa for Business metadata.</p>
+   */
+  AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
+
+  /**
+   * <p>The user's personal meeting PIN.</p>
+   */
+  PersonalPIN?: string;
 }
 
 export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
+    ...(obj.PrimaryEmail && { PrimaryEmail: SENSITIVE_STRING }),
+    ...(obj.PrimaryProvisionedNumber && { PrimaryProvisionedNumber: SENSITIVE_STRING }),
     ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
     ...(obj.AlexaForBusinessMetadata && {
       AlexaForBusinessMetadata: AlexaForBusinessMetadata.filterSensitiveLog(obj.AlexaForBusinessMetadata),
     }),
-    ...(obj.PrimaryProvisionedNumber && { PrimaryProvisionedNumber: SENSITIVE_STRING }),
-    ...(obj.PrimaryEmail && { PrimaryEmail: SENSITIVE_STRING }),
   });
 }
 
@@ -2075,11 +2437,6 @@ export enum VoiceConnectorAwsRegion {
 
 export interface CreateVoiceConnectorRequest {
   /**
-   * <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
-   */
-  RequireEncryption: boolean | undefined;
-
-  /**
    * <p>The name of the Amazon Chime Voice Connector.</p>
    */
   Name: string | undefined;
@@ -2088,6 +2445,11 @@ export interface CreateVoiceConnectorRequest {
    * <p>The AWS Region in which the Amazon Chime Voice Connector is created. Default value: <code>us-east-1</code>.</p>
    */
   AwsRegion?: VoiceConnectorAwsRegion | string;
+
+  /**
+   * <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
+   */
+  RequireEncryption: boolean | undefined;
 }
 
 export namespace CreateVoiceConnectorRequest {
@@ -2102,6 +2464,31 @@ export namespace CreateVoiceConnectorRequest {
  */
 export interface VoiceConnector {
   /**
+   * <p>The Amazon Chime Voice Connector ID.</p>
+   */
+  VoiceConnectorId?: string;
+
+  /**
+   * <p>The AWS Region in which the Amazon Chime Voice Connector is created. Default: <code>us-east-1</code>.</p>
+   */
+  AwsRegion?: VoiceConnectorAwsRegion | string;
+
+  /**
+   * <p>The name of the Amazon Chime Voice Connector.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The outbound host name for the Amazon Chime Voice Connector.</p>
+   */
+  OutboundHostName?: string;
+
+  /**
+   * <p>Designates whether encryption is required for the Amazon Chime Voice Connector.</p>
+   */
+  RequireEncryption?: boolean;
+
+  /**
    * <p>The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
@@ -2110,31 +2497,6 @@ export interface VoiceConnector {
    * <p>The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
-
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId?: string;
-
-  /**
-   * <p>Designates whether encryption is required for the Amazon Chime Voice Connector.</p>
-   */
-  RequireEncryption?: boolean;
-
-  /**
-   * <p>The outbound host name for the Amazon Chime Voice Connector.</p>
-   */
-  OutboundHostName?: string;
-
-  /**
-   * <p>The name of the Amazon Chime Voice Connector.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The AWS Region in which the Amazon Chime Voice Connector is created. Default: <code>us-east-1</code>.</p>
-   */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
 }
 
 export namespace VoiceConnector {
@@ -2179,14 +2541,14 @@ export namespace VoiceConnectorItem {
 
 export interface CreateVoiceConnectorGroupRequest {
   /**
-   * <p>The Amazon Chime Voice Connectors to route inbound calls to.</p>
-   */
-  VoiceConnectorItems?: VoiceConnectorItem[];
-
-  /**
    * <p>The name of the Amazon Chime Voice Connector group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The Amazon Chime Voice Connectors to route inbound calls to.</p>
+   */
+  VoiceConnectorItems?: VoiceConnectorItem[];
 }
 
 export namespace CreateVoiceConnectorGroupRequest {
@@ -2208,9 +2570,9 @@ export interface VoiceConnectorGroup {
   VoiceConnectorGroupId?: string;
 
   /**
-   * <p>The Amazon Chime Voice Connector group creation timestamp, in ISO 8601 format.</p>
+   * <p>The name of the Amazon Chime Voice Connector group.</p>
    */
-  CreatedTimestamp?: Date;
+  Name?: string;
 
   /**
    * <p>The Amazon Chime Voice Connectors to which to route inbound calls.</p>
@@ -2218,9 +2580,9 @@ export interface VoiceConnectorGroup {
   VoiceConnectorItems?: VoiceConnectorItem[];
 
   /**
-   * <p>The name of the Amazon Chime Voice Connector group.</p>
+   * <p>The Amazon Chime Voice Connector group creation timestamp, in ISO 8601 format.</p>
    */
-  Name?: string;
+  CreatedTimestamp?: Date;
 
   /**
    * <p>The updated Amazon Chime Voice Connector group timestamp, in ISO 8601 format.</p>
@@ -2298,8 +2660,8 @@ export namespace DeleteAccountResponse {
 export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
   name: "UnprocessableEntityException";
   $fault: "client";
-  Message?: string;
   Code?: ErrorCode | string;
+  Message?: string;
 }
 
 export namespace UnprocessableEntityException {
@@ -2408,9 +2770,9 @@ export namespace DeleteRoomRequest {
 
 export interface DeleteRoomMembershipRequest {
   /**
-   * <p>The member ID (user ID or bot ID).</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  MemberId: string | undefined;
+  AccountId: string | undefined;
 
   /**
    * <p>The room ID.</p>
@@ -2418,13 +2780,39 @@ export interface DeleteRoomMembershipRequest {
   RoomId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The member ID (user ID or bot ID).</p>
    */
-  AccountId: string | undefined;
+  MemberId: string | undefined;
 }
 
 export namespace DeleteRoomMembershipRequest {
   export const filterSensitiveLog = (obj: DeleteRoomMembershipRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSipMediaApplicationRequest {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace DeleteSipMediaApplicationRequest {
+  export const filterSensitiveLog = (obj: DeleteSipMediaApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSipRuleRequest {
+  /**
+   * <p>The SIP rule ID.</p>
+   */
+  SipRuleId: string | undefined;
+}
+
+export namespace DeleteSipRuleRequest {
+  export const filterSensitiveLog = (obj: DeleteSipRuleRequest): any => ({
     ...obj,
   });
 }
@@ -2522,14 +2910,14 @@ export namespace DeleteVoiceConnectorTerminationRequest {
 
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   /**
-   * <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
-   */
-  Usernames: string[] | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
+   */
+  Usernames: string[] | undefined;
 }
 
 export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
@@ -2541,14 +2929,14 @@ export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
 
 export interface DisassociatePhoneNumberFromUserRequest {
   /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>The Amazon Chime account ID.</p>
    */
   AccountId: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace DisassociatePhoneNumberFromUserRequest {
@@ -2599,14 +2987,14 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
 
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   /**
-   * <p>List of phone numbers, in E.164 format.</p>
-   */
-  E164PhoneNumbers: string[] | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
+
+  /**
+   * <p>List of phone numbers, in E.164 format.</p>
+   */
+  E164PhoneNumbers: string[] | undefined;
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
@@ -2665,14 +3053,14 @@ export interface DNISEmergencyCallingConfiguration {
   EmergencyPhoneNumber: string | undefined;
 
   /**
-   * <p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>
-   */
-  CallingCountry: string | undefined;
-
-  /**
    * <p>The DNIS phone number to route test emergency calls to, in E.164 format.</p>
    */
   TestPhoneNumber?: string;
+
+  /**
+   * <p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>
+   */
+  CallingCountry: string | undefined;
 }
 
 export namespace DNISEmergencyCallingConfiguration {
@@ -2711,11 +3099,6 @@ export namespace EmergencyCallingConfiguration {
  */
 export interface EventsConfiguration {
   /**
-   * <p>Lambda function ARN that allows a bot to receive outgoing events.</p>
-   */
-  LambdaFunctionArn?: string;
-
-  /**
    * <p>The bot ID.</p>
    */
   BotId?: string;
@@ -2724,13 +3107,18 @@ export interface EventsConfiguration {
    * <p>HTTPS endpoint that allows a bot to receive outgoing events.</p>
    */
   OutboundEventsHTTPSEndpoint?: string;
+
+  /**
+   * <p>Lambda function ARN that allows a bot to receive outgoing events.</p>
+   */
+  LambdaFunctionArn?: string;
 }
 
 export namespace EventsConfiguration {
   export const filterSensitiveLog = (obj: EventsConfiguration): any => ({
     ...obj,
-    ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
     ...(obj.OutboundEventsHTTPSEndpoint && { OutboundEventsHTTPSEndpoint: SENSITIVE_STRING }),
+    ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
   });
 }
 
@@ -2749,7 +3137,7 @@ export namespace GetAccountRequest {
 
 export interface GetAccountResponse {
   /**
-   * <p>The Amazon Chime account details.</p>
+   * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
    */
   Account?: Account;
 }
@@ -2788,14 +3176,14 @@ export namespace GetAccountSettingsResponse {
 
 export interface GetAttendeeRequest {
   /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
-   */
-  AttendeeId: string | undefined;
-
-  /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
   MeetingId: string | undefined;
+
+  /**
+   * <p>The Amazon Chime SDK attendee ID.</p>
+   */
+  AttendeeId: string | undefined;
 }
 
 export namespace GetAttendeeRequest {
@@ -2961,6 +3349,7 @@ export namespace GetPhoneNumberRequest {
 
 export enum PhoneNumberAssociationName {
   AccountId = "AccountId",
+  SipRuleId = "SipRuleId",
   UserId = "UserId",
   VoiceConnectorGroupId = "VoiceConnectorGroupId",
   VoiceConnectorId = "VoiceConnectorId",
@@ -2972,9 +3361,9 @@ export enum PhoneNumberAssociationName {
  */
 export interface PhoneNumberAssociation {
   /**
-   * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
+   * <p>Contains the ID for the entity specified in Name.</p>
    */
-  AssociatedTimestamp?: Date;
+  Value?: string;
 
   /**
    * <p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice
@@ -2983,9 +3372,9 @@ export interface PhoneNumberAssociation {
   Name?: PhoneNumberAssociationName | string;
 
   /**
-   * <p>Contains the ID for the entity specified in Name.</p>
+   * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
    */
-  Value?: string;
+  AssociatedTimestamp?: Date;
 }
 
 export namespace PhoneNumberAssociation {
@@ -2999,6 +3388,11 @@ export namespace PhoneNumberAssociation {
  *       messaging.</p>
  */
 export interface PhoneNumberCapabilities {
+  /**
+   * <p>Allows or denies inbound calling for the specified phone number.</p>
+   */
+  InboundCall?: boolean;
+
   /**
    * <p>Allows or denies outbound calling for the specified phone number.</p>
    */
@@ -3018,11 +3412,6 @@ export interface PhoneNumberCapabilities {
    * <p>Allows or denies inbound MMS messaging for the specified phone number.</p>
    */
   InboundMMS?: boolean;
-
-  /**
-   * <p>Allows or denies inbound calling for the specified phone number.</p>
-   */
-  InboundCall?: boolean;
 
   /**
    * <p>Allows or denies outbound MMS messaging for the specified phone number.</p>
@@ -3058,19 +3447,14 @@ export enum PhoneNumberType {
  */
 export interface PhoneNumber {
   /**
-   * <p>The updated phone number timestamp, in ISO 8601 format.</p>
+   * <p>The phone number ID.</p>
    */
-  UpdatedTimestamp?: Date;
+  PhoneNumberId?: string;
 
   /**
-   * <p>The phone number creation timestamp, in ISO 8601 format.</p>
+   * <p>The phone number, in E.164 format.</p>
    */
-  CreatedTimestamp?: Date;
-
-  /**
-   * <p>The outbound calling name associated with the phone number.</p>
-   */
-  CallingName?: string;
+  E164PhoneNumber?: string;
 
   /**
    * <p>The phone number type.</p>
@@ -3078,19 +3462,9 @@ export interface PhoneNumber {
   Type?: PhoneNumberType | string;
 
   /**
-   * <p>The phone number ID.</p>
+   * <p>The phone number product type.</p>
    */
-  PhoneNumberId?: string;
-
-  /**
-   * <p>The deleted phone number timestamp, in ISO 8601 format.</p>
-   */
-  DeletionTimestamp?: Date;
-
-  /**
-   * <p>The phone number capabilities.</p>
-   */
-  Capabilities?: PhoneNumberCapabilities;
+  ProductType?: PhoneNumberProductType | string;
 
   /**
    * <p>The phone number status.</p>
@@ -3098,14 +3472,9 @@ export interface PhoneNumber {
   Status?: PhoneNumberStatus | string;
 
   /**
-   * <p>The outbound calling name status.</p>
+   * <p>The phone number capabilities.</p>
    */
-  CallingNameStatus?: CallingNameStatus | string;
-
-  /**
-   * <p>The phone number product type.</p>
-   */
-  ProductType?: PhoneNumberProductType | string;
+  Capabilities?: PhoneNumberCapabilities;
 
   /**
    * <p>The phone number associations.</p>
@@ -3113,16 +3482,36 @@ export interface PhoneNumber {
   Associations?: PhoneNumberAssociation[];
 
   /**
-   * <p>The phone number, in E.164 format.</p>
+   * <p>The outbound calling name associated with the phone number.</p>
    */
-  E164PhoneNumber?: string;
+  CallingName?: string;
+
+  /**
+   * <p>The outbound calling name status.</p>
+   */
+  CallingNameStatus?: CallingNameStatus | string;
+
+  /**
+   * <p>The phone number creation timestamp, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The updated phone number timestamp, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The deleted phone number timestamp, in ISO 8601 format.</p>
+   */
+  DeletionTimestamp?: Date;
 }
 
 export namespace PhoneNumber {
   export const filterSensitiveLog = (obj: PhoneNumber): any => ({
     ...obj,
-    ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
     ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
+    ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
   });
 }
 
@@ -3251,14 +3640,14 @@ export namespace RoomRetentionSettings {
  */
 export interface RetentionSettings {
   /**
-   * <p>The chat conversation retention settings.</p>
-   */
-  ConversationRetentionSettings?: ConversationRetentionSettings;
-
-  /**
    * <p>The chat room retention settings.</p>
    */
   RoomRetentionSettings?: RoomRetentionSettings;
+
+  /**
+   * <p>The chat conversation retention settings.</p>
+   */
+  ConversationRetentionSettings?: ConversationRetentionSettings;
 }
 
 export namespace RetentionSettings {
@@ -3269,14 +3658,14 @@ export namespace RetentionSettings {
 
 export interface GetRetentionSettingsResponse {
   /**
-   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
-   */
-  InitiateDeletionTimestamp?: Date;
-
-  /**
    * <p>The retention settings.</p>
    */
   RetentionSettings?: RetentionSettings;
+
+  /**
+   * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
+   */
+  InitiateDeletionTimestamp?: Date;
 }
 
 export namespace GetRetentionSettingsResponse {
@@ -3314,6 +3703,103 @@ export namespace GetRoomResponse {
   export const filterSensitiveLog = (obj: GetRoomResponse): any => ({
     ...obj,
     ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
+  });
+}
+
+export interface GetSipMediaApplicationRequest {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace GetSipMediaApplicationRequest {
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipMediaApplicationResponse {
+  /**
+   * <p>The SIP media application details.</p>
+   */
+  SipMediaApplication?: SipMediaApplication;
+}
+
+export namespace GetSipMediaApplicationResponse {
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationResponse): any => ({
+    ...obj,
+    ...(obj.SipMediaApplication && {
+      SipMediaApplication: SipMediaApplication.filterSensitiveLog(obj.SipMediaApplication),
+    }),
+  });
+}
+
+export interface GetSipMediaApplicationLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the SIP media application.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace GetSipMediaApplicationLoggingConfigurationRequest {
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Logging configuration of the SIP media application.</p>
+ */
+export interface SipMediaApplicationLoggingConfiguration {
+  /**
+   * <p>Enables application message logs for the SIP media application.</p>
+   */
+  EnableSipMediaApplicationMessageLogs?: boolean;
+}
+
+export namespace SipMediaApplicationLoggingConfiguration {
+  export const filterSensitiveLog = (obj: SipMediaApplicationLoggingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipMediaApplicationLoggingConfigurationResponse {
+  /**
+   * <p>The actual logging configuration.</p>
+   */
+  SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
+}
+
+export namespace GetSipMediaApplicationLoggingConfigurationResponse {
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipRuleRequest {
+  /**
+   * <p>The SIP rule ID.</p>
+   */
+  SipRuleId: string | undefined;
+}
+
+export namespace GetSipRuleRequest {
+  export const filterSensitiveLog = (obj: GetSipRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipRuleResponse {
+  /**
+   * <p>The SIP rule details.</p>
+   */
+  SipRule?: SipRule;
+}
+
+export namespace GetSipRuleResponse {
+  export const filterSensitiveLog = (obj: GetSipRuleResponse): any => ({
+    ...obj,
   });
 }
 
@@ -3373,11 +3859,6 @@ export namespace GetUserSettingsRequest {
  */
 export interface TelephonySettings {
   /**
-   * <p>Allows or denies SMS messaging.</p>
-   */
-  SMS: boolean | undefined;
-
-  /**
    * <p>Allows or denies inbound calling.</p>
    */
   InboundCalling: boolean | undefined;
@@ -3386,6 +3867,11 @@ export interface TelephonySettings {
    * <p>Allows or denies outbound calling.</p>
    */
   OutboundCalling: boolean | undefined;
+
+  /**
+   * <p>Allows or denies SMS messaging.</p>
+   */
+  SMS: boolean | undefined;
 }
 
 export namespace TelephonySettings {
@@ -3574,10 +4060,19 @@ export enum OriginationRouteProtocol {
  */
 export interface OriginationRoute {
   /**
-   * <p>The weight associated with the host. If hosts are equal in priority, calls are
-   *       distributed among them based on their relative weight.</p>
+   * <p>The FQDN or IP address to contact for origination traffic.</p>
    */
-  Weight?: number;
+  Host?: string;
+
+  /**
+   * <p>The designated origination route port. Defaults to 5060.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
+   */
+  Protocol?: OriginationRouteProtocol | string;
 
   /**
    * <p>The priority associated with the host, with 1 being the highest priority. Higher
@@ -3586,19 +4081,10 @@ export interface OriginationRoute {
   Priority?: number;
 
   /**
-   * <p>The FQDN or IP address to contact for origination traffic.</p>
+   * <p>The weight associated with the host. If hosts are equal in priority, calls are
+   *       distributed among them based on their relative weight.</p>
    */
-  Host?: string;
-
-  /**
-   * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
-   */
-  Protocol?: OriginationRouteProtocol | string;
-
-  /**
-   * <p>The designated origination route port. Defaults to 5060.</p>
-   */
-  Port?: number;
+  Weight?: number;
 }
 
 export namespace OriginationRoute {
@@ -3613,16 +4099,16 @@ export namespace OriginationRoute {
  */
 export interface Origination {
   /**
-   * <p>When origination settings are disabled, inbound calls are not enabled for your Amazon
-   *       Chime Voice Connector.</p>
-   */
-  Disabled?: boolean;
-
-  /**
    * <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum value
    *     of 1. Maximum value of 20.</p>
    */
   Routes?: OriginationRoute[];
+
+  /**
+   * <p>When origination settings are disabled, inbound calls are not enabled for your Amazon
+   *       Chime Voice Connector.</p>
+   */
+  Disabled?: boolean;
 }
 
 export namespace Origination {
@@ -3662,6 +4148,16 @@ export namespace GetVoiceConnectorProxyRequest {
  */
 export interface Proxy {
   /**
+   * <p>The default number of minutes allowed for proxy sessions.</p>
+   */
+  DefaultSessionExpiryMinutes?: number;
+
+  /**
+   * <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
+   */
+  Disabled?: boolean;
+
+  /**
    * <p>The phone number to route calls to after a proxy session expires.</p>
    */
   FallBackPhoneNumber?: string;
@@ -3670,16 +4166,6 @@ export interface Proxy {
    * <p>The countries for proxy phone numbers to be selected from.</p>
    */
   PhoneNumberCountries?: string[];
-
-  /**
-   * <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
-   */
-  Disabled?: boolean;
-
-  /**
-   * <p>The default number of minutes allowed for proxy sessions.</p>
-   */
-  DefaultSessionExpiryMinutes?: number;
 }
 
 export namespace Proxy {
@@ -3748,14 +4234,14 @@ export interface StreamingConfiguration {
   DataRetentionInHours: number | undefined;
 
   /**
-   * <p>The streaming notification targets.</p>
-   */
-  StreamingNotificationTargets?: StreamingNotificationTarget[];
-
-  /**
    * <p>When true, media streaming to Amazon Kinesis is turned off.</p>
    */
   Disabled?: boolean;
+
+  /**
+   * <p>The streaming notification targets.</p>
+   */
+  StreamingNotificationTargets?: StreamingNotificationTarget[];
 }
 
 export namespace StreamingConfiguration {
@@ -3796,16 +4282,6 @@ export namespace GetVoiceConnectorTerminationRequest {
  */
 export interface Termination {
   /**
-   * <p>The IP addresses allowed to make calls, in CIDR format. Required.</p>
-   */
-  CidrAllowedList?: string[];
-
-  /**
-   * <p>When termination settings are disabled, outbound calls can not be made.</p>
-   */
-  Disabled?: boolean;
-
-  /**
    * <p>The limit on calls per second. Max value based on account service quota. Default value
    *       of 1.</p>
    */
@@ -3820,6 +4296,16 @@ export interface Termination {
    * <p>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</p>
    */
   CallingRegions?: string[];
+
+  /**
+   * <p>The IP addresses allowed to make calls, in CIDR format. Required.</p>
+   */
+  CidrAllowedList?: string[];
+
+  /**
+   * <p>When termination settings are disabled, outbound calls can not be made.</p>
+   */
+  Disabled?: boolean;
 }
 
 export namespace Termination {
@@ -3862,14 +4348,14 @@ export namespace GetVoiceConnectorTerminationHealthRequest {
  */
 export interface TerminationHealth {
   /**
-   * <p>The source IP address.</p>
-   */
-  Source?: string;
-
-  /**
    * <p>The timestamp, in ISO 8601 format.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The source IP address.</p>
+   */
+  Source?: string;
 }
 
 export namespace TerminationHealth {
@@ -3902,14 +4388,14 @@ export interface Invite {
   InviteId?: string;
 
   /**
-   * <p>The email address to which the invite is sent.</p>
-   */
-  EmailAddress?: string;
-
-  /**
    * <p>The status of the invite.</p>
    */
   Status?: InviteStatus | string;
+
+  /**
+   * <p>The email address to which the invite is sent.</p>
+   */
+  EmailAddress?: string;
 
   /**
    * <p>The status of the invite email.</p>
@@ -3926,9 +4412,9 @@ export namespace Invite {
 
 export interface InviteUsersRequest {
   /**
-   * <p>The user type.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  UserType?: UserType | string;
+  AccountId: string | undefined;
 
   /**
    * <p>The user email addresses to which to send the email invitation.</p>
@@ -3936,9 +4422,9 @@ export interface InviteUsersRequest {
   UserEmailList: string[] | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The user type.</p>
    */
-  AccountId: string | undefined;
+  UserType?: UserType | string;
 }
 
 export namespace InviteUsersRequest {
@@ -3964,9 +4450,9 @@ export namespace InviteUsersResponse {
 
 export interface ListAccountsRequest {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>Amazon Chime account name prefix with which to filter results.</p>
    */
-  NextToken?: string;
+  Name?: string;
 
   /**
    * <p>User email address with which to filter results.</p>
@@ -3974,14 +4460,14 @@ export interface ListAccountsRequest {
   UserEmail?: string;
 
   /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>Amazon Chime account name prefix with which to filter results.</p>
-   */
-  Name?: string;
 }
 
 export namespace ListAccountsRequest {
@@ -3993,14 +4479,14 @@ export namespace ListAccountsRequest {
 
 export interface ListAccountsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>List of Amazon Chime accounts and account details.</p>
+   * <p>The list of accounts.</p>
    */
   Accounts?: Account[];
+
+  /**
+   * <p>The account's user token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListAccountsResponse {
@@ -4011,9 +4497,9 @@ export namespace ListAccountsResponse {
 
 export interface ListAttendeesRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>The Amazon Chime SDK meeting ID.</p>
    */
-  MaxResults?: number;
+  MeetingId: string | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -4021,9 +4507,9 @@ export interface ListAttendeesRequest {
   NextToken?: string;
 
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  MeetingId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListAttendeesRequest {
@@ -4145,14 +4631,14 @@ export namespace ListMeetingsRequest {
 
 export interface ListMeetingsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The Amazon Chime SDK meeting information.</p>
    */
   Meetings?: Meeting[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListMeetingsResponse {
@@ -4232,19 +4718,14 @@ export interface ListPhoneNumbersRequest {
   Status?: PhoneNumberStatus | string;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The phone number product type.</p>
    */
   ProductType?: PhoneNumberProductType | string;
+
+  /**
+   * <p>The filter to use to limit the number of results.</p>
+   */
+  FilterName?: PhoneNumberAssociationName | string;
 
   /**
    * <p>The value to use for the filter.</p>
@@ -4252,9 +4733,14 @@ export interface ListPhoneNumbersRequest {
   FilterValue?: string;
 
   /**
-   * <p>The filter to use to limit the number of results.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  FilterName?: PhoneNumberAssociationName | string;
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPhoneNumbersRequest {
@@ -4265,14 +4751,14 @@ export namespace ListPhoneNumbersRequest {
 
 export interface ListPhoneNumbersResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The phone number details.</p>
    */
   PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPhoneNumbersResponse {
@@ -4284,9 +4770,9 @@ export namespace ListPhoneNumbersResponse {
 
 export interface ListProxySessionsRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>The Amazon Chime voice connector ID.</p>
    */
-  MaxResults?: number;
+  VoiceConnectorId: string | undefined;
 
   /**
    * <p>The proxy session status.</p>
@@ -4299,9 +4785,9 @@ export interface ListProxySessionsRequest {
   NextToken?: string;
 
   /**
-   * <p>The Amazon Chime voice connector ID.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  VoiceConnectorId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListProxySessionsRequest {
@@ -4340,14 +4826,14 @@ export interface ListRoomMembershipsRequest {
   RoomId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListRoomMembershipsRequest {
@@ -4384,14 +4870,14 @@ export interface ListRoomsRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The member ID (user ID or bot ID).</p>
    */
   MemberId?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -4407,20 +4893,97 @@ export namespace ListRoomsRequest {
 
 export interface ListRoomsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The room details.</p>
    */
   Rooms?: Room[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListRoomsResponse {
   export const filterSensitiveLog = (obj: ListRoomsResponse): any => ({
     ...obj,
     ...(obj.Rooms && { Rooms: obj.Rooms.map((item) => Room.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListSipMediaApplicationsRequest {
+  /**
+   * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSipMediaApplicationsRequest {
+  export const filterSensitiveLog = (obj: ListSipMediaApplicationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSipMediaApplicationsResponse {
+  /**
+   * <p>List of SIP media applications and application details.</p>
+   */
+  SipMediaApplications?: SipMediaApplication[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSipMediaApplicationsResponse {
+  export const filterSensitiveLog = (obj: ListSipMediaApplicationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSipRulesRequest {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSipRulesRequest {
+  export const filterSensitiveLog = (obj: ListSipRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSipRulesResponse {
+  /**
+   * <p>List of SIP rules and rule details.</p>
+   */
+  SipRules?: SipRule[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSipRulesResponse {
+  export const filterSensitiveLog = (obj: ListSipRulesResponse): any => ({
+    ...obj,
   });
 }
 
@@ -4454,9 +5017,9 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListUsersRequest {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  NextToken?: string;
+  AccountId: string | undefined;
 
   /**
    * <p>Optional. The user email address used to filter results. Maximum 1.</p>
@@ -4464,19 +5027,19 @@ export interface ListUsersRequest {
   UserEmail?: string;
 
   /**
+   * <p>The user type.</p>
+   */
+  UserType?: UserType | string;
+
+  /**
    * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The token to use to retrieve the next page of results.</p>
    */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The user type.</p>
-   */
-  UserType?: UserType | string;
+  NextToken?: string;
 }
 
 export namespace ListUsersRequest {
@@ -4488,14 +5051,14 @@ export namespace ListUsersRequest {
 
 export interface ListUsersResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>List of users and user details.</p>
    */
   Users?: User[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListUsersResponse {
@@ -4525,14 +5088,14 @@ export namespace ListVoiceConnectorGroupsRequest {
 
 export interface ListVoiceConnectorGroupsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The details of the Amazon Chime Voice Connector groups.</p>
    */
   VoiceConnectorGroups?: VoiceConnectorGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListVoiceConnectorGroupsResponse {
@@ -4632,14 +5195,9 @@ export namespace LogoutUserResponse {
 
 export interface PutEventsConfigurationRequest {
   /**
-   * <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  LambdaFunctionArn?: string;
-
-  /**
-   * <p>HTTPS endpoint that allows the bot to receive outgoing events.</p>
-   */
-  OutboundEventsHTTPSEndpoint?: string;
+  AccountId: string | undefined;
 
   /**
    * <p>The bot ID.</p>
@@ -4647,16 +5205,21 @@ export interface PutEventsConfigurationRequest {
   BotId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>HTTPS endpoint that allows the bot to receive outgoing events.</p>
    */
-  AccountId: string | undefined;
+  OutboundEventsHTTPSEndpoint?: string;
+
+  /**
+   * <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
+   */
+  LambdaFunctionArn?: string;
 }
 
 export namespace PutEventsConfigurationRequest {
   export const filterSensitiveLog = (obj: PutEventsConfigurationRequest): any => ({
     ...obj,
-    ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
     ...(obj.OutboundEventsHTTPSEndpoint && { OutboundEventsHTTPSEndpoint: SENSITIVE_STRING }),
+    ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
   });
 }
 
@@ -4712,16 +5275,47 @@ export namespace PutRetentionSettingsResponse {
   });
 }
 
-export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
+export interface PutSipMediaApplicationLoggingConfigurationRequest {
   /**
-   * <p>The emergency calling configuration details.</p>
+   * <p>The ID of the specified SIP media application</p>
    */
-  EmergencyCallingConfiguration: EmergencyCallingConfiguration | undefined;
+  SipMediaApplicationId: string | undefined;
 
+  /**
+   * <p>The actual logging configuration.</p>
+   */
+  SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
+}
+
+export namespace PutSipMediaApplicationLoggingConfigurationRequest {
+  export const filterSensitiveLog = (obj: PutSipMediaApplicationLoggingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutSipMediaApplicationLoggingConfigurationResponse {
+  /**
+   * <p>The actual logging configuration.</p>
+   */
+  SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
+}
+
+export namespace PutSipMediaApplicationLoggingConfigurationResponse {
+  export const filterSensitiveLog = (obj: PutSipMediaApplicationLoggingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The emergency calling configuration details.</p>
+   */
+  EmergencyCallingConfiguration: EmergencyCallingConfiguration | undefined;
 }
 
 export namespace PutVoiceConnectorEmergencyCallingConfigurationRequest {
@@ -4786,14 +5380,14 @@ export namespace PutVoiceConnectorLoggingConfigurationResponse {
 
 export interface PutVoiceConnectorOriginationRequest {
   /**
-   * <p>The origination setting details to add.</p>
-   */
-  Origination: Origination | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The origination setting details to add.</p>
+   */
+  Origination: Origination | undefined;
 }
 
 export namespace PutVoiceConnectorOriginationRequest {
@@ -4817,9 +5411,9 @@ export namespace PutVoiceConnectorOriginationResponse {
 
 export interface PutVoiceConnectorProxyRequest {
   /**
-   * <p>The countries for proxy phone numbers to be selected from.</p>
+   * <p>The Amazon Chime voice connector ID.</p>
    */
-  PhoneNumberPoolCountries: string[] | undefined;
+  VoiceConnectorId: string | undefined;
 
   /**
    * <p>The default number of minutes allowed for proxy sessions.</p>
@@ -4827,9 +5421,9 @@ export interface PutVoiceConnectorProxyRequest {
   DefaultSessionExpiryMinutes: number | undefined;
 
   /**
-   * <p>The Amazon Chime voice connector ID.</p>
+   * <p>The countries for proxy phone numbers to be selected from.</p>
    */
-  VoiceConnectorId: string | undefined;
+  PhoneNumberPoolCountries: string[] | undefined;
 
   /**
    * <p>The phone number to route calls to after a proxy session expires.</p>
@@ -4865,14 +5459,14 @@ export namespace PutVoiceConnectorProxyResponse {
 
 export interface PutVoiceConnectorStreamingConfigurationRequest {
   /**
-   * <p>The streaming configuration details to add.</p>
-   */
-  StreamingConfiguration: StreamingConfiguration | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The streaming configuration details to add.</p>
+   */
+  StreamingConfiguration: StreamingConfiguration | undefined;
 }
 
 export namespace PutVoiceConnectorStreamingConfigurationRequest {
@@ -4896,14 +5490,14 @@ export namespace PutVoiceConnectorStreamingConfigurationResponse {
 
 export interface PutVoiceConnectorTerminationRequest {
   /**
-   * <p>The termination setting details to add.</p>
-   */
-  Termination: Termination | undefined;
-
-  /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The termination setting details to add.</p>
+   */
+  Termination: Termination | undefined;
 }
 
 export namespace PutVoiceConnectorTerminationRequest {
@@ -4929,14 +5523,14 @@ export namespace PutVoiceConnectorTerminationResponse {
 
 export interface PutVoiceConnectorTerminationCredentialsRequest {
   /**
-   * <p>The termination SIP credentials.</p>
-   */
-  Credentials?: Credential[];
-
-  /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The termination SIP credentials.</p>
+   */
+  Credentials?: Credential[];
 }
 
 export namespace PutVoiceConnectorTerminationCredentialsRequest {
@@ -4948,6 +5542,11 @@ export namespace PutVoiceConnectorTerminationCredentialsRequest {
 
 export interface RedactConversationMessageRequest {
   /**
+   * <p>The Amazon Chime account ID.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
    * <p>The conversation ID.</p>
    */
   ConversationId: string | undefined;
@@ -4956,11 +5555,6 @@ export interface RedactConversationMessageRequest {
    * <p>The message ID.</p>
    */
   MessageId: string | undefined;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
 }
 
 export namespace RedactConversationMessageRequest {
@@ -4979,9 +5573,9 @@ export namespace RedactConversationMessageResponse {
 
 export interface RedactRoomMessageRequest {
   /**
-   * <p>The message ID.</p>
+   * <p>The Amazon Chime account ID.</p>
    */
-  MessageId: string | undefined;
+  AccountId: string | undefined;
 
   /**
    * <p>The room ID.</p>
@@ -4989,9 +5583,9 @@ export interface RedactRoomMessageRequest {
   RoomId: string | undefined;
 
   /**
-   * <p>The Amazon Chime account ID.</p>
+   * <p>The message ID.</p>
    */
-  AccountId: string | undefined;
+  MessageId: string | undefined;
 }
 
 export namespace RedactRoomMessageRequest {
@@ -5101,16 +5695,6 @@ export namespace RestorePhoneNumberResponse {
 
 export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The toll-free prefix that you use to filter results.</p>
-   */
-  TollFreePrefix?: string;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The area code used to filter results.</p>
    */
   AreaCode?: string;
@@ -5121,9 +5705,9 @@ export interface SearchAvailablePhoneNumbersRequest {
   City?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>The country used to filter results.</p>
    */
-  MaxResults?: number;
+  Country?: string;
 
   /**
    * <p>The state used to filter results.</p>
@@ -5131,9 +5715,19 @@ export interface SearchAvailablePhoneNumbersRequest {
   State?: string;
 
   /**
-   * <p>The country used to filter results.</p>
+   * <p>The toll-free prefix that you use to filter results.</p>
    */
-  Country?: string;
+  TollFreePrefix?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace SearchAvailablePhoneNumbersRequest {
@@ -5163,552 +5757,19 @@ export interface TagAttendeeRequest {
   MeetingId: string | undefined;
 
   /**
-   * <p>The tag key-value pairs.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>The Amazon Chime SDK attendee ID.</p>
    */
   AttendeeId: string | undefined;
+
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagAttendeeRequest {
   export const filterSensitiveLog = (obj: TagAttendeeRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
-export interface TagMeetingRequest {
-  /**
-   * <p>The tag key-value pairs.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
-   */
-  MeetingId: string | undefined;
-}
-
-export namespace TagMeetingRequest {
-  export const filterSensitiveLog = (obj: TagMeetingRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The tag key-value pairs.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
-   * <p>The resource ARN.</p>
-   */
-  ResourceARN: string | undefined;
-}
-
-export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-    ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
-  });
-}
-
-export interface UntagAttendeeRequest {
-  /**
-   * <p>The tag keys.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
-   */
-  MeetingId: string | undefined;
-
-  /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
-   */
-  AttendeeId: string | undefined;
-}
-
-export namespace UntagAttendeeRequest {
-  export const filterSensitiveLog = (obj: UntagAttendeeRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
-export interface UntagMeetingRequest {
-  /**
-   * <p>The tag keys.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
-   */
-  MeetingId: string | undefined;
-}
-
-export namespace UntagMeetingRequest {
-  export const filterSensitiveLog = (obj: UntagMeetingRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The resource ARN.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>The tag keys.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateAccountRequest {
-  /**
-   * <p>The new name for the specified Amazon Chime account.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-}
-
-export namespace UpdateAccountRequest {
-  export const filterSensitiveLog = (obj: UpdateAccountRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAccountResponse {
-  /**
-   * <p>The updated Amazon Chime account details.</p>
-   */
-  Account?: Account;
-}
-
-export namespace UpdateAccountResponse {
-  export const filterSensitiveLog = (obj: UpdateAccountResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAccountSettingsRequest {
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The Amazon Chime account settings to update.</p>
-   */
-  AccountSettings: AccountSettings | undefined;
-}
-
-export namespace UpdateAccountSettingsRequest {
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAccountSettingsResponse {}
-
-export namespace UpdateAccountSettingsResponse {
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotRequest {
-  /**
-   * <p>The bot ID.</p>
-   */
-  BotId: string | undefined;
-
-  /**
-   * <p>When true, stops the specified bot from running in your account.</p>
-   */
-  Disabled?: boolean;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-}
-
-export namespace UpdateBotRequest {
-  export const filterSensitiveLog = (obj: UpdateBotRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotResponse {
-  /**
-   * <p>The updated bot details.</p>
-   */
-  Bot?: Bot;
-}
-
-export namespace UpdateBotResponse {
-  export const filterSensitiveLog = (obj: UpdateBotResponse): any => ({
-    ...obj,
-    ...(obj.Bot && { Bot: Bot.filterSensitiveLog(obj.Bot) }),
-  });
-}
-
-export interface UpdateGlobalSettingsRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector settings.</p>
-   */
-  VoiceConnector: VoiceConnectorSettings | undefined;
-
-  /**
-   * <p>The Amazon Chime Business Calling settings.</p>
-   */
-  BusinessCalling: BusinessCallingSettings | undefined;
-}
-
-export namespace UpdateGlobalSettingsRequest {
-  export const filterSensitiveLog = (obj: UpdateGlobalSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePhoneNumberRequest {
-  /**
-   * <p>The product type.</p>
-   */
-  ProductType?: PhoneNumberProductType | string;
-
-  /**
-   * <p>The phone number ID.</p>
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * <p>The outbound calling name associated with the phone number.</p>
-   */
-  CallingName?: string;
-}
-
-export namespace UpdatePhoneNumberRequest {
-  export const filterSensitiveLog = (obj: UpdatePhoneNumberRequest): any => ({
-    ...obj,
-    ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdatePhoneNumberResponse {
-  /**
-   * <p>The updated phone number details.</p>
-   */
-  PhoneNumber?: PhoneNumber;
-}
-
-export namespace UpdatePhoneNumberResponse {
-  export const filterSensitiveLog = (obj: UpdatePhoneNumberResponse): any => ({
-    ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: PhoneNumber.filterSensitiveLog(obj.PhoneNumber) }),
-  });
-}
-
-export interface UpdatePhoneNumberSettingsRequest {
-  /**
-   * <p>The default outbound calling name for the account.</p>
-   */
-  CallingName: string | undefined;
-}
-
-export namespace UpdatePhoneNumberSettingsRequest {
-  export const filterSensitiveLog = (obj: UpdatePhoneNumberSettingsRequest): any => ({
-    ...obj,
-    ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateProxySessionRequest {
-  /**
-   * <p>The proxy session ID.</p>
-   */
-  ProxySessionId: string | undefined;
-
-  /**
-   * <p>The number of minutes allowed for the proxy session.</p>
-   */
-  ExpiryMinutes?: number;
-
-  /**
-   * <p>The Amazon Chime voice connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-
-  /**
-   * <p>The proxy session capabilities.</p>
-   */
-  Capabilities: (Capability | string)[] | undefined;
-}
-
-export namespace UpdateProxySessionRequest {
-  export const filterSensitiveLog = (obj: UpdateProxySessionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateProxySessionResponse {
-  /**
-   * <p>The proxy session details.</p>
-   */
-  ProxySession?: ProxySession;
-}
-
-export namespace UpdateProxySessionResponse {
-  export const filterSensitiveLog = (obj: UpdateProxySessionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRoomRequest {
-  /**
-   * <p>The room ID.</p>
-   */
-  RoomId: string | undefined;
-
-  /**
-   * <p>The room name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-}
-
-export namespace UpdateRoomRequest {
-  export const filterSensitiveLog = (obj: UpdateRoomRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateRoomResponse {
-  /**
-   * <p>The room details.</p>
-   */
-  Room?: Room;
-}
-
-export namespace UpdateRoomResponse {
-  export const filterSensitiveLog = (obj: UpdateRoomResponse): any => ({
-    ...obj,
-    ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
-  });
-}
-
-export interface UpdateRoomMembershipRequest {
-  /**
-   * <p>The member ID.</p>
-   */
-  MemberId: string | undefined;
-
-  /**
-   * <p>The role of the member.</p>
-   */
-  Role?: RoomMembershipRole | string;
-
-  /**
-   * <p>The room ID.</p>
-   */
-  RoomId: string | undefined;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-}
-
-export namespace UpdateRoomMembershipRequest {
-  export const filterSensitiveLog = (obj: UpdateRoomMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRoomMembershipResponse {
-  /**
-   * <p>The room membership details.</p>
-   */
-  RoomMembership?: RoomMembership;
-}
-
-export namespace UpdateRoomMembershipResponse {
-  export const filterSensitiveLog = (obj: UpdateRoomMembershipResponse): any => ({
-    ...obj,
-    ...(obj.RoomMembership && { RoomMembership: RoomMembership.filterSensitiveLog(obj.RoomMembership) }),
-  });
-}
-
-export interface UpdateUserRequest {
-  /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The user type.</p>
-   */
-  UserType?: UserType | string;
-
-  /**
-   * <p>The user license type to update. This must be a supported license type for the Amazon
-   *        Chime account that the user belongs to.</p>
-   */
-  LicenseType?: License | string;
-
-  /**
-   * <p>The Alexa for Business metadata.</p>
-   */
-  AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
-}
-
-export namespace UpdateUserRequest {
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-    ...(obj.AlexaForBusinessMetadata && {
-      AlexaForBusinessMetadata: AlexaForBusinessMetadata.filterSensitiveLog(obj.AlexaForBusinessMetadata),
-    }),
-  });
-}
-
-export interface UpdateUserResponse {
-  /**
-   * <p>The updated user details.</p>
-   */
-  User?: User;
-}
-
-export namespace UpdateUserResponse {
-  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
-  });
-}
-
-export interface UpdateUserSettingsRequest {
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The user settings to update.</p>
-   */
-  UserSettings: UserSettings | undefined;
-
-  /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-}
-
-export namespace UpdateUserSettingsRequest {
-  export const filterSensitiveLog = (obj: UpdateUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateVoiceConnectorRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Chime Voice Connector.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
-   */
-  RequireEncryption: boolean | undefined;
-}
-
-export namespace UpdateVoiceConnectorRequest {
-  export const filterSensitiveLog = (obj: UpdateVoiceConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateVoiceConnectorResponse {
-  /**
-   * <p>The updated Amazon Chime Voice Connector details.</p>
-   */
-  VoiceConnector?: VoiceConnector;
-}
-
-export namespace UpdateVoiceConnectorResponse {
-  export const filterSensitiveLog = (obj: UpdateVoiceConnectorResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateVoiceConnectorGroupRequest {
-  /**
-   * <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
-   */
-  VoiceConnectorItems: VoiceConnectorItem[] | undefined;
-
-  /**
-   * <p>The name of the Amazon Chime Voice Connector group.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon Chime Voice Connector group ID.</p>
-   */
-  VoiceConnectorGroupId: string | undefined;
-}
-
-export namespace UpdateVoiceConnectorGroupRequest {
-  export const filterSensitiveLog = (obj: UpdateVoiceConnectorGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateVoiceConnectorGroupResponse {
-  /**
-   * <p>The updated Amazon Chime Voice Connector group details.</p>
-   */
-  VoiceConnectorGroup?: VoiceConnectorGroup;
-}
-
-export namespace UpdateVoiceConnectorGroupResponse {
-  export const filterSensitiveLog = (obj: UpdateVoiceConnectorGroupResponse): any => ({
-    ...obj,
   });
 }

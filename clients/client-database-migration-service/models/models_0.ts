@@ -2909,6 +2909,21 @@ export namespace ResourceQuotaExceededFault {
 }
 
 /**
+ * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ */
+export interface S3AccessDeniedFault extends __SmithyException, $MetadataBearer {
+  name: "S3AccessDeniedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace S3AccessDeniedFault {
+  export const filterSensitiveLog = (obj: S3AccessDeniedFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface CreateEventSubscriptionMessage {
@@ -4037,7 +4052,7 @@ export namespace ReplicationTaskStats {
 
 /**
  * <p>Provides information that describes a replication task created by the
- *          <code>CreateReplicationTask</code> operation.</p>
+ *             <code>CreateReplicationTask</code> operation.</p>
  */
 export interface ReplicationTask {
   /**
@@ -4058,17 +4073,17 @@ export interface ReplicationTask {
   ReplicationTaskIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the endpoint.</p>
    */
   SourceEndpointArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   * <p>The ARN that uniquely identifies the endpoint.</p>
    */
   TargetEndpointArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+   * <p>The ARN of the replication instance.</p>
    */
   ReplicationInstanceArn?: string;
 
@@ -4088,7 +4103,116 @@ export interface ReplicationTask {
   ReplicationTaskSettings?: string;
 
   /**
-   * <p>The status of the replication task.</p>
+   * <p>The status of the replication task. This response parameter can return one of
+   *          the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"moving"</code> – The task is being moved in response to running the
+   *                   <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html">
+   *                      <code>MoveReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"creating"</code> – The task is being created in response to running
+   *                the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">
+   *                      <code>CreateReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"deleting"</code> – The task is being deleted in response to running
+   *                the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationTask.html">
+   *                      <code>DeleteReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"failed"</code> – The task failed to successfully complete the database
+   *                migration in response to running the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">
+   *                      <code>StartReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"failed-move"</code> – The task failed to move in response to running
+   *                the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html">
+   *                      <code>MoveReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"modifying"</code> – The task definition is being modified in response
+   *                to running the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html">
+   *                      <code>ModifyReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"ready"</code> – The task is in a <code>ready</code> state where it can
+   *                respond to other task operations, such as <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">
+   *                      <code>StartReplicationTask</code>
+   *                   </a> or <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationTask.html">
+   *                      <code>DeleteReplicationTask</code>
+   *                   </a>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"running"</code> – The task is performing a database migration in
+   *                response to running the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">
+   *                      <code>StartReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"starting"</code> – The task is preparing to perform a database
+   *                migration in response to running the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">
+   *                      <code>StartReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"stopped"</code> – The task has stopped in response to running the
+   *                   <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StopReplicationTask.html">
+   *                      <code>StopReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"stopping"</code> – The task is preparing to stop in response to
+   *                running the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StopReplicationTask.html">
+   *                      <code>StopReplicationTask</code>
+   *                   </a> operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"testing"</code> – The database migration specified for this task is
+   *                being tested in response to running either the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessmentRun.html">
+   *                      <code>StartReplicationTaskAssessmentRun</code>
+   *                   </a> or the
+   *                   <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessment.html">
+   *                      <code>StartReplicationTaskAssessment</code>
+   *                   </a>
+   *                operation.</p>
+   *                <note>
+   *                   <p>
+   *                      <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessmentRun.html">
+   *                         <code>StartReplicationTaskAssessmentRun</code>
+   *                      </a> is
+   *                   an improved premigration task assessment operation. The <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessment.html">
+   *                         <code>StartReplicationTaskAssessment</code>
+   *                      </a>
+   *                   operation assesses data type compatibility only between the source and target
+   *                   database of a given migration task. In contrast, <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessmentRun.html">
+   *                         <code>StartReplicationTaskAssessmentRun</code>
+   *                      </a>
+   *                   enables you to specify a variety of premigration task assessments in addition to
+   *                   data type compatibility. These assessments include ones for the validity of primary key definitions and
+   *                   likely issues with database migration performance, among others.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
@@ -4113,9 +4237,9 @@ export interface ReplicationTask {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"STOP_REASON_CACHED_CHANGES_NOT_APPLIED"</code> – In a full-load and
-   *                CDC migration, the full-load stopped as specified before starting the CDC
-   *                migration.</p>
+   *                   <code>"STOP_REASON_CACHED_CHANGES_NOT_APPLIED"</code> – In a
+   *                full-load and CDC migration, the full load stopped as specified before starting the
+   *                CDC migration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4181,6 +4305,15 @@ export interface ReplicationTask {
    *          </p>
    */
   TaskData?: string;
+
+  /**
+   * <p>The ARN of the replication instance to which this task is moved in response to running
+   *          the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html">
+   *                <code>MoveReplicationTask</code>
+   *             </a> operation. Otherwise, this response
+   *          parameter isn't a member of the <code>ReplicationTask</code> object.</p>
+   */
+  TargetReplicationInstanceArn?: string;
 }
 
 export namespace ReplicationTask {
@@ -7086,6 +7219,43 @@ export namespace ModifyReplicationTaskResponse {
   });
 }
 
+/**
+ * <p></p>
+ */
+export interface MoveReplicationTaskMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task that you want to move.</p>
+   */
+  ReplicationTaskArn: string | undefined;
+
+  /**
+   * <p>The ARN of the replication instance where you want to move the task to.</p>
+   */
+  TargetReplicationInstanceArn: string | undefined;
+}
+
+export namespace MoveReplicationTaskMessage {
+  export const filterSensitiveLog = (obj: MoveReplicationTaskMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface MoveReplicationTaskResponse {
+  /**
+   * <p>The replication task that was moved.</p>
+   */
+  ReplicationTask?: ReplicationTask;
+}
+
+export namespace MoveReplicationTaskResponse {
+  export const filterSensitiveLog = (obj: MoveReplicationTaskResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RebootReplicationInstanceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -7375,21 +7545,6 @@ export interface KMSFault extends __SmithyException, $MetadataBearer {
 
 export namespace KMSFault {
   export const filterSensitiveLog = (obj: KMSFault): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
- */
-export interface S3AccessDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "S3AccessDeniedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace S3AccessDeniedFault {
-  export const filterSensitiveLog = (obj: S3AccessDeniedFault): any => ({
     ...obj,
   });
 }

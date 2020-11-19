@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateGlobalSettingsRequest } from "../models/models_0";
+import { UpdateGlobalSettingsRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateGlobalSettingsCommand,
   serializeAws_restJson1UpdateGlobalSettingsCommand,

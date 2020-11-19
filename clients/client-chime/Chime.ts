@@ -71,6 +71,11 @@ import {
   CreateMeetingCommandOutput,
 } from "./commands/CreateMeetingCommand";
 import {
+  CreateMeetingDialOutCommand,
+  CreateMeetingDialOutCommandInput,
+  CreateMeetingDialOutCommandOutput,
+} from "./commands/CreateMeetingDialOutCommand";
+import {
   CreateMeetingWithAttendeesCommand,
   CreateMeetingWithAttendeesCommandInput,
   CreateMeetingWithAttendeesCommandOutput,
@@ -91,6 +96,21 @@ import {
   CreateRoomMembershipCommandInput,
   CreateRoomMembershipCommandOutput,
 } from "./commands/CreateRoomMembershipCommand";
+import {
+  CreateSipMediaApplicationCallCommand,
+  CreateSipMediaApplicationCallCommandInput,
+  CreateSipMediaApplicationCallCommandOutput,
+} from "./commands/CreateSipMediaApplicationCallCommand";
+import {
+  CreateSipMediaApplicationCommand,
+  CreateSipMediaApplicationCommandInput,
+  CreateSipMediaApplicationCommandOutput,
+} from "./commands/CreateSipMediaApplicationCommand";
+import {
+  CreateSipRuleCommand,
+  CreateSipRuleCommandInput,
+  CreateSipRuleCommandOutput,
+} from "./commands/CreateSipRuleCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateVoiceConnectorCommand,
@@ -138,6 +158,16 @@ import {
   DeleteRoomMembershipCommandInput,
   DeleteRoomMembershipCommandOutput,
 } from "./commands/DeleteRoomMembershipCommand";
+import {
+  DeleteSipMediaApplicationCommand,
+  DeleteSipMediaApplicationCommandInput,
+  DeleteSipMediaApplicationCommandOutput,
+} from "./commands/DeleteSipMediaApplicationCommand";
+import {
+  DeleteSipRuleCommand,
+  DeleteSipRuleCommandInput,
+  DeleteSipRuleCommandOutput,
+} from "./commands/DeleteSipRuleCommand";
 import {
   DeleteVoiceConnectorCommand,
   DeleteVoiceConnectorCommandInput,
@@ -243,6 +273,17 @@ import {
   GetRetentionSettingsCommandOutput,
 } from "./commands/GetRetentionSettingsCommand";
 import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand";
+import {
+  GetSipMediaApplicationCommand,
+  GetSipMediaApplicationCommandInput,
+  GetSipMediaApplicationCommandOutput,
+} from "./commands/GetSipMediaApplicationCommand";
+import {
+  GetSipMediaApplicationLoggingConfigurationCommand,
+  GetSipMediaApplicationLoggingConfigurationCommandInput,
+  GetSipMediaApplicationLoggingConfigurationCommandOutput,
+} from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
+import { GetSipRuleCommand, GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
 import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserSettingsCommand,
@@ -343,6 +384,16 @@ import {
 } from "./commands/ListRoomMembershipsCommand";
 import { ListRoomsCommand, ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand";
 import {
+  ListSipMediaApplicationsCommand,
+  ListSipMediaApplicationsCommandInput,
+  ListSipMediaApplicationsCommandOutput,
+} from "./commands/ListSipMediaApplicationsCommand";
+import {
+  ListSipRulesCommand,
+  ListSipRulesCommandInput,
+  ListSipRulesCommandOutput,
+} from "./commands/ListSipRulesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -374,6 +425,11 @@ import {
   PutRetentionSettingsCommandInput,
   PutRetentionSettingsCommandOutput,
 } from "./commands/PutRetentionSettingsCommand";
+import {
+  PutSipMediaApplicationLoggingConfigurationCommand,
+  PutSipMediaApplicationLoggingConfigurationCommandInput,
+  PutSipMediaApplicationLoggingConfigurationCommandOutput,
+} from "./commands/PutSipMediaApplicationLoggingConfigurationCommand";
 import {
   PutVoiceConnectorEmergencyCallingConfigurationCommand,
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -494,6 +550,16 @@ import {
   UpdateRoomMembershipCommandInput,
   UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand";
+import {
+  UpdateSipMediaApplicationCommand,
+  UpdateSipMediaApplicationCommandInput,
+  UpdateSipMediaApplicationCommandOutput,
+} from "./commands/UpdateSipMediaApplicationCommand";
+import {
+  UpdateSipRuleCommand,
+  UpdateSipRuleCommandInput,
+  UpdateSipRuleCommandOutput,
+} from "./commands/UpdateSipRuleCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UpdateUserSettingsCommand,
@@ -540,7 +606,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <dt>Using REST API</dt>
  *             <dd>
  *                <p>If you use REST to make API calls, you must authenticate your request by providing
- *             a signature. Amazon Chime supports signature version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+ *             a signature. Amazon Chime supports Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
  *               Version 4 Signing Process</a> in the <i>Amazon Web Services General
  *               Reference</i>.</p>
  *                <p>When making REST API calls, use the service name <code>chime</code> and REST
@@ -1066,7 +1132,48 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+   * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a
+   *          public switched telephone network (PSTN) and joins them into Chime meeting. Also ensures that the From number belongs to the
+   *          customer.</p>
+   *
+   *          <p>To play welcome audio or implement an interactive voice response (IVR), use the <code>CreateSipMediaApplicationCall</code> API with
+   *          the corresponding SIP media application ID.</p>
+   */
+  public createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMeetingDialOutCommandOutput>;
+  public createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
+  ): void;
+  public createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
+  ): void;
+  public createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingDialOutCommandOutput) => void),
+    cb?: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
+  ): Promise<CreateMeetingDialOutCommandOutput> | void {
+    const command = new CreateMeetingDialOutCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions,
+   *       see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a> in the
+   *       <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
+   *       <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
+   *       <i>Amazon Chime Developer Guide</i>.</p>
    */
   public createMeetingWithAttendees(
     args: CreateMeetingWithAttendeesCommandInput,
@@ -1211,6 +1318,104 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: CreateRoomMembershipCommandOutput) => void
   ): Promise<CreateRoomMembershipCommandOutput> | void {
     const command = new CreateRoomMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a SIP media application.</p>
+   */
+  public createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipMediaApplicationCommandOutput>;
+  public createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
+  ): void;
+  public createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
+  ): void;
+  public createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCommandOutput) => void),
+    cb?: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
+  ): Promise<CreateSipMediaApplicationCommandOutput> | void {
+    const command = new CreateSipMediaApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the
+   *       specified <code>sipMediaApplicationId</code>.</p>
+   */
+  public createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipMediaApplicationCallCommandOutput>;
+  public createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  public createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  public createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void),
+    cb?: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
+  ): Promise<CreateSipMediaApplicationCallCommandOutput> | void {
+    const command = new CreateSipMediaApplicationCallCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a
+   *       specific trigger type.</p>
+   */
+  public createSipRule(
+    args: CreateSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipRuleCommandOutput>;
+  public createSipRule(
+    args: CreateSipRuleCommandInput,
+    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
+  ): void;
+  public createSipRule(
+    args: CreateSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
+  ): void;
+  public createSipRule(
+    args: CreateSipRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateSipRuleCommandOutput) => void
+  ): Promise<CreateSipRuleCommandOutput> | void {
+    const command = new CreateSipRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1570,6 +1775,70 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
   ): Promise<DeleteRoomMembershipCommandOutput> | void {
     const command = new DeleteRoomMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a SIP media application.</p>
+   */
+  public deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSipMediaApplicationCommandOutput>;
+  public deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
+  ): void;
+  public deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
+  ): void;
+  public deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipMediaApplicationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
+  ): Promise<DeleteSipMediaApplicationCommandOutput> | void {
+    const command = new DeleteSipMediaApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
+   */
+  public deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSipRuleCommandOutput>;
+  public deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
+  ): void;
+  public deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
+  ): void;
+  public deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSipRuleCommandOutput) => void
+  ): Promise<DeleteSipRuleCommandOutput> | void {
+    const command = new DeleteSipRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2378,6 +2647,100 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Retrieves the information for a SIP media application, including name, AWS Region, and
+   *       endpoints.</p>
+   */
+  public getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSipMediaApplicationCommandOutput>;
+  public getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
+  ): void;
+  public getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
+  ): void;
+  public getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipMediaApplicationCommandOutput) => void),
+    cb?: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
+  ): Promise<GetSipMediaApplicationCommandOutput> | void {
+    const command = new GetSipMediaApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the logging configuration for the specified SIP media application.</p>
+   */
+  public getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput>;
+  public getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  public getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  public getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput> | void {
+    const command = new GetSipMediaApplicationLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target
+   *       endpoints.</p>
+   */
+  public getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
+  public getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
+  public getSipRule(
+    args: GetSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipRuleCommandOutput) => void
+  ): void;
+  public getSipRule(
+    args: GetSipRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetSipRuleCommandOutput) => void
+  ): Promise<GetSipRuleCommandOutput> | void {
+    const command = new GetSipRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves details for the specified user ID, such as primary email address, license type,
    *      and personal meeting PIN.</p>
    *          <p>To retrieve user details with an email address instead of a user ID, use the <a>ListUsers</a> action, and then filter by email address.</p>
@@ -2538,7 +2901,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
+   * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice
+   *       Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
+   *       Logs.</p>
    */
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
@@ -3102,6 +3467,67 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Lists the SIP media applications under the administrator's AWS account.</p>
+   */
+  public listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSipMediaApplicationsCommandOutput>;
+  public listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
+  ): void;
+  public listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
+  ): void;
+  public listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipMediaApplicationsCommandOutput) => void),
+    cb?: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
+  ): Promise<ListSipMediaApplicationsCommandOutput> | void {
+    const command = new ListSipMediaApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the SIP rules under the administrator's AWS account.</p>
+   */
+  public listSipRules(
+    args: ListSipRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSipRulesCommandOutput>;
+  public listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
+  public listSipRules(
+    args: ListSipRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSipRulesCommandOutput) => void
+  ): void;
+  public listSipRules(
+    args: ListSipRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipRulesCommandOutput) => void),
+    cb?: (err: any, data?: ListSipRulesCommandOutput) => void
+  ): Promise<ListSipRulesCommandOutput> | void {
+    const command = new ListSipRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
    */
   public listTagsForResource(
@@ -3340,6 +3766,40 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: PutRetentionSettingsCommandOutput) => void
   ): Promise<PutRetentionSettingsCommandOutput> | void {
     const command = new PutRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the logging configuration for the specified SIP media application.</p>
+   */
+  public putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput>;
+  public putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  public putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  public putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput> | void {
+    const command = new PutSipMediaApplicationLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4234,6 +4694,70 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
   ): Promise<UpdateRoomMembershipCommandOutput> | void {
     const command = new UpdateRoomMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the details for the specified SIP media application.</p>
+   */
+  public updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipMediaApplicationCommandOutput>;
+  public updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
+  ): void;
+  public updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
+  ): void;
+  public updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
+  ): Promise<UpdateSipMediaApplicationCommandOutput> | void {
+    const command = new UpdateSipMediaApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the details for the specified SIP rule.</p>
+   */
+  public updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipRuleCommandOutput>;
+  public updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
+  ): void;
+  public updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
+  ): void;
+  public updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipRuleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSipRuleCommandOutput) => void
+  ): Promise<UpdateSipRuleCommandOutput> | void {
+    const command = new UpdateSipRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

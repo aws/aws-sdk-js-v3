@@ -1984,6 +1984,42 @@ export namespace CreatePortalResponse {
   });
 }
 
+export interface CreatePresignedPortalUrlRequest {
+  /**
+   * <p>The ID of the portal to access.</p>
+   */
+  portalId: string | undefined;
+
+  /**
+   * <p>The duration (in seconds) for which the session at the URL is valid.</p>
+   *          <p>Default: 900 seconds (15 minutes)</p>
+   */
+  sessionDurationSeconds?: number;
+}
+
+export namespace CreatePresignedPortalUrlRequest {
+  export const filterSensitiveLog = (obj: CreatePresignedPortalUrlRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePresignedPortalUrlResponse {
+  /**
+   * <p>The pre-signed URL to the portal. The URL contains the portal ID and a session token that
+   *       lets you access the portal. The URL has the following format.</p>
+   *          <p>
+   *             <code>https://<portal-id>.app.iotsitewise.aws/auth?token=<encrypted-token></code>
+   *          </p>
+   */
+  presignedPortalUrl: string | undefined;
+}
+
+export namespace CreatePresignedPortalUrlResponse {
+  export const filterSensitiveLog = (obj: CreatePresignedPortalUrlResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateProjectRequest {
   /**
    * <p>The ID of the portal in which to create the project.</p>

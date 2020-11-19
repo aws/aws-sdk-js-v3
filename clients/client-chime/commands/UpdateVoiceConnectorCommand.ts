@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_0";
+import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateVoiceConnectorCommand,
   serializeAws_restJson1UpdateVoiceConnectorCommand,

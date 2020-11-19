@@ -60,6 +60,11 @@ import {
   DescribeCopyJobCommandOutput,
 } from "./commands/DescribeCopyJobCommand";
 import {
+  DescribeGlobalSettingsCommand,
+  DescribeGlobalSettingsCommandInput,
+  DescribeGlobalSettingsCommandOutput,
+} from "./commands/DescribeGlobalSettingsCommand";
+import {
   DescribeProtectedResourceCommand,
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
@@ -221,6 +226,11 @@ import {
   UpdateBackupPlanCommandInput,
   UpdateBackupPlanCommandOutput,
 } from "./commands/UpdateBackupPlanCommand";
+import {
+  UpdateGlobalSettingsCommand,
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "./commands/UpdateGlobalSettingsCommand";
 import {
   UpdateRecoveryPointLifecycleCommand,
   UpdateRecoveryPointLifecycleCommandInput,
@@ -677,6 +687,38 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>The current feature settings for the AWS Account.</p>
+   */
+  public describeGlobalSettings(
+    args: DescribeGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGlobalSettingsCommandOutput>;
+  public describeGlobalSettings(
+    args: DescribeGlobalSettingsCommandInput,
+    cb: (err: any, data?: DescribeGlobalSettingsCommandOutput) => void
+  ): void;
+  public describeGlobalSettings(
+    args: DescribeGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGlobalSettingsCommandOutput) => void
+  ): void;
+  public describeGlobalSettings(
+    args: DescribeGlobalSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGlobalSettingsCommandOutput) => void
+  ): Promise<DescribeGlobalSettingsCommandOutput> | void {
+    const command = new DescribeGlobalSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a saved resource, including the last time it was backed up,
    *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
    */
@@ -743,10 +785,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns the current service opt-in settings for the Region. If the service has a value
-   *          set to <code>true</code>, AWS Backup tries to protect that service's resources in this
-   *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
-   *          to <code>false</code> for a service, AWS Backup does not try to protect that service's
+   * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
+   *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
+   *          Otherwise, AWS Backup does not try to protect that service's resources in this Region, AWS Backup does not try to protect that service's
    *          resources in this Region.</p>
    */
   public describeRegionSettings(
@@ -1779,6 +1820,39 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>Updates the current global settings for the AWS Account. Use the
+   *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
+   */
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlobalSettingsCommandOutput>;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  public updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): Promise<UpdateGlobalSettingsCommandOutput> | void {
+    const command = new UpdateGlobalSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sets the transition lifecycle of a recovery point.</p>
    *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
    *          it expires. AWS Backup transitions and expires backups automatically according to the
@@ -1818,11 +1892,10 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Updates the current service opt-in settings for the Region. If the service has a value
-   *          set to <code>true</code>, AWS Backup tries to protect that service's resources in this
-   *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
-   *          to <code>false</code> for a service, AWS Backup does not try to protect that service's
-   *          resources in this Region.</p>
+   * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
+   *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
+   *          Otherwise, AWS Backup does not try to protect that service's resources in this Region. Use the <code>DescribeRegionSettings</code> API to determine the
+   *          resource types that are supported.</p>
    */
   public updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,

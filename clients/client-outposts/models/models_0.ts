@@ -18,21 +18,9 @@ export namespace AccessDeniedException {
 
 export interface CreateOutpostInput {
   /**
-   * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
    * <p>The name of the Outpost.</p>
    */
-  Name?: string;
+  Name: string | undefined;
 
   /**
    * <p>The Outpost description.</p>
@@ -43,6 +31,18 @@ export interface CreateOutpostInput {
    * <p>The ID of the site.</p>
    */
   SiteId: string | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZoneId?: string;
 }
 
 export namespace CreateOutpostInput {
@@ -56,9 +56,39 @@ export namespace CreateOutpostInput {
  */
 export interface Outpost {
   /**
+   * <p>The ID of the Outpost.</p>
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>The AWS account ID of the Outpost owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId?: string;
+
+  /**
+   * <p>The name of the Outpost.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Outpost description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The life cycle status.</p>
+   */
+  LifeCycleStatus?: string;
 
   /**
    * <p>The Availability Zone.</p>
@@ -71,36 +101,6 @@ export interface Outpost {
    *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
-
-  /**
-   * <p>The life cycle status.</p>
-   */
-  LifeCycleStatus?: string;
-
-  /**
-   * <p>The name of the Outpost.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId?: string;
-
-  /**
-   * <p>The Outpost description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The AWS account ID of the Outpost owner.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the Outpost.</p>
-   */
-  OutpostId?: string;
 }
 
 export namespace Outpost {
@@ -291,14 +291,14 @@ export namespace InstanceTypeItem {
 
 export interface GetOutpostInstanceTypesOutput {
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the instance types.</p>
    */
   InstanceTypes?: InstanceTypeItem[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The ID of the Outpost.</p>
@@ -319,14 +319,14 @@ export namespace GetOutpostInstanceTypesOutput {
 
 export interface ListOutpostsInput {
   /**
-   * <p>The maximum page size.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListOutpostsInput {
@@ -376,16 +376,6 @@ export namespace ListSitesInput {
  */
 export interface Site {
   /**
-   * <p>The name of the site.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the site.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ID of the site.</p>
    */
   SiteId?: string;
@@ -394,6 +384,16 @@ export interface Site {
    * <p>The ID of the AWS account.</p>
    */
   AccountId?: string;
+
+  /**
+   * <p>The name of the site.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the site.</p>
+   */
+  Description?: string;
 }
 
 export namespace Site {
@@ -404,14 +404,14 @@ export namespace Site {
 
 export interface ListSitesOutput {
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the sites.</p>
    */
   Sites?: Site[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListSitesOutput {

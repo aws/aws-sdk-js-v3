@@ -29,6 +29,10 @@ import {
 } from "./commands/DescribeBackupVaultCommand";
 import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand";
 import {
+  DescribeGlobalSettingsCommandInput,
+  DescribeGlobalSettingsCommandOutput,
+} from "./commands/DescribeGlobalSettingsCommand";
+import {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand";
@@ -117,6 +121,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand";
 import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "./commands/UpdateGlobalSettingsCommand";
+import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand";
@@ -186,6 +194,7 @@ export type ServiceInputTypes =
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
+  | DescribeGlobalSettingsCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
   | DescribeRegionSettingsCommandInput
@@ -220,6 +229,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
+  | UpdateGlobalSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
   | UpdateRegionSettingsCommandInput;
 
@@ -236,6 +246,7 @@ export type ServiceOutputTypes =
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
+  | DescribeGlobalSettingsCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
   | DescribeRegionSettingsCommandOutput
@@ -270,6 +281,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
+  | UpdateGlobalSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
   | UpdateRegionSettingsCommandOutput;
 

@@ -1458,6 +1458,9 @@ const serializeAws_restJson1CanaryCodeInput = (input: CanaryCodeInput, context: 
 const serializeAws_restJson1CanaryRunConfigInput = (input: CanaryRunConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.ActiveTracing !== undefined && { ActiveTracing: input.ActiveTracing }),
+    ...(input.EnvironmentVariables !== undefined && {
+      EnvironmentVariables: serializeAws_restJson1EnvironmentVariablesMap(input.EnvironmentVariables, context),
+    }),
     ...(input.MemoryInMB !== undefined && { MemoryInMB: input.MemoryInMB }),
     ...(input.TimeoutInSeconds !== undefined && { TimeoutInSeconds: input.TimeoutInSeconds }),
   };
@@ -1468,6 +1471,19 @@ const serializeAws_restJson1CanaryScheduleInput = (input: CanaryScheduleInput, c
     ...(input.DurationInSeconds !== undefined && { DurationInSeconds: input.DurationInSeconds }),
     ...(input.Expression !== undefined && { Expression: input.Expression }),
   };
+};
+
+const serializeAws_restJson1EnvironmentVariablesMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
