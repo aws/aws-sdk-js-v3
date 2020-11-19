@@ -87,4 +87,19 @@ describe("s3 presigner", () => {
       [EXPIRES_QUERY_PARAM]: "900",
     });
   });
+
+  it("should disable hoisting server-side-encryption headers to query", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const signed = await signer.presign({
+      ...minimalRequest,
+      headers: {
+        ...minimalRequest.headers,
+        "x-amz-server-side-encryption": "kms",
+      },
+    });
+    expect(signed.headers).toMatchObject({
+      "x-amz-server-side-encryption": "kms",
+    });
+    expect(signed.query?.["X-Amz-SignedHeaders"]).toEqual(expect.stringContaining("x-amz-server-side-encryption"));
+  });
 });

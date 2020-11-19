@@ -31,13 +31,22 @@ export class S3RequestPresigner implements RequestPresigner {
 
   public async presign(
     requestToSign: IHttpRequest,
-    { unsignableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
+    { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
     unsignableHeaders.add("content-type");
+    // S3 requires SSE headers to be signed in headers instead of query
+    // See: https://github.com/aws/aws-sdk-js-v3/issues/1576
+    Object.keys(requestToSign.headers)
+      .map((header) => header.toLowerCase())
+      .filter((header) => header.startsWith("x-amz-server-side-encryption"))
+      .forEach((header) => {
+        unhoistableHeaders.add(header);
+      });
     requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
     return this.signer.presign(requestToSign, {
       expiresIn: 900,
       unsignableHeaders,
+      unhoistableHeaders,
       ...options,
     });
   }

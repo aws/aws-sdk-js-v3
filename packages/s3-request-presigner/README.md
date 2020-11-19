@@ -34,6 +34,10 @@ You can get signed URL for other S3 operations too, like `PutObjectCommand`.
 `expiresIn` config from the examples above is optional. If not set, it's default
 at `900`.
 
+If your request contains server-side encryption(`SSE*`) configurations, because
+of S3 limitation, you need to send corresponding headers along with the
+presigned url. For more information, please go to [S3 SSE reference](https://docs.aws.amazon.com/AmazonS3/latest/dev/KMSUsingRESTAPI.html)
+
 If you already have a request, you can pre-sign the request following the
 section bellow.
 
@@ -50,7 +54,7 @@ const signer = new S3Presigner({
   credentials: credentialsProvider,
   sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
 });
-const url = await signer.presign(request);
+const presigned = await signer.presign(request);
 ```
 
 ES6 Example:
@@ -64,7 +68,7 @@ const signer = new S3RequestPresigner({
   credentials: credentialsProvider,
   sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
 });
-const url = await signer.presign(request);
+const presigned = await signer.presign(request);
 ```
 
 To avoid redundant construction parameters when instantiating the s3 presigner,
@@ -77,3 +81,12 @@ const signer = new S3RequestPresigner({
   ...s3.config,
 });
 ```
+
+If your request contains server-side encryption(`x-amz-server-side-encryption*`)
+headers, because of S3 limitation, you need to send these headers along
+with the presigned url. That is to say, the url only from calling `formatUrl()`
+to `presigned` is not sufficient to make a request. You need to send the
+server-side encryption headers along with url. These headers remain in the
+`presigned.headers`
+
+For more information, please go to [S3 SSE reference](https://docs.aws.amazon.com/AmazonS3/latest/dev/KMSUsingRESTAPI.html)
