@@ -450,6 +450,7 @@ describe("NodeHttpHandler", () => {
           {
             abortSignal: {
               aborted: true,
+              onabort: null,
             },
           }
         )

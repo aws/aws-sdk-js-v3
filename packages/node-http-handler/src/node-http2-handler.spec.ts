@@ -143,6 +143,7 @@ describe("NodeHttp2Handler", () => {
         nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
           abortSignal: {
             aborted: true,
+            onabort: null,
           },
         })
       ).rejects.toHaveProperty("name", "AbortError");
@@ -161,6 +162,7 @@ describe("NodeHttp2Handler", () => {
         nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
           abortSignal: {
             aborted: true,
+            onabort: null,
           },
         })
       ).rejects.toHaveProperty("name", "AbortError");
