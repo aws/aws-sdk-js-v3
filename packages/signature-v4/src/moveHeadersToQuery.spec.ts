@@ -68,4 +68,35 @@ describe("moveHeadersToQuery", () => {
       "X-Amz-Storage-Class": "STANDARD_IA",
     });
   });
+
+  it("should skip hoisting headers to the querystring supplied in unhoistedHeaders", () => {
+    const req = moveHeadersToQuery(
+      new HttpRequest({
+        ...minimalRequest,
+        headers: {
+          Host: "www.example.com",
+          "X-Amz-Website-Redirect-Location": "/index.html",
+          Foo: "bar",
+          fizz: "buzz",
+          SNAP: "crackle, pop",
+          "X-Amz-Storage-Class": "STANDARD_IA",
+        },
+      }),
+      {
+        unhoistableHeaders: new Set(["x-amz-website-redirect-location"]),
+      }
+    );
+
+    expect(req.query).toEqual({
+      "X-Amz-Storage-Class": "STANDARD_IA",
+    });
+
+    expect(req.headers).toEqual({
+      Host: "www.example.com",
+      "X-Amz-Website-Redirect-Location": "/index.html",
+      Foo: "bar",
+      fizz: "buzz",
+      SNAP: "crackle, pop",
+    });
+  });
 });

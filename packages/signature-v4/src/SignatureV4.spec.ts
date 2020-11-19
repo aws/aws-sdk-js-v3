@@ -66,6 +66,30 @@ describe("SignatureV4", () => {
       });
     });
 
+    it("should sign request without hoisting some headers", async () => {
+      const { query, headers } = await signer.presign(
+        {
+          ...minimalRequest,
+          headers: {
+            ...minimalRequest.headers,
+            "x-amz-not-hoisted": "test",
+          },
+        },
+        { ...presigningOptions, unhoistableHeaders: new Set(["x-amz-not-hoisted"]) }
+      );
+      expect(query).toEqual({
+        [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
+        [CREDENTIAL_QUERY_PARAM]: "foo/20000101/us-bar-1/foo/aws4_request",
+        [AMZ_DATE_QUERY_PARAM]: "20000101T000000Z",
+        [EXPIRES_QUERY_PARAM]: presigningOptions.expiresIn.toString(),
+        [SIGNED_HEADERS_QUERY_PARAM]: `${HOST_HEADER};x-amz-not-hoisted`,
+        [SIGNATURE_QUERY_PARAM]: "3c3ef586754b111e9528009710b797a07457d6a671058ba89041a06bab45f585",
+      });
+      expect(headers).toMatchObject({
+        "x-amz-not-hoisted": "test",
+      });
+    });
+
     it("should support overriding region and service in the signer instance", async () => {
       const signer = new SignatureV4({
         ...signerInit,
