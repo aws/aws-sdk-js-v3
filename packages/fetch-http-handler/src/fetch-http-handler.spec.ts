@@ -105,6 +105,7 @@ describe.skip(FetchHttpHandler.name, () => {
       fetchHttpHandler.handle({} as any, {
         abortSignal: {
           aborted: true,
+          onabort: null,
         },
       })
     ).rejects.toHaveProperty("name", "AbortError");
@@ -130,6 +131,7 @@ describe.skip(FetchHttpHandler.name, () => {
     await fetchHttpHandler.handle({} as any, {
       abortSignal: {
         aborted: false,
+        onabort: null,
       },
     });
 

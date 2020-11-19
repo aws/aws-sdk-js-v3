@@ -1,5 +1,5 @@
 export interface AbortHandler {
-  (): void;
+  (this: AbortSignal, ev: any): any;
 }
 
 /**
@@ -18,7 +18,7 @@ export interface AbortSignal {
    * A function to be invoked when the action represented by this signal has
    * been cancelled.
    */
-  onabort?: AbortHandler;
+  onabort: AbortHandler | null;
 }
 
 /**
