@@ -317,6 +317,10 @@ export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *             real-time notification messages to interested subscribers over multiple delivery
  *             protocols. For more information about this product see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. For detailed information about Amazon SNS
  *             features and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
+ *         <p>For information on the permissions you need to use this API, see
+ *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and
+ *                 access management in Amazon SNS</a> in the <i>Amazon SNS Developer Guide.</i>
+ *          </p>
  *         <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming
  *             language. The SDKs contain functionality that automatically takes care of tasks such as:
  *             cryptographically signing your service requests, retrying requests, and handling error

@@ -187,6 +187,9 @@
           "target": "com.amazonaws.servicecatalog#GetProvisionedProductOutputs"
         },
         {
+          "target": "com.amazonaws.servicecatalog#ImportAsProvisionedProduct"
+        },
+        {
           "target": "com.amazonaws.servicecatalog#ListAcceptedPortfolioShares"
         },
         {
@@ -297,7 +300,7 @@
           "name": "servicecatalog"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>AWS Service Catalog</fullname>\n         <p>\n            <a href=\"https://aws.amazon.com/servicecatalog/\">AWS Service Catalog</a> enables\n         organizations to create and manage catalogs of IT services that are approved for use on\n         AWS. To get the most out of this\n         documentation, you should be familiar with the \n         terminology discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">AWS Service Catalog Concepts</a>.</p>",
+        "smithy.api#documentation": "<fullname>AWS Service Catalog</fullname>\n         <p>\n            <a href=\"https://aws.amazon.com/servicecatalog/\">AWS Service Catalog</a> enables\n         organizations to create and manage catalogs of IT services that are approved for AWS. To\n         get the most out of this documentation, you should be familiar with the terminology\n         discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">AWS Service Catalog\n         Concepts</a>.</p>",
         "smithy.api#title": "AWS Service Catalog"
       }
     },
@@ -1470,7 +1473,7 @@
         "ProvisioningArtifactParameters": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactProperties",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration of the provisioning artifact.</p>",
+            "smithy.api#documentation": "<p>The configuration of the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1496,7 +1499,7 @@
         "ProvisioningArtifactDetail": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactDetail",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the provisioning artifact.</p>"
+            "smithy.api#documentation": "<p>Information about the provisioning artifact. </p>"
           }
         },
         "Tags": {
@@ -1685,7 +1688,7 @@
         "Parameters": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactProperties",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for the provisioning artifact.</p>",
+            "smithy.api#documentation": "<p>The configuration for the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.\n      </p>",
             "smithy.api#required": {}
           }
         },
@@ -4011,6 +4014,87 @@
     },
     "com.amazonaws.servicecatalog#IgnoreErrors": {
       "type": "boolean"
+    },
+    "com.amazonaws.servicecatalog#ImportAsProvisionedProduct": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.servicecatalog#ImportAsProvisionedProductInput"
+      },
+      "output": {
+        "target": "com.amazonaws.servicecatalog#ImportAsProvisionedProductOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.servicecatalog#DuplicateResourceException"
+        },
+        {
+          "target": "com.amazonaws.servicecatalog#InvalidParametersException"
+        },
+        {
+          "target": "com.amazonaws.servicecatalog#InvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.servicecatalog#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Requests the import of a resource as a Service Catalog provisioned product that is\n         associated to a Service Catalog product and provisioning artifact. Once imported all\n         supported Service Catalog governance actions are supported on the provisioned\n         product.</p>\n         <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and\n         non-root nested stacks are not supported.</p>\n         <p>The CloudFormation stack must have one of the following statuses to be imported:\n         CREATE_COMPLETE, UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE,\n         IMPORT_ROLLBACK_COMPLETE.</p>\n         <p>Import of the resource requires that the CloudFormation stack template matches the\n         associated Service Catalog product provisioning artifact. </p>"
+      }
+    },
+    "com.amazonaws.servicecatalog#ImportAsProvisionedProductInput": {
+      "type": "structure",
+      "members": {
+        "AcceptLanguage": {
+          "target": "com.amazonaws.servicecatalog#AcceptLanguage",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>en</code> - English (default)</p>\n            </li>\n            <li>\n               <p>\n                  <code>jp</code> - Japanese</p>\n            </li>\n            <li>\n               <p>\n                  <code>zh</code> - Chinese</p>\n            </li>\n         </ul>"
+          }
+        },
+        "ProductId": {
+          "target": "com.amazonaws.servicecatalog#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The product identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ProvisioningArtifactId": {
+          "target": "com.amazonaws.servicecatalog#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the provisioning artifact.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ProvisionedProductName": {
+          "target": "com.amazonaws.servicecatalog#ProvisionedProductName",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-friendly name of the provisioned product. The value must be unique for the AWS\n         account. The name cannot be updated after the product is provisioned. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PhysicalId": {
+          "target": "com.amazonaws.servicecatalog#PhysicalId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the resource to be imported. It only currently supports\n         CloudFormation stack IDs.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IdempotencyToken": {
+          "target": "com.amazonaws.servicecatalog#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,\n  the same response is returned for each repeated request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#ImportAsProvisionedProductOutput": {
+      "type": "structure",
+      "members": {
+        "RecordDetail": {
+          "target": "com.amazonaws.servicecatalog#RecordDetail"
+        }
+      }
     },
     "com.amazonaws.servicecatalog#InstructionType": {
       "type": "string"
@@ -7806,6 +7890,9 @@
     "com.amazonaws.servicecatalog#ResourceType": {
       "type": "string"
     },
+    "com.amazonaws.servicecatalog#RetainPhysicalResources": {
+      "type": "boolean"
+    },
     "com.amazonaws.servicecatalog#RoleArn": {
       "type": "string",
       "traits": {
@@ -8903,6 +8990,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The language code.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>en</code> - English (default)</p>\n            </li>\n            <li>\n               <p>\n                  <code>jp</code> - Japanese</p>\n            </li>\n            <li>\n               <p>\n                  <code>zh</code> - Chinese</p>\n            </li>\n         </ul>"
           }
+        },
+        "RetainPhysicalResources": {
+          "target": "com.amazonaws.servicecatalog#RetainPhysicalResources",
+          "traits": {
+            "smithy.api#documentation": "<p>When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes\n         the Service Catalog provisioned product. However, it does not remove the CloudFormation\n         stack, stack set, or the underlying resources of the deleted provisioned product. The\n         default value is false.</p>"
+          }
         }
       }
     },
@@ -9354,7 +9447,7 @@
         "ProvisionedProductProperties": {
           "target": "com.amazonaws.servicecatalog#ProvisionedProductProperties",
           "traits": {
-            "smithy.api#documentation": "<p>A map that contains the provisioned product properties to be updated.</p>\n         <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an\n         administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch\n         role that is associated with a provisioned product. This role is used when an end user\n         calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,\n            <code>TerminateProvisionedProduct</code>, or\n            <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN or an empty string <code>\"\"</code> is valid.\n         A user ARN is invalid. if an admin user passes an empty string <code>\"\"</code> as the value for the key <code>LAUNCH_ROLE</code>,\n         the admin removes the launch role that is associated with the provisioned product. As a result, the end user\n         operations use the credentials of the end user.</p>\n\n         <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user\n         that has permission to see, update, terminate, and execute service actions in the\n         provisioned product.</p>\n         <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and \n         administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can \n      describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>, \n      but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p>\n         <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or \n         Service Catalog console such as update, terminate, and execute service actions. \n         If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through \n         API or the Service Catalog console on that provisioned product.</p>",
+            "smithy.api#documentation": "<p>A map that contains the provisioned product properties to be updated.</p>\n         <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an\n         administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch\n         role that is associated with a provisioned product. This role is used when an end user\n         calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,\n            <code>TerminateProvisionedProduct</code>, or\n            <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>\n\n         <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user\n         that has permission to see, update, terminate, and execute service actions in the\n         provisioned product.</p>\n         <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and \n         administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can \n      describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>, \n      but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p>\n         <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or \n         Service Catalog console such as update, terminate, and execute service actions. \n         If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through \n         API or the Service Catalog console on that provisioned product.</p>",
             "smithy.api#required": {}
           }
         },

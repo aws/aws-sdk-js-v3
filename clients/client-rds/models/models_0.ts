@@ -2078,6 +2078,12 @@ export interface CopyDBSnapshotMessage {
    *         </p>
    */
   OptionGroupName?: string;
+
+  /**
+   * <p>The external custom Availability Zone (CAZ) identifier for the target CAZ.</p>
+   *         <p>Example: <code>rds-caz-aiqhTgQv</code>.</p>
+   */
+  TargetCustomAvailabilityZone?: string;
 }
 
 export namespace CopyDBSnapshotMessage {
@@ -2363,6 +2369,23 @@ export interface CopyDBSnapshotResult {
 
 export namespace CopyDBSnapshotResult {
   export const filterSensitiveLog = (obj: CopyDBSnapshotResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
+ *             Availability Zone identifier.</p>
+ */
+export interface CustomAvailabilityZoneNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "CustomAvailabilityZoneNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CustomAvailabilityZoneNotFoundFault {
+  export const filterSensitiveLog = (obj: CustomAvailabilityZoneNotFoundFault): any => ({
     ...obj,
   });
 }
@@ -8063,23 +8086,6 @@ export interface CreateOptionGroupResult {
 
 export namespace CreateOptionGroupResult {
   export const filterSensitiveLog = (obj: CreateOptionGroupResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
- *             Availability Zone identifier.</p>
- */
-export interface CustomAvailabilityZoneNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CustomAvailabilityZoneNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CustomAvailabilityZoneNotFoundFault {
-  export const filterSensitiveLog = (obj: CustomAvailabilityZoneNotFoundFault): any => ({
     ...obj,
   });
 }

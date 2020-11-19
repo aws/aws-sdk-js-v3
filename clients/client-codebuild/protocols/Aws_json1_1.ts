@@ -5615,6 +5615,7 @@ const deserializeAws_json1_1ReportGroup = (output: any, context: __SerdeContext)
         ? new Date(Math.round(output.lastModified * 1000))
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)

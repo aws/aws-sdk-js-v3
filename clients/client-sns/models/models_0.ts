@@ -3,20 +3,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddPermissionInput {
   /**
-   * <p>A unique identifier for the new policy statement.</p>
-   */
-  Label: string | undefined;
-
-  /**
-   * <p>The action you want to allow for the specified principal(s).</p>
-   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-   */
-  ActionName: string[] | undefined;
-
-  /**
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new policy statement.</p>
+   */
+  Label: string | undefined;
 
   /**
    * <p>The AWS account IDs of the users (principals) who will be given access to the
@@ -24,6 +18,12 @@ export interface AddPermissionInput {
    *             this service.</p>
    */
   AWSAccountId: string[] | undefined;
+
+  /**
+   * <p>The action you want to allow for the specified principal(s).</p>
+   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
+   */
+  ActionName: string[] | undefined;
 }
 
 export namespace AddPermissionInput {
@@ -166,17 +166,17 @@ export interface ConfirmSubscriptionInput {
   TopicArn: string | undefined;
 
   /**
+   * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
+   */
+  Token: string | undefined;
+
+  /**
    * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
    *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
    *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
    *             requires AWS authentication. </p>
    */
   AuthenticateOnUnsubscribe?: string;
-
-  /**
-   * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
-   */
-  Token: string | undefined;
 }
 
 export namespace ConfirmSubscriptionInput {
@@ -239,6 +239,13 @@ export namespace SubscriptionLimitExceededException {
  */
 export interface CreatePlatformApplicationInput {
   /**
+   * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
+   *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
+   *             long.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
    *             Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
    */
@@ -249,13 +256,6 @@ export interface CreatePlatformApplicationInput {
    *         </p>
    */
   Attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
-   *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
-   *             long.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreatePlatformApplicationInput {
@@ -301,11 +301,6 @@ export namespace CreateEndpointResponse {
  */
 export interface CreatePlatformEndpointInput {
   /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
    */
@@ -325,6 +320,11 @@ export interface CreatePlatformEndpointInput {
    *             data must be in UTF-8 format and less than 2KB.</p>
    */
   CustomUserData?: string;
+
+  /**
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+   */
+  Attributes?: { [key: string]: string };
 }
 
 export namespace CreatePlatformEndpointInput {
@@ -354,14 +354,14 @@ export namespace ConcurrentAccessException {
  */
 export interface Tag {
   /**
-   * <p>The optional value portion of the tag.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The required key portion of the tag.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The optional value portion of the tag.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -382,14 +382,6 @@ export interface CreateTopicInput {
    *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The list of tags to add to a new topic.</p>
-   *         <note>
-   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
-   *         </note>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
@@ -462,6 +454,14 @@ export interface CreateTopicInput {
    *          </ul>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The list of tags to add to a new topic.</p>
+   *         <note>
+   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
+   *         </note>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateTopicInput {
@@ -993,14 +993,14 @@ export namespace ListEndpointsByPlatformApplicationInput {
  */
 export interface Endpoint {
   /**
-   * <p>Attributes for endpoint.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>EndpointArn for mobile app and device.</p>
    */
   EndpointArn?: string;
+
+  /**
+   * <p>Attributes for endpoint.</p>
+   */
+  Attributes?: { [key: string]: string };
 }
 
 export namespace Endpoint {
@@ -1014,15 +1014,15 @@ export namespace Endpoint {
  */
 export interface ListEndpointsByPlatformApplicationResponse {
   /**
+   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+   */
+  Endpoints?: Endpoint[];
+
+  /**
    * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
    *             additional records are available after the first page results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
-   */
-  Endpoints?: Endpoint[];
 }
 
 export namespace ListEndpointsByPlatformApplicationResponse {
@@ -1154,11 +1154,6 @@ export namespace ListSubscriptionsInput {
  */
 export interface Subscription {
   /**
-   * <p>The subscription's protocol.</p>
-   */
-  Protocol?: string;
-
-  /**
    * <p>The subscription's ARN.</p>
    */
   SubscriptionArn?: string;
@@ -1169,14 +1164,19 @@ export interface Subscription {
   Owner?: string;
 
   /**
-   * <p>The ARN of the subscription's topic.</p>
+   * <p>The subscription's protocol.</p>
    */
-  TopicArn?: string;
+  Protocol?: string;
 
   /**
    * <p>The subscription's endpoint (format depends on the protocol).</p>
    */
   Endpoint?: string;
+
+  /**
+   * <p>The ARN of the subscription's topic.</p>
+   */
+  TopicArn?: string;
 }
 
 export namespace Subscription {
@@ -1190,15 +1190,15 @@ export namespace Subscription {
  */
 export interface ListSubscriptionsResponse {
   /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsResponse {
@@ -1233,15 +1233,15 @@ export namespace ListSubscriptionsByTopicInput {
  */
 export interface ListSubscriptionsByTopicResponse {
   /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsByTopicResponse {
@@ -1538,6 +1538,13 @@ export namespace PlatformApplicationDisabledException {
  */
 export interface MessageAttributeValue {
   /**
+   * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
+   *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
+   *                 Attribute Data Types</a>.</p>
+   */
+  DataType: string | undefined;
+
+  /**
    * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
    *                 Characters</a>.</p>
    */
@@ -1548,13 +1555,6 @@ export interface MessageAttributeValue {
    *             encrypted data, or images.</p>
    */
   BinaryValue?: Uint8Array;
-
-  /**
-   * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
-   *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
-   *                 Attribute Data Types</a>.</p>
-   */
-  DataType: string | undefined;
 }
 
 export namespace MessageAttributeValue {
@@ -1568,36 +1568,11 @@ export namespace MessageAttributeValue {
  */
 export interface PublishInput {
   /**
-   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
-   *             email endpoints. This field will also be included, if present, in the standard JSON
-   *             messages delivered to other endpoints.</p>
-   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
-   *             punctuation mark; must not include line breaks or control characters; and must be less
-   *             than 100 characters long.</p>
+   * <p>The topic you want to publish to.</p>
+   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
+   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
    */
-  Subject?: string;
-
-  /**
-   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
-   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
-   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code> can contain up to
-   *             128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
-   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the
-   *             same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order).
-   *             Every message must include a <code>MessageGroupId</code>.</p>
-   */
-  MessageGroupId?: string;
-
-  /**
-   * <p>Message attributes for Publish action.</p>
-   */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  TopicArn?: string;
 
   /**
    * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
@@ -1607,38 +1582,12 @@ export interface PublishInput {
   TargetArn?: string;
 
   /**
-   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
-   *             message for each protocol. For example, using one publish action, you can send a short
-   *             message to your SMS subscribers and a longer message to your email subscribers. If you
-   *             set <code>MessageStructure</code> to <code>json</code>, the value of the
-   *                 <code>Message</code> parameter must: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>be a syntactically valid JSON object; and</p>
-   *             </li>
-   *             <li>
-   *                 <p>contain at least a top-level JSON key of "default" with a value that is a
-   *                     string.</p>
-   *             </li>
-   *          </ul>
-   *         <p>You can define other top-level keys that define the message you want to send to a
-   *             specific transport protocol (e.g., "http").</p>
-   *         <p>Valid value: <code>json</code>
-   *         </p>
+   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
+   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
+   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
+   *             parameters.</p>
    */
-  MessageStructure?: string;
-
-  /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics.
-   *             The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
-   *             and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
-   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages.
-   *             If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
-   *             during the 5-minute deduplication interval is treated as a duplicate. </p>
-   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a <code>MessageDeduplicationId</code> based on the contents of the
-   *             message. Your <code>MessageDeduplicationId</code> overrides the generated one.</p>
-   */
-  MessageDeduplicationId?: string;
+  PhoneNumber?: string;
 
   /**
    * <p>The message you want to send.</p>
@@ -1706,11 +1655,62 @@ export interface PublishInput {
   Message: string | undefined;
 
   /**
-   * <p>The topic you want to publish to.</p>
-   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
-   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
+   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
+   *             email endpoints. This field will also be included, if present, in the standard JSON
+   *             messages delivered to other endpoints.</p>
+   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
+   *             punctuation mark; must not include line breaks or control characters; and must be less
+   *             than 100 characters long.</p>
    */
-  TopicArn?: string;
+  Subject?: string;
+
+  /**
+   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
+   *             message for each protocol. For example, using one publish action, you can send a short
+   *             message to your SMS subscribers and a longer message to your email subscribers. If you
+   *             set <code>MessageStructure</code> to <code>json</code>, the value of the
+   *                 <code>Message</code> parameter must: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>be a syntactically valid JSON object; and</p>
+   *             </li>
+   *             <li>
+   *                 <p>contain at least a top-level JSON key of "default" with a value that is a
+   *                     string.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can define other top-level keys that define the message you want to send to a
+   *             specific transport protocol (e.g., "http").</p>
+   *         <p>Valid value: <code>json</code>
+   *         </p>
+   */
+  MessageStructure?: string;
+
+  /**
+   * <p>Message attributes for Publish action.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.
+   *             The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
+   *             and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages.
+   *             If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
+   *             during the 5-minute deduplication interval is treated as a duplicate. </p>
+   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a <code>MessageDeduplicationId</code> based on the contents of the
+   *             message. Your <code>MessageDeduplicationId</code> overrides the generated one.</p>
+   */
+  MessageDeduplicationId?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code> can contain up to
+   *             128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the
+   *             same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order).
+   *             Every message must include a <code>MessageGroupId</code>.</p>
+   */
+  MessageGroupId?: string;
 }
 
 export namespace PublishInput {
@@ -1724,17 +1724,17 @@ export namespace PublishInput {
  */
 export interface PublishResponse {
   /**
+   * <p>Unique identifier assigned to the published message.</p>
+   *         <p>Length Constraint: Maximum 100 characters</p>
+   */
+  MessageId?: string;
+
+  /**
    * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
    *         <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message.
    *             The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
-
-  /**
-   * <p>Unique identifier assigned to the published message.</p>
-   *         <p>Length Constraint: Maximum 100 characters</p>
-   */
-  MessageId?: string;
 }
 
 export namespace PublishResponse {
@@ -1748,14 +1748,14 @@ export namespace PublishResponse {
  */
 export interface RemovePermissionInput {
   /**
-   * <p>The unique label of the statement you want to remove.</p>
-   */
-  Label: string | undefined;
-
-  /**
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
+
+  /**
+   * <p>The unique label of the statement you want to remove.</p>
+   */
+  Label: string | undefined;
 }
 
 export namespace RemovePermissionInput {
@@ -1768,6 +1768,11 @@ export namespace RemovePermissionInput {
  * <p>Input for SetEndpointAttributes action.</p>
  */
 export interface SetEndpointAttributesInput {
+  /**
+   * <p>EndpointArn used for SetEndpointAttributes action.</p>
+   */
+  EndpointArn: string | undefined;
+
   /**
    * <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
    *         <ul>
@@ -1794,11 +1799,6 @@ export interface SetEndpointAttributesInput {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>EndpointArn used for SetEndpointAttributes action.</p>
-   */
-  EndpointArn: string | undefined;
 }
 
 export namespace SetEndpointAttributesInput {
@@ -2003,9 +2003,14 @@ export namespace SetSMSAttributesResponse {
  */
 export interface SetSubscriptionAttributesInput {
   /**
+   * <p>The ARN of the subscription to modify.</p>
+   */
+  SubscriptionArn: string | undefined;
+
+  /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *             parameters that this action uses:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -2037,11 +2042,6 @@ export interface SetSubscriptionAttributesInput {
   AttributeName: string | undefined;
 
   /**
-   * <p>The ARN of the subscription to modify.</p>
-   */
-  SubscriptionArn: string | undefined;
-
-  /**
    * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
@@ -2058,9 +2058,9 @@ export namespace SetSubscriptionAttributesInput {
  */
 export interface SetTopicAttributesInput {
   /**
-   * <p>The new value for the attribute.</p>
+   * <p>The ARN of the topic to modify.</p>
    */
-  AttributeValue?: string;
+  TopicArn: string | undefined;
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
@@ -2126,9 +2126,9 @@ export interface SetTopicAttributesInput {
   AttributeName: string | undefined;
 
   /**
-   * <p>The ARN of the topic to modify.</p>
+   * <p>The new value for the attribute.</p>
    */
-  TopicArn: string | undefined;
+  AttributeValue?: string;
 }
 
 export namespace SetTopicAttributesInput {
@@ -2141,6 +2141,11 @@ export namespace SetTopicAttributesInput {
  * <p>Input for Subscribe action.</p>
  */
 export interface SubscribeInput {
+  /**
+   * <p>The ARN of the topic you want to subscribe to.</p>
+   */
+  TopicArn: string | undefined;
+
   /**
    * <p>The protocol you want to use. Supported protocols include:</p>
    *         <ul>
@@ -2186,19 +2191,6 @@ export interface SubscribeInput {
   Protocol: string | undefined;
 
   /**
-   * <p>Sets whether the response from the <code>Subscribe</code> request includes the
-   *             subscription ARN, even if the subscription is not yet confirmed.</p>
-   *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
-   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
-   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
-   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
-   *           confirmation token.</p>
-   *         <p></p>
-   *         <p>The default value is <code>false</code>.</p>
-   */
-  ReturnSubscriptionArn?: boolean;
-
-  /**
    * <p>The endpoint that you want to receive notifications. Endpoints vary by
    *             protocol:</p>
    *         <ul>
@@ -2240,11 +2232,6 @@ export interface SubscribeInput {
   Endpoint?: string;
 
   /**
-   * <p>The ARN of the topic you want to subscribe to.</p>
-   */
-  TopicArn: string | undefined;
-
-  /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
@@ -2277,6 +2264,19 @@ export interface SubscribeInput {
    *          </ul>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Sets whether the response from the <code>Subscribe</code> request includes the
+   *             subscription ARN, even if the subscription is not yet confirmed.</p>
+   *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
+   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
+   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
+   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
+   *           confirmation token.</p>
+   *         <p></p>
+   *         <p>The default value is <code>false</code>.</p>
+   */
+  ReturnSubscriptionArn?: boolean;
 }
 
 export namespace SubscribeInput {

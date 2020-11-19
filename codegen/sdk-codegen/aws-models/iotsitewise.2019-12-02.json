@@ -74,6 +74,9 @@
           "target": "com.amazonaws.iotsitewise#CreatePortal"
         },
         {
+          "target": "com.amazonaws.iotsitewise#CreatePresignedPortalUrl"
+        },
+        {
           "target": "com.amazonaws.iotsitewise#CreateProject"
         },
         {
@@ -2176,6 +2179,69 @@
         }
       }
     },
+    "com.amazonaws.iotsitewise#CreatePresignedPortalUrl": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iotsitewise#CreatePresignedPortalUrlRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iotsitewise#CreatePresignedPortalUrlResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iotsitewise#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iotsitewise#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that\n      use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API\n      to get a URL to that portal. The URL contains a session token that lets the IAM user access\n      the portal.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "monitor."
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/portals/{portalId}/presigned-url",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iotsitewise#CreatePresignedPortalUrlRequest": {
+      "type": "structure",
+      "members": {
+        "portalId": {
+          "target": "com.amazonaws.iotsitewise#ID",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the portal to access.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "sessionDurationSeconds": {
+          "target": "com.amazonaws.iotsitewise#SessionDurationSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration (in seconds) for which the session at the URL is valid.</p>\n         <p>Default: 900 seconds (15 minutes)</p>",
+            "smithy.api#httpQuery": "sessionDurationSeconds"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iotsitewise#CreatePresignedPortalUrlResponse": {
+      "type": "structure",
+      "members": {
+        "presignedPortalUrl": {
+          "target": "com.amazonaws.iotsitewise#Url",
+          "traits": {
+            "smithy.api#documentation": "<p>The pre-signed URL to the portal. The URL contains the portal ID and a session token that\n      lets you access the portal. The URL has the following format.</p>\n         <p>\n            <code>https://<portal-id>.app.iotsitewise.aws/auth?token=<encrypted-token></code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.iotsitewise#CreateProject": {
       "type": "operation",
       "input": {
@@ -3917,8 +3983,7 @@
         "smithy.api#length": {
           "min": 1,
           "max": 1024
-        },
-        "smithy.api#pattern": "^[a-z0-9._+\\-*%/^, ()]+$"
+        }
       }
     },
     "com.amazonaws.iotsitewise#ExpressionVariable": {
@@ -6312,6 +6377,15 @@
         "smithy.api#documentation": "<p>The requested service is unavailable.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
+      }
+    },
+    "com.amazonaws.iotsitewise#SessionDurationSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 900,
+          "max": 43200
+        }
       }
     },
     "com.amazonaws.iotsitewise#TagKey": {

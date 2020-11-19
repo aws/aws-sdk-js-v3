@@ -2680,6 +2680,9 @@ export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
     }),
     ...(input.UndoRedoDisabled !== undefined && { "undo-redo-disabled": input.UndoRedoDisabled.toString() }),
     ...(input.ResetDisabled !== undefined && { "reset-disabled": input.ResetDisabled.toString() }),
+    ...(input.StatePersistenceEnabled !== undefined && {
+      "state-persistence-enabled": input.StatePersistenceEnabled.toString(),
+    }),
     ...(input.UserArn !== undefined && { "user-arn": input.UserArn }),
   };
   let body: any;

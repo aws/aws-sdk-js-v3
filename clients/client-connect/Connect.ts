@@ -15,7 +15,17 @@ import {
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  CreateUserHierarchyGroupCommand,
+  CreateUserHierarchyGroupCommandInput,
+  CreateUserHierarchyGroupCommandOutput,
+} from "./commands/CreateUserHierarchyGroupCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteUserHierarchyGroupCommand,
+  DeleteUserHierarchyGroupCommandInput,
+  DeleteUserHierarchyGroupCommandOutput,
+} from "./commands/DeleteUserHierarchyGroupCommand";
 import {
   DescribeContactFlowCommand,
   DescribeContactFlowCommandInput,
@@ -187,6 +197,16 @@ import {
   UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
 import {
+  UpdateUserHierarchyGroupNameCommand,
+  UpdateUserHierarchyGroupNameCommandInput,
+  UpdateUserHierarchyGroupNameCommandOutput,
+} from "./commands/UpdateUserHierarchyGroupNameCommand";
+import {
+  UpdateUserHierarchyStructureCommand,
+  UpdateUserHierarchyStructureCommandInput,
+  UpdateUserHierarchyStructureCommandOutput,
+} from "./commands/UpdateUserHierarchyStructureCommand";
+import {
   UpdateUserIdentityInfoCommand,
   UpdateUserIdentityInfoCommandInput,
   UpdateUserIdentityInfoCommandOutput,
@@ -353,6 +373,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Creates a new user hierarchy group.</p>
+   */
+  public createUserHierarchyGroup(
+    args: CreateUserHierarchyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserHierarchyGroupCommandOutput>;
+  public createUserHierarchyGroup(
+    args: CreateUserHierarchyGroupCommandInput,
+    cb: (err: any, data?: CreateUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public createUserHierarchyGroup(
+    args: CreateUserHierarchyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public createUserHierarchyGroup(
+    args: CreateUserHierarchyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserHierarchyGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserHierarchyGroupCommandOutput) => void
+  ): Promise<CreateUserHierarchyGroupCommandOutput> | void {
+    const command = new CreateUserHierarchyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *          <p>For information about what happens to a user's data when their account is deleted, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
@@ -372,6 +424,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have any active child groups.</p>
+   */
+  public deleteUserHierarchyGroup(
+    args: DeleteUserHierarchyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserHierarchyGroupCommandOutput>;
+  public deleteUserHierarchyGroup(
+    args: DeleteUserHierarchyGroupCommandInput,
+    cb: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public deleteUserHierarchyGroup(
+    args: DeleteUserHierarchyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public deleteUserHierarchyGroup(
+    args: DeleteUserHierarchyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
+  ): Promise<DeleteUserHierarchyGroupCommandOutput> | void {
+    const command = new DeleteUserHierarchyGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1406,7 +1490,6 @@ export class Connect extends ConnectClient {
    *    and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis,
    *    such as legal review or identifying abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
-   *          <p>This operation is also available in the Amazon Connect Flow language. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-actions-updatecontactattributes.html">UpdateContactAttributes</a>.</p>
    *
    *          <p>
    *             <b>Important:</b> You cannot use the operation to update
@@ -1481,6 +1564,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>The name of the contact flow.</p>
+   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *    Flow language</a>.</p>
    */
   public updateContactFlowName(
     args: UpdateContactFlowNameCommandInput,
@@ -1663,6 +1748,70 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateUserHierarchyCommandOutput) => void
   ): Promise<UpdateUserHierarchyCommandOutput> | void {
     const command = new UpdateUserHierarchyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the name of the user hierarchy group. </p>
+   */
+  public updateUserHierarchyGroupName(
+    args: UpdateUserHierarchyGroupNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserHierarchyGroupNameCommandOutput>;
+  public updateUserHierarchyGroupName(
+    args: UpdateUserHierarchyGroupNameCommandInput,
+    cb: (err: any, data?: UpdateUserHierarchyGroupNameCommandOutput) => void
+  ): void;
+  public updateUserHierarchyGroupName(
+    args: UpdateUserHierarchyGroupNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserHierarchyGroupNameCommandOutput) => void
+  ): void;
+  public updateUserHierarchyGroupName(
+    args: UpdateUserHierarchyGroupNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserHierarchyGroupNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserHierarchyGroupNameCommandOutput) => void
+  ): Promise<UpdateUserHierarchyGroupNameCommandOutput> | void {
+    const command = new UpdateUserHierarchyGroupNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>
+   */
+  public updateUserHierarchyStructure(
+    args: UpdateUserHierarchyStructureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserHierarchyStructureCommandOutput>;
+  public updateUserHierarchyStructure(
+    args: UpdateUserHierarchyStructureCommandInput,
+    cb: (err: any, data?: UpdateUserHierarchyStructureCommandOutput) => void
+  ): void;
+  public updateUserHierarchyStructure(
+    args: UpdateUserHierarchyStructureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserHierarchyStructureCommandOutput) => void
+  ): void;
+  public updateUserHierarchyStructure(
+    args: UpdateUserHierarchyStructureCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserHierarchyStructureCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserHierarchyStructureCommandOutput) => void
+  ): Promise<UpdateUserHierarchyStructureCommandOutput> | void {
+    const command = new UpdateUserHierarchyStructureCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

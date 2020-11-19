@@ -305,7 +305,7 @@ export interface KeyValuePair {
   key?: string;
 
   /**
-   * <p>One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be empty or null.</p>
+   * <p>One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be an empty string.</p>
    */
   value?: string;
 }
@@ -577,7 +577,7 @@ export namespace Page {
  */
 export interface _Record {
   /**
-   * <p>The path, as a JSONPath expression, to the field (in an Apache Avro object container) or record (in an Apache Parquet file) that contains the data.</p> <p>If the name of an element exceeds 20 characters, Amazon Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
+   * <p>The path, as a JSONPath expression, to the field in the record that contains the data.</p> <p>If the name of an element exceeds 20 characters, Amazon Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
    */
   jsonPath?: string;
 
@@ -608,7 +608,7 @@ export interface Occurrences {
   lineRanges?: Range[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a binary text file. Each object specifies the position of the data relative to the beginning of the file.</p> <p>This value is typically null. For binary text files, Macie adds location data to a lineRanges.Range or Page object, depending on the file type.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in a binary text file. Each object specifies the position of the data relative to the beginning of the file.</p> <p>This value is typically null. For binary text files, Amazon Macie adds location data to a lineRanges.Range or Page object, depending on the file type.</p>
    */
   offsetRanges?: Range[];
 
@@ -618,7 +618,7 @@ export interface Occurrences {
   pages?: Page[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container or Apache Parquet file. Each object specifies the field or record that contains the data. This value is null for all other types of files.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container or Apache Parquet file. Each object specifies the record index and the path to the field in the record that contains the data. This value is null for all other types of files.</p>
    */
   records?: _Record[];
 }
@@ -719,7 +719,7 @@ export namespace DefaultDetection {
  */
 export interface SensitiveDataItem {
   /**
-   * <p>The category of sensitive data that was detected. For example: FINANCIAL_INFORMATION, for financial information such as credit card numbers; PERSONAL_INFORMATION, for personally identifiable information, such as full names and mailing addresses, or personal health information; or, CUSTOM_IDENTIFIER, for data that was detected by a custom data identifier.</p>
+   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or AWS secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as driver's license identification numbers.</p>
    */
   category?: SensitiveDataItemCategory | string;
 
@@ -745,7 +745,7 @@ export namespace SensitiveDataItem {
  */
 export interface ClassificationResultStatus {
   /**
-   * <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object that the finding applies to.</p></li> <li><p>PARTIAL - Macie was able to analyze only a subset of the data in the object that the finding applies to. For example, the object is a compressed or archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object that the finding applies to. For example, the object is a malformed file or a file that uses an unsupported format.</p></li></ul>
+   * <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object that the finding applies to. For example, the object is a malformed file or a file that uses an unsupported format.</p></li></ul>
    */
   code?: string;
 
@@ -766,7 +766,7 @@ export namespace ClassificationResultStatus {
  */
 export interface ClassificationResult {
   /**
-   * <p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you to determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>
+   * <p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>
    */
   additionalOccurrences?: boolean;
 
@@ -1638,7 +1638,7 @@ export interface Finding {
   classificationDetails?: ClassificationDetails;
 
   /**
-   * <p>The total number of occurrences of the finding.</p>
+   * <p>The total number of occurrences of the finding. For sensitive data findings, this value is always 1. All sensitive data findings are considered new (unique) because they derive from individual classification jobs.</p>
    */
   count?: number;
 
@@ -1976,6 +1976,27 @@ export enum JobType {
   SCHEDULED = "SCHEDULED",
 }
 
+export enum LastRunErrorStatusCode {
+  ERROR = "ERROR",
+  NONE = "NONE",
+}
+
+/**
+ * <p>Specifies whether any account- or bucket-level access errors occurred when a classification job ran. For example, the job is configured to analyze data for a member account that was suspended, or the job is configured to analyze an S3 bucket that Amazon Macie isn't allowed to access.</p>
+ */
+export interface LastRunErrorStatus {
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run. Possible values are:</p> <ul><li><p>ERROR - One or more errors occurred. Amazon Macie didn't process all the data specified for the job.</p></li> <li><p>NONE - No errors occurred. Macie processed all the data specified for the job.</p></li></ul>
+   */
+  code?: LastRunErrorStatusCode | string;
+}
+
+export namespace LastRunErrorStatus {
+  export const filterSensitiveLog = (obj: LastRunErrorStatus): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Provides information about when a classification job was paused and when it will expire and be cancelled if it isn't resumed. This object is present only if a job's current status (jobStatus) is USER_PAUSED.</p>
  */
@@ -2030,6 +2051,11 @@ export interface JobSummary {
    * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>
    */
   jobType?: JobType | string;
+
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run.</p>
+   */
+  lastRunErrorStatus?: LastRunErrorStatus;
 
   /**
    * <p>The custom name of the job.</p>
@@ -3018,7 +3044,7 @@ export interface CriterionAdditionalProperties {
   eq?: string[];
 
   /**
-   * <p>A condition that requires an array field of a finding to exactly match the specified property values. You can use this operator with the following properties: customDataIdentifiers.detections.arn, customDataIdentifiers.detections.name, resourcesAffected.s3Bucket.tags.key, resourcesAffected.s3Bucket.tags.value, resourcesAffected.s3Object.tags.key, resourcesAffected.s3Object.tags.value, sensitiveData.category, and sensitiveData.detections.type.</p>
+   * <p>A condition that requires an array field on a finding to exactly match the specified property values. You can use this operator with the following properties: customDataIdentifiers.detections.arn, customDataIdentifiers.detections.name, resourcesAffected.s3Bucket.tags.key, resourcesAffected.s3Bucket.tags.value, resourcesAffected.s3Object.tags.key, resourcesAffected.s3Object.tags.value, sensitiveData.category, and sensitiveData.detections.type.</p>
    */
   eqExactMatch?: string[];
 
@@ -3459,6 +3485,11 @@ export interface DescribeClassificationJobResponse {
    * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis. The scheduleFrequency property indicates the recurrence pattern for the job.</p></li></ul>
    */
   jobType?: JobType | string;
+
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run.</p>
+   */
+  lastRunErrorStatus?: LastRunErrorStatus;
 
   /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the job last ran.</p>

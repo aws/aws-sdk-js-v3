@@ -17,6 +17,10 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
+import {
+  CreatePresignedPortalUrlCommandInput,
+  CreatePresignedPortalUrlCommandOutput,
+} from "../commands/CreatePresignedPortalUrlCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
@@ -552,6 +556,49 @@ export const serializeAws_restJson1CreatePortalCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  input: CreatePresignedPortalUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/portals/{portalId}/presigned-url";
+  if (input.portalId !== undefined) {
+    const labelValue: string = input.portalId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: portalId.");
+    }
+    resolvedPath = resolvedPath.replace("{portalId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: portalId.");
+  }
+  const query: any = {
+    ...(input.sessionDurationSeconds !== undefined && {
+      sessionDurationSeconds: input.sessionDurationSeconds.toString(),
+    }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -3181,6 +3228,77 @@ const deserializeAws_restJson1CreatePortalCommandError = async (
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreatePresignedPortalUrlCommandError(output, context);
+  }
+  const contents: CreatePresignedPortalUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    presignedPortalUrl: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.presignedPortalUrl !== undefined && data.presignedPortalUrl !== null) {
+    contents.presignedPortalUrl = data.presignedPortalUrl;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreatePresignedPortalUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

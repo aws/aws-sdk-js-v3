@@ -3788,6 +3788,14 @@ const deserializeAws_queryCopyDBSnapshotCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CustomAvailabilityZoneNotFoundFault":
+    case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DBSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       response = {
@@ -14978,6 +14986,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   }
   if (input.OptionGroupName !== undefined) {
     entries["OptionGroupName"] = input.OptionGroupName;
+  }
+  if (input.TargetCustomAvailabilityZone !== undefined) {
+    entries["TargetCustomAvailabilityZone"] = input.TargetCustomAvailabilityZone;
   }
   return entries;
 };

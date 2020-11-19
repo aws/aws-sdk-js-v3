@@ -128,6 +128,7 @@ import {
   ArtifactStore,
   BlockerDeclaration,
   ConcurrentModificationException,
+  ConflictException,
   CreateCustomActionTypeInput,
   CreateCustomActionTypeOutput,
   CreatePipelineInput,
@@ -3058,6 +3059,14 @@ const deserializeAws_json1_1RetryStageExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotLatestPipelineExecutionException":
     case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
       response = {
@@ -3145,6 +3154,14 @@ const deserializeAws_json1_1StartPipelineExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
       response = {
@@ -3208,6 +3225,14 @@ const deserializeAws_json1_1StopPipelineExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DuplicatedStopRequestException":
     case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
       response = {
@@ -3587,6 +3612,21 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4810,6 +4850,10 @@ const deserializeAws_json1_1ActionDeclaration = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeContext): ActionExecution => {
   return {
+    actionExecutionId:
+      output.actionExecutionId !== undefined && output.actionExecutionId !== null
+        ? output.actionExecutionId
+        : undefined,
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
         ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context)
@@ -5161,6 +5205,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -5988,6 +6038,10 @@ const deserializeAws_json1_1StageState = (output: any, context: __SerdeContext):
     actionStates:
       output.actionStates !== undefined && output.actionStates !== null
         ? deserializeAws_json1_1ActionStateList(output.actionStates, context)
+        : undefined,
+    inboundExecution:
+      output.inboundExecution !== undefined && output.inboundExecution !== null
+        ? deserializeAws_json1_1StageExecution(output.inboundExecution, context)
         : undefined,
     inboundTransitionState:
       output.inboundTransitionState !== undefined && output.inboundTransitionState !== null

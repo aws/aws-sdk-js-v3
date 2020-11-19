@@ -1249,7 +1249,7 @@ export interface CreateProductInput {
   Tags?: Tag[];
 
   /**
-   * <p>The configuration of the provisioning artifact.</p>
+   * <p>The configuration of the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.</p>
    */
   ProvisioningArtifactParameters: ProvisioningArtifactProperties | undefined;
 
@@ -1457,7 +1457,7 @@ export interface CreateProductOutput {
   ProductViewDetail?: ProductViewDetail;
 
   /**
-   * <p>Information about the provisioning artifact.</p>
+   * <p>Information about the provisioning artifact. </p>
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
@@ -1646,7 +1646,8 @@ export interface CreateProvisioningArtifactInput {
   ProductId: string | undefined;
 
   /**
-   * <p>The configuration for the provisioning artifact.</p>
+   * <p>The configuration for the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.
+   *       </p>
    */
   Parameters: ProvisioningArtifactProperties | undefined;
 
@@ -4558,6 +4559,74 @@ export namespace GetProvisionedProductOutputsOutput {
   });
 }
 
+export interface ImportAsProvisionedProductInput {
+  /**
+   * <p>The language code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>en</code> - English (default)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jp</code> - Japanese</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh</code> - Chinese</p>
+   *             </li>
+   *          </ul>
+   */
+  AcceptLanguage?: string;
+
+  /**
+   * <p>The product identifier.</p>
+   */
+  ProductId: string | undefined;
+
+  /**
+   * <p>The identifier of the provisioning artifact.</p>
+   */
+  ProvisioningArtifactId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the provisioned product. The value must be unique for the AWS
+   *          account. The name cannot be updated after the product is provisioned. </p>
+   */
+  ProvisionedProductName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the resource to be imported. It only currently supports
+   *          CloudFormation stack IDs.</p>
+   */
+  PhysicalId: string | undefined;
+
+  /**
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
+   *   the same response is returned for each repeated request.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+export namespace ImportAsProvisionedProductInput {
+  export const filterSensitiveLog = (obj: ImportAsProvisionedProductInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportAsProvisionedProductOutput {
+  /**
+   * <p>Information about a request operation.</p>
+   */
+  RecordDetail?: RecordDetail;
+}
+
+export namespace ImportAsProvisionedProductOutput {
+  export const filterSensitiveLog = (obj: ImportAsProvisionedProductOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAcceptedPortfolioSharesInput {
   /**
    * <p>The language code.</p>
@@ -6737,6 +6806,14 @@ export interface TerminateProvisionedProductInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * <p>When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes
+   *          the Service Catalog provisioned product. However, it does not remove the CloudFormation
+   *          stack, stack set, or the underlying resources of the deleted provisioned product. The
+   *          default value is false.</p>
+   */
+  RetainPhysicalResources?: boolean;
 }
 
 export namespace TerminateProvisionedProductInput {
@@ -7265,10 +7342,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          role that is associated with a provisioned product. This role is used when an end user
    *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
    *             <code>TerminateProvisionedProduct</code>, or
-   *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN or an empty string <code>""</code> is valid.
-   *          A user ARN is invalid. if an admin user passes an empty string <code>""</code> as the value for the key <code>LAUNCH_ROLE</code>,
-   *          the admin removes the launch role that is associated with the provisioned product. As a result, the end user
-   *          operations use the credentials of the end user.</p>
+   *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
    *
    *          <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
    *          that has permission to see, update, terminate, and execute service actions in the

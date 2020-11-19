@@ -107,6 +107,11 @@ import {
   ListProtocolsListsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  NetworkFirewallMissingExpectedRTViolation,
+  NetworkFirewallMissingFirewallViolation,
+  NetworkFirewallMissingSubnetViolation,
+  NetworkFirewallPolicyDescription,
+  NetworkFirewallPolicyModifiedViolation,
   PartialMatch,
   Policy,
   PolicyComplianceDetail,
@@ -127,6 +132,8 @@ import {
   SecurityGroupRemediationAction,
   SecurityGroupRuleDescription,
   SecurityServicePolicyData,
+  StatefulRuleGroup,
+  StatelessRuleGroup,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -729,10 +736,26 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3246,6 +3269,111 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingExpectedRTViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    CurrentRouteTable:
+      output.CurrentRouteTable !== undefined && output.CurrentRouteTable !== null
+        ? output.CurrentRouteTable
+        : undefined,
+    ExpectedRouteTable:
+      output.ExpectedRouteTable !== undefined && output.ExpectedRouteTable !== null
+        ? output.ExpectedRouteTable
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingFirewallViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingFirewallViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    TargetViolationReason:
+      output.TargetViolationReason !== undefined && output.TargetViolationReason !== null
+        ? output.TargetViolationReason
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingSubnetViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingSubnetViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    TargetViolationReason:
+      output.TargetViolationReason !== undefined && output.TargetViolationReason !== null
+        ? output.TargetViolationReason
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallPolicyDescription = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallPolicyDescription => {
+  return {
+    StatefulRuleGroups:
+      output.StatefulRuleGroups !== undefined && output.StatefulRuleGroups !== null
+        ? deserializeAws_json1_1StatefulRuleGroupList(output.StatefulRuleGroups, context)
+        : undefined,
+    StatelessCustomActions:
+      output.StatelessCustomActions !== undefined && output.StatelessCustomActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessCustomActions, context)
+        : undefined,
+    StatelessDefaultActions:
+      output.StatelessDefaultActions !== undefined && output.StatelessDefaultActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessDefaultActions, context)
+        : undefined,
+    StatelessFragmentDefaultActions:
+      output.StatelessFragmentDefaultActions !== undefined && output.StatelessFragmentDefaultActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessFragmentDefaultActions, context)
+        : undefined,
+    StatelessRuleGroups:
+      output.StatelessRuleGroups !== undefined && output.StatelessRuleGroups !== null
+        ? deserializeAws_json1_1StatelessRuleGroupList(output.StatelessRuleGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallPolicyModifiedViolation => {
+  return {
+    CurrentPolicyDescription:
+      output.CurrentPolicyDescription !== undefined && output.CurrentPolicyDescription !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.CurrentPolicyDescription, context)
+        : undefined,
+    ExpectedPolicyDescription:
+      output.ExpectedPolicyDescription !== undefined && output.ExpectedPolicyDescription !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.ExpectedPolicyDescription, context)
+        : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
   return {
     Reference: output.Reference !== undefined && output.Reference !== null ? output.Reference : undefined,
@@ -3522,6 +3650,38 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
       output.AwsVPCSecurityGroupViolation !== undefined && output.AwsVPCSecurityGroupViolation !== null
         ? deserializeAws_json1_1AwsVPCSecurityGroupViolation(output.AwsVPCSecurityGroupViolation, context)
         : undefined,
+    NetworkFirewallMissingExpectedRTViolation:
+      output.NetworkFirewallMissingExpectedRTViolation !== undefined &&
+      output.NetworkFirewallMissingExpectedRTViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation(
+            output.NetworkFirewallMissingExpectedRTViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallMissingFirewallViolation:
+      output.NetworkFirewallMissingFirewallViolation !== undefined &&
+      output.NetworkFirewallMissingFirewallViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingFirewallViolation(
+            output.NetworkFirewallMissingFirewallViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallMissingSubnetViolation:
+      output.NetworkFirewallMissingSubnetViolation !== undefined &&
+      output.NetworkFirewallMissingSubnetViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingSubnetViolation(
+            output.NetworkFirewallMissingSubnetViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallPolicyModifiedViolation:
+      output.NetworkFirewallPolicyModifiedViolation !== undefined &&
+      output.NetworkFirewallPolicyModifiedViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation(
+            output.NetworkFirewallPolicyModifiedViolation,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -3580,6 +3740,31 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
         : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
+  return {
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    RuleGroupName:
+      output.RuleGroupName !== undefined && output.RuleGroupName !== null ? output.RuleGroupName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StatefulRuleGroupList = (output: any, context: __SerdeContext): StatefulRuleGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StatefulRuleGroup(entry, context));
+};
+
+const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
+  return {
+    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    RuleGroupName:
+      output.RuleGroupName !== undefined && output.RuleGroupName !== null ? output.RuleGroupName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StatelessRuleGroupList = (output: any, context: __SerdeContext): StatelessRuleGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StatelessRuleGroup(entry, context));
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {

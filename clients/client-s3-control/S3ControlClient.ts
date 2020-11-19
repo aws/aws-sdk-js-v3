@@ -21,6 +21,14 @@ import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
+import {
+  DeleteStorageLensConfigurationCommandInput,
+  DeleteStorageLensConfigurationCommandOutput,
+} from "./commands/DeleteStorageLensConfigurationCommand";
+import {
+  DeleteStorageLensConfigurationTaggingCommandInput,
+  DeleteStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/DeleteStorageLensConfigurationTaggingCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
 import {
@@ -43,12 +51,24 @@ import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
+import {
+  GetStorageLensConfigurationCommandInput,
+  GetStorageLensConfigurationCommandOutput,
+} from "./commands/GetStorageLensConfigurationCommand";
+import {
+  GetStorageLensConfigurationTaggingCommandInput,
+  GetStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/GetStorageLensConfigurationTaggingCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListRegionalBucketsCommandInput,
   ListRegionalBucketsCommandOutput,
 } from "./commands/ListRegionalBucketsCommand";
+import {
+  ListStorageLensConfigurationsCommandInput,
+  ListStorageLensConfigurationsCommandOutput,
+} from "./commands/ListStorageLensConfigurationsCommand";
 import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
@@ -64,6 +84,14 @@ import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand";
+import {
+  PutStorageLensConfigurationCommandInput,
+  PutStorageLensConfigurationCommandOutput,
+} from "./commands/PutStorageLensConfigurationCommand";
+import {
+  PutStorageLensConfigurationTaggingCommandInput,
+  PutStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/PutStorageLensConfigurationTaggingCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -132,6 +160,8 @@ export type ServiceInputTypes =
   | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
+  | DeleteStorageLensConfigurationCommandInput
+  | DeleteStorageLensConfigurationTaggingCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
@@ -142,15 +172,20 @@ export type ServiceInputTypes =
   | GetBucketTaggingCommandInput
   | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
+  | GetStorageLensConfigurationCommandInput
+  | GetStorageLensConfigurationTaggingCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
   | ListRegionalBucketsCommandInput
+  | ListStorageLensConfigurationsCommandInput
   | PutAccessPointPolicyCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketTaggingCommandInput
   | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
+  | PutStorageLensConfigurationCommandInput
+  | PutStorageLensConfigurationTaggingCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
 
@@ -166,6 +201,8 @@ export type ServiceOutputTypes =
   | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
+  | DeleteStorageLensConfigurationCommandOutput
+  | DeleteStorageLensConfigurationTaggingCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
@@ -176,15 +213,20 @@ export type ServiceOutputTypes =
   | GetBucketTaggingCommandOutput
   | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
+  | GetStorageLensConfigurationCommandOutput
+  | GetStorageLensConfigurationTaggingCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
   | ListRegionalBucketsCommandOutput
+  | ListStorageLensConfigurationsCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketTaggingCommandOutput
   | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
+  | PutStorageLensConfigurationCommandOutput
+  | PutStorageLensConfigurationTaggingCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 

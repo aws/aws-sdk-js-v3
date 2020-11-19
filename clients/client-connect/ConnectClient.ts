@@ -8,7 +8,15 @@ import {
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  CreateUserHierarchyGroupCommandInput,
+  CreateUserHierarchyGroupCommandOutput,
+} from "./commands/CreateUserHierarchyGroupCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteUserHierarchyGroupCommandInput,
+  DeleteUserHierarchyGroupCommandOutput,
+} from "./commands/DeleteUserHierarchyGroupCommand";
 import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -126,6 +134,14 @@ import {
   UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
 import {
+  UpdateUserHierarchyGroupNameCommandInput,
+  UpdateUserHierarchyGroupNameCommandOutput,
+} from "./commands/UpdateUserHierarchyGroupNameCommand";
+import {
+  UpdateUserHierarchyStructureCommandInput,
+  UpdateUserHierarchyStructureCommandOutput,
+} from "./commands/UpdateUserHierarchyStructureCommand";
+import {
   UpdateUserIdentityInfoCommandInput,
   UpdateUserIdentityInfoCommandOutput,
 } from "./commands/UpdateUserIdentityInfoCommand";
@@ -195,7 +211,9 @@ export type ServiceInputTypes =
   | CreateContactFlowCommandInput
   | CreateRoutingProfileCommandInput
   | CreateUserCommandInput
+  | CreateUserHierarchyGroupCommandInput
   | DeleteUserCommandInput
+  | DeleteUserHierarchyGroupCommandInput
   | DescribeContactFlowCommandInput
   | DescribeRoutingProfileCommandInput
   | DescribeUserCommandInput
@@ -234,6 +252,8 @@ export type ServiceInputTypes =
   | UpdateRoutingProfileNameCommandInput
   | UpdateRoutingProfileQueuesCommandInput
   | UpdateUserHierarchyCommandInput
+  | UpdateUserHierarchyGroupNameCommandInput
+  | UpdateUserHierarchyStructureCommandInput
   | UpdateUserIdentityInfoCommandInput
   | UpdateUserPhoneConfigCommandInput
   | UpdateUserRoutingProfileCommandInput
@@ -244,7 +264,9 @@ export type ServiceOutputTypes =
   | CreateContactFlowCommandOutput
   | CreateRoutingProfileCommandOutput
   | CreateUserCommandOutput
+  | CreateUserHierarchyGroupCommandOutput
   | DeleteUserCommandOutput
+  | DeleteUserHierarchyGroupCommandOutput
   | DescribeContactFlowCommandOutput
   | DescribeRoutingProfileCommandOutput
   | DescribeUserCommandOutput
@@ -283,6 +305,8 @@ export type ServiceOutputTypes =
   | UpdateRoutingProfileNameCommandOutput
   | UpdateRoutingProfileQueuesCommandOutput
   | UpdateUserHierarchyCommandOutput
+  | UpdateUserHierarchyGroupNameCommandOutput
+  | UpdateUserHierarchyStructureCommandOutput
   | UpdateUserIdentityInfoCommandOutput
   | UpdateUserPhoneConfigCommandOutput
   | UpdateUserRoutingProfileCommandOutput

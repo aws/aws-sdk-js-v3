@@ -28,6 +28,11 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 export interface UpdateEndpointInput {
   /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
    * <p>The name of the new endpoint configuration.</p>
    */
   EndpointConfigName: string | undefined;
@@ -51,11 +56,6 @@ export interface UpdateEndpointInput {
    *         </p>
    */
   ExcludeRetainedVariantProperties?: VariantProperty[];
-
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   */
-  EndpointName: string | undefined;
 }
 
 export namespace UpdateEndpointInput {
@@ -115,15 +115,15 @@ export interface UpdateExperimentRequest {
   ExperimentName: string | undefined;
 
   /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
    *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateExperimentRequest {
@@ -158,9 +158,9 @@ export interface UpdateImageRequest {
   Description?: string;
 
   /**
-   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The new display name for the image.</p>
    */
-  RoleArn?: string;
+  DisplayName?: string;
 
   /**
    * <p>The name of the image to update.</p>
@@ -168,9 +168,9 @@ export interface UpdateImageRequest {
   ImageName: string | undefined;
 
   /**
-   * <p>The new display name for the image.</p>
+   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
    */
-  DisplayName?: string;
+  RoleArn?: string;
 }
 
 export namespace UpdateImageRequest {
@@ -227,50 +227,9 @@ export namespace UpdateMonitoringScheduleResponse {
 
 export interface UpdateNotebookInstanceInput {
   /**
-   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
-   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
-   *                 Customize a Notebook Instance</a>.</p>
+   * <p>The name of the notebook instance to update.</p>
    */
-  LifecycleConfigName?: string;
-
-  /**
-   * <p>An array of up to three Git repositories to associate with the notebook instance.
-   *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
-   *             default value is <code>Enabled</code>.</p>
-   *         <note>
-   *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
-   *                 notebook instance, but lifecycle configuration scripts still run with root
-   *                 permissions.</p>
-   *         </note>
-   */
-  RootAccess?: RootAccess | string;
-
-  /**
-   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
-   */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
-
-  /**
-   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the
-   *             amount of available free space on the volume. Because of this, you can increase the
-   *             volume size when you update a notebook instance, but you can't decrease the volume size.
-   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
-   *             instance with the desired size.</p>
-   */
-  VolumeSizeInGB?: number;
+  NotebookInstanceName: string | undefined;
 
   /**
    * <p>The Amazon ML compute instance type.</p>
@@ -288,12 +247,11 @@ export interface UpdateNotebookInstanceInput {
   RoleArn?: string;
 
   /**
-   * <p>A list of names or URLs of the default Git repositories to remove from this notebook
-   *             instance. This operation is idempotent. If you specify a Git repository that is not
-   *             associated with the notebook instance when you call this method, it does not throw an
-   *             error.</p>
+   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
+   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+   *                 Customize a Notebook Instance</a>.</p>
    */
-  DisassociateAdditionalCodeRepositories?: boolean;
+  LifecycleConfigName?: string;
 
   /**
    * <p>Set to <code>true</code> to remove the notebook instance lifecycle configuration
@@ -304,16 +262,14 @@ export interface UpdateNotebookInstanceInput {
   DisassociateLifecycleConfig?: boolean;
 
   /**
-   * <p>The name or URL of the default Git repository to remove from this notebook instance.
-   *             This operation is idempotent. If you specify a Git repository that is not associated
-   *             with the notebook instance when you call this method, it does not throw an error.</p>
+   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
+   *             default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the
+   *             amount of available free space on the volume. Because of this, you can increase the
+   *             volume size when you update a notebook instance, but you can't decrease the volume size.
+   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
+   *             instance with the desired size.</p>
    */
-  DisassociateDefaultCodeRepository?: boolean;
-
-  /**
-   * <p>The name of the notebook instance to update.</p>
-   */
-  NotebookInstanceName: string | undefined;
+  VolumeSizeInGB?: number;
 
   /**
    * <p>The Git repository to associate with the notebook instance as its default code
@@ -326,12 +282,56 @@ export interface UpdateNotebookInstanceInput {
   DefaultCodeRepository?: string;
 
   /**
+   * <p>An array of up to three Git repositories to associate with the notebook instance.
+   *             These can be either the names of Git repositories stored as resources in your account,
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             other Git repository. These repositories are cloned at the same level as the default
+   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
+   */
+  AdditionalCodeRepositories?: string[];
+
+  /**
+   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
+   *             instance. Currently only one EI instance type can be associated with a notebook
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+   *                 SageMaker</a>.</p>
+   */
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+
+  /**
    * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
    *             instance. This operation is idempotent. If you specify an accelerator type that is not
    *             associated with the notebook instance when you call this method, it does not throw an
    *             error.</p>
    */
   DisassociateAcceleratorTypes?: boolean;
+
+  /**
+   * <p>The name or URL of the default Git repository to remove from this notebook instance.
+   *             This operation is idempotent. If you specify a Git repository that is not associated
+   *             with the notebook instance when you call this method, it does not throw an error.</p>
+   */
+  DisassociateDefaultCodeRepository?: boolean;
+
+  /**
+   * <p>A list of names or URLs of the default Git repositories to remove from this notebook
+   *             instance. This operation is idempotent. If you specify a Git repository that is not
+   *             associated with the notebook instance when you call this method, it does not throw an
+   *             error.</p>
+   */
+  DisassociateAdditionalCodeRepositories?: boolean;
+
+  /**
+   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
+   *             default value is <code>Enabled</code>.</p>
+   *         <note>
+   *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
+   *                 notebook instance, but lifecycle configuration scripts still run with root
+   *                 permissions.</p>
+   *         </note>
+   */
+  RootAccess?: RootAccess | string;
 }
 
 export namespace UpdateNotebookInstanceInput {
@@ -355,17 +355,17 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
   NotebookInstanceLifecycleConfigName: string | undefined;
 
   /**
+   * <p>The shell script that runs only once, when you create a notebook instance. The shell
+   *             script must be a base64-encoded string.</p>
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[];
+
+  /**
    * <p>The shell script that runs every time you start a notebook instance, including when
    *             you create the notebook instance. The shell script must be a base64-encoded
    *             string.</p>
    */
   OnStart?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>The shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
 }
 
 export namespace UpdateNotebookInstanceLifecycleConfigInput {
@@ -416,49 +416,9 @@ export namespace UpdateTrialResponse {
 
 export interface UpdateTrialComponentRequest {
   /**
-   * <p>The output artifacts to remove from the component.</p>
+   * <p>The name of the component to update.</p>
    */
-  OutputArtifactsToRemove?: string[];
-
-  /**
-   * <p>The hyperparameters to remove from the component.</p>
-   */
-  ParametersToRemove?: string[];
-
-  /**
-   * <p>When the component started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
-   */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
-   */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>The new status of the component.</p>
-   */
-  Status?: TrialComponentStatus;
-
-  /**
-   * <p>When the component ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input artifacts to remove from the component.</p>
-   */
-  InputArtifactsToRemove?: string[];
-
-  /**
-   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
-   */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
+  TrialComponentName: string | undefined;
 
   /**
    * <p>The name of the component as displayed. The name doesn't need to be unique. If
@@ -468,9 +428,49 @@ export interface UpdateTrialComponentRequest {
   DisplayName?: string;
 
   /**
-   * <p>The name of the component to update.</p>
+   * <p>The new status of the component.</p>
    */
-  TrialComponentName: string | undefined;
+  Status?: TrialComponentStatus;
+
+  /**
+   * <p>When the component started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>When the component ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
+   */
+  Parameters?: { [key: string]: TrialComponentParameterValue };
+
+  /**
+   * <p>The hyperparameters to remove from the component.</p>
+   */
+  ParametersToRemove?: string[];
+
+  /**
+   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
+   */
+  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+
+  /**
+   * <p>The input artifacts to remove from the component.</p>
+   */
+  InputArtifactsToRemove?: string[];
+
+  /**
+   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
+   */
+  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+
+  /**
+   * <p>The output artifacts to remove from the component.</p>
+   */
+  OutputArtifactsToRemove?: string[];
 }
 
 export namespace UpdateTrialComponentRequest {
@@ -494,9 +494,9 @@ export namespace UpdateTrialComponentResponse {
 
 export interface UpdateUserProfileRequest {
   /**
-   * <p>A collection of settings.</p>
+   * <p>The domain ID.</p>
    */
-  UserSettings?: UserSettings;
+  DomainId: string | undefined;
 
   /**
    * <p>The user profile name.</p>
@@ -504,9 +504,9 @@ export interface UpdateUserProfileRequest {
   UserProfileName: string | undefined;
 
   /**
-   * <p>The domain ID.</p>
+   * <p>A collection of settings.</p>
    */
-  DomainId: string | undefined;
+  UserSettings?: UserSettings;
 }
 
 export namespace UpdateUserProfileRequest {
@@ -573,16 +573,6 @@ export namespace UpdateWorkforceResponse {
 
 export interface UpdateWorkteamRequest {
   /**
-   * <p>An updated description for the work team.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Configures SNS topic notifications for available or expiring work items</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-
-  /**
    * <p>The name of the work team to update.</p>
    */
   WorkteamName: string | undefined;
@@ -610,6 +600,16 @@ export interface UpdateWorkteamRequest {
    *             associated with the work team you update. </p>
    */
   MemberDefinitions?: MemberDefinition[];
+
+  /**
+   * <p>An updated description for the work team.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Configures SNS topic notifications for available or expiring work items</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
 }
 
 export namespace UpdateWorkteamRequest {
@@ -665,14 +665,14 @@ export interface SearchExpression {
   Filters?: Filter[];
 
   /**
-   * <p>A list of search expression objects.</p>
-   */
-  SubExpressions?: SearchExpression[];
-
-  /**
    * <p>A list of nested filter objects.</p>
    */
   NestedFilters?: NestedFilters[];
+
+  /**
+   * <p>A list of search expression objects.</p>
+   */
+  SubExpressions?: SearchExpression[];
 
   /**
    * <p>A Boolean operator used to evaluate the search expression. If you want every
@@ -692,15 +692,24 @@ export namespace SearchExpression {
 
 export interface SearchRequest {
   /**
+   * <p>The name of the Amazon SageMaker resource to search for.</p>
+   */
+  Resource: ResourceType | string | undefined;
+
+  /**
+   * <p>A Boolean conditional statement. Resources must satisfy this condition to be
+   *       included in search results. You must provide at least one subexpression, filter, or
+   *       nested filter. The maximum number of recursive <code>SubExpressions</code>,
+   *       <code>NestedFilters</code>, and <code>Filters</code> that can be included in a
+   *       <code>SearchExpression</code> object is 50.</p>
+   */
+  SearchExpression?: SearchExpression;
+
+  /**
    * <p>The name of the resource property used to sort the <code>SearchResults</code>. The
    *       default is <code>LastModifiedTime</code>.</p>
    */
   SortBy?: string;
-
-  /**
-   * <p>The name of the Amazon SageMaker resource to search for.</p>
-   */
-  Resource: ResourceType | string | undefined;
 
   /**
    * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
@@ -720,15 +729,6 @@ export interface SearchRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>A Boolean conditional statement. Resources must satisfy this condition to be
-   *       included in search results. You must provide at least one subexpression, filter, or
-   *       nested filter. The maximum number of recursive <code>SubExpressions</code>,
-   *       <code>NestedFilters</code>, and <code>Filters</code> that can be included in a
-   *       <code>SearchExpression</code> object is 50.</p>
-   */
-  SearchExpression?: SearchExpression;
 }
 
 export namespace SearchRequest {
