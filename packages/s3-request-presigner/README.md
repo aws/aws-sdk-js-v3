@@ -43,12 +43,13 @@ JavaScript Example:
 
 ```javascript
 const S3Presigner = require("@aws-sdk/s3-request-presigner").S3RequestPresigner;
-const browserSha256 = require("@aws-crypto/sha256-browser").Sha256;
-const nodeSha256 = require("@aws-sdk/hash-node").Hash;
+const Sha256 = require("@aws-crypto/sha256-browser").Sha256;
+const Hash = require("@aws-sdk/hash-node").Hash;
 const signer = new S3Presigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
+  sha256: Hash.bind(null, "sha256"), // In Nodejs
+  //sha256: Sha256 // In browsers
 });
 const url = await signer.presign(request);
 ```
@@ -57,12 +58,13 @@ ES6 Example:
 
 ```javascript
 import { S3RequestPresigner } from "@aws-sdk/s3-request-presigner";
-import { Sha256 as browserSha256 } from "@aws-crypto/sha256-browser";
-import { Hash as nodeSha256 } from "@aws-sdk/hash-node";
+import { Sha256 } from "@aws-crypto/sha256-browser";
+import { Hash } from "@aws-sdk/hash-node";
 const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: nodeSha256, //if the signer is used in browser, use `browserSha256` then
+  sha256: Hash.bind(null, "sha256"), // In Nodejs
+  //sha256: Sha256 // In browsers
 });
 const url = await signer.presign(request);
 ```
