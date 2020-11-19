@@ -23,12 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: ((options: any) => {
-    try {
-      return credentialDefaultProvider(options);
-    } catch (e) {}
-    return {};
-  }) as any,
+  credentialDefaultProvider,
   defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),

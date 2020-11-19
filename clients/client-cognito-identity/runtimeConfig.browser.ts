@@ -21,7 +21,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: (() => {}) as any,
+  credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
