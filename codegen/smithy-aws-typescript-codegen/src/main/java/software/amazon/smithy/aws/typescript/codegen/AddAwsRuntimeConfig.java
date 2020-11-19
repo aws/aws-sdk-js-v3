@@ -178,10 +178,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         }
     }
 
-    /**
-     * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
-     * credential config resolver failure.
-     */
     private Map<String, Consumer<TypeScriptWriter>> getCredentialProviderConfig(
             ServiceShape service,
             LanguageTarget target
@@ -191,15 +187,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             case BROWSER:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
-                        if (serviceId.equals("Cognito Identity")) {
-                            writer.write("credentialDefaultProvider: (() => {}) as any,");
-                        } else {
-                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidFunction", "invalidFunction",
-                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write(
-                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
-                        }
+                        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                        writer.addImport("invalidFunction", "invalidFunction",
+                                TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                        writer.write(
+                                "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
                     }
                 );
             case NODE:
@@ -208,17 +200,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-
-                        if (serviceId.equals("Cognito Identity")) {
-                            writer.openBlock("credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
-                                writer.write("try {").indent();
-                                writer.write("return credentialDefaultProvider(options);");
-                                writer.dedent().write("} catch(e){}");
-                                writer.write("return {}");
-                            });
-                        } else {
-                            writer.write("credentialDefaultProvider,");
-                        }
+                        writer.write("credentialDefaultProvider,");
                     }
                 );
             default:
