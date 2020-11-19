@@ -12498,7 +12498,7 @@
         "target": "com.amazonaws.ec2#DeleteFleetsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified EC2 Fleet.</p>\n         <p>After you delete an EC2 Fleet, it launches no new instances. You must specify whether an EC2 Fleet\n         should also terminate its instances. If you terminate the instances, the EC2 Fleet enters the\n            <code>deleted_terminating</code> state. Otherwise, the EC2 Fleet enters the\n            <code>deleted_running</code> state, and the instances continue to run until they are\n         interrupted or you terminate them manually. </p>"
+        "smithy.api#documentation": "<p>Deletes the specified EC2 Fleet.</p>\n         <p>After you delete an EC2 Fleet, it launches no new instances.</p>\n         <p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you\n         choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>\n         state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances\n         continue to run until they are interrupted or you terminate them manually.</p>\n         <p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is\n         deleted. A deleted <code>instant</code> fleet with running instances is not\n         supported.</p>\n         <p class=\"title\">\n            <b>Restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this\n               number, no <code>instant</code> fleets are deleted and an error is returned. There is no\n               restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted\n               in a single request.</p>\n            </li>\n            <li>\n               <p>Up to 1000 instances can be terminated in a single request to delete\n               <code>instant</code> fleets.</p>\n            </li>\n         </ul>\n      \n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet\">Deleting an EC2\n         Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DeleteFleetsRequest": {
@@ -12521,7 +12521,7 @@
         "TerminateInstances": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether to terminate instances for an EC2 Fleet if it is deleted\n         successfully.</p>",
+            "smithy.api#documentation": "<p>Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to\n         terminate the instances.</p>\n         <p>To let the instances continue to run after the EC2 Fleet is deleted, specify\n            <code>NoTerminateInstances</code>. Supported only for fleets of type\n            <code>maintain</code> and <code>request</code>.</p>\n         <p>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>. A\n         deleted <code>instant</code> fleet with running instances is not supported.</p>",
             "smithy.api#required": {}
           }
         }
@@ -27931,7 +27931,7 @@
           "target": "com.amazonaws.ec2#FleetReplacementStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "ReplacementStrategy",
-            "smithy.api#documentation": "<p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n            <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can wait until Amazon EC2\n            interrupts it. You are charged for both instances while they are running.</p>\n         </note>",
+            "smithy.api#documentation": "<p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n            <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can leave it running. You are charged for both instances while they are running.</p>\n         </note>",
             "smithy.api#xmlName": "replacementStrategy"
           }
         }
@@ -27946,7 +27946,7 @@
         "ReplacementStrategy": {
           "target": "com.amazonaws.ec2#FleetReplacementStrategy",
           "traits": {
-            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n         <code>maintain</code>.</p>\n         <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n         <code>launch</code>. You must specify a value, otherwise you get an error.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can wait until Amazon EC2\n            interrupts it. You are charged for all instances while they are running.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n         <code>maintain</code>.</p>\n         <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n         <code>launch</code>. You must specify a value, otherwise you get an error.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can leave it running. You are charged for all instances while they are running.</p>\n         </note>"
           }
         }
       },
@@ -52652,7 +52652,7 @@
           "target": "com.amazonaws.ec2#ReplacementStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "ReplacementStrategy",
-            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n                <code>maintain</code>. You must specify a value, otherwise you get an error.</p>\n        <p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance\n            notification is emitted for a Spot Instance in the fleet, specify\n            <code>launch</code>.</p>\n        <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n                automatically terminated. You can terminate it, or you can wait until Amazon EC2\n                interrupts it. You are charged for all instances while they are running.</p>\n        </note>",
+            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n                <code>maintain</code>. You must specify a value, otherwise you get an error.</p>\n        <p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance\n            notification is emitted for a Spot Instance in the fleet, specify\n            <code>launch</code>.</p>\n        <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n                automatically terminated. You can terminate it, or you can leave it running. You are\n                charged for all instances while they are running.</p>\n        </note>",
             "smithy.api#xmlName": "replacementStrategy"
           }
         }

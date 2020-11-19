@@ -7905,6 +7905,13 @@
             "smithy.api#httpQuery": "reset-disabled"
           }
         },
+        "StatePersistenceEnabled": {
+          "target": "com.amazonaws.quicksight#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Adds persistence of state for the user session in an embedded dashboard. Persistence applies to\n            the sheet and the parameter settings. These are control settings that the dashboard subscriber\n            (QuickSight reader) chooses while viewing the dashboard. If this is set to <code>TRUE</code>, the\n            settings are the same when the the subscriber reopens the same dashboard URL. The state is stored\n            in QuickSight, not in a browser cookie. If this is set to FALSE, the state of the user session is\n            not persisted. The default is <code>FALSE</code>.</p>",
+            "smithy.api#httpQuery": "state-persistence-enabled"
+          }
+        },
         "UserArn": {
           "target": "com.amazonaws.quicksight#Arn",
           "traits": {
@@ -11359,6 +11366,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Oracle parameters.</p>"
       }
     },
     "com.amazonaws.quicksight#OutputColumn": {

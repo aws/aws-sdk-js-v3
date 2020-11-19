@@ -1530,6 +1530,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault"
+        },
+        {
           "target": "com.amazonaws.rds#DBSnapshotAlreadyExistsFault"
         },
         {
@@ -1591,6 +1594,12 @@
           "target": "com.amazonaws.rds#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of an option group to associate with the copy of the snapshot.</p>\n        \n        <p>Specify this option if you are copying a snapshot from one AWS Region to another,\n            and your DB instance uses a nondefault option group. \n            If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, \n            you must specify this option when copying across AWS Regions. \n            For more information, see \n            <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options\">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>\n        </p>"
+          }
+        },
+        "TargetCustomAvailabilityZone": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The external custom Availability Zone (CAZ) identifier for the target CAZ.</p>\n        <p>Example: <code>rds-caz-aiqhTgQv</code>.</p>"
           }
         }
       },
@@ -9976,7 +9985,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>"
+        "smithy.api#documentation": "<p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "Marker",
+          "pageSize": "NumberOfLines"
+        }
       }
     },
     "com.amazonaws.rds#DownloadDBLogFilePortionDetails": {
