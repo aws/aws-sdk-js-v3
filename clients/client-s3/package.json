@@ -77,7 +77,7 @@
     "@aws-sdk/client-documentation-generator": "1.0.0-rc.7",
     "@aws-sdk/types": "1.0.0-rc.7",
     "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
+    "@types/mocha": "^8.0.4",
     "@types/node": "^12.7.5",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
