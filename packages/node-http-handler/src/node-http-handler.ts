@@ -13,7 +13,7 @@ import { writeRequestBody } from "./write-request-body";
 /**
  * Represents the http options that can be passed to a node http client.
  */
-export interface NodeHttpOptions {
+export interface NodeHttpHandlerOptions {
   /**
    * The maximum time in milliseconds that the connection phase of a request
    * may take before the connection attempt is abandoned.
@@ -38,7 +38,7 @@ export class NodeHttpHandler implements HttpHandler {
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpOptions = {}) {
+  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpHandlerOptions = {}) {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;

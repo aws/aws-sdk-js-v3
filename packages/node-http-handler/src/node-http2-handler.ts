@@ -9,7 +9,7 @@ import { writeRequestBody } from "./write-request-body";
 /**
  * Represents the http2 options that can be passed to a node http2 client.
  */
-export interface NodeHttp2Options {
+export interface NodeHttp2HandlerOptions {
   /**
    * The maximum time in milliseconds that a stream may remain idle before it
    * is closed.
@@ -25,10 +25,14 @@ export interface NodeHttp2Options {
 }
 
 export class NodeHttp2Handler implements HttpHandler {
+  private readonly requestTimeout?: number;
+  private readonly sessionTimeout?: number;
   private readonly connectionPool: Map<string, ClientHttp2Session>;
   public readonly metadata = { handlerProtocol: "h2" };
 
-  constructor(private readonly http2Options: NodeHttp2Options = {}) {
+  constructor({ requestTimeout, sessionTimeout }: NodeHttp2HandlerOptions = {}) {
+    this.requestTimeout = requestTimeout;
+    this.sessionTimeout = sessionTimeout;
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
@@ -73,7 +77,7 @@ export class NodeHttp2Handler implements HttpHandler {
       req.on("frameError", reject);
       req.on("aborted", reject);
 
-      const { requestTimeout } = this.http2Options;
+      const requestTimeout = this.requestTimeout;
       if (requestTimeout) {
         req.setTimeout(requestTimeout, () => {
           req.close();
@@ -104,7 +108,7 @@ export class NodeHttp2Handler implements HttpHandler {
     const newSession = connect(authority);
     connectionPool.set(authority, newSession);
 
-    const { sessionTimeout } = this.http2Options;
+    const sessionTimeout = this.sessionTimeout;
     if (sessionTimeout) {
       newSession.setTimeout(sessionTimeout, () => {
         newSession.close();
