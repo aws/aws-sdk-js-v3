@@ -82,7 +82,7 @@ export const createPresignedPost = async (
 
   const endpoint = await client.config.endpoint();
   if (!client.config.bucketEndpoint) {
-    endpoint.path = `/${Bucket}`;
+    endpoint.hostname = `${Bucket}.${endpoint.hostname}`;
   }
 
   return {
