@@ -72,10 +72,28 @@
       "version": "2017-08-08",
       "operations": [
         {
+          "target": "com.amazonaws.connect#AssociateApprovedOrigin"
+        },
+        {
+          "target": "com.amazonaws.connect#AssociateInstanceStorageConfig"
+        },
+        {
+          "target": "com.amazonaws.connect#AssociateLambdaFunction"
+        },
+        {
+          "target": "com.amazonaws.connect#AssociateLexBot"
+        },
+        {
           "target": "com.amazonaws.connect#AssociateRoutingProfileQueues"
         },
         {
+          "target": "com.amazonaws.connect#AssociateSecurityKey"
+        },
+        {
           "target": "com.amazonaws.connect#CreateContactFlow"
+        },
+        {
+          "target": "com.amazonaws.connect#CreateInstance"
         },
         {
           "target": "com.amazonaws.connect#CreateRoutingProfile"
@@ -87,6 +105,9 @@
           "target": "com.amazonaws.connect#CreateUserHierarchyGroup"
         },
         {
+          "target": "com.amazonaws.connect#DeleteInstance"
+        },
+        {
           "target": "com.amazonaws.connect#DeleteUser"
         },
         {
@@ -94,6 +115,15 @@
         },
         {
           "target": "com.amazonaws.connect#DescribeContactFlow"
+        },
+        {
+          "target": "com.amazonaws.connect#DescribeInstance"
+        },
+        {
+          "target": "com.amazonaws.connect#DescribeInstanceAttribute"
+        },
+        {
+          "target": "com.amazonaws.connect#DescribeInstanceStorageConfig"
         },
         {
           "target": "com.amazonaws.connect#DescribeRoutingProfile"
@@ -108,7 +138,22 @@
           "target": "com.amazonaws.connect#DescribeUserHierarchyStructure"
         },
         {
+          "target": "com.amazonaws.connect#DisassociateApprovedOrigin"
+        },
+        {
+          "target": "com.amazonaws.connect#DisassociateInstanceStorageConfig"
+        },
+        {
+          "target": "com.amazonaws.connect#DisassociateLambdaFunction"
+        },
+        {
+          "target": "com.amazonaws.connect#DisassociateLexBot"
+        },
+        {
           "target": "com.amazonaws.connect#DisassociateRoutingProfileQueues"
+        },
+        {
+          "target": "com.amazonaws.connect#DisassociateSecurityKey"
         },
         {
           "target": "com.amazonaws.connect#GetContactAttributes"
@@ -123,10 +168,28 @@
           "target": "com.amazonaws.connect#GetMetricData"
         },
         {
+          "target": "com.amazonaws.connect#ListApprovedOrigins"
+        },
+        {
           "target": "com.amazonaws.connect#ListContactFlows"
         },
         {
           "target": "com.amazonaws.connect#ListHoursOfOperations"
+        },
+        {
+          "target": "com.amazonaws.connect#ListInstanceAttributes"
+        },
+        {
+          "target": "com.amazonaws.connect#ListInstances"
+        },
+        {
+          "target": "com.amazonaws.connect#ListInstanceStorageConfigs"
+        },
+        {
+          "target": "com.amazonaws.connect#ListLambdaFunctions"
+        },
+        {
+          "target": "com.amazonaws.connect#ListLexBots"
         },
         {
           "target": "com.amazonaws.connect#ListPhoneNumbers"
@@ -142,6 +205,9 @@
         },
         {
           "target": "com.amazonaws.connect#ListRoutingProfiles"
+        },
+        {
+          "target": "com.amazonaws.connect#ListSecurityKeys"
         },
         {
           "target": "com.amazonaws.connect#ListSecurityProfiles"
@@ -192,6 +258,12 @@
           "target": "com.amazonaws.connect#UpdateContactFlowName"
         },
         {
+          "target": "com.amazonaws.connect#UpdateInstanceAttribute"
+        },
+        {
+          "target": "com.amazonaws.connect#UpdateInstanceStorageConfig"
+        },
+        {
           "target": "com.amazonaws.connect#UpdateRoutingProfileConcurrency"
         },
         {
@@ -238,6 +310,252 @@
         "aws.protocols#restJson1": {},
         "smithy.api#documentation": "<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a\n   customer contact center and provide reliable customer engagement at any scale.</p>\n         <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact\n   routing. You can also resolve customer issues more efficiently by putting customers in touch with\n   the right agents.</p>\n         <p>There are limits to the number of Amazon Connect resources that you can create and limits to the\n   number of requests that you can make per second. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\">Amazon Connect\n    Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\n         <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect\n   endpoints, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\">Amazon Connect\n    Endpoints</a>.</p>\n         <note> \n            <p>Working with contact flows? Check out the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\">Amazon Connect\n   Flow language</a>.</p>\n         </note>",
         "smithy.api#title": "Amazon Connect Service"
+      }
+    },
+    "com.amazonaws.connect#AssociateApprovedOrigin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateApprovedOriginRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates an approved origin to an Amazon Connect instance.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/approved-origin",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateApprovedOriginRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Origin": {
+          "target": "com.amazonaws.connect#Origin",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain to add to your allow list.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateInstanceStorageConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateInstanceStorageConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#AssociateInstanceStorageConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates a storage resource type for the first time. You can only associate one type of\n     storage configuration in a single call. This means, for example, that you can't define an\n     instance with multiple S3 buckets for storing chat transcripts.</p>\n    \n         <p>This API does not create a resource that doesn't exist. It only associates it to the\n     instance. Ensure that the resource being specified in the storage configuration, like an Amazon\n     S3 bucket, exists when being used for association.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/storage-config",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateInstanceStorageConfigRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.connect#InstanceStorageResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid resource type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StorageConfig": {
+          "target": "com.amazonaws.connect#InstanceStorageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid storage type.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateInstanceStorageConfigResponse": {
+      "type": "structure",
+      "members": {
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateLambdaFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateLambdaFunctionRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/lambda-function",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateLambdaFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionArn": {
+          "target": "com.amazonaws.connect#FunctionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is\n   140.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateLexBot": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateLexBotRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/lex-bot",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateLexBotRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LexBot": {
+          "target": "com.amazonaws.connect#LexBot",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Lex box to associate with the instance.</p>",
+            "smithy.api#required": {}
+          }
+        }
       }
     },
     "com.amazonaws.connect#AssociateRoutingProfileQueues": {
@@ -299,6 +617,106 @@
         }
       }
     },
+    "com.amazonaws.connect#AssociateSecurityKey": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateSecurityKeyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#AssociateSecurityKeyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associates a security key to the instance.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/security-key",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateSecurityKeyRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.connect#PEM",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid security key in PEM format.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateSecurityKeyResponse": {
+      "type": "structure",
+      "members": {
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociationId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connect#Attribute": {
+      "type": "structure",
+      "members": {
+        "AttributeType": {
+          "target": "com.amazonaws.connect#InstanceAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.connect#InstanceAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the attribute.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A toggle for an individual feature at the instance level.</p>"
+      }
+    },
     "com.amazonaws.connect#AttributeName": {
       "type": "string",
       "traits": {
@@ -326,8 +744,32 @@
         "target": "com.amazonaws.connect#AttributeValue"
       }
     },
+    "com.amazonaws.connect#AttributesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#Attribute"
+      }
+    },
     "com.amazonaws.connect#AutoAccept": {
       "type": "boolean"
+    },
+    "com.amazonaws.connect#BotName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.connect#BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
     },
     "com.amazonaws.connect#Channel": {
       "type": "string",
@@ -735,6 +1177,101 @@
         }
       }
     },
+    "com.amazonaws.connect#CreateInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#CreateInstanceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#CreateInstanceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any\n   storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as\n   Contact Lens for Amazon Connect. </p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#CreateInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "ClientToken": {
+          "target": "com.amazonaws.connect#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The idempotency token.</p>"
+          }
+        },
+        "IdentityManagementType": {
+          "target": "com.amazonaws.connect#DirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of identity management for your Amazon Connect users.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceAlias": {
+          "target": "com.amazonaws.connect#DirectoryAlias",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for your instance.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.connect#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the directory.</p>"
+          }
+        },
+        "InboundCallsEnabled": {
+          "target": "com.amazonaws.connect#InboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether your contact center handles incoming contacts.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutboundCallsEnabled": {
+          "target": "com.amazonaws.connect#OutboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether your contact center allows outbound calls.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#CreateInstanceResponse": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the instance.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the instance.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.connect#CreateRoutingProfile": {
       "type": "operation",
       "input": {
@@ -1066,7 +1603,7 @@
           }
         },
         "AccessTokenExpiration": {
-          "target": "com.amazonaws.connect#timestamp",
+          "target": "com.amazonaws.connect#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>A token generated with an expiration time for the session a user is logged in to\n   Amazon Connect.</p>"
           }
@@ -1078,7 +1615,7 @@
           }
         },
         "RefreshTokenExpiration": {
-          "target": "com.amazonaws.connect#timestamp",
+          "target": "com.amazonaws.connect#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Renews the expiration timer for a generated token.</p>"
           }
@@ -1233,6 +1770,44 @@
         "smithy.api#range": {
           "min": 0,
           "max": 9999
+        }
+      }
+    },
+    "com.amazonaws.connect#DeleteInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DeleteInstanceRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the Amazon Connect instance.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DeleteInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -1408,6 +1983,198 @@
           "target": "com.amazonaws.connect#ContactFlow",
           "traits": {
             "smithy.api#documentation": "<p>Information about the contact flow.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DescribeInstanceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DescribeInstanceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the current state of the specified instance identifier. It tracks the instance while it is\n   being created and returns an error status if applicable. </p>\n         <p>If an instance is not created\n   successfully, the instance status reason field returns details relevant to the reason. The instance\n   in a failed state is returned only for 24 hours after\n   the CreateInstance API was invoked.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceAttribute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DescribeInstanceAttributeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DescribeInstanceAttributeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the specified instance attribute.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/attribute/{AttributeType}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceAttributeRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeType": {
+          "target": "com.amazonaws.connect#InstanceAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceAttributeResponse": {
+      "type": "structure",
+      "members": {
+        "Attribute": {
+          "target": "com.amazonaws.connect#Attribute",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceResponse": {
+      "type": "structure",
+      "members": {
+        "Instance": {
+          "target": "com.amazonaws.connect#Instance",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the instance.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceStorageConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DescribeInstanceStorageConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DescribeInstanceStorageConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/storage-config/{AssociationId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceStorageConfigRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.connect#InstanceStorageResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid resource type.</p>",
+            "smithy.api#httpQuery": "resourceType",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeInstanceStorageConfigResponse": {
+      "type": "structure",
+      "members": {
+        "StorageConfig": {
+          "target": "com.amazonaws.connect#InstanceStorageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid storage type.</p>"
           }
         }
       }
@@ -1704,8 +2471,272 @@
         "smithy.api#documentation": "<p>Contains information about the dimensions for a set of metrics.</p>"
       }
     },
+    "com.amazonaws.connect#DirectoryAlias": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 62
+        },
+        "smithy.api#pattern": "^(?!d-)([\\da-zA-Z]+)([-]*[\\da-zA-Z])*$",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.connect#DirectoryId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 12,
+          "max": 12
+        },
+        "smithy.api#pattern": "^d-[0-9a-f]{10}$"
+      }
+    },
+    "com.amazonaws.connect#DirectoryType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "SAML",
+            "name": "SAML"
+          },
+          {
+            "value": "CONNECT_MANAGED",
+            "name": "CONNECT_MANAGED"
+          },
+          {
+            "value": "EXISTING_DIRECTORY",
+            "name": "EXISTING_DIRECTORY"
+          }
+        ]
+      }
+    },
     "com.amazonaws.connect#DirectoryUserId": {
       "type": "string"
+    },
+    "com.amazonaws.connect#DisassociateApprovedOrigin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateApprovedOriginRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Revokes access to integrated applications from Amazon Connect.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}/approved-origin",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateApprovedOriginRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Origin": {
+          "target": "com.amazonaws.connect#Origin",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain URL of the integrated application.</p>",
+            "smithy.api#httpQuery": "origin",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateInstanceStorageConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateInstanceStorageConfigRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes the storage type configurations for the specified resource type and association ID.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}/storage-config/{AssociationId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateInstanceStorageConfigRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.connect#InstanceStorageResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid resource type.</p>",
+            "smithy.api#httpQuery": "resourceType",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateLambdaFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateLambdaFunctionRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Remove the Lambda function from the drop-down options available in the relevant contact flow\n   blocks.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}/lambda-function",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateLambdaFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance..</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionArn": {
+          "target": "com.amazonaws.connect#FunctionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>",
+            "smithy.api#httpQuery": "functionArn",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateLexBot": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateLexBotRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}/lex-bot",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateLexBotRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "BotName": {
+          "target": "com.amazonaws.connect#BotName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon Lex bot. Maximum character limit of 50.</p>",
+            "smithy.api#httpQuery": "botName",
+            "smithy.api#required": {}
+          }
+        },
+        "LexRegion": {
+          "target": "com.amazonaws.connect#LexRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region in which the Amazon Lex bot has been created.</p>",
+            "smithy.api#httpQuery": "lexRegion",
+            "smithy.api#required": {}
+          }
+        }
+      }
     },
     "com.amazonaws.connect#DisassociateRoutingProfileQueues": {
       "type": "operation",
@@ -1766,6 +2797,58 @@
         }
       }
     },
+    "com.amazonaws.connect#DisassociateSecurityKey": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateSecurityKeyRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified security key.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/instance/{InstanceId}/security-key/{AssociationId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateSecurityKeyRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.connect#DisplayName": {
       "type": "string",
       "traits": {
@@ -1791,6 +2874,39 @@
     "com.amazonaws.connect#Email": {
       "type": "string"
     },
+    "com.amazonaws.connect#EncryptionConfig": {
+      "type": "structure",
+      "members": {
+        "EncryptionType": {
+          "target": "com.amazonaws.connect#EncryptionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of encryption.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KeyId": {
+          "target": "com.amazonaws.connect#KeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the encryption key.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The encryption configuration.</p>"
+      }
+    },
+    "com.amazonaws.connect#EncryptionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "KMS",
+            "name": "KMS"
+          }
+        ]
+      }
+    },
     "com.amazonaws.connect#Filters": {
       "type": "structure",
       "members": {
@@ -1809,6 +2925,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains the filter to apply when retrieving metrics.</p>"
+      }
+    },
+    "com.amazonaws.connect#FunctionArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 140
+        }
+      }
+    },
+    "com.amazonaws.connect#FunctionArnsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#FunctionArn"
       }
     },
     "com.amazonaws.connect#GetContactAttributes": {
@@ -1972,7 +3103,7 @@
           }
         },
         "DataSnapshotTime": {
-          "target": "com.amazonaws.connect#timestamp",
+          "target": "com.amazonaws.connect#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The time at which the metrics were retrieved and cached for pagination.</p>"
           }
@@ -2091,14 +3222,14 @@
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.connect#timestamp",
+          "target": "com.amazonaws.connect#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the\n   retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes,\n   such as 10:05, 10:10, 10:15.</p>\n         <p>The start time cannot be earlier than 24 hours before the time of the request. Historical\n   metrics are available only for 24 hours.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.connect#timestamp",
+          "target": "com.amazonaws.connect#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the\n   retrieval of historical metrics data. The time must be specified using an interval of 5 minutes,\n   such as 11:00, 11:05, 11:10, and must be later than the start time timestamp.</p>\n         <p>The time range between the start and end time must be less than 24 hours.</p>",
             "smithy.api#required": {}
@@ -2619,6 +3750,15 @@
         "target": "com.amazonaws.connect#HistoricalMetric"
       }
     },
+    "com.amazonaws.connect#Hours": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 87600
+        }
+      }
+    },
     "com.amazonaws.connect#HoursOfOperationId": {
       "type": "string"
     },
@@ -2657,6 +3797,124 @@
         "target": "com.amazonaws.connect#HoursOfOperationSummary"
       }
     },
+    "com.amazonaws.connect#InboundCallsEnabled": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
+      }
+    },
+    "com.amazonaws.connect#Instance": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the instance.</p>"
+          }
+        },
+        "IdentityManagementType": {
+          "target": "com.amazonaws.connect#DirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity management type.</p>"
+          }
+        },
+        "InstanceAlias": {
+          "target": "com.amazonaws.connect#DirectoryAlias",
+          "traits": {
+            "smithy.api#documentation": "<p>The alias of instance.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.connect#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>When the instance was created.</p>"
+          }
+        },
+        "ServiceRole": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The service role of the instance.</p>"
+          }
+        },
+        "InstanceStatus": {
+          "target": "com.amazonaws.connect#InstanceStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the instance.</p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.connect#InstanceStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>Relevant details why the instance was not successfully created. </p>"
+          }
+        },
+        "InboundCallsEnabled": {
+          "target": "com.amazonaws.connect#InboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether inbound calls are enabled.</p>"
+          }
+        },
+        "OutboundCallsEnabled": {
+          "target": "com.amazonaws.connect#OutboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether outbound calls are enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon Connect instance.</p>"
+      }
+    },
+    "com.amazonaws.connect#InstanceAttributeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "INBOUND_CALLS",
+            "name": "INBOUND_CALLS"
+          },
+          {
+            "value": "OUTBOUND_CALLS",
+            "name": "OUTBOUND_CALLS"
+          },
+          {
+            "value": "CONTACTFLOW_LOGS",
+            "name": "CONTACTFLOW_LOGS"
+          },
+          {
+            "value": "CONTACT_LENS",
+            "name": "CONTACT_LENS"
+          },
+          {
+            "value": "AUTO_RESOLVE_BEST_VOICES",
+            "name": "AUTO_RESOLVE_BEST_VOICES"
+          },
+          {
+            "value": "USE_CUSTOM_TTS_VOICES",
+            "name": "USE_CUSTOM_TTS_VOICES"
+          },
+          {
+            "value": "EARLY_MEDIA",
+            "name": "EARLY_MEDIA"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.connect#InstanceAttributeValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.connect#InstanceId": {
       "type": "string",
       "traits": {
@@ -2664,6 +3922,189 @@
           "min": 1,
           "max": 100
         }
+      }
+    },
+    "com.amazonaws.connect#InstanceStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "CREATION_IN_PROGRESS",
+            "name": "CREATION_IN_PROGRESS"
+          },
+          {
+            "value": "ACTIVE",
+            "name": "ACTIVE"
+          },
+          {
+            "value": "CREATION_FAILED",
+            "name": "CREATION_FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.connect#InstanceStatusReason": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connect#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The message.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Relevant details why the instance was not successfully created.</p>"
+      }
+    },
+    "com.amazonaws.connect#InstanceStorageConfig": {
+      "type": "structure",
+      "members": {
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"
+          }
+        },
+        "StorageType": {
+          "target": "com.amazonaws.connect#StorageType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid storage type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "S3Config": {
+          "target": "com.amazonaws.connect#S3Config",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 configuration.</p>"
+          }
+        },
+        "KinesisVideoStreamConfig": {
+          "target": "com.amazonaws.connect#KinesisVideoStreamConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of the Kinesis video stream.</p>"
+          }
+        },
+        "KinesisStreamConfig": {
+          "target": "com.amazonaws.connect#KinesisStreamConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of the Kinesis data stream.</p>"
+          }
+        },
+        "KinesisFirehoseConfig": {
+          "target": "com.amazonaws.connect#KinesisFirehoseConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of the Kinesis Firehose delivery stream.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The storage configuration for the instance.</p>"
+      }
+    },
+    "com.amazonaws.connect#InstanceStorageConfigs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#InstanceStorageConfig"
+      }
+    },
+    "com.amazonaws.connect#InstanceStorageResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "CHAT_TRANSCRIPTS",
+            "name": "CHAT_TRANSCRIPTS"
+          },
+          {
+            "value": "CALL_RECORDINGS",
+            "name": "CALL_RECORDINGS"
+          },
+          {
+            "value": "SCHEDULED_REPORTS",
+            "name": "SCHEDULED_REPORTS"
+          },
+          {
+            "value": "MEDIA_STREAMS",
+            "name": "MEDIA_STREAMS"
+          },
+          {
+            "value": "CONTACT_TRACE_RECORDS",
+            "name": "CONTACT_TRACE_RECORDS"
+          },
+          {
+            "value": "AGENT_EVENTS",
+            "name": "AGENT_EVENTS"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.connect#InstanceSummary": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the instance.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the instance.</p>"
+          }
+        },
+        "IdentityManagementType": {
+          "target": "com.amazonaws.connect#DirectoryType",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity management type of the instance.</p>"
+          }
+        },
+        "InstanceAlias": {
+          "target": "com.amazonaws.connect#DirectoryAlias",
+          "traits": {
+            "smithy.api#documentation": "<p>The alias of the instance.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.connect#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>When the instance was created.</p>"
+          }
+        },
+        "ServiceRole": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The service role of the instance.</p>"
+          }
+        },
+        "InstanceStatus": {
+          "target": "com.amazonaws.connect#InstanceStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the instance.</p>"
+          }
+        },
+        "InboundCallsEnabled": {
+          "target": "com.amazonaws.connect#InboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether inbound calls are enabled.</p>"
+          }
+        },
+        "OutboundCallsEnabled": {
+          "target": "com.amazonaws.connect#OutboundCallsEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether outbound calls are enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the instance.</p>"
+      }
+    },
+    "com.amazonaws.connect#InstanceSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#InstanceSummary"
       }
     },
     "com.amazonaws.connect#InternalServiceException": {
@@ -2730,6 +4171,109 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.connect#KeyId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.connect#KinesisFirehoseConfig": {
+      "type": "structure",
+      "members": {
+        "FirehoseArn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the delivery stream.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of a Kinesis Firehose delivery stream.</p>"
+      }
+    },
+    "com.amazonaws.connect#KinesisStreamConfig": {
+      "type": "structure",
+      "members": {
+        "StreamArn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the data stream.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of a Kinesis data stream.</p>"
+      }
+    },
+    "com.amazonaws.connect#KinesisVideoStreamConfig": {
+      "type": "structure",
+      "members": {
+        "Prefix": {
+          "target": "com.amazonaws.connect#Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The prefix of the video stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RetentionPeriodHours": {
+          "target": "com.amazonaws.connect#Hours",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of hours data is retained in the stream. Kinesis Video Streams retains the data\n   in a data store that is associated with the stream.</p>\n  \n         <p>The default value is 0, indicating that the stream does not persist data.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EncryptionConfig": {
+          "target": "com.amazonaws.connect#EncryptionConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption configuration.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of a Kinesis video stream.</p>"
+      }
+    },
+    "com.amazonaws.connect#LexBot": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.connect#BotName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon Lex bot.</p>"
+          }
+        },
+        "LexRegion": {
+          "target": "com.amazonaws.connect#LexRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region the Amazon Lex bot was created in.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of an Amazon Lex bot.</p>"
+      }
+    },
+    "com.amazonaws.connect#LexBotsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#LexBot"
+      }
+    },
+    "com.amazonaws.connect#LexRegion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 60
+        }
+      }
+    },
     "com.amazonaws.connect#LimitExceededException": {
       "type": "structure",
       "members": {
@@ -2744,6 +4288,91 @@
         "smithy.api#documentation": "<p>The allowed limit for the resource has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.connect#ListApprovedOrigins": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListApprovedOriginsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListApprovedOriginsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of all approved origins associated with the instance.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/approved-origins",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Origins",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListApprovedOriginsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult25",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListApprovedOriginsResponse": {
+      "type": "structure",
+      "members": {
+        "Origins": {
+          "target": "com.amazonaws.connect#OriginsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The approved origins.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.connect#ListContactFlows": {
@@ -2911,6 +4540,422 @@
           "target": "com.amazonaws.connect#HoursOfOperationSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>Information about the hours of operation.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListInstanceAttributesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListInstanceAttributesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of all attribute types for the given instance.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/attributes",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Attributes",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceAttributesRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult7",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceAttributesResponse": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.connect#AttributesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The attribute types.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceStorageConfigs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListInstanceStorageConfigsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListInstanceStorageConfigsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of storage configs for the identified instance and resource\n   type.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/storage-configs",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "StorageConfigs",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceStorageConfigsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.connect#InstanceStorageResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid resource type.</p>",
+            "smithy.api#httpQuery": "resourceType",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult10",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstanceStorageConfigsResponse": {
+      "type": "structure",
+      "members": {
+        "StorageConfigs": {
+          "target": "com.amazonaws.connect#InstanceStorageConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid storage type.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstances": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListInstancesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListInstancesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Return a list of instances which are in active state, creation-in-progress state, and failed\n   state. Instances that aren't successfully created (they are in a failed state) are returned only\n   for 24 hours after the CreateInstance API was invoked.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "InstanceSummaryList",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstancesRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult10",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListInstancesResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceSummaryList": {
+          "target": "com.amazonaws.connect#InstanceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the instances.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLambdaFunctions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListLambdaFunctionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListLambdaFunctionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of all the Lambda functions that show up in the drop-down options in the relevant contact flow blocks.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/lambda-functions",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "LambdaFunctions",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLambdaFunctionsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult25",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLambdaFunctionsResponse": {
+      "type": "structure",
+      "members": {
+        "LambdaFunctions": {
+          "target": "com.amazonaws.connect#FunctionArnsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Lambdafunction ARNs associated with the specified instance.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLexBots": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListLexBotsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListLexBotsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/lex-bots",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "LexBots",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLexBotsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult25",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListLexBotsResponse": {
+      "type": "structure",
+      "members": {
+        "LexBots": {
+          "target": "com.amazonaws.connect#LexBotsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The the names and regions of the Amazon Lex bots associated with the specified instance.</p>"
           }
         },
         "NextToken": {
@@ -3373,6 +5418,91 @@
         }
       }
     },
+    "com.amazonaws.connect#ListSecurityKeys": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListSecurityKeysRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListSecurityKeysResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of all security keys associated with the instance.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/security-keys",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "SecurityKeys",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListSecurityKeysRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult2",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximimum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListSecurityKeysResponse": {
+      "type": "structure",
+      "members": {
+        "SecurityKeys": {
+          "target": "com.amazonaws.connect#SecurityKeysList",
+          "traits": {
+            "smithy.api#documentation": "<p>The security keys.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.connect#ListSecurityProfiles": {
       "type": "operation",
       "input": {
@@ -3686,6 +5816,15 @@
         }
       }
     },
+    "com.amazonaws.connect#MaxResult10": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
     "com.amazonaws.connect#MaxResult100": {
       "type": "integer",
       "traits": {
@@ -3701,6 +5840,33 @@
         "smithy.api#range": {
           "min": 1,
           "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.connect#MaxResult2": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    },
+    "com.amazonaws.connect#MaxResult25": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.connect#MaxResult7": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 7
         }
       }
     },
@@ -3738,6 +5904,27 @@
     "com.amazonaws.connect#NextToken": {
       "type": "string"
     },
+    "com.amazonaws.connect#Origin": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 267
+        }
+      }
+    },
+    "com.amazonaws.connect#OriginsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#Origin"
+      }
+    },
+    "com.amazonaws.connect#OutboundCallsEnabled": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
+      }
+    },
     "com.amazonaws.connect#OutboundContactNotPermittedException": {
       "type": "structure",
       "members": {
@@ -3752,6 +5939,15 @@
         "smithy.api#documentation": "<p>The contact is not permitted.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.connect#PEM": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
       }
     },
     "com.amazonaws.connect#ParticipantDetails": {
@@ -4852,6 +7048,15 @@
         ]
       }
     },
+    "com.amazonaws.connect#Prefix": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
     "com.amazonaws.connect#Priority": {
       "type": "integer",
       "traits": {
@@ -5053,6 +7258,19 @@
           "min": 1,
           "max": 100
         }
+      }
+    },
+    "com.amazonaws.connect#ResourceConflictException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connect#Message"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A resource already has that name.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.connect#ResourceInUseException": {
@@ -5425,6 +7643,66 @@
         "target": "com.amazonaws.connect#RoutingProfileSummary"
       }
     },
+    "com.amazonaws.connect#S3Config": {
+      "type": "structure",
+      "members": {
+        "BucketName": {
+          "target": "com.amazonaws.connect#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BucketPrefix": {
+          "target": "com.amazonaws.connect#Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket prefix.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EncryptionConfig": {
+          "target": "com.amazonaws.connect#EncryptionConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 encryption configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the S3 storage type.</p>"
+      }
+    },
+    "com.amazonaws.connect#SecurityKey": {
+      "type": "structure",
+      "members": {
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.connect#PEM",
+          "traits": {
+            "smithy.api#documentation": "<p>The key of the security key.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.connect#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>When the security key was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of the security key.</p>"
+      }
+    },
+    "com.amazonaws.connect#SecurityKeysList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#SecurityKey"
+      }
+    },
     "com.amazonaws.connect#SecurityProfileId": {
       "type": "string"
     },
@@ -5479,6 +7757,19 @@
       "type": "string",
       "traits": {
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.connect#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connect#Message"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The service quota has been exceeded.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
       }
     },
     "com.amazonaws.connect#StartChatContact": {
@@ -5887,6 +8178,32 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.connect#StorageType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "S3",
+            "name": "S3"
+          },
+          {
+            "value": "KINESIS_VIDEO_STREAM",
+            "name": "KINESIS_VIDEO_STREAM"
+          },
+          {
+            "value": "KINESIS_STREAM",
+            "name": "KINESIS_STREAM"
+          },
+          {
+            "value": "KINESIS_FIREHOSE",
+            "name": "KINESIS_FIREHOSE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.connect#String": {
+      "type": "string"
+    },
     "com.amazonaws.connect#SuspendContactRecording": {
       "type": "operation",
       "input": {
@@ -6081,6 +8398,9 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
+    },
+    "com.amazonaws.connect#Timestamp": {
+      "type": "timestamp"
     },
     "com.amazonaws.connect#Unit": {
       "type": "string",
@@ -6339,6 +8659,131 @@
           "target": "com.amazonaws.connect#ContactFlowDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the contact flow.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#UpdateInstanceAttribute": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#UpdateInstanceAttributeRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the value for the specified attribute type.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/instance/{InstanceId}/attribute/{AttributeType}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#UpdateInstanceAttributeRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AttributeType": {
+          "target": "com.amazonaws.connect#InstanceAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.connect#InstanceAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value for the attribute. Maximum character limit is 100. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#UpdateInstanceStorageConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#UpdateInstanceStorageConfigRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates an existing configuration for a resource type. This API is idempotent.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/instance/{InstanceId}/storage-config/{AssociationId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#UpdateInstanceStorageConfigRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationId": {
+          "target": "com.amazonaws.connect#AssociationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.connect#InstanceStorageResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>A valid resource type.</p>",
+            "smithy.api#httpQuery": "resourceType",
+            "smithy.api#required": {}
+          }
+        },
+        "StorageConfig": {
+          "target": "com.amazonaws.connect#InstanceStorageConfig",
+          "traits": {
+            "smithy.api#required": {}
           }
         }
       }
@@ -7210,9 +9655,6 @@
           }
         ]
       }
-    },
-    "com.amazonaws.connect#timestamp": {
-      "type": "timestamp"
     }
   }
 }

@@ -189,6 +189,275 @@
         "smithy.api#pattern": "[A-Z]{2}"
       }
     },
+    "com.amazonaws.chime#AppInstance": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the messaging instance. </p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of an app instance.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of an app instance.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which an app instance was created. In epoch milliseconds.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time an app instance was last updated. In epoch milliseconds.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An instance of a Chime messaging application.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceAdmin": {
+      "type": "structure",
+      "members": {
+        "Admin": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The name and metadata of the app instance administrator.</p>"
+          }
+        },
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance administrator.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which an administrator was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Promotes a user to the administrator role for the duration of an app instance.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceAdminList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#AppInstanceAdminSummary"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceAdminSummary": {
+      "type": "structure",
+      "members": {
+        "Admin": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The name and metadata of the app instance administrator.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The identity and metadata of an administrator.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceDataType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Channel",
+            "name": "Channel"
+          },
+          {
+            "value": "ChannelMessage",
+            "name": "ChannelMessage"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#AppInstanceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#AppInstanceSummary"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceRetentionSettings": {
+      "type": "structure",
+      "members": {
+        "ChannelRetentionSettings": {
+          "target": "com.amazonaws.chime#ChannelRetentionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The length of time in days to retain a channel.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The length of time in days to retain messages.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceStreamingConfiguration": {
+      "type": "structure",
+      "members": {
+        "AppInstanceDataType": {
+          "target": "com.amazonaws.chime#AppInstanceDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the app instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.chime#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The streaming configuration of an app instance.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceStreamingConfigurationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#AppInstanceStreamingConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    },
+    "com.amazonaws.chime#AppInstanceSummary": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The app instance ARN.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the app instance summary.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the app instance summary.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary data for an app instance.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceUser": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the app instance user.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the app instance user was created.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the app instance user.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the app instance user was last updated.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The app instance user.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceUserList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#AppInstanceUserSummary"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceUserMembershipSummary": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMembershipType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of channel summary, </p>"
+          }
+        },
+        "ReadMarkerTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a summary was last read.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the channels to which app instance users belong.</p>"
+      }
+    },
+    "com.amazonaws.chime#AppInstanceUserSummary": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name in an app instance user summary.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata in an app instance user summary.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The app instance user summary data .</p>"
+      }
+    },
     "com.amazonaws.chime#AreaCode": {
       "type": "string",
       "traits": {
@@ -1240,6 +1509,558 @@
         "target": "com.amazonaws.chime#Capability"
       }
     },
+    "com.amazonaws.chime#Channel": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the channel.</p>"
+          }
+        },
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.chime#ChannelMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The mode of the channel.</p>"
+          }
+        },
+        "Privacy": {
+          "target": "com.amazonaws.chime#ChannelPrivacy",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel's privacy setting, <code>PUBLIC</code> or <code>HIDDEN</code>.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the channel.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The administrator who created the channel.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the administrator created the channel.</p>"
+          }
+        },
+        "LastMessageTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a member sent the last message in a session.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a channel was last updated.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelBan": {
+      "type": "structure",
+      "members": {
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The member being banned from the channel.</p>"
+          }
+        },
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel from which a member is being banned.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the ban was created.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The  parameter of the  action.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Bans a user from a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelBanSummary": {
+      "type": "structure",
+      "members": {
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The member being banned from a channel.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary data for the channel ban.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelBanSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelBanSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembership": {
+      "type": "structure",
+      "members": {
+        "InvitedBy": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the member who invited another member. Taken from the message header.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMembershipType",
+          "traits": {
+            "smithy.api#documentation": "<p>The membership type set for the channel member.</p>"
+          }
+        },
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The data of the channel member.</p>"
+          }
+        },
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member's channel.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the channel membership was created. </p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a channel membership was last updated.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a channel member.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembershipForAppInstanceUserSummary": {
+      "type": "structure",
+      "members": {
+        "ChannelSummary": {
+          "target": "com.amazonaws.chime#ChannelSummary"
+        },
+        "AppInstanceUserMembershipSummary": {
+          "target": "com.amazonaws.chime#AppInstanceUserMembershipSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns the channel membership data for an app instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the channel membership summary data for an app instance.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembershipForAppInstanceUserSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelMembershipForAppInstanceUserSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembershipSummary": {
+      "type": "structure",
+      "members": {
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>A member's summary data.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary data of a channel membership.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembershipSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelMembershipSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelMembershipType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT",
+            "name": "DEFAULT"
+          },
+          {
+            "value": "HIDDEN",
+            "name": "HIDDEN"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#ChannelMessage": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of a message.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.chime#Content",
+          "traits": {
+            "smithy.api#documentation": "<p>The message content.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The message metadata.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMessageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The message type.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the message was created.</p>"
+          }
+        },
+        "LastEditedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a message was edited.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which a message was updated.</p>"
+          }
+        },
+        "Sender": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The message sender.</p>"
+          }
+        },
+        "Redacted": {
+          "target": "com.amazonaws.chime#NonNullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Hides the content of a message. The message still exists on the back end, but this action \n      only returns metadata.</p>"
+          }
+        },
+        "Persistence": {
+          "target": "com.amazonaws.chime#ChannelMessagePersistenceType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a message in a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelMessagePersistenceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PERSISTENT",
+            "name": "PERSISTENT"
+          },
+          {
+            "value": "NON_PERSISTENT",
+            "name": "NON_PERSISTENT"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#ChannelMessageSummary": {
+      "type": "structure",
+      "members": {
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message summary.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.chime#Content",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the message summary.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the message summary.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMessageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of message summary.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the message summary was created.</p>"
+          }
+        },
+        "LastUpdatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp"
+        },
+        "LastEditedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp"
+        },
+        "Sender": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The sender of the message summary.</p>"
+          }
+        },
+        "Redacted": {
+          "target": "com.amazonaws.chime#NonNullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Redacts the content of a message summary.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A summary of the messages in a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelMessageSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelMessageSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelMessageType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "STANDARD",
+            "name": "STANDARD"
+          },
+          {
+            "value": "CONTROL",
+            "name": "CONTROL"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#ChannelMode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "UNRESTRICTED",
+            "name": "UNRESTRICTED"
+          },
+          {
+            "value": "RESTRICTED",
+            "name": "RESTRICTED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#ChannelModeratedByAppInstanceUserSummary": {
+      "type": "structure",
+      "members": {
+        "ChannelSummary": {
+          "target": "com.amazonaws.chime#ChannelSummary"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the summary data for a moderated channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelModeratedByAppInstanceUserSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelModeratedByAppInstanceUserSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelModerator": {
+      "type": "structure",
+      "members": {
+        "Moderator": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The moderator's data.</p>"
+          }
+        },
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the moderator's channel.</p>"
+          }
+        },
+        "CreatedTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the moderator was created.</p>"
+          }
+        },
+        "CreatedBy": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The member who created the moderator.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a moderator on a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelModeratorSummary": {
+      "type": "structure",
+      "members": {
+        "Moderator": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The data for a moderator.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary data of the moderators in a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelModeratorSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelModeratorSummary"
+      }
+    },
+    "com.amazonaws.chime#ChannelPrivacy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PUBLIC",
+            "name": "PUBLIC"
+          },
+          {
+            "value": "PRIVATE",
+            "name": "PRIVATE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.chime#ChannelRetentionSettings": {
+      "type": "structure",
+      "members": {
+        "RetentionDays": {
+          "target": "com.amazonaws.chime#RetentionDays",
+          "traits": {
+            "smithy.api#documentation": "<p>The time in days to retain a channel.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The retention settings for a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelSummary": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The  parameter of the  action.</p>"
+          }
+        },
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel summary.</p>"
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.chime#ChannelMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The summary mode of the channel.</p>"
+          }
+        },
+        "Privacy": {
+          "target": "com.amazonaws.chime#ChannelPrivacy",
+          "traits": {
+            "smithy.api#documentation": "<p>The privacy setting of the channel being summarized, <code>PUBLIC</code> or <code>HIDDEN</code>.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the channel summary.</p>"
+          }
+        },
+        "LastMessageTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the last message in a channel was sent.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary data for a channel.</p>"
+      }
+    },
+    "com.amazonaws.chime#ChannelSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chime#ChannelSummary"
+      }
+    },
+    "com.amazonaws.chime#ChimeArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 1600
+        },
+        "smithy.api#pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}"
+      }
+    },
     "com.amazonaws.chime#ClientRequestToken": {
       "type": "string",
       "traits": {
@@ -1265,6 +2086,17 @@
         "smithy.api#documentation": "<p>The request could not be processed because of conflict in the current state of the\n       resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.chime#Content": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4096
+        },
+        "smithy.api#pattern": "[\\s\\S]*",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.chime#ConversationRetentionSettings": {
@@ -1365,6 +2197,269 @@
       "members": {
         "Account": {
           "target": "com.amazonaws.chime#Account"
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateAppInstanceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateAppInstanceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an Amazon Chime Messaging SDK <code>AppInstance</code> under an AWS Account. Only Messaging SDK customers use this API. \n           <code>CreateAppInstance</code> supports <code>idempotency</code> behavior as described in the AWS API Standard.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/app-instances",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceAdmin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateAppInstanceAdminRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateAppInstanceAdminResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>ChannelModerator</code> actions across all channels in the app instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteChannelMessage</code> actions.</p>\n            </li>\n         </ul>\n         <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/app-instances/{AppInstanceArn}/admins",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceAdminRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceAdminArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the administrator of the current app instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceAdminResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceAdmin": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The name and ARN of the admin for the app instance.</p>"
+          }
+        },
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the of the admin for the app instance.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the app instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the app instance. Limited to a 1KB string in UTF-8.</p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.chime#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ClientRequestToken</code> of the app instance.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Number (ARN) of the app instance.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and \n           <code>Name</code> for that user.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/app-instance-users",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceUserId": {
+          "target": "com.amazonaws.chime#UserId",
+          "traits": {
+            "smithy.api#documentation": "<p>The user ID of the app instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The user's name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The request's metadata. Limited to a 1KB string in UTF-8.</p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.chime#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token assigned to the user requesting an app instance.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The user's ARN.</p>"
+          }
         }
       }
     },
@@ -1469,7 +2564,7 @@
         "ExternalUserId": {
           "target": "com.amazonaws.chime#ExternalUserIdType",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.\n      If you create an attendee with the same external user id, the service returns the existing record.</p>",
+            "smithy.api#documentation": "<p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.\n      If you create an attendee with the same external user id, the service returns the existing record.</p>\n\n\n         <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1577,6 +2672,367 @@
           "target": "com.amazonaws.chime#Bot",
           "traits": {
             "smithy.api#documentation": "<p>The bot details.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateChannelRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateChannelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a channel to which you can add users and send messages.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's privacy.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelBan": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateChannelBanRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateChannelBanResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Permanently bans a member from a channel. Moderators can't add banned members to a channel.\n           To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>. \n           Bans are cleaned up when you delete users or channels.          \n       </p>\n         <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels/{ChannelArn}/bans",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelBanRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the ban request.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member being banned.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelBanResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the response to the ban request.</p>"
+          }
+        },
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban response.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateChannelMembershipRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateChannelMembershipResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header. \n           A channel member can:</p>\n         <ul>\n            <li>\n               <p>List messages</p>\n            </li>\n            <li>\n               <p>Send messages</p>\n            </li>\n            <li>\n               <p>Receive messages</p>\n            </li>\n            <li>\n               <p>Edit their own messages</p>\n            </li>\n            <li>\n               <p>Leave the channel</p>\n            </li>\n         </ul>\n         <p>Privacy settings impact this action as follows:</p>\n         <ul>\n            <li>\n               <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p>\n            </li>\n            <li>\n               <p>Private Channels: You must be a member to list or send messages.</p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels/{ChannelArn}/memberships",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel to which you're adding users.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member you want to add to the channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMembershipType",
+          "traits": {
+            "smithy.api#documentation": "<p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of \n           <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> \n           equals <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelMembershipResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "Member": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN and metadata of the member being added.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelModerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#CreateChannelModeratorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#CreateChannelModeratorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>\n         <ul>\n            <li>\n               <p>Add and remove other members of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove other moderators of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove user bans for the channel.</p>\n            </li>\n            <li>\n               <p>Redact messages in the channel.</p>\n            </li>\n            <li>\n               <p>List messages in the channel.</p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels/{ChannelArn}/moderators",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelModeratorRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChannelModeratorArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the moderator.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelModeratorResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "ChannelModerator": {
+          "target": "com.amazonaws.chime#Identity",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARNs of the channel and the moderator.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.chime#ChannelMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators, moderators, and channel members can add\n           themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.</p>"
+          }
+        },
+        "Privacy": {
+          "target": "com.amazonaws.chime#ChannelPrivacy",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private channels aren't discoverable by users outside \n       the channel. Public channels are discoverable by anyone in the app instance.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.chime#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The client token for the request. An <code>Idempotency</code> token.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.chime#TagList"
+        }
+      }
+    },
+    "com.amazonaws.chime#CreateChannelResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
       }
@@ -1732,7 +3188,7 @@
         "MediaRegion": {
           "target": "com.amazonaws.chime#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p> \n         <p>Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>"
+            "smithy.api#documentation": "<p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p> \n         <p>Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-south-1</code>, \n          <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, \n          <code>eu-south-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, \n          <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.</p>"
           }
         },
         "Tags": {
@@ -2847,6 +4303,220 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.chime#DeleteAppInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteAppInstanceRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instances/{AppInstanceArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceAdmin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteAppInstanceAdminRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceAdminRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceAdminArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance's administrator.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteAppInstanceStreamingConfigurationsRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the streaming configurations of an app instance.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configurations being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteAppInstanceUserRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an <code>AppInstanceUser</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instance-users/{AppInstanceUserArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user request being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#DeleteAttendee": {
       "type": "operation",
       "input": {
@@ -2899,6 +4569,288 @@
           "target": "com.amazonaws.chime#GuidString",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime SDK attendee ID.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteChannelRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/channels/{ChannelArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelBan": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteChannelBanRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a user from a channel's ban list.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelBanRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel from which the app instance user was banned.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user that you want to reinstate.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteChannelMembershipRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a member from a channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/channels/{ChannelArn}/memberships/{MemberArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel from which you want to remove the user.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member that you're removing from the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteChannelMessageRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A \n           background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/channels/{ChannelArn}/messages/{MessageId}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelModerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DeleteChannelModeratorRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a channel moderator.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelModeratorRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChannelModeratorArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the moderator being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DeleteChannelRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel being deleted.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3761,6 +5713,639 @@
         }
       }
     },
+    "com.amazonaws.chime#DescribeAppInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of an <code>AppInstance</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceAdmin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceAdminRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceAdminResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceAdminRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceAdminArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance administrator.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceAdminResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceAdmin": {
+          "target": "com.amazonaws.chime#AppInstanceAdmin",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN and name of the app instance user, the ARN of the app instance, and the created and last-updated timestamps. All timestamps \n       use epoch milliseconds.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstance": {
+          "target": "com.amazonaws.chime#AppInstance",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN, metadata, created and last-updated timestamps, and the name of the app instance. All timestamps \n           use epoch milliseconds.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of an <code>AppInstanceUser</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instance-users/{AppInstanceUserArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUser": {
+          "target": "com.amazonaws.chime#AppInstanceUser",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the app instance user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of a channel in an Amazon Chime app instance.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelBan": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelBanRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelBanResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of a channel ban.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelBanRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel from which the user is banned.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member being banned.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelBanResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelBan": {
+          "target": "com.amazonaws.chime#ChannelBan",
+          "traits": {
+            "smithy.api#documentation": "<p>The the details of the ban.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembership": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelMembershipRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelMembershipResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of a user's channel membership.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/memberships/{MemberArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the details of a channel based on the membership of the <code>AppInstanceUser</code> specified.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}?scope=app-instance-user-membership",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel to which the user belongs.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user in a channel.</p>",
+            "smithy.api#httpQuery": "app-instance-user-arn",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelMembership": {
+          "target": "com.amazonaws.chime#ChannelMembershipForAppInstanceUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel to which a user belongs.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembershipRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MemberArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the member.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelMembershipResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelMembership": {
+          "target": "com.amazonaws.chime#ChannelMembership",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the membership.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the moderated channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user  in the moderated channel.</p>",
+            "smithy.api#httpQuery": "app-instance-user-arn",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "Channel": {
+          "target": "com.amazonaws.chime#ChannelModeratedByAppInstanceUserSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>The moderated channel.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#DescribeChannelModeratorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#DescribeChannelModeratorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the full details of a single ChannelModerator.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModeratorRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ChannelModeratorArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel moderator.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelModeratorResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelModerator": {
+          "target": "com.amazonaws.chime#ChannelModerator",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the channel moderator.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#DescribeChannelResponse": {
+      "type": "structure",
+      "members": {
+        "Channel": {
+          "target": "com.amazonaws.chime#Channel",
+          "traits": {
+            "smithy.api#documentation": "<p>The channel details.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#DisassociatePhoneNumberFromUser": {
       "type": "operation",
       "input": {
@@ -4209,7 +6794,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The client is permanently forbidden from making the request. For example, when a user\n        tries to create an account from an unsupported Region.</p>",
+        "smithy.api#documentation": "<p>The client is permanently forbidden from making the request.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -4387,6 +6972,143 @@
         }
       }
     },
+    "com.amazonaws.chime#GetAppInstanceRetentionSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#GetAppInstanceRetentionSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#GetAppInstanceRetentionSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the retention settings for an app instance.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/retention-settings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#GetAppInstanceRetentionSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetAppInstanceRetentionSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceRetentionSettings": {
+          "target": "com.amazonaws.chime#AppInstanceRetentionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention settings for the app instance.</p>"
+          }
+        },
+        "InitiateDeletionTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp representing the time at which the specified items are retained, in Epoch Seconds.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetAppInstanceStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#GetAppInstanceStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#GetAppInstanceStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the streaming settings for an app instance.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#GetAppInstanceStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance. </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetAppInstanceStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceStreamingConfigurations": {
+          "target": "com.amazonaws.chime#AppInstanceStreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming settings.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#GetAttendee": {
       "type": "operation",
       "input": {
@@ -4527,6 +7249,81 @@
           "target": "com.amazonaws.chime#Bot",
           "traits": {
             "smithy.api#documentation": "<p>The chat bot details.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetChannelMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#GetChannelMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#GetChannelMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the full details of a channel message.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/messages/{MessageId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#GetChannelMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetChannelMessageResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelMessage": {
+          "target": "com.amazonaws.chime#ChannelMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of and content in the message.</p>"
           }
         }
       }
@@ -4714,6 +7511,58 @@
           "target": "com.amazonaws.chime#Meeting",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Chime SDK meeting information.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#GetMessagingSessionEndpoint": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#GetMessagingSessionEndpointRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#GetMessagingSessionEndpointResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>The endpoint for the messaging session.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/endpoints/messaging-session",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#GetMessagingSessionEndpointRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.chime#GetMessagingSessionEndpointResponse": {
+      "type": "structure",
+      "members": {
+        "Endpoint": {
+          "target": "com.amazonaws.chime#MessagingSessionEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint returned in the response.</p>"
           }
         }
       }
@@ -5647,7 +8496,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the logging configuration details for the specified Amazon Chime Voice\n      Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch\n      Logs.</p>",
+        "smithy.api#documentation": "<p>Retrieves the logging configuration details for the specified Amazon Chime Voice\n      Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/voice-connectors/{VoiceConnectorId}/logging-configuration",
@@ -6029,6 +8878,26 @@
         "smithy.api#pattern": "[a-fA-F0-9]{8}(?:-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12}"
       }
     },
+    "com.amazonaws.chime#Identity": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN in an Identity.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name in an Identity.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The ARN and name of a user.</p>"
+      }
+    },
     "com.amazonaws.chime#Integer": {
       "type": "integer",
       "traits": {
@@ -6310,6 +9179,280 @@
         }
       }
     },
+    "com.amazonaws.chime#ListAppInstanceAdmins": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListAppInstanceAdminsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListAppInstanceAdminsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of the administrators in the app instance.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/admins",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstanceAdminsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of administrators that you want to return.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of administrators is reached.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstanceAdminsResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>"
+          }
+        },
+        "AppInstanceAdmins": {
+          "target": "com.amazonaws.chime#AppInstanceAdminList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information for each administrator.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of administrators is reached.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstanceUsers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListAppInstanceUsersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListAppInstanceUsersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>List all <code>AppInstanceUsers</code> created under a single app instance.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instance-users",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstanceUsersRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpQuery": "app-instance-arn",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of requests that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstanceUsersResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>"
+          }
+        },
+        "AppInstanceUsers": {
+          "target": "com.amazonaws.chime#AppInstanceUserList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information for each of the requested app instance users.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstances": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListAppInstancesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListAppInstancesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all Amazon Chime app instances created under a single AWS account.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstancesRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of app instances that you want to return.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API requests until you reach the maximum number of app instances.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListAppInstancesResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstances": {
+          "target": "com.amazonaws.chime#AppInstanceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information for each app instance.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API requests until the maximum number of app instances is reached.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#ListAttendeeTags": {
       "type": "operation",
       "input": {
@@ -6556,6 +9699,686 @@
           "target": "com.amazonaws.chime#String",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelBans": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelBansRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelBansResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all the users banned from a particular channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/bans",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelBansRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of bans that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested bans are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelBansResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested bans are returned.</p>"
+          }
+        },
+        "ChannelBans": {
+          "target": "com.amazonaws.chime#ChannelBanSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information for each requested ban.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMemberships": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelMembershipsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelMembershipsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all channel memberships in a channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/memberships",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the\n           API with a user ARN that is not their own.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels?scope=app-instance-user-memberships",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance users</p>",
+            "smithy.api#httpQuery": "app-instance-user-arn"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of users that you want returned. </p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channel memberships is reached.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelMemberships": {
+          "target": "com.amazonaws.chime#ChannelMembershipForAppInstanceUserSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMembershipsRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of channel memberships that you want returned.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMembershipType",
+          "traits": {
+            "smithy.api#documentation": "<p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of \n           <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> \n           equals <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>",
+            "smithy.api#httpQuery": "type"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of channel memberships that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channel memberships are returned..</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMembershipsResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "ChannelMemberships": {
+          "target": "com.amazonaws.chime#ChannelMembershipSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information for the requested channel memberships.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channel memberships are returned.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMessages": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelMessagesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelMessagesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. \n           Sorted in descending order by default, based on the creation timestamp.</p>\n         <note>\n            <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. \n           Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p>\n         </note>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/messages",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMessagesRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.chime#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The order in which you want messages sorted. Default is Descending, based on time created.</p>",
+            "smithy.api#httpQuery": "sort-order"
+          }
+        },
+        "NotBefore": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The initial or starting time stamp for your requested messages. </p>",
+            "smithy.api#httpQuery": "not-before"
+          }
+        },
+        "NotAfter": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The final or ending time stamp for your requested messages.</p>",
+            "smithy.api#httpQuery": "not-after"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of messages that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested messages are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelMessagesResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel containing the requested messages.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested messages are returned.</p>"
+          }
+        },
+        "ChannelMessages": {
+          "target": "com.amazonaws.chime#ChannelMessageSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information about and content of each requested message.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelModerators": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelModeratorsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelModeratorsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all the moderators for a channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels/{ChannelArn}/moderators",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelModeratorsRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of moderators that you want returned.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested moderators are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelModeratorsResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested moderators are returned.</p>"
+          }
+        },
+        "ChannelModerators": {
+          "target": "com.amazonaws.chime#ChannelModeratorSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information about and names of each moderator.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannels": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p>\n         <p class=\"title\">\n            <b>Functionality & restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account</p>\n            </li>\n            <li>\n               <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an \n               account.</p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>A list of the channels moderated by an app instance user.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/channels?scope=app-instance-user-moderated-channels",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the user in the moderated channel.</p>",
+            "smithy.api#httpQuery": "app-instance-user-arn"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of channels in the request.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "Channels": {
+          "target": "com.amazonaws.chime#ChannelModeratedByAppInstanceUserSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The moderated channels in the request.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpQuery": "app-instance-arn",
+            "smithy.api#required": {}
+          }
+        },
+        "Privacy": {
+          "target": "com.amazonaws.chime#ChannelPrivacy",
+          "traits": {
+            "smithy.api#documentation": "<p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code> retrieves private channels. Only \n           an app instance administrator can retrieve private channels.</p>",
+            "smithy.api#httpQuery": "privacy"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.chime#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of channels that you want to return.</p>",
+            "smithy.api#httpQuery": "max-results"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channels are returned.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#ListChannelsResponse": {
+      "type": "structure",
+      "members": {
+        "Channels": {
+          "target": "com.amazonaws.chime#ChannelSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The information about each channel.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.chime#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels is reached.</p>"
           }
         }
       }
@@ -7209,6 +11032,11 @@
           "method": "GET",
           "uri": "/sip-media-applications",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -7282,6 +11110,11 @@
           "method": "GET",
           "uri": "/sip-rules",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -7791,6 +11624,16 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.chime#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
     "com.amazonaws.chime#MediaPlacement": {
       "type": "structure",
       "members": {
@@ -8044,6 +11887,52 @@
         }
       }
     },
+    "com.amazonaws.chime#MessageId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "[-_a-zA-Z0-9]*"
+      }
+    },
+    "com.amazonaws.chime#MessagingSessionEndpoint": {
+      "type": "structure",
+      "members": {
+        "Url": {
+          "target": "com.amazonaws.chime#UrlType",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of a meeting session endpoint.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The endpoint of a meeting session.</p>"
+      }
+    },
+    "com.amazonaws.chime#Metadata": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": ".*",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chime#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": ".*",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.chime#NextTokenString": {
       "type": "string",
       "traits": {
@@ -8051,6 +11940,28 @@
           "min": 0,
           "max": 65535
         }
+      }
+    },
+    "com.amazonaws.chime#NonEmptyContent": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        },
+        "smithy.api#pattern": "[\\s\\S]*",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.chime#NonEmptyResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.chime#NonEmptyString": {
@@ -8079,6 +11990,9 @@
           "min": 1
         }
       }
+    },
+    "com.amazonaws.chime#NonNullableBoolean": {
+      "type": "boolean"
     },
     "com.amazonaws.chime#NotFoundException": {
       "type": "structure",
@@ -8870,6 +12784,160 @@
         "target": "com.amazonaws.chime#ProxySession"
       }
     },
+    "com.amazonaws.chime#PutAppInstanceRetentionSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#PutAppInstanceRetentionSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#PutAppInstanceRetentionSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the amount of time in days that a given app instance retains data.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instances/{AppInstanceArn}/retention-settings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#PutAppInstanceRetentionSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceRetentionSettings": {
+          "target": "com.amazonaws.chime#AppInstanceRetentionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The time in days to retain data. Data type: number.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#PutAppInstanceRetentionSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceRetentionSettings": {
+          "target": "com.amazonaws.chime#AppInstanceRetentionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The time in days to retain data. Data type: number.</p>"
+          }
+        },
+        "InitiateDeletionTimestamp": {
+          "target": "com.amazonaws.chime#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the API deletes data.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#PutAppInstanceStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#PutAppInstanceStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#PutAppInstanceStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>The data streaming configurations of an app instance.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#PutAppInstanceStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AppInstanceStreamingConfigurations": {
+          "target": "com.amazonaws.chime#AppInstanceStreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming configurations set for an app instance.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#PutAppInstanceStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceStreamingConfigurations": {
+          "target": "com.amazonaws.chime#AppInstanceStreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming configurations of an app instance.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#PutEventsConfiguration": {
       "type": "operation",
       "input": {
@@ -9608,6 +13676,84 @@
         }
       }
     },
+    "com.amazonaws.chime#RedactChannelMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#RedactChannelMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#RedactChannelMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state \n           shows as redacted.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels/{ChannelArn}/messages/{MessageId}?operation=redact",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#RedactChannelMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel containing the messages that you want to redact.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message being redacted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#RedactChannelMessageResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel containing the messages that you want to redact.</p>"
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the message being redacted.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#RedactConversationMessage": {
       "type": "operation",
       "input": {
@@ -9713,7 +13859,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Redacts the specified message from the specified Amazon Chime chat room.</p>",
+        "smithy.api#documentation": "<p>Redacts the specified message from the specified Amazon Chime channel.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}?operation=redact",
@@ -9930,6 +14076,17 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.chime#ResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.chime#RestorePhoneNumber": {
       "type": "operation",
       "input": {
@@ -10034,7 +14191,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat room messages and chat conversation messages.</p>"
+        "smithy.api#documentation": "<p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat room messages \n          and chat conversation messages.</p>"
       }
     },
     "com.amazonaws.chime#Room": {
@@ -10258,6 +14415,114 @@
           "target": "com.amazonaws.chime#E164PhoneNumberList",
           "traits": {
             "smithy.api#documentation": "<p>List of phone numbers, in E.164 format.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#SendChannelMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#SendChannelMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#SendChannelMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sends a message to a particular channel that the member is a part of.</p>\n       \n         <note>\n            <p>\n               <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 \n           bytes of data and no metadata.</p>\n         </note>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/channels/{ChannelArn}/messages",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.chime#SendChannelMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.chime#NonEmptyContent",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the message.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.chime#ChannelMessageType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Persistence": {
+          "target": "com.amazonaws.chime#ChannelMessagePersistenceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Boolean that controls whether the message is persisted on the back end. Required.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The optional metadata for each message. </p>"
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.chime#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>Idempotency</code> token for each client request.</p>",
+            "smithy.api#idempotencyToken": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#SendChannelMessageResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID string assigned to each message. </p>"
           }
         }
       }
@@ -10572,6 +14837,21 @@
         ]
       }
     },
+    "com.amazonaws.chime#SortOrder": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ASCENDING",
+            "name": "ASCENDING"
+          },
+          {
+            "value": "DESCENDING",
+            "name": "DESCENDING"
+          }
+        ]
+      }
+    },
     "com.amazonaws.chime#StreamingConfiguration": {
       "type": "structure",
       "members": {
@@ -10596,7 +14876,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The streaming configuration associated with an Amazon Chime Voice Connector. Specifies whether media streaming is enabled for sending to Amazon Kinesis, and shows the retention period for the Amazon Kinesis data, in hours.</p>"
+        "smithy.api#documentation": "<p>The streaming configuration associated with an Amazon Chime Voice Connector. Specifies whether media streaming is enabled for \n          sending to Amazon Kinesis, and shows the retention period for the Amazon Kinesis data, in hours.</p>"
       }
     },
     "com.amazonaws.chime#StreamingNotificationTarget": {
@@ -10994,6 +15274,9 @@
         "smithy.api#httpError": 429
       }
     },
+    "com.amazonaws.chime#Timestamp": {
+      "type": "timestamp"
+    },
     "com.amazonaws.chime#TollFreePrefix": {
       "type": "string",
       "traits": {
@@ -11045,10 +15328,31 @@
           "target": "com.amazonaws.chime#CreateAccount"
         },
         {
+          "target": "com.amazonaws.chime#CreateAppInstance"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateAppInstanceAdmin"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateAppInstanceUser"
+        },
+        {
           "target": "com.amazonaws.chime#CreateAttendee"
         },
         {
           "target": "com.amazonaws.chime#CreateBot"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateChannel"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateChannelBan"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateChannelMembership"
+        },
+        {
+          "target": "com.amazonaws.chime#CreateChannelModerator"
         },
         {
           "target": "com.amazonaws.chime#CreateMeeting"
@@ -11093,7 +15397,34 @@
           "target": "com.amazonaws.chime#DeleteAccount"
         },
         {
+          "target": "com.amazonaws.chime#DeleteAppInstance"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteAppInstanceAdmin"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteAppInstanceStreamingConfigurations"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteAppInstanceUser"
+        },
+        {
           "target": "com.amazonaws.chime#DeleteAttendee"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteChannel"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteChannelBan"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteChannelMembership"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteChannelMessage"
+        },
+        {
+          "target": "com.amazonaws.chime#DeleteChannelModerator"
         },
         {
           "target": "com.amazonaws.chime#DeleteEventsConfiguration"
@@ -11144,6 +15475,33 @@
           "target": "com.amazonaws.chime#DeleteVoiceConnectorTerminationCredentials"
         },
         {
+          "target": "com.amazonaws.chime#DescribeAppInstance"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeAppInstanceAdmin"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeAppInstanceUser"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannel"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannelBan"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannelMembership"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannelMembershipForAppInstanceUser"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannelModeratedByAppInstanceUser"
+        },
+        {
+          "target": "com.amazonaws.chime#DescribeChannelModerator"
+        },
+        {
           "target": "com.amazonaws.chime#DisassociatePhoneNumberFromUser"
         },
         {
@@ -11162,10 +15520,19 @@
           "target": "com.amazonaws.chime#GetAccountSettings"
         },
         {
+          "target": "com.amazonaws.chime#GetAppInstanceRetentionSettings"
+        },
+        {
+          "target": "com.amazonaws.chime#GetAppInstanceStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chime#GetAttendee"
         },
         {
           "target": "com.amazonaws.chime#GetBot"
+        },
+        {
+          "target": "com.amazonaws.chime#GetChannelMessage"
         },
         {
           "target": "com.amazonaws.chime#GetEventsConfiguration"
@@ -11175,6 +15542,9 @@
         },
         {
           "target": "com.amazonaws.chime#GetMeeting"
+        },
+        {
+          "target": "com.amazonaws.chime#GetMessagingSessionEndpoint"
         },
         {
           "target": "com.amazonaws.chime#GetPhoneNumber"
@@ -11243,6 +15613,15 @@
           "target": "com.amazonaws.chime#ListAccounts"
         },
         {
+          "target": "com.amazonaws.chime#ListAppInstanceAdmins"
+        },
+        {
+          "target": "com.amazonaws.chime#ListAppInstances"
+        },
+        {
+          "target": "com.amazonaws.chime#ListAppInstanceUsers"
+        },
+        {
           "target": "com.amazonaws.chime#ListAttendees"
         },
         {
@@ -11250,6 +15629,27 @@
         },
         {
           "target": "com.amazonaws.chime#ListBots"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelBans"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelMemberships"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelMembershipsForAppInstanceUser"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelMessages"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelModerators"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannels"
+        },
+        {
+          "target": "com.amazonaws.chime#ListChannelsModeratedByAppInstanceUser"
         },
         {
           "target": "com.amazonaws.chime#ListMeetings"
@@ -11297,6 +15697,12 @@
           "target": "com.amazonaws.chime#LogoutUser"
         },
         {
+          "target": "com.amazonaws.chime#PutAppInstanceRetentionSettings"
+        },
+        {
+          "target": "com.amazonaws.chime#PutAppInstanceStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chime#PutEventsConfiguration"
         },
         {
@@ -11327,6 +15733,9 @@
           "target": "com.amazonaws.chime#PutVoiceConnectorTerminationCredentials"
         },
         {
+          "target": "com.amazonaws.chime#RedactChannelMessage"
+        },
+        {
           "target": "com.amazonaws.chime#RedactConversationMessage"
         },
         {
@@ -11343,6 +15752,9 @@
         },
         {
           "target": "com.amazonaws.chime#SearchAvailablePhoneNumbers"
+        },
+        {
+          "target": "com.amazonaws.chime#SendChannelMessage"
         },
         {
           "target": "com.amazonaws.chime#TagAttendee"
@@ -11369,7 +15781,22 @@
           "target": "com.amazonaws.chime#UpdateAccountSettings"
         },
         {
+          "target": "com.amazonaws.chime#UpdateAppInstance"
+        },
+        {
+          "target": "com.amazonaws.chime#UpdateAppInstanceUser"
+        },
+        {
           "target": "com.amazonaws.chime#UpdateBot"
+        },
+        {
+          "target": "com.amazonaws.chime#UpdateChannel"
+        },
+        {
+          "target": "com.amazonaws.chime#UpdateChannelMessage"
+        },
+        {
+          "target": "com.amazonaws.chime#UpdateChannelReadMarker"
         },
         {
           "target": "com.amazonaws.chime#UpdateGlobalSettings"
@@ -11419,7 +15846,7 @@
           "name": "chime"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>The Amazon Chime API (application programming interface) is designed for developers to\n      perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice\n      Connectors. This guide provides detailed information about the Amazon Chime API, including\n      operations, types, inputs and outputs, and error codes. It also includes some server-side API\n      actions to use with the Amazon Chime SDK. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the\n        <i>Amazon Chime Developer Guide</i>.</p>\n         <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to\n      make API calls. We recommend using an AWS SDK or the AWS CLI. Each API operation includes\n      links to information about using it with a language-specific AWS SDK or the AWS CLI.</p>\n         <dl>\n            <dt>Using an AWS SDK</dt>\n            <dd>\n               <p>You don't need to write code to calculate a signature for request\n            authentication. The SDK clients authenticate your requests by using access keys that you\n            provide. For more information about AWS SDKs, see the <a href=\"http://aws.amazon.com/developer/\">AWS Developer Center</a>.</p>\n            </dd>\n            <dt>Using the AWS CLI</dt>\n            <dd>\n               <p>Use your access keys with the AWS CLI to make API calls. For information about\n            setting up the AWS CLI, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/installing.html\">Installing the AWS Command Line\n              Interface</a> in the <i>AWS Command Line Interface User Guide</i>.\n            For a list of available Amazon Chime commands, see the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/chime/index.html\">Amazon Chime commands</a> in the\n              <i>AWS CLI Command Reference</i>.</p>\n            </dd>\n            <dt>Using REST API</dt>\n            <dd>\n               <p>If you use REST to make API calls, you must authenticate your request by providing\n            a signature. Amazon Chime supports Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature\n              Version 4 Signing Process</a> in the <i>Amazon Web Services General\n              Reference</i>.</p>\n               <p>When making REST API calls, use the service name <code>chime</code> and REST\n            endpoint <code>https://service.chime.aws.amazon.com</code>.</p>\n            </dd>\n         </dl>\n\n         <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/security-iam.html\">Identity and Access Management for Amazon Chime</a> in the\n       <i>Amazon Chime Administration Guide</i>.</p>",
+        "smithy.api#documentation": "<p>The Amazon Chime API (application programming interface) is designed for developers to\n      perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice\n      Connectors. This guide provides detailed information about the Amazon Chime API, including\n      operations, types, inputs and outputs, and error codes. It also includes some server-side API\n      actions to use with the Amazon Chime SDK. For more information about the Amazon Chime SDK, see <a href=\"https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html\">Using the Amazon Chime SDK</a> in the\n        <i>Amazon Chime Developer Guide</i>.</p>\n         <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to\n      make API calls. We recommend using an AWS SDK or the AWS CLI. Each API operation includes\n      links to information about using it with a language-specific AWS SDK or the AWS CLI.</p>\n         <dl>\n            <dt>Using an AWS SDK</dt>\n            <dd>\n               <p>You don't need to write code to calculate a signature for request\n            authentication. The SDK clients authenticate your requests by using access keys that you\n            provide. For more information about AWS SDKs, see the <a href=\"http://aws.amazon.com/developer/\">AWS Developer Center</a>.</p>\n            </dd>\n            <dt>Using the AWS CLI</dt>\n            <dd>\n               <p>Use your access keys with the AWS CLI to make API calls. For information about\n            setting up the AWS CLI, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/installing.html\">Installing the AWS Command Line\n              Interface</a> in the <i>AWS Command Line Interface User Guide</i>.\n            For a list of available Amazon Chime commands, see the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/chime/index.html\">Amazon Chime commands</a> in the\n              <i>AWS CLI Command Reference</i>.</p>\n\n\n            </dd>\n            <dt>Using REST</dt>\n            <dd>\n               <p>If you use REST to make API calls, you must authenticate your request by providing\n            a signature. Amazon Chime supports Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature\n              Version 4 Signing Process</a> in the <i>Amazon Web Services General\n              Reference</i>.</p>\n               <p>When making REST API calls, use the service name <code>chime</code> and REST\n            endpoint <code>https://service.chime.aws.amazon.com</code>.</p>\n            </dd>\n         </dl>\n\n         <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see <a href=\"https://docs.aws.amazon.com/chime/latest/ag/security-iam.html\">Identity and Access Management for Amazon Chime</a> in the\n       <i>Amazon Chime Administration Guide</i>.</p>",
         "smithy.api#title": "Amazon Chime"
       }
     },
@@ -11764,6 +16191,166 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.chime#UpdateAppInstance": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#UpdateAppInstanceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#UpdateAppInstanceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates <code>AppInstance</code> metadata.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instances/{AppInstanceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateAppInstanceRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name that you want to change.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata that you want to change.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateAppInstanceResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateAppInstanceUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#UpdateAppInstanceUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#UpdateAppInstanceUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the details for an <code>AppInstanceUser</code>. You can update names and metadata.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "identity-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instance-users/{AppInstanceUserArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateAppInstanceUserRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#UserName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the app instance user.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the app instance user.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateAppInstanceUserResponse": {
+      "type": "structure",
+      "members": {
+        "AppInstanceUserArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the app instance user.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.chime#UpdateBot": {
       "type": "operation",
       "input": {
@@ -11838,6 +16425,253 @@
           "target": "com.amazonaws.chime#Bot",
           "traits": {
             "smithy.api#documentation": "<p>The updated bot details.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#UpdateChannelRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#UpdateChannelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update a channel's attributes.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's privacy.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/channels/{ChannelArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#UpdateChannelMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#UpdateChannelMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the content of a message.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/channels/{ChannelArn}/messages/{MessageId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelMessageRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID string of the message being updated.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.chime#Content",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the message being updated.</p>"
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the message being updated.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelMessageResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        },
+        "MessageId": {
+          "target": "com.amazonaws.chime#MessageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID string of the message being updated.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelReadMarker": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chime#UpdateChannelReadMarkerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chime#UpdateChannelReadMarkerResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chime#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chime#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chime#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chime#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chime#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chime#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the timestamp to the point when a user last read messages in a channel.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "messaging-"
+        },
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/channels/{ChannelArn}/readMarker",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelReadMarkerRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelReadMarkerResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.chime#NonEmptyResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.chime#ChannelMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The mode of the update request.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Metadata": {
+          "target": "com.amazonaws.chime#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the channel.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.chime#UpdateChannelResponse": {
+      "type": "structure",
+      "members": {
+        "ChannelArn": {
+          "target": "com.amazonaws.chime#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
       }
@@ -12835,6 +17669,15 @@
         }
       }
     },
+    "com.amazonaws.chime#UrlType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4096
+        }
+      }
+    },
     "com.amazonaws.chime#User": {
       "type": "structure",
       "members": {
@@ -12966,6 +17809,17 @@
         "target": "com.amazonaws.chime#UserError"
       }
     },
+    "com.amazonaws.chime#UserId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        },
+        "smithy.api#pattern": "[A-Za-z0-9][A-Za-z0-9\\:\\-\\_\\.\\@]{3,50}[A-Za-z0-9]",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.chime#UserIdList": {
       "type": "list",
       "member": {
@@ -12982,6 +17836,17 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.chime#User"
+      }
+    },
+    "com.amazonaws.chime#UserName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": ".*\\S.*",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.chime#UserSettings": {
