@@ -82,6 +82,13 @@ export const createPresignedPost = async (
 
   const endpoint = await client.config.endpoint();
   if (!client.config.bucketEndpoint) {
+    if (endpoint.path) {
+      // Path-style URLs are in use
+      endpoint.path = endpoint.path.slice(`${endpoint.path}/`.indexOf("/", 1));
+    } else {
+      // Virtual hosted style URLs are in use
+      endpoint.hostname = endpoint.hostname.slice(endpoint.hostname.indexOf(".") + 1);
+    }
     endpoint.hostname = `${Bucket}.${endpoint.hostname}`;
   }
 
