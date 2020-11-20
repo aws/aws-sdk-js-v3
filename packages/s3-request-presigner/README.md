@@ -86,7 +86,7 @@ If your request contains server-side encryption(`x-amz-server-side-encryption*`)
 headers, because of S3 limitation, you need to send these headers along
 with the presigned url. That is to say, the url only from calling `formatUrl()`
 to `presigned` is not sufficient to make a request. You need to send the
-server-side encryption headers along with url. These headers remain in the
+server-side encryption headers along with the url. These headers remain in the
 `presigned.headers`
 
 For more information, please go to [S3 SSE reference](https://docs.aws.amazon.com/AmazonS3/latest/dev/KMSUsingRESTAPI.html)

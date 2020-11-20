@@ -95,11 +95,16 @@ describe("s3 presigner", () => {
       headers: {
         ...minimalRequest.headers,
         "x-amz-server-side-encryption": "kms",
+        "x-amz-server-side-encryption-customer-algorithm": "AES256",
       },
     });
     expect(signed.headers).toMatchObject({
       "x-amz-server-side-encryption": "kms",
     });
-    expect(signed.query?.["X-Amz-SignedHeaders"]).toEqual(expect.stringContaining("x-amz-server-side-encryption"));
+    const signedHeadersHeader = signed.query?.["X-Amz-SignedHeaders"];
+    const signedHeaders =
+      typeof signedHeadersHeader === "string" ? signedHeadersHeader.split(";") : signedHeadersHeader;
+    expect(signedHeaders).toContain("x-amz-server-side-encryption");
+    expect(signedHeaders).toContain("x-amz-server-side-encryption-customer-algorithm");
   });
 });
