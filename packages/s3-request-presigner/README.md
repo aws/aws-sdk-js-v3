@@ -42,13 +42,13 @@ section bellow.
 JavaScript Example:
 
 ```javascript
-const S3Presigner = require("@aws-sdk/s3-request-presigner").S3RequestPresigner;
-const Sha256 = require("@aws-crypto/sha256-browser").Sha256;
-const Hash = require("@aws-sdk/hash-node").Hash;
-const signer = new S3Presigner({
+const { S3RequestPresigner } = require("@aws-sdk/s3-request-presigner");
+const { Sha256 } = require("@aws-crypto/sha256-browser");
+const { Hash } = require("@aws-sdk/hash-node");
+const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: Hash.bind(null, "sha256"), // In Nodejs
+  sha256: Hash.bind(null, "sha256"), // In Node.js
   //sha256: Sha256 // In browsers
 });
 const url = await signer.presign(request);
@@ -63,7 +63,7 @@ import { Hash } from "@aws-sdk/hash-node";
 const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,
-  sha256: Hash.bind(null, "sha256"), // In Nodejs
+  sha256: Hash.bind(null, "sha256"), // In Node.js
   //sha256: Sha256 // In browsers
 });
 const url = await signer.presign(request);
