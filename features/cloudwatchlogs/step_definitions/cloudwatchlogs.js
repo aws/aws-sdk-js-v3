@@ -13,7 +13,7 @@ Given("I create a CloudWatch logGroup with prefix {string}", function (prefix, c
 });
 
 Given("I list the CloudWatch logGroups", function (callback) {
-  this.request(null, "describeLogGroups", {}, callback);
+  this.request(null, "describeLogGroups", { logGroupNamePrefix: this.logGroupName }, callback);
 });
 
 Then("the list should contain the CloudWatch logGroup", function (callback) {
