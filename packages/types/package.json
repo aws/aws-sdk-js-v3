@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.7",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",

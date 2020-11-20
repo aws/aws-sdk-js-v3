@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-node",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0-rc.7",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,12 +18,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "1.0.0-rc.5",
-    "@aws-sdk/eventstream-serde-universal": "1.0.0-rc.5",
+    "@aws-sdk/eventstream-marshaller": "1.0.0-rc.7",
+    "@aws-sdk/eventstream-serde-universal": "1.0.0-rc.7",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "1.0.0-rc.3",
+    "@aws-sdk/types": "1.0.0-rc.7",
     "@aws-sdk/util-utf8-node": "1.0.0-rc.3",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
