@@ -24,6 +24,18 @@ import {
 export type DetectEntitiesV2CommandInput = DetectEntitiesV2Request;
 export type DetectEntitiesV2CommandOutput = DetectEntitiesV2Response & __MetadataBearer;
 
+/**
+ * <p>Inspects the clinical text for a variety of medical entities and returns specific
+ *       information about them such as entity category, location, and confidence score on that
+ *       information. Amazon Comprehend Medical only detects medical entities in English language
+ *       texts.</p>
+ *          <p>The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a>
+ *       operation. This new action uses a different model for determining the entities in your medical
+ *       text and changes the way that some entities are returned in the output. You should use the
+ *         <code>DetectEntitiesV2</code> operation in all new applications.</p>
+ *          <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and
+ *         <code>Direction</code> entities as attributes instead of types. </p>
+ */
 export class DetectEntitiesV2Command extends $Command<
   DetectEntitiesV2CommandInput,
   DetectEntitiesV2CommandOutput,
@@ -38,6 +50,9 @@ export class DetectEntitiesV2Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

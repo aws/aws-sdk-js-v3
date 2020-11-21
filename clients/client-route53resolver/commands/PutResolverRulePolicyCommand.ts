@@ -20,6 +20,10 @@ import {
 export type PutResolverRulePolicyCommandInput = PutResolverRulePolicyRequest;
 export type PutResolverRulePolicyCommandOutput = PutResolverRulePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Specifies an AWS account that you want to share rules with, the Resolver rules that you want to share, and the operations that you want
+ * 			the account to be able to perform on those rules.</p>
+ */
 export class PutResolverRulePolicyCommand extends $Command<
   PutResolverRulePolicyCommandInput,
   PutResolverRulePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class PutResolverRulePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

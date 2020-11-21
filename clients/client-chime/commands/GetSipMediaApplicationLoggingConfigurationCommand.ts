@@ -24,6 +24,9 @@ export type GetSipMediaApplicationLoggingConfigurationCommandInput = GetSipMedia
 export type GetSipMediaApplicationLoggingConfigurationCommandOutput = GetSipMediaApplicationLoggingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the logging configuration for the specified SIP media application.</p>
+ */
 export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
   GetSipMediaApplicationLoggingConfigurationCommandInput,
   GetSipMediaApplicationLoggingConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

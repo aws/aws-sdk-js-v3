@@ -20,6 +20,10 @@ import {
 export type UpdateLinkCommandInput = UpdateLinkRequest;
 export type UpdateLinkCommandOutput = UpdateLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details for an existing link. To remove information for any of the
+ *             parameters, specify an empty string.</p>
+ */
 export class UpdateLinkCommand extends $Command<
   UpdateLinkCommandInput,
   UpdateLinkCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

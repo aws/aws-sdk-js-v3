@@ -20,6 +20,12 @@ import {
 export type CreateDefaultSubnetCommandInput = CreateDefaultSubnetRequest;
 export type CreateDefaultSubnetCommandOutput = CreateDefaultSubnetResult & __MetadataBearer;
 
+/**
+ * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
+ *             specified Availability Zone in your default VPC. You can have only one default subnet
+ *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a Default
+ *                 Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateDefaultSubnetCommand extends $Command<
   CreateDefaultSubnetCommandInput,
   CreateDefaultSubnetCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDefaultSubnetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetCanaryRunsCommandInput = GetCanaryRunsRequest;
 export type GetCanaryRunsCommandOutput = GetCanaryRunsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of runs for a specified canary.</p>
+ */
 export class GetCanaryRunsCommand extends $Command<
   GetCanaryRunsCommandInput,
   GetCanaryRunsCommandOutput,
@@ -34,6 +37,9 @@ export class GetCanaryRunsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

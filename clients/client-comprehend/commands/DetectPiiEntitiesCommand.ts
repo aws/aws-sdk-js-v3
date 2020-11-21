@@ -20,6 +20,10 @@ import {
 export type DetectPiiEntitiesCommandInput = DetectPiiEntitiesRequest;
 export type DetectPiiEntitiesCommandOutput = DetectPiiEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects the input text for entities that contain personally identifiable information
+ *       (PII) and returns information about them.</p>
+ */
 export class DetectPiiEntitiesCommand extends $Command<
   DetectPiiEntitiesCommandInput,
   DetectPiiEntitiesCommandOutput,
@@ -34,6 +38,9 @@ export class DetectPiiEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeSentimentDetectionJobCommandInput = DescribeSentimentDetectionJobRequest;
 export type DescribeSentimentDetectionJobCommandOutput = DescribeSentimentDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
+ *       the status of a detection job.</p>
+ */
 export class DescribeSentimentDetectionJobCommand extends $Command<
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetRelationalDatabaseLogEventsCommandInput = GetRelationalDatabaseLogEventsRequest;
 export type GetRelationalDatabaseLogEventsCommandOutput = GetRelationalDatabaseLogEventsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of log events for a database in Amazon Lightsail.</p>
+ */
 export class GetRelationalDatabaseLogEventsCommand extends $Command<
   GetRelationalDatabaseLogEventsCommandInput,
   GetRelationalDatabaseLogEventsCommandOutput,
@@ -34,6 +37,9 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

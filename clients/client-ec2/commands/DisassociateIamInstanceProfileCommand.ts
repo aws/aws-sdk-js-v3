@@ -20,6 +20,11 @@ import {
 export type DisassociateIamInstanceProfileCommandInput = DisassociateIamInstanceProfileRequest;
 export type DisassociateIamInstanceProfileCommandOutput = DisassociateIamInstanceProfileResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
+ *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+ *             ID.</p>
+ */
 export class DisassociateIamInstanceProfileCommand extends $Command<
   DisassociateIamInstanceProfileCommandInput,
   DisassociateIamInstanceProfileCommandOutput,
@@ -34,6 +39,9 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

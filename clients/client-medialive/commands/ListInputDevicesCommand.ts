@@ -20,6 +20,9 @@ import {
 export type ListInputDevicesCommandInput = ListInputDevicesRequest;
 export type ListInputDevicesCommandOutput = ListInputDevicesResponse & __MetadataBearer;
 
+/**
+ * List input devices
+ */
 export class ListInputDevicesCommand extends $Command<
   ListInputDevicesCommandInput,
   ListInputDevicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListInputDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

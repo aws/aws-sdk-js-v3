@@ -20,6 +20,9 @@ import {
 export type DeleteMultiplexCommandInput = DeleteMultiplexRequest;
 export type DeleteMultiplexCommandOutput = DeleteMultiplexResponse & __MetadataBearer;
 
+/**
+ * Delete a multiplex. The multiplex must be idle.
+ */
 export class DeleteMultiplexCommand extends $Command<
   DeleteMultiplexCommandInput,
   DeleteMultiplexCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMultiplexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

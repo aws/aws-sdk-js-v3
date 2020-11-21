@@ -17,6 +17,10 @@ import {
 export type CreateStackCommandInput = CreateStackInput;
 export type CreateStackCommandOutput = CreateStackOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a stack as specified in the template. After the call completes successfully,
+ *          the stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a> API.</p>
+ */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,
   CreateStackCommandOutput,
@@ -31,6 +35,9 @@ export class CreateStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

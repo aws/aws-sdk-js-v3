@@ -20,6 +20,14 @@ import {
 export type DeleteBatchPredictionCommandInput = DeleteBatchPredictionInput;
 export type DeleteBatchPredictionCommandOutput = DeleteBatchPredictionOutput & __MetadataBearer;
 
+/**
+ * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
+ *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
+ *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
+ *
+ *         <p>
+ *             <b>Caution:</b> The result of the <code>DeleteBatchPrediction</code> operation is irreversible.</p>
+ */
 export class DeleteBatchPredictionCommand extends $Command<
   DeleteBatchPredictionCommandInput,
   DeleteBatchPredictionCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteBatchPredictionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

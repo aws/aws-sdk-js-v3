@@ -17,6 +17,11 @@ import {
 export type GetHITCommandInput = GetHITRequest;
 export type GetHITCommandOutput = GetHITResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
+ *         </p>
+ */
 export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +32,9 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

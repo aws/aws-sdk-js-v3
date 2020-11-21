@@ -20,6 +20,26 @@ import {
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
 export type StopDBInstanceCommandOutput = StopDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
+ *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
+ *             necessary.
+ *         </p>
+ *
+ *         <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
+ *                 Stopping an Amazon RDS DB Instance Temporarily</a> in the
+ *             <i>Amazon RDS User Guide.</i>
+ *          </p>
+ *
+ *         <note>
+ *             <p>
+ *             This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+ *             For Aurora clusters, use <code>StopDBCluster</code> instead.
+ *           </p>
+ *         </note>
+ */
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,
   StopDBInstanceCommandOutput,
@@ -34,6 +54,9 @@ export class StopDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

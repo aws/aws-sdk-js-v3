@@ -20,6 +20,10 @@ import {
 export type UpdateDataSetPermissionsCommandInput = UpdateDataSetPermissionsRequest;
 export type UpdateDataSetPermissionsCommandOutput = UpdateDataSetPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the permissions on a dataset.</p>
+ * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ */
 export class UpdateDataSetPermissionsCommand extends $Command<
   UpdateDataSetPermissionsCommandInput,
   UpdateDataSetPermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

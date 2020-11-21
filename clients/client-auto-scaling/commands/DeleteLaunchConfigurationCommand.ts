@@ -20,6 +20,11 @@ import {
 export type DeleteLaunchConfigurationCommandInput = LaunchConfigurationNameType;
 export type DeleteLaunchConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified launch configuration.</p>
+ *         <p>The launch configuration must not be attached to an Auto Scaling group. When this call
+ *             completes, the launch configuration is no longer available for use.</p>
+ */
 export class DeleteLaunchConfigurationCommand extends $Command<
   DeleteLaunchConfigurationCommandInput,
   DeleteLaunchConfigurationCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
   input: ListGatewaysCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGatewaysCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: StorageGateway,
   input: ListGatewaysCommandInput,

@@ -20,6 +20,9 @@ import {
 export type CreateTopicRuleDestinationCommandInput = CreateTopicRuleDestinationRequest;
 export type CreateTopicRuleDestinationCommandOutput = CreateTopicRuleDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
+ */
 export class CreateTopicRuleDestinationCommand extends $Command<
   CreateTopicRuleDestinationCommandInput,
   CreateTopicRuleDestinationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

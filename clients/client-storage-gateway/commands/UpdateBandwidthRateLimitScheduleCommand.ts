@@ -20,6 +20,14 @@ import {
 export type UpdateBandwidthRateLimitScheduleCommandInput = UpdateBandwidthRateLimitScheduleInput;
 export type UpdateBandwidthRateLimitScheduleCommandOutput = UpdateBandwidthRateLimitScheduleOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *          Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways do
+ *          not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect.
+ *          Use this to initiate or update a gateway's bandwidth rate limit schedule.
+ *          This operation is supported in the volume and tape gateway types.
+ *       </p>
+ */
 export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
   UpdateBandwidthRateLimitScheduleCommandInput,
   UpdateBandwidthRateLimitScheduleCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

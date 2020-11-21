@@ -20,6 +20,12 @@ import {
 export type DescribeActivityCommandInput = DescribeActivityInput;
 export type DescribeActivityCommandOutput = DescribeActivityOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an activity.</p>
+ *          <note>
+ *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
+ *          </note>
+ */
 export class DescribeActivityCommand extends $Command<
   DescribeActivityCommandInput,
   DescribeActivityCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeActivityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

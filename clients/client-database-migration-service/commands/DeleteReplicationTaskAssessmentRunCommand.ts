@@ -28,6 +28,12 @@ export type DeleteReplicationTaskAssessmentRunCommandInput = DeleteReplicationTa
 export type DeleteReplicationTaskAssessmentRunCommandOutput = DeleteReplicationTaskAssessmentRunResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the record of a single premigration assessment run.</p>
+ *          <p>This operation removes all metadata that AWS DMS maintains about this assessment run.
+ *          However, the operation leaves untouched all information about this assessment run that is
+ *          stored in your Amazon S3 bucket.</p>
+ */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
   DeleteReplicationTaskAssessmentRunCommandInput,
   DeleteReplicationTaskAssessmentRunCommandOutput,
@@ -42,6 +48,9 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

@@ -24,6 +24,9 @@ export type CreateStreamingDistributionWithTagsCommandInput = CreateStreamingDis
 export type CreateStreamingDistributionWithTagsCommandOutput = CreateStreamingDistributionWithTagsResult &
   __MetadataBearer;
 
+/**
+ * <p>Create a new streaming distribution with tags.</p>
+ */
 export class CreateStreamingDistributionWithTagsCommand extends $Command<
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
@@ -38,6 +41,9 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

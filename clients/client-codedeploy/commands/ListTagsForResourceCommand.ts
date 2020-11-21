@@ -20,6 +20,10 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
+ *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

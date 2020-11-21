@@ -20,6 +20,9 @@ import {
 export type GetObjectCommandInput = GetObjectRequest;
 export type GetObjectCommandOutput = GetObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Downloads the object at the specified path.</p>
+ */
 export class GetObjectCommand extends $Command<
   GetObjectCommandInput,
   GetObjectCommandOutput,
@@ -34,6 +37,9 @@ export class GetObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreDataClientResolvedConfig,

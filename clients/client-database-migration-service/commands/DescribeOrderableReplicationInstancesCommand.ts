@@ -28,6 +28,10 @@ export type DescribeOrderableReplicationInstancesCommandInput = DescribeOrderabl
 export type DescribeOrderableReplicationInstancesCommandOutput = DescribeOrderableReplicationInstancesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns information about the replication instance types that can be created in the
+ *          specified region.</p>
+ */
 export class DescribeOrderableReplicationInstancesCommand extends $Command<
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
@@ -42,6 +46,9 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

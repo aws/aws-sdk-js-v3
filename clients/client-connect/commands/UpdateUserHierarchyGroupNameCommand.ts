@@ -20,6 +20,9 @@ import {
 export type UpdateUserHierarchyGroupNameCommandInput = UpdateUserHierarchyGroupNameRequest;
 export type UpdateUserHierarchyGroupNameCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the name of the user hierarchy group. </p>
+ */
 export class UpdateUserHierarchyGroupNameCommand extends $Command<
   UpdateUserHierarchyGroupNameCommandInput,
   UpdateUserHierarchyGroupNameCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeGroupCommandInput = DescribeGroupRequest;
 export type DescribeGroupCommandOutput = DescribeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the data available for the group.</p>
+ */
 export class DescribeGroupCommand extends $Command<
   DescribeGroupCommandInput,
   DescribeGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

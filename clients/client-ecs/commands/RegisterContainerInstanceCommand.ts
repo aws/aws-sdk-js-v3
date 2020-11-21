@@ -20,6 +20,14 @@ import {
 export type RegisterContainerInstanceCommandInput = RegisterContainerInstanceRequest;
 export type RegisterContainerInstanceCommandOutput = RegisterContainerInstanceResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *          </note>
+ *          <p>Registers an EC2
+ * 			instance into the specified cluster. This instance becomes available to place containers
+ * 			on.</p>
+ */
 export class RegisterContainerInstanceCommand extends $Command<
   RegisterContainerInstanceCommandInput,
   RegisterContainerInstanceCommandOutput,
@@ -34,6 +42,9 @@ export class RegisterContainerInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

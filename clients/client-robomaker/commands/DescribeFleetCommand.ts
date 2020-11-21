@@ -20,6 +20,9 @@ import {
 export type DescribeFleetCommandInput = DescribeFleetRequest;
 export type DescribeFleetCommandOutput = DescribeFleetResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a fleet.</p>
+ */
 export class DescribeFleetCommand extends $Command<
   DescribeFleetCommandInput,
   DescribeFleetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

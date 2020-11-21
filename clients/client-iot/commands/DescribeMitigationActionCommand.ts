@@ -20,6 +20,9 @@ import {
 export type DescribeMitigationActionCommandInput = DescribeMitigationActionRequest;
 export type DescribeMitigationActionCommandOutput = DescribeMitigationActionResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a mitigation action.</p>
+ */
 export class DescribeMitigationActionCommand extends $Command<
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMitigationActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

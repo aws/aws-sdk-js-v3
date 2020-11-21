@@ -20,6 +20,9 @@ import {
 export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaintenanceActionsMessage;
 export type DescribePendingMaintenanceActionsCommandOutput = PendingMaintenanceActionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
+ */
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,
   DescribePendingMaintenanceActionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

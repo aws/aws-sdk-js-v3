@@ -20,6 +20,9 @@ import {
 export type DisableAddOnCommandInput = DisableAddOnRequest;
 export type DisableAddOnCommandOutput = DisableAddOnResult & __MetadataBearer;
 
+/**
+ * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+ */
 export class DisableAddOnCommand extends $Command<
   DisableAddOnCommandInput,
   DisableAddOnCommandOutput,
@@ -34,6 +37,9 @@ export class DisableAddOnCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

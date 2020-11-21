@@ -20,6 +20,11 @@ import {
 export type DescribeEventTrackerCommandInput = DescribeEventTrackerRequest;
 export type DescribeEventTrackerCommandOutput = DescribeEventTrackerResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
+ *       <code>status</code> of the event tracker.
+ *       For more information on event trackers, see <a>CreateEventTracker</a>.</p>
+ */
 export class DescribeEventTrackerCommand extends $Command<
   DescribeEventTrackerCommandInput,
   DescribeEventTrackerCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeEventTrackerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

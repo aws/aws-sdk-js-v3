@@ -20,6 +20,9 @@ import {
 export type ListRevisionAssetsCommandInput = ListRevisionAssetsRequest;
 export type ListRevisionAssetsCommandOutput = ListRevisionAssetsResponse & __MetadataBearer;
 
+/**
+ * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+ */
 export class ListRevisionAssetsCommand extends $Command<
   ListRevisionAssetsCommandInput,
   ListRevisionAssetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListRevisionAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteSchemaCommandInput = DeleteSchemaRequest;
 export type DeleteSchemaCommandOutput = DeleteSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a given schema. Schemas in a development and published state can only be deleted. </p>
+ */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

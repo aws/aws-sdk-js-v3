@@ -20,6 +20,43 @@ import {
 export type DescribeVpcPeeringAuthorizationsCommandInput = DescribeVpcPeeringAuthorizationsInput;
 export type DescribeVpcPeeringAuthorizationsCommandOutput = DescribeVpcPeeringAuthorizationsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves valid VPC peering authorizations that are pending for the AWS account.
+ *             This operation returns all VPC peering authorizations and requests for peering. This
+ *             includes those initiated and received by this account. </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringAuthorizations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringConnections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
   DescribeVpcPeeringAuthorizationsCommandInput,
   DescribeVpcPeeringAuthorizationsCommandOutput,
@@ -34,6 +71,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

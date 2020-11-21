@@ -20,6 +20,11 @@ import {
 export type GetBackupPlanCommandInput = GetBackupPlanInput;
 export type GetBackupPlanCommandOutput = GetBackupPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
+ *          Returns the body of a
+ *          backup plan in JSON format, in addition to plan metadata.</p>
+ */
 export class GetBackupPlanCommand extends $Command<
   GetBackupPlanCommandInput,
   GetBackupPlanCommandOutput,
@@ -34,6 +39,9 @@ export class GetBackupPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

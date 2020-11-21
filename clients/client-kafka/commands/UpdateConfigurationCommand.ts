@@ -20,6 +20,9 @@ import {
 export type UpdateConfigurationCommandInput = UpdateConfigurationRequest;
 export type UpdateConfigurationCommandOutput = UpdateConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an MSK configuration.</p>
+ */
 export class UpdateConfigurationCommand extends $Command<
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

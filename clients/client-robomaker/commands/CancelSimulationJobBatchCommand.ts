@@ -20,6 +20,12 @@ import {
 export type CancelSimulationJobBatchCommandInput = CancelSimulationJobBatchRequest;
 export type CancelSimulationJobBatchCommandOutput = CancelSimulationJobBatchResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a simulation job batch. When you cancel a simulation job batch,
+ *       you are also cancelling all of the active simulation jobs created as part of
+ *       the batch.
+ *       </p>
+ */
 export class CancelSimulationJobBatchCommand extends $Command<
   CancelSimulationJobBatchCommandInput,
   CancelSimulationJobBatchCommandOutput,
@@ -34,6 +40,9 @@ export class CancelSimulationJobBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

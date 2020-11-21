@@ -20,6 +20,9 @@ import {
 export type GetMemberCommandInput = GetMemberRequest;
 export type GetMemberCommandOutput = GetMemberResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a member account that's associated with an Amazon Macie master account.</p>
+ */
 export class GetMemberCommand extends $Command<
   GetMemberCommandInput,
   GetMemberCommandOutput,
@@ -34,6 +37,9 @@ export class GetMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

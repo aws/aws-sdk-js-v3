@@ -24,6 +24,10 @@ export type GetDeployablePatchSnapshotForInstanceCommandInput = GetDeployablePat
 export type GetDeployablePatchSnapshotForInstanceCommandOutput = GetDeployablePatchSnapshotForInstanceResult &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is
+ *    primarily used by the AWS-RunPatchBaseline Systems Manager document. </p>
+ */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   GetDeployablePatchSnapshotForInstanceCommandInput,
   GetDeployablePatchSnapshotForInstanceCommandOutput,
@@ -38,6 +42,9 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

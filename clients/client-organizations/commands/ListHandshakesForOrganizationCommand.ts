@@ -20,6 +20,25 @@ import {
 export type ListHandshakesForOrganizationCommandInput = ListHandshakesForOrganizationRequest;
 export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the handshakes that are associated with the organization that the requesting
+ *             user is part of. The <code>ListHandshakesForOrganization</code> operation returns a list
+ *             of handshake structures. Each structure contains details and status about a
+ *             handshake.</p>
+ *         <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
+ *                 <code>CANCELED</code> appear in the results of this API for only 30 days after
+ *             changing to that state. After that, they're deleted and no longer accessible.</p>
+ *         <note>
+ *             <p>Always check the <code>NextToken</code> response parameter
+ * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
+ * occasionally return an empty set of results even when there are more results available. The
+ * <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
+ *          <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class ListHandshakesForOrganizationCommand extends $Command<
   ListHandshakesForOrganizationCommandInput,
   ListHandshakesForOrganizationCommandOutput,
@@ -34,6 +53,9 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

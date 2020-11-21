@@ -8,6 +8,9 @@ import {
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GameLiftClient,
   input: DescribeScalingPoliciesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeScalingPoliciesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GameLift,
   input: DescribeScalingPoliciesCommandInput,

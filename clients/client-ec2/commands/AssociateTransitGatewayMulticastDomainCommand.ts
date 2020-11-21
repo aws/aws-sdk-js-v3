@@ -24,6 +24,10 @@ export type AssociateTransitGatewayMulticastDomainCommandInput = AssociateTransi
 export type AssociateTransitGatewayMulticastDomainCommandOutput = AssociateTransitGatewayMulticastDomainResult &
   __MetadataBearer;
 
+/**
+ * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
+ *         <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>
+ */
 export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
   AssociateTransitGatewayMulticastDomainCommandInput,
   AssociateTransitGatewayMulticastDomainCommandOutput,
@@ -38,6 +42,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -24,6 +24,18 @@ export type UpdateRelationalDatabaseParametersCommandInput = UpdateRelationalDat
 export type UpdateRelationalDatabaseParametersCommandOutput = UpdateRelationalDatabaseParametersResult &
   __MetadataBearer;
 
+/**
+ * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
+ *          <p>Parameter updates don't cause outages; therefore, their application is not subject to the
+ *       preferred maintenance window. However, there are two ways in which parameter updates are
+ *       applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters marked with a
+ *         <code>dynamic</code> apply type are applied immediately. Parameters marked with a
+ *         <code>pending-reboot</code> apply type are applied only after the database is rebooted using
+ *       the <code>reboot relational database</code> operation.</p>
+ *          <p>The <code>update relational database parameters</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by relationalDatabaseName. For
+ *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class UpdateRelationalDatabaseParametersCommand extends $Command<
   UpdateRelationalDatabaseParametersCommandInput,
   UpdateRelationalDatabaseParametersCommandOutput,
@@ -38,6 +50,9 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

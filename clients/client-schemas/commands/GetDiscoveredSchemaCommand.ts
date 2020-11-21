@@ -20,6 +20,9 @@ import {
 export type GetDiscoveredSchemaCommandInput = GetDiscoveredSchemaRequest;
 export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Get the discovered schema that was generated based on sampled events.</p>
+ */
 export class GetDiscoveredSchemaCommand extends $Command<
   GetDiscoveredSchemaCommandInput,
   GetDiscoveredSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class GetDiscoveredSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

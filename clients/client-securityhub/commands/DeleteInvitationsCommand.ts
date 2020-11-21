@@ -20,6 +20,9 @@ import {
 export type DeleteInvitationsCommandInput = DeleteInvitationsRequest;
 export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes invitations received by the AWS account to become a member account.</p>
+ */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,
   DeleteInvitationsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

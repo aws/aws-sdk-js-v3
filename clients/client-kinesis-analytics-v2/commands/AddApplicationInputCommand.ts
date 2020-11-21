@@ -24,6 +24,18 @@ import {
 export type AddApplicationInputCommandInput = AddApplicationInputRequest;
 export type AddApplicationInputCommandOutput = AddApplicationInputResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Adds a streaming source to your SQL-based Kinesis Data Analytics application.
+ *     </p>
+ *          <p>You can add a streaming source when you create an application, or you can use this
+ *       operation to add a streaming source after you create an application. For more information, see
+ *         <a>CreateApplication</a>.</p>
+ *          <p>Any configuration update, including adding a streaming source using this operation,
+ *       results in a new version of the application. You can use the <a>DescribeApplication</a> operation
+ *       to find the current application version.
+ *     </p>
+ */
 export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandInput,
   AddApplicationInputCommandOutput,
@@ -38,6 +50,9 @@ export class AddApplicationInputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

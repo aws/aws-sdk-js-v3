@@ -24,6 +24,11 @@ export type ExportClientVpnClientConfigurationCommandInput = ExportClientVpnClie
 export type ExportClientVpnClientConfigurationCommandOutput = ExportClientVpnClientConfigurationResult &
   __MetadataBearer;
 
+/**
+ * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
+ * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
+ * 			with the Client VPN endpoint.</p>
+ */
 export class ExportClientVpnClientConfigurationCommand extends $Command<
   ExportClientVpnClientConfigurationCommandInput,
   ExportClientVpnClientConfigurationCommandOutput,
@@ -38,6 +43,9 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeIndexFieldsCommandInput = DescribeIndexFieldsRequest;
 export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the index fields configured for the search domain.
+ *       Can be limited to specific fields by name.  By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
+ *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeIndexFieldsCommand extends $Command<
   DescribeIndexFieldsCommandInput,
   DescribeIndexFieldsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeIndexFieldsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

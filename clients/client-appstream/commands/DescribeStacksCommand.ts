@@ -20,6 +20,9 @@ import {
 export type DescribeStacksCommandInput = DescribeStacksRequest;
 export type DescribeStacksCommandOutput = DescribeStacksResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>
+ */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,
   DescribeStacksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

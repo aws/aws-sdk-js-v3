@@ -20,6 +20,9 @@ import {
 export type UpdateVariableCommandInput = UpdateVariableRequest;
 export type UpdateVariableCommandOutput = UpdateVariableResult & __MetadataBearer;
 
+/**
+ * <p>Updates a variable.</p>
+ */
 export class UpdateVariableCommand extends $Command<
   UpdateVariableCommandInput,
   UpdateVariableCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVariableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

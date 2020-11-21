@@ -20,6 +20,9 @@ import {
 export type XmlAttributesCommandInput = XmlAttributesInputOutput;
 export type XmlAttributesCommandOutput = XmlAttributesInputOutput & __MetadataBearer;
 
+/**
+ * This example serializes an XML attributes on synthesized document.
+ */
 export class XmlAttributesCommand extends $Command<
   XmlAttributesCommandInput,
   XmlAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class XmlAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

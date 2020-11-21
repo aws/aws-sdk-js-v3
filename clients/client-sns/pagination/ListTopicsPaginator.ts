@@ -4,6 +4,9 @@ import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } fr
 import { SNSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SNSClient,
   input: ListTopicsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTopicsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SNS,
   input: ListTopicsCommandInput,

@@ -20,6 +20,9 @@ import {
 export type PutResourcePolicyCommandInput = PutResourcePolicyRequest;
 export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the Data Catalog resource policy for access control.</p>
+ */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class PutResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

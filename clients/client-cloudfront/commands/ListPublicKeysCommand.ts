@@ -20,6 +20,9 @@ import {
 export type ListPublicKeysCommandInput = ListPublicKeysRequest;
 export type ListPublicKeysCommandOutput = ListPublicKeysResult & __MetadataBearer;
 
+/**
+ * <p>List all public keys that have been added to CloudFront for this account.</p>
+ */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
@@ -34,6 +37,9 @@ export class ListPublicKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

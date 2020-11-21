@@ -20,6 +20,9 @@ import {
 export type GetDevicePoolCommandInput = GetDevicePoolRequest;
 export type GetDevicePoolCommandOutput = GetDevicePoolResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a device pool.</p>
+ */
 export class GetDevicePoolCommand extends $Command<
   GetDevicePoolCommandInput,
   GetDevicePoolCommandOutput,
@@ -34,6 +37,9 @@ export class GetDevicePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

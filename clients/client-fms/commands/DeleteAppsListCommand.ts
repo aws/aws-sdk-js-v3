@@ -20,6 +20,9 @@ import {
 export type DeleteAppsListCommandInput = DeleteAppsListRequest;
 export type DeleteAppsListCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Permanently deletes an AWS Firewall Manager applications list.</p>
+ */
 export class DeleteAppsListCommand extends $Command<
   DeleteAppsListCommandInput,
   DeleteAppsListCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppsListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

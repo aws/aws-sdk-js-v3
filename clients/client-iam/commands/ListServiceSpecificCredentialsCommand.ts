@@ -20,6 +20,14 @@ import {
 export type ListServiceSpecificCredentialsCommandInput = ListServiceSpecificCredentialsRequest;
 export type ListServiceSpecificCredentialsCommandOutput = ListServiceSpecificCredentialsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the service-specific credentials associated with the specified
+ *          IAM user. If none exists, the operation returns an empty list. The service-specific
+ *          credentials returned by this operation are used only for authenticating the IAM user to a
+ *          specific service. For more information about using service-specific credentials to
+ *          authenticate to an AWS service, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set Up service-specific credentials</a> in
+ *          the AWS CodeCommit User Guide.</p>
+ */
 export class ListServiceSpecificCredentialsCommand extends $Command<
   ListServiceSpecificCredentialsCommandInput,
   ListServiceSpecificCredentialsCommandOutput,
@@ -34,6 +42,9 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

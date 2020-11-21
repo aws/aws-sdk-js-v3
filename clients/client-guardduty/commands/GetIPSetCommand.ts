@@ -20,6 +20,9 @@ import {
 export type GetIPSetCommandInput = GetIPSetRequest;
 export type GetIPSetCommandOutput = GetIPSetResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
+ */
 export class GetIPSetCommand extends $Command<
   GetIPSetCommandInput,
   GetIPSetCommandOutput,
@@ -34,6 +37,9 @@ export class GetIPSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

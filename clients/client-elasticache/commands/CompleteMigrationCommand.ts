@@ -20,6 +20,9 @@ import {
 export type CompleteMigrationCommandInput = CompleteMigrationMessage;
 export type CompleteMigrationCommandOutput = CompleteMigrationResponse & __MetadataBearer;
 
+/**
+ * <p>Complete the migration of data.</p>
+ */
 export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandInput,
   CompleteMigrationCommandOutput,
@@ -34,6 +37,9 @@ export class CompleteMigrationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

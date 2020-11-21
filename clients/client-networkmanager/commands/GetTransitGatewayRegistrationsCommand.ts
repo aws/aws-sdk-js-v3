@@ -20,6 +20,10 @@ import {
 export type GetTransitGatewayRegistrationsCommandInput = GetTransitGatewayRegistrationsRequest;
 export type GetTransitGatewayRegistrationsCommandOutput = GetTransitGatewayRegistrationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the transit gateway registrations in a specified
+ *             global network.</p>
+ */
 export class GetTransitGatewayRegistrationsCommand extends $Command<
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
@@ -34,6 +38,9 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetObjectInformationCommandInput = GetObjectInformationRequest;
 export type GetObjectInformationCommandOutput = GetObjectInformationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves metadata about an object.</p>
+ */
 export class GetObjectInformationCommand extends $Command<
   GetObjectInformationCommandInput,
   GetObjectInformationCommandOutput,
@@ -34,6 +37,9 @@ export class GetObjectInformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

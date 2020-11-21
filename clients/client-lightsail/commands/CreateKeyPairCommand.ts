@@ -20,6 +20,11 @@ import {
 export type CreateKeyPairCommandInput = CreateKeyPairRequest;
 export type CreateKeyPairCommandOutput = CreateKeyPairResult & __MetadataBearer;
 
+/**
+ * <p>Creates an SSH key pair.</p>
+ *          <p>The <code>create key pair</code> operation supports tag-based access control via request
+ *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateKeyPairCommand extends $Command<
   CreateKeyPairCommandInput,
   CreateKeyPairCommandOutput,
@@ -34,6 +39,9 @@ export class CreateKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

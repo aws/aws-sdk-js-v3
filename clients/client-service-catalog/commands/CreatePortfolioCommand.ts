@@ -20,6 +20,10 @@ import {
 export type CreatePortfolioCommandInput = CreatePortfolioInput;
 export type CreatePortfolioCommandOutput = CreatePortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a portfolio.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class CreatePortfolioCommand extends $Command<
   CreatePortfolioCommandInput,
   CreatePortfolioCommandOutput,
@@ -34,6 +38,9 @@ export class CreatePortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

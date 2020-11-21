@@ -20,6 +20,13 @@ import {
 export type GetServerCertificateCommandInput = GetServerCertificateRequest;
 export type GetServerCertificateCommandOutput = GetServerCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the specified server certificate stored in IAM.</p>
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
+ *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
+ *          includes a list of AWS services that can use the server certificates that you manage with
+ *          IAM.</p>
+ */
 export class GetServerCertificateCommand extends $Command<
   GetServerCertificateCommandInput,
   GetServerCertificateCommandOutput,
@@ -34,6 +41,9 @@ export class GetServerCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

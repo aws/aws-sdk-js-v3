@@ -20,6 +20,10 @@ import {
 export type DeleteInternetGatewayCommandInput = DeleteInternetGatewayRequest;
 export type DeleteInternetGatewayCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
+ * 			VPC before you can delete it.</p>
+ */
 export class DeleteInternetGatewayCommand extends $Command<
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteInternetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateLabelsCommandInput = CreateLabelsRequest;
 export type CreateLabelsCommandOutput = CreateLabelsResponse & __MetadataBearer;
 
+/**
+ * <p>Adds the specified list of labels to the given resource (a document or
+ *             folder)</p>
+ */
 export class CreateLabelsCommand extends $Command<
   CreateLabelsCommandInput,
   CreateLabelsCommandOutput,
@@ -34,6 +38,9 @@ export class CreateLabelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

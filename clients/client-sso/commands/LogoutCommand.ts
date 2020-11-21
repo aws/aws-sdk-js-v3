@@ -17,6 +17,9 @@ import {
 export type LogoutCommandInput = LogoutRequest;
 export type LogoutCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the client- and server-side session that is associated with the user.</p>
+ */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOClientResolvedConfig,

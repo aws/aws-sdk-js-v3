@@ -20,6 +20,14 @@ import {
 export type GetCachePolicyConfigCommandInput = GetCachePolicyConfigRequest;
 export type GetCachePolicyConfigCommandOutput = GetCachePolicyConfigResult & __MetadataBearer;
 
+/**
+ * <p>Gets a cache policy configuration.</p>
+ * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the cache
+ * 			policy is attached to a distribution’s cache behavior, you can get the policy’s
+ * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+ * 			cache policy is not attached to a cache behavior, you can get the identifier using
+ * 			<code>ListCachePolicies</code>.</p>
+ */
 export class GetCachePolicyConfigCommand extends $Command<
   GetCachePolicyConfigCommandInput,
   GetCachePolicyConfigCommandOutput,
@@ -34,6 +42,9 @@ export class GetCachePolicyConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

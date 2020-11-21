@@ -4,6 +4,9 @@ import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from 
 import { DataSyncPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DataSyncClient,
   input: ListTasksCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTasksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DataSync,
   input: ListTasksCommandInput,

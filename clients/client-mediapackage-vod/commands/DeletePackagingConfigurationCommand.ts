@@ -20,6 +20,9 @@ import {
 export type DeletePackagingConfigurationCommandInput = DeletePackagingConfigurationRequest;
 export type DeletePackagingConfigurationCommandOutput = DeletePackagingConfigurationResponse & __MetadataBearer;
 
+/**
+ * Deletes a MediaPackage VOD PackagingConfiguration resource.
+ */
 export class DeletePackagingConfigurationCommand extends $Command<
   DeletePackagingConfigurationCommandInput,
   DeletePackagingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePackagingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

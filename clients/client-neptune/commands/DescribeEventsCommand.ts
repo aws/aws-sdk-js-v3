@@ -20,6 +20,12 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = EventsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
+ *       groups for the past 14 days. Events specific to a particular DB instance, DB security group,
+ *       database snapshot, or DB parameter group can be obtained by providing the name as a parameter.
+ *       By default, the past hour of events are returned.</p>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

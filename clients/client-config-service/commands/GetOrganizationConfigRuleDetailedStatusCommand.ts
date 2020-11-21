@@ -24,6 +24,12 @@ export type GetOrganizationConfigRuleDetailedStatusCommandInput = GetOrganizatio
 export type GetOrganizationConfigRuleDetailedStatusCommandOutput = GetOrganizationConfigRuleDetailedStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
+ * 		       <p>Only a master account and a delegated administrator account can call this API.
+ * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
+ */
 export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
   GetOrganizationConfigRuleDetailedStatusCommandInput,
   GetOrganizationConfigRuleDetailedStatusCommandOutput,
@@ -38,6 +44,9 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

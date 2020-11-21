@@ -20,6 +20,11 @@ import {
 export type ApplyEnvironmentManagedActionCommandInput = ApplyEnvironmentManagedActionRequest;
 export type ApplyEnvironmentManagedActionCommandOutput = ApplyEnvironmentManagedActionResult & __MetadataBearer;
 
+/**
+ * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
+ *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
+ *         <a>DescribeEnvironmentManagedActions</a>.</p>
+ */
 export class ApplyEnvironmentManagedActionCommand extends $Command<
   ApplyEnvironmentManagedActionCommandInput,
   ApplyEnvironmentManagedActionCommandOutput,
@@ -34,6 +39,9 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

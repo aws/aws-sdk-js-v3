@@ -20,6 +20,9 @@ import {
 export type ProvisionPermissionSetCommandInput = ProvisionPermissionSetRequest;
 export type ProvisionPermissionSetCommandOutput = ProvisionPermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>The process by which a specified permission set is provisioned to the specified target.</p>
+ */
 export class ProvisionPermissionSetCommand extends $Command<
   ProvisionPermissionSetCommandInput,
   ProvisionPermissionSetCommandOutput,
@@ -34,6 +37,9 @@ export class ProvisionPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

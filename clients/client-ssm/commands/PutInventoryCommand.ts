@@ -20,6 +20,10 @@ import {
 export type PutInventoryCommandInput = PutInventoryRequest;
 export type PutInventoryCommandOutput = PutInventoryResult & __MetadataBearer;
 
+/**
+ * <p>Bulk update custom inventory items on one more instance. The request adds an inventory item,
+ *    if it doesn't already exist, or updates an inventory item, if it does exist.</p>
+ */
 export class PutInventoryCommand extends $Command<
   PutInventoryCommandInput,
   PutInventoryCommandOutput,
@@ -34,6 +38,9 @@ export class PutInventoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

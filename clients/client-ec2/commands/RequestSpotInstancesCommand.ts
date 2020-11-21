@@ -20,6 +20,10 @@ import {
 export type RequestSpotInstancesCommandInput = RequestSpotInstancesRequest;
 export type RequestSpotInstancesCommandOutput = RequestSpotInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Spot Instance request.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
 export class RequestSpotInstancesCommand extends $Command<
   RequestSpotInstancesCommandInput,
   RequestSpotInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class RequestSpotInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

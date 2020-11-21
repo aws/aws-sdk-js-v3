@@ -20,6 +20,26 @@ import {
 export type CreateEventSubscriptionCommandInput = CreateEventSubscriptionMessage;
 export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
+ *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
+ *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
+ *             must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in
+ *             the SNS console.</p>
+ *         <p>You can specify the source type, and lists of Amazon Redshift source IDs, event
+ *             categories, and event severities. Notifications will be sent for all events you want
+ *             that match those criteria. For example, you can specify source type = cluster, source ID
+ *             = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity =
+ *             ERROR. The subscription will only send notifications for those ERROR events in the
+ *             Availability and Backup categories for the specified clusters.</p>
+ *         <p>If you specify both the source type and source IDs, such as source type = cluster
+ *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
+ *             events for my-cluster-1. If you specify a source type but do not specify a source
+ *             identifier, you will receive notice of the events for the objects of that type in your
+ *             AWS account. If you do not specify either the SourceType nor the SourceIdentifier, you
+ *             will be notified of events generated from all Amazon Redshift sources belonging to your AWS
+ *             account. You must specify a source type if you specify a source ID.</p>
+ */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
@@ -34,6 +54,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateCrawlerScheduleCommandInput = UpdateCrawlerScheduleRequest;
 export type UpdateCrawlerScheduleCommandOutput = UpdateCrawlerScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
+ */
 export class UpdateCrawlerScheduleCommand extends $Command<
   UpdateCrawlerScheduleCommandInput,
   UpdateCrawlerScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

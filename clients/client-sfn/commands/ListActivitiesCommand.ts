@@ -20,6 +20,14 @@ import {
 export type ListActivitiesCommandInput = ListActivitiesInput;
 export type ListActivitiesCommandOutput = ListActivitiesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the existing activities.</p>
+ *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+ *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+ *          <note>
+ *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
+ *          </note>
+ */
 export class ListActivitiesCommand extends $Command<
   ListActivitiesCommandInput,
   ListActivitiesCommandOutput,
@@ -34,6 +42,9 @@ export class ListActivitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

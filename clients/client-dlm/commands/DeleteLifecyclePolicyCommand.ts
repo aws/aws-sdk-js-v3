@@ -20,6 +20,10 @@ import {
 export type DeleteLifecyclePolicyCommandInput = DeleteLifecyclePolicyRequest;
 export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified lifecycle policy and halts the automated operations that the
+ * 			policy specified.</p>
+ */
 export class DeleteLifecyclePolicyCommand extends $Command<
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DLMClientResolvedConfig,

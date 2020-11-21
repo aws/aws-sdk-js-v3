@@ -20,6 +20,9 @@ import {
 export type CreateHumanTaskUiCommandInput = CreateHumanTaskUiRequest;
 export type CreateHumanTaskUiCommandOutput = CreateHumanTaskUiResponse & __MetadataBearer;
 
+/**
+ * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
+ */
 export class CreateHumanTaskUiCommand extends $Command<
   CreateHumanTaskUiCommandInput,
   CreateHumanTaskUiCommandOutput,
@@ -34,6 +37,9 @@ export class CreateHumanTaskUiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

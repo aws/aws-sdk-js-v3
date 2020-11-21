@@ -24,6 +24,12 @@ export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput = ListRequ
 export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = ListRequestedServiceQuotaChangeHistoryByQuotaResponse &
   __MetadataBearer;
 
+/**
+ * <p>Requests a list of the changes to specific service quotas. This command provides
+ *       additional granularity over the <code>ListRequestedServiceQuotaChangeHistory</code> command.
+ *       Once a quota change request has reached <code>CASE_CLOSED, APPROVED,</code> or
+ *         <code>DENIED</code>, the history has been kept for 90 days.</p>
+ */
 export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Command<
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
@@ -38,6 +44,9 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

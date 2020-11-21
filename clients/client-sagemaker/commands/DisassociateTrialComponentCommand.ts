@@ -20,6 +20,14 @@ import {
 export type DisassociateTrialComponentCommandInput = DisassociateTrialComponentRequest;
 export type DisassociateTrialComponentCommandOutput = DisassociateTrialComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
+ *       component is associated with. Before you can delete a component, you must disassociate the
+ *       component from all trials it is associated with. To associate a trial component with a trial,
+ *       call the <a>AssociateTrialComponent</a> API.</p>
+ *          <p>To get a list of the trials a component is associated with, use the <a>Search</a> API. Specify <code>ExperimentTrialComponent</code> for the <code>Resource</code> parameter.
+ *       The list appears in the response under <code>Results.TrialComponent.Parents</code>.</p>
+ */
 export class DisassociateTrialComponentCommand extends $Command<
   DisassociateTrialComponentCommandInput,
   DisassociateTrialComponentCommandOutput,
@@ -34,6 +42,9 @@ export class DisassociateTrialComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

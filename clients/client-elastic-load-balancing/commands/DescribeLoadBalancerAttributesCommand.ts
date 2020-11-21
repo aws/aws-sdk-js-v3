@@ -24,6 +24,9 @@ import {
 export type DescribeLoadBalancerAttributesCommandInput = DescribeLoadBalancerAttributesInput;
 export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the attributes for the specified load balancer.</p>
+ */
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,
   DescribeLoadBalancerAttributesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

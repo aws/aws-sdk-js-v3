@@ -20,6 +20,9 @@ import {
 export type UpdateThingGroupsForThingCommandInput = UpdateThingGroupsForThingRequest;
 export type UpdateThingGroupsForThingCommandOutput = UpdateThingGroupsForThingResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the groups to which the thing belongs.</p>
+ */
 export class UpdateThingGroupsForThingCommand extends $Command<
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetResourcesCommandInput = GetResourcesRequest;
 export type GetResourcesCommandOutput = GetResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a collection of resources, including folders and documents. The only
+ *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
+ */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,
   GetResourcesCommandOutput,
@@ -34,6 +38,9 @@ export class GetResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

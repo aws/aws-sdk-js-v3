@@ -20,6 +20,10 @@ import {
 export type DisassociateSkillGroupFromRoomCommandInput = DisassociateSkillGroupFromRoomRequest;
 export type DisassociateSkillGroupFromRoomCommandOutput = DisassociateSkillGroupFromRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a skill group from a specified room. This disables all skills in the
+ *          skill group on all devices in the room.</p>
+ */
 export class DisassociateSkillGroupFromRoomCommand extends $Command<
   DisassociateSkillGroupFromRoomCommandInput,
   DisassociateSkillGroupFromRoomCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ListCommandInvocationsCommandInput = ListCommandInvocationsRequest;
 export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult & __MetadataBearer;
 
+/**
+ * <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
+ *    or more instances. A command invocation applies to one instance. For example, if a user runs
+ *    SendCommand against three instances, then a command invocation is created for each requested
+ *    instance ID. ListCommandInvocations provide status about command execution.</p>
+ */
 export class ListCommandInvocationsCommand extends $Command<
   ListCommandInvocationsCommandInput,
   ListCommandInvocationsCommandOutput,
@@ -34,6 +40,9 @@ export class ListCommandInvocationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetResolverQueryLogConfigCommandInput = GetResolverQueryLogConfigRequest;
 export type GetResolverQueryLogConfigCommandOutput = GetResolverQueryLogConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
+ * 			is logging queries for and the location that logs are sent to. </p>
+ */
 export class GetResolverQueryLogConfigCommand extends $Command<
   GetResolverQueryLogConfigCommandInput,
   GetResolverQueryLogConfigCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverQueryLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

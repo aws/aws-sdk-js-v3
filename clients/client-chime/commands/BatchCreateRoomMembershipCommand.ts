@@ -20,6 +20,9 @@ import {
 export type BatchCreateRoomMembershipCommandInput = BatchCreateRoomMembershipRequest;
 export type BatchCreateRoomMembershipCommandOutput = BatchCreateRoomMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be either users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
+ */
 export class BatchCreateRoomMembershipCommand extends $Command<
   BatchCreateRoomMembershipCommandInput,
   BatchCreateRoomMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

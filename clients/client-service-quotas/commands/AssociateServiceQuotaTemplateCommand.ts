@@ -20,6 +20,13 @@ import {
 export type AssociateServiceQuotaTemplateCommandInput = AssociateServiceQuotaTemplateRequest;
 export type AssociateServiceQuotaTemplateCommandOutput = AssociateServiceQuotaTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Associates the Service Quotas template with your organization so that when new accounts
+ *       are created in your organization, the template submits increase requests for the specified
+ *       service quotas. Use the Service Quotas template to request an increase for any adjustable
+ *       quota value. After you define the Service Quotas template, use this operation to associate, or
+ *       enable, the template. </p>
+ */
 export class AssociateServiceQuotaTemplateCommand extends $Command<
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
@@ -34,6 +41,9 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

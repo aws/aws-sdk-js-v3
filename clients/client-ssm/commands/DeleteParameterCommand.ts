@@ -20,6 +20,9 @@ import {
 export type DeleteParameterCommandInput = DeleteParameterRequest;
 export type DeleteParameterCommandOutput = DeleteParameterResult & __MetadataBearer;
 
+/**
+ * <p>Delete a parameter from the system.</p>
+ */
 export class DeleteParameterCommand extends $Command<
   DeleteParameterCommandInput,
   DeleteParameterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

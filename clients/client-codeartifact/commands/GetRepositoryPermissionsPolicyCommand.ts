@@ -20,6 +20,11 @@ import {
 export type GetRepositoryPermissionsPolicyCommandInput = GetRepositoryPermissionsPolicyRequest;
 export type GetRepositoryPermissionsPolicyCommandOutput = GetRepositoryPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns the resource policy that is set on a repository.
+ *       </p>
+ */
 export class GetRepositoryPermissionsPolicyCommand extends $Command<
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

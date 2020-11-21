@@ -20,6 +20,9 @@ import {
 export type ListSourceCredentialsCommandInput = ListSourceCredentialsInput;
 export type ListSourceCredentialsCommandOutput = ListSourceCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
+ */
 export class ListSourceCredentialsCommand extends $Command<
   ListSourceCredentialsCommandInput,
   ListSourceCredentialsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSourceCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

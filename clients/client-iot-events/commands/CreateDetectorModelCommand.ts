@@ -20,6 +20,9 @@ import {
 export type CreateDetectorModelCommandInput = CreateDetectorModelRequest;
 export type CreateDetectorModelCommandOutput = CreateDetectorModelResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a detector model.</p>
+ */
 export class CreateDetectorModelCommand extends $Command<
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDetectorModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

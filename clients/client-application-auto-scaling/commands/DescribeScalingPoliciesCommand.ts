@@ -24,6 +24,12 @@ import {
 export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesRequest;
 export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
+ *          <p>You can filter the results using <code>ResourceId</code>,
+ *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ */
 export class DescribeScalingPoliciesCommand extends $Command<
   DescribeScalingPoliciesCommandInput,
   DescribeScalingPoliciesCommandOutput,
@@ -38,6 +44,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

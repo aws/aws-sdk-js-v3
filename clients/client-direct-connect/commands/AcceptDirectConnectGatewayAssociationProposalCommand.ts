@@ -24,6 +24,9 @@ export type AcceptDirectConnectGatewayAssociationProposalCommandInput = AcceptDi
 export type AcceptDirectConnectGatewayAssociationProposalCommandOutput = AcceptDirectConnectGatewayAssociationProposalResult &
   __MetadataBearer;
 
+/**
+ * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
+ */
 export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command<
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
   AcceptDirectConnectGatewayAssociationProposalCommandOutput,
@@ -38,6 +41,9 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

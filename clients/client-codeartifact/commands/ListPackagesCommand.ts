@@ -20,6 +20,15 @@ import {
 export type ListPackagesCommandInput = ListPackagesRequest;
 export type ListPackagesCommandOutput = ListPackagesResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns a list of
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">
+ *                <code>PackageSummary</code>
+ *             </a>
+ *         objects for packages in a repository that match the request parameters.
+ *       </p>
+ */
 export class ListPackagesCommand extends $Command<
   ListPackagesCommandInput,
   ListPackagesCommandOutput,
@@ -34,6 +43,9 @@ export class ListPackagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

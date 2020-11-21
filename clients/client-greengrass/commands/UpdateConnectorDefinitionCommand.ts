@@ -20,6 +20,9 @@ import {
 export type UpdateConnectorDefinitionCommandInput = UpdateConnectorDefinitionRequest;
 export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a connector definition.
+ */
 export class UpdateConnectorDefinitionCommand extends $Command<
   UpdateConnectorDefinitionCommandInput,
   UpdateConnectorDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

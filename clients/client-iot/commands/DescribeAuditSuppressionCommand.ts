@@ -20,6 +20,11 @@ import {
 export type DescribeAuditSuppressionCommandInput = DescribeAuditSuppressionRequest;
 export type DescribeAuditSuppressionCommandOutput = DescribeAuditSuppressionResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Gets information about a Device Defender audit suppression.
+ *     </p>
+ */
 export class DescribeAuditSuppressionCommand extends $Command<
   DescribeAuditSuppressionCommandInput,
   DescribeAuditSuppressionCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAuditSuppressionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

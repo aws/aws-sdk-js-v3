@@ -20,6 +20,9 @@ import {
 export type ListDocumentVersionsCommandInput = ListDocumentVersionsRequest;
 export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult & __MetadataBearer;
 
+/**
+ * <p>List all versions for a document.</p>
+ */
 export class ListDocumentVersionsCommand extends $Command<
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDocumentVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

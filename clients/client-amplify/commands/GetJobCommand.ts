@@ -17,6 +17,9 @@ import {
 export type GetJobCommandInput = GetJobRequest;
 export type GetJobCommandOutput = GetJobResult & __MetadataBearer;
 
+/**
+ * <p> Returns a job for a branch of an Amplify app. </p>
+ */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

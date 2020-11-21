@@ -20,6 +20,10 @@ import {
 export type ListSimulationApplicationsCommandInput = ListSimulationApplicationsRequest;
 export type ListSimulationApplicationsCommandOutput = ListSimulationApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of simulation applications. You can optionally provide filters to retrieve
+ *          specific simulation applications. </p>
+ */
 export class ListSimulationApplicationsCommand extends $Command<
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListSimulationApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

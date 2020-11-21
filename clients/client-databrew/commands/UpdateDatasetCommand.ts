@@ -20,6 +20,10 @@ import {
 export type UpdateDatasetCommandInput = UpdateDatasetRequest;
 export type UpdateDatasetCommandOutput = UpdateDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the definition of an existing AWS Glue DataBrew dataset in the current AWS
+ *             account.</p>
+ */
 export class UpdateDatasetCommand extends $Command<
   UpdateDatasetCommandInput,
   UpdateDatasetCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

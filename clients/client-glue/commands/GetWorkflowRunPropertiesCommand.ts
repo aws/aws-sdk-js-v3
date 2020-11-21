@@ -20,6 +20,9 @@ import {
 export type GetWorkflowRunPropertiesCommandInput = GetWorkflowRunPropertiesRequest;
 export type GetWorkflowRunPropertiesCommandOutput = GetWorkflowRunPropertiesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the workflow run properties which were set during the run.</p>
+ */
 export class GetWorkflowRunPropertiesCommand extends $Command<
   GetWorkflowRunPropertiesCommandInput,
   GetWorkflowRunPropertiesCommandOutput,
@@ -34,6 +37,9 @@ export class GetWorkflowRunPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type DeleteConnectionCommandInput = DeleteConnectionMessage;
 export type DeleteConnectionCommandOutput = DeleteConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the connection between a replication instance and an endpoint.</p>
+ */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

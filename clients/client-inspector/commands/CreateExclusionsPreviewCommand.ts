@@ -20,6 +20,11 @@ import {
 export type CreateExclusionsPreviewCommandInput = CreateExclusionsPreviewRequest;
 export type CreateExclusionsPreviewCommandOutput = CreateExclusionsPreviewResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the generation of an exclusions preview for the specified assessment template.
+ *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
+ *          detect before it runs the assessment. </p>
+ */
 export class CreateExclusionsPreviewCommand extends $Command<
   CreateExclusionsPreviewCommandInput,
   CreateExclusionsPreviewCommandOutput,
@@ -34,6 +39,9 @@ export class CreateExclusionsPreviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

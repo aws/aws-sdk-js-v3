@@ -20,6 +20,11 @@ import {
 export type DeleteResolverRuleCommandInput = DeleteResolverRuleRequest;
 export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you
+ * 			associated the Resolver rule with. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.</p>
+ */
 export class DeleteResolverRuleCommand extends $Command<
   DeleteResolverRuleCommandInput,
   DeleteResolverRuleCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteResolverRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

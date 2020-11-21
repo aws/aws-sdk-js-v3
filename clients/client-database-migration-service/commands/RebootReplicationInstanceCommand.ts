@@ -24,6 +24,10 @@ import {
 export type RebootReplicationInstanceCommandInput = RebootReplicationInstanceMessage;
 export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
+ *          replication instance becomes available again.</p>
+ */
 export class RebootReplicationInstanceCommand extends $Command<
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
@@ -38,6 +42,9 @@ export class RebootReplicationInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

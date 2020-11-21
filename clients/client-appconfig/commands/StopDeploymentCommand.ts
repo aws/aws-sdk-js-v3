@@ -20,6 +20,11 @@ import {
 export type StopDeploymentCommandInput = StopDeploymentRequest;
 export type StopDeploymentCommandOutput = Deployment & __MetadataBearer;
 
+/**
+ * <p>Stops a deployment. This API action works only on deployments that have a status of
+ *             <code>DEPLOYING</code>. This action moves the deployment to a status of
+ *             <code>ROLLED_BACK</code>.</p>
+ */
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,
   StopDeploymentCommandOutput,
@@ -34,6 +39,9 @@ export class StopDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

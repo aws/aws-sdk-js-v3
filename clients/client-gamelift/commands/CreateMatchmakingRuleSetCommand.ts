@@ -20,6 +20,86 @@ import {
 export type CreateMatchmakingRuleSetCommandInput = CreateMatchmakingRuleSetInput;
 export type CreateMatchmakingRuleSetCommandOutput = CreateMatchmakingRuleSetOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
+ *             to create, such as the number and size of teams. It also sets the parameters for
+ *             acceptable player matches, such as minimum skill level or character type. A rule set is
+ *             used by a <a>MatchmakingConfiguration</a>. </p>
+ *         <p>To create a matchmaking rule set, provide unique rule set name and the rule set body
+ *             in JSON format. Rule sets must be defined in the same Region as the matchmaking
+ *             configuration they are used with.</p>
+ *         <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule
+ *             set syntax using <a>ValidateMatchmakingRuleSet</a> before creating a new rule
+ *             set.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a Rule
+ *                         Set</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">Design a
+ *                         Matchmaker</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">Matchmaking with
+ *                         FlexMatch</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateMatchmakingRuleSetCommand extends $Command<
   CreateMatchmakingRuleSetCommandInput,
   CreateMatchmakingRuleSetCommandOutput,
@@ -34,6 +114,9 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

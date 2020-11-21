@@ -20,6 +20,9 @@ import {
 export type GetSnapshotLimitsCommandInput = GetSnapshotLimitsRequest;
 export type GetSnapshotLimitsCommandOutput = GetSnapshotLimitsResult & __MetadataBearer;
 
+/**
+ * <p>Obtains the manual snapshot limits for a directory.</p>
+ */
 export class GetSnapshotLimitsCommand extends $Command<
   GetSnapshotLimitsCommandInput,
   GetSnapshotLimitsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSnapshotLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

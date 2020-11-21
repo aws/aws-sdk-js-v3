@@ -20,6 +20,22 @@ import {
 export type AbortVaultLockCommandInput = AbortVaultLockInput;
 export type AbortVaultLockCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation aborts the vault locking process if the vault lock is not in the
+ *             <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when
+ *          this operation is requested, the operation returns an <code>AccessDeniedException</code>
+ *          error. Aborting the vault locking process removes the vault lock policy from the specified
+ *          vault. </p>
+ *          <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by
+ *          calling <a>CompleteVaultLock</a>. You can get the state of a vault lock by
+ *          calling <a>GetVaultLock</a>. For more information about the vault locking
+ *          process, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon Glacier Vault Lock</a>. For more information about vault lock policies, see
+ *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
+ *             Glacier Access Control with Vault Lock Policies</a>. </p>
+ *          <p>This operation is idempotent. You can successfully invoke this operation multiple
+ *          times, if the vault lock is in the <code>InProgress</code> state or if there is no policy
+ *          associated with the vault.</p>
+ */
 export class AbortVaultLockCommand extends $Command<
   AbortVaultLockCommandInput,
   AbortVaultLockCommandOutput,
@@ -34,6 +50,9 @@ export class AbortVaultLockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeSigningJobCommandInput = DescribeSigningJobRequest;
 export type DescribeSigningJobCommandOutput = DescribeSigningJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific code signing job. You specify the job by using
+ * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
+ * 			operation. </p>
+ */
 export class DescribeSigningJobCommand extends $Command<
   DescribeSigningJobCommandInput,
   DescribeSigningJobCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeSigningJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

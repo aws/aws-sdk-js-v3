@@ -20,6 +20,9 @@ import {
 export type UpdateDomainCommandInput = UpdateDomainRequest;
 export type UpdateDomainCommandOutput = UpdateDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the default settings for new user profiles in the domain.</p>
+ */
 export class UpdateDomainCommand extends $Command<
   UpdateDomainCommandInput,
   UpdateDomainCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

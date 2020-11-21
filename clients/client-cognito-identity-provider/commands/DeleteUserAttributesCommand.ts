@@ -24,6 +24,9 @@ import {
 export type DeleteUserAttributesCommandInput = DeleteUserAttributesRequest;
 export type DeleteUserAttributesCommandOutput = DeleteUserAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the attributes for a user.</p>
+ */
 export class DeleteUserAttributesCommand extends $Command<
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteUserAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

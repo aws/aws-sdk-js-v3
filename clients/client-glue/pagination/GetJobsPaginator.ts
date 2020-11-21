@@ -4,6 +4,9 @@ import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "../co
 import { GluePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GlueClient,
   input: GetJobsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetJobsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Glue,
   input: GetJobsCommandInput,

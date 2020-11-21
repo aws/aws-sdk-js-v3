@@ -20,6 +20,9 @@ import {
 export type EnableProactiveEngagementCommandInput = EnableProactiveEngagementRequest;
 export type EnableProactiveEngagementCommandOutput = EnableProactiveEngagementResponse & __MetadataBearer;
 
+/**
+ * <p>Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+ */
 export class EnableProactiveEngagementCommand extends $Command<
   EnableProactiveEngagementCommandInput,
   EnableProactiveEngagementCommandOutput,
@@ -34,6 +37,9 @@ export class EnableProactiveEngagementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

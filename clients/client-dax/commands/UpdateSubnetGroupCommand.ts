@@ -20,6 +20,9 @@ import {
 export type UpdateSubnetGroupCommandInput = UpdateSubnetGroupRequest;
 export type UpdateSubnetGroupCommandOutput = UpdateSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing subnet group.</p>
+ */
 export class UpdateSubnetGroupCommand extends $Command<
   UpdateSubnetGroupCommandInput,
   UpdateSubnetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

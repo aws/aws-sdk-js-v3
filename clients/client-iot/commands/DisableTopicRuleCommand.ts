@@ -20,6 +20,9 @@ import {
 export type DisableTopicRuleCommandInput = DisableTopicRuleRequest;
 export type DisableTopicRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disables the rule.</p>
+ */
 export class DisableTopicRuleCommand extends $Command<
   DisableTopicRuleCommandInput,
   DisableTopicRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DisableTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -21,6 +21,31 @@ import {
 export type DeleteJobTaggingCommandInput = DeleteJobTaggingRequest;
 export type DeleteJobTaggingCommandOutput = DeleteJobTaggingResult & __MetadataBearer;
 
+/**
+ * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
+ *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and labeling jobs using tags</a> in the
+ *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p></p>
+ *          <p>Related actions include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html">PutJobTagging</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteJobTaggingCommand extends $Command<
   DeleteJobTaggingCommandInput,
   DeleteJobTaggingCommandOutput,
@@ -35,6 +60,9 @@ export class DeleteJobTaggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

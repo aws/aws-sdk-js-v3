@@ -24,6 +24,9 @@ export type DescribeAuditMitigationActionsTaskCommandInput = DescribeAuditMitiga
 export type DescribeAuditMitigationActionsTaskCommandOutput = DescribeAuditMitigationActionsTaskResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+ */
 export class DescribeAuditMitigationActionsTaskCommand extends $Command<
   DescribeAuditMitigationActionsTaskCommandInput,
   DescribeAuditMitigationActionsTaskCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -24,6 +24,9 @@ export type DeleteInlinePolicyFromPermissionSetCommandInput = DeleteInlinePolicy
 export type DeleteInlinePolicyFromPermissionSetCommandOutput = DeleteInlinePolicyFromPermissionSetResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the inline policy from a specified permission set.</p>
+ */
 export class DeleteInlinePolicyFromPermissionSetCommand extends $Command<
   DeleteInlinePolicyFromPermissionSetCommandInput,
   DeleteInlinePolicyFromPermissionSetCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteInlinePolicyFromPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

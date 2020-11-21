@@ -17,6 +17,9 @@ import {
 export type UpdateRoleCommandInput = UpdateRoleRequest;
 export type UpdateRoleCommandOutput = UpdateRoleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the description or maximum session duration setting of a role.</p>
+ */
 export class UpdateRoleCommand extends $Command<
   UpdateRoleCommandInput,
   UpdateRoleCommandOutput,
@@ -31,6 +34,9 @@ export class UpdateRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

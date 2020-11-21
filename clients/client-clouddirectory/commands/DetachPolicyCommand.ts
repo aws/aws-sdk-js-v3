@@ -20,6 +20,9 @@ import {
 export type DetachPolicyCommandInput = DetachPolicyRequest;
 export type DetachPolicyCommandOutput = DetachPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Detaches a policy from an object.</p>
+ */
 export class DetachPolicyCommand extends $Command<
   DetachPolicyCommandInput,
   DetachPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DetachPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateConnectionCommandInput = CreateConnectionRequest;
 export type CreateConnectionCommandOutput = CreateConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a connection definition in the Data Catalog.</p>
+ */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

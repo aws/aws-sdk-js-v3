@@ -20,6 +20,9 @@ import {
 export type DisassociateMemberCommandInput = DisassociateMemberRequest;
 export type DisassociateMemberCommandOutput = DisassociateMemberResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates an Amazon Macie master account from a member account.</p>
+ */
 export class DisassociateMemberCommand extends $Command<
   DisassociateMemberCommandInput,
   DisassociateMemberCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

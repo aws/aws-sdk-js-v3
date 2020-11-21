@@ -20,6 +20,10 @@ import {
 export type UpdateBatchPredictionCommandInput = UpdateBatchPredictionInput;
 export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
+ *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
+ */
 export class UpdateBatchPredictionCommand extends $Command<
   UpdateBatchPredictionCommandInput,
   UpdateBatchPredictionCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateBatchPredictionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

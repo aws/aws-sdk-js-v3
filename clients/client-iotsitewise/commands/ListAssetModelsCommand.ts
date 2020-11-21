@@ -20,6 +20,9 @@ import {
 export type ListAssetModelsCommandInput = ListAssetModelsRequest;
 export type ListAssetModelsCommandOutput = ListAssetModelsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of summaries of all asset models.</p>
+ */
 export class ListAssetModelsCommand extends $Command<
   ListAssetModelsCommandInput,
   ListAssetModelsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAssetModelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

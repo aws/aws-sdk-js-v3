@@ -20,6 +20,12 @@ import {
 export type UpdateIAMPolicyAssignmentCommandInput = UpdateIAMPolicyAssignmentRequest;
 export type UpdateIAMPolicyAssignmentCommandOutput = UpdateIAMPolicyAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing IAM policy assignment. This operation updates only the optional
+ * 			parameter or parameters that are specified in the request.
+ * 		    This overwrites all of the users included in <code>Identities</code>.
+ * 		</p>
+ */
 export class UpdateIAMPolicyAssignmentCommand extends $Command<
   UpdateIAMPolicyAssignmentCommandInput,
   UpdateIAMPolicyAssignmentCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

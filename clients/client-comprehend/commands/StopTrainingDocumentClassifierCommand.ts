@@ -20,6 +20,14 @@ import {
 export type StopTrainingDocumentClassifierCommandInput = StopTrainingDocumentClassifierRequest;
 export type StopTrainingDocumentClassifierCommandOutput = StopTrainingDocumentClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a document classifier training job while in progress.</p>
+ *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
+ *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
+ *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
+ *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with
+ *       an empty HTTP body. </p>
+ */
 export class StopTrainingDocumentClassifierCommand extends $Command<
   StopTrainingDocumentClassifierCommandInput,
   StopTrainingDocumentClassifierCommandOutput,
@@ -34,6 +42,9 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -24,6 +24,11 @@ import {
 export type DeleteBotVersionCommandInput = DeleteBotVersionRequest;
 export type DeleteBotVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specific version of a bot. To delete all versions of a bot, use the <a>DeleteBot</a> operation. </p>
+ *          <p>This operation requires permissions for the <code>lex:DeleteBotVersion</code>
+ *       action.</p>
+ */
 export class DeleteBotVersionCommand extends $Command<
   DeleteBotVersionCommandInput,
   DeleteBotVersionCommandOutput,
@@ -38,6 +43,9 @@ export class DeleteBotVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

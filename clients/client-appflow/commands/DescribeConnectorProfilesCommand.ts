@@ -20,6 +20,11 @@ import {
 export type DescribeConnectorProfilesCommandInput = DescribeConnectorProfilesRequest;
 export type DescribeConnectorProfilesCommandOutput = DescribeConnectorProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Returns a list of <code>connector-profile</code> details matching the provided <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are optional, and you can use them to filter the result. </p>
+ *          <p>If no names or <code>connector-types</code> are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.</p>
+ */
 export class DescribeConnectorProfilesCommand extends $Command<
   DescribeConnectorProfilesCommandInput,
   DescribeConnectorProfilesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeConnectorProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

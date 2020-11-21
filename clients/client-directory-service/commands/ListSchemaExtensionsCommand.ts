@@ -20,6 +20,9 @@ import {
 export type ListSchemaExtensionsCommandInput = ListSchemaExtensionsRequest;
 export type ListSchemaExtensionsCommandOutput = ListSchemaExtensionsResult & __MetadataBearer;
 
+/**
+ * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
+ */
 export class ListSchemaExtensionsCommand extends $Command<
   ListSchemaExtensionsCommandInput,
   ListSchemaExtensionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSchemaExtensionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetImageRecipePolicyCommandInput = GetImageRecipePolicyRequest;
 export type GetImageRecipePolicyCommandOutput = GetImageRecipePolicyResponse & __MetadataBearer;
 
+/**
+ * <p> Gets an image recipe policy. </p>
+ */
 export class GetImageRecipePolicyCommand extends $Command<
   GetImageRecipePolicyCommandInput,
   GetImageRecipePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetImageRecipePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeResourceCommandInput = DescribeResourceRequest;
 export type DescribeResourceCommandOutput = DescribeResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>
+ */
 export class DescribeResourceCommand extends $Command<
   DescribeResourceCommandInput,
   DescribeResourceCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

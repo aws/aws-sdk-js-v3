@@ -20,6 +20,9 @@ import {
 export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
 export type GetNetworkProfileCommandOutput = GetNetworkProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the network profile details by the network profile ARN.</p>
+ */
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,
   GetNetworkProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

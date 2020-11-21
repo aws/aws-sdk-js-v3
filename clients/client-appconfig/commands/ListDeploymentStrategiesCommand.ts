@@ -20,6 +20,9 @@ import {
 export type ListDeploymentStrategiesCommandInput = ListDeploymentStrategiesRequest;
 export type ListDeploymentStrategiesCommandOutput = DeploymentStrategies & __MetadataBearer;
 
+/**
+ * <p>List deployment strategies.</p>
+ */
 export class ListDeploymentStrategiesCommand extends $Command<
   ListDeploymentStrategiesCommandInput,
   ListDeploymentStrategiesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDeploymentStrategiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

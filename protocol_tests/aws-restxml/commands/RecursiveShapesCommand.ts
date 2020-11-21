@@ -20,6 +20,9 @@ import {
 export type RecursiveShapesCommandInput = RecursiveShapesInputOutput;
 export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput & __MetadataBearer;
 
+/**
+ * Recursive shapes
+ */
 export class RecursiveShapesCommand extends $Command<
   RecursiveShapesCommandInput,
   RecursiveShapesCommandOutput,
@@ -34,6 +37,9 @@ export class RecursiveShapesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

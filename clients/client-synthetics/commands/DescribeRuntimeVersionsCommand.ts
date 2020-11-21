@@ -20,6 +20,11 @@ import {
 export type DescribeRuntimeVersionsCommandInput = DescribeRuntimeVersionsRequest;
 export type DescribeRuntimeVersionsCommandOutput = DescribeRuntimeVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of Synthetics canary runtime versions. For more information,
+ *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
+ *             Canary Runtime Versions</a>.</p>
+ */
 export class DescribeRuntimeVersionsCommand extends $Command<
   DescribeRuntimeVersionsCommandInput,
   DescribeRuntimeVersionsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

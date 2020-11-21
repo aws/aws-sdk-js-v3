@@ -20,6 +20,9 @@ import {
 export type UpdateTrialCommandInput = UpdateTrialRequest;
 export type UpdateTrialCommandOutput = UpdateTrialResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the display name of a trial.</p>
+ */
 export class UpdateTrialCommand extends $Command<
   UpdateTrialCommandInput,
   UpdateTrialCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTrialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

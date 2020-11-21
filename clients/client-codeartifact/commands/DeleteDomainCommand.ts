@@ -20,6 +20,12 @@ import {
 export type DeleteDomainCommandInput = DeleteDomainRequest;
 export type DeleteDomainCommandOutput = DeleteDomainResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Deletes a domain. You cannot delete a domain that contains repositories. If you want to delete a domain
+ *          with repositories, first delete its repositories.
+ *       </p>
+ */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

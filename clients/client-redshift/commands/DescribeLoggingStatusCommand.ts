@@ -20,6 +20,10 @@ import {
 export type DescribeLoggingStatusCommandInput = DescribeLoggingStatusMessage;
 export type DescribeLoggingStatusCommandOutput = LoggingStatus & __MetadataBearer;
 
+/**
+ * <p>Describes whether information, such as queries and connection attempts, is being
+ *             logged for the specified Amazon Redshift cluster.</p>
+ */
 export class DescribeLoggingStatusCommand extends $Command<
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeLoggingStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

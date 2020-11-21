@@ -20,6 +20,20 @@ import {
 export type RestoreTableFromClusterSnapshotCommandInput = RestoreTableFromClusterSnapshotMessage;
 export type RestoreTableFromClusterSnapshotCommandOutput = RestoreTableFromClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
+ *             create the new table within the Amazon Redshift cluster that the snapshot was taken
+ *             from.</p>
+ *         <p>You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
+ *             the same name as an existing table in an Amazon Redshift cluster. That is, you cannot
+ *             overwrite an existing table in a cluster with a restored table. If you want to replace
+ *             your original table with a new, restored table, then rename or drop your original table
+ *             before you call <code>RestoreTableFromClusterSnapshot</code>. When you have renamed your
+ *             original table, then you can pass the original name of the table as the
+ *                 <code>NewTableName</code> parameter value in the call to
+ *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
+ *             table with the table created from the snapshot.</p>
+ */
 export class RestoreTableFromClusterSnapshotCommand extends $Command<
   RestoreTableFromClusterSnapshotCommandInput,
   RestoreTableFromClusterSnapshotCommandOutput,
@@ -34,6 +48,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

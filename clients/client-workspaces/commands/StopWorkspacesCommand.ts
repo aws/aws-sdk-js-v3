@@ -20,6 +20,12 @@ import {
 export type StopWorkspacesCommandInput = StopWorkspacesRequest;
 export type StopWorkspacesCommandOutput = StopWorkspacesResult & __MetadataBearer;
 
+/**
+ * <p> Stops the specified WorkSpaces.</p>
+ *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
+ *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
+ *             <code>ERROR</code>.</p>
+ */
 export class StopWorkspacesCommand extends $Command<
   StopWorkspacesCommandInput,
   StopWorkspacesCommandOutput,
@@ -34,6 +40,9 @@ export class StopWorkspacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

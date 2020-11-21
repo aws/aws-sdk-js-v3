@@ -20,6 +20,9 @@ import {
 export type GetWorkGroupCommandInput = GetWorkGroupInput;
 export type GetWorkGroupCommandOutput = GetWorkGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the workgroup with the specified name.</p>
+ */
 export class GetWorkGroupCommand extends $Command<
   GetWorkGroupCommandInput,
   GetWorkGroupCommandOutput,
@@ -34,6 +37,9 @@ export class GetWorkGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

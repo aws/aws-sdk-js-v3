@@ -20,6 +20,9 @@ import {
 export type BatchStopCommandInput = BatchStopRequest;
 export type BatchStopCommandOutput = BatchStopResponse & __MetadataBearer;
 
+/**
+ * Stops running resources
+ */
 export class BatchStopCommand extends $Command<
   BatchStopCommandInput,
   BatchStopCommandOutput,
@@ -34,6 +37,9 @@ export class BatchStopCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

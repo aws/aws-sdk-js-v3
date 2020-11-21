@@ -24,6 +24,9 @@ export type AcceptReservedInstancesExchangeQuoteCommandInput = AcceptReservedIns
 export type AcceptReservedInstancesExchangeQuoteCommandOutput = AcceptReservedInstancesExchangeQuoteResult &
   __MetadataBearer;
 
+/**
+ * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
+ */
 export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
@@ -38,6 +41,9 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

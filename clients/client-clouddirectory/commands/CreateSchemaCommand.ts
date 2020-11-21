@@ -20,6 +20,29 @@ import {
 export type CreateSchemaCommandInput = CreateSchemaRequest;
 export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new schema in a development state. A schema can exist in three
+ *       phases:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>Development:</i> This is a mutable phase of the schema. All new
+ *           schemas are in the development phase. Once the schema is finalized, it can be
+ *           published.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Published:</i> Published schemas are immutable and have a version
+ *           associated with them.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Applied:</i> Applied schemas are mutable in a way that allows you
+ *           to add new schema facets. You can also add new, nonrequired attributes to existing schema
+ *           facets. You can apply only published schemas to directories. </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,
   CreateSchemaCommandOutput,
@@ -34,6 +57,9 @@ export class CreateSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

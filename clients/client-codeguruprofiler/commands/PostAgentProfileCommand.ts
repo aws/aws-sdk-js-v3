@@ -20,6 +20,9 @@ import {
 export type PostAgentProfileCommandInput = PostAgentProfileRequest;
 export type PostAgentProfileCommandOutput = PostAgentProfileResponse & __MetadataBearer;
 
+/**
+ * <p/>
+ */
 export class PostAgentProfileCommand extends $Command<
   PostAgentProfileCommandInput,
   PostAgentProfileCommandOutput,
@@ -34,6 +37,9 @@ export class PostAgentProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

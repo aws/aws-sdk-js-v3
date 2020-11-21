@@ -24,6 +24,9 @@ import {
 export type ListProblemsCommandInput = ListProblemsRequest;
 export type ListProblemsCommandOutput = ListProblemsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the problems with your application.</p>
+ */
 export class ListProblemsCommand extends $Command<
   ListProblemsCommandInput,
   ListProblemsCommandOutput,
@@ -38,6 +41,9 @@ export class ListProblemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteInvitationsCommandInput = DeleteInvitationsRequest;
 export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes invitations sent to the current member account by AWS accounts specified by their
+ *       account IDs.</p>
+ */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,
   DeleteInvitationsCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

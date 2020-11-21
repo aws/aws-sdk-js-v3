@@ -20,6 +20,12 @@ import {
 export type DeleteFlowCommandInput = DeleteFlowRequest;
 export type DeleteFlowCommandOutput = DeleteFlowResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can delete flows one at a time.
+ *
+ * </p>
+ */
 export class DeleteFlowCommand extends $Command<
   DeleteFlowCommandInput,
   DeleteFlowCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type ListQualificationRequestsCommandInput = ListQualificationRequestsRequest;
 export type ListQualificationRequestsCommandOutput = ListQualificationRequestsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>ListQualificationRequests</code>
+ *             operation retrieves requests for Qualifications of a particular
+ *             Qualification type. The owner of the Qualification type calls this
+ *             operation to poll for pending requests, and accepts them using the
+ *             AcceptQualification operation.
+ *         </p>
+ */
 export class ListQualificationRequestsCommand extends $Command<
   ListQualificationRequestsCommandInput,
   ListQualificationRequestsCommandOutput,
@@ -34,6 +44,9 @@ export class ListQualificationRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

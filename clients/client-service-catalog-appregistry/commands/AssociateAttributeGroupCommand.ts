@@ -24,6 +24,9 @@ import {
 export type AssociateAttributeGroupCommandInput = AssociateAttributeGroupRequest;
 export type AssociateAttributeGroupCommandOutput = AssociateAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Associates an attribute group with an application to augment the application's metadata with the group's attributes. This way applications can be described with user-defined details which are machine-readable (e.g. for third-party integrations).</p>
+ */
 export class AssociateAttributeGroupCommand extends $Command<
   AssociateAttributeGroupCommandInput,
   AssociateAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

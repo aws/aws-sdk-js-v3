@@ -20,6 +20,9 @@ import {
 export type CreateUserCommandInput = CreateUserRequest;
 export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a user under the specified Amazon Chime account.</p>
+ */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,
   CreateUserCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

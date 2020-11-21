@@ -20,6 +20,9 @@ import {
 export type UpdateFindingsFeedbackCommandInput = UpdateFindingsFeedbackRequest;
 export type UpdateFindingsFeedbackCommandOutput = UpdateFindingsFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
+ */
 export class UpdateFindingsFeedbackCommand extends $Command<
   UpdateFindingsFeedbackCommandInput,
   UpdateFindingsFeedbackCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -24,6 +24,9 @@ export type PutConfigurationSetDeliveryOptionsCommandInput = PutConfigurationSet
 export type PutConfigurationSetDeliveryOptionsCommandOutput = PutConfigurationSetDeliveryOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds or updates the delivery options for a configuration set.</p>
+ */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
@@ -38,6 +41,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

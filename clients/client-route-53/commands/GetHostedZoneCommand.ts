@@ -21,6 +21,9 @@ import {
 export type GetHostedZoneCommandInput = GetHostedZoneRequest;
 export type GetHostedZoneCommandOutput = GetHostedZoneResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
+ */
 export class GetHostedZoneCommand extends $Command<
   GetHostedZoneCommandInput,
   GetHostedZoneCommandOutput,
@@ -35,6 +38,9 @@ export class GetHostedZoneCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

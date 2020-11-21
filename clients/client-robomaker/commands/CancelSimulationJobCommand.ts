@@ -20,6 +20,9 @@ import {
 export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
 export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified simulation job.</p>
+ */
 export class CancelSimulationJobCommand extends $Command<
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
@@ -34,6 +37,9 @@ export class CancelSimulationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

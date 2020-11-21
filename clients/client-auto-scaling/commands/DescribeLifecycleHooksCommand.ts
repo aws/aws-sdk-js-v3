@@ -20,6 +20,9 @@ import {
 export type DescribeLifecycleHooksCommandInput = DescribeLifecycleHooksType;
 export type DescribeLifecycleHooksCommandOutput = DescribeLifecycleHooksAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
+ */
 export class DescribeLifecycleHooksCommand extends $Command<
   DescribeLifecycleHooksCommandInput,
   DescribeLifecycleHooksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLifecycleHooksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

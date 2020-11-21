@@ -20,6 +20,9 @@ import {
 export type GetJourneyDateRangeKpiCommandInput = GetJourneyDateRangeKpiRequest;
 export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
+ */
 export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandInput,
   GetJourneyDateRangeKpiCommandOutput,
@@ -34,6 +37,9 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

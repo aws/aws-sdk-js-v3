@@ -20,6 +20,9 @@ import {
 export type ListPresetsCommandInput = ListPresetsRequest;
 export type ListPresetsCommandOutput = ListPresetsResponse & __MetadataBearer;
 
+/**
+ * Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
+ */
 export class ListPresetsCommand extends $Command<
   ListPresetsCommandInput,
   ListPresetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPresetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

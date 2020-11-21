@@ -20,6 +20,12 @@ import {
 export type DeleteProvisioningArtifactCommandInput = DeleteProvisioningArtifactInput;
 export type DeleteProvisioningArtifactCommandOutput = DeleteProvisioningArtifactOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
+ *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
+ *          You cannot delete the last provisioning artifact for a product, because a product must have at
+ *          least one provisioning artifact.</p>
+ */
 export class DeleteProvisioningArtifactCommand extends $Command<
   DeleteProvisioningArtifactCommandInput,
   DeleteProvisioningArtifactCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

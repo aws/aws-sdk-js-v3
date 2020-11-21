@@ -20,6 +20,11 @@ import {
 export type UpdateContactCommandInput = UpdateContactRequest;
 export type UpdateContactCommandOutput = UpdateContactResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a contact's preferences for a list. It is not necessary to specify all
+ *             existing topic preferences in the TopicPreferences object, just the ones that need
+ *             updating.</p>
+ */
 export class UpdateContactCommand extends $Command<
   UpdateContactCommandInput,
   UpdateContactCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

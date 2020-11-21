@@ -17,6 +17,9 @@ import {
 export type GetApiCommandInput = GetApiRequest;
 export type GetApiCommandOutput = GetApiResponse & __MetadataBearer;
 
+/**
+ * <p>Gets an Api resource.</p>
+ */
 export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOutput, ApiGatewayV2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

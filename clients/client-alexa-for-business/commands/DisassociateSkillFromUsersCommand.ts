@@ -20,6 +20,10 @@ import {
 export type DisassociateSkillFromUsersCommandInput = DisassociateSkillFromUsersRequest;
 export type DisassociateSkillFromUsersCommandOutput = DisassociateSkillFromUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
+ *          on their devices.</p>
+ */
 export class DisassociateSkillFromUsersCommand extends $Command<
   DisassociateSkillFromUsersCommandInput,
   DisassociateSkillFromUsersCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

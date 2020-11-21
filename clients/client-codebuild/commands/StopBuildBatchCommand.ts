@@ -20,6 +20,9 @@ import {
 export type StopBuildBatchCommandInput = StopBuildBatchInput;
 export type StopBuildBatchCommandOutput = StopBuildBatchOutput & __MetadataBearer;
 
+/**
+ * <p>Stops a running batch build.</p>
+ */
 export class StopBuildBatchCommand extends $Command<
   StopBuildBatchCommandInput,
   StopBuildBatchCommandOutput,
@@ -34,6 +37,9 @@ export class StopBuildBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

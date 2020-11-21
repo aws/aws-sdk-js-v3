@@ -20,6 +20,17 @@ import {
 export type StartExecutionCommandInput = StartExecutionInput;
 export type StartExecutionCommandOutput = StartExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Starts a state machine execution.</p>
+ *          <note>
+ *             <p>
+ *                <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called with
+ *         the same name and input as a running execution, the call will succeed and return the same
+ *         response as the original request. If the execution is closed or if the input is different,
+ *         it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90
+ *         days. </p>
+ *          </note>
+ */
 export class StartExecutionCommand extends $Command<
   StartExecutionCommandInput,
   StartExecutionCommandOutput,
@@ -34,6 +45,9 @@ export class StartExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

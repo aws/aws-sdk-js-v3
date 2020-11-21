@@ -20,6 +20,11 @@ import {
 export type DeleteServerCommandInput = DeleteServerRequest;
 export type DeleteServerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
+ *
+ *          <p>No response returns from this operation.</p>
+ */
 export class DeleteServerCommand extends $Command<
   DeleteServerCommandInput,
   DeleteServerCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

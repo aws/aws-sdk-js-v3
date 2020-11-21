@@ -20,6 +20,10 @@ import {
 export type ClassifyDocumentCommandInput = ClassifyDocumentRequest;
 export type ClassifyDocumentCommandOutput = ClassifyDocumentResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new document classification request to analyze a single document in real-time,
+ *       using a previously created and trained custom model and an endpoint.</p>
+ */
 export class ClassifyDocumentCommand extends $Command<
   ClassifyDocumentCommandInput,
   ClassifyDocumentCommandOutput,
@@ -34,6 +38,9 @@ export class ClassifyDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

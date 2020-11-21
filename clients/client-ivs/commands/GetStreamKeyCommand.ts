@@ -20,6 +20,9 @@ import {
 export type GetStreamKeyCommandInput = GetStreamKeyRequest;
 export type GetStreamKeyCommandOutput = GetStreamKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets stream-key information for a specified ARN.</p>
+ */
 export class GetStreamKeyCommand extends $Command<
   GetStreamKeyCommandInput,
   GetStreamKeyCommandOutput,
@@ -34,6 +37,9 @@ export class GetStreamKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

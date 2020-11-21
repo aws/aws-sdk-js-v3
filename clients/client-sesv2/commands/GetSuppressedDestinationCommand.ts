@@ -20,6 +20,10 @@ import {
 export type GetSuppressedDestinationCommandInput = GetSuppressedDestinationRequest;
 export type GetSuppressedDestinationCommandOutput = GetSuppressedDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a specific email address that's on the suppression list
+ *             for your account.</p>
+ */
 export class GetSuppressedDestinationCommand extends $Command<
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -34,6 +38,9 @@ export class GetSuppressedDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

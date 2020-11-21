@@ -8,6 +8,9 @@ import {
 import { DataPipelinePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DataPipelineClient,
   input: QueryObjectsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new QueryObjectsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DataPipeline,
   input: QueryObjectsCommandInput,

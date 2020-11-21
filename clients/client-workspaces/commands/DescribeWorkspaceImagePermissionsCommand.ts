@@ -20,6 +20,10 @@ import {
 export type DescribeWorkspaceImagePermissionsCommandInput = DescribeWorkspaceImagePermissionsRequest;
 export type DescribeWorkspaceImagePermissionsCommandOutput = DescribeWorkspaceImagePermissionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the permissions that the owner of an image has granted to other
+ *          AWS accounts for an image.</p>
+ */
 export class DescribeWorkspaceImagePermissionsCommand extends $Command<
   DescribeWorkspaceImagePermissionsCommandInput,
   DescribeWorkspaceImagePermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

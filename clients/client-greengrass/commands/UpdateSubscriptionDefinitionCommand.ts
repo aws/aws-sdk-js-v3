@@ -20,6 +20,9 @@ import {
 export type UpdateSubscriptionDefinitionCommandInput = UpdateSubscriptionDefinitionRequest;
 export type UpdateSubscriptionDefinitionCommandOutput = UpdateSubscriptionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a subscription definition.
+ */
 export class UpdateSubscriptionDefinitionCommand extends $Command<
   UpdateSubscriptionDefinitionCommandInput,
   UpdateSubscriptionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

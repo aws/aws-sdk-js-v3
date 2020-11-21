@@ -20,6 +20,17 @@ import {
 export type DeleteDatasetCommandInput = DeleteDatasetRequest;
 export type DeleteDatasetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>
+ *       operation. You can only delete datasets that have a status of <code>ACTIVE</code> or
+ *         <code>CREATE_FAILED</code>. To get the status use the <a>DescribeDataset</a>
+ *       operation.</p>
+ *          <note>
+ *             <p>Forecast does not automatically update any dataset groups that contain the deleted dataset.
+ *         In order to update the dataset group, use the
+ *         operation, omitting the deleted dataset's ARN.</p>
+ *          </note>
+ */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -34,6 +45,9 @@ export class DeleteDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

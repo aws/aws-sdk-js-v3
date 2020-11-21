@@ -4,6 +4,9 @@ import { ListStepsCommand, ListStepsCommandInput, ListStepsCommandOutput } from 
 import { EMRPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: EMRClient,
   input: ListStepsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStepsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: EMR,
   input: ListStepsCommandInput,

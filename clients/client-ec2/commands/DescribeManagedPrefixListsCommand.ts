@@ -20,6 +20,10 @@ import {
 export type DescribeManagedPrefixListsCommandInput = DescribeManagedPrefixListsRequest;
 export type DescribeManagedPrefixListsCommandOutput = DescribeManagedPrefixListsResult & __MetadataBearer;
 
+/**
+ * <p>Describes your managed prefix lists and any AWS-managed prefix lists.</p>
+ *         <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
+ */
 export class DescribeManagedPrefixListsCommand extends $Command<
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeManagedPrefixListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchGetCommitsCommandInput = BatchGetCommitsInput;
 export type BatchGetCommitsCommandOutput = BatchGetCommitsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the contents of one or more commits in a repository.</p>
+ */
 export class BatchGetCommitsCommand extends $Command<
   BatchGetCommitsCommandInput,
   BatchGetCommitsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetCommitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ListElasticsearchVersionsCommandInput = ListElasticsearchVersionsRequest;
 export type ListElasticsearchVersionsCommandOutput = ListElasticsearchVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>List all supported Elasticsearch versions</p>
+ */
 export class ListElasticsearchVersionsCommand extends $Command<
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput,
@@ -38,6 +41,9 @@ export class ListElasticsearchVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

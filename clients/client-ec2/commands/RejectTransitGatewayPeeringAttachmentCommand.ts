@@ -24,6 +24,9 @@ export type RejectTransitGatewayPeeringAttachmentCommandInput = RejectTransitGat
 export type RejectTransitGatewayPeeringAttachmentCommandOutput = RejectTransitGatewayPeeringAttachmentResult &
   __MetadataBearer;
 
+/**
+ * <p>Rejects a transit gateway peering attachment request.</p>
+ */
 export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   RejectTransitGatewayPeeringAttachmentCommandInput,
   RejectTransitGatewayPeeringAttachmentCommandOutput,
@@ -38,6 +41,9 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

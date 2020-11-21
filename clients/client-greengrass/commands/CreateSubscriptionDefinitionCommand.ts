@@ -20,6 +20,9 @@ import {
 export type CreateSubscriptionDefinitionCommandInput = CreateSubscriptionDefinitionRequest;
 export type CreateSubscriptionDefinitionCommandOutput = CreateSubscriptionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
+ */
 export class CreateSubscriptionDefinitionCommand extends $Command<
   CreateSubscriptionDefinitionCommandInput,
   CreateSubscriptionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type CreateDeliverabilityTestReportCommandInput = CreateDeliverabilityTestReportRequest;
 export type CreateDeliverabilityTestReportCommandOutput = CreateDeliverabilityTestReportResponse & __MetadataBearer;
 
+/**
+ * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
+ *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
+ *             sample message that contains the content that you plan to send to your customers. Amazon Pinpoint
+ *             then sends that message to special email addresses spread across several major email
+ *             providers. After about 24 hours, the test is complete, and you can use the
+ *                 <code>GetDeliverabilityTestReport</code> operation to view the results of the
+ *             test.</p>
+ */
 export class CreateDeliverabilityTestReportCommand extends $Command<
   CreateDeliverabilityTestReportCommandInput,
   CreateDeliverabilityTestReportCommandOutput,
@@ -34,6 +43,9 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

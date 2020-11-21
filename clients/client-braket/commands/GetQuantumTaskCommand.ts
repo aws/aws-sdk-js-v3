@@ -20,6 +20,9 @@ import {
 export type GetQuantumTaskCommandInput = GetQuantumTaskRequest;
 export type GetQuantumTaskCommandOutput = GetQuantumTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the specified quantum task.</p>
+ */
 export class GetQuantumTaskCommand extends $Command<
   GetQuantumTaskCommandInput,
   GetQuantumTaskCommandOutput,
@@ -34,6 +37,9 @@ export class GetQuantumTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BraketClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeletePublishingDestinationCommandInput = DeletePublishingDestinationRequest;
 export type DeletePublishingDestinationCommandOutput = DeletePublishingDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
+ */
 export class DeletePublishingDestinationCommand extends $Command<
   DeletePublishingDestinationCommandInput,
   DeletePublishingDestinationCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePublishingDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

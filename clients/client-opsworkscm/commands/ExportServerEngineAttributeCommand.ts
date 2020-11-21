@@ -20,6 +20,20 @@ import {
 export type ExportServerEngineAttributeCommandInput = ExportServerEngineAttributeRequest;
 export type ExportServerEngineAttributeCommandOutput = ExportServerEngineAttributeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data that you can use in EC2 to associate nodes with a server.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ *          <p>
+ *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
+ *       An <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING, TERMINATED,
+ *       FAILED or DELETING.
+ *     </p>
+ */
 export class ExportServerEngineAttributeCommand extends $Command<
   ExportServerEngineAttributeCommandInput,
   ExportServerEngineAttributeCommandOutput,
@@ -34,6 +48,9 @@ export class ExportServerEngineAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

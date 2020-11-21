@@ -20,6 +20,9 @@ import {
 export type UpdateDiscovererCommandInput = UpdateDiscovererRequest;
 export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the discoverer</p>
+ */
 export class UpdateDiscovererCommand extends $Command<
   UpdateDiscovererCommandInput,
   UpdateDiscovererCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDiscovererCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

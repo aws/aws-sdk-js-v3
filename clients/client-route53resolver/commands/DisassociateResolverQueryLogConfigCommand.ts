@@ -24,6 +24,23 @@ export type DisassociateResolverQueryLogConfigCommandInput = DisassociateResolve
 export type DisassociateResolverQueryLogConfigCommandOutput = DisassociateResolverQueryLogConfigResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a VPC from a query logging configuration.</p>
+ *
+ * 		       <note>
+ * 			         <p>Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. If you used
+ * 				Resource Access Manager (RAM) to share a query logging configuration with other accounts, VPCs can be disassociated from the configuration
+ * 				in the following ways:</p>
+ * 			         <ul>
+ *                <li>
+ *                   <p>The accounts that you shared the configuration with can disassociate VPCs from the configuration.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You can stop sharing the configuration.</p>
+ *                </li>
+ *             </ul>
+ * 		       </note>
+ */
 export class DisassociateResolverQueryLogConfigCommand extends $Command<
   DisassociateResolverQueryLogConfigCommandInput,
   DisassociateResolverQueryLogConfigCommandOutput,
@@ -38,6 +55,9 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

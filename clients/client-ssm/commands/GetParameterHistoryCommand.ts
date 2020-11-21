@@ -20,6 +20,9 @@ import {
 export type GetParameterHistoryCommandInput = GetParameterHistoryRequest;
 export type GetParameterHistoryCommandOutput = GetParameterHistoryResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the history of all changes to a parameter.</p>
+ */
 export class GetParameterHistoryCommand extends $Command<
   GetParameterHistoryCommandInput,
   GetParameterHistoryCommandOutput,
@@ -34,6 +37,9 @@ export class GetParameterHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

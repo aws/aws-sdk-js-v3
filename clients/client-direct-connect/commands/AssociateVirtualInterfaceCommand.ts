@@ -20,6 +20,18 @@ import {
 export type AssociateVirtualInterfaceCommandInput = AssociateVirtualInterfaceRequest;
 export type AssociateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
+/**
+ * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
+ *       connection. Connectivity to AWS is temporarily interrupted as the virtual interface is
+ *       being migrated. If the target connection or LAG has an associated virtual interface with
+ *       a conflicting VLAN number or a conflicting IP address, the operation fails.</p>
+ *          <p>Virtual interfaces associated with a hosted connection cannot be associated with a
+ *       LAG; hosted connections must be migrated along with their virtual interfaces using <a>AssociateHostedConnection</a>.</p>
+ *          <p>To reassociate a virtual interface to a new connection or LAG, the requester
+ *       must own either the virtual interface itself or the connection to which the virtual
+ *       interface is currently associated. Additionally, the requester must own the connection
+ *       or LAG for the association.</p>
+ */
 export class AssociateVirtualInterfaceCommand extends $Command<
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput,
@@ -34,6 +46,9 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

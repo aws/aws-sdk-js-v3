@@ -20,6 +20,12 @@ import {
 export type GetCloudFormationStackRecordsCommandInput = GetCloudFormationStackRecordsRequest;
 export type GetCloudFormationStackRecordsCommandOutput = GetCloudFormationStackRecordsResult & __MetadataBearer;
 
+/**
+ * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud
+ *         formation stack</code> operation.</p>
+ *          <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
+ *       snapshot.</p>
+ */
 export class GetCloudFormationStackRecordsCommand extends $Command<
   GetCloudFormationStackRecordsCommandInput,
   GetCloudFormationStackRecordsCommandOutput,
@@ -34,6 +40,9 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

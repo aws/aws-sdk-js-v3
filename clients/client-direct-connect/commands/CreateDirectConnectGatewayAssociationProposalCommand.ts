@@ -24,6 +24,10 @@ export type CreateDirectConnectGatewayAssociationProposalCommandInput = CreateDi
 export type CreateDirectConnectGatewayAssociationProposalCommandOutput = CreateDirectConnectGatewayAssociationProposalResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
+ *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any AWS account. </p>
+ */
 export class CreateDirectConnectGatewayAssociationProposalCommand extends $Command<
   CreateDirectConnectGatewayAssociationProposalCommandInput,
   CreateDirectConnectGatewayAssociationProposalCommandOutput,
@@ -38,6 +42,9 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

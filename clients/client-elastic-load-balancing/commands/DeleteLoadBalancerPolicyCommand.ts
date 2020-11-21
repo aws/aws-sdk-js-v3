@@ -24,6 +24,9 @@ import {
 export type DeleteLoadBalancerPolicyCommandInput = DeleteLoadBalancerPolicyInput;
 export type DeleteLoadBalancerPolicyCommandOutput = DeleteLoadBalancerPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
+ */
 export class DeleteLoadBalancerPolicyCommand extends $Command<
   DeleteLoadBalancerPolicyCommandInput,
   DeleteLoadBalancerPolicyCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

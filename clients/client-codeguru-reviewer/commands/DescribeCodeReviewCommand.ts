@@ -20,6 +20,9 @@ import {
 export type DescribeCodeReviewCommandInput = DescribeCodeReviewRequest;
 export type DescribeCodeReviewCommandOutput = DescribeCodeReviewResponse & __MetadataBearer;
 
+/**
+ * <p> Returns the metadata associated with the code review along with its status.</p>
+ */
 export class DescribeCodeReviewCommand extends $Command<
   DescribeCodeReviewCommandInput,
   DescribeCodeReviewCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCodeReviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

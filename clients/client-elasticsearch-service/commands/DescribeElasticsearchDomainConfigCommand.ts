@@ -28,6 +28,9 @@ export type DescribeElasticsearchDomainConfigCommandInput = DescribeElasticsearc
 export type DescribeElasticsearchDomainConfigCommandOutput = DescribeElasticsearchDomainConfigResponse &
   __MetadataBearer;
 
+/**
+ * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
+ */
 export class DescribeElasticsearchDomainConfigCommand extends $Command<
   DescribeElasticsearchDomainConfigCommandInput,
   DescribeElasticsearchDomainConfigCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetSigningPlatformCommandInput = GetSigningPlatformRequest;
 export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information on a specific signing platform.</p>
+ */
 export class GetSigningPlatformCommand extends $Command<
   GetSigningPlatformCommandInput,
   GetSigningPlatformCommandOutput,
@@ -34,6 +37,9 @@ export class GetSigningPlatformCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

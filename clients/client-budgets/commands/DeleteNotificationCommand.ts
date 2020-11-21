@@ -20,6 +20,12 @@ import {
 export type DeleteNotificationCommandInput = DeleteNotificationRequest;
 export type DeleteNotificationCommandOutput = DeleteNotificationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a notification.</p>
+ * 		       <important>
+ * 			         <p>Deleting a notification also deletes the subscribers that are associated with the notification.</p>
+ * 		       </important>
+ */
 export class DeleteNotificationCommand extends $Command<
   DeleteNotificationCommandInput,
   DeleteNotificationCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

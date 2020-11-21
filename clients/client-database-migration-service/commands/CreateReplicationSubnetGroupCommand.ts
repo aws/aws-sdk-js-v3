@@ -24,6 +24,9 @@ import {
 export type CreateReplicationSubnetGroupCommandInput = CreateReplicationSubnetGroupMessage;
 export type CreateReplicationSubnetGroupCommandOutput = CreateReplicationSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
+ */
 export class CreateReplicationSubnetGroupCommand extends $Command<
   CreateReplicationSubnetGroupCommandInput,
   CreateReplicationSubnetGroupCommandOutput,
@@ -38,6 +41,9 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

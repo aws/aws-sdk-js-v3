@@ -20,6 +20,10 @@ import {
 export type GetAutoSnapshotsCommandInput = GetAutoSnapshotsRequest;
 export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Returns the available automatic snapshots for an instance or disk. For more information,
+ *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+ */
 export class GetAutoSnapshotsCommand extends $Command<
   GetAutoSnapshotsCommandInput,
   GetAutoSnapshotsCommandOutput,
@@ -34,6 +38,9 @@ export class GetAutoSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

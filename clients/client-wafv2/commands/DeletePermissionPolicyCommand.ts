@@ -20,6 +20,10 @@ import {
 export type DeletePermissionPolicyCommandInput = DeletePermissionPolicyRequest;
 export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Permanently deletes an IAM policy from the specified rule group.</p>
+ *         <p>You must be the owner of the rule group to perform this operation.</p>
+ */
 export class DeletePermissionPolicyCommand extends $Command<
   DeletePermissionPolicyCommandInput,
   DeletePermissionPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class DeletePermissionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

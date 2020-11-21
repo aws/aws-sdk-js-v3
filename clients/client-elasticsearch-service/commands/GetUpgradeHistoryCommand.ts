@@ -24,6 +24,9 @@ import {
 export type GetUpgradeHistoryCommandInput = GetUpgradeHistoryRequest;
 export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
+ */
 export class GetUpgradeHistoryCommand extends $Command<
   GetUpgradeHistoryCommandInput,
   GetUpgradeHistoryCommandOutput,
@@ -38,6 +41,9 @@ export class GetUpgradeHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

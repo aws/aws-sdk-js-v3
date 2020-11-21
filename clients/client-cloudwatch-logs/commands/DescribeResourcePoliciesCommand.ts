@@ -20,6 +20,9 @@ import {
 export type DescribeResourcePoliciesCommandInput = DescribeResourcePoliciesRequest;
 export type DescribeResourcePoliciesCommandOutput = DescribeResourcePoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the resource policies in this account.</p>
+ */
 export class DescribeResourcePoliciesCommand extends $Command<
   DescribeResourcePoliciesCommandInput,
   DescribeResourcePoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeResourcePoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

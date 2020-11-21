@@ -20,6 +20,10 @@ import {
 export type SetSubscriptionAttributesCommandInput = SetSubscriptionAttributesInput;
 export type SetSubscriptionAttributesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows a subscription owner to set an attribute of the subscription to a new
+ *             value.</p>
+ */
 export class SetSubscriptionAttributesCommand extends $Command<
   SetSubscriptionAttributesCommandInput,
   SetSubscriptionAttributesCommandOutput,
@@ -34,6 +38,9 @@ export class SetSubscriptionAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

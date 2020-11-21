@@ -17,6 +17,18 @@ import {
 export type GetRoleCommandInput = GetRoleRequest;
 export type GetRoleCommandOutput = GetRoleResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
+ *          and the role's trust policy that grants permission to assume the role. For more information
+ *          about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>.</p>
+ *          <note>
+ *             <p>Policies returned by this API are URL-encoded compliant
+ *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
+ *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
+ *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
+ *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
+ *          </note>
+ */
 export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +39,9 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

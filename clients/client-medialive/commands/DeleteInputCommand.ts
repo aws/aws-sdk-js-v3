@@ -20,6 +20,9 @@ import {
 export type DeleteInputCommandInput = DeleteInputRequest;
 export type DeleteInputCommandOutput = DeleteInputResponse & __MetadataBearer;
 
+/**
+ * Deletes the input end point
+ */
 export class DeleteInputCommand extends $Command<
   DeleteInputCommandInput,
   DeleteInputCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

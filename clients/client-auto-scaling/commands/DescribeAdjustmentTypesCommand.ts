@@ -20,6 +20,23 @@ import {
 export type DescribeAdjustmentTypesCommandInput = {};
 export type DescribeAdjustmentTypesCommandOutput = DescribeAdjustmentTypesAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies. These settings
+ *             apply to step scaling policies and simple scaling policies; they do not apply to target
+ *             tracking scaling policies.</p>
+ *         <p>The following adjustment types are supported:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>ChangeInCapacity</p>
+ *             </li>
+ *             <li>
+ *                 <p>ExactCapacity</p>
+ *             </li>
+ *             <li>
+ *                 <p>PercentChangeInCapacity</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeAdjustmentTypesCommand extends $Command<
   DescribeAdjustmentTypesCommandInput,
   DescribeAdjustmentTypesCommandOutput,
@@ -34,6 +51,9 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

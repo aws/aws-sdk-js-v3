@@ -20,6 +20,12 @@ import {
 export type CreateDocumentCommandInput = CreateDocumentRequest;
 export type CreateDocumentCommandOutput = CreateDocumentResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Systems Manager (SSM) document. An SSM document defines the actions that Systems Manager performs on
+ *    your managed instances. For more information about SSM documents, including information about
+ *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the
+ *     <i>AWS Systems Manager User Guide</i>.</p>
+ */
 export class CreateDocumentCommand extends $Command<
   CreateDocumentCommandInput,
   CreateDocumentCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

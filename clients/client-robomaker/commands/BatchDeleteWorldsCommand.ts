@@ -20,6 +20,9 @@ import {
 export type BatchDeleteWorldsCommandInput = BatchDeleteWorldsRequest;
 export type BatchDeleteWorldsCommandOutput = BatchDeleteWorldsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more worlds in a batch operation.</p>
+ */
 export class BatchDeleteWorldsCommand extends $Command<
   BatchDeleteWorldsCommandInput,
   BatchDeleteWorldsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteWorldsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

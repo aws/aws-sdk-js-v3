@@ -20,6 +20,9 @@ import {
 export type UpdateChannelCommandInput = UpdateChannelRequest;
 export type UpdateChannelCommandOutput = UpdateChannelResponse & __MetadataBearer;
 
+/**
+ * Updates an existing Channel.
+ */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

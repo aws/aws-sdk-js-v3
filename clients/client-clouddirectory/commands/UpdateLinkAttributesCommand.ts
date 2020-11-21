@@ -20,6 +20,9 @@ import {
 export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
 export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
+ */
 export class UpdateLinkAttributesCommand extends $Command<
   UpdateLinkAttributesCommandInput,
   UpdateLinkAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateLinkAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

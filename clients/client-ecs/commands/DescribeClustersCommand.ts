@@ -20,6 +20,9 @@ import {
 export type DescribeClustersCommandInput = DescribeClustersRequest;
 export type DescribeClustersCommandOutput = DescribeClustersResponse & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your clusters.</p>
+ */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,
   DescribeClustersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

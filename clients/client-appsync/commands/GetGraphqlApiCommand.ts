@@ -20,6 +20,9 @@ import {
 export type GetGraphqlApiCommandInput = GetGraphqlApiRequest;
 export type GetGraphqlApiCommandOutput = GetGraphqlApiResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a <code>GraphqlApi</code> object.</p>
+ */
 export class GetGraphqlApiCommand extends $Command<
   GetGraphqlApiCommandInput,
   GetGraphqlApiCommandOutput,
@@ -34,6 +37,9 @@ export class GetGraphqlApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

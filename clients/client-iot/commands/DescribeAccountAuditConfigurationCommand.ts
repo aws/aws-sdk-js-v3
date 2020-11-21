@@ -24,6 +24,11 @@ export type DescribeAccountAuditConfigurationCommandInput = DescribeAccountAudit
 export type DescribeAccountAuditConfigurationCommandOutput = DescribeAccountAuditConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about the Device Defender audit settings for this account.
+ *           Settings include how audit notifications are sent and which audit checks are
+ *           enabled or disabled.</p>
+ */
 export class DescribeAccountAuditConfigurationCommand extends $Command<
   DescribeAccountAuditConfigurationCommandInput,
   DescribeAccountAuditConfigurationCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

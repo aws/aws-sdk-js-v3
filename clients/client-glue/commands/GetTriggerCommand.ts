@@ -20,6 +20,9 @@ import {
 export type GetTriggerCommandInput = GetTriggerRequest;
 export type GetTriggerCommandOutput = GetTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the definition of a trigger.</p>
+ */
 export class GetTriggerCommand extends $Command<
   GetTriggerCommandInput,
   GetTriggerCommandOutput,
@@ -34,6 +37,9 @@ export class GetTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

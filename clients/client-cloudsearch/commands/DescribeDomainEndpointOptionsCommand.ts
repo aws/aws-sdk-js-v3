@@ -20,6 +20,9 @@ import {
 export type DescribeDomainEndpointOptionsCommandInput = DescribeDomainEndpointOptionsRequest;
 export type DescribeDomainEndpointOptionsCommandOutput = DescribeDomainEndpointOptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeDomainEndpointOptionsCommand extends $Command<
   DescribeDomainEndpointOptionsCommandInput,
   DescribeDomainEndpointOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

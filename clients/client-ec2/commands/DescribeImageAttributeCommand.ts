@@ -20,6 +20,9 @@ import {
 export type DescribeImageAttributeCommandInput = DescribeImageAttributeRequest;
 export type DescribeImageAttributeCommandOutput = ImageAttribute & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
+ */
 export class DescribeImageAttributeCommand extends $Command<
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImageAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

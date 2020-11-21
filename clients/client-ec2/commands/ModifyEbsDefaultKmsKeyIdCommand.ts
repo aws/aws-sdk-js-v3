@@ -20,6 +20,16 @@ import {
 export type ModifyEbsDefaultKmsKeyIdCommandInput = ModifyEbsDefaultKmsKeyIdRequest;
 export type ModifyEbsDefaultKmsKeyIdCommandOutput = ModifyEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
+/**
+ * <p>Changes the default customer master key (CMK) for EBS encryption by default for your account in this Region.</p>
+ *          <p>AWS creates a unique AWS managed CMK in each Region for use with encryption by default. If
+ *       you change the default CMK to a symmetric customer managed CMK, it is used instead of the AWS
+ *       managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>
+ *          <p>If you delete or disable the customer managed CMK that you specified for use with
+ *       encryption by default, your instances will fail to launch.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
   ModifyEbsDefaultKmsKeyIdCommandInput,
   ModifyEbsDefaultKmsKeyIdCommandOutput,
@@ -34,6 +44,9 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

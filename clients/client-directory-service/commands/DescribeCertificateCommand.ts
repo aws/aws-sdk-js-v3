@@ -20,6 +20,9 @@ import {
 export type DescribeCertificateCommandInput = DescribeCertificateRequest;
 export type DescribeCertificateCommandOutput = DescribeCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Displays information about the certificate registered for a secured LDAP connection.</p>
+ */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

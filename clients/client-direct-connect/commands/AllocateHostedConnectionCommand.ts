@@ -20,6 +20,13 @@ import {
 export type AllocateHostedConnectionCommandInput = AllocateHostedConnectionRequest;
 export type AllocateHostedConnectionCommandOutput = Connection & __MetadataBearer;
 
+/**
+ * <p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.</p>
+ *          <p>Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects. AWS polices the hosted connection for the specified capacity and the AWS Direct Connect Partner must also police the hosted connection for the specified capacity.</p>
+ *          <note>
+ *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class AllocateHostedConnectionCommand extends $Command<
   AllocateHostedConnectionCommandInput,
   AllocateHostedConnectionCommandOutput,
@@ -34,6 +41,9 @@ export class AllocateHostedConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

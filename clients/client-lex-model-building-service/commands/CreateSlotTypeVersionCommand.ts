@@ -24,6 +24,23 @@ import {
 export type CreateSlotTypeVersionCommandInput = CreateSlotTypeVersionRequest;
 export type CreateSlotTypeVersionCommandOutput = CreateSlotTypeVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new version of a slot type based on the <code>$LATEST</code> version of the
+ *       specified slot type. If the <code>$LATEST</code> version of this resource has not changed
+ *       since the last version that you created, Amazon Lex doesn't create a new version. It returns the
+ *       last version that you created. </p>
+ *          <note>
+ *             <p>You can update only the <code>$LATEST</code> version of a slot type. You can't update
+ *         the numbered versions that you create with the <code>CreateSlotTypeVersion</code>
+ *         operation.</p>
+ *          </note>
+ *
+ *          <p>When you create a version of a slot type, Amazon Lex sets the version to 1. Subsequent
+ *       versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
+ *
+ *          <p>This operation requires permissions for the <code>lex:CreateSlotTypeVersion</code>
+ *       action.</p>
+ */
 export class CreateSlotTypeVersionCommand extends $Command<
   CreateSlotTypeVersionCommandInput,
   CreateSlotTypeVersionCommandOutput,
@@ -38,6 +55,9 @@ export class CreateSlotTypeVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

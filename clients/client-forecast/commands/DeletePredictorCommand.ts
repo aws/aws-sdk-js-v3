@@ -20,6 +20,11 @@ import {
 export type DeletePredictorCommandInput = DeletePredictorRequest;
 export type DeletePredictorCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can
+ *       delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+ *       To get the status, use the <a>DescribePredictor</a> operation.</p>
+ */
 export class DeletePredictorCommand extends $Command<
   DeletePredictorCommandInput,
   DeletePredictorCommandOutput,
@@ -34,6 +39,9 @@ export class DeletePredictorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

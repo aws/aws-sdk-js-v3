@@ -20,6 +20,9 @@ import {
 export type DeleteRoomCommandInput = DeleteRoomRequest;
 export type DeleteRoomCommandOutput = DeleteRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a room by the room ARN.</p>
+ */
 export class DeleteRoomCommand extends $Command<
   DeleteRoomCommandInput,
   DeleteRoomCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type GetEbsDefaultKmsKeyIdCommandInput = GetEbsDefaultKmsKeyIdRequest;
 export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
+/**
+ * <p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region.
+ *       You can change the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
+ *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class GetEbsDefaultKmsKeyIdCommand extends $Command<
   GetEbsDefaultKmsKeyIdCommandInput,
   GetEbsDefaultKmsKeyIdCommandOutput,
@@ -34,6 +41,9 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

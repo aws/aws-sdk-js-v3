@@ -20,6 +20,13 @@ import {
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
 export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a configuration set.</p>
+ *         <p>Configuration sets enable you to publish email sending events. For information about
+ *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -34,6 +41,9 @@ export class CreateConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

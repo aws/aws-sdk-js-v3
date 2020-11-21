@@ -20,6 +20,11 @@ import {
 export type UpdateScalingPlanCommandInput = UpdateScalingPlanRequest;
 export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified scaling plan.</p>
+ *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
+ *          deleted.</p>
+ */
 export class UpdateScalingPlanCommand extends $Command<
   UpdateScalingPlanCommandInput,
   UpdateScalingPlanCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateScalingPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,

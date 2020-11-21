@@ -25,6 +25,10 @@ import {
 export type AdminForgetDeviceCommandInput = AdminForgetDeviceRequest;
 export type AdminForgetDeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Forgets the device, as an administrator.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminForgetDeviceCommand extends $Command<
   AdminForgetDeviceCommandInput,
   AdminForgetDeviceCommandOutput,
@@ -39,6 +43,9 @@ export class AdminForgetDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

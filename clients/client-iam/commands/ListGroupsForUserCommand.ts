@@ -20,6 +20,11 @@ import {
 export type ListGroupsForUserCommandInput = ListGroupsForUserRequest;
 export type ListGroupsForUserCommandOutput = ListGroupsForUserResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListGroupsForUserCommand extends $Command<
   ListGroupsForUserCommandInput,
   ListGroupsForUserCommandOutput,
@@ -34,6 +39,9 @@ export class ListGroupsForUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

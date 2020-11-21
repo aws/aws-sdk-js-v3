@@ -17,6 +17,9 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about jobs for a given test run.</p>
+ */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,
   ListJobsCommandOutput,
@@ -31,6 +34,9 @@ export class ListJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

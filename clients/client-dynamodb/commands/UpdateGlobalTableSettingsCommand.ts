@@ -20,6 +20,9 @@ import {
 export type UpdateGlobalTableSettingsCommandInput = UpdateGlobalTableSettingsInput;
 export type UpdateGlobalTableSettingsCommandOutput = UpdateGlobalTableSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>Updates settings for a global table.</p>
+ */
 export class UpdateGlobalTableSettingsCommand extends $Command<
   UpdateGlobalTableSettingsCommandInput,
   UpdateGlobalTableSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -24,6 +24,11 @@ import {
 export type DeleteListenerCommandInput = DeleteListenerInput;
 export type DeleteListenerCommandOutput = DeleteListenerOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified listener.</p>
+ *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it
+ *       is attached.</p>
+ */
 export class DeleteListenerCommand extends $Command<
   DeleteListenerCommandInput,
   DeleteListenerCommandOutput,
@@ -38,6 +43,9 @@ export class DeleteListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

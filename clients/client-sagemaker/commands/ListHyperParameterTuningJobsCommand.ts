@@ -20,6 +20,11 @@ import {
 export type ListHyperParameterTuningJobsCommandInput = ListHyperParameterTuningJobsRequest;
 export type ListHyperParameterTuningJobsCommandOutput = ListHyperParameterTuningJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
+ *             describe
+ *             the hyperparameter tuning jobs launched in your account.</p>
+ */
 export class ListHyperParameterTuningJobsCommand extends $Command<
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput,
@@ -34,6 +39,9 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

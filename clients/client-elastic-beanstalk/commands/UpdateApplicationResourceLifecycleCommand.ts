@@ -24,6 +24,9 @@ export type UpdateApplicationResourceLifecycleCommandInput = UpdateApplicationRe
 export type UpdateApplicationResourceLifecycleCommandOutput = ApplicationResourceLifecycleDescriptionMessage &
   __MetadataBearer;
 
+/**
+ * <p>Modifies lifecycle settings for an application.</p>
+ */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<
   UpdateApplicationResourceLifecycleCommandInput,
   UpdateApplicationResourceLifecycleCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

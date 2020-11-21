@@ -20,6 +20,9 @@ import {
 export type ListWorkflowsCommandInput = ListWorkflowsRequest;
 export type ListWorkflowsCommandOutput = ListWorkflowsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists names of workflows created in the account.</p>
+ */
 export class ListWorkflowsCommand extends $Command<
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
@@ -34,6 +37,9 @@ export class ListWorkflowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

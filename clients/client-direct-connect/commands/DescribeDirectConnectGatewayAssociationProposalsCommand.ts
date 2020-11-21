@@ -24,6 +24,9 @@ export type DescribeDirectConnectGatewayAssociationProposalsCommandInput = Descr
 export type DescribeDirectConnectGatewayAssociationProposalsCommandOutput = DescribeDirectConnectGatewayAssociationProposalsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
+ */
 export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command<
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

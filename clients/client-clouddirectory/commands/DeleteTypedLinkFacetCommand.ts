@@ -20,6 +20,9 @@ import {
 export type DeleteTypedLinkFacetCommandInput = DeleteTypedLinkFacetRequest;
 export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class DeleteTypedLinkFacetCommand extends $Command<
   DeleteTypedLinkFacetCommandInput,
   DeleteTypedLinkFacetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

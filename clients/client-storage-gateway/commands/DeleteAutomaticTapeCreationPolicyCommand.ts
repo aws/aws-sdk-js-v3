@@ -20,6 +20,11 @@ import {
 export type DeleteAutomaticTapeCreationPolicyCommandInput = DeleteAutomaticTapeCreationPolicyInput;
 export type DeleteAutomaticTapeCreationPolicyCommandOutput = DeleteAutomaticTapeCreationPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
+ *          virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
+ *          in your request to remove the policy.</p>
+ */
 export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
   DeleteAutomaticTapeCreationPolicyCommandInput,
   DeleteAutomaticTapeCreationPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

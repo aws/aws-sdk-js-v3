@@ -20,6 +20,9 @@ import {
 export type GetUsagePlanKeysCommandInput = GetUsagePlanKeysRequest;
 export type GetUsagePlanKeysCommandOutput = UsagePlanKeys & __MetadataBearer;
 
+/**
+ * <p>Gets all the usage plan keys representing the API keys added to a specified usage plan.</p>
+ */
 export class GetUsagePlanKeysCommand extends $Command<
   GetUsagePlanKeysCommandInput,
   GetUsagePlanKeysCommandOutput,
@@ -34,6 +37,9 @@ export class GetUsagePlanKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

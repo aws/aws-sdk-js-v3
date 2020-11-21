@@ -20,6 +20,9 @@ import {
 export type ListBotsCommandInput = ListBotsRequest;
 export type ListBotsCommandOutput = ListBotsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
+ */
 export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

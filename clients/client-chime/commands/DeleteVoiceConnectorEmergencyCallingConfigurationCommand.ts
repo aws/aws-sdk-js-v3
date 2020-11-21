@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput = DeleteVoiceConnectorEmergencyCallingConfigurationRequest;
 export type DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
+ */
 export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type ResetDBClusterParameterGroupCommandInput = ResetDBClusterParameterGroupMessage;
 export type ResetDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p> Modifies the parameters of a cluster parameter group to the default value. To
+ *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
+ *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
+ *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
+ *             parameters. </p>
+ *         <p> When you reset the entire group, dynamic parameters are updated immediately and
+ *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
+ *             instance reboot.</p>
+ */
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,
   ResetDBClusterParameterGroupCommandOutput,
@@ -34,6 +44,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteInputSecurityGroupCommandInput = DeleteInputSecurityGroupRequest;
 export type DeleteInputSecurityGroupCommandOutput = DeleteInputSecurityGroupResponse & __MetadataBearer;
 
+/**
+ * Deletes an Input Security Group
+ */
 export class DeleteInputSecurityGroupCommand extends $Command<
   DeleteInputSecurityGroupCommandInput,
   DeleteInputSecurityGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

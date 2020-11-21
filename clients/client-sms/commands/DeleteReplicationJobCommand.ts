@@ -20,6 +20,12 @@ import {
 export type DeleteReplicationJobCommandInput = DeleteReplicationJobRequest;
 export type DeleteReplicationJobCommandOutput = DeleteReplicationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified replication job.</p>
+ *         <p>After you delete a replication job, there are no further replication runs. AWS
+ *             deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created
+ *             by the replication runs are not deleted.</p>
+ */
 export class DeleteReplicationJobCommand extends $Command<
   DeleteReplicationJobCommandInput,
   DeleteReplicationJobCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteReplicationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteStageCommandInput = DeleteStageRequest;
 export type DeleteStageCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Stage.</p>
+ */
 export class DeleteStageCommand extends $Command<
   DeleteStageCommandInput,
   DeleteStageCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteStageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

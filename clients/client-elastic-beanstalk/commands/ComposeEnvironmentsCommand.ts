@@ -20,6 +20,14 @@ import {
 export type ComposeEnvironmentsCommandInput = ComposeEnvironmentsMessage;
 export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Create or update a group of environments that each run a separate component of a single
+ *       application. Takes a list of version labels that specify application source bundles for each
+ *       of the environments to create or update. The name of each environment and other required
+ *       information must be included in the source bundles in an environment manifest named
+ *       <code>env.yaml</code>. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose Environments</a>
+ *       for details.</p>
+ */
 export class ComposeEnvironmentsCommand extends $Command<
   ComposeEnvironmentsCommandInput,
   ComposeEnvironmentsCommandOutput,
@@ -34,6 +42,9 @@ export class ComposeEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

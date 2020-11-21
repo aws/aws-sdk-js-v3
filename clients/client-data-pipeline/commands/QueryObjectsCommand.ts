@@ -20,6 +20,9 @@ import {
 export type QueryObjectsCommandInput = QueryObjectsInput;
 export type QueryObjectsCommandOutput = QueryObjectsOutput & __MetadataBearer;
 
+/**
+ * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>
+ */
 export class QueryObjectsCommand extends $Command<
   QueryObjectsCommandInput,
   QueryObjectsCommandOutput,
@@ -34,6 +37,9 @@ export class QueryObjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

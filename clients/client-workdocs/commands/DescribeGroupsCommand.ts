@@ -20,6 +20,10 @@ import {
 export type DescribeGroupsCommandInput = DescribeGroupsRequest;
 export type DescribeGroupsCommandOutput = DescribeGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the groups specified by the query. Groups are defined by the underlying
+ *             Active Directory.</p>
+ */
 export class DescribeGroupsCommand extends $Command<
   DescribeGroupsCommandInput,
   DescribeGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

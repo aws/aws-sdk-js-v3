@@ -20,6 +20,15 @@ import {
 export type DeleteGlobalClusterCommandInput = DeleteGlobalClusterMessage;
 export type DeleteGlobalClusterCommandOutput = DeleteGlobalClusterResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Deletes a global database cluster. The primary and secondary clusters must already be detached or
+ *         destroyed first.
+ *       </p>
+ *          <note>
+ *            <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class DeleteGlobalClusterCommand extends $Command<
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteGlobalClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

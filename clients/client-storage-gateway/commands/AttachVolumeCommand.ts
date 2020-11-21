@@ -20,6 +20,12 @@ import {
 export type AttachVolumeCommandInput = AttachVolumeInput;
 export type AttachVolumeCommandOutput = AttachVolumeOutput & __MetadataBearer;
 
+/**
+ * <p>Connects a volume to an iSCSI connection and then attaches the volume to the specified
+ *          gateway. Detaching and attaching a volume enables you to recover your data from one gateway
+ *          to a different gateway without creating a snapshot. It also makes it easier to move your
+ *          volumes from an on-premises gateway to a gateway hosted on an Amazon EC2 instance.</p>
+ */
 export class AttachVolumeCommand extends $Command<
   AttachVolumeCommandInput,
   AttachVolumeCommandOutput,
@@ -34,6 +40,9 @@ export class AttachVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type DescribeStackSummaryCommandInput = DescribeStackSummaryRequest;
 export type DescribeStackSummaryCommandOutput = DescribeStackSummaryResult & __MetadataBearer;
 
+/**
+ * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
+ *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+ *       Manage permissions level for the stack, or an attached policy that explicitly grants
+ *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeStackSummaryCommand extends $Command<
   DescribeStackSummaryCommandInput,
   DescribeStackSummaryCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeStackSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

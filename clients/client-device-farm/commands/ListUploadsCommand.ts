@@ -20,6 +20,9 @@ import {
 export type ListUploadsCommandInput = ListUploadsRequest;
 export type ListUploadsCommandOutput = ListUploadsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
+ */
 export class ListUploadsCommand extends $Command<
   ListUploadsCommandInput,
   ListUploadsCommandOutput,
@@ -34,6 +37,9 @@ export class ListUploadsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

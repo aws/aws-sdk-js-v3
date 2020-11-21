@@ -20,6 +20,9 @@ import {
 export type GetQueueCommandInput = GetQueueRequest;
 export type GetQueueCommandOutput = GetQueueResponse & __MetadataBearer;
 
+/**
+ * Retrieve the JSON for a specific queue.
+ */
 export class GetQueueCommand extends $Command<
   GetQueueCommandInput,
   GetQueueCommandOutput,
@@ -34,6 +37,9 @@ export class GetQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListIdentitiesCommandInput = ListIdentitiesRequest;
 export type ListIdentitiesCommandOutput = ListIdentitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list containing all of the identities (email addresses and domains) for your
+ *             AWS account in the current AWS Region, regardless of verification status.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class ListIdentitiesCommand extends $Command<
   ListIdentitiesCommandInput,
   ListIdentitiesCommandOutput,
@@ -34,6 +39,9 @@ export class ListIdentitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

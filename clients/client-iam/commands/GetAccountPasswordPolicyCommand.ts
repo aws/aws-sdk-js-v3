@@ -20,6 +20,11 @@ import {
 export type GetAccountPasswordPolicyCommandInput = {};
 export type GetAccountPasswordPolicyCommandOutput = GetAccountPasswordPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the password policy for the AWS account. For more information about using a
+ *          password policy, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
+ *             Policy</a>.</p>
+ */
 export class GetAccountPasswordPolicyCommand extends $Command<
   GetAccountPasswordPolicyCommandInput,
   GetAccountPasswordPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

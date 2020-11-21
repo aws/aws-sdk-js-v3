@@ -20,6 +20,12 @@ import {
 export type AcceptCertificateTransferCommandInput = AcceptCertificateTransferRequest;
 export type AcceptCertificateTransferCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Accepts a pending certificate transfer. The default state of the certificate is
+ *          INACTIVE.</p>
+ *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
+ *          to enumerate your certificates.</p>
+ */
 export class AcceptCertificateTransferCommand extends $Command<
   AcceptCertificateTransferCommandInput,
   AcceptCertificateTransferCommandOutput,
@@ -34,6 +40,9 @@ export class AcceptCertificateTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

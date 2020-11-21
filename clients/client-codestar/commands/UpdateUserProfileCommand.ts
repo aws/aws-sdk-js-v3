@@ -20,6 +20,11 @@ import {
 export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
 export type UpdateUserProfileCommandOutput = UpdateUserProfileResult & __MetadataBearer;
 
+/**
+ * <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.
+ *       Information in the user profile is displayed wherever the user's information appears to other
+ *       users in AWS CodeStar. </p>
+ */
 export class UpdateUserProfileCommand extends $Command<
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

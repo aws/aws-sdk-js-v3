@@ -20,6 +20,23 @@ import {
 export type ExportSnapshotCommandInput = ExportSnapshotRequest;
 export type ExportSnapshotCommandOutput = ExportSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).
+ *       This operation results in an export snapshot record that can be used with the <code>create
+ *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
+ *          <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the
+ *       instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in
+ *       Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the
+ *       source Lightsail snapshot.</p>
+ *          <p></p>
+ *          <p>The <code>export snapshot</code> operation supports tag-based access control via resource
+ *       tags applied to the resource identified by <code>source snapshot name</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *          <note>
+ *             <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>
+ *         operations to get a list of snapshots that you can export to Amazon EC2.</p>
+ *          </note>
+ */
 export class ExportSnapshotCommand extends $Command<
   ExportSnapshotCommandInput,
   ExportSnapshotCommandOutput,
@@ -34,6 +51,9 @@ export class ExportSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

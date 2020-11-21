@@ -8,6 +8,9 @@ import {
 import { SWFPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SWFClient,
   input: ListClosedWorkflowExecutionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListClosedWorkflowExecutionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SWF,
   input: ListClosedWorkflowExecutionsCommandInput,

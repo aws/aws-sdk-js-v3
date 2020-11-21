@@ -20,6 +20,12 @@ import {
 export type GetSearchSuggestionsCommandInput = GetSearchSuggestionsRequest;
 export type GetSearchSuggestionsCommandOutput = GetSearchSuggestionsResponse & __MetadataBearer;
 
+/**
+ * <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns
+ *       suggestions of possible matches for the property name to use in <code>Search</code>
+ *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
+ *       <code>Metrics</code>.</p>
+ */
 export class GetSearchSuggestionsCommand extends $Command<
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
@@ -34,6 +40,9 @@ export class GetSearchSuggestionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

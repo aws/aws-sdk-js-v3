@@ -24,6 +24,14 @@ import {
 export type DeleteReplicationInstanceCommandInput = DeleteReplicationInstanceMessage;
 export type DeleteReplicationInstanceCommandOutput = DeleteReplicationInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified replication instance.</p>
+ *          <note>
+ *             <p>You must delete any migration tasks that are associated with the replication instance
+ *             before you can delete it.</p>
+ *          </note>
+ *          <p></p>
+ */
 export class DeleteReplicationInstanceCommand extends $Command<
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
@@ -38,6 +46,9 @@ export class DeleteReplicationInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetUserSettingsCommandInput = GetUserSettingsRequest;
 export type GetUserSettingsCommandOutput = GetUserSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
+ */
 export class GetUserSettingsCommand extends $Command<
   GetUserSettingsCommandInput,
   GetUserSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetUserSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

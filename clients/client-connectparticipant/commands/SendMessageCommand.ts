@@ -24,6 +24,10 @@ import {
 export type SendMessageCommandInput = SendMessageRequest;
 export type SendMessageCommandOutput = SendMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
+ *             ParticipantToken.</p>
+ */
 export class SendMessageCommand extends $Command<
   SendMessageCommandInput,
   SendMessageCommandOutput,
@@ -38,6 +42,9 @@ export class SendMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,

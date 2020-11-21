@@ -20,6 +20,9 @@ import {
 export type ListFlowExecutionMessagesCommandInput = ListFlowExecutionMessagesRequest;
 export type ListFlowExecutionMessagesCommandOutput = ListFlowExecutionMessagesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of objects that contain information about events in a flow execution.</p>
+ */
 export class ListFlowExecutionMessagesCommand extends $Command<
   ListFlowExecutionMessagesCommandInput,
   ListFlowExecutionMessagesCommandOutput,
@@ -34,6 +37,9 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

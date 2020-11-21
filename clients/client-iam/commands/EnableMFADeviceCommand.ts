@@ -20,6 +20,11 @@ import {
 export type EnableMFADeviceCommandInput = EnableMFADeviceRequest;
 export type EnableMFADeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables the specified MFA device and associates it with the specified IAM user. When
+ *          enabled, the MFA device is required for every subsequent login by the IAM user associated
+ *          with the device.</p>
+ */
 export class EnableMFADeviceCommand extends $Command<
   EnableMFADeviceCommandInput,
   EnableMFADeviceCommandOutput,
@@ -34,6 +39,9 @@ export class EnableMFADeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

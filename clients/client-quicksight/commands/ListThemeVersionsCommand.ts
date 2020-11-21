@@ -20,6 +20,9 @@ import {
 export type ListThemeVersionsCommandInput = ListThemeVersionsRequest;
 export type ListThemeVersionsCommandOutput = ListThemeVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the versions of the themes in the current AWS account.</p>
+ */
 export class ListThemeVersionsCommand extends $Command<
   ListThemeVersionsCommandInput,
   ListThemeVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListThemeVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

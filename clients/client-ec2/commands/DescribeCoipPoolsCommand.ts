@@ -20,6 +20,9 @@ import {
 export type DescribeCoipPoolsCommandInput = DescribeCoipPoolsRequest;
 export type DescribeCoipPoolsCommandOutput = DescribeCoipPoolsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>
+ */
 export class DescribeCoipPoolsCommand extends $Command<
   DescribeCoipPoolsCommandInput,
   DescribeCoipPoolsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCoipPoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

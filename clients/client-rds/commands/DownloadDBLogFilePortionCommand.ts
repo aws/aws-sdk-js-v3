@@ -20,6 +20,9 @@ import {
 export type DownloadDBLogFilePortionCommandInput = DownloadDBLogFilePortionMessage;
 export type DownloadDBLogFilePortionCommandOutput = DownloadDBLogFilePortionDetails & __MetadataBearer;
 
+/**
+ * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
+ */
 export class DownloadDBLogFilePortionCommand extends $Command<
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput,
@@ -34,6 +37,9 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

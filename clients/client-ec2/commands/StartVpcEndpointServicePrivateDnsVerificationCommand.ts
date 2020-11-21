@@ -24,6 +24,12 @@ export type StartVpcEndpointServicePrivateDnsVerificationCommandInput = StartVpc
 export type StartVpcEndpointServicePrivateDnsVerificationCommandOutput = StartVpcEndpointServicePrivateDnsVerificationResult &
   __MetadataBearer;
 
+/**
+ * <p>Initiates the verification process to prove that the service provider owns the private
+ *             DNS name domain for the endpoint service.</p>
+ *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
+ *         <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see  <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>
+ */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command<
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
@@ -38,6 +44,9 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type DetachInstancesFromLoadBalancerCommandInput = DetachInstancesFromLoadBalancerRequest;
 export type DetachInstancesFromLoadBalancerCommandOutput = DetachInstancesFromLoadBalancerResult & __MetadataBearer;
 
+/**
+ * <p>Detaches the specified instances from a Lightsail load balancer.</p>
+ *          <p>This operation waits until the instances are no longer needed before they are detached
+ *       from the load balancer.</p>
+ *          <p>The <code>detach instances from load balancer</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by <code>load balancer
+ *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DetachInstancesFromLoadBalancerCommand extends $Command<
   DetachInstancesFromLoadBalancerCommandInput,
   DetachInstancesFromLoadBalancerCommandOutput,
@@ -34,6 +42,9 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

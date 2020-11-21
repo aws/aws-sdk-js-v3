@@ -20,6 +20,11 @@ import {
 export type PutScalingPolicyCommandInput = PutScalingPolicyType;
 export type PutScalingPolicyCommandOutput = PolicyARNType & __MetadataBearer;
 
+/**
+ * <p>Creates or updates a scaling policy for an Auto Scaling group.</p>
+ *         <p>For more information about using scaling policies to scale your Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
+ *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,
   PutScalingPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutScalingPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

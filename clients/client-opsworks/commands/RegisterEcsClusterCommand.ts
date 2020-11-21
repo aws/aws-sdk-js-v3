@@ -20,6 +20,19 @@ import {
 export type RegisterEcsClusterCommandInput = RegisterEcsClusterRequest;
 export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult & __MetadataBearer;
 
+/**
+ * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
+ *       cluster with a stack. A cluster can be registered with only one stack.
+ *       For more information, see
+ *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html">
+ *       Resource Management</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see
+ *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">
+ *       Managing User Permissions</a>.</p>
+ */
 export class RegisterEcsClusterCommand extends $Command<
   RegisterEcsClusterCommandInput,
   RegisterEcsClusterCommandOutput,
@@ -34,6 +47,9 @@ export class RegisterEcsClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

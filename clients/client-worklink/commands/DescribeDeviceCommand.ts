@@ -20,6 +20,9 @@ import {
 export type DescribeDeviceCommandInput = DescribeDeviceRequest;
 export type DescribeDeviceCommandOutput = DescribeDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about a user's device.</p>
+ */
 export class DescribeDeviceCommand extends $Command<
   DescribeDeviceCommandInput,
   DescribeDeviceCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

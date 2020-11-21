@@ -20,6 +20,9 @@ import {
 export type GetFolderCommandInput = GetFolderRequest;
 export type GetFolderCommandOutput = GetFolderResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the metadata of the specified folder.</p>
+ */
 export class GetFolderCommand extends $Command<
   GetFolderCommandInput,
   GetFolderCommandOutput,
@@ -34,6 +37,9 @@ export class GetFolderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

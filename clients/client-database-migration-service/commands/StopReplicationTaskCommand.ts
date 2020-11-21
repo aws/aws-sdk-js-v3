@@ -24,6 +24,9 @@ import {
 export type StopReplicationTaskCommandInput = StopReplicationTaskMessage;
 export type StopReplicationTaskCommandOutput = StopReplicationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the replication task.</p>
+ */
 export class StopReplicationTaskCommand extends $Command<
   StopReplicationTaskCommandInput,
   StopReplicationTaskCommandOutput,
@@ -38,6 +41,9 @@ export class StopReplicationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

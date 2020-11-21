@@ -20,6 +20,10 @@ import {
 export type ListObjectParentsCommandInput = ListObjectParentsRequest;
 export type ListObjectParentsCommandOutput = ListObjectParentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists parent objects that are associated with a given object in pagination
+ *       fashion.</p>
+ */
 export class ListObjectParentsCommand extends $Command<
   ListObjectParentsCommandInput,
   ListObjectParentsCommandOutput,
@@ -34,6 +38,9 @@ export class ListObjectParentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

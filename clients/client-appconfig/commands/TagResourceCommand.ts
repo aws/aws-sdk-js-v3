@@ -20,6 +20,11 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your
+ *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
+ *          define. You can specify a maximum of 50 tags for a resource.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +39,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

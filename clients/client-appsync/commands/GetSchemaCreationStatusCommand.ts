@@ -20,6 +20,9 @@ import {
 export type GetSchemaCreationStatusCommandInput = GetSchemaCreationStatusRequest;
 export type GetSchemaCreationStatusCommandOutput = GetSchemaCreationStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current status of a schema creation operation.</p>
+ */
 export class GetSchemaCreationStatusCommand extends $Command<
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetSchemaCreationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

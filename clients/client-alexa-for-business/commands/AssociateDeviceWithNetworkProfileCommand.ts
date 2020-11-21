@@ -24,6 +24,9 @@ export type AssociateDeviceWithNetworkProfileCommandInput = AssociateDeviceWithN
 export type AssociateDeviceWithNetworkProfileCommandOutput = AssociateDeviceWithNetworkProfileResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associates a device with the specified network profile.</p>
+ */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<
   AssociateDeviceWithNetworkProfileCommandInput,
   AssociateDeviceWithNetworkProfileCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

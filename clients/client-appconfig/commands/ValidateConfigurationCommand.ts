@@ -20,6 +20,9 @@ import {
 export type ValidateConfigurationCommandInput = ValidateConfigurationRequest;
 export type ValidateConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Uses the validators in a configuration profile to validate a configuration.</p>
+ */
 export class ValidateConfigurationCommand extends $Command<
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class ValidateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

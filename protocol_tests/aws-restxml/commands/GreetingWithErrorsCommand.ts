@@ -20,6 +20,17 @@ import {
 export type GreetingWithErrorsCommandInput = {};
 export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput & __MetadataBearer;
 
+/**
+ * This operation has three possible return values:
+ *
+ * 1. A successful response in the form of GreetingWithErrorsOutput
+ * 2. An InvalidGreeting error.
+ * 3. A BadRequest error.
+ *
+ * Implementations must be able to successfully take a response and
+ * properly (de)serialize successful and error responses based on the
+ * the presence of the
+ */
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -34,6 +45,9 @@ export class GreetingWithErrorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

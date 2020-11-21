@@ -20,6 +20,12 @@ import {
 export type GetDistributionBundlesCommandInput = GetDistributionBundlesRequest;
 export type GetDistributionBundlesCommandOutput = GetDistributionBundlesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list bundles that can be applied to you Amazon Lightsail content delivery
+ *       network (CDN) distributions.</p>
+ *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
+ *       your dsitribution.</p>
+ */
 export class GetDistributionBundlesCommand extends $Command<
   GetDistributionBundlesCommandInput,
   GetDistributionBundlesCommandOutput,
@@ -34,6 +40,9 @@ export class GetDistributionBundlesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type DeleteScheduledActionCommandInput = DeleteScheduledActionRequest;
 export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action">Delete a Scheduled Action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ */
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -38,6 +42,9 @@ export class DeleteScheduledActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

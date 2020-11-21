@@ -20,6 +20,24 @@ import {
 export type RequestEnvironmentInfoCommandInput = RequestEnvironmentInfoMessage;
 export type RequestEnvironmentInfoCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Initiates a request to compile the specified type of information of the deployed
+ *       environment.</p>
+ *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
+ *       the application server log files of every Amazon EC2 instance in your environment. </p>
+ *          <p> Setting the <code>InfoType</code> to <code>bundle</code> compresses the application
+ *       server log files for every Amazon EC2 instance into a <code>.zip</code> file. Legacy and .NET
+ *       containers do not support bundle logs. </p>
+ *          <p> Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. </p>
+ *          <p>Related Topics</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>RetrieveEnvironmentInfo</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class RequestEnvironmentInfoCommand extends $Command<
   RequestEnvironmentInfoCommandInput,
   RequestEnvironmentInfoCommandOutput,
@@ -34,6 +52,9 @@ export class RequestEnvironmentInfoCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

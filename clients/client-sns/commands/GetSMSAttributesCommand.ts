@@ -20,6 +20,10 @@ import {
 export type GetSMSAttributesCommandInput = GetSMSAttributesInput;
 export type GetSMSAttributesCommandOutput = GetSMSAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the settings for sending SMS messages from your account.</p>
+ *         <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+ */
 export class GetSMSAttributesCommand extends $Command<
   GetSMSAttributesCommandInput,
   GetSMSAttributesCommandOutput,
@@ -34,6 +38,9 @@ export class GetSMSAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

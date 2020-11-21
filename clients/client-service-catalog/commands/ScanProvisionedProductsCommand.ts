@@ -20,6 +20,10 @@ import {
 export type ScanProvisionedProductsCommandInput = ScanProvisionedProductsInput;
 export type ScanProvisionedProductsCommandOutput = ScanProvisionedProductsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the provisioned products that are available (not terminated).</p>
+ *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
+ */
 export class ScanProvisionedProductsCommand extends $Command<
   ScanProvisionedProductsCommandInput,
   ScanProvisionedProductsCommandOutput,
@@ -34,6 +38,9 @@ export class ScanProvisionedProductsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

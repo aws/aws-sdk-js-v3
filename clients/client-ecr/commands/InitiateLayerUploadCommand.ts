@@ -20,6 +20,16 @@ import {
 export type InitiateLayerUploadCommandInput = InitiateLayerUploadRequest;
 export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse & __MetadataBearer;
 
+/**
+ * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
+ *         <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer
+ *             that has not already been uploaded. Whether or not an image layer has been uploaded is
+ *             determined by the BatchCheckLayerAvailability API action.</p>
+ *          <note>
+ *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
+ *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
+ *          </note>
+ */
 export class InitiateLayerUploadCommand extends $Command<
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
@@ -34,6 +44,9 @@ export class InitiateLayerUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

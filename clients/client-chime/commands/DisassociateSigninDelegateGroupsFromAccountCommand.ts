@@ -24,6 +24,9 @@ export type DisassociateSigninDelegateGroupsFromAccountCommandInput = Disassocia
 export type DisassociateSigninDelegateGroupsFromAccountCommandOutput = DisassociateSigninDelegateGroupsFromAccountResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
+ */
 export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command<
   DisassociateSigninDelegateGroupsFromAccountCommandInput,
   DisassociateSigninDelegateGroupsFromAccountCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

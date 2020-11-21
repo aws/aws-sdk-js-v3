@@ -20,6 +20,9 @@ import {
 export type DeleteDistributionConfigurationCommandInput = DeleteDistributionConfigurationRequest;
 export type DeleteDistributionConfigurationCommandOutput = DeleteDistributionConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p> Deletes a distribution configuration. </p>
+ */
 export class DeleteDistributionConfigurationCommand extends $Command<
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

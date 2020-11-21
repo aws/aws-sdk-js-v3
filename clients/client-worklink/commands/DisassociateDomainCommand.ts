@@ -20,6 +20,9 @@ import {
 export type DisassociateDomainCommandInput = DisassociateDomainRequest;
 export type DisassociateDomainCommandOutput = DisassociateDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
+ */
 export class DisassociateDomainCommand extends $Command<
   DisassociateDomainCommandInput,
   DisassociateDomainCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

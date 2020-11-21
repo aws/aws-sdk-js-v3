@@ -20,6 +20,14 @@ import {
 export type UpdateMyUserProfileCommandInput = UpdateMyUserProfileRequest;
 export type UpdateMyUserProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates a user's SSH public key.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
+ *       enabled or an attached policy that explicitly grants permissions. For more information about user
+ *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class UpdateMyUserProfileCommand extends $Command<
   UpdateMyUserProfileCommandInput,
   UpdateMyUserProfileCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateMyUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type CreateEndpointCommandInput = CreateEndpointMessage;
 export type CreateEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an endpoint using the provided settings.</p>
+ */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
   CreateEndpointCommandOutput,
@@ -38,6 +41,9 @@ export class CreateEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

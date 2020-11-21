@@ -20,6 +20,12 @@ import {
 export type DisassociateSubnetsCommandInput = DisassociateSubnetsRequest;
 export type DisassociateSubnetsCommandOutput = DisassociateSubnetsResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified subnet associations from the firewall. This removes the
+ *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
+ *           were providing.
+ *       </p>
+ */
 export class DisassociateSubnetsCommand extends $Command<
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -34,6 +40,9 @@ export class DisassociateSubnetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

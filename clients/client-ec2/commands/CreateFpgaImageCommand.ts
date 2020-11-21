@@ -17,6 +17,14 @@ import {
 export type CreateFpgaImageCommandInput = CreateFpgaImageRequest;
 export type CreateFpgaImageCommandOutput = CreateFpgaImageResult & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
+ *          <p>The create operation is asynchronous. To verify that the AFI is ready for use,
+ *          check the output logs.</p>
+ *          <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA.
+ *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
+ *          For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ */
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,
   CreateFpgaImageCommandOutput,
@@ -31,6 +39,9 @@ export class CreateFpgaImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

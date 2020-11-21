@@ -20,6 +20,9 @@ import {
 export type GetCampaignCommandInput = GetCampaignRequest;
 export type GetCampaignCommandOutput = GetCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
+ */
 export class GetCampaignCommand extends $Command<
   GetCampaignCommandInput,
   GetCampaignCommandOutput,
@@ -34,6 +37,9 @@ export class GetCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

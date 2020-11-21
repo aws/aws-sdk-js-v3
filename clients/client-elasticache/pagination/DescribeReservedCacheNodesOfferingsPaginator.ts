@@ -8,6 +8,9 @@ import {
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElastiCacheClient,
   input: DescribeReservedCacheNodesOfferingsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReservedCacheNodesOfferingsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElastiCache,
   input: DescribeReservedCacheNodesOfferingsCommandInput,

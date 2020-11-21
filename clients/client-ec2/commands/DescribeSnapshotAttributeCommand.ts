@@ -20,6 +20,11 @@ import {
 export type DescribeSnapshotAttributeCommandInput = DescribeSnapshotAttributeRequest;
 export type DescribeSnapshotAttributeCommandOutput = DescribeSnapshotAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified snapshot. You can specify only one
+ *       attribute at a time.</p>
+ *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeSnapshotAttributeCommand extends $Command<
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

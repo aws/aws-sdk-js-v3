@@ -20,6 +20,13 @@ import {
 export type CreateInstancesFromSnapshotCommandInput = CreateInstancesFromSnapshotRequest;
 export type CreateInstancesFromSnapshotCommandOutput = CreateInstancesFromSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates one or more new instances from a manual or automatic snapshot of an
+ *       instance.</p>
+ *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
+ *       control via request tags and resource tags applied to the resource identified by
+ *         <code>instance snapshot name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateInstancesFromSnapshotCommand extends $Command<
   CreateInstancesFromSnapshotCommandInput,
   CreateInstancesFromSnapshotCommandOutput,
@@ -34,6 +41,9 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

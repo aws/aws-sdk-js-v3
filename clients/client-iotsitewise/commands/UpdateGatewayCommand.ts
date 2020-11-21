@@ -20,6 +20,9 @@ import {
 export type UpdateGatewayCommandInput = UpdateGatewayRequest;
 export type UpdateGatewayCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates a gateway's name.</p>
+ */
 export class UpdateGatewayCommand extends $Command<
   UpdateGatewayCommandInput,
   UpdateGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

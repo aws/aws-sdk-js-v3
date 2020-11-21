@@ -20,6 +20,9 @@ import {
 export type DisableMacieCommandInput = DisableMacieRequest;
 export type DisableMacieCommandOutput = DisableMacieResponse & __MetadataBearer;
 
+/**
+ * <p>Disables an Amazon Macie account and deletes Macie resources for the account.</p>
+ */
 export class DisableMacieCommand extends $Command<
   DisableMacieCommandInput,
   DisableMacieCommandOutput,
@@ -34,6 +37,9 @@ export class DisableMacieCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

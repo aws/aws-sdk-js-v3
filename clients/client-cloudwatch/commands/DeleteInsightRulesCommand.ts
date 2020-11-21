@@ -20,6 +20,12 @@ import {
 export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
 export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Permanently deletes the specified Contributor Insights rules.</p>
+ * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+ * 			the rule was created might
+ * 			not be available.</p>
+ */
 export class DeleteInsightRulesCommand extends $Command<
   DeleteInsightRulesCommandInput,
   DeleteInsightRulesCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteInsightRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

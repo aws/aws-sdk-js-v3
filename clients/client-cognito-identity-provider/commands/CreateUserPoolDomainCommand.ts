@@ -25,6 +25,9 @@ import {
 export type CreateUserPoolDomainCommandInput = CreateUserPoolDomainRequest;
 export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new domain for a user pool.</p>
+ */
 export class CreateUserPoolDomainCommand extends $Command<
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput,
@@ -39,6 +42,9 @@ export class CreateUserPoolDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type StopLabelingJobCommandInput = StopLabelingJobRequest;
 export type StopLabelingJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
+ *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
+ */
 export class StopLabelingJobCommand extends $Command<
   StopLabelingJobCommandInput,
   StopLabelingJobCommandOutput,
@@ -34,6 +38,9 @@ export class StopLabelingJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

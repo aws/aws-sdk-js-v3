@@ -4,6 +4,9 @@ import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../comma
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SageMakerClient,
   input: SearchCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SageMaker,
   input: SearchCommandInput,

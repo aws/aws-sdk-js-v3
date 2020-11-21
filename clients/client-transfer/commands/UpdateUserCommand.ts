@@ -20,6 +20,14 @@ import {
 export type UpdateUserCommandInput = UpdateUserRequest;
 export type UpdateUserCommandOutput = UpdateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
+ *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
+ *       you specify.</p>
+ *
+ *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
+ *       updated user.</p>
+ */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,
   UpdateUserCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

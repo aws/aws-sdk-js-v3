@@ -20,6 +20,9 @@ import {
 export type GetCampaignActivitiesCommandInput = GetCampaignActivitiesRequest;
 export type GetCampaignActivitiesCommandOutput = GetCampaignActivitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the activities for a campaign.</p>
+ */
 export class GetCampaignActivitiesCommand extends $Command<
   GetCampaignActivitiesCommandInput,
   GetCampaignActivitiesCommandOutput,
@@ -34,6 +37,9 @@ export class GetCampaignActivitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

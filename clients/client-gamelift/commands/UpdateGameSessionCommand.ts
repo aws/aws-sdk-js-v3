@@ -20,6 +20,66 @@ import {
 export type UpdateGameSessionCommandInput = UpdateGameSessionInput;
 export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput & __MetadataBearer;
 
+/**
+ * <p>Updates game session properties. This includes the session name, maximum player
+ *             count, protection policy, which controls whether or not an active game session can be
+ *             terminated during a scale-down event, and the player session creation policy, which
+ *             controls whether or not new players can join the session. To update a game session,
+ *             specify the game session ID and the values you want to change. If successful, an updated
+ *                 <a>GameSession</a> object is returned. </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionDetails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SearchGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetGameSessionLogUrl</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Game session placements</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateGameSessionCommand extends $Command<
   UpdateGameSessionCommandInput,
   UpdateGameSessionCommandOutput,
@@ -34,6 +94,9 @@ export class UpdateGameSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

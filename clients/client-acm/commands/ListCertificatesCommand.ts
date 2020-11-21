@@ -20,6 +20,12 @@ import {
 export type ListCertificatesCommandInput = ListCertificatesRequest;
 export type ListCertificatesCommandOutput = ListCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
+ *       certificates that match a specific status be listed. You can also filter by specific
+ *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
+ *       certificates. For more information, see <a>Filters</a>.</p>
+ */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
@@ -34,6 +40,9 @@ export class ListCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,

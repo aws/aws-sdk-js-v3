@@ -17,6 +17,16 @@ import {
 export type DescribeVolumesCommandInput = DescribeVolumesRequest;
 export type DescribeVolumesCommandOutput = DescribeVolumesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
+ *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
+ *       more manageable. The <code>MaxResults</code> parameter sets the maximum number of results
+ *       returned in a single page. If the list of results exceeds your <code>MaxResults</code> value,
+ *       then that number of results is returned along with a <code>NextToken</code> value that can be
+ *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
+ *       results.</p>
+ *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,
   DescribeVolumesCommandOutput,
@@ -31,6 +41,9 @@ export class DescribeVolumesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

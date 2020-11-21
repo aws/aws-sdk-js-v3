@@ -20,6 +20,16 @@ import {
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsMessage;
 export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about cluster or replication group snapshots.
+ *             By default, <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
+ *             describe a single snapshot, or just the snapshots associated with a particular cache
+ *             cluster.</p>
+ *
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

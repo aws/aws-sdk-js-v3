@@ -20,6 +20,15 @@ import {
 export type CreateLocationS3CommandInput = CreateLocationS3Request;
 export type CreateLocationS3CommandOutput = CreateLocationS3Response & __MetadataBearer;
 
+/**
+ * <p>Creates an endpoint for an Amazon S3 bucket.</p>
+ *
+ *
+ *          <p>For
+ *       more information, see
+ *       https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
+ *       in the <i>AWS DataSync User Guide</i>.</p>
+ */
 export class CreateLocationS3Command extends $Command<
   CreateLocationS3CommandInput,
   CreateLocationS3CommandOutput,
@@ -34,6 +43,9 @@ export class CreateLocationS3Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

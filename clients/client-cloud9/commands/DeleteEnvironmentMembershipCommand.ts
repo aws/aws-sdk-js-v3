@@ -20,6 +20,9 @@ import {
 export type DeleteEnvironmentMembershipCommandInput = DeleteEnvironmentMembershipRequest;
 export type DeleteEnvironmentMembershipCommandOutput = DeleteEnvironmentMembershipResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
+ */
 export class DeleteEnvironmentMembershipCommand extends $Command<
   DeleteEnvironmentMembershipCommandInput,
   DeleteEnvironmentMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

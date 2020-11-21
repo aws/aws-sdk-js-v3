@@ -20,6 +20,12 @@ import {
 export type DeleteAgentCommandInput = DeleteAgentRequest;
 export type DeleteAgentCommandOutput = DeleteAgentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
+ *       of the agent in your request. The operation disassociates the agent from your AWS account.
+ *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
+ *       environment.</p>
+ */
 export class DeleteAgentCommand extends $Command<
   DeleteAgentCommandInput,
   DeleteAgentCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteAgentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
 export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult & __MetadataBearer;
 
+/**
+ * <p>Authorizes the specified AWS customer account to restore the specified
+ *             snapshot.</p>
+ *         <p>
+ * For more information about working with snapshots, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,
   AuthorizeSnapshotAccessCommandOutput,
@@ -34,6 +42,9 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

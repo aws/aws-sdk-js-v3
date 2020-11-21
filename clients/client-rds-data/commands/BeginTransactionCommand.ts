@@ -20,6 +20,20 @@ import {
 export type BeginTransactionCommandInput = BeginTransactionRequest;
 export type BeginTransactionCommandOutput = BeginTransactionResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a SQL transaction.</p>
+ *
+ *         <important>
+ *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and
+ *                 rolled back automatically after 24 hours.</p>
+ *             <p>A transaction times out if no calls use its transaction ID in three minutes.
+ *                 If a transaction times out before it's committed, it's rolled back
+ *                 automatically.</p>
+ *             <p>DDL statements inside a transaction cause an implicit commit. We recommend
+ *                 that you run each DDL statement in a separate <code>ExecuteStatement</code> call with
+ *                 <code>continueAfterTimeout</code> enabled.</p>
+ *         </important>
+ */
 export class BeginTransactionCommand extends $Command<
   BeginTransactionCommandInput,
   BeginTransactionCommandOutput,
@@ -34,6 +48,9 @@ export class BeginTransactionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

@@ -28,6 +28,9 @@ export type PurchaseReservedElasticsearchInstanceOfferingCommandInput = Purchase
 export type PurchaseReservedElasticsearchInstanceOfferingCommandOutput = PurchaseReservedElasticsearchInstanceOfferingResponse &
   __MetadataBearer;
 
+/**
+ * <p>Allows you to purchase reserved Elasticsearch instances.</p>
+ */
 export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
@@ -42,6 +45,9 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

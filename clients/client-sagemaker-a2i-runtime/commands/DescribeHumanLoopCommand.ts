@@ -24,6 +24,9 @@ import {
 export type DescribeHumanLoopCommandInput = DescribeHumanLoopRequest;
 export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified human loop.</p>
+ */
 export class DescribeHumanLoopCommand extends $Command<
   DescribeHumanLoopCommandInput,
   DescribeHumanLoopCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeHumanLoopCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerA2IRuntimeClientResolvedConfig,

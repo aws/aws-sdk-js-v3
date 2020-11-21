@@ -20,6 +20,9 @@ import {
 export type ModifyVpcAttributeCommandInput = ModifyVpcAttributeRequest;
 export type ModifyVpcAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Modifies the specified attribute of the specified VPC.</p>
+ */
 export class ModifyVpcAttributeCommand extends $Command<
   ModifyVpcAttributeCommandInput,
   ModifyVpcAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyVpcAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

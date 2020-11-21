@@ -20,6 +20,77 @@ import {
 export type UpdateGameServerCommandInput = UpdateGameServerInput;
 export type UpdateGameServerCommandOutput = UpdateGameServerOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *          </p>
+ *         <p>Updates information about a registered game server to help GameLift FleetIQ to track game server
+ *             availability. This operation is called by a game server process that is running on an
+ *             instance in a game server group. </p>
+ *         <p>Use this operation to update the following types of game server information. You can
+ *             make all three types of updates in the same request:</p>
+ *         <ul>
+ *             <li>
+ *                <p>To update the game server's utilization status, identify the game server and game server group
+ *                     and specify the current utilization status. Use this status to identify when
+ *                     game servers are currently hosting games and when they are available to be
+ *                     claimed.</p>
+ *             </li>
+ *             <li>
+ *                <p>To report health status, identify the game server and game server group and set health check
+ *                     to <code>HEALTHY</code>. If a game server does not report health status for a
+ *                     certain length of time, the game server is no longer considered healthy. As a
+ *                     result, it will be eventually deregistered from the game server group to avoid
+ *                     affecting utilization metrics. The best practice is to report health every 60
+ *                     seconds.</p>
+ *             </li>
+ *             <li>
+ *                <p>To change game server metadata, provide updated game server data.</p>
+ *             </li>
+ *          </ul>
+ *         <p>Once a game server is successfully updated, the relevant statuses and timestamps are updated.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>RegisterGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGameServers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ClaimGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeregisterGameServer</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateGameServerCommand extends $Command<
   UpdateGameServerCommandInput,
   UpdateGameServerCommandOutput,
@@ -34,6 +105,9 @@ export class UpdateGameServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

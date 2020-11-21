@@ -20,6 +20,12 @@ import {
 export type GetServiceQuotaCommandInput = GetServiceQuotaRequest;
 export type GetServiceQuotaCommandOutput = GetServiceQuotaResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details for the specified service quota. This operation provides a different
+ *       Value than the <code>GetAWSDefaultServiceQuota</code> operation. This operation returns the
+ *       applied value for each quota. <code>GetAWSDefaultServiceQuota</code> returns the default AWS
+ *       value for each quota. </p>
+ */
 export class GetServiceQuotaCommand extends $Command<
   GetServiceQuotaCommandInput,
   GetServiceQuotaCommandOutput,
@@ -34,6 +40,9 @@ export class GetServiceQuotaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

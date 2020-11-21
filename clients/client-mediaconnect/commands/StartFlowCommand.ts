@@ -20,6 +20,9 @@ import {
 export type StartFlowCommandInput = StartFlowRequest;
 export type StartFlowCommandOutput = StartFlowResponse & __MetadataBearer;
 
+/**
+ * Starts a flow.
+ */
 export class StartFlowCommand extends $Command<
   StartFlowCommandInput,
   StartFlowCommandOutput,
@@ -34,6 +37,9 @@ export class StartFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

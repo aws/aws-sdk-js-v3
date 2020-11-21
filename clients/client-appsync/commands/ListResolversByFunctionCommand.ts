@@ -20,6 +20,9 @@ import {
 export type ListResolversByFunctionCommandInput = ListResolversByFunctionRequest;
 export type ListResolversByFunctionCommandOutput = ListResolversByFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>List the resolvers that are associated with a specific function.</p>
+ */
 export class ListResolversByFunctionCommand extends $Command<
   ListResolversByFunctionCommandInput,
   ListResolversByFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolversByFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

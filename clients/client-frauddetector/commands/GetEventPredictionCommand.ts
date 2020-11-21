@@ -20,6 +20,9 @@ import {
 export type GetEventPredictionCommandInput = GetEventPredictionRequest;
 export type GetEventPredictionCommandOutput = GetEventPredictionResult & __MetadataBearer;
 
+/**
+ * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
+ */
 export class GetEventPredictionCommand extends $Command<
   GetEventPredictionCommandInput,
   GetEventPredictionCommandOutput,
@@ -34,6 +37,9 @@ export class GetEventPredictionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DetachGroupPolicyCommandInput = DetachGroupPolicyRequest;
 export type DetachGroupPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified managed policy from the specified IAM group.</p>
+ *          <p>A group can also have inline policies embedded with it. To delete an inline policy, use
+ *          the <a>DeleteGroupPolicy</a> API. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *             Policies and Inline Policies</a> in the
+ *          <i>IAM User Guide</i>.</p>
+ */
 export class DetachGroupPolicyCommand extends $Command<
   DetachGroupPolicyCommandInput,
   DetachGroupPolicyCommandOutput,
@@ -34,6 +41,9 @@ export class DetachGroupPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

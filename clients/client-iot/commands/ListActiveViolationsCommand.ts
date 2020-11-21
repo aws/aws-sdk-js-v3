@@ -20,6 +20,9 @@ import {
 export type ListActiveViolationsCommandInput = ListActiveViolationsRequest;
 export type ListActiveViolationsCommandOutput = ListActiveViolationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the active violations for a given Device Defender security profile.</p>
+ */
 export class ListActiveViolationsCommand extends $Command<
   ListActiveViolationsCommandInput,
   ListActiveViolationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListActiveViolationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

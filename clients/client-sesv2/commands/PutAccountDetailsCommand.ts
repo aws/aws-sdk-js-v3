@@ -20,6 +20,9 @@ import {
 export type PutAccountDetailsCommandInput = PutAccountDetailsRequest;
 export type PutAccountDetailsCommandOutput = PutAccountDetailsResponse & __MetadataBearer;
 
+/**
+ * <p>Update your Amazon SES account details.</p>
+ */
 export class PutAccountDetailsCommand extends $Command<
   PutAccountDetailsCommandInput,
   PutAccountDetailsCommandOutput,
@@ -34,6 +37,9 @@ export class PutAccountDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

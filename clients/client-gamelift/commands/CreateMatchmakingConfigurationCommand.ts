@@ -20,6 +20,77 @@ import {
 export type CreateMatchmakingConfigurationCommandInput = CreateMatchmakingConfigurationInput;
 export type CreateMatchmakingConfigurationCommandOutput = CreateMatchmakingConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Defines a new matchmaking configuration for use with FlexMatch. A matchmaking
+ *             configuration sets out guidelines for matching players and getting the matches into
+ *             games. You can set up multiple matchmaking configurations to handle the scenarios needed
+ *             for your game. Each matchmaking ticket (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) specifies a configuration for the match and provides
+ *             player attributes to support the configuration being used. </p>
+ *         <p>To create a matchmaking configuration, at a minimum you must specify the following:
+ *             configuration name; a rule set that governs how to evaluate players and find acceptable
+ *             matches; a game session queue to use when placing a new game session for the match; and
+ *             the maximum time allowed for a matchmaking attempt.</p>
+ *         <p>To track the progress of matchmaking tickets, set up an Amazon Simple Notification Service (SNS) to receive
+ *             notifications, and provide the topic ARN in the matchmaking configuration. An
+ *             alternative method, continuously poling ticket status with <a>DescribeMatchmaking</a>, should only be used for games in development with
+ *             low matchmaking usage.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
+ *                 Design a FlexMatch Matchmaker</a>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+ *             Set Up FlexMatch Event Notification</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateMatchmakingConfigurationCommand extends $Command<
   CreateMatchmakingConfigurationCommandInput,
   CreateMatchmakingConfigurationCommandOutput,
@@ -34,6 +105,9 @@ export class CreateMatchmakingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

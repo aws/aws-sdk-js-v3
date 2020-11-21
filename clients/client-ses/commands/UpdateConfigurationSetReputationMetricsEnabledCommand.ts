@@ -20,6 +20,13 @@ import {
 export type UpdateConfigurationSetReputationMetricsEnabledCommandInput = UpdateConfigurationSetReputationMetricsEnabledRequest;
 export type UpdateConfigurationSetReputationMetricsEnabledCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables or disables the publishing of reputation metrics for emails sent using a
+ *             specific configuration set in a given AWS Region. Reputation metrics include bounce
+ *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
+ *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Command<
   UpdateConfigurationSetReputationMetricsEnabledCommandInput,
   UpdateConfigurationSetReputationMetricsEnabledCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

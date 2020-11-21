@@ -17,6 +17,9 @@ import {
 export type DeleteSubnetCommandInput = DeleteSubnetRequest;
 export type DeleteSubnetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>
+ */
 export class DeleteSubnetCommand extends $Command<
   DeleteSubnetCommandInput,
   DeleteSubnetCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteSubnetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

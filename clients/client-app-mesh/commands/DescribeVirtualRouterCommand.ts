@@ -20,6 +20,9 @@ import {
 export type DescribeVirtualRouterCommandInput = DescribeVirtualRouterInput;
 export type DescribeVirtualRouterCommandOutput = DescribeVirtualRouterOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing virtual router.</p>
+ */
 export class DescribeVirtualRouterCommand extends $Command<
   DescribeVirtualRouterCommandInput,
   DescribeVirtualRouterCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVirtualRouterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

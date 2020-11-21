@@ -20,6 +20,10 @@ import {
 export type UpdateProfileJobCommandInput = UpdateProfileJobRequest;
 export type UpdateProfileJobCommandOutput = UpdateProfileJobResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the definition of an existing AWS Glue DataBrew job in the current AWS
+ *             account.</p>
+ */
 export class UpdateProfileJobCommand extends $Command<
   UpdateProfileJobCommandInput,
   UpdateProfileJobCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateProfileJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

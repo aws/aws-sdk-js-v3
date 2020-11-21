@@ -24,6 +24,15 @@ export type GetAggregateConfigRuleComplianceSummaryCommandInput = GetAggregateCo
 export type GetAggregateConfigRuleComplianceSummaryCommandOutput = GetAggregateConfigRuleComplianceSummaryResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the number of compliant and noncompliant rules for one
+ * 			or more accounts and regions in an aggregator.</p>
+ * 		       <note>
+ * 			         <p>The results can return an empty result page, but if you
+ * 				have a nextToken, the results are displayed on the next
+ * 				page.</p>
+ * 		       </note>
+ */
 export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
   GetAggregateConfigRuleComplianceSummaryCommandInput,
   GetAggregateConfigRuleComplianceSummaryCommandOutput,
@@ -38,6 +47,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

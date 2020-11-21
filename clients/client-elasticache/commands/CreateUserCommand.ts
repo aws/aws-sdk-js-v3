@@ -17,6 +17,9 @@ import {
 export type CreateUserCommandInput = CreateUserMessage;
 export type CreateUserCommandOutput = User & __MetadataBearer;
 
+/**
+ * <p>For Redis engine version 6.x onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
+ */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,
   CreateUserCommandOutput,
@@ -31,6 +34,9 @@ export class CreateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

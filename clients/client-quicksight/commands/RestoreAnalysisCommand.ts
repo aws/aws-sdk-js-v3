@@ -20,6 +20,9 @@ import {
 export type RestoreAnalysisCommandInput = RestoreAnalysisRequest;
 export type RestoreAnalysisCommandOutput = RestoreAnalysisResponse & __MetadataBearer;
 
+/**
+ * <p>Restores an analysis.</p>
+ */
 export class RestoreAnalysisCommand extends $Command<
   RestoreAnalysisCommandInput,
   RestoreAnalysisCommandOutput,
@@ -34,6 +37,9 @@ export class RestoreAnalysisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

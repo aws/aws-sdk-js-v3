@@ -20,6 +20,9 @@ import {
 export type GetPermissionCommandInput = GetPermissionRequest;
 export type GetPermissionCommandOutput = GetPermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the contents of an AWS RAM permission in JSON format.</p>
+ */
 export class GetPermissionCommand extends $Command<
   GetPermissionCommandInput,
   GetPermissionCommandOutput,
@@ -34,6 +37,9 @@ export class GetPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type SetSMSAttributesCommandInput = SetSMSAttributesInput;
 export type SetSMSAttributesCommandOutput = SetSMSAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Use this request to set the default settings for sending SMS messages and receiving
+ *             daily SMS usage reports.</p>
+ *         <p>You can override some of these settings for a single message when you use the
+ *                 <code>Publish</code> action with the <code>MessageAttributes.entry.N</code>
+ *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the
+ *                 <i>Amazon SNS Developer Guide</i>.</p>
+ */
 export class SetSMSAttributesCommand extends $Command<
   SetSMSAttributesCommandInput,
   SetSMSAttributesCommandOutput,
@@ -34,6 +42,9 @@ export class SetSMSAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RetryBuildBatchCommandInput = RetryBuildBatchInput;
 export type RetryBuildBatchCommandOutput = RetryBuildBatchOutput & __MetadataBearer;
 
+/**
+ * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
+ */
 export class RetryBuildBatchCommand extends $Command<
   RetryBuildBatchCommandInput,
   RetryBuildBatchCommandOutput,
@@ -34,6 +37,9 @@ export class RetryBuildBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

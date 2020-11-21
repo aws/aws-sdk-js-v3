@@ -20,6 +20,9 @@ import {
 export type RemovePermissionCommandInput = RemovePermissionInput;
 export type RemovePermissionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a statement from a topic's access control policy.</p>
+ */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput,
@@ -34,6 +37,9 @@ export class RemovePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

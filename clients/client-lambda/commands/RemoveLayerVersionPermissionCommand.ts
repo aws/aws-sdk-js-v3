@@ -20,6 +20,11 @@ import {
 export type RemoveLayerVersionPermissionCommandInput = RemoveLayerVersionPermissionRequest;
 export type RemoveLayerVersionPermissionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>. For more information, see
+ *         <a>AddLayerVersionPermission</a>.</p>
+ */
 export class RemoveLayerVersionPermissionCommand extends $Command<
   RemoveLayerVersionPermissionCommandInput,
   RemoveLayerVersionPermissionCommandOutput,
@@ -34,6 +39,9 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

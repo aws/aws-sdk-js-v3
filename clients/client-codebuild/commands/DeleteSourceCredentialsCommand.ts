@@ -20,6 +20,9 @@ import {
 export type DeleteSourceCredentialsCommandInput = DeleteSourceCredentialsInput;
 export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
+ */
 export class DeleteSourceCredentialsCommand extends $Command<
   DeleteSourceCredentialsCommandInput,
   DeleteSourceCredentialsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSourceCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

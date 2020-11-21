@@ -20,6 +20,9 @@ import {
 export type AddFlowOutputsCommandInput = AddFlowOutputsRequest;
 export type AddFlowOutputsCommandOutput = AddFlowOutputsResponse & __MetadataBearer;
 
+/**
+ * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
+ */
 export class AddFlowOutputsCommand extends $Command<
   AddFlowOutputsCommandInput,
   AddFlowOutputsCommandOutput,
@@ -34,6 +37,9 @@ export class AddFlowOutputsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

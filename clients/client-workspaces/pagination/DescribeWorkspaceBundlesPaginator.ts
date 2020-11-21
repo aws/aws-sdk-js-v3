@@ -8,6 +8,9 @@ import {
 import { WorkSpacesPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: WorkSpacesClient,
   input: DescribeWorkspaceBundlesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeWorkspaceBundlesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: WorkSpaces,
   input: DescribeWorkspaceBundlesCommandInput,

@@ -20,6 +20,13 @@ import {
 export type DeleteLedgerCommandInput = DeleteLedgerRequest;
 export type DeleteLedgerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
+ *          <p>If deletion protection is enabled, you must first disable it before you can delete the
+ *          ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the
+ *             <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB
+ *          console disables deletion protection for you when you use it to delete a ledger.</p>
+ */
 export class DeleteLedgerCommand extends $Command<
   DeleteLedgerCommandInput,
   DeleteLedgerCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteLedgerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

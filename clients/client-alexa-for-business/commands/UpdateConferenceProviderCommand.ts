@@ -20,6 +20,9 @@ import {
 export type UpdateConferenceProviderCommandInput = UpdateConferenceProviderRequest;
 export type UpdateConferenceProviderCommandOutput = UpdateConferenceProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing conference provider's settings.</p>
+ */
 export class UpdateConferenceProviderCommand extends $Command<
   UpdateConferenceProviderCommandInput,
   UpdateConferenceProviderCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConferenceProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

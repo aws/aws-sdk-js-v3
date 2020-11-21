@@ -20,6 +20,10 @@ import {
 export type DescribeInstanceTypeOfferingsCommandInput = DescribeInstanceTypeOfferingsRequest;
 export type DescribeInstanceTypeOfferingsCommandOutput = DescribeInstanceTypeOfferingsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability
+ *    Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
+ */
 export class DescribeInstanceTypeOfferingsCommand extends $Command<
   DescribeInstanceTypeOfferingsCommandInput,
   DescribeInstanceTypeOfferingsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

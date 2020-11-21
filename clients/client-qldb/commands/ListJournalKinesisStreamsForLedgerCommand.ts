@@ -24,6 +24,14 @@ export type ListJournalKinesisStreamsForLedgerCommandInput = ListJournalKinesisS
 export type ListJournalKinesisStreamsForLedgerCommandOutput = ListJournalKinesisStreamsForLedgerResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
+ *          output of each stream descriptor includes the same details that are returned by
+ *             <code>DescribeJournalKinesisStream</code>.</p>
+ *          <p>This action returns a maximum of <code>MaxResults</code> items. It is paginated so that
+ *          you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
+ *          multiple times.</p>
+ */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
   ListJournalKinesisStreamsForLedgerCommandInput,
   ListJournalKinesisStreamsForLedgerCommandOutput,
@@ -38,6 +46,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

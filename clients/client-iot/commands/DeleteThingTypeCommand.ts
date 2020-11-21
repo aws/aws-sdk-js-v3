@@ -20,6 +20,11 @@ import {
 export type DeleteThingTypeCommandInput = DeleteThingTypeRequest;
 export type DeleteThingTypeCommandOutput = DeleteThingTypeResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
+ * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
+ * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
+ */
 export class DeleteThingTypeCommand extends $Command<
   DeleteThingTypeCommandInput,
   DeleteThingTypeCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteThingTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

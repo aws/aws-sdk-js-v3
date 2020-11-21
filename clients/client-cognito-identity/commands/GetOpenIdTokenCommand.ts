@@ -20,6 +20,13 @@ import {
 export type GetOpenIdTokenCommandInput = GetOpenIdTokenInput;
 export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
+ *             <a>GetId</a>. You can optionally add additional logins for the identity.
+ *          Supplying multiple logins creates an implicit link.</p>
+ *          <p>The OpenId token is valid for 10 minutes.</p>
+ *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ */
 export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandInput,
   GetOpenIdTokenCommandOutput,
@@ -34,6 +41,9 @@ export class GetOpenIdTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

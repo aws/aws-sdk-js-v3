@@ -24,6 +24,12 @@ import {
 export type DetachLoadBalancerFromSubnetsCommandInput = DetachLoadBalancerFromSubnetsInput;
 export type DetachLoadBalancerFromSubnetsCommandOutput = DetachLoadBalancerFromSubnetsOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
+ *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
+ *             in the removed subnet go into the <code>OutOfService</code> state. Then,
+ *             the load balancer balances the traffic among the remaining routable subnets.</p>
+ */
 export class DetachLoadBalancerFromSubnetsCommand extends $Command<
   DetachLoadBalancerFromSubnetsCommandInput,
   DetachLoadBalancerFromSubnetsCommandOutput,
@@ -38,6 +44,9 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

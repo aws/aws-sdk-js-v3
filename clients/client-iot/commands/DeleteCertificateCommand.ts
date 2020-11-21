@@ -20,6 +20,12 @@ import {
 export type DeleteCertificateCommandInput = DeleteCertificateRequest;
 export type DeleteCertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified certificate.</p>
+ *          <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
+ *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE
+ *          status.</p>
+ */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

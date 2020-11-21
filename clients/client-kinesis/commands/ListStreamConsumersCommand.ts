@@ -20,6 +20,11 @@ import {
 export type ListStreamConsumersCommandInput = ListStreamConsumersInput;
 export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
+ *             and provides information about each consumer.</p>
+ *         <p>This operation has a limit of 5 transactions per second per stream.</p>
+ */
 export class ListStreamConsumersCommand extends $Command<
   ListStreamConsumersCommandInput,
   ListStreamConsumersCommandOutput,
@@ -34,6 +39,9 @@ export class ListStreamConsumersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

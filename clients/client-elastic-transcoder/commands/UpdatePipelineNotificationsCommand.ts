@@ -24,6 +24,10 @@ import {
 export type UpdatePipelineNotificationsCommandInput = UpdatePipelineNotificationsRequest;
 export type UpdatePipelineNotificationsCommandOutput = UpdatePipelineNotificationsResponse & __MetadataBearer;
 
+/**
+ * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
+ *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
+ */
 export class UpdatePipelineNotificationsCommand extends $Command<
   UpdatePipelineNotificationsCommandInput,
   UpdatePipelineNotificationsCommandOutput,
@@ -38,6 +42,9 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

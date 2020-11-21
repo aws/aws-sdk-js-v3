@@ -20,6 +20,11 @@ import {
 export type JsonTimestampsCommandInput = JsonTimestampsInputOutput;
 export type JsonTimestampsCommandOutput = JsonTimestampsInputOutput & __MetadataBearer;
 
+/**
+ * This tests how timestamps are serialized, including using the
+ * default format of date-time and various @timestampFormat trait
+ * values.
+ */
 export class JsonTimestampsCommand extends $Command<
   JsonTimestampsCommandInput,
   JsonTimestampsCommandOutput,
@@ -34,6 +39,9 @@ export class JsonTimestampsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

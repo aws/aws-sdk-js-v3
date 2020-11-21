@@ -25,6 +25,14 @@ import {
 export type UpdateUserPoolClientCommandInput = UpdateUserPoolClientRequest;
 export type UpdateUserPoolClientCommandOutput = UpdateUserPoolClientResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified user pool app client with the specified attributes. You can get
+ *             a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p>
+ *         <important>
+ *             <p>If you don't provide a value for an attribute, it will be set to the default
+ *                 value.</p>
+ *         </important>
+ */
 export class UpdateUserPoolClientCommand extends $Command<
   UpdateUserPoolClientCommandInput,
   UpdateUserPoolClientCommandOutput,
@@ -39,6 +47,9 @@ export class UpdateUserPoolClientCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

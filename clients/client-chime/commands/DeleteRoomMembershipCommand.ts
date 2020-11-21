@@ -20,6 +20,9 @@ import {
 export type DeleteRoomMembershipCommandInput = DeleteRoomMembershipRequest;
 export type DeleteRoomMembershipCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
+ */
 export class DeleteRoomMembershipCommand extends $Command<
   DeleteRoomMembershipCommandInput,
   DeleteRoomMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRoomMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

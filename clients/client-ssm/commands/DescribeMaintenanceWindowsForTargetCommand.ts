@@ -24,6 +24,10 @@ export type DescribeMaintenanceWindowsForTargetCommandInput = DescribeMaintenanc
 export type DescribeMaintenanceWindowsForTargetCommandOutput = DescribeMaintenanceWindowsForTargetResult &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the maintenance window targets or tasks that an instance is
+ *    associated with.</p>
+ */
 export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
   DescribeMaintenanceWindowsForTargetCommandInput,
   DescribeMaintenanceWindowsForTargetCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

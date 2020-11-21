@@ -20,6 +20,10 @@ import {
 export type CreateStackInstancesCommandInput = CreateStackInstancesInput;
 export type CreateStackInstancesCommandOutput = CreateStackInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Creates stack instances for the specified accounts, within the specified Regions. A
+ *          stack instance refers to a stack in a specific account and Region. You must specify at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>, and you must specify at least one value for <code>Regions</code>.</p>
+ */
 export class CreateStackInstancesCommand extends $Command<
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class CreateStackInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

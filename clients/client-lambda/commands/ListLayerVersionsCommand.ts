@@ -20,6 +20,11 @@ import {
 export type ListLayerVersionsCommandInput = ListLayerVersionsRequest;
 export type ListLayerVersionsCommandOutput = ListLayerVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
+ *       versions that indicate that they're compatible with that runtime.</p>
+ */
 export class ListLayerVersionsCommand extends $Command<
   ListLayerVersionsCommandInput,
   ListLayerVersionsCommandOutput,
@@ -34,6 +39,9 @@ export class ListLayerVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

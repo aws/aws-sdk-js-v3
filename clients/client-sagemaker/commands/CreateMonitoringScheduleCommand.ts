@@ -20,6 +20,10 @@ import {
 export type CreateMonitoringScheduleCommandInput = CreateMonitoringScheduleRequest;
 export type CreateMonitoringScheduleCommandOutput = CreateMonitoringScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
+ *          captured for an Amazon SageMaker Endoint.</p>
+ */
 export class CreateMonitoringScheduleCommand extends $Command<
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

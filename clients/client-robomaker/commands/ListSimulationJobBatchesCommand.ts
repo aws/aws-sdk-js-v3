@@ -20,6 +20,11 @@ import {
 export type ListSimulationJobBatchesCommandInput = ListSimulationJobBatchesRequest;
 export type ListSimulationJobBatchesCommandOutput = ListSimulationJobBatchesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
+ *          specific simulation batch jobs.
+ *       </p>
+ */
 export class ListSimulationJobBatchesCommand extends $Command<
   ListSimulationJobBatchesCommandInput,
   ListSimulationJobBatchesCommandOutput,
@@ -34,6 +39,9 @@ export class ListSimulationJobBatchesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

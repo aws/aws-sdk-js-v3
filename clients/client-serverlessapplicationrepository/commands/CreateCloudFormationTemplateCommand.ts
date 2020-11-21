@@ -24,6 +24,9 @@ import {
 export type CreateCloudFormationTemplateCommandInput = CreateCloudFormationTemplateRequest;
 export type CreateCloudFormationTemplateCommandOutput = CreateCloudFormationTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS CloudFormation template.</p>
+ */
 export class CreateCloudFormationTemplateCommand extends $Command<
   CreateCloudFormationTemplateCommandInput,
   CreateCloudFormationTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class CreateCloudFormationTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

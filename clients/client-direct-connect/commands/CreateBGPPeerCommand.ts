@@ -20,6 +20,15 @@ import {
 export type CreateBGPPeerCommandInput = CreateBGPPeerRequest;
 export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a BGP peer on the specified virtual interface.</p>
+ *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.</p>
+ *          <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot
+ *       be in the same address family as an existing BGP peer on the virtual interface.</p>
+ *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
+ *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
+ *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>
+ */
 export class CreateBGPPeerCommand extends $Command<
   CreateBGPPeerCommandInput,
   CreateBGPPeerCommandOutput,
@@ -34,6 +43,9 @@ export class CreateBGPPeerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

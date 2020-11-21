@@ -20,6 +20,9 @@ import {
 export type CreateEnvironmentEC2CommandInput = CreateEnvironmentEC2Request;
 export type CreateEnvironmentEC2CommandOutput = CreateEnvironmentEC2Result & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>
+ */
 export class CreateEnvironmentEC2Command extends $Command<
   CreateEnvironmentEC2CommandInput,
   CreateEnvironmentEC2CommandOutput,
@@ -34,6 +37,9 @@ export class CreateEnvironmentEC2Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

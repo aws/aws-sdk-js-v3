@@ -20,6 +20,9 @@ import {
 export type DescribeAutoMLJobCommandInput = DescribeAutoMLJobRequest;
 export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about an Amazon SageMaker job.</p>
+ */
 export class DescribeAutoMLJobCommand extends $Command<
   DescribeAutoMLJobCommandInput,
   DescribeAutoMLJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAutoMLJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

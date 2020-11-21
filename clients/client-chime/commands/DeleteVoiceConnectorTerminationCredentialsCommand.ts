@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceConnectorTerminationCredentialsCommandInput = DeleteVoiceConnectorTerminationCredentialsRequest;
 export type DeleteVoiceConnectorTerminationCredentialsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
+ */
 export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

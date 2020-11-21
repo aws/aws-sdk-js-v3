@@ -20,6 +20,11 @@ import {
 export type UpdateConnectorProfileCommandInput = UpdateConnectorProfileRequest;
 export type UpdateConnectorProfileCommandOutput = UpdateConnectorProfileResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Updates a given connector profile associated with your account.
+ * </p>
+ */
 export class UpdateConnectorProfileCommand extends $Command<
   UpdateConnectorProfileCommandInput,
   UpdateConnectorProfileCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateConnectorProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
 export type BacktrackDBClusterCommandOutput = DBClusterBacktrack & __MetadataBearer;
 
+/**
+ * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
+ *         <p>For more information on backtracking, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
+ *                 Backtracking an Aurora DB Cluster</a> in the
+ *             <i>Amazon Aurora User Guide.</i>
+ *         </p>
+ *         <note>
+ *             <p>This action only applies to Aurora MySQL DB clusters.</p>
+ *         </note>
+ */
 export class BacktrackDBClusterCommand extends $Command<
   BacktrackDBClusterCommandInput,
   BacktrackDBClusterCommandOutput,
@@ -34,6 +45,9 @@ export class BacktrackDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

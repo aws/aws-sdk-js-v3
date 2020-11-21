@@ -20,6 +20,9 @@ import {
 export type ListTemplateAliasesCommandInput = ListTemplateAliasesRequest;
 export type ListTemplateAliasesCommandOutput = ListTemplateAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the aliases of a template.</p>
+ */
 export class ListTemplateAliasesCommand extends $Command<
   ListTemplateAliasesCommandInput,
   ListTemplateAliasesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTemplateAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

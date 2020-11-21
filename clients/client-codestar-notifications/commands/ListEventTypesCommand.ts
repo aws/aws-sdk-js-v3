@@ -24,6 +24,9 @@ import {
 export type ListEventTypesCommandInput = ListEventTypesRequest;
 export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the event types available for configuring notifications.</p>
+ */
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,
   ListEventTypesCommandOutput,
@@ -38,6 +41,9 @@ export class ListEventTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DiscoverInstancesCommandInput = DiscoverInstancesRequest;
 export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Discovers registered instances for a specified namespace and service. You can use <code>DiscoverInstances</code>
+ *    to discover instances for any type of namespace. For public and private DNS namespaces, you can also use DNS queries
+ *    to discover instances.</p>
+ */
 export class DiscoverInstancesCommand extends $Command<
   DiscoverInstancesCommandInput,
   DiscoverInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class DiscoverInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type StopQueryExecutionCommandInput = StopQueryExecutionInput;
 export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Stops a query execution. Requires you to have access to the workgroup in which the
+ *             query ran.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ */
 export class StopQueryExecutionCommand extends $Command<
   StopQueryExecutionCommandInput,
   StopQueryExecutionCommandOutput,
@@ -34,6 +40,9 @@ export class StopQueryExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

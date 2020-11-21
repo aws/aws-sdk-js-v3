@@ -20,6 +20,9 @@ import {
 export type ProvideAnomalyFeedbackCommandInput = ProvideAnomalyFeedbackRequest;
 export type ProvideAnomalyFeedbackCommandOutput = ProvideAnomalyFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the feedback property of a given cost anomaly. </p>
+ */
 export class ProvideAnomalyFeedbackCommand extends $Command<
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
@@ -34,6 +37,9 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

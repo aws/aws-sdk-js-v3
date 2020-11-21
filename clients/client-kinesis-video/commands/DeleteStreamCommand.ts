@@ -20,6 +20,18 @@ import {
 export type DeleteStreamCommandInput = DeleteStreamInput;
 export type DeleteStreamCommandOutput = DeleteStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
+ *         <p>This method marks the stream for deletion, and makes the data in the stream
+ *             inaccessible immediately.</p>
+ *         <p> </p>
+ *         <p> To ensure that you have the latest version of the stream before deleting it, you
+ *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
+ *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
+ *             latest stream version, use the <code>DescribeStream</code> API. </p>
+ *         <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
+ *             action.</p>
+ */
 export class DeleteStreamCommand extends $Command<
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
   input: GetTransitGatewayRegistrationsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTransitGatewayRegistrationsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: NetworkManager,
   input: GetTransitGatewayRegistrationsCommandInput,

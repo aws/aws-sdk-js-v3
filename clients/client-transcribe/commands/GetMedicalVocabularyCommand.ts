@@ -20,6 +20,9 @@ import {
 export type GetMedicalVocabularyCommandInput = GetMedicalVocabularyRequest;
 export type GetMedicalVocabularyCommandOutput = GetMedicalVocabularyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a medical vocabulary.</p>
+ */
 export class GetMedicalVocabularyCommand extends $Command<
   GetMedicalVocabularyCommandInput,
   GetMedicalVocabularyCommandOutput,
@@ -34,6 +37,9 @@ export class GetMedicalVocabularyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

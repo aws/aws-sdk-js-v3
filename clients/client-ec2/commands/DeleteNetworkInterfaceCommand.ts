@@ -20,6 +20,9 @@ import {
 export type DeleteNetworkInterfaceCommandInput = DeleteNetworkInterfaceRequest;
 export type DeleteNetworkInterfaceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
+ */
 export class DeleteNetworkInterfaceCommand extends $Command<
   DeleteNetworkInterfaceCommandInput,
   DeleteNetworkInterfaceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

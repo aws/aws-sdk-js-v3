@@ -20,6 +20,9 @@ import {
 export type DeleteDataSetCommandInput = DeleteDataSetRequest;
 export type DeleteDataSetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation deletes a data set.</p>
+ */
 export class DeleteDataSetCommand extends $Command<
   DeleteDataSetCommandInput,
   DeleteDataSetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDataSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

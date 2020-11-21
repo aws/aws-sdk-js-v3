@@ -20,6 +20,12 @@ import {
 export type CreateDBSecurityGroupCommandInput = CreateDBSecurityGroupMessage;
 export type CreateDBSecurityGroupCommandOutput = CreateDBSecurityGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
+ *          <note>
+ *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
+ *          </note>
+ */
 export class CreateDBSecurityGroupCommand extends $Command<
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDBSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

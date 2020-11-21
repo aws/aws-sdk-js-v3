@@ -20,6 +20,9 @@ import {
 export type ConfigureAgentCommandInput = ConfigureAgentRequest;
 export type ConfigureAgentCommandOutput = ConfigureAgentResponse & __MetadataBearer;
 
+/**
+ * <p/>
+ */
 export class ConfigureAgentCommand extends $Command<
   ConfigureAgentCommandInput,
   ConfigureAgentCommandOutput,
@@ -34,6 +37,9 @@ export class ConfigureAgentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

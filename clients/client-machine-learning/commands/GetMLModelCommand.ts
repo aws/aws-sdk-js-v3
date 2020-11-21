@@ -20,6 +20,11 @@ import {
 export type GetMLModelCommandInput = GetMLModelInput;
 export type GetMLModelCommandOutput = GetMLModelOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
+ *         <p>
+ *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
+ */
 export class GetMLModelCommand extends $Command<
   GetMLModelCommandInput,
   GetMLModelCommandOutput,
@@ -34,6 +39,9 @@ export class GetMLModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

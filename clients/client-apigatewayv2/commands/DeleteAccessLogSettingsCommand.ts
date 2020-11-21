@@ -20,6 +20,9 @@ import {
 export type DeleteAccessLogSettingsCommandInput = DeleteAccessLogSettingsRequest;
 export type DeleteAccessLogSettingsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>
+ */
 export class DeleteAccessLogSettingsCommand extends $Command<
   DeleteAccessLogSettingsCommandInput,
   DeleteAccessLogSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAccessLogSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

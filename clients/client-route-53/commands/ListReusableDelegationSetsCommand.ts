@@ -20,6 +20,9 @@ import {
 export type ListReusableDelegationSetsCommandInput = ListReusableDelegationSetsRequest;
 export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of the reusable delegation sets that are associated with the current AWS account.</p>
+ */
 export class ListReusableDelegationSetsCommand extends $Command<
   ListReusableDelegationSetsCommandInput,
   ListReusableDelegationSetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListReusableDelegationSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

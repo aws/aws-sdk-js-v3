@@ -20,6 +20,9 @@ import {
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
 export type DeleteEventSubscriptionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon Redshift event notification subscription.</p>
+ */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

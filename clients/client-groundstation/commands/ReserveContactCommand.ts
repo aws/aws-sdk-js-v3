@@ -20,6 +20,9 @@ import {
 export type ReserveContactCommandInput = ReserveContactRequest;
 export type ReserveContactCommandOutput = ContactIdResponse & __MetadataBearer;
 
+/**
+ * <p>Reserves a contact using specified parameters.</p>
+ */
 export class ReserveContactCommand extends $Command<
   ReserveContactCommandInput,
   ReserveContactCommandOutput,
@@ -34,6 +37,9 @@ export class ReserveContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

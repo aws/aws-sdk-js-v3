@@ -25,6 +25,11 @@ import {
 export type AdminDeleteUserAttributesCommandInput = AdminDeleteUserAttributesRequest;
 export type AdminDeleteUserAttributesCommandOutput = AdminDeleteUserAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the user attributes in a user pool as an administrator. Works on any
+ *             user.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminDeleteUserAttributesCommand extends $Command<
   AdminDeleteUserAttributesCommandInput,
   AdminDeleteUserAttributesCommandOutput,
@@ -39,6 +44,9 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

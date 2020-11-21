@@ -20,6 +20,33 @@ import {
 export type BatchPutAssetPropertyValueCommandInput = BatchPutAssetPropertyValueRequest;
 export type BatchPutAssetPropertyValueCommandOutput = BatchPutAssetPropertyValueResponse & __MetadataBearer;
 
+/**
+ * <p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value
+ *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ *          <p>To identify an asset property, you must specify one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
+ *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <important>
+ *             <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more
+ *         than 15 minutes in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects
+ *         timestamps outside of the inclusive range of [-15, +5] minutes and returns a
+ *           <code>TimestampOutOfRangeException</code> error.</p>
+ *             <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
+ *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
+ *         then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>
+ *          </important>
+ *          <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
+ *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
+ *       <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class BatchPutAssetPropertyValueCommand extends $Command<
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
@@ -34,6 +61,9 @@ export class BatchPutAssetPropertyValueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

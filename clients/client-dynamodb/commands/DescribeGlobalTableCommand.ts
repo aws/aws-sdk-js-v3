@@ -20,6 +20,13 @@ import {
 export type DescribeGlobalTableCommandInput = DescribeGlobalTableInput;
 export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified global table.</p>
+ *           <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.
+ *                    If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.</p>
+ *          </note>
+ */
 export class DescribeGlobalTableCommand extends $Command<
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeGlobalTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

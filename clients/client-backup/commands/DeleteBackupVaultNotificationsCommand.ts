@@ -20,6 +20,9 @@ import {
 export type DeleteBackupVaultNotificationsCommandInput = DeleteBackupVaultNotificationsInput;
 export type DeleteBackupVaultNotificationsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes event notifications for the specified backup vault.</p>
+ */
 export class DeleteBackupVaultNotificationsCommand extends $Command<
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBackupVaultNotificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

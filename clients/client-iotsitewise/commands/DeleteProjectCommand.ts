@@ -20,6 +20,9 @@ import {
 export type DeleteProjectCommandInput = DeleteProjectRequest;
 export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a project from AWS IoT SiteWise Monitor.</p>
+ */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

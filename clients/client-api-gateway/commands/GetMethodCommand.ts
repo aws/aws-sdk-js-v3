@@ -20,6 +20,9 @@ import {
 export type GetMethodCommandInput = GetMethodRequest;
 export type GetMethodCommandOutput = Method & __MetadataBearer;
 
+/**
+ * <p>Describe an existing <a>Method</a> resource.</p>
+ */
 export class GetMethodCommand extends $Command<
   GetMethodCommandInput,
   GetMethodCommandOutput,
@@ -34,6 +37,9 @@ export class GetMethodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

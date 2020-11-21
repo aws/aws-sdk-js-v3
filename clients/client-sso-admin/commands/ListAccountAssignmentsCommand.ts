@@ -20,6 +20,10 @@ import {
 export type ListAccountAssignmentsCommandInput = ListAccountAssignmentsRequest;
 export type ListAccountAssignmentsCommandOutput = ListAccountAssignmentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the assignee of the specified AWS account with the specified permission
+ *        set.</p>
+ */
 export class ListAccountAssignmentsCommand extends $Command<
   ListAccountAssignmentsCommandInput,
   ListAccountAssignmentsCommandOutput,
@@ -34,6 +38,9 @@ export class ListAccountAssignmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

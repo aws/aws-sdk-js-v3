@@ -20,6 +20,9 @@ import {
 export type ListDataCatalogsCommandInput = ListDataCatalogsInput;
 export type ListDataCatalogsCommandOutput = ListDataCatalogsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the data catalogs in the current AWS account.</p>
+ */
 export class ListDataCatalogsCommand extends $Command<
   ListDataCatalogsCommandInput,
   ListDataCatalogsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDataCatalogsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

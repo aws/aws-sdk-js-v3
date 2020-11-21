@@ -20,6 +20,10 @@ import {
 export type CreateVPCEConfigurationCommandInput = CreateVPCEConfigurationRequest;
 export type CreateVPCEConfigurationCommandOutput = CreateVPCEConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
+ *             (VPC) endpoint.</p>
+ */
 export class CreateVPCEConfigurationCommand extends $Command<
   CreateVPCEConfigurationCommandInput,
   CreateVPCEConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class CreateVPCEConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

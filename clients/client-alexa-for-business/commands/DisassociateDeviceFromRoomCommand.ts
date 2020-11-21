@@ -20,6 +20,11 @@ import {
 export type DisassociateDeviceFromRoomCommandInput = DisassociateDeviceFromRoomRequest;
 export type DisassociateDeviceFromRoomCommandOutput = DisassociateDeviceFromRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a device from its current room. The device continues to be connected to
+ *          the Wi-Fi network and is still registered to the account. The device settings and skills
+ *          are removed from the room.</p>
+ */
 export class DisassociateDeviceFromRoomCommand extends $Command<
   DisassociateDeviceFromRoomCommandInput,
   DisassociateDeviceFromRoomCommandOutput,
@@ -34,6 +39,9 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

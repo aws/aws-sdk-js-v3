@@ -20,6 +20,9 @@ import {
 export type DeleteBrokerCommandInput = DeleteBrokerRequest;
 export type DeleteBrokerCommandOutput = DeleteBrokerResponse & __MetadataBearer;
 
+/**
+ * Deletes a broker. Note: This API is asynchronous.
+ */
 export class DeleteBrokerCommand extends $Command<
   DeleteBrokerCommandInput,
   DeleteBrokerCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBrokerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

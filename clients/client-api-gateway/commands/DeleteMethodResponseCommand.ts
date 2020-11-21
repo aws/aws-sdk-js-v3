@@ -20,6 +20,9 @@ import {
 export type DeleteMethodResponseCommandInput = DeleteMethodResponseRequest;
 export type DeleteMethodResponseCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an existing <a>MethodResponse</a> resource.</p>
+ */
 export class DeleteMethodResponseCommand extends $Command<
   DeleteMethodResponseCommandInput,
   DeleteMethodResponseCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMethodResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

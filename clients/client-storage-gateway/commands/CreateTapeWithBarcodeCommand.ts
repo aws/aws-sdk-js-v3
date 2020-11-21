@@ -20,6 +20,17 @@ import {
 export type CreateTapeWithBarcodeCommandInput = CreateTapeWithBarcodeInput;
 export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and
+ *          then archive the tape. A barcode is unique and cannot be reused if it has already been used
+ *          on a tape. This applies to barcodes used on deleted tapes. This operation is only supported
+ *          in the tape gateway type.</p>
+ *
+ *          <note>
+ *             <p>Cache storage must be allocated to the gateway before you can create a virtual tape.
+ *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
+ *          </note>
+ */
 export class CreateTapeWithBarcodeCommand extends $Command<
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
@@ -34,6 +45,9 @@ export class CreateTapeWithBarcodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

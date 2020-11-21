@@ -20,6 +20,46 @@ import {
 export type UpdateCustomKeyStoreCommandInput = UpdateCustomKeyStoreRequest;
 export type UpdateCustomKeyStoreCommandOutput = UpdateCustomKeyStoreResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the properties of a custom key store. Use the <code>CustomKeyStoreId</code>
+ *       parameter to identify the custom key store you want to edit. Use the remaining parameters to
+ *       change the properties of the custom key store.</p>
+ *          <p>You can only update a custom key store that is disconnected. To disconnect the custom key
+ *       store, use <a>DisconnectCustomKeyStore</a>. To reconnect the custom key store after
+ *       the update completes, use <a>ConnectCustomKeyStore</a>. To find the connection
+ *       state of a custom key store, use the <a>DescribeCustomKeyStores</a>
+ *       operation.</p>
+ *          <p>Use the parameters of <code>UpdateCustomKeyStore</code> to edit your keystore
+ *       settings.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Use the <b>NewCustomKeyStoreName</b> parameter to change the
+ *           friendly name of the custom key store to the value that you specify.</p>
+ *                <p> </p>
+ *             </li>
+ *             <li>
+ *                <p>Use the <b>KeyStorePassword</b> parameter tell AWS KMS the
+ *           current password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
+ *                      <code>kmsuser</code> crypto
+ *             user (CU)</a> in the associated AWS CloudHSM cluster. You can use this parameter to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password">fix
+ *             connection failures</a> that occur when AWS KMS cannot log into the associated cluster
+ *           because the <code>kmsuser</code> password has changed. This value does not change the
+ *           password in the AWS CloudHSM cluster.</p>
+ *                <p> </p>
+ *             </li>
+ *             <li>
+ *                <p>Use the <b>CloudHsmClusterId</b> parameter to associate the
+ *           custom key store with a different, but related, AWS CloudHSM cluster. You can use this parameter
+ *           to repair a custom key store if its AWS CloudHSM cluster becomes corrupted or is deleted, or when
+ *           you need to create or restore a cluster from a backup. </p>
+ *             </li>
+ *          </ul>
+ *          <p>If the operation succeeds, it returns a JSON object with no
+ * properties.</p>
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
+ * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
+ * single-tenant key store.</p>
+ */
 export class UpdateCustomKeyStoreCommand extends $Command<
   UpdateCustomKeyStoreCommandInput,
   UpdateCustomKeyStoreCommandOutput,
@@ -34,6 +74,9 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

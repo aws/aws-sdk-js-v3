@@ -24,6 +24,10 @@ export type UpdatePullRequestApprovalRuleContentCommandInput = UpdatePullRequest
 export type UpdatePullRequestApprovalRuleContentCommandOutput = UpdatePullRequestApprovalRuleContentOutput &
   __MetadataBearer;
 
+/**
+ * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
+ *             the approval pool for approvers. </p>
+ */
 export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
   UpdatePullRequestApprovalRuleContentCommandInput,
   UpdatePullRequestApprovalRuleContentCommandOutput,
@@ -38,6 +42,9 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteAnomalySubscriptionCommandInput = DeleteAnomalySubscriptionRequest;
 export type DeleteAnomalySubscriptionCommandOutput = DeleteAnomalySubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a cost anomaly subscription. </p>
+ */
 export class DeleteAnomalySubscriptionCommand extends $Command<
   DeleteAnomalySubscriptionCommandInput,
   DeleteAnomalySubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

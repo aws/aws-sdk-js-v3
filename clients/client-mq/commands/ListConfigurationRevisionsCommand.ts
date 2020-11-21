@@ -20,6 +20,9 @@ import {
 export type ListConfigurationRevisionsCommandInput = ListConfigurationRevisionsRequest;
 export type ListConfigurationRevisionsCommandOutput = ListConfigurationRevisionsResponse & __MetadataBearer;
 
+/**
+ * Returns a list of all revisions for the specified configuration.
+ */
 export class ListConfigurationRevisionsCommand extends $Command<
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListConfigurationRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

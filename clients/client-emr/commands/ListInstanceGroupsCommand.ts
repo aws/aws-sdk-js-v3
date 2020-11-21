@@ -20,6 +20,9 @@ import {
 export type ListInstanceGroupsCommandInput = ListInstanceGroupsInput;
 export type ListInstanceGroupsCommandOutput = ListInstanceGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Provides all available details about the instance groups in a cluster.</p>
+ */
 export class ListInstanceGroupsCommand extends $Command<
   ListInstanceGroupsCommandInput,
   ListInstanceGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListInstanceGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

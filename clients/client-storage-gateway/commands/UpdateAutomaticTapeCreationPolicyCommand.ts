@@ -20,6 +20,17 @@ import {
 export type UpdateAutomaticTapeCreationPolicyCommandInput = UpdateAutomaticTapeCreationPolicyInput;
 export type UpdateAutomaticTapeCreationPolicyCommandOutput = UpdateAutomaticTapeCreationPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
+ *          with a new set of automatic tape creation rules. This is only supported for tape
+ *          gateways.</p>
+ *
+ *          <p>By default, there is no automatic tape creation policy.</p>
+ *
+ *          <note>
+ *             <p>A gateway can have only one automatic tape creation policy.</p>
+ *          </note>
+ */
 export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
   UpdateAutomaticTapeCreationPolicyCommandInput,
   UpdateAutomaticTapeCreationPolicyCommandOutput,
@@ -34,6 +45,9 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

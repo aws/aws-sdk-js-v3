@@ -20,6 +20,12 @@ import {
 export type CreatePolicyCommandInput = CreatePolicyRequest;
 export type CreatePolicyCommandOutput = CreatePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS IoT policy.</p>
+ *          <p>The created policy is the default version for the policy. This operation creates a
+ *          policy version with a version identifier of <b>1</b> and sets
+ *             <b>1</b> as the policy's default version.</p>
+ */
 export class CreatePolicyCommand extends $Command<
   CreatePolicyCommandInput,
   CreatePolicyCommandOutput,
@@ -34,6 +40,9 @@ export class CreatePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

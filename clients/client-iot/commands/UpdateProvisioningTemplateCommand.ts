@@ -20,6 +20,9 @@ import {
 export type UpdateProvisioningTemplateCommandInput = UpdateProvisioningTemplateRequest;
 export type UpdateProvisioningTemplateCommandOutput = UpdateProvisioningTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a fleet provisioning template.</p>
+ */
 export class UpdateProvisioningTemplateCommand extends $Command<
   UpdateProvisioningTemplateCommandInput,
   UpdateProvisioningTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

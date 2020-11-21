@@ -24,6 +24,10 @@ import {
 export type DescribeImportTasksCommandInput = DescribeImportTasksRequest;
 export type DescribeImportTasksCommandOutput = DescribeImportTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an array of import tasks for your account, including status information, times,
+ *       IDs, the Amazon S3 Object URL for the import file, and more.</p>
+ */
 export class DescribeImportTasksCommand extends $Command<
   DescribeImportTasksCommandInput,
   DescribeImportTasksCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeImportTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

@@ -24,6 +24,10 @@ export type CreateInfrastructureConfigurationCommandInput = CreateInfrastructure
 export type CreateInfrastructureConfigurationCommandOutput = CreateInfrastructureConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
+ *       environment in which your image will be built and tested. </p>
+ */
 export class CreateInfrastructureConfigurationCommand extends $Command<
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput,
@@ -38,6 +42,9 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

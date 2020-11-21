@@ -20,6 +20,9 @@ import {
 export type UpdateCommentCommandInput = UpdateCommentInput;
 export type UpdateCommentCommandOutput = UpdateCommentOutput & __MetadataBearer;
 
+/**
+ * <p>Replaces the contents of a comment.</p>
+ */
 export class UpdateCommentCommand extends $Command<
   UpdateCommentCommandInput,
   UpdateCommentCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCommentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

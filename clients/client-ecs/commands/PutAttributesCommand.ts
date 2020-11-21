@@ -20,6 +20,13 @@ import {
 export type PutAttributesCommandInput = PutAttributesRequest;
 export type PutAttributesCommandOutput = PutAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Create or update an attribute on an Amazon ECS resource. If the attribute does not exist,
+ * 			it is created. If the attribute exists, its value is replaced with the specified value.
+ * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class PutAttributesCommand extends $Command<
   PutAttributesCommandInput,
   PutAttributesCommandOutput,
@@ -34,6 +41,9 @@ export class PutAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

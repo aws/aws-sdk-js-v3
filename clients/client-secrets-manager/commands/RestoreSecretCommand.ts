@@ -20,6 +20,27 @@ import {
 export type RestoreSecretCommandInput = RestoreSecretRequest;
 export type RestoreSecretCommandOutput = RestoreSecretResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
+ *       stamp. This makes the secret accessible to query once again.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:RestoreSecret</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class RestoreSecretCommand extends $Command<
   RestoreSecretCommandInput,
   RestoreSecretCommandOutput,
@@ -34,6 +55,9 @@ export class RestoreSecretCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

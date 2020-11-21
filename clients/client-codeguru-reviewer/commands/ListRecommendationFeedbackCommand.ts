@@ -20,6 +20,15 @@ import {
 export type ListRecommendationFeedbackCommandInput = ListRecommendationFeedbackRequest;
 export type ListRecommendationFeedbackCommandOutput = ListRecommendationFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns a list of
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">
+ *                <code>RecommendationFeedbackSummary</code>
+ *             </a>
+ *          objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
+ *       </p>
+ */
 export class ListRecommendationFeedbackCommand extends $Command<
   ListRecommendationFeedbackCommandInput,
   ListRecommendationFeedbackCommandOutput,
@@ -34,6 +43,9 @@ export class ListRecommendationFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

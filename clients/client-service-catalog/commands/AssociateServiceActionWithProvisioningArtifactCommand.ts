@@ -24,6 +24,9 @@ export type AssociateServiceActionWithProvisioningArtifactCommandInput = Associa
 export type AssociateServiceActionWithProvisioningArtifactCommandOutput = AssociateServiceActionWithProvisioningArtifactOutput &
   __MetadataBearer;
 
+/**
+ * <p>Associates a self-service action with a provisioning artifact.</p>
+ */
 export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<
   AssociateServiceActionWithProvisioningArtifactCommandInput,
   AssociateServiceActionWithProvisioningArtifactCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

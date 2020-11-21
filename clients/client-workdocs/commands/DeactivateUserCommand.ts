@@ -20,6 +20,10 @@ import {
 export type DeactivateUserCommandInput = DeactivateUserRequest;
 export type DeactivateUserCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deactivates the specified user, which revokes the user's access to Amazon
+ *             WorkDocs.</p>
+ */
 export class DeactivateUserCommand extends $Command<
   DeactivateUserCommandInput,
   DeactivateUserCommandOutput,
@@ -34,6 +38,9 @@ export class DeactivateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteJourneyCommandInput = DeleteJourneyRequest;
 export type DeleteJourneyCommandOutput = DeleteJourneyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a journey from an application.</p>
+ */
 export class DeleteJourneyCommand extends $Command<
   DeleteJourneyCommandInput,
   DeleteJourneyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteJourneyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

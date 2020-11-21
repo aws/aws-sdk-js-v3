@@ -20,6 +20,9 @@ import {
 export type ListDataSourceSyncJobsCommandInput = ListDataSourceSyncJobsRequest;
 export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
+ */
 export class ListDataSourceSyncJobsCommand extends $Command<
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDataSourceSyncJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

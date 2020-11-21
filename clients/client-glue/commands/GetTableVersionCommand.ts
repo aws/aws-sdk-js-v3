@@ -20,6 +20,9 @@ import {
 export type GetTableVersionCommandInput = GetTableVersionRequest;
 export type GetTableVersionCommandOutput = GetTableVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a specified version of a table.</p>
+ */
 export class GetTableVersionCommand extends $Command<
   GetTableVersionCommandInput,
   GetTableVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetTableVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

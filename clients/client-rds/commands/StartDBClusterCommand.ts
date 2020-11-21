@@ -20,6 +20,18 @@ import {
 export type StartDBClusterCommandInput = StartDBClusterMessage;
 export type StartDBClusterCommandOutput = StartDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
+ *        AWS CLI command, or the StopDBCluster action.</p>
+ *
+ *          <p>For more information, see
+ *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
+ *                Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *            <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class StartDBClusterCommand extends $Command<
   StartDBClusterCommandInput,
   StartDBClusterCommandOutput,
@@ -34,6 +46,9 @@ export class StartDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type GetApplicationCommandInput = GetApplicationRequest;
 export type GetApplicationCommandOutput = GetApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the specified application.</p>
+ */
 export class GetApplicationCommand extends $Command<
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class GetApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

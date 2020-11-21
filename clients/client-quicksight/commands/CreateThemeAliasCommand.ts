@@ -20,6 +20,9 @@ import {
 export type CreateThemeAliasCommandInput = CreateThemeAliasRequest;
 export type CreateThemeAliasCommandOutput = CreateThemeAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a theme alias for a theme.</p>
+ */
 export class CreateThemeAliasCommand extends $Command<
   CreateThemeAliasCommandInput,
   CreateThemeAliasCommandOutput,
@@ -34,6 +37,9 @@ export class CreateThemeAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

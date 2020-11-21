@@ -20,6 +20,9 @@ import {
 export type FlushApiCacheCommandInput = FlushApiCacheRequest;
 export type FlushApiCacheCommandOutput = FlushApiCacheResponse & __MetadataBearer;
 
+/**
+ * <p>Flushes an <code>ApiCache</code> object.</p>
+ */
 export class FlushApiCacheCommand extends $Command<
   FlushApiCacheCommandInput,
   FlushApiCacheCommandOutput,
@@ -34,6 +37,9 @@ export class FlushApiCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

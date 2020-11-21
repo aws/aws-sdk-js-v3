@@ -20,6 +20,16 @@ import {
 export type CreateTableCommandInput = CreateTableRequest;
 export type CreateTableCommandOutput = CreateTableResponse & __MetadataBearer;
 
+/**
+ * <p>The CreateTable operation adds a new table to an existing database in your account. In an AWS account,
+ *       table names must be at least unique within each Region if they are in the same database.
+ *       You may have identical table names in the same Region if the tables are in seperate databases.
+ *          While creating the table, you must specify the table name, database name,
+ *          and the retention properties.
+ *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a>
+ *          in the Timestream Developer Guide.
+ *          </p>
+ */
 export class CreateTableCommand extends $Command<
   CreateTableCommandInput,
   CreateTableCommandOutput,
@@ -34,6 +44,9 @@ export class CreateTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

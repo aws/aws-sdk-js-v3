@@ -20,6 +20,26 @@ import {
 export type DescribePrincipalIdFormatCommandInput = DescribePrincipalIdFormatRequest;
 export type DescribePrincipalIdFormatCommandOutput = DescribePrincipalIdFormatResult & __MetadataBearer;
 
+/**
+ * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
+ *             that have explicitly specified a longer ID (17-character ID) preference. </p>
+ *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
+ *             explicitly override the settings. This request is useful for identifying those IAM users and IAM roles
+ *             that have overridden the default ID settings.</p>
+ *          <p>The following resource types support longer IDs: <code>bundle</code> |
+ *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+ *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+ *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+ *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+ *           <code>network-acl</code> | <code>network-acl-association</code> |
+ *           <code>network-interface</code> | <code>network-interface-attachment</code> |
+ *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+ *           <code>route-table-association</code> | <code>security-group</code> |
+ *           <code>snapshot</code> | <code>subnet</code> |
+ *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+ *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+ *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
+ */
 export class DescribePrincipalIdFormatCommand extends $Command<
   DescribePrincipalIdFormatCommandInput,
   DescribePrincipalIdFormatCommandOutput,
@@ -34,6 +54,9 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

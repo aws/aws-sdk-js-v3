@@ -8,6 +8,9 @@ import {
 import { ElasticInferencePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElasticInferenceClient,
   input: DescribeAcceleratorsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAcceleratorsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElasticInference,
   input: DescribeAcceleratorsCommandInput,

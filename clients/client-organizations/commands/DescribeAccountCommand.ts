@@ -20,6 +20,11 @@ import {
 export type DescribeAccountCommandInput = DescribeAccountRequest;
 export type DescribeAccountCommandOutput = DescribeAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves AWS Organizations-related information about the specified account.</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,
   DescribeAccountCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

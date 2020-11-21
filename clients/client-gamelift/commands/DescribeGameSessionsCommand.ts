@@ -20,6 +20,71 @@ import {
 export type DescribeGameSessionsCommandInput = DescribeGameSessionsInput;
 export type DescribeGameSessionsCommandOutput = DescribeGameSessionsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves a set of one or more game sessions. Request a specific game session or
+ *             request all game sessions on a fleet. Alternatively, use <a>SearchGameSessions</a> to request a set of active game sessions that are
+ *             filtered by certain criteria. To retrieve protection policy settings for game sessions,
+ *             use <a>DescribeGameSessionDetails</a>.</p>
+ *         <p>To get game sessions, specify one of the following: game session ID, fleet ID, or
+ *             alias ID. You can filter this request by game session status. Use the pagination
+ *             parameters to retrieve results as a set of sequential pages. If successful, a <a>GameSession</a> object is returned for each game session matching the
+ *             request.</p>
+ *         <p>
+ *             <i>Available in Amazon GameLift Local.</i>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionDetails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SearchGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetGameSessionLogUrl</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Game session placements</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeGameSessionsCommand extends $Command<
   DescribeGameSessionsCommandInput,
   DescribeGameSessionsCommandOutput,
@@ -34,6 +99,9 @@ export class DescribeGameSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

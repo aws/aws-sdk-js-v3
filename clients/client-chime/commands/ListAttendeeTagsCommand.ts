@@ -20,6 +20,9 @@ import {
 export type ListAttendeeTagsCommandInput = ListAttendeeTagsRequest;
 export type ListAttendeeTagsCommandOutput = ListAttendeeTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
+ */
 export class ListAttendeeTagsCommand extends $Command<
   ListAttendeeTagsCommandInput,
   ListAttendeeTagsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAttendeeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

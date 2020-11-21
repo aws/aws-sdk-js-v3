@@ -20,6 +20,9 @@ import {
 export type ListProfilingGroupsCommandInput = ListProfilingGroupsRequest;
 export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists profiling groups.</p>
+ */
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,
   ListProfilingGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProfilingGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

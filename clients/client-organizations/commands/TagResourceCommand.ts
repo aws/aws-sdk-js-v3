@@ -20,6 +20,25 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds one or more tags to the specified resource.</p>
+ *         <p>Currently, you can attach tags to the following resources in AWS Organizations.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>AWS account</p>
+ *             </li>
+ *             <li>
+ *                 <p>Organization root</p>
+ *             </li>
+ *             <li>
+ *                 <p>Organizational unit (OU)</p>
+ *             </li>
+ *             <li>
+ *                 <p>Policy (any type)</p>
+ *             </li>
+ *          </ul>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +53,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

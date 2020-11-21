@@ -20,6 +20,16 @@ import {
 export type DeletePolicyCommandInput = DeletePolicyRequest;
 export type DeletePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified policy.</p>
+ *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
+ *          certificate.</p>
+ *          <p>To delete a policy, use the DeletePolicyVersion API to delete all non-default
+ *          versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any
+ *          certificate; and then use the DeletePolicy API to delete the policy.</p>
+ *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
+ *          it.</p>
+ */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,
   DeletePolicyCommandOutput,
@@ -34,6 +44,9 @@ export class DeletePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

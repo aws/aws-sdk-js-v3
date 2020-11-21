@@ -24,6 +24,9 @@ import {
 export type DescribeReportDefinitionsCommandInput = DescribeReportDefinitionsRequest;
 export type DescribeReportDefinitionsCommandOutput = DescribeReportDefinitionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS Cost and Usage reports available to this account.</p>
+ */
 export class DescribeReportDefinitionsCommand extends $Command<
   DescribeReportDefinitionsCommandInput,
   DescribeReportDefinitionsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeReportDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostAndUsageReportServiceClientResolvedConfig,

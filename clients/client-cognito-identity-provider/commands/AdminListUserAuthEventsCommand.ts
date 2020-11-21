@@ -25,6 +25,10 @@ import {
 export type AdminListUserAuthEventsCommandInput = AdminListUserAuthEventsRequest;
 export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists a history of user activity and any risks detected as part of Amazon Cognito
+ *             advanced security.</p>
+ */
 export class AdminListUserAuthEventsCommand extends $Command<
   AdminListUserAuthEventsCommandInput,
   AdminListUserAuthEventsCommandOutput,
@@ -39,6 +43,9 @@ export class AdminListUserAuthEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

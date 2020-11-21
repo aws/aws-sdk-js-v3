@@ -17,6 +17,44 @@ import {
 export type DeleteHITCommandInput = DeleteHITRequest;
 export type DeleteHITCommandOutput = DeleteHITResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>DeleteHIT</code> operation is used to delete HIT that is no longer needed.
+ *             Only the Requester who created the HIT can delete it.
+ *         </p>
+ *         <p>
+ *             You can only dispose of HITs that are in the <code>Reviewable</code> state,
+ *             with all of their submitted assignments already either approved or rejected.
+ *             If you call the DeleteHIT operation on a HIT that is not in the <code>Reviewable</code> state
+ *             (for example, that has not expired, or still has active assignments),
+ *             or on a HIT that is Reviewable but without all of its submitted assignments
+ *             already approved or rejected, the service will return an error.
+ *         </p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>
+ *                         HITs are automatically disposed of after 120 days.
+ *                     </p>
+ *                 </li>
+ *                <li>
+ *                     <p>
+ *                         After you dispose of a HIT, you can no longer approve the HIT's rejected assignments.
+ *                     </p>
+ *                 </li>
+ *                <li>
+ *                     <p>
+ *                         Disposed HITs are not returned in results for the ListHITs operation.
+ *                     </p>
+ *                 </li>
+ *                <li>
+ *                     <p>
+ *                         Disposing HITs can improve the performance of operations such as ListReviewableHITs and ListHITs.
+ *                     </p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class DeleteHITCommand extends $Command<
   DeleteHITCommandInput,
   DeleteHITCommandOutput,
@@ -31,6 +69,9 @@ export class DeleteHITCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

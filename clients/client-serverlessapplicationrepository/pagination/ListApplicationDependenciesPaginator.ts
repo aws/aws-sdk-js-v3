@@ -8,6 +8,9 @@ import {
 import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ServerlessApplicationRepositoryClient,
   input: ListApplicationDependenciesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationDependenciesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ServerlessApplicationRepository,
   input: ListApplicationDependenciesCommandInput,

@@ -24,6 +24,11 @@ import {
 export type SetRulePrioritiesCommandInput = SetRulePrioritiesInput;
 export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput & __MetadataBearer;
 
+/**
+ * <p>Sets the priorities of the specified rules.</p>
+ *          <p>You can reorder the rules as long as there are no priority conflicts in the new order.
+ *       Any existing rules that you do not specify retain their current priority.</p>
+ */
 export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandInput,
   SetRulePrioritiesCommandOutput,
@@ -38,6 +43,9 @@ export class SetRulePrioritiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

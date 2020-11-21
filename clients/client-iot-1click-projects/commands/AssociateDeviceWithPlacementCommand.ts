@@ -24,6 +24,9 @@ import {
 export type AssociateDeviceWithPlacementCommandInput = AssociateDeviceWithPlacementRequest;
 export type AssociateDeviceWithPlacementCommandOutput = AssociateDeviceWithPlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a physical device with a placement.</p>
+ */
 export class AssociateDeviceWithPlacementCommand extends $Command<
   AssociateDeviceWithPlacementCommandInput,
   AssociateDeviceWithPlacementCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

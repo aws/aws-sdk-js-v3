@@ -21,6 +21,10 @@ import {
 export type SetIdentityPoolRolesCommandInput = SetIdentityPoolRolesInput;
 export type SetIdentityPoolRolesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class SetIdentityPoolRolesCommand extends $Command<
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput,
@@ -35,6 +39,9 @@ export class SetIdentityPoolRolesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

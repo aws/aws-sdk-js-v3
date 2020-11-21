@@ -24,6 +24,9 @@ export type PutVoiceConnectorLoggingConfigurationCommandInput = PutVoiceConnecto
 export type PutVoiceConnectorLoggingConfigurationCommandOutput = PutVoiceConnectorLoggingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
+ */
 export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

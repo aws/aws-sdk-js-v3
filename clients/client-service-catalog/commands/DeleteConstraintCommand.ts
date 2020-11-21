@@ -20,6 +20,10 @@ import {
 export type DeleteConstraintCommandInput = DeleteConstraintInput;
 export type DeleteConstraintCommandOutput = DeleteConstraintOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified constraint.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class DeleteConstraintCommand extends $Command<
   DeleteConstraintCommandInput,
   DeleteConstraintCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteConstraintCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

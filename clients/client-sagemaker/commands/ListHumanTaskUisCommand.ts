@@ -20,6 +20,9 @@ import {
 export type ListHumanTaskUisCommandInput = ListHumanTaskUisRequest;
 export type ListHumanTaskUisCommandOutput = ListHumanTaskUisResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the human task user interfaces in your account.</p>
+ */
 export class ListHumanTaskUisCommand extends $Command<
   ListHumanTaskUisCommandInput,
   ListHumanTaskUisCommandOutput,
@@ -34,6 +37,9 @@ export class ListHumanTaskUisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

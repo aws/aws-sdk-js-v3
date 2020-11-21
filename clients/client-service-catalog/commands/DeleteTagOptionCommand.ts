@@ -20,6 +20,10 @@ import {
 export type DeleteTagOptionCommandInput = DeleteTagOptionInput;
 export type DeleteTagOptionCommandOutput = DeleteTagOptionOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified TagOption.</p>
+ *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
+ */
 export class DeleteTagOptionCommand extends $Command<
   DeleteTagOptionCommandInput,
   DeleteTagOptionCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTagOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

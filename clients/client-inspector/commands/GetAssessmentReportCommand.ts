@@ -20,6 +20,10 @@ import {
 export type GetAssessmentReportCommandInput = GetAssessmentReportRequest;
 export type GetAssessmentReportCommandOutput = GetAssessmentReportResponse & __MetadataBearer;
 
+/**
+ * <p>Produces an assessment report that includes detailed and comprehensive results of a
+ *          specified assessment run. </p>
+ */
 export class GetAssessmentReportCommand extends $Command<
   GetAssessmentReportCommandInput,
   GetAssessmentReportCommandOutput,
@@ -34,6 +38,9 @@ export class GetAssessmentReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

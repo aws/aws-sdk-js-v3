@@ -20,6 +20,10 @@ import {
 export type DisableAlarmActionsCommandInput = DisableAlarmActionsInput;
 export type DisableAlarmActionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
+ * 			alarm actions do not execute when the alarm state changes.</p>
+ */
 export class DisableAlarmActionsCommand extends $Command<
   DisableAlarmActionsCommandInput,
   DisableAlarmActionsCommandOutput,
@@ -34,6 +38,9 @@ export class DisableAlarmActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

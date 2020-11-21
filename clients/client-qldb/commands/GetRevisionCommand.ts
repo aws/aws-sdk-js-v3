@@ -20,6 +20,11 @@ import {
 export type GetRevisionCommandInput = GetRevisionRequest;
 export type GetRevisionCommandOutput = GetRevisionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a revision data object for a specified document ID and block address. Also
+ *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
+ *          is provided.</p>
+ */
 export class GetRevisionCommand extends $Command<
   GetRevisionCommandInput,
   GetRevisionCommandOutput,
@@ -34,6 +39,9 @@ export class GetRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetThingRuntimeConfigurationCommandInput = GetThingRuntimeConfigurationRequest;
 export type GetThingRuntimeConfigurationCommandOutput = GetThingRuntimeConfigurationResponse & __MetadataBearer;
 
+/**
+ * Get the runtime configuration of a thing.
+ */
 export class GetThingRuntimeConfigurationCommand extends $Command<
   GetThingRuntimeConfigurationCommandInput,
   GetThingRuntimeConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

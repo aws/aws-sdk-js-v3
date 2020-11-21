@@ -20,6 +20,10 @@ import {
 export type DissociateEntityFromThingCommandInput = DissociateEntityFromThingRequest;
 export type DissociateEntityFromThingCommandOutput = DissociateEntityFromThingResponse & __MetadataBearer;
 
+/**
+ * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
+ *          one entity of a particular type can be associated with a thing.</p>
+ */
 export class DissociateEntityFromThingCommand extends $Command<
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput,
@@ -34,6 +38,9 @@ export class DissociateEntityFromThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

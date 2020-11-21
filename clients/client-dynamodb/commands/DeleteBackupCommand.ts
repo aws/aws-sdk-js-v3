@@ -20,6 +20,10 @@ import {
 export type DeleteBackupCommandInput = DeleteBackupInput;
 export type DeleteBackupCommandOutput = DeleteBackupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing backup of a table.</p>
+ *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per second.</p>
+ */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

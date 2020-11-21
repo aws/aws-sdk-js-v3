@@ -20,6 +20,9 @@ import {
 export type UpdateTestGridProjectCommandInput = UpdateTestGridProjectRequest;
 export type UpdateTestGridProjectCommandOutput = UpdateTestGridProjectResult & __MetadataBearer;
 
+/**
+ * <p>Change details of a project.</p>
+ */
 export class UpdateTestGridProjectCommand extends $Command<
   UpdateTestGridProjectCommandInput,
   UpdateTestGridProjectCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTestGridProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

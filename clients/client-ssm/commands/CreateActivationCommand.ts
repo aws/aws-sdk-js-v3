@@ -20,6 +20,18 @@ import {
 export type CreateActivationCommandInput = CreateActivationRequest;
 export type CreateActivationCommandOutput = CreateActivationResult & __MetadataBearer;
 
+/**
+ * <p>Generates an activation code and activation ID you can use to register your on-premises
+ *    server or virtual machine (VM) with Systems Manager. Registering these machines with Systems Manager makes it
+ *    possible to manage them using Systems Manager capabilities. You use the activation code and ID when
+ *    installing SSM Agent on machines in your hybrid environment. For more information about
+ *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
+ *     AWS Systems Manager for hybrid environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+ *          <note>
+ *             <p>On-premises servers or VMs that are registered with Systems Manager and EC2 instances that you manage
+ *     with Systems Manager are all called <i>managed instances</i>.</p>
+ *          </note>
+ */
 export class CreateActivationCommand extends $Command<
   CreateActivationCommandInput,
   CreateActivationCommandOutput,
@@ -34,6 +46,9 @@ export class CreateActivationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

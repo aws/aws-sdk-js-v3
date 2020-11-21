@@ -24,6 +24,11 @@ import {
 export type SubscribeCommandInput = SubscribeRequest;
 export type SubscribeCommandOutput = SubscribeResult & __MetadataBearer;
 
+/**
+ * <p>Creates an association between a notification rule and an SNS topic so that the
+ *             associated target can receive notifications when the events described in the rule are
+ *             triggered.</p>
+ */
 export class SubscribeCommand extends $Command<
   SubscribeCommandInput,
   SubscribeCommandOutput,
@@ -38,6 +43,9 @@ export class SubscribeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

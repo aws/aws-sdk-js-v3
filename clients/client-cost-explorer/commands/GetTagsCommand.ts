@@ -17,6 +17,9 @@ import {
 export type GetTagsCommandInput = GetTagsRequest;
 export type GetTagsCommandOutput = GetTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
+ */
 export class GetTagsCommand extends $Command<
   GetTagsCommandInput,
   GetTagsCommandOutput,
@@ -31,6 +34,9 @@ export class GetTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

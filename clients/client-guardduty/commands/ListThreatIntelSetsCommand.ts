@@ -20,6 +20,11 @@ import {
 export type ListThreatIntelSetsCommandInput = ListThreatIntelSetsRequest;
 export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
+ *       use this operation from a member account, the ThreatIntelSets associated with the master
+ *       account are returned.</p>
+ */
 export class ListThreatIntelSetsCommand extends $Command<
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
@@ -34,6 +39,9 @@ export class ListThreatIntelSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

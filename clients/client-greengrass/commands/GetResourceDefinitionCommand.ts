@@ -20,6 +20,9 @@ import {
 export type GetResourceDefinitionCommandInput = GetResourceDefinitionRequest;
 export type GetResourceDefinitionCommandOutput = GetResourceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a resource definition, including its creation time and latest version.
+ */
 export class GetResourceDefinitionCommand extends $Command<
   GetResourceDefinitionCommandInput,
   GetResourceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

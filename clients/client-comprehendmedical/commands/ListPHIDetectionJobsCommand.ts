@@ -24,6 +24,10 @@ import {
 export type ListPHIDetectionJobsCommandInput = ListPHIDetectionJobsRequest;
 export type ListPHIDetectionJobsCommandOutput = ListPHIDetectionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of protected health information (PHI) detection jobs that you have
+ *       submitted.</p>
+ */
 export class ListPHIDetectionJobsCommand extends $Command<
   ListPHIDetectionJobsCommandInput,
   ListPHIDetectionJobsCommandOutput,
@@ -38,6 +42,9 @@ export class ListPHIDetectionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

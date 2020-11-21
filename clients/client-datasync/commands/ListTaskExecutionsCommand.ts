@@ -20,6 +20,9 @@ import {
 export type ListTaskExecutionsCommandInput = ListTaskExecutionsRequest;
 export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of executed tasks.</p>
+ */
 export class ListTaskExecutionsCommand extends $Command<
   ListTaskExecutionsCommandInput,
   ListTaskExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTaskExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateGroupCommandInput = CreateGroupInput;
 export type CreateGroupCommandOutput = CreateGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a resource group with the specified name and description. You can optionally
+ *             include a resource query, or a service configuration.</p>
+ */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,
   CreateGroupCommandOutput,
@@ -34,6 +38,9 @@ export class CreateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

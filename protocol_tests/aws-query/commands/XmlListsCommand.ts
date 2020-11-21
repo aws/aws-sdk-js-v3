@@ -17,6 +17,18 @@ import {
 export type XmlListsCommandInput = {};
 export type XmlListsCommandOutput = XmlListsOutput & __MetadataBearer;
 
+/**
+ * This test case serializes XML lists for the following cases for both
+ * input and output:
+ *
+ * 1. Normal XML lists.
+ * 2. Normal XML sets.
+ * 3. XML lists of lists.
+ * 4. XML lists with @xmlName on its members
+ * 5. Flattened XML lists.
+ * 6. Flattened XML lists with @xmlName.
+ * 7. Lists of structures.
+ */
 export class XmlListsCommand extends $Command<
   XmlListsCommandInput,
   XmlListsCommandOutput,
@@ -31,6 +43,9 @@ export class XmlListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

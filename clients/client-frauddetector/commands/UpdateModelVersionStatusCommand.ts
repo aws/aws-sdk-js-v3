@@ -20,6 +20,18 @@ import {
 export type UpdateModelVersionStatusCommandInput = UpdateModelVersionStatusRequest;
 export type UpdateModelVersionStatusCommandOutput = UpdateModelVersionStatusResult & __MetadataBearer;
 
+/**
+ * <p>Updates the status of a model version.</p>
+ *          <p>You can perform the following status updates:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Change <code>ACTIVE</code>to <code>INACTIVE</code>.</p>
+ *             </li>
+ *          </ol>
+ */
 export class UpdateModelVersionStatusCommand extends $Command<
   UpdateModelVersionStatusCommandInput,
   UpdateModelVersionStatusCommandOutput,
@@ -34,6 +46,9 @@ export class UpdateModelVersionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

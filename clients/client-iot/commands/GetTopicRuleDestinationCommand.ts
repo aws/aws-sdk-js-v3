@@ -20,6 +20,9 @@ import {
 export type GetTopicRuleDestinationCommandInput = GetTopicRuleDestinationRequest;
 export type GetTopicRuleDestinationCommandOutput = GetTopicRuleDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a topic rule destination.</p>
+ */
 export class GetTopicRuleDestinationCommand extends $Command<
   GetTopicRuleDestinationCommandInput,
   GetTopicRuleDestinationCommandOutput,
@@ -34,6 +37,9 @@ export class GetTopicRuleDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

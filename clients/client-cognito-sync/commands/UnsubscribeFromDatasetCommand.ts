@@ -20,6 +20,10 @@ import {
 export type UnsubscribeFromDatasetCommandInput = UnsubscribeFromDatasetRequest;
 export type UnsubscribeFromDatasetCommandOutput = UnsubscribeFromDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
+ *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+ */
 export class UnsubscribeFromDatasetCommand extends $Command<
   UnsubscribeFromDatasetCommandInput,
   UnsubscribeFromDatasetCommandOutput,
@@ -34,6 +38,9 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

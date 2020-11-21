@@ -20,6 +20,9 @@ import {
 export type RestoreDomainAccessCommandInput = RestoreDomainAccessRequest;
 export type RestoreDomainAccessCommandOutput = RestoreDomainAccessResponse & __MetadataBearer;
 
+/**
+ * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
+ */
 export class RestoreDomainAccessCommand extends $Command<
   RestoreDomainAccessCommandInput,
   RestoreDomainAccessCommandOutput,
@@ -34,6 +37,9 @@ export class RestoreDomainAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

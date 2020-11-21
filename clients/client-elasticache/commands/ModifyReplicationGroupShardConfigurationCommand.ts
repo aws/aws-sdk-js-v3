@@ -24,6 +24,10 @@ export type ModifyReplicationGroupShardConfigurationCommandInput = ModifyReplica
 export type ModifyReplicationGroupShardConfigurationCommandOutput = ModifyReplicationGroupShardConfigurationResult &
   __MetadataBearer;
 
+/**
+ * <p>Modifies a replication group's shards (node groups) by allowing you to
+ *             add shards, remove shards, or rebalance the keyspaces among exisiting shards.</p>
+ */
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
@@ -38,6 +42,9 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

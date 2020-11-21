@@ -20,6 +20,9 @@ import {
 export type UnassignIpv6AddressesCommandInput = UnassignIpv6AddressesRequest;
 export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult & __MetadataBearer;
 
+/**
+ * <p>Unassigns one or more IPv6 addresses from a network interface.</p>
+ */
 export class UnassignIpv6AddressesCommand extends $Command<
   UnassignIpv6AddressesCommandInput,
   UnassignIpv6AddressesCommandOutput,
@@ -34,6 +37,9 @@ export class UnassignIpv6AddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

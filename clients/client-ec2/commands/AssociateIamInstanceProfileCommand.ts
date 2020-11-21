@@ -20,6 +20,10 @@ import {
 export type AssociateIamInstanceProfileCommandInput = AssociateIamInstanceProfileRequest;
 export type AssociateIamInstanceProfileCommandOutput = AssociateIamInstanceProfileResult & __MetadataBearer;
 
+/**
+ * <p>Associates an IAM instance profile with a running or stopped instance. You cannot
+ *             associate more than one IAM instance profile with an instance.</p>
+ */
 export class AssociateIamInstanceProfileCommand extends $Command<
   AssociateIamInstanceProfileCommandInput,
   AssociateIamInstanceProfileCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

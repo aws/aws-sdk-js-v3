@@ -20,6 +20,15 @@ import {
 export type AssignTapePoolCommandInput = AssignTapePoolInput;
 export type AssignTapePoolCommandOutput = AssignTapePoolOutput & __MetadataBearer;
 
+/**
+ * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
+ *          the S3 storage class that is associated with the pool. When you use your backup application
+ *          to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
+ *          S3 Glacier Deep Archive) that corresponds to the pool.</p>
+ *
+ *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
+ *          </p>
+ */
 export class AssignTapePoolCommand extends $Command<
   AssignTapePoolCommandInput,
   AssignTapePoolCommandOutput,
@@ -34,6 +43,9 @@ export class AssignTapePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

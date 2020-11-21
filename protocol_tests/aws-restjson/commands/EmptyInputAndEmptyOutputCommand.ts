@@ -20,6 +20,12 @@ import {
 export type EmptyInputAndEmptyOutputCommandInput = EmptyInputAndEmptyOutputInput;
 export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput & __MetadataBearer;
 
+/**
+ * The example tests how requests and responses are serialized when there's
+ * no request or response payload because the operation has an empty input
+ * and empty output structure that reuses the same shape. While this should
+ * be rare, code generators must support this.
+ */
 export class EmptyInputAndEmptyOutputCommand extends $Command<
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -34,6 +40,9 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

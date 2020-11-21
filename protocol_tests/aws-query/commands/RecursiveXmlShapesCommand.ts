@@ -20,6 +20,9 @@ import {
 export type RecursiveXmlShapesCommandInput = {};
 export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput & __MetadataBearer;
 
+/**
+ * Recursive shapes
+ */
 export class RecursiveXmlShapesCommand extends $Command<
   RecursiveXmlShapesCommandInput,
   RecursiveXmlShapesCommandOutput,
@@ -34,6 +37,9 @@ export class RecursiveXmlShapesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

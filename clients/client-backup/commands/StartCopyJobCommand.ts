@@ -20,6 +20,9 @@ import {
 export type StartCopyJobCommandInput = StartCopyJobInput;
 export type StartCopyJobCommandOutput = StartCopyJobOutput & __MetadataBearer;
 
+/**
+ * <p>Starts a job to create a one-time copy of the specified resource.</p>
+ */
 export class StartCopyJobCommand extends $Command<
   StartCopyJobCommandInput,
   StartCopyJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartCopyJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

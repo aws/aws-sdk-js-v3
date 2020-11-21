@@ -24,6 +24,9 @@ export type RegisterPatchBaselineForPatchGroupCommandInput = RegisterPatchBaseli
 export type RegisterPatchBaselineForPatchGroupCommandOutput = RegisterPatchBaselineForPatchGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Registers a patch baseline for a patch group.</p>
+ */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
   RegisterPatchBaselineForPatchGroupCommandInput,
   RegisterPatchBaselineForPatchGroupCommandOutput,
@@ -38,6 +41,9 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DeleteQueryDefinitionCommandInput = DeleteQueryDefinitionRequest;
 export type DeleteQueryDefinitionCommandOutput = DeleteQueryDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a saved CloudWatch Logs Insights query definition.
+ *       A query definition contains details about a saved CloudWatch Logs Insights query.</p>
+ *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
+ *          <p>You must have the <code>logs:DeleteQueryDefinition</code> permission to be able to perform
+ *       this operation.</p>
+ */
 export class DeleteQueryDefinitionCommand extends $Command<
   DeleteQueryDefinitionCommandInput,
   DeleteQueryDefinitionCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteQueryDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

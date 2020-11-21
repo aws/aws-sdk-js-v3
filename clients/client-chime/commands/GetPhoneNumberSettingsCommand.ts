@@ -20,6 +20,9 @@ import {
 export type GetPhoneNumberSettingsCommandInput = {};
 export type GetPhoneNumberSettingsCommandOutput = GetPhoneNumberSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
+ */
 export class GetPhoneNumberSettingsCommand extends $Command<
   GetPhoneNumberSettingsCommandInput,
   GetPhoneNumberSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

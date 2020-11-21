@@ -20,6 +20,13 @@ import {
 export type ListTrialsCommandInput = ListTrialsRequest;
 export type ListTrialsCommandOutput = ListTrialsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
+ *       trials that are part of that experiment. Specify a trial component name to limit the list to
+ *       the trials that associated with that trial component. The list can be filtered to show only
+ *       trials that were created in a specific time range. The list can be sorted by trial name or
+ *       creation time.</p>
+ */
 export class ListTrialsCommand extends $Command<
   ListTrialsCommandInput,
   ListTrialsCommandOutput,
@@ -34,6 +41,9 @@ export class ListTrialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

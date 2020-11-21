@@ -20,6 +20,10 @@ import {
 export type GetStatementResultCommandInput = GetStatementResultRequest;
 export type GetStatementResultCommandOutput = GetStatementResultResponse & __MetadataBearer;
 
+/**
+ * <p>Fetches the temporarily cached result of an SQL statement.
+ *        A token is returned to page through the statement results. </p>
+ */
 export class GetStatementResultCommand extends $Command<
   GetStatementResultCommandInput,
   GetStatementResultCommandOutput,
@@ -34,6 +38,9 @@ export class GetStatementResultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftDataClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type PhoneNumberValidateCommandInput = PhoneNumberValidateRequest;
 export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a phone number.</p>
+ */
 export class PhoneNumberValidateCommand extends $Command<
   PhoneNumberValidateCommandInput,
   PhoneNumberValidateCommandOutput,
@@ -34,6 +37,9 @@ export class PhoneNumberValidateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

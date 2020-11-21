@@ -20,6 +20,13 @@ import {
 export type GetCertificateAuthorityCsrCommandInput = GetCertificateAuthorityCsrRequest;
 export type GetCertificateAuthorityCsrCommandOutput = GetCertificateAuthorityCsrResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the certificate signing request (CSR) for your private certificate authority
+ * 			(CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. Sign the CSR with your ACM Private CA-hosted or
+ * 			on-premises root or subordinate CA. Then import the signed certificate back into ACM Private CA
+ * 			by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action. The CSR is returned as a
+ * 			base64 PEM-encoded string. </p>
+ */
 export class GetCertificateAuthorityCsrCommand extends $Command<
   GetCertificateAuthorityCsrCommandInput,
   GetCertificateAuthorityCsrCommandOutput,
@@ -34,6 +41,9 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

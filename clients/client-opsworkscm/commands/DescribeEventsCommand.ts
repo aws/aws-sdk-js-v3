@@ -20,6 +20,18 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsRequest;
 export type DescribeEventsCommandOutput = DescribeEventsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Describes events for a specified server. Results are ordered by time, with newest events first.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ *          <p>
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
+ *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

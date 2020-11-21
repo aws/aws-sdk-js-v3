@@ -20,6 +20,9 @@ import {
 export type UpdateSmsChannelCommandInput = UpdateSmsChannelRequest;
 export type UpdateSmsChannelCommandOutput = UpdateSmsChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
+ */
 export class UpdateSmsChannelCommand extends $Command<
   UpdateSmsChannelCommandInput,
   UpdateSmsChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSmsChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

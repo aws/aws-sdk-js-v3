@@ -20,6 +20,9 @@ import {
 export type CreateNotificationCommandInput = CreateNotificationRequest;
 export type CreateNotificationCommandOutput = CreateNotificationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a notification. You must create the budget before you create the associated notification.</p>
+ */
 export class CreateNotificationCommand extends $Command<
   CreateNotificationCommandInput,
   CreateNotificationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

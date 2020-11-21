@@ -24,6 +24,9 @@ export type AssociateWebsiteAuthorizationProviderCommandInput = AssociateWebsite
 export type AssociateWebsiteAuthorizationProviderCommandOutput = AssociateWebsiteAuthorizationProviderResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
+ */
 export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
   AssociateWebsiteAuthorizationProviderCommandInput,
   AssociateWebsiteAuthorizationProviderCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

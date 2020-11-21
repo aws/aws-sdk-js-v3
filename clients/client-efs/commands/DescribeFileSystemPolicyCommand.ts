@@ -20,6 +20,10 @@ import {
 export type DescribeFileSystemPolicyCommandInput = DescribeFileSystemPolicyRequest;
 export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription & __MetadataBearer;
 
+/**
+ * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
+ *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
+ */
 export class DescribeFileSystemPolicyCommand extends $Command<
   DescribeFileSystemPolicyCommandInput,
   DescribeFileSystemPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

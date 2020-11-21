@@ -20,6 +20,9 @@ import {
 export type GetHealthCheckCountCommandInput = GetHealthCheckCountRequest;
 export type GetHealthCheckCountCommandOutput = GetHealthCheckCountResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the number of health checks that are associated with the current AWS account.</p>
+ */
 export class GetHealthCheckCountCommand extends $Command<
   GetHealthCheckCountCommandInput,
   GetHealthCheckCountCommandOutput,
@@ -34,6 +37,9 @@ export class GetHealthCheckCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

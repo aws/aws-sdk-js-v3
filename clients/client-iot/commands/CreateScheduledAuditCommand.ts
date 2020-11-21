@@ -20,6 +20,10 @@ import {
 export type CreateScheduledAuditCommandInput = CreateScheduledAuditRequest;
 export type CreateScheduledAuditCommandOutput = CreateScheduledAuditResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a scheduled audit that is run at a specified
+ *           time interval.</p>
+ */
 export class CreateScheduledAuditCommand extends $Command<
   CreateScheduledAuditCommandInput,
   CreateScheduledAuditCommandOutput,
@@ -34,6 +38,9 @@ export class CreateScheduledAuditCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

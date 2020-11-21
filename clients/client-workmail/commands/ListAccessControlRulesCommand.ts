@@ -20,6 +20,9 @@ import {
 export type ListAccessControlRulesCommandInput = ListAccessControlRulesRequest;
 export type ListAccessControlRulesCommandOutput = ListAccessControlRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the access control rules for the specified organization.</p>
+ */
 export class ListAccessControlRulesCommand extends $Command<
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAccessControlRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

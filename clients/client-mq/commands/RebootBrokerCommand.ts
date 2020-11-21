@@ -20,6 +20,9 @@ import {
 export type RebootBrokerCommandInput = RebootBrokerRequest;
 export type RebootBrokerCommandOutput = RebootBrokerResponse & __MetadataBearer;
 
+/**
+ * Reboots a broker. Note: This API is asynchronous.
+ */
 export class RebootBrokerCommand extends $Command<
   RebootBrokerCommandInput,
   RebootBrokerCommandOutput,
@@ -34,6 +37,9 @@ export class RebootBrokerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

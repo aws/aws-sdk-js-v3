@@ -20,6 +20,12 @@ import {
 export type RejectVpcPeeringConnectionCommandInput = RejectVpcPeeringConnectionRequest;
 export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
+ * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
+ * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
+ * 			connection, or to delete a VPC peering connection request that you initiated, use	<a>DeleteVpcPeeringConnection</a>.</p>
+ */
 export class RejectVpcPeeringConnectionCommand extends $Command<
   RejectVpcPeeringConnectionCommandInput,
   RejectVpcPeeringConnectionCommandOutput,
@@ -34,6 +40,9 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

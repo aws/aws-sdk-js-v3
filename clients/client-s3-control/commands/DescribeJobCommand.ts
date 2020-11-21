@@ -21,6 +21,35 @@ import {
 export type DescribeJobCommandInput = DescribeJobRequest;
 export type DescribeJobCommandOutput = DescribeJobResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
+ *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p></p>
+ *          <p>Related actions include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,
   DescribeJobCommandOutput,
@@ -35,6 +64,9 @@ export class DescribeJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

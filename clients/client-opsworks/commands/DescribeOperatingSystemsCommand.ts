@@ -20,6 +20,9 @@ import {
 export type DescribeOperatingSystemsCommandInput = {};
 export type DescribeOperatingSystemsCommandOutput = DescribeOperatingSystemsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
+ */
 export class DescribeOperatingSystemsCommand extends $Command<
   DescribeOperatingSystemsCommandInput,
   DescribeOperatingSystemsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOperatingSystemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

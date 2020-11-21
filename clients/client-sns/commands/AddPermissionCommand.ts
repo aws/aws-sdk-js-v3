@@ -20,6 +20,10 @@ import {
 export type AddPermissionCommandInput = AddPermissionInput;
 export type AddPermissionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds a statement to a topic's access control policy, granting access for the specified
+ *             AWS accounts to the specified actions.</p>
+ */
 export class AddPermissionCommand extends $Command<
   AddPermissionCommandInput,
   AddPermissionCommandOutput,
@@ -34,6 +38,9 @@ export class AddPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

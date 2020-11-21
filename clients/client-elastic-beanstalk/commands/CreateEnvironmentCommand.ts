@@ -20,6 +20,10 @@ import {
 export type CreateEnvironmentCommandInput = CreateEnvironmentMessage;
 export type CreateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
+/**
+ * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
+ *       configuration.</p>
+ */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,
   CreateEnvironmentCommandOutput,
@@ -34,6 +38,9 @@ export class CreateEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

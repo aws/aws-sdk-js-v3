@@ -20,6 +20,11 @@ import {
 export type CreateSubscriptionCommandInput = CreateSubscriptionRequest;
 export type CreateSubscriptionCommandOutput = CreateSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Activates AWS Shield Advanced for an account.</p>
+ *
+ *          <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>
+ */
 export class CreateSubscriptionCommand extends $Command<
   CreateSubscriptionCommandInput,
   CreateSubscriptionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

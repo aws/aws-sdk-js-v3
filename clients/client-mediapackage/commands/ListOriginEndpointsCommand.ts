@@ -20,6 +20,9 @@ import {
 export type ListOriginEndpointsCommandInput = ListOriginEndpointsRequest;
 export type ListOriginEndpointsCommandOutput = ListOriginEndpointsResponse & __MetadataBearer;
 
+/**
+ * Returns a collection of OriginEndpoint records.
+ */
 export class ListOriginEndpointsCommand extends $Command<
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOriginEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListResolversCommandInput = ListResolversRequest;
 export type ListResolversCommandOutput = ListResolversResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the resolvers for a given API and type.</p>
+ */
 export class ListResolversCommand extends $Command<
   ListResolversCommandInput,
   ListResolversCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolversCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

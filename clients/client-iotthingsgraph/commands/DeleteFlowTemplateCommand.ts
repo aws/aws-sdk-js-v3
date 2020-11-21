@@ -20,6 +20,10 @@ import {
 export type DeleteFlowTemplateCommandInput = DeleteFlowTemplateRequest;
 export type DeleteFlowTemplateCommandOutput = DeleteFlowTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
+ *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
+ */
 export class DeleteFlowTemplateCommand extends $Command<
   DeleteFlowTemplateCommandInput,
   DeleteFlowTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteFlowTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

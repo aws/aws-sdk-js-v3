@@ -20,6 +20,9 @@ import {
 export type DescribeConfigRulesCommandInput = DescribeConfigRulesRequest;
 export type DescribeConfigRulesCommandOutput = DescribeConfigRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns details about your AWS Config rules.</p>
+ */
 export class DescribeConfigRulesCommand extends $Command<
   DescribeConfigRulesCommandInput,
   DescribeConfigRulesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeConfigRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

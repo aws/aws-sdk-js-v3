@@ -20,6 +20,41 @@ import {
 export type ResolveAliasCommandInput = ResolveAliasInput;
 export type ResolveAliasCommandOutput = ResolveAliasOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListAliases</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResolveAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ResolveAliasCommand extends $Command<
   ResolveAliasCommandInput,
   ResolveAliasCommandOutput,
@@ -34,6 +69,9 @@ export class ResolveAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

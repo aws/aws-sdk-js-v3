@@ -20,6 +20,11 @@ import {
 export type CreateConnectionAliasCommandInput = CreateConnectionAliasRequest;
 export type CreateConnectionAliasCommandOutput = CreateConnectionAliasResult & __MetadataBearer;
 
+/**
+ * <p>Creates the specified connection alias for use with cross-Region redirection. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+ *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ */
 export class CreateConnectionAliasCommand extends $Command<
   CreateConnectionAliasCommandInput,
   CreateConnectionAliasCommandOutput,
@@ -34,6 +39,9 @@ export class CreateConnectionAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

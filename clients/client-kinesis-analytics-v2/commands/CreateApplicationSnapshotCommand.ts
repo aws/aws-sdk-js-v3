@@ -24,6 +24,9 @@ import {
 export type CreateApplicationSnapshotCommandInput = CreateApplicationSnapshotRequest;
 export type CreateApplicationSnapshotCommandOutput = CreateApplicationSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of the application's state data.</p>
+ */
 export class CreateApplicationSnapshotCommand extends $Command<
   CreateApplicationSnapshotCommandInput,
   CreateApplicationSnapshotCommandOutput,
@@ -38,6 +41,9 @@ export class CreateApplicationSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type PutCodeBindingCommandInput = PutCodeBindingRequest;
 export type PutCodeBindingCommandOutput = PutCodeBindingResponse & __MetadataBearer;
 
+/**
+ * <p>Put code binding URI</p>
+ */
 export class PutCodeBindingCommand extends $Command<
   PutCodeBindingCommandInput,
   PutCodeBindingCommandOutput,
@@ -34,6 +37,9 @@ export class PutCodeBindingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateAppImageConfigCommandInput = CreateAppImageConfigRequest;
 export type CreateAppImageConfigCommandOutput = CreateAppImageConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
+ *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
+ *         kernels in the image.</p>
+ */
 export class CreateAppImageConfigCommand extends $Command<
   CreateAppImageConfigCommandInput,
   CreateAppImageConfigCommandOutput,
@@ -34,6 +39,9 @@ export class CreateAppImageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

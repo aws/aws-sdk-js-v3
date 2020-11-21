@@ -20,6 +20,11 @@ import {
 export type DescribeChangeSetCommandInput = DescribeChangeSetInput;
 export type DescribeChangeSetCommandOutput = DescribeChangeSetOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the inputs for the change set and a list of changes that AWS CloudFormation
+ *          will make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the AWS CloudFormation User
+ *          Guide.</p>
+ */
 export class DescribeChangeSetCommand extends $Command<
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

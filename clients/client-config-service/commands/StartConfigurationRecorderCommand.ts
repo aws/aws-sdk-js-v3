@@ -20,6 +20,12 @@ import {
 export type StartConfigurationRecorderCommandInput = StartConfigurationRecorderRequest;
 export type StartConfigurationRecorderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Starts recording configurations of the AWS resources you have
+ * 			selected to record in your AWS account.</p>
+ * 		       <p>You must have created at least one delivery channel to
+ * 			successfully start the configuration recorder.</p>
+ */
 export class StartConfigurationRecorderCommand extends $Command<
   StartConfigurationRecorderCommandInput,
   StartConfigurationRecorderCommandOutput,
@@ -34,6 +40,9 @@ export class StartConfigurationRecorderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

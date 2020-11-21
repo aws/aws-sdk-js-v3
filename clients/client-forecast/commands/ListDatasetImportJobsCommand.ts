@@ -20,6 +20,12 @@ import {
 export type ListDatasetImportJobsCommandInput = ListDatasetImportJobsRequest;
 export type ListDatasetImportJobsCommandOutput = ListDatasetImportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a> operation. For each import job, this operation returns a
+ *       summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the
+ *       complete set of properties by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter the list by providing an array of <a>Filter</a>
+ *       objects.</p>
+ */
 export class ListDatasetImportJobsCommand extends $Command<
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput,
@@ -34,6 +40,9 @@ export class ListDatasetImportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

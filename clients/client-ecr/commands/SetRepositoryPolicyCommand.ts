@@ -20,6 +20,11 @@ import {
 export type SetRepositoryPolicyCommandInput = SetRepositoryPolicyRequest;
 export type SetRepositoryPolicyCommandOutput = SetRepositoryPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Applies a repository policy to the specified repository to control access permissions.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon ECR Repository
+ *                 Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ */
 export class SetRepositoryPolicyCommand extends $Command<
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class SetRepositoryPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteClientCertificateCommandInput = DeleteClientCertificateRequest;
 export type DeleteClientCertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the <a>ClientCertificate</a> resource.</p>
+ */
 export class DeleteClientCertificateCommand extends $Command<
   DeleteClientCertificateCommandInput,
   DeleteClientCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteClientCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

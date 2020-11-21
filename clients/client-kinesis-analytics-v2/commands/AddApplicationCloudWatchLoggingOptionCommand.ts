@@ -28,6 +28,9 @@ export type AddApplicationCloudWatchLoggingOptionCommandInput = AddApplicationCl
 export type AddApplicationCloudWatchLoggingOptionCommandOutput = AddApplicationCloudWatchLoggingOptionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
+ */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
   AddApplicationCloudWatchLoggingOptionCommandInput,
   AddApplicationCloudWatchLoggingOptionCommandOutput,
@@ -42,6 +45,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteFilterCommandInput = DeleteFilterRequest;
 export type DeleteFilterCommandOutput = DeleteFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the filter specified by the filter name.</p>
+ */
 export class DeleteFilterCommand extends $Command<
   DeleteFilterCommandInput,
   DeleteFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

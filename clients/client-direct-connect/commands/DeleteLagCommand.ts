@@ -17,6 +17,10 @@ import {
 export type DeleteLagCommandInput = DeleteLagRequest;
 export type DeleteLagCommandOutput = Lag & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
+ *       virtual interfaces or hosted connections.</p>
+ */
 export class DeleteLagCommand extends $Command<
   DeleteLagCommandInput,
   DeleteLagCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteLagCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

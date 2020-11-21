@@ -20,6 +20,9 @@ import {
 export type DisassociateSubnetCidrBlockCommandInput = DisassociateSubnetCidrBlockRequest;
 export type DisassociateSubnetCidrBlockCommandOutput = DisassociateSubnetCidrBlockResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
+ */
 export class DisassociateSubnetCidrBlockCommand extends $Command<
   DisassociateSubnetCidrBlockCommandInput,
   DisassociateSubnetCidrBlockCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

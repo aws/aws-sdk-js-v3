@@ -20,6 +20,11 @@ import {
 export type ReportTaskRunnerHeartbeatCommandInput = ReportTaskRunnerHeartbeatInput;
 export type ReportTaskRunnerHeartbeatCommandOutput = ReportTaskRunnerHeartbeatOutput & __MetadataBearer;
 
+/**
+ * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.
+ *             If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
+ *             this call to detect when the task runner application has failed and restart a new instance.</p>
+ */
 export class ReportTaskRunnerHeartbeatCommand extends $Command<
   ReportTaskRunnerHeartbeatCommandInput,
   ReportTaskRunnerHeartbeatCommandOutput,
@@ -34,6 +39,9 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

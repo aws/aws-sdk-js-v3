@@ -20,6 +20,17 @@ import {
 export type UnassignInstanceCommandInput = UnassignInstanceRequest;
 export type UnassignInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Unassigns a registered instance from all layers that are using the instance.
+ *           The instance remains in the stack as an unassigned instance, and can be assigned to
+ *           another layer as needed. You cannot use this action with instances that were created
+ *           with AWS OpsWorks Stacks.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must
+ *           have a Manage permissions level for the stack or an attached policy that explicitly
+ *           grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class UnassignInstanceCommand extends $Command<
   UnassignInstanceCommandInput,
   UnassignInstanceCommandOutput,
@@ -34,6 +45,9 @@ export class UnassignInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

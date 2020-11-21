@@ -24,6 +24,9 @@ export type DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComma
 export type DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput = DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the associations between virtual interface groups and local gateway route tables.</p>
+ */
 export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand extends $Command<
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

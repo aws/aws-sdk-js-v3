@@ -20,6 +20,10 @@ import {
 export type ListOpenIDConnectProvidersCommandInput = ListOpenIDConnectProvidersRequest;
 export type ListOpenIDConnectProvidersCommandOutput = ListOpenIDConnectProvidersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
+ *          defined in the AWS account.</p>
+ */
 export class ListOpenIDConnectProvidersCommand extends $Command<
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
@@ -34,6 +38,9 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

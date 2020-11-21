@@ -20,6 +20,9 @@ import {
 export type PutTelemetryRecordsCommandInput = PutTelemetryRecordsRequest;
 export type PutTelemetryRecordsCommandOutput = PutTelemetryRecordsResult & __MetadataBearer;
 
+/**
+ * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
+ */
 export class PutTelemetryRecordsCommand extends $Command<
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput,
@@ -34,6 +37,9 @@ export class PutTelemetryRecordsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

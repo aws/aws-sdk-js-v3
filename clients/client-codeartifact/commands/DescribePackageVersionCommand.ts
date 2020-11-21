@@ -20,6 +20,15 @@ import {
 export type DescribePackageVersionCommandInput = DescribePackageVersionRequest;
 export type DescribePackageVersionCommandOutput = DescribePackageVersionResult & __MetadataBearer;
 
+/**
+ * <p>
+ *        Returns a
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">
+ *                <code>PackageVersionDescription</code>
+ *             </a>
+ *        object that contains information about the requested package version.
+ *      </p>
+ */
 export class DescribePackageVersionCommand extends $Command<
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -34,6 +43,9 @@ export class DescribePackageVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

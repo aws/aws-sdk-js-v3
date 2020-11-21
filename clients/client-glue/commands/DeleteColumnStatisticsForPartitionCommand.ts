@@ -24,6 +24,11 @@ export type DeleteColumnStatisticsForPartitionCommandInput = DeleteColumnStatist
 export type DeleteColumnStatisticsForPartitionCommandOutput = DeleteColumnStatisticsForPartitionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Delete the partition column statistics of a column.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
+ */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command<
   DeleteColumnStatisticsForPartitionCommandInput,
   DeleteColumnStatisticsForPartitionCommandOutput,
@@ -38,6 +43,9 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

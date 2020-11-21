@@ -21,6 +21,12 @@ import {
 export type GetTrafficPolicyCommandInput = GetTrafficPolicyRequest;
 export type GetTrafficPolicyCommandOutput = GetTrafficPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specific traffic policy version.</p>
+ * 		       <p>For information about how of deleting a traffic policy affects the response from <code>GetTrafficPolicy</code>, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
+ * 		</p>
+ */
 export class GetTrafficPolicyCommand extends $Command<
   GetTrafficPolicyCommandInput,
   GetTrafficPolicyCommandOutput,
@@ -35,6 +41,9 @@ export class GetTrafficPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

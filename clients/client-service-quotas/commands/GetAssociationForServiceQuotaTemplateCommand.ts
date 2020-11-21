@@ -24,6 +24,10 @@ export type GetAssociationForServiceQuotaTemplateCommandInput = GetAssociationFo
 export type GetAssociationForServiceQuotaTemplateCommandOutput = GetAssociationForServiceQuotaTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
+ *       Use this action to determine if the Service Quota template is associated, or enabled. </p>
+ */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
   GetAssociationForServiceQuotaTemplateCommandInput,
   GetAssociationForServiceQuotaTemplateCommandOutput,
@@ -38,6 +42,9 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

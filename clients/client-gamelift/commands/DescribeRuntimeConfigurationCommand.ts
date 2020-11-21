@@ -20,6 +20,92 @@ import {
 export type DescribeRuntimeConfigurationCommandInput = DescribeRuntimeConfigurationInput;
 export type DescribeRuntimeConfigurationCommandOutput = DescribeRuntimeConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
+ *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
+ *         <p>To get a runtime configuration, specify the fleet's unique identifier. If successful,
+ *             a <a>RuntimeConfiguration</a> object is returned for the requested fleet. If the requested fleet has been
+ *             deleted, the result set is empty.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running Multiple Processes on a Fleet</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Describe fleets:</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetAttributes</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetCapacity</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetPortSettings</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetUtilization</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeRuntimeConfiguration</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeEC2InstanceLimits</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetEvents</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeRuntimeConfigurationCommand extends $Command<
   DescribeRuntimeConfigurationCommandInput,
   DescribeRuntimeConfigurationCommandOutput,
@@ -34,6 +120,9 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

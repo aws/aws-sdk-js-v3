@@ -24,6 +24,9 @@ import {
 export type ModifyReportDefinitionCommandInput = ModifyReportDefinitionRequest;
 export type ModifyReportDefinitionCommandOutput = ModifyReportDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Allows you to programatically update your report preferences.</p>
+ */
 export class ModifyReportDefinitionCommand extends $Command<
   ModifyReportDefinitionCommandInput,
   ModifyReportDefinitionCommandOutput,
@@ -38,6 +41,9 @@ export class ModifyReportDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostAndUsageReportServiceClientResolvedConfig,

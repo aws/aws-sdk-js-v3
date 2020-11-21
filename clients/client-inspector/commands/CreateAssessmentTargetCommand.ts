@@ -20,6 +20,16 @@ import {
 export type CreateAssessmentTargetCommandInput = CreateAssessmentTargetRequest;
 export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new assessment target using the ARN of the resource group that is generated
+ *          by <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2
+ *          instances in the current AWS account and region are included in the assessment target. If
+ *          the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
+ *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
+ *          perform security assessments. You can create up to 50 assessment targets per AWS account.
+ *          You can run up to 500 concurrent agents per AWS account. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
+ *             Amazon Inspector Assessment Targets</a>.</p>
+ */
 export class CreateAssessmentTargetCommand extends $Command<
   CreateAssessmentTargetCommandInput,
   CreateAssessmentTargetCommandOutput,
@@ -34,6 +44,9 @@ export class CreateAssessmentTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

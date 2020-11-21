@@ -20,6 +20,9 @@ import {
 export type DescribeOfferingCommandInput = DescribeOfferingRequest;
 export type DescribeOfferingCommandOutput = DescribeOfferingResponse & __MetadataBearer;
 
+/**
+ * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
+ */
 export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandInput,
   DescribeOfferingCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

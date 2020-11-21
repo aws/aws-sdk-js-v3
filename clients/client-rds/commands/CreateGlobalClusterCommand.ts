@@ -20,6 +20,25 @@ import {
 export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
 export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Creates an Aurora global database
+ *         spread across multiple AWS Regions. The global database
+ *         contains a single primary cluster with read-write capability,
+ *         and a read-only secondary cluster that receives
+ *         data from the primary cluster through high-speed replication
+ *         performed by the Aurora storage subsystem.
+ *       </p>
+ *          <p>
+ *         You can create a global database that is initially empty, and then
+ *         add a primary cluster and a secondary cluster to it.
+ *         Or you can specify an existing Aurora cluster during the create operation,
+ *         and this cluster becomes the primary cluster of the global database.
+ *       </p>
+ *          <note>
+ *            <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,
   CreateGlobalClusterCommandOutput,
@@ -34,6 +53,9 @@ export class CreateGlobalClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListNodegroupsCommandInput = ListNodegroupsRequest;
 export type ListNodegroupsCommandOutput = ListNodegroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your
+ *             AWS account in the specified Region. Self-managed node groups are not listed.</p>
+ */
 export class ListNodegroupsCommand extends $Command<
   ListNodegroupsCommandInput,
   ListNodegroupsCommandOutput,
@@ -34,6 +38,9 @@ export class ListNodegroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

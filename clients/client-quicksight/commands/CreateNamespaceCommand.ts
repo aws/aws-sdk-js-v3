@@ -20,6 +20,16 @@ import {
 export type CreateNamespaceCommandInput = CreateNamespaceRequest;
 export type CreateNamespaceCommandOutput = CreateNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
+ *         <p>A namespace allows you to isolate the QuickSight users and groups that are registered
+ *             for that namespace. Users that access the namespace can share assets only with other
+ *             users or groups in the same namespace. They can't see users and groups in other
+ *             namespaces. You can create a namespace after your AWS account is subscribed to
+ *             QuickSight. The namespace must be unique within the AWS account. By default, there is a
+ *             limit of 100 namespaces per AWS account. To increase your limit, create a ticket with
+ *             AWS Support. </p>
+ */
 export class CreateNamespaceCommand extends $Command<
   CreateNamespaceCommandInput,
   CreateNamespaceCommandOutput,
@@ -34,6 +44,9 @@ export class CreateNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

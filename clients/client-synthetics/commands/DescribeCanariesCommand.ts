@@ -20,6 +20,14 @@ import {
 export type DescribeCanariesCommandInput = DescribeCanariesRequest;
 export type DescribeCanariesCommandOutput = DescribeCanariesResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns a list of the canaries in your account, along with full details
+ *       about each canary.</p>
+ *         <p>This operation does not have resource-level authorization, so if a user is able to use
+ *             <code>DescribeCanaries</code>, the user can see all of the canaries in the account. A
+ *          deny policy can only be used to restrict access to all canaries. It cannot be used on
+ *          specific resources. </p>
+ */
 export class DescribeCanariesCommand extends $Command<
   DescribeCanariesCommandInput,
   DescribeCanariesCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeCanariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

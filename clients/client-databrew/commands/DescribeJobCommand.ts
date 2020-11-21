@@ -20,6 +20,10 @@ import {
 export type DescribeJobCommandInput = DescribeJobRequest;
 export type DescribeJobCommandOutput = DescribeJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the definition of a specific AWS Glue DataBrew job that is in the current AWS
+ *             account.</p>
+ */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,
   DescribeJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

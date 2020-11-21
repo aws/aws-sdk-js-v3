@@ -20,6 +20,9 @@ import {
 export type ResetJobBookmarkCommandInput = ResetJobBookmarkRequest;
 export type ResetJobBookmarkCommandOutput = ResetJobBookmarkResponse & __MetadataBearer;
 
+/**
+ * <p>Resets a bookmark entry.</p>
+ */
 export class ResetJobBookmarkCommand extends $Command<
   ResetJobBookmarkCommandInput,
   ResetJobBookmarkCommandOutput,
@@ -34,6 +37,9 @@ export class ResetJobBookmarkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeImagePermissionsCommandInput = DescribeImagePermissionsRequest;
 export type DescribeImagePermissionsCommandOutput = DescribeImagePermissionsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
+ */
 export class DescribeImagePermissionsCommand extends $Command<
   DescribeImagePermissionsCommandInput,
   DescribeImagePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImagePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

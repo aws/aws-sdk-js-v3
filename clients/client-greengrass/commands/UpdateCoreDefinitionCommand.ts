@@ -20,6 +20,9 @@ import {
 export type UpdateCoreDefinitionCommandInput = UpdateCoreDefinitionRequest;
 export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a core definition.
+ */
 export class UpdateCoreDefinitionCommand extends $Command<
   UpdateCoreDefinitionCommandInput,
   UpdateCoreDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCoreDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

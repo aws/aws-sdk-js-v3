@@ -20,6 +20,9 @@ import {
 export type RegisterTaskWithMaintenanceWindowCommandInput = RegisterTaskWithMaintenanceWindowRequest;
 export type RegisterTaskWithMaintenanceWindowCommandOutput = RegisterTaskWithMaintenanceWindowResult & __MetadataBearer;
 
+/**
+ * <p>Adds a new task to a maintenance window.</p>
+ */
 export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
   RegisterTaskWithMaintenanceWindowCommandInput,
   RegisterTaskWithMaintenanceWindowCommandOutput,
@@ -34,6 +37,9 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

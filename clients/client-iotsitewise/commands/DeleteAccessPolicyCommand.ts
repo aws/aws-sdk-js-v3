@@ -20,6 +20,11 @@ import {
 export type DeleteAccessPolicyCommandInput = DeleteAccessPolicyRequest;
 export type DeleteAccessPolicyCommandOutput = DeleteAccessPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an access policy that grants the specified identity access to the specified
+ *       AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to an AWS IoT SiteWise Monitor
+ *       resource.</p>
+ */
 export class DeleteAccessPolicyCommand extends $Command<
   DeleteAccessPolicyCommandInput,
   DeleteAccessPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

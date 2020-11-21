@@ -20,6 +20,9 @@ import {
 export type DeleteSkillAuthorizationCommandInput = DeleteSkillAuthorizationRequest;
 export type DeleteSkillAuthorizationCommandOutput = DeleteSkillAuthorizationResponse & __MetadataBearer;
 
+/**
+ * <p>Unlinks a third-party account from a skill.</p>
+ */
 export class DeleteSkillAuthorizationCommand extends $Command<
   DeleteSkillAuthorizationCommandInput,
   DeleteSkillAuthorizationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

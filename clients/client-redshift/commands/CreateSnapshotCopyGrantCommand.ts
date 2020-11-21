@@ -20,6 +20,16 @@ import {
 export type CreateSnapshotCopyGrantCommandInput = CreateSnapshotCopyGrantMessage;
 export type CreateSnapshotCopyGrantCommandOutput = CreateSnapshotCopyGrantResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
+ *             (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a
+ *             destination region.</p>
+ *         <p>
+ * For more information about managing snapshot copy grants, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ */
 export class CreateSnapshotCopyGrantCommand extends $Command<
   CreateSnapshotCopyGrantCommandInput,
   CreateSnapshotCopyGrantCommandOutput,
@@ -34,6 +44,9 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

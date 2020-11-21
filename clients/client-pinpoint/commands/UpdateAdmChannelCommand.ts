@@ -20,6 +20,9 @@ import {
 export type UpdateAdmChannelCommandInput = UpdateAdmChannelRequest;
 export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
+ */
 export class UpdateAdmChannelCommand extends $Command<
   UpdateAdmChannelCommandInput,
   UpdateAdmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAdmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

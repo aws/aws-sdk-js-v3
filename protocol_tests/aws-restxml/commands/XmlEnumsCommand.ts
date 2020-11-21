@@ -17,6 +17,9 @@ import {
 export type XmlEnumsCommandInput = XmlEnumsInputOutput;
 export type XmlEnumsCommandOutput = XmlEnumsInputOutput & __MetadataBearer;
 
+/**
+ * This example serializes enums as top level properties, in lists, sets, and maps.
+ */
 export class XmlEnumsCommand extends $Command<
   XmlEnumsCommandInput,
   XmlEnumsCommandOutput,
@@ -31,6 +34,9 @@ export class XmlEnumsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

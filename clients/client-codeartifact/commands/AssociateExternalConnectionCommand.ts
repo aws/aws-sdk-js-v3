@@ -20,6 +20,13 @@ import {
 export type AssociateExternalConnectionCommandInput = AssociateExternalConnectionRequest;
 export type AssociateExternalConnectionCommandOutput = AssociateExternalConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Adds an existing external connection to a repository. One external connection is allowed
+ *       per repository.</p>
+ *          <note>
+ *             <p>A repository can have one or more upstream repositories, or an external connection.</p>
+ *          </note>
+ */
 export class AssociateExternalConnectionCommand extends $Command<
   AssociateExternalConnectionCommandInput,
   AssociateExternalConnectionCommandOutput,
@@ -34,6 +41,9 @@ export class AssociateExternalConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

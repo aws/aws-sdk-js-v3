@@ -20,6 +20,9 @@ import {
 export type DeleteFindingsFilterCommandInput = DeleteFindingsFilterRequest;
 export type DeleteFindingsFilterCommandOutput = DeleteFindingsFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a findings filter.</p>
+ */
 export class DeleteFindingsFilterCommand extends $Command<
   DeleteFindingsFilterCommandInput,
   DeleteFindingsFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFindingsFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

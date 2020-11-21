@@ -20,6 +20,9 @@ import {
 export type GetHostedConfigurationVersionCommandInput = GetHostedConfigurationVersionRequest;
 export type GetHostedConfigurationVersionCommandOutput = HostedConfigurationVersion & __MetadataBearer;
 
+/**
+ * <p>Get information about a specific configuration version.</p>
+ */
 export class GetHostedConfigurationVersionCommand extends $Command<
   GetHostedConfigurationVersionCommandInput,
   GetHostedConfigurationVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

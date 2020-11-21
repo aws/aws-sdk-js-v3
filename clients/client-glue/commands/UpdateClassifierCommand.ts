@@ -20,6 +20,11 @@ import {
 export type UpdateClassifierCommandInput = UpdateClassifierRequest;
 export type UpdateClassifierCommandOutput = UpdateClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
+ *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
+ *       which field is present).</p>
+ */
 export class UpdateClassifierCommand extends $Command<
   UpdateClassifierCommandInput,
   UpdateClassifierCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

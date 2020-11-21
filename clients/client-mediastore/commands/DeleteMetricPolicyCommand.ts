@@ -20,6 +20,9 @@ import {
 export type DeleteMetricPolicyCommandInput = DeleteMetricPolicyInput;
 export type DeleteMetricPolicyCommandOutput = DeleteMetricPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
+ */
 export class DeleteMetricPolicyCommand extends $Command<
   DeleteMetricPolicyCommandInput,
   DeleteMetricPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMetricPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

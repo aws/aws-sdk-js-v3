@@ -20,6 +20,11 @@ import {
 export type UpdateNotebookInstanceCommandInput = UpdateNotebookInstanceInput;
 export type UpdateNotebookInstanceCommandOutput = UpdateNotebookInstanceOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a notebook instance. NotebookInstance updates include upgrading or
+ *             downgrading the ML compute instance used for your notebook instance to accommodate
+ *             changes in your workload requirements.</p>
+ */
 export class UpdateNotebookInstanceCommand extends $Command<
   UpdateNotebookInstanceCommandInput,
   UpdateNotebookInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateNotebookInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateExportJobCommandInput = CreateExportJobRequest;
 export type CreateExportJobCommandOutput = CreateExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an export job for an application.</p>
+ */
 export class CreateExportJobCommand extends $Command<
   CreateExportJobCommandInput,
   CreateExportJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

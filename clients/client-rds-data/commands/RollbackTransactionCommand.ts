@@ -20,6 +20,9 @@ import {
 export type RollbackTransactionCommandInput = RollbackTransactionRequest;
 export type RollbackTransactionCommandOutput = RollbackTransactionResponse & __MetadataBearer;
 
+/**
+ * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
+ */
 export class RollbackTransactionCommand extends $Command<
   RollbackTransactionCommandInput,
   RollbackTransactionCommandOutput,
@@ -34,6 +37,9 @@ export class RollbackTransactionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

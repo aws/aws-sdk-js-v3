@@ -20,6 +20,69 @@ import {
 export type UpdateGameServerGroupCommandInput = UpdateGameServerGroupInput;
 export type UpdateGameServerGroupCommandOutput = UpdateGameServerGroupOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *          </p>
+ *         <p>Updates GameLift FleetIQ-specific properties for a game server group. Many Auto Scaling group
+ *             properties are updated on the Auto Scaling group directly, including the launch
+ *             template, Auto Scaling policies, and maximum/minimum/desired instance counts.</p>
+ *         <p>To update the game server group, specify the game server group ID and provide the
+ *             updated values. Before applying the updates, the new values are validated to ensure that
+ *             GameLift FleetIQ can continue to perform instance balancing activity. If successful, a <a>GameServerGroup</a> object is returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *         </p>
+ *
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGameServerGroups</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResumeGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SuspendGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServerInstances</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateGameServerGroupCommand extends $Command<
   UpdateGameServerGroupCommandInput,
   UpdateGameServerGroupCommandOutput,
@@ -34,6 +97,9 @@ export class UpdateGameServerGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

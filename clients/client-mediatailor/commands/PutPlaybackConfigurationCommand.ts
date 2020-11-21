@@ -20,6 +20,9 @@ import {
 export type PutPlaybackConfigurationCommandInput = PutPlaybackConfigurationRequest;
 export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a new playback configuration to AWS Elemental MediaTailor. </p>
+ */
 export class PutPlaybackConfigurationCommand extends $Command<
   PutPlaybackConfigurationCommandInput,
   PutPlaybackConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class PutPlaybackConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,

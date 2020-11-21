@@ -20,6 +20,26 @@ import {
 export type UpdateWorkspaceImagePermissionCommandInput = UpdateWorkspaceImagePermissionRequest;
 export type UpdateWorkspaceImagePermissionCommandOutput = UpdateWorkspaceImagePermissionResult & __MetadataBearer;
 
+/**
+ * <p>Shares or unshares an image with one account by specifying whether that account has permission to copy
+ *          the image. If the copy image permission is granted, the image is shared with that account. If the copy image
+ *          permission is revoked, the image is unshared with the account. For more information about sharing images, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
+ *             Share or Unshare a Custom WorkSpaces Image</a>.</p>
+ *
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>To delete an image that has been shared, you must unshare the image before you delete it.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Sharing Bring Your Own License (BYOL) images across AWS accounts isn't supported at
+ *                   this time in the AWS GovCloud (US-West) Region. To share BYOL images across accounts in
+ *                   the AWS GovCloud (US-West) Region, contact AWS Support.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ */
 export class UpdateWorkspaceImagePermissionCommand extends $Command<
   UpdateWorkspaceImagePermissionCommandInput,
   UpdateWorkspaceImagePermissionCommandOutput,
@@ -34,6 +54,9 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

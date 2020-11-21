@@ -20,6 +20,13 @@ import {
 export type DisassociateRouteTableCommandInput = DisassociateRouteTableRequest;
 export type DisassociateRouteTableCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates a subnet or gateway from a route table.</p>
+ * 		       <p>After you perform this action, the subnet no longer uses the routes in the route table.
+ * 				Instead, it uses the routes in the VPC's main route table. For more information
+ * 				about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
+ * 				Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class DisassociateRouteTableCommand extends $Command<
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -34,6 +41,9 @@ export class DisassociateRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

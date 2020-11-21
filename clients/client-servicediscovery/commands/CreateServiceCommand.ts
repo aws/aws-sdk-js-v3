@@ -20,6 +20,49 @@ import {
 export type CreateServiceCommandInput = CreateServiceRequest;
 export type CreateServiceCommandOutput = CreateServiceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a service, which defines the configuration for the following entities:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>A</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>AAAA</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>A</code> and <code>AAAA</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>SRV</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>CNAME</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Optionally, a health check</p>
+ *             </li>
+ *          </ul>
+ *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and AWS Cloud Map uses the
+ *    values in the configuration to create the specified entities.</p>
+ *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
+ *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
+ *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+ */
 export class CreateServiceCommand extends $Command<
   CreateServiceCommandInput,
   CreateServiceCommandOutput,
@@ -34,6 +77,9 @@ export class CreateServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

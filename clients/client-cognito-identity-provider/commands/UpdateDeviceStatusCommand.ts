@@ -25,6 +25,9 @@ import {
 export type UpdateDeviceStatusCommandInput = UpdateDeviceStatusRequest;
 export type UpdateDeviceStatusCommandOutput = UpdateDeviceStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the device status.</p>
+ */
 export class UpdateDeviceStatusCommand extends $Command<
   UpdateDeviceStatusCommandInput,
   UpdateDeviceStatusCommandOutput,
@@ -39,6 +42,9 @@ export class UpdateDeviceStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

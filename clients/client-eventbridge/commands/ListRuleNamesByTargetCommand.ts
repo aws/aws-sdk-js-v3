@@ -20,6 +20,10 @@ import {
 export type ListRuleNamesByTargetCommandInput = ListRuleNamesByTargetRequest;
 export type ListRuleNamesByTargetCommandOutput = ListRuleNamesByTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
+ *             EventBridge can invoke a specific target in your account.</p>
+ */
 export class ListRuleNamesByTargetCommand extends $Command<
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput,
@@ -34,6 +38,9 @@ export class ListRuleNamesByTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateFilterCommandInput = CreateFilterRequest;
 export type CreateFilterCommandOutput = CreateFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
+ *             Filters with Amazon Personalize</a>.</p>
+ */
 export class CreateFilterCommand extends $Command<
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
@@ -34,6 +38,9 @@ export class CreateFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListManagedSchemaArnsCommandInput = ListManagedSchemaArnsRequest;
 export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
+ */
 export class ListManagedSchemaArnsCommand extends $Command<
   ListManagedSchemaArnsCommandInput,
   ListManagedSchemaArnsCommandOutput,
@@ -34,6 +37,9 @@ export class ListManagedSchemaArnsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

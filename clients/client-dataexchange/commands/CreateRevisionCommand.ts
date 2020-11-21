@@ -20,6 +20,9 @@ import {
 export type CreateRevisionCommandInput = CreateRevisionRequest;
 export type CreateRevisionCommandOutput = CreateRevisionResponse & __MetadataBearer;
 
+/**
+ * <p>This operation creates a revision for a data set.</p>
+ */
 export class CreateRevisionCommand extends $Command<
   CreateRevisionCommandInput,
   CreateRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

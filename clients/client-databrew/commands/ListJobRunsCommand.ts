@@ -20,6 +20,10 @@ import {
 export type ListJobRunsCommandInput = ListJobRunsRequest;
 export type ListJobRunsCommandOutput = ListJobRunsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the previous runs of a particular AWS Glue DataBrew job in the current
+ *             AWS account.</p>
+ */
 export class ListJobRunsCommand extends $Command<
   ListJobRunsCommandInput,
   ListJobRunsCommandOutput,
@@ -34,6 +38,9 @@ export class ListJobRunsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

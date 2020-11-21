@@ -20,6 +20,11 @@ import {
 export type UpdateContactFlowNameCommandInput = UpdateContactFlowNameRequest;
 export type UpdateContactFlowNameCommandOutput = __MetadataBearer;
 
+/**
+ * <p>The name of the contact flow.</p>
+ *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ */
 export class UpdateContactFlowNameCommand extends $Command<
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateContactFlowNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

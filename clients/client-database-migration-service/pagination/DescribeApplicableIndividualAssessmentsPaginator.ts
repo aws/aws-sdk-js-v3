@@ -8,6 +8,9 @@ import {
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DatabaseMigrationServiceClient,
   input: DescribeApplicableIndividualAssessmentsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeApplicableIndividualAssessmentsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DatabaseMigrationService,
   input: DescribeApplicableIndividualAssessmentsCommandInput,

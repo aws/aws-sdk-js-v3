@@ -20,6 +20,11 @@ import {
 export type AttachThingPrincipalCommandInput = AttachThingPrincipalRequest;
 export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches the specified principal to the specified thing. A principal can be X.509
+ * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+ * 			identities.</p>
+ */
 export class AttachThingPrincipalCommand extends $Command<
   AttachThingPrincipalCommandInput,
   AttachThingPrincipalCommandOutput,
@@ -34,6 +39,9 @@ export class AttachThingPrincipalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

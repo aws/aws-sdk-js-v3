@@ -20,6 +20,9 @@ import {
 export type CreateWorldGenerationJobCommandInput = CreateWorldGenerationJobRequest;
 export type CreateWorldGenerationJobCommandOutput = CreateWorldGenerationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates worlds using the specified template.</p>
+ */
 export class CreateWorldGenerationJobCommand extends $Command<
   CreateWorldGenerationJobCommandInput,
   CreateWorldGenerationJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateWorldGenerationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

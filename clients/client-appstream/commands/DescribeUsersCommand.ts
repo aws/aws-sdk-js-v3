@@ -20,6 +20,9 @@ import {
 export type DescribeUsersCommandInput = DescribeUsersRequest;
 export type DescribeUsersCommandOutput = DescribeUsersResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
+ */
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

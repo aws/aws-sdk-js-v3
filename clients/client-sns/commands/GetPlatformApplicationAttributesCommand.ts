@@ -20,6 +20,11 @@ import {
 export type GetPlatformApplicationAttributesCommandInput = GetPlatformApplicationAttributesInput;
 export type GetPlatformApplicationAttributesCommandOutput = GetPlatformApplicationAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the attributes of the platform application object for the supported push
+ *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
+ *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ */
 export class GetPlatformApplicationAttributesCommand extends $Command<
   GetPlatformApplicationAttributesCommandInput,
   GetPlatformApplicationAttributesCommandOutput,
@@ -34,6 +39,9 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

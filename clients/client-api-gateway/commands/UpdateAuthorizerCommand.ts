@@ -20,6 +20,10 @@ import {
 export type UpdateAuthorizerCommandInput = UpdateAuthorizerRequest;
 export type UpdateAuthorizerCommandOutput = Authorizer & __MetadataBearer;
 
+/**
+ * <p>Updates an existing <a>Authorizer</a> resource.</p>
+ *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
+ */
 export class UpdateAuthorizerCommand extends $Command<
   UpdateAuthorizerCommandInput,
   UpdateAuthorizerCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetAppLaunchConfigurationCommandInput = GetAppLaunchConfigurationRequest;
 export type GetAppLaunchConfigurationCommandOutput = GetAppLaunchConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the application launch configuration associated with the specified application.</p>
+ */
 export class GetAppLaunchConfigurationCommand extends $Command<
   GetAppLaunchConfigurationCommandInput,
   GetAppLaunchConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

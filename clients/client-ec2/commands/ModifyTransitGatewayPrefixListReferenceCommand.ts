@@ -24,6 +24,9 @@ export type ModifyTransitGatewayPrefixListReferenceCommandInput = ModifyTransitG
 export type ModifyTransitGatewayPrefixListReferenceCommandOutput = ModifyTransitGatewayPrefixListReferenceResult &
   __MetadataBearer;
 
+/**
+ * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
+ */
 export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
   ModifyTransitGatewayPrefixListReferenceCommandInput,
   ModifyTransitGatewayPrefixListReferenceCommandOutput,
@@ -38,6 +41,9 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type UpdateGatewayInformationCommandInput = UpdateGatewayInformationInput;
 export type UpdateGatewayInformationCommandOutput = UpdateGatewayInformationOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.
+ *          To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
+ *          your request.</p>
+ *
+ *          <note>
+ *             <p>For gateways activated after September 2, 2015, the gateway's ARN contains the
+ *             gateway ID rather than the gateway name. However, changing the name of the gateway has
+ *             no effect on the gateway's ARN.</p>
+ *          </note>
+ */
 export class UpdateGatewayInformationCommand extends $Command<
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
@@ -34,6 +45,9 @@ export class UpdateGatewayInformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

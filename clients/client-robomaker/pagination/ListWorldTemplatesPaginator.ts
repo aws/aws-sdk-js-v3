@@ -8,6 +8,9 @@ import {
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RoboMakerClient,
   input: ListWorldTemplatesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorldTemplatesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: RoboMaker,
   input: ListWorldTemplatesCommandInput,

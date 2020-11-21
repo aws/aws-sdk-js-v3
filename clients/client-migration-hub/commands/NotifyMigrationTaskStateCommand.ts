@@ -20,6 +20,26 @@ import {
 export type NotifyMigrationTaskStateCommandInput = NotifyMigrationTaskStateRequest;
 export type NotifyMigrationTaskStateCommandOutput = NotifyMigrationTaskStateResult & __MetadataBearer;
 
+/**
+ * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
+ *          migration task. This API has the following traits:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share
+ *                the latest progress and status.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MigrationTaskName</code> is used for addressing updates to the correct
+ *                target.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ProgressUpdateStream</code> is used for access control and to provide a
+ *                namespace for each migration tool.</p>
+ *             </li>
+ *          </ul>
+ */
 export class NotifyMigrationTaskStateCommand extends $Command<
   NotifyMigrationTaskStateCommandInput,
   NotifyMigrationTaskStateCommandOutput,
@@ -34,6 +54,9 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

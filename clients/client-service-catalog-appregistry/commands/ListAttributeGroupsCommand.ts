@@ -24,6 +24,9 @@ import {
 export type ListAttributeGroupsCommandInput = ListAttributeGroupsRequest;
 export type ListAttributeGroupsCommandOutput = ListAttributeGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
+ */
 export class ListAttributeGroupsCommand extends $Command<
   ListAttributeGroupsCommandInput,
   ListAttributeGroupsCommandOutput,
@@ -38,6 +41,9 @@ export class ListAttributeGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

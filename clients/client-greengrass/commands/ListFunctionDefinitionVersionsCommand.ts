@@ -20,6 +20,9 @@ import {
 export type ListFunctionDefinitionVersionsCommandInput = ListFunctionDefinitionVersionsRequest;
 export type ListFunctionDefinitionVersionsCommandOutput = ListFunctionDefinitionVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a Lambda function definition.
+ */
 export class ListFunctionDefinitionVersionsCommand extends $Command<
   ListFunctionDefinitionVersionsCommandInput,
   ListFunctionDefinitionVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetStreamingDistributionConfigCommandInput = GetStreamingDistributionConfigRequest;
 export type GetStreamingDistributionConfigCommandOutput = GetStreamingDistributionConfigResult & __MetadataBearer;
 
+/**
+ * <p>Get the configuration information about a streaming distribution. </p>
+ */
 export class GetStreamingDistributionConfigCommand extends $Command<
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

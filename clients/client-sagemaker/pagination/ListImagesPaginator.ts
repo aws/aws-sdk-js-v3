@@ -4,6 +4,9 @@ import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } fr
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SageMakerClient,
   input: ListImagesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListImagesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SageMaker,
   input: ListImagesCommandInput,

@@ -17,6 +17,9 @@ import {
 export type DeleteAppCommandInput = DeleteAppRequest;
 export type DeleteAppCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Used to stop and delete an app.</p>
+ */
 export class DeleteAppCommand extends $Command<
   DeleteAppCommandInput,
   DeleteAppCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

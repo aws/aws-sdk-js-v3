@@ -24,6 +24,9 @@ import {
 export type CreateComponentCommandInput = CreateComponentRequest;
 export type CreateComponentCommandOutput = CreateComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a custom component by grouping similar standalone instances to monitor.</p>
+ */
 export class CreateComponentCommand extends $Command<
   CreateComponentCommandInput,
   CreateComponentCommandOutput,
@@ -38,6 +41,9 @@ export class CreateComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

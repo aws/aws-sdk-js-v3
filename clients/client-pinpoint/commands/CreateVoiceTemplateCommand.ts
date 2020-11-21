@@ -20,6 +20,9 @@ import {
 export type CreateVoiceTemplateCommandInput = CreateVoiceTemplateRequest;
 export type CreateVoiceTemplateCommandOutput = CreateVoiceTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a message template for messages that are sent through the voice channel.</p>
+ */
 export class CreateVoiceTemplateCommand extends $Command<
   CreateVoiceTemplateCommandInput,
   CreateVoiceTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class CreateVoiceTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

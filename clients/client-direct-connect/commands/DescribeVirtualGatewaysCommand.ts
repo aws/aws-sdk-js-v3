@@ -20,6 +20,10 @@ import {
 export type DescribeVirtualGatewaysCommandInput = {};
 export type DescribeVirtualGatewaysCommandOutput = VirtualGateways & __MetadataBearer;
 
+/**
+ * <p>Lists the virtual private gateways owned by the AWS account.</p>
+ *          <p>You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
+ */
 export class DescribeVirtualGatewaysCommand extends $Command<
   DescribeVirtualGatewaysCommandInput,
   DescribeVirtualGatewaysCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

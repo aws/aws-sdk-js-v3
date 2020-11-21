@@ -4,6 +4,9 @@ import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from 
 import { MediaConnectPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MediaConnectClient,
   input: ListFlowsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFlowsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MediaConnect,
   input: ListFlowsCommandInput,

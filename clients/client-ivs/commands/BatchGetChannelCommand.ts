@@ -20,6 +20,9 @@ import {
 export type BatchGetChannelCommandInput = BatchGetChannelRequest;
 export type BatchGetChannelCommandOutput = BatchGetChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
+ */
 export class BatchGetChannelCommand extends $Command<
   BatchGetChannelCommandInput,
   BatchGetChannelCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

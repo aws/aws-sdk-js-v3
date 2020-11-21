@@ -20,6 +20,10 @@ import {
 export type DescribeAutomationStepExecutionsCommandInput = DescribeAutomationStepExecutionsRequest;
 export type DescribeAutomationStepExecutionsCommandOutput = DescribeAutomationStepExecutionsResult & __MetadataBearer;
 
+/**
+ * <p>Information about all active and terminated step executions in an Automation
+ *    workflow.</p>
+ */
 export class DescribeAutomationStepExecutionsCommand extends $Command<
   DescribeAutomationStepExecutionsCommandInput,
   DescribeAutomationStepExecutionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

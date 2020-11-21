@@ -20,6 +20,12 @@ import {
 export type DeleteProjectCommandInput = DeleteProjectRequest;
 export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
+ *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>rekognition:DeleteProject</code> action. </p>
+ */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateBatchInferenceJobCommandInput = CreateBatchInferenceJobRequest;
 export type CreateBatchInferenceJobCommandOutput = CreateBatchInferenceJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
+ *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
+ */
 export class CreateBatchInferenceJobCommand extends $Command<
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput,
@@ -34,6 +38,9 @@ export class CreateBatchInferenceJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

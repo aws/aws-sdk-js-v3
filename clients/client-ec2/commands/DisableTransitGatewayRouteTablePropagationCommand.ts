@@ -24,6 +24,10 @@ export type DisableTransitGatewayRouteTablePropagationCommandInput = DisableTran
 export type DisableTransitGatewayRouteTablePropagationCommandOutput = DisableTransitGatewayRouteTablePropagationResult &
   __MetadataBearer;
 
+/**
+ * <p>Disables the specified resource attachment from propagating routes to the specified
+ *          propagation route table.</p>
+ */
 export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
@@ -38,6 +42,9 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

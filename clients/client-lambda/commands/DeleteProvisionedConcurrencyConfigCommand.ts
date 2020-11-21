@@ -20,6 +20,9 @@ import {
 export type DeleteProvisionedConcurrencyConfigCommandInput = DeleteProvisionedConcurrencyConfigRequest;
 export type DeleteProvisionedConcurrencyConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the provisioned concurrency configuration for a function.</p>
+ */
 export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
   DeleteProvisionedConcurrencyConfigCommandInput,
   DeleteProvisionedConcurrencyConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

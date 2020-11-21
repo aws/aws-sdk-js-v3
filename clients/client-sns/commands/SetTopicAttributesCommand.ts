@@ -20,6 +20,9 @@ import {
 export type SetTopicAttributesCommandInput = SetTopicAttributesInput;
 export type SetTopicAttributesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+ */
 export class SetTopicAttributesCommand extends $Command<
   SetTopicAttributesCommandInput,
   SetTopicAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class SetTopicAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

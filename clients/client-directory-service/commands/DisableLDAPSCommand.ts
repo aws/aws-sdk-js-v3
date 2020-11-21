@@ -20,6 +20,9 @@ import {
 export type DisableLDAPSCommandInput = DisableLDAPSRequest;
 export type DisableLDAPSCommandOutput = DisableLDAPSResult & __MetadataBearer;
 
+/**
+ * <p>Deactivates LDAP secure calls for the specified directory.</p>
+ */
 export class DisableLDAPSCommand extends $Command<
   DisableLDAPSCommandInput,
   DisableLDAPSCommandOutput,
@@ -34,6 +37,9 @@ export class DisableLDAPSCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

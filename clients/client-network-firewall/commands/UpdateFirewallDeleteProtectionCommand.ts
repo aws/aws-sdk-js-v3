@@ -20,6 +20,12 @@ import {
 export type UpdateFirewallDeleteProtectionCommandInput = UpdateFirewallDeleteProtectionRequest;
 export type UpdateFirewallDeleteProtectionCommandOutput = UpdateFirewallDeleteProtectionResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible
+ *          to delete the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
+ *          against deletion. This setting helps protect against accidentally deleting a firewall
+ *          that's in use. </p>
+ */
 export class UpdateFirewallDeleteProtectionCommand extends $Command<
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

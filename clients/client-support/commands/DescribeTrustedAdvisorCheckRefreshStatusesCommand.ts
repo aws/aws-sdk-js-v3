@@ -24,6 +24,28 @@ export type DescribeTrustedAdvisorCheckRefreshStatusesCommandInput = DescribeTru
 export type DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = DescribeTrustedAdvisorCheckRefreshStatusesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the refresh status of the AWS Trusted Advisor checks that have the specified check
+ *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
+ *         <p>Some checks are refreshed automatically, and you can't return their refresh statuses
+ *             by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If you
+ *             call this operation for these checks, you might see an
+ *                 <code>InvalidParameterValue</code> error.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
@@ -38,6 +60,9 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetTrafficPolicyInstanceCountCommandInput = GetTrafficPolicyInstanceCountRequest;
 export type GetTrafficPolicyInstanceCountCommandOutput = GetTrafficPolicyInstanceCountResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the number of traffic policy instances that are associated with the current AWS account.</p>
+ */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<
   GetTrafficPolicyInstanceCountCommandInput,
   GetTrafficPolicyInstanceCountCommandOutput,
@@ -34,6 +37,9 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

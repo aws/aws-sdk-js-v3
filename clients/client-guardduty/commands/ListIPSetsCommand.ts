@@ -20,6 +20,11 @@ import {
 export type ListIPSetsCommandInput = ListIPSetsRequest;
 export type ListIPSetsCommandOutput = ListIPSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
+ *       operation from a member account, the IPSets returned are the IPSets from the associated master
+ *       account.</p>
+ */
 export class ListIPSetsCommand extends $Command<
   ListIPSetsCommandInput,
   ListIPSetsCommandOutput,
@@ -34,6 +39,9 @@ export class ListIPSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

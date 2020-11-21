@@ -20,6 +20,9 @@ import {
 export type GetVocabularyFilterCommandInput = GetVocabularyFilterRequest;
 export type GetVocabularyFilterCommandOutput = GetVocabularyFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a vocabulary filter.</p>
+ */
 export class GetVocabularyFilterCommand extends $Command<
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
@@ -34,6 +37,9 @@ export class GetVocabularyFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

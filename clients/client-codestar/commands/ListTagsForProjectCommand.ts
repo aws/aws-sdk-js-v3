@@ -20,6 +20,9 @@ import {
 export type ListTagsForProjectCommandInput = ListTagsForProjectRequest;
 export type ListTagsForProjectCommandOutput = ListTagsForProjectResult & __MetadataBearer;
 
+/**
+ * <p>Gets the tags for a project.</p>
+ */
 export class ListTagsForProjectCommand extends $Command<
   ListTagsForProjectCommandInput,
   ListTagsForProjectCommandOutput,
@@ -34,6 +37,9 @@ export class ListTagsForProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

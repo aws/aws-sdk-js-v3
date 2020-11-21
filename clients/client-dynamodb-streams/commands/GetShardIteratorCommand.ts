@@ -20,6 +20,16 @@ import {
 export type GetShardIteratorCommandInput = GetShardIteratorInput;
 export type GetShardIteratorCommandOutput = GetShardIteratorOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a shard iterator. A shard iterator provides information
+ *       about how to retrieve the stream records from within a shard.  Use
+ *       the shard iterator in a subsequent
+ *       <code>GetRecords</code> request to read the stream records
+ *       from the shard.</p>
+ *          <note>
+ *             <p>A shard iterator expires 15 minutes after it is returned to the requester.</p>
+ *          </note>
+ */
 export class GetShardIteratorCommand extends $Command<
   GetShardIteratorCommandInput,
   GetShardIteratorCommandOutput,
@@ -34,6 +44,9 @@ export class GetShardIteratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBStreamsClientResolvedConfig,

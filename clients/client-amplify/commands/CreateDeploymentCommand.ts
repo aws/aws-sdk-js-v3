@@ -20,6 +20,10 @@ import {
 export type CreateDeploymentCommandInput = CreateDeploymentRequest;
 export type CreateDeploymentCommandOutput = CreateDeploymentResult & __MetadataBearer;
 
+/**
+ * <p> Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
+ *             not connected to a repository. </p>
+ */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,
   CreateDeploymentCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

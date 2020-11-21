@@ -20,6 +20,15 @@ import {
 export type DeleteKeyGroupCommandInput = DeleteKeyGroupRequest;
 export type DeleteKeyGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a key group.</p>
+ * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+ * 			your distributions to remove the key group from all cache behaviors, then delete the key
+ * 			group.</p>
+ * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+ * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
+ * 			<code>GetKeyGroupConfig</code>.</p>
+ */
 export class DeleteKeyGroupCommand extends $Command<
   DeleteKeyGroupCommandInput,
   DeleteKeyGroupCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteKeyGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

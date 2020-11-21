@@ -20,6 +20,9 @@ import {
 export type DeleteUserEndpointsCommandInput = DeleteUserEndpointsRequest;
 export type DeleteUserEndpointsCommandOutput = DeleteUserEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes all the endpoints that are associated with a specific user ID.</p>
+ */
 export class DeleteUserEndpointsCommand extends $Command<
   DeleteUserEndpointsCommandInput,
   DeleteUserEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUserEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

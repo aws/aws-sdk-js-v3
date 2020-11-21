@@ -20,6 +20,11 @@ import {
 export type DescribeDocumentPermissionCommandInput = DescribeDocumentPermissionRequest;
 export type DescribeDocumentPermissionCommandOutput = DescribeDocumentPermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the permissions for a Systems Manager document. If you created the document, you are the
+ *    owner. If a document is shared, it can either be shared privately (by specifying a user's AWS
+ *    account ID) or publicly (<i>All</i>). </p>
+ */
 export class DescribeDocumentPermissionCommand extends $Command<
   DescribeDocumentPermissionCommandInput,
   DescribeDocumentPermissionCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeDocumentPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

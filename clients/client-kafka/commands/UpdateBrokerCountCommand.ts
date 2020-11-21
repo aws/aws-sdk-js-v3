@@ -20,6 +20,9 @@ import {
 export type UpdateBrokerCountCommandInput = UpdateBrokerCountRequest;
 export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the number of broker nodes in the cluster.</p>
+ */
 export class UpdateBrokerCountCommand extends $Command<
   UpdateBrokerCountCommandInput,
   UpdateBrokerCountCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBrokerCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

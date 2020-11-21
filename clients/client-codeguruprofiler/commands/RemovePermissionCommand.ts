@@ -20,6 +20,9 @@ import {
 export type RemovePermissionCommandInput = RemovePermissionRequest;
 export type RemovePermissionCommandOutput = RemovePermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Removes statement for the provided action group from the policy.</p>
+ */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput,
@@ -34,6 +37,9 @@ export class RemovePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

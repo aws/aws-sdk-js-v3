@@ -20,6 +20,13 @@ import {
 export type DeleteDeploymentConfigCommandInput = DeleteDeploymentConfigInput;
 export type DeleteDeploymentConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a deployment configuration.</p>
+ *         <note>
+ *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
+ *                 configurations cannot be deleted.</p>
+ *         </note>
+ */
 export class DeleteDeploymentConfigCommand extends $Command<
   DeleteDeploymentConfigCommandInput,
   DeleteDeploymentConfigCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteDeploymentConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type TestCustomDataIdentifierCommandInput = TestCustomDataIdentifierRequest;
 export type TestCustomDataIdentifierCommandOutput = TestCustomDataIdentifierResponse & __MetadataBearer;
 
+/**
+ * <p>Tests a custom data identifier.</p>
+ */
 export class TestCustomDataIdentifierCommand extends $Command<
   TestCustomDataIdentifierCommandInput,
   TestCustomDataIdentifierCommandOutput,
@@ -34,6 +37,9 @@ export class TestCustomDataIdentifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

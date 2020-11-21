@@ -20,6 +20,9 @@ import {
 export type PutAppValidationConfigurationCommandInput = PutAppValidationConfigurationRequest;
 export type PutAppValidationConfigurationCommandOutput = PutAppValidationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates a validation configuration for the specified application.</p>
+ */
 export class PutAppValidationConfigurationCommand extends $Command<
   PutAppValidationConfigurationCommandInput,
   PutAppValidationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class PutAppValidationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

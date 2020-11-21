@@ -25,6 +25,9 @@ import {
 export type GetIdentityProviderByIdentifierCommandInput = GetIdentityProviderByIdentifierRequest;
 export type GetIdentityProviderByIdentifierCommandOutput = GetIdentityProviderByIdentifierResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the specified identity provider.</p>
+ */
 export class GetIdentityProviderByIdentifierCommand extends $Command<
   GetIdentityProviderByIdentifierCommandInput,
   GetIdentityProviderByIdentifierCommandOutput,
@@ -39,6 +42,9 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

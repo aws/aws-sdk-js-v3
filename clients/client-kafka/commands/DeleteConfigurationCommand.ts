@@ -20,6 +20,9 @@ import {
 export type DeleteConfigurationCommandInput = DeleteConfigurationRequest;
 export type DeleteConfigurationCommandOutput = DeleteConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an MSK Configuration.</p>
+ */
 export class DeleteConfigurationCommand extends $Command<
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

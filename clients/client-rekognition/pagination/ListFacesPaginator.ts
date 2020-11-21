@@ -4,6 +4,9 @@ import { ListFacesCommand, ListFacesCommandInput, ListFacesCommandOutput } from 
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RekognitionClient,
   input: ListFacesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFacesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Rekognition,
   input: ListFacesCommandInput,

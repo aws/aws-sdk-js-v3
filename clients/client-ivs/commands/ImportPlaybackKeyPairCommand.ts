@@ -20,6 +20,11 @@ import {
 export type ImportPlaybackKeyPairCommandInput = ImportPlaybackKeyPairRequest;
 export type ImportPlaybackKeyPairCommandOutput = ImportPlaybackKeyPairResponse & __MetadataBearer;
 
+/**
+ * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
+ *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
+ *       authorization tokens, to grant viewers access to authorized channels.</p>
+ */
 export class ImportPlaybackKeyPairCommand extends $Command<
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
@@ -34,6 +39,9 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

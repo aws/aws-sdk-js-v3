@@ -24,6 +24,10 @@ export type PutConfigurationSetDeliveryOptionsCommandInput = PutConfigurationSet
 export type PutConfigurationSetDeliveryOptionsCommandOutput = PutConfigurationSetDeliveryOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
+ *             to create groups of dedicated IP addresses for sending specific types of email.</p>
+ */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
@@ -38,6 +42,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

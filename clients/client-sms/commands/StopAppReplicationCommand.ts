@@ -20,6 +20,10 @@ import {
 export type StopAppReplicationCommandInput = StopAppReplicationRequest;
 export type StopAppReplicationCommandOutput = StopAppReplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Stops replicating the specified application by deleting the replication job for each server in
+ *             the application.</p>
+ */
 export class StopAppReplicationCommand extends $Command<
   StopAppReplicationCommandInput,
   StopAppReplicationCommandOutput,
@@ -34,6 +38,9 @@ export class StopAppReplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

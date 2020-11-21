@@ -20,6 +20,13 @@ import {
 export type DisableSnapshotCopyCommandInput = DisableSnapshotCopyMessage;
 export type DisableSnapshotCopyCommandOutput = DisableSnapshotCopyResult & __MetadataBearer;
 
+/**
+ * <p>Disables the automatic copying of snapshots from one region to another region for a
+ *             specified cluster.</p>
+ *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
+ *             from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
+ *             grants Amazon Redshift permission to the CMK in the destination region. </p>
+ */
 export class DisableSnapshotCopyCommand extends $Command<
   DisableSnapshotCopyCommandInput,
   DisableSnapshotCopyCommandOutput,
@@ -34,6 +41,9 @@ export class DisableSnapshotCopyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

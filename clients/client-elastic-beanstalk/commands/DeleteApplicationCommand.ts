@@ -20,6 +20,14 @@ import {
 export type DeleteApplicationCommandInput = DeleteApplicationMessage;
 export type DeleteApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified application along with all associated versions and
+ *       configurations. The application versions will not be deleted from your Amazon S3
+ *       bucket.</p>
+ *          <note>
+ *             <p>You cannot delete an application that has a running environment.</p>
+ *          </note>
+ */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

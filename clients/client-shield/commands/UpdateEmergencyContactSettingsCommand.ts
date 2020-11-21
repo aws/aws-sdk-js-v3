@@ -20,6 +20,9 @@ import {
 export type UpdateEmergencyContactSettingsCommandInput = UpdateEmergencyContactSettingsRequest;
 export type UpdateEmergencyContactSettingsCommandOutput = UpdateEmergencyContactSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+ */
 export class UpdateEmergencyContactSettingsCommand extends $Command<
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

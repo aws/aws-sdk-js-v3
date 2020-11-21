@@ -20,6 +20,11 @@ import {
 export type CreateLanguageModelCommandInput = CreateLanguageModelRequest;
 export type CreateLanguageModelCommandOutput = CreateLanguageModelResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your
+ *             input files. The time it takes to create your model depends on the size of your training
+ *             data.</p>
+ */
 export class CreateLanguageModelCommand extends $Command<
   CreateLanguageModelCommandInput,
   CreateLanguageModelCommandOutput,
@@ -34,6 +39,9 @@ export class CreateLanguageModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

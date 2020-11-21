@@ -20,6 +20,9 @@ import {
 export type ModifyWorkspaceCreationPropertiesCommandInput = ModifyWorkspaceCreationPropertiesRequest;
 export type ModifyWorkspaceCreationPropertiesCommandOutput = ModifyWorkspaceCreationPropertiesResult & __MetadataBearer;
 
+/**
+ * <p>Modify the default properties used to create WorkSpaces.</p>
+ */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
   ModifyWorkspaceCreationPropertiesCommandInput,
   ModifyWorkspaceCreationPropertiesCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

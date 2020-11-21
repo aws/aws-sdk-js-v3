@@ -24,6 +24,12 @@ export type UpdateCustomVerificationEmailTemplateCommandInput = UpdateCustomVeri
 export type UpdateCustomVerificationEmailTemplateCommandOutput = UpdateCustomVerificationEmailTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Updates an existing custom verification email template.</p>
+ *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+ *                 Guide</i>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
   UpdateCustomVerificationEmailTemplateCommandInput,
   UpdateCustomVerificationEmailTemplateCommandOutput,
@@ -38,6 +44,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

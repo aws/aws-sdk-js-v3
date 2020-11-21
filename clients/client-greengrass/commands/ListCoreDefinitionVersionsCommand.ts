@@ -20,6 +20,9 @@ import {
 export type ListCoreDefinitionVersionsCommandInput = ListCoreDefinitionVersionsRequest;
 export type ListCoreDefinitionVersionsCommandOutput = ListCoreDefinitionVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a core definition.
+ */
 export class ListCoreDefinitionVersionsCommand extends $Command<
   ListCoreDefinitionVersionsCommandInput,
   ListCoreDefinitionVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

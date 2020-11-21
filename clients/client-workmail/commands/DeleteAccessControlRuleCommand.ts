@@ -20,6 +20,9 @@ import {
 export type DeleteAccessControlRuleCommandInput = DeleteAccessControlRuleRequest;
 export type DeleteAccessControlRuleCommandOutput = DeleteAccessControlRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an access control rule for the specified WorkMail organization.</p>
+ */
 export class DeleteAccessControlRuleCommand extends $Command<
   DeleteAccessControlRuleCommandInput,
   DeleteAccessControlRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAccessControlRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

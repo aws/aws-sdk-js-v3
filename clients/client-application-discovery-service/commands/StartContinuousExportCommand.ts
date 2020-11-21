@@ -24,6 +24,9 @@ import {
 export type StartContinuousExportCommandInput = StartContinuousExportRequest;
 export type StartContinuousExportCommandOutput = StartContinuousExportResponse & __MetadataBearer;
 
+/**
+ * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
+ */
 export class StartContinuousExportCommand extends $Command<
   StartContinuousExportCommandInput,
   StartContinuousExportCommandOutput,
@@ -38,6 +41,9 @@ export class StartContinuousExportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

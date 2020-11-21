@@ -20,6 +20,9 @@ import {
 export type DeleteDimensionCommandInput = DeleteDimensionRequest;
 export type DeleteDimensionCommandOutput = DeleteDimensionResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified dimension from your AWS account.</p>
+ */
 export class DeleteDimensionCommand extends $Command<
   DeleteDimensionCommandInput,
   DeleteDimensionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDimensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

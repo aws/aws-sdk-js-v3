@@ -20,6 +20,15 @@ import {
 export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the tags with the specified keys from the specified resource. Tags are key:value
+ *          pairs that you can use to categorize and manage your resources, for purposes like billing.
+ *          For example, you might set the tag key to "customer" and the value to the customer name or
+ *          ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a
+ *          resource.</p>
+ *          <p>You can manage tags for the AWS resources that you manage through AWS Network Firewall:
+ *          firewalls, firewall policies, and rule groups. </p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +43,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

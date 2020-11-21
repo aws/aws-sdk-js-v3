@@ -24,6 +24,9 @@ import {
 export type DescribeApplicationSnapshotCommandInput = DescribeApplicationSnapshotRequest;
 export type DescribeApplicationSnapshotCommandOutput = DescribeApplicationSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a snapshot of application state data.</p>
+ */
 export class DescribeApplicationSnapshotCommand extends $Command<
   DescribeApplicationSnapshotCommandInput,
   DescribeApplicationSnapshotCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeApplicationSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

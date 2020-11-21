@@ -20,6 +20,9 @@ import {
 export type DescribeIngestionCommandInput = DescribeIngestionRequest;
 export type DescribeIngestionCommandOutput = DescribeIngestionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a SPICE ingestion.</p>
+ */
 export class DescribeIngestionCommand extends $Command<
   DescribeIngestionCommandInput,
   DescribeIngestionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeIngestionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

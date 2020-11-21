@@ -20,6 +20,13 @@ import {
 export type DeleteAssociationCommandInput = DeleteAssociationRequest;
 export type DeleteAssociationCommandOutput = DeleteAssociationResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified Systems Manager document from the specified instance.</p>
+ *          <p>When you disassociate a document from an instance, it does not change the configuration of
+ *    the instance. To change the configuration state of an instance after you disassociate a document,
+ *    you must create a new document with the desired configuration and associate it with the
+ *    instance.</p>
+ */
 export class DeleteAssociationCommand extends $Command<
   DeleteAssociationCommandInput,
   DeleteAssociationCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

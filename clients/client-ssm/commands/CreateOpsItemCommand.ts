@@ -20,6 +20,15 @@ import {
 export type CreateOpsItemCommandInput = CreateOpsItemRequest;
 export type CreateOpsItemCommandOutput = CreateOpsItemResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)
+ *    to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+ *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
+ *    operational issues impacting the performance and health of their AWS resources. For more
+ *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+ *     <i>AWS Systems Manager User Guide</i>. </p>
+ */
 export class CreateOpsItemCommand extends $Command<
   CreateOpsItemCommandInput,
   CreateOpsItemCommandOutput,
@@ -34,6 +43,9 @@ export class CreateOpsItemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

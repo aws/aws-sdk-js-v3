@@ -20,6 +20,9 @@ import {
 export type ListDatasetContentsCommandInput = ListDatasetContentsRequest;
 export type ListDatasetContentsCommandOutput = ListDatasetContentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists information about data set contents that have been created.</p>
+ */
 export class ListDatasetContentsCommand extends $Command<
   ListDatasetContentsCommandInput,
   ListDatasetContentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDatasetContentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

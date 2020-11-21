@@ -24,6 +24,10 @@ import {
 export type DescribeEndpointGroupCommandInput = DescribeEndpointGroupRequest;
 export type DescribeEndpointGroupCommandOutput = DescribeEndpointGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Describe an endpoint group. To see an AWS CLI example of describing
+ * 			an endpoint group, scroll down to <b>Example</b>.</p>
+ */
 export class DescribeEndpointGroupCommand extends $Command<
   DescribeEndpointGroupCommandInput,
   DescribeEndpointGroupCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

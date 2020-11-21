@@ -20,6 +20,11 @@ import {
 export type ListDeliverabilityTestReportsCommandInput = ListDeliverabilityTestReportsRequest;
 export type ListDeliverabilityTestReportsCommandOutput = ListDeliverabilityTestReportsResponse & __MetadataBearer;
 
+/**
+ * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
+ *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
+ *             operation to view the results.</p>
+ */
 export class ListDeliverabilityTestReportsCommand extends $Command<
   ListDeliverabilityTestReportsCommandInput,
   ListDeliverabilityTestReportsCommandOutput,
@@ -34,6 +39,9 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

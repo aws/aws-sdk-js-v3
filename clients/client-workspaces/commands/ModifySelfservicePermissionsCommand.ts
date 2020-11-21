@@ -20,6 +20,10 @@ import {
 export type ModifySelfservicePermissionsCommandInput = ModifySelfservicePermissionsRequest;
 export type ModifySelfservicePermissionsCommandOutput = ModifySelfservicePermissionsResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
+ *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
+ */
 export class ModifySelfservicePermissionsCommand extends $Command<
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class ModifySelfservicePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

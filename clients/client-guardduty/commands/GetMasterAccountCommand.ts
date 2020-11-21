@@ -20,6 +20,10 @@ import {
 export type GetMasterAccountCommandInput = GetMasterAccountRequest;
 export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Provides the details for the GuardDuty master account associated with the current
+ *       GuardDuty member account.</p>
+ */
 export class GetMasterAccountCommand extends $Command<
   GetMasterAccountCommandInput,
   GetMasterAccountCommandOutput,
@@ -34,6 +38,9 @@ export class GetMasterAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

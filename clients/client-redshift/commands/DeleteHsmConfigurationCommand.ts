@@ -20,6 +20,9 @@ import {
 export type DeleteHsmConfigurationCommandInput = DeleteHsmConfigurationMessage;
 export type DeleteHsmConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
+ */
 export class DeleteHsmConfigurationCommand extends $Command<
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteHsmConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

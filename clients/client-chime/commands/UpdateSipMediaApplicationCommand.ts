@@ -20,6 +20,9 @@ import {
 export type UpdateSipMediaApplicationCommandInput = UpdateSipMediaApplicationRequest;
 export type UpdateSipMediaApplicationCommandOutput = UpdateSipMediaApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details for the specified SIP media application.</p>
+ */
 export class UpdateSipMediaApplicationCommand extends $Command<
   UpdateSipMediaApplicationCommandInput,
   UpdateSipMediaApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

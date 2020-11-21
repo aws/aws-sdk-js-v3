@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceConnectorGroupCommandInput = DeleteVoiceConnectorGroupRequest;
 export type DeleteVoiceConnectorGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code> and phone numbers associated with the group must be removed before it can be deleted.</p>
+ */
 export class DeleteVoiceConnectorGroupCommand extends $Command<
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

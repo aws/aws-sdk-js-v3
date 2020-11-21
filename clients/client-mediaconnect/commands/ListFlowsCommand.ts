@@ -20,6 +20,9 @@ import {
 export type ListFlowsCommandInput = ListFlowsRequest;
 export type ListFlowsCommandOutput = ListFlowsResponse & __MetadataBearer;
 
+/**
+ * Displays a list of flows that are associated with this account. This request returns a paginated result.
+ */
 export class ListFlowsCommand extends $Command<
   ListFlowsCommandInput,
   ListFlowsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFlowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

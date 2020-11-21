@@ -20,6 +20,9 @@ import {
 export type DeletePatchBaselineCommandInput = DeletePatchBaselineRequest;
 export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a patch baseline.</p>
+ */
 export class DeletePatchBaselineCommand extends $Command<
   DeletePatchBaselineCommandInput,
   DeletePatchBaselineCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

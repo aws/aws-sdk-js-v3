@@ -20,6 +20,9 @@ import {
 export type BatchGetCrawlersCommandInput = BatchGetCrawlersRequest;
 export type BatchGetCrawlersCommandOutput = BatchGetCrawlersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
+ */
 export class BatchGetCrawlersCommand extends $Command<
   BatchGetCrawlersCommandInput,
   BatchGetCrawlersCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetCrawlersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

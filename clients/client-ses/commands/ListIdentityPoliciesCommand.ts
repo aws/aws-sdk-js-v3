@@ -20,6 +20,20 @@ import {
 export type ListIdentityPoliciesCommandInput = ListIdentityPoliciesRequest;
 export type ListIdentityPoliciesCommandOutput = ListIdentityPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of sending authorization policies that are attached to the given
+ *             identity (an email address or a domain). This API returns only a list. If you want the
+ *             actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
+ *         <note>
+ *             <p>This API is for the identity owner only. If you have not verified the identity,
+ *                 this API will return an error.</p>
+ *         </note>
+ *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+ *             senders to use its identities. For information about using sending authorization, see
+ *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class ListIdentityPoliciesCommand extends $Command<
   ListIdentityPoliciesCommandInput,
   ListIdentityPoliciesCommandOutput,
@@ -34,6 +48,9 @@ export class ListIdentityPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

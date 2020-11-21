@@ -20,6 +20,10 @@ import {
 export type DescribeVpnGatewaysCommandInput = DescribeVpnGatewaysRequest;
 export type DescribeVpnGatewaysCommandOutput = DescribeVpnGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your virtual private gateways.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ */
 export class DescribeVpnGatewaysCommand extends $Command<
   DescribeVpnGatewaysCommandInput,
   DescribeVpnGatewaysCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeVpnGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

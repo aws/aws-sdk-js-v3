@@ -20,6 +20,14 @@ import {
 export type ListInvitationsCommandInput = ListInvitationsRequest;
 export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the list of open and accepted behavior graph invitations for the member
+ *          account. This operation can only be called by a member account.</p>
+ *          <p>Open invitations are invitations that the member account has not responded to.</p>
+ *          <p>The results do not include behavior graphs for which the member account declined the
+ *          invitation. The results also do not include behavior graphs that the member account
+ *          resigned from or was removed from.</p>
+ */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
@@ -34,6 +42,9 @@ export class ListInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

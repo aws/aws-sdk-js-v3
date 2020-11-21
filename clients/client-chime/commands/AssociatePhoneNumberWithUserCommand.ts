@@ -20,6 +20,9 @@ import {
 export type AssociatePhoneNumberWithUserCommandInput = AssociatePhoneNumberWithUserRequest;
 export type AssociatePhoneNumberWithUserCommandOutput = AssociatePhoneNumberWithUserResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a phone number with the specified Amazon Chime user.</p>
+ */
 export class AssociatePhoneNumberWithUserCommand extends $Command<
   AssociatePhoneNumberWithUserCommandInput,
   AssociatePhoneNumberWithUserCommandOutput,
@@ -34,6 +37,9 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

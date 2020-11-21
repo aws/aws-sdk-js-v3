@@ -25,6 +25,9 @@ import {
 export type DeleteUserPoolClientCommandInput = DeleteUserPoolClientRequest;
 export type DeleteUserPoolClientCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows the developer to delete the user pool client.</p>
+ */
 export class DeleteUserPoolClientCommand extends $Command<
   DeleteUserPoolClientCommandInput,
   DeleteUserPoolClientCommandOutput,
@@ -39,6 +42,9 @@ export class DeleteUserPoolClientCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

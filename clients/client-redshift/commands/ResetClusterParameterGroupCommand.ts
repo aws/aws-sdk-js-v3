@@ -21,6 +21,12 @@ import {
 export type ResetClusterParameterGroupCommandInput = ResetClusterParameterGroupMessage;
 export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>Sets one or more parameters of the specified parameter group to their default
+ *             values and sets the source values of the parameters to "engine-default". To reset the
+ *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
+ *             For parameter changes to take effect you must reboot any associated clusters. </p>
+ */
 export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandInput,
   ResetClusterParameterGroupCommandOutput,
@@ -35,6 +41,9 @@ export class ResetClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

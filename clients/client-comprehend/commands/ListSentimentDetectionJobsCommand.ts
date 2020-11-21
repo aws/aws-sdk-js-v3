@@ -20,6 +20,9 @@ import {
 export type ListSentimentDetectionJobsCommandInput = ListSentimentDetectionJobsRequest;
 export type ListSentimentDetectionJobsCommandOutput = ListSentimentDetectionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
+ */
 export class ListSentimentDetectionJobsCommand extends $Command<
   ListSentimentDetectionJobsCommandInput,
   ListSentimentDetectionJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

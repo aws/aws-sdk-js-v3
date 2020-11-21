@@ -20,6 +20,9 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists jobs.</p>
+ */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

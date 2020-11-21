@@ -20,6 +20,9 @@ import {
 export type UpdateDeploymentGroupCommandInput = UpdateDeploymentGroupInput;
 export type UpdateDeploymentGroupCommandOutput = UpdateDeploymentGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Changes information about a deployment group.</p>
+ */
 export class UpdateDeploymentGroupCommand extends $Command<
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDeploymentGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

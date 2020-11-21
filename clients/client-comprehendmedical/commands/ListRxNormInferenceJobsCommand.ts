@@ -24,6 +24,10 @@ import {
 export type ListRxNormInferenceJobsCommandInput = ListRxNormInferenceJobsRequest;
 export type ListRxNormInferenceJobsCommandOutput = ListRxNormInferenceJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of InferRxNorm jobs that you have
+ *       submitted.</p>
+ */
 export class ListRxNormInferenceJobsCommand extends $Command<
   ListRxNormInferenceJobsCommandInput,
   ListRxNormInferenceJobsCommandOutput,
@@ -38,6 +42,9 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

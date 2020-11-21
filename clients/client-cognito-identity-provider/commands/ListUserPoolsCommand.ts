@@ -25,6 +25,9 @@ import {
 export type ListUserPoolsCommandInput = ListUserPoolsRequest;
 export type ListUserPoolsCommandOutput = ListUserPoolsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the user pools associated with an AWS account.</p>
+ */
 export class ListUserPoolsCommand extends $Command<
   ListUserPoolsCommandInput,
   ListUserPoolsCommandOutput,
@@ -39,6 +42,9 @@ export class ListUserPoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

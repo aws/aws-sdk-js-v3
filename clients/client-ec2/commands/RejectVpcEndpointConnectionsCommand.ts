@@ -20,6 +20,10 @@ import {
 export type RejectVpcEndpointConnectionsCommandInput = RejectVpcEndpointConnectionsRequest;
 export type RejectVpcEndpointConnectionsCommandOutput = RejectVpcEndpointConnectionsResult & __MetadataBearer;
 
+/**
+ * <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint
+ *             service.</p>
+ */
 export class RejectVpcEndpointConnectionsCommand extends $Command<
   RejectVpcEndpointConnectionsCommandInput,
   RejectVpcEndpointConnectionsCommandOutput,
@@ -34,6 +38,9 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

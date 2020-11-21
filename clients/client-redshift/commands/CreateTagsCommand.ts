@@ -17,6 +17,13 @@ import {
 export type CreateTagsCommandInput = CreateTagsMessage;
 export type CreateTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds tags to a cluster.</p>
+ *         <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
+ *             resource, you will receive an error and the attempt will fail.</p>
+ *         <p>If you specify a key that already exists for the resource, the value for that key
+ *             will be updated with the new value.</p>
+ */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,
   CreateTagsCommandOutput,
@@ -31,6 +38,9 @@ export class CreateTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

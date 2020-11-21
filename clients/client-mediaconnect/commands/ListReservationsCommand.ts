@@ -20,6 +20,9 @@ import {
 export type ListReservationsCommandInput = ListReservationsRequest;
 export type ListReservationsCommandOutput = ListReservationsResponse & __MetadataBearer;
 
+/**
+ * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
+ */
 export class ListReservationsCommand extends $Command<
   ListReservationsCommandInput,
   ListReservationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListReservationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

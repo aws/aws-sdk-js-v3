@@ -20,6 +20,11 @@ import {
 export type ListDatabasesCommandInput = ListDatabasesRequest;
 export type ListDatabasesCommandOutput = ListDatabasesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of your Timestream databases.
+ *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *       </p>
+ */
 export class ListDatabasesCommand extends $Command<
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
@@ -34,6 +39,9 @@ export class ListDatabasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

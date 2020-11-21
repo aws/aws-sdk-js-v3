@@ -20,6 +20,9 @@ import {
 export type StartJobRunCommandInput = StartJobRunRequest;
 export type StartJobRunCommandOutput = StartJobRunResponse & __MetadataBearer;
 
+/**
+ * <p>Runs an AWS Glue DataBrew job that exists in the current AWS account.</p>
+ */
 export class StartJobRunCommand extends $Command<
   StartJobRunCommandInput,
   StartJobRunCommandOutput,
@@ -34,6 +37,9 @@ export class StartJobRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

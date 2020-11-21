@@ -20,6 +20,9 @@ import {
 export type DescribeCopyProductStatusCommandInput = DescribeCopyProductStatusInput;
 export type DescribeCopyProductStatusCommandOutput = DescribeCopyProductStatusOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the status of the specified copy product operation.</p>
+ */
 export class DescribeCopyProductStatusCommand extends $Command<
   DescribeCopyProductStatusCommandInput,
   DescribeCopyProductStatusCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCopyProductStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

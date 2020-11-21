@@ -20,6 +20,11 @@ import {
 export type ListSpeechSynthesisTasksCommandInput = ListSpeechSynthesisTasksInput;
 export type ListSpeechSynthesisTasksCommandOutput = ListSpeechSynthesisTasksOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This
+ *       operation can filter the tasks by their status, for example, allowing users to list only tasks
+ *       that are completed.</p>
+ */
 export class ListSpeechSynthesisTasksCommand extends $Command<
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput,
@@ -34,6 +39,9 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type UpdatePlacementCommandInput = UpdatePlacementRequest;
 export type UpdatePlacementCommandOutput = UpdatePlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
+ *       (i.e., "").</p>
+ */
 export class UpdatePlacementCommand extends $Command<
   UpdatePlacementCommandInput,
   UpdatePlacementCommandOutput,
@@ -38,6 +42,9 @@ export class UpdatePlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

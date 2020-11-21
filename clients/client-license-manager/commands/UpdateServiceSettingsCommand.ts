@@ -20,6 +20,9 @@ import {
 export type UpdateServiceSettingsCommandInput = UpdateServiceSettingsRequest;
 export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates License Manager settings for the current Region.</p>
+ */
 export class UpdateServiceSettingsCommand extends $Command<
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateServiceSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

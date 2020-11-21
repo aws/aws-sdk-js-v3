@@ -20,6 +20,9 @@ import {
 export type DeleteResourceDefinitionCommandInput = DeleteResourceDefinitionRequest;
 export type DeleteResourceDefinitionCommandOutput = DeleteResourceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a resource definition.
+ */
 export class DeleteResourceDefinitionCommand extends $Command<
   DeleteResourceDefinitionCommandInput,
   DeleteResourceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResourceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

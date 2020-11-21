@@ -20,6 +20,15 @@ import {
 export type CreateBackupVaultCommandInput = CreateBackupVaultInput;
 export type CreateBackupVaultCommandOutput = CreateBackupVaultOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>
+ *          request includes a name, optionally one or more resource tags, an encryption key, and a
+ *          request ID.</p>
+ *          <note>
+ *             <p>Sensitive data, such as passport numbers, should not be included the name of a backup
+ *             vault.</p>
+ *          </note>
+ */
 export class CreateBackupVaultCommand extends $Command<
   CreateBackupVaultCommandInput,
   CreateBackupVaultCommandOutput,
@@ -34,6 +43,9 @@ export class CreateBackupVaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

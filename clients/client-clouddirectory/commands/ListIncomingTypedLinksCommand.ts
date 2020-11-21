@@ -20,6 +20,11 @@ import {
 export type ListIncomingTypedLinksCommandInput = ListIncomingTypedLinksRequest;
 export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
+ *       information for an object. It also supports filtering by typed link facet and identity
+ *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class ListIncomingTypedLinksCommand extends $Command<
   ListIncomingTypedLinksCommandInput,
   ListIncomingTypedLinksCommandOutput,
@@ -34,6 +39,9 @@ export class ListIncomingTypedLinksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

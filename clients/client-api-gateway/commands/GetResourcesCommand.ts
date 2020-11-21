@@ -20,6 +20,9 @@ import {
 export type GetResourcesCommandInput = GetResourcesRequest;
 export type GetResourcesCommandOutput = Resources & __MetadataBearer;
 
+/**
+ * <p>Lists information about a collection of <a>Resource</a> resources.</p>
+ */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,
   GetResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

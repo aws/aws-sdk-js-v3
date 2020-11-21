@@ -24,6 +24,9 @@ import {
 export type DescribeListenerCommandInput = DescribeListenerRequest;
 export type DescribeListenerCommandOutput = DescribeListenerResponse & __MetadataBearer;
 
+/**
+ * <p>Describe a listener. To see an AWS CLI example of describing a listener, scroll down to <b>Example</b>.</p>
+ */
 export class DescribeListenerCommand extends $Command<
   DescribeListenerCommandInput,
   DescribeListenerCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

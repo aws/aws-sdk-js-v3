@@ -20,6 +20,21 @@ import {
 export type UpdateStackInstancesCommandInput = UpdateStackInstancesInput;
 export type UpdateStackInstancesCommandOutput = UpdateStackInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the parameter values for stack instances for the specified accounts, within
+ *          the specified Regions. A stack instance refers to a stack in a specific account and Region. </p>
+ *          <p>You can only update stack instances in Regions and accounts where they already exist;
+ *          to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>. </p>
+ *          <p>During stack set updates, any parameters overridden for a stack instance are not
+ *          updated, but retain their overridden value.</p>
+ *          <p>You can only update the parameter <i>values</i> that are specified in
+ *          the stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template. If you add a parameter to a
+ *          template, before you can override the parameter value specified in the stack set you must
+ *          first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update all stack instances with the updated template and
+ *          parameter value specified in the stack set. Once a stack instance has been updated with the
+ *          new parameter, you can then override the parameter value using
+ *             <code>UpdateStackInstances</code>.</p>
+ */
 export class UpdateStackInstancesCommand extends $Command<
   UpdateStackInstancesCommandInput,
   UpdateStackInstancesCommandOutput,
@@ -34,6 +49,9 @@ export class UpdateStackInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

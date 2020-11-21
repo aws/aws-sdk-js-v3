@@ -20,6 +20,19 @@ import {
 export type DescribeHsmClientCertificatesCommandInput = DescribeHsmClientCertificatesMessage;
 export type DescribeHsmClientCertificatesCommandOutput = HsmClientCertificateMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified HSM client certificate. If no certificate
+ *             ID is specified, returns information about all the HSM certificates owned by your AWS
+ *             customer account.</p>
+ *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *             all HSM client certificates that match any combination of the specified keys and values.
+ *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,
+ *             and <code>admin</code> and <code>test</code> for tag values, all HSM client certificates
+ *             that have any combination of those values are returned.</p>
+ *         <p>If both tag keys and values are omitted from the request, HSM client certificates
+ *             are returned regardless of whether they have tag keys or values associated with
+ *             them.</p>
+ */
 export class DescribeHsmClientCertificatesCommand extends $Command<
   DescribeHsmClientCertificatesCommandInput,
   DescribeHsmClientCertificatesCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

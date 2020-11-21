@@ -20,6 +20,9 @@ import {
 export type GetEncryptionConfigCommandInput = GetEncryptionConfigRequest;
 export type GetEncryptionConfigCommandOutput = GetEncryptionConfigResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current encryption configuration for X-Ray data.</p>
+ */
 export class GetEncryptionConfigCommand extends $Command<
   GetEncryptionConfigCommandInput,
   GetEncryptionConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetEncryptionConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

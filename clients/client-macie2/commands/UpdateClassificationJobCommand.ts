@@ -20,6 +20,9 @@ import {
 export type UpdateClassificationJobCommandInput = UpdateClassificationJobRequest;
 export type UpdateClassificationJobCommandOutput = UpdateClassificationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the status of a classification job.</p>
+ */
 export class UpdateClassificationJobCommand extends $Command<
   UpdateClassificationJobCommandInput,
   UpdateClassificationJobCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateClassificationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

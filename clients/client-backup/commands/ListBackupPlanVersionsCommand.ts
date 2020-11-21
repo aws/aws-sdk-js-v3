@@ -20,6 +20,10 @@ import {
 export type ListBackupPlanVersionsCommandInput = ListBackupPlanVersionsInput;
 export type ListBackupPlanVersionsCommandOutput = ListBackupPlanVersionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
+ *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
+ */
 export class ListBackupPlanVersionsCommand extends $Command<
   ListBackupPlanVersionsCommandInput,
   ListBackupPlanVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListBackupPlanVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

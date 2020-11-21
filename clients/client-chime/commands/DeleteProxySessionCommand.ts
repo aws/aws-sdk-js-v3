@@ -20,6 +20,9 @@ import {
 export type DeleteProxySessionCommandInput = DeleteProxySessionRequest;
 export type DeleteProxySessionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified proxy session from the specified Amazon Chime Voice Connector.</p>
+ */
 export class DeleteProxySessionCommand extends $Command<
   DeleteProxySessionCommandInput,
   DeleteProxySessionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProxySessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

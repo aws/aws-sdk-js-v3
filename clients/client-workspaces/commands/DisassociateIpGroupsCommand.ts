@@ -20,6 +20,9 @@ import {
 export type DisassociateIpGroupsCommandInput = DisassociateIpGroupsRequest;
 export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified IP access control group from the specified directory.</p>
+ */
 export class DisassociateIpGroupsCommand extends $Command<
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateIpGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

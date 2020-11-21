@@ -20,6 +20,29 @@ import {
 export type CreateWorkforceCommandInput = CreateWorkforceRequest;
 export type CreateWorkforceCommandOutput = CreateWorkforceResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to create a workforce. This operation will return an error
+ *       if a workforce already exists in the AWS Region that you specify. You can only
+ *       create one workforce in each AWS Region per AWS account.</p>
+ *
+ *          <p>If you want to create a new workforce in an AWS Region where
+ *       a workforce already exists, use the  API
+ *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
+ *       to create a new workforce.</p>
+ *
+ *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
+ *     in <code>CognitoConfig</code>.
+ *     You can also create an Amazon Cognito workforce using the Amazon SageMaker console.
+ *     For more information, see
+ *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">
+ *       Create a Private Workforce (Amazon Cognito)</a>.</p>
+ *
+ *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
+ *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
+ *       because groups are used by Ground Truth and Amazon A2I to create work teams.
+ *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
+ *       Create a Private Workforce (OIDC IdP)</a>.</p>
+ */
 export class CreateWorkforceCommand extends $Command<
   CreateWorkforceCommandInput,
   CreateWorkforceCommandOutput,
@@ -34,6 +57,9 @@ export class CreateWorkforceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

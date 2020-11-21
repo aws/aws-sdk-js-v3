@@ -20,6 +20,9 @@ import {
 export type UpdateMethodCommandInput = UpdateMethodRequest;
 export type UpdateMethodCommandOutput = Method & __MetadataBearer;
 
+/**
+ * <p>Updates an existing <a>Method</a> resource.</p>
+ */
 export class UpdateMethodCommand extends $Command<
   UpdateMethodCommandInput,
   UpdateMethodCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMethodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

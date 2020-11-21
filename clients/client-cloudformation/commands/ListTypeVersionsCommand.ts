@@ -20,6 +20,9 @@ import {
 export type ListTypeVersionsCommandInput = ListTypeVersionsInput;
 export type ListTypeVersionsCommandOutput = ListTypeVersionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns summary information about the versions of a type.</p>
+ */
 export class ListTypeVersionsCommand extends $Command<
   ListTypeVersionsCommandInput,
   ListTypeVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTypeVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

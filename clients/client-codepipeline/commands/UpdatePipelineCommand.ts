@@ -20,6 +20,12 @@ import {
 export type UpdatePipelineCommandInput = UpdatePipelineInput;
 export type UpdatePipelineCommandOutput = UpdatePipelineOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
+ *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
+ *             structure of the pipeline. Updating the pipeline increases the version number of the
+ *             pipeline by 1.</p>
+ */
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
@@ -34,6 +40,9 @@ export class UpdatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

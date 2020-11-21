@@ -20,6 +20,9 @@ import {
 export type DescribeConnectionsCommandInput = DescribeConnectionsRequest;
 export type DescribeConnectionsCommandOutput = Connections & __MetadataBearer;
 
+/**
+ * <p>Displays the specified connection or all connections in this Region.</p>
+ */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

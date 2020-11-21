@@ -20,6 +20,10 @@ import {
 export type DescribeStreamCommandInput = DescribeStreamInput;
 export type DescribeStreamCommandOutput = DescribeStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the most current information about the specified stream. You must specify
+ *             either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+ */
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,
   DescribeStreamCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

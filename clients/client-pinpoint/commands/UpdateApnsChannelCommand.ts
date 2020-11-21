@@ -20,6 +20,9 @@ import {
 export type UpdateApnsChannelCommandInput = UpdateApnsChannelRequest;
 export type UpdateApnsChannelCommandOutput = UpdateApnsChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
+ */
 export class UpdateApnsChannelCommand extends $Command<
   UpdateApnsChannelCommandInput,
   UpdateApnsChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApnsChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

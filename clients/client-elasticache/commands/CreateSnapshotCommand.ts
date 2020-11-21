@@ -20,6 +20,14 @@ import {
 export type CreateSnapshotCommandInput = CreateSnapshotMessage;
 export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a copy of an entire cluster or replication group at a
+ *             specific moment in time.</p>
+ *
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class CreateSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

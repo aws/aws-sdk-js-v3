@@ -20,6 +20,66 @@ import {
 export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesInput;
 export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves all scaling policies applied to a fleet.</p>
+ *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this
+ *             request by policy status, such as to retrieve only active scaling policies. Use the
+ *             pagination parameters to retrieve results as a set of sequential pages. If successful,
+ *             set of <a>ScalingPolicy</a> objects is returned for the fleet.</p>
+ *         <p>A fleet may have all of its scaling policies suspended (<a>StopFleetActions</a>). This operation does not affect the status of the scaling
+ *             policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force
+ *             or suspended, call <a>DescribeFleetAttributes</a> and check the stopped
+ *             actions.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetCapacity</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetCapacity</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeEC2InstanceLimits</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Manage scaling policies:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>PutScalingPolicy</a> (auto-scaling)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeScalingPolicies</a> (auto-scaling)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DeleteScalingPolicy</a> (auto-scaling)</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Manage fleet actions:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartFleetActions</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopFleetActions</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeScalingPoliciesCommand extends $Command<
   DescribeScalingPoliciesCommandInput,
   DescribeScalingPoliciesCommandOutput,
@@ -34,6 +94,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

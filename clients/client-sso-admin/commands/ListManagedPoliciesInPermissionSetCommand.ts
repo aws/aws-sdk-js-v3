@@ -24,6 +24,9 @@ export type ListManagedPoliciesInPermissionSetCommandInput = ListManagedPolicies
 export type ListManagedPoliciesInPermissionSetCommandOutput = ListManagedPoliciesInPermissionSetResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the IAM managed policy that is attached to a specified permission set.</p>
+ */
 export class ListManagedPoliciesInPermissionSetCommand extends $Command<
   ListManagedPoliciesInPermissionSetCommandInput,
   ListManagedPoliciesInPermissionSetCommandOutput,
@@ -38,6 +41,9 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetCrawlerMetricsCommandInput = GetCrawlerMetricsRequest;
 export type GetCrawlerMetricsCommandOutput = GetCrawlerMetricsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves metrics about specified crawlers.</p>
+ */
 export class GetCrawlerMetricsCommand extends $Command<
   GetCrawlerMetricsCommandInput,
   GetCrawlerMetricsCommandOutput,
@@ -34,6 +37,9 @@ export class GetCrawlerMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

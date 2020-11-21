@@ -20,6 +20,9 @@ import {
 export type ListTestGridProjectsCommandInput = ListTestGridProjectsRequest;
 export type ListTestGridProjectsCommandOutput = ListTestGridProjectsResult & __MetadataBearer;
 
+/**
+ * <p>Gets a list of all Selenium testing projects in your account.</p>
+ */
 export class ListTestGridProjectsCommand extends $Command<
   ListTestGridProjectsCommandInput,
   ListTestGridProjectsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTestGridProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

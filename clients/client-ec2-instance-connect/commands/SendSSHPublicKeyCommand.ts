@@ -24,6 +24,9 @@ import {
 export type SendSSHPublicKeyCommandInput = SendSSHPublicKeyRequest;
 export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.</p>
+ */
 export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandInput,
   SendSSHPublicKeyCommandOutput,
@@ -38,6 +41,9 @@ export class SendSSHPublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2InstanceConnectClientResolvedConfig,

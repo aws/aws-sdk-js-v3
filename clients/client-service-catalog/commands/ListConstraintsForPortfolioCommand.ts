@@ -20,6 +20,9 @@ import {
 export type ListConstraintsForPortfolioCommandInput = ListConstraintsForPortfolioInput;
 export type ListConstraintsForPortfolioCommandOutput = ListConstraintsForPortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the constraints for the specified portfolio and product.</p>
+ */
 export class ListConstraintsForPortfolioCommand extends $Command<
   ListConstraintsForPortfolioCommandInput,
   ListConstraintsForPortfolioCommandOutput,
@@ -34,6 +37,9 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

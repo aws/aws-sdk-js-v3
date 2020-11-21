@@ -20,6 +20,9 @@ import {
 export type DescribeEnvironmentManagedActionsCommandInput = DescribeEnvironmentManagedActionsRequest;
 export type DescribeEnvironmentManagedActionsCommandOutput = DescribeEnvironmentManagedActionsResult & __MetadataBearer;
 
+/**
+ * <p>Lists an environment's upcoming and in-progress managed actions.</p>
+ */
 export class DescribeEnvironmentManagedActionsCommand extends $Command<
   DescribeEnvironmentManagedActionsCommandInput,
   DescribeEnvironmentManagedActionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetBackupVaultNotificationsCommandInput = GetBackupVaultNotificationsInput;
 export type GetBackupVaultNotificationsCommandOutput = GetBackupVaultNotificationsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns event notifications for the specified backup vault.</p>
+ */
 export class GetBackupVaultNotificationsCommand extends $Command<
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
@@ -34,6 +37,9 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

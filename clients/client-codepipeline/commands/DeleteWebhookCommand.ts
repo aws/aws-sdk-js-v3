@@ -20,6 +20,13 @@ import {
 export type DeleteWebhookCommandInput = DeleteWebhookInput;
 export type DeleteWebhookCommandOutput = DeleteWebhookOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
+ *             CodePipeline from starting a pipeline every time an external event occurs. The API
+ *             returns successfully when trying to delete a webhook that is already deleted. If a
+ *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
+ *             different URL.</p>
+ */
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,
   DeleteWebhookCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

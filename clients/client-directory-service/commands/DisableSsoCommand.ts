@@ -20,6 +20,9 @@ import {
 export type DisableSsoCommandInput = DisableSsoRequest;
 export type DisableSsoCommandOutput = DisableSsoResult & __MetadataBearer;
 
+/**
+ * <p>Disables single-sign on for a directory.</p>
+ */
 export class DisableSsoCommand extends $Command<
   DisableSsoCommandInput,
   DisableSsoCommandOutput,
@@ -34,6 +37,9 @@ export class DisableSsoCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

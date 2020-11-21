@@ -20,6 +20,9 @@ import {
 export type TransferInputDeviceCommandInput = TransferInputDeviceRequest;
 export type TransferInputDeviceCommandOutput = TransferInputDeviceResponse & __MetadataBearer;
 
+/**
+ * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
+ */
 export class TransferInputDeviceCommand extends $Command<
   TransferInputDeviceCommandInput,
   TransferInputDeviceCommandOutput,
@@ -34,6 +37,9 @@ export class TransferInputDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

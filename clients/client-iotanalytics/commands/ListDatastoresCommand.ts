@@ -20,6 +20,9 @@ import {
 export type ListDatastoresCommandInput = ListDatastoresRequest;
 export type ListDatastoresCommandOutput = ListDatastoresResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of data stores.</p>
+ */
 export class ListDatastoresCommand extends $Command<
   ListDatastoresCommandInput,
   ListDatastoresCommandOutput,
@@ -34,6 +37,9 @@ export class ListDatastoresCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeFileSystemAliasesCommandInput = DescribeFileSystemAliasesRequest;
 export type DescribeFileSystemAliasesCommandOutput = DescribeFileSystemAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
+ *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
+ *         provided in the <a>DescribeFileSystems</a> operation response.</p>
+ */
 export class DescribeFileSystemAliasesCommand extends $Command<
   DescribeFileSystemAliasesCommandInput,
   DescribeFileSystemAliasesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeFileSystemAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,

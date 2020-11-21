@@ -24,6 +24,11 @@ import {
 export type CreateListenerCommandInput = CreateListenerRequest;
 export type CreateListenerCommandOutput = CreateListenerResponse & __MetadataBearer;
 
+/**
+ * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
+ * 			IP addresses on a port, port range, or list of port ranges that you specify. To see an AWS CLI example of creating a
+ * 			listener, scroll down to <b>Example</b>.</p>
+ */
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,
   CreateListenerCommandOutput,
@@ -38,6 +43,9 @@ export class CreateListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

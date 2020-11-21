@@ -18,6 +18,21 @@ import {
 export type GetChangeCommandInput = GetChangeRequest;
 export type GetChangeCommandOutput = GetChangeResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the current status of a change batch request. The status is one of the
+ * 			following values:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>
+ *                   <code>PENDING</code> indicates that the changes in this request have not propagated to all Amazon Route 53 DNS servers.
+ * 					This is the initial status of all change batch requests.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>
+ *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS servers. </p>
+ * 			         </li>
+ *          </ul>
+ */
 export class GetChangeCommand extends $Command<
   GetChangeCommandInput,
   GetChangeCommandOutput,
@@ -32,6 +47,9 @@ export class GetChangeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

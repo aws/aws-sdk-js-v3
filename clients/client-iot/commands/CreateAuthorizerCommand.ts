@@ -20,6 +20,9 @@ import {
 export type CreateAuthorizerCommandInput = CreateAuthorizerRequest;
 export type CreateAuthorizerCommandOutput = CreateAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an authorizer.</p>
+ */
 export class CreateAuthorizerCommand extends $Command<
   CreateAuthorizerCommandInput,
   CreateAuthorizerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

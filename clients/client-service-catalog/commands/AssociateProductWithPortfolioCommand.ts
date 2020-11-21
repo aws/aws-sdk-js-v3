@@ -20,6 +20,10 @@ import {
 export type AssociateProductWithPortfolioCommandInput = AssociateProductWithPortfolioInput;
 export type AssociateProductWithPortfolioCommandOutput = AssociateProductWithPortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Associates the specified product with the specified portfolio.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class AssociateProductWithPortfolioCommand extends $Command<
   AssociateProductWithPortfolioCommandInput,
   AssociateProductWithPortfolioCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateProductWithPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

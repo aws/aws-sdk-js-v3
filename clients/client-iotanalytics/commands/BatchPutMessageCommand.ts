@@ -20,6 +20,9 @@ import {
 export type BatchPutMessageCommandInput = BatchPutMessageRequest;
 export type BatchPutMessageCommandOutput = BatchPutMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Sends messages to a channel.</p>
+ */
 export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandInput,
   BatchPutMessageCommandOutput,
@@ -34,6 +37,9 @@ export class BatchPutMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

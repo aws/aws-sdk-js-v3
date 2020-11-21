@@ -20,6 +20,11 @@ import {
 export type StartWorkspacesCommandInput = StartWorkspacesRequest;
 export type StartWorkspacesCommandOutput = StartWorkspacesResult & __MetadataBearer;
 
+/**
+ * <p>Starts the specified WorkSpaces.</p>
+ *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
+ *          state of <code>STOPPED</code>.</p>
+ */
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,
   StartWorkspacesCommandOutput,
@@ -34,6 +39,9 @@ export class StartWorkspacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

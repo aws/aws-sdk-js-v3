@@ -20,6 +20,9 @@ import {
 export type DescribeResourcePermissionsCommandInput = DescribeResourcePermissionsRequest;
 export type DescribeResourcePermissionsCommandOutput = DescribeResourcePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the permissions of a specified resource.</p>
+ */
 export class DescribeResourcePermissionsCommand extends $Command<
   DescribeResourcePermissionsCommandInput,
   DescribeResourcePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeResourcePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

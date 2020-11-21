@@ -24,6 +24,9 @@ export type UpdateCompanyNetworkConfigurationCommandInput = UpdateCompanyNetwork
 export type UpdateCompanyNetworkConfigurationCommandOutput = UpdateCompanyNetworkConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Updates the company network configuration for the fleet.</p>
+ */
 export class UpdateCompanyNetworkConfigurationCommand extends $Command<
   UpdateCompanyNetworkConfigurationCommandInput,
   UpdateCompanyNetworkConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

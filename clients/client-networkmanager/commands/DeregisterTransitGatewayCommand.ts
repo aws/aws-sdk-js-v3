@@ -20,6 +20,10 @@ import {
 export type DeregisterTransitGatewayCommandInput = DeregisterTransitGatewayRequest;
 export type DeregisterTransitGatewayCommandOutput = DeregisterTransitGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters a transit gateway from your global network. This action does not delete
+ *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
+ */
 export class DeregisterTransitGatewayCommand extends $Command<
   DeregisterTransitGatewayCommandInput,
   DeregisterTransitGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class DeregisterTransitGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

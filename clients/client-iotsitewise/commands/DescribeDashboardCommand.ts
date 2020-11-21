@@ -20,6 +20,9 @@ import {
 export type DescribeDashboardCommandInput = DescribeDashboardRequest;
 export type DescribeDashboardCommandOutput = DescribeDashboardResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a dashboard.</p>
+ */
 export class DescribeDashboardCommand extends $Command<
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type DeleteReceiptFilterCommandInput = DeleteReceiptFilterRequest;
 export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified IP address filter.</p>
+ *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class DeleteReceiptFilterCommand extends $Command<
   DeleteReceiptFilterCommandInput,
   DeleteReceiptFilterCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteReceiptFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

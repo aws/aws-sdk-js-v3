@@ -20,6 +20,9 @@ import {
 export type UpdateIndexingConfigurationCommandInput = UpdateIndexingConfigurationRequest;
 export type UpdateIndexingConfigurationCommandOutput = UpdateIndexingConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the search configuration.</p>
+ */
 export class UpdateIndexingConfigurationCommand extends $Command<
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

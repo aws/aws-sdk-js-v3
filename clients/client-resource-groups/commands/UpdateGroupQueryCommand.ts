@@ -20,6 +20,9 @@ import {
 export type UpdateGroupQueryCommandInput = UpdateGroupQueryInput;
 export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the resource query of a group.</p>
+ */
 export class UpdateGroupQueryCommand extends $Command<
   UpdateGroupQueryCommandInput,
   UpdateGroupQueryCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGroupQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RejectInputDeviceTransferCommandInput = RejectInputDeviceTransferRequest;
 export type RejectInputDeviceTransferCommandOutput = RejectInputDeviceTransferResponse & __MetadataBearer;
 
+/**
+ * Reject the transfer of the specified input device to your AWS account.
+ */
 export class RejectInputDeviceTransferCommand extends $Command<
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
@@ -34,6 +37,9 @@ export class RejectInputDeviceTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

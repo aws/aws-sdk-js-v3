@@ -21,6 +21,11 @@ import {
 export type StartExportTaskCommandInput = StartExportTaskMessage;
 export type StartExportTaskCommandOutput = ExportTask & __MetadataBearer;
 
+/**
+ * <p>Starts an export of a snapshot to Amazon S3.
+ *             The provided IAM role must have access to the S3 bucket.
+ *         </p>
+ */
 export class StartExportTaskCommand extends $Command<
   StartExportTaskCommandInput,
   StartExportTaskCommandOutput,
@@ -35,6 +40,9 @@ export class StartExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

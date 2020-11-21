@@ -24,6 +24,12 @@ import {
 export type StopApplicationCommandInput = StopApplicationRequest;
 export type StopApplicationCommandOutput = StopApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the application from processing data. You can stop
+ *       an application only if it is in the running state.
+ *       You can use the <a>DescribeApplication</a> operation to find the application state.
+ *        </p>
+ */
 export class StopApplicationCommand extends $Command<
   StopApplicationCommandInput,
   StopApplicationCommandOutput,
@@ -38,6 +44,9 @@ export class StopApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

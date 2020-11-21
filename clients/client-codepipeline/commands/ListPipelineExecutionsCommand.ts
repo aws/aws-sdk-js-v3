@@ -20,6 +20,9 @@ import {
 export type ListPipelineExecutionsCommandInput = ListPipelineExecutionsInput;
 export type ListPipelineExecutionsCommandOutput = ListPipelineExecutionsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a summary of the most recent executions for a pipeline.</p>
+ */
 export class ListPipelineExecutionsCommand extends $Command<
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPipelineExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

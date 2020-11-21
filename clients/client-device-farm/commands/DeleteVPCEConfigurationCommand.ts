@@ -20,6 +20,9 @@ import {
 export type DeleteVPCEConfigurationCommandInput = DeleteVPCEConfigurationRequest;
 export type DeleteVPCEConfigurationCommandOutput = DeleteVPCEConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
+ */
 export class DeleteVPCEConfigurationCommand extends $Command<
   DeleteVPCEConfigurationCommandInput,
   DeleteVPCEConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVPCEConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

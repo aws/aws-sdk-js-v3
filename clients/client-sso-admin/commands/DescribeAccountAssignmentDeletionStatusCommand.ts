@@ -24,6 +24,9 @@ export type DescribeAccountAssignmentDeletionStatusCommandInput = DescribeAccoun
 export type DescribeAccountAssignmentDeletionStatusCommandOutput = DescribeAccountAssignmentDeletionStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the status of the assignment deletion request.</p>
+ */
 export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
   DescribeAccountAssignmentDeletionStatusCommandInput,
   DescribeAccountAssignmentDeletionStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

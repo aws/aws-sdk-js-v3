@@ -20,6 +20,18 @@ import {
 export type DeleteDeliveryStreamCommandInput = DeleteDeliveryStreamInput;
 export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a delivery stream and its data.</p>
+ *          <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can delete a delivery stream only if it is in one of the following states:
+ *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
+ *             <code>DELETING_FAILED</code>. You can't delete a delivery stream that is in the
+ *             <code>CREATING</code> state. While the deletion request is in process, the delivery
+ *          stream is in the <code>DELETING</code> state.</p>
+ *          <p>While the delivery stream is in the <code>DELETING</code> state, the service might
+ *          continue to accept records, but it doesn't make any guarantees with respect to delivering
+ *          the data. Therefore, as a best practice, first stop any applications that are sending
+ *          records before you delete a delivery stream.</p>
+ */
 export class DeleteDeliveryStreamCommand extends $Command<
   DeleteDeliveryStreamCommandInput,
   DeleteDeliveryStreamCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteDeliveryStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,

@@ -20,6 +20,56 @@ import {
 export type DescribeGameServerCommandInput = DescribeGameServerInput;
 export type DescribeGameServerCommandOutput = DescribeGameServerOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *          </p>
+ *         <p>Retrieves information for a registered game server. Information includes game server
+ *             status, health check info, and the instance that the game server is running on. </p>
+ *         <p>To retrieve game server information, specify the game server ID. If successful, the
+ *             requested game server object is returned. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>RegisterGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGameServers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ClaimGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeregisterGameServer</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeGameServerCommand extends $Command<
   DescribeGameServerCommandInput,
   DescribeGameServerCommandOutput,
@@ -34,6 +84,9 @@ export class DescribeGameServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

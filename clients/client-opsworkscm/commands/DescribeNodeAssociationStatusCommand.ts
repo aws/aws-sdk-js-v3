@@ -20,6 +20,15 @@ import {
 export type DescribeNodeAssociationStatusCommandInput = DescribeNodeAssociationStatusRequest;
 export type DescribeNodeAssociationStatusCommandOutput = DescribeNodeAssociationStatusResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns the current status of an existing association or disassociation request.
+ *     </p>
+ *          <p>
+ *       A <code>ResourceNotFoundException</code> is thrown when no recent association or disassociation request with the specified token is found,
+ *       or when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class DescribeNodeAssociationStatusCommand extends $Command<
   DescribeNodeAssociationStatusCommandInput,
   DescribeNodeAssociationStatusCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

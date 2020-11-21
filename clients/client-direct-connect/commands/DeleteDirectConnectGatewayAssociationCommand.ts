@@ -24,6 +24,10 @@ export type DeleteDirectConnectGatewayAssociationCommandInput = DeleteDirectConn
 export type DeleteDirectConnectGatewayAssociationCommandOutput = DeleteDirectConnectGatewayAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
+ *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
+ */
 export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
   DeleteDirectConnectGatewayAssociationCommandInput,
   DeleteDirectConnectGatewayAssociationCommandOutput,
@@ -38,6 +42,9 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

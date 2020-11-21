@@ -20,6 +20,9 @@ import {
 export type DeleteCoreDefinitionCommandInput = DeleteCoreDefinitionRequest;
 export type DeleteCoreDefinitionCommandOutput = DeleteCoreDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a core definition.
+ */
 export class DeleteCoreDefinitionCommand extends $Command<
   DeleteCoreDefinitionCommandInput,
   DeleteCoreDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCoreDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

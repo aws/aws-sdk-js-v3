@@ -20,6 +20,10 @@ import {
 export type CreateConfigCommandInput = CreateConfigRequest;
 export type CreateConfigCommandOutput = ConfigIdResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
+ *          <p>Only one type of <code>configData</code> can be specified.</p>
+ */
 export class CreateConfigCommand extends $Command<
   CreateConfigCommandInput,
   CreateConfigCommandOutput,
@@ -34,6 +38,9 @@ export class CreateConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

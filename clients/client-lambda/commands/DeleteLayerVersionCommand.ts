@@ -20,6 +20,11 @@ import {
 export type DeleteLayerVersionCommandInput = DeleteLayerVersionRequest;
 export type DeleteLayerVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
+ *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
+ */
 export class DeleteLayerVersionCommand extends $Command<
   DeleteLayerVersionCommandInput,
   DeleteLayerVersionCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteLayerVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

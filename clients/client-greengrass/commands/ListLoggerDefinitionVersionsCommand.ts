@@ -20,6 +20,9 @@ import {
 export type ListLoggerDefinitionVersionsCommandInput = ListLoggerDefinitionVersionsRequest;
 export type ListLoggerDefinitionVersionsCommandOutput = ListLoggerDefinitionVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a logger definition.
+ */
 export class ListLoggerDefinitionVersionsCommand extends $Command<
   ListLoggerDefinitionVersionsCommandInput,
   ListLoggerDefinitionVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

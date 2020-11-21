@@ -20,6 +20,20 @@ import {
 export type EnableEbsEncryptionByDefaultCommandInput = EnableEbsEncryptionByDefaultRequest;
 export type EnableEbsEncryptionByDefaultCommandOutput = EnableEbsEncryptionByDefaultResult & __MetadataBearer;
 
+/**
+ * <p>Enables EBS encryption by default for your account in the current Region.</p>
+ *          <p>After you enable encryption by default, the EBS volumes that you create are
+ *       are always encrypted, either using the default CMK or the CMK that you specified
+ *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+ *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+ *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
+ *          <p>Enabling encryption by default has no effect on the encryption status of your
+ *       existing volumes.</p>
+ *          <p>After you enable encryption by default, you can no longer launch instances
+ *       using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+ *         instance types</a>.</p>
+ */
 export class EnableEbsEncryptionByDefaultCommand extends $Command<
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -34,6 +48,9 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

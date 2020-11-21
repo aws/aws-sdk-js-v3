@@ -20,6 +20,19 @@ import {
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
 export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse & __MetadataBearer;
 
+/**
+ * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+ *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
+ *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
+ *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
+ *          <p>
+ *             <b>For information about the current version of AWS
+ *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
+ *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
+ *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
+ *       Reference</a>.</p>
+ *          <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>
+ */
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,
   ListAvailableZonesCommandOutput,
@@ -34,6 +47,9 @@ export class ListAvailableZonesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMClientResolvedConfig,

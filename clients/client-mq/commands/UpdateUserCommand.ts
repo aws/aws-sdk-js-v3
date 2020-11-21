@@ -20,6 +20,9 @@ import {
 export type UpdateUserCommandInput = UpdateUserRequest;
 export type UpdateUserCommandOutput = UpdateUserResponse & __MetadataBearer;
 
+/**
+ * Updates the information for an ActiveMQ user.
+ */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,
   UpdateUserCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

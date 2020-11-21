@@ -8,6 +8,9 @@ import {
 import { SFNPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SFNClient,
   input: GetExecutionHistoryCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetExecutionHistoryCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SFN,
   input: GetExecutionHistoryCommandInput,

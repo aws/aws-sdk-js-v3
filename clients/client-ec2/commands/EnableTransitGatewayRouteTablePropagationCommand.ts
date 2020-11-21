@@ -24,6 +24,10 @@ export type EnableTransitGatewayRouteTablePropagationCommandInput = EnableTransi
 export type EnableTransitGatewayRouteTablePropagationCommandOutput = EnableTransitGatewayRouteTablePropagationResult &
   __MetadataBearer;
 
+/**
+ * <p>Enables the specified attachment to propagate routes to the specified
+ *          propagation route table.</p>
+ */
 export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
   EnableTransitGatewayRouteTablePropagationCommandInput,
   EnableTransitGatewayRouteTablePropagationCommandOutput,
@@ -38,6 +42,9 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

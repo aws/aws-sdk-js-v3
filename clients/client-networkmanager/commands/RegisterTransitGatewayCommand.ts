@@ -20,6 +20,11 @@ import {
 export type RegisterTransitGatewayCommandInput = RegisterTransitGatewayRequest;
 export type RegisterTransitGatewayCommandOutput = RegisterTransitGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Registers a transit gateway in your global network. The transit gateway can be in any
+ *             AWS Region, but it must be owned by the same AWS account that owns the global network.
+ *             You cannot register a transit gateway in more than one global network.</p>
+ */
 export class RegisterTransitGatewayCommand extends $Command<
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
@@ -34,6 +39,9 @@ export class RegisterTransitGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

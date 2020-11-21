@@ -8,6 +8,9 @@ import {
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GroundStationClient,
   input: ListDataflowEndpointGroupsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataflowEndpointGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GroundStation,
   input: ListDataflowEndpointGroupsCommandInput,

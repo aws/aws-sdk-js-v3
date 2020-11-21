@@ -20,6 +20,10 @@ import {
 export type DescribeEventSourceCommandInput = DescribeEventSourceRequest;
 export type DescribeEventSourceCommandOutput = DescribeEventSourceResponse & __MetadataBearer;
 
+/**
+ * <p>This operation lists details about a partner event source that is shared with your
+ *             account.</p>
+ */
 export class DescribeEventSourceCommand extends $Command<
   DescribeEventSourceCommandInput,
   DescribeEventSourceCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEventSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

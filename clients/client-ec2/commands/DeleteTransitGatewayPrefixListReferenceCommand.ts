@@ -24,6 +24,9 @@ export type DeleteTransitGatewayPrefixListReferenceCommandInput = DeleteTransitG
 export type DeleteTransitGatewayPrefixListReferenceCommandOutput = DeleteTransitGatewayPrefixListReferenceResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
+ */
 export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
   DeleteTransitGatewayPrefixListReferenceCommandInput,
   DeleteTransitGatewayPrefixListReferenceCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RemoveTagsCommandInput = RemoveTagsInput;
 export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Removes existing tags from the specified pipeline.</p>
+ */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,
   RemoveTagsCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type GetCredentialsForIdentityCommandInput = GetCredentialsForIdentityInput;
 export type GetCredentialsForIdentityCommandOutput = GetCredentialsForIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Returns credentials for the provided identity ID. Any provided logins will be
+ *          validated against supported login providers. If the token is for
+ *          cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service
+ *          with the appropriate role for the token.</p>
+ *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ */
 export class GetCredentialsForIdentityCommand extends $Command<
   GetCredentialsForIdentityCommandInput,
   GetCredentialsForIdentityCommandOutput,
@@ -34,6 +41,9 @@ export class GetCredentialsForIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

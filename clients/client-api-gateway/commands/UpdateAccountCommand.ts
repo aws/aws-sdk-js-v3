@@ -20,6 +20,9 @@ import {
 export type UpdateAccountCommandInput = UpdateAccountRequest;
 export type UpdateAccountCommandOutput = Account & __MetadataBearer;
 
+/**
+ * <p>Changes information about the current <a>Account</a> resource.</p>
+ */
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,
   UpdateAccountCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

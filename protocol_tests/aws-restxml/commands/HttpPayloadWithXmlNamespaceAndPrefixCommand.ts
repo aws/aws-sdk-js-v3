@@ -21,6 +21,9 @@ export type HttpPayloadWithXmlNamespaceAndPrefixCommandInput = HttpPayloadWithXm
 export type HttpPayloadWithXmlNamespaceAndPrefixCommandOutput = HttpPayloadWithXmlNamespaceAndPrefixInputOutput &
   __MetadataBearer;
 
+/**
+ * The following example serializes a payload that uses an XML namespace.
+ */
 export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
   HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
   HttpPayloadWithXmlNamespaceAndPrefixCommandOutput,
@@ -35,6 +38,9 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteAliasCommandInput = DeleteAliasRequest;
 export type DeleteAliasCommandOutput = DeleteAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Remove one or more specified aliases from a set of aliases for a given
+ *          user.</p>
+ */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,
   DeleteAliasCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

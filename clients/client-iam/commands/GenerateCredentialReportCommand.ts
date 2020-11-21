@@ -20,6 +20,11 @@ import {
 export type GenerateCredentialReportCommandInput = {};
 export type GenerateCredentialReportCommandOutput = GenerateCredentialReportResponse & __MetadataBearer;
 
+/**
+ * <p> Generates a credential report for the AWS account. For more information about the
+ *          credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ */
 export class GenerateCredentialReportCommand extends $Command<
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput,
@@ -34,6 +39,9 @@ export class GenerateCredentialReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListOutgoingCertificatesCommandInput = ListOutgoingCertificatesRequest;
 export type ListOutgoingCertificatesCommandOutput = ListOutgoingCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists certificates that are being transferred but not yet accepted.</p>
+ */
 export class ListOutgoingCertificatesCommand extends $Command<
   ListOutgoingCertificatesCommandInput,
   ListOutgoingCertificatesCommandOutput,
@@ -34,6 +37,9 @@ export class ListOutgoingCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

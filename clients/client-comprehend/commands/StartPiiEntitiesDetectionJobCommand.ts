@@ -20,6 +20,9 @@ import {
 export type StartPiiEntitiesDetectionJobCommandInput = StartPiiEntitiesDetectionJobRequest;
 export type StartPiiEntitiesDetectionJobCommandOutput = StartPiiEntitiesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+ */
 export class StartPiiEntitiesDetectionJobCommand extends $Command<
   StartPiiEntitiesDetectionJobCommandInput,
   StartPiiEntitiesDetectionJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartPiiEntitiesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

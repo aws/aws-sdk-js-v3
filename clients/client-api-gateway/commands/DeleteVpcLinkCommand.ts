@@ -20,6 +20,9 @@ import {
 export type DeleteVpcLinkCommandInput = DeleteVpcLinkRequest;
 export type DeleteVpcLinkCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
+ */
 export class DeleteVpcLinkCommand extends $Command<
   DeleteVpcLinkCommandInput,
   DeleteVpcLinkCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVpcLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

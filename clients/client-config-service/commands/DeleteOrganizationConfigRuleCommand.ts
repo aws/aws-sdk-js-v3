@@ -20,6 +20,14 @@ import {
 export type DeleteOrganizationConfigRuleCommandInput = DeleteOrganizationConfigRuleRequest;
 export type DeleteOrganizationConfigRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>
+ * 	        <p>Only a master account and a delegated administrator account can delete an organization config rule.
+ * 		When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
+ * 		       <p>AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
+ * 			You cannot update a rule while it is in this state.</p>
+ */
 export class DeleteOrganizationConfigRuleCommand extends $Command<
   DeleteOrganizationConfigRuleCommandInput,
   DeleteOrganizationConfigRuleCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

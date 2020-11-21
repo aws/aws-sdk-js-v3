@@ -20,6 +20,9 @@ import {
 export type TerminateEnvironmentCommandInput = TerminateEnvironmentMessage;
 export type TerminateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
+/**
+ * <p>Terminates the specified environment.</p>
+ */
 export class TerminateEnvironmentCommand extends $Command<
   TerminateEnvironmentCommandInput,
   TerminateEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class TerminateEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

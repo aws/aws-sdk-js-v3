@@ -20,6 +20,9 @@ import {
 export type ListProvisioningTemplatesCommandInput = ListProvisioningTemplatesRequest;
 export type ListProvisioningTemplatesCommandOutput = ListProvisioningTemplatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the fleet provisioning templates in your AWS account.</p>
+ */
 export class ListProvisioningTemplatesCommand extends $Command<
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class ListProvisioningTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

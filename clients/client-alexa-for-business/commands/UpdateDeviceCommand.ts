@@ -20,6 +20,9 @@ import {
 export type UpdateDeviceCommandInput = UpdateDeviceRequest;
 export type UpdateDeviceCommandOutput = UpdateDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the device name by device ARN.</p>
+ */
 export class UpdateDeviceCommand extends $Command<
   UpdateDeviceCommandInput,
   UpdateDeviceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

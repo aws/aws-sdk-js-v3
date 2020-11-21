@@ -20,6 +20,9 @@ import {
 export type RevokeFlowEntitlementCommandInput = RevokeFlowEntitlementRequest;
 export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse & __MetadataBearer;
 
+/**
+ * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.
+ */
 export class RevokeFlowEntitlementCommand extends $Command<
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
@@ -34,6 +37,9 @@ export class RevokeFlowEntitlementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

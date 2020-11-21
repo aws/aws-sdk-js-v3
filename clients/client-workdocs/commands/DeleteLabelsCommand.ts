@@ -20,6 +20,9 @@ import {
 export type DeleteLabelsCommandInput = DeleteLabelsRequest;
 export type DeleteLabelsCommandOutput = DeleteLabelsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified list of labels from a resource.</p>
+ */
 export class DeleteLabelsCommand extends $Command<
   DeleteLabelsCommandInput,
   DeleteLabelsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLabelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

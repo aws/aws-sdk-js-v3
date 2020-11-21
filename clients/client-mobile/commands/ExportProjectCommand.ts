@@ -20,6 +20,13 @@ import {
 export type ExportProjectCommandInput = ExportProjectRequest;
 export type ExportProjectCommandOutput = ExportProjectResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Exports project configuration to a snapshot which can be downloaded and shared.
+ *             Note that mobile app push credentials are encrypted in exported projects, so they
+ *             can only be shared successfully within the same AWS account.
+ *         </p>
+ */
 export class ExportProjectCommand extends $Command<
   ExportProjectCommandInput,
   ExportProjectCommandOutput,
@@ -34,6 +41,9 @@ export class ExportProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

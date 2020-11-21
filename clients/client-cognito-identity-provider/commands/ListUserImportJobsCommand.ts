@@ -25,6 +25,9 @@ import {
 export type ListUserImportJobsCommandInput = ListUserImportJobsRequest;
 export type ListUserImportJobsCommandOutput = ListUserImportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the user import jobs.</p>
+ */
 export class ListUserImportJobsCommand extends $Command<
   ListUserImportJobsCommandInput,
   ListUserImportJobsCommandOutput,
@@ -39,6 +42,9 @@ export class ListUserImportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

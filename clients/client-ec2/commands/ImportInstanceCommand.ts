@@ -17,6 +17,13 @@ import {
 export type ImportInstanceCommandInput = ImportInstanceRequest;
 export type ImportInstanceCommandOutput = ImportInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Creates an import instance task using metadata from the specified disk image. <code>ImportInstance</code> only
+ *    supports single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>. For more information, see
+ *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a
+ *     Virtual Machine Using the Amazon EC2 CLI</a>.</p>
+ *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ */
 export class ImportInstanceCommand extends $Command<
   ImportInstanceCommandInput,
   ImportInstanceCommandOutput,
@@ -31,6 +38,9 @@ export class ImportInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

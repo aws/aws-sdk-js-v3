@@ -20,6 +20,16 @@ import {
 export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
 export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result & __MetadataBearer;
 
+/**
+ * <p>Amazon Relational Database Service (Amazon RDS)
+ *             supports importing MySQL databases by using backup files.
+ *             You can create a backup of your on-premises database,
+ *             store it on Amazon Simple Storage Service (Amazon S3),
+ *             and then restore the backup file onto a new Amazon RDS DB instance running MySQL.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing Data into an Amazon RDS MySQL DB Instance</a>
+ *             in the <i>Amazon RDS User Guide.</i>
+ *         </p>
+ */
 export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandInput,
   RestoreDBInstanceFromS3CommandOutput,
@@ -34,6 +44,9 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

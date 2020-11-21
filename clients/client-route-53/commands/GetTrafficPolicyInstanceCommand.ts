@@ -21,6 +21,17 @@ import {
 export type GetTrafficPolicyInstanceCommandInput = GetTrafficPolicyInstanceRequest;
 export type GetTrafficPolicyInstanceCommandOutput = GetTrafficPolicyInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified traffic policy instance.</p>
+ * 		       <note>
+ * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request,
+ * 				there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For
+ * 				more information, see the <code>State</code> response element.</p>
+ * 		       </note>
+ * 		       <note>
+ * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
+ * 		       </note>
+ */
 export class GetTrafficPolicyInstanceCommand extends $Command<
   GetTrafficPolicyInstanceCommandInput,
   GetTrafficPolicyInstanceCommandOutput,
@@ -35,6 +46,9 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

@@ -17,6 +17,10 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
+/**
+ * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
+ *             10 times per second, per account.</p>
+ */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +31,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

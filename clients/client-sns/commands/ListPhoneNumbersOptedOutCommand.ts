@@ -20,6 +20,16 @@ import {
 export type ListPhoneNumbersOptedOutCommandInput = ListPhoneNumbersOptedOutInput;
 export type ListPhoneNumbersOptedOutCommandOutput = ListPhoneNumbersOptedOutResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
+ *             messages to them.</p>
+ *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
+ *             returns up to 100 phone numbers. If additional phone numbers are available after the
+ *             first page of results, then a <code>NextToken</code> string will be returned. To receive
+ *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the
+ *                 <code>NextToken</code> string received from the previous call. When there are no
+ *             more records to return, <code>NextToken</code> will be null.</p>
+ */
 export class ListPhoneNumbersOptedOutCommand extends $Command<
   ListPhoneNumbersOptedOutCommandInput,
   ListPhoneNumbersOptedOutCommandOutput,
@@ -34,6 +44,9 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

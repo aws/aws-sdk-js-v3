@@ -20,6 +20,9 @@ import {
 export type StartBackupJobCommandInput = StartBackupJobInput;
 export type StartBackupJobCommandOutput = StartBackupJobOutput & __MetadataBearer;
 
+/**
+ * <p>Starts an on-demand backup job for the specified resource.</p>
+ */
 export class StartBackupJobCommand extends $Command<
   StartBackupJobCommandInput,
   StartBackupJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartBackupJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

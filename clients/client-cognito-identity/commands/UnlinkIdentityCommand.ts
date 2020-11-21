@@ -20,6 +20,12 @@ import {
 export type UnlinkIdentityCommandInput = UnlinkIdentityInput;
 export type UnlinkIdentityCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Unlinks a federated identity from an existing account. Unlinked logins will be
+ *          considered new identities next time they are seen. Removing the last linked login will make
+ *          this identity inaccessible.</p>
+ *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ */
 export class UnlinkIdentityCommand extends $Command<
   UnlinkIdentityCommandInput,
   UnlinkIdentityCommandOutput,
@@ -34,6 +40,9 @@ export class UnlinkIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

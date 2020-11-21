@@ -20,6 +20,12 @@ import {
 export type ModifyVpnTunnelOptionsCommandInput = ModifyVpnTunnelOptionsRequest;
 export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can modify
+ *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
+ *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN
+ *                 Connection</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ */
 export class ModifyVpnTunnelOptionsCommand extends $Command<
   ModifyVpnTunnelOptionsCommandInput,
   ModifyVpnTunnelOptionsCommandOutput,
@@ -34,6 +40,9 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

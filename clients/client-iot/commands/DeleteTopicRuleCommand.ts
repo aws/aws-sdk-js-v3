@@ -20,6 +20,9 @@ import {
 export type DeleteTopicRuleCommandInput = DeleteTopicRuleRequest;
 export type DeleteTopicRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the rule.</p>
+ */
 export class DeleteTopicRuleCommand extends $Command<
   DeleteTopicRuleCommandInput,
   DeleteTopicRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

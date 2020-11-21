@@ -20,6 +20,9 @@ import {
 export type UpdateTemplateCommandInput = UpdateTemplateRequest;
 export type UpdateTemplateCommandOutput = UpdateTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
+ */
 export class UpdateTemplateCommand extends $Command<
   UpdateTemplateCommandInput,
   UpdateTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

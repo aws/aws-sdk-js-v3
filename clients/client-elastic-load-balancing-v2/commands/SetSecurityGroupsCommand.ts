@@ -24,6 +24,12 @@ import {
 export type SetSecurityGroupsCommandInput = SetSecurityGroupsInput;
 export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Associates the specified security groups with the specified Application Load Balancer.
+ *       The specified security groups override the previously associated security groups.</p>
+ *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
+ *       Balancer.</p>
+ */
 export class SetSecurityGroupsCommand extends $Command<
   SetSecurityGroupsCommandInput,
   SetSecurityGroupsCommandOutput,
@@ -38,6 +44,9 @@ export class SetSecurityGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

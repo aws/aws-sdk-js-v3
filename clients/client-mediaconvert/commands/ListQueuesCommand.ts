@@ -20,6 +20,9 @@ import {
 export type ListQueuesCommandInput = ListQueuesRequest;
 export type ListQueuesCommandOutput = ListQueuesResponse & __MetadataBearer;
 
+/**
+ * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
+ */
 export class ListQueuesCommand extends $Command<
   ListQueuesCommandInput,
   ListQueuesCommandOutput,
@@ -34,6 +37,9 @@ export class ListQueuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

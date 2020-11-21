@@ -18,6 +18,35 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResult & __MetadataBearer;
 
+/**
+ * <p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for
+ *          the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
+ *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p>Related actions include:</p>
+ *          <p></p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,
   ListJobsCommandOutput,
@@ -32,6 +61,9 @@ export class ListJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

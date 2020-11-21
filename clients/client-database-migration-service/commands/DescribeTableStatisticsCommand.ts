@@ -24,6 +24,13 @@ import {
 export type DescribeTableStatisticsCommandInput = DescribeTableStatisticsMessage;
 export type DescribeTableStatisticsCommandOutput = DescribeTableStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns table statistics on the database migration task, including table name, rows
+ *          inserted, rows updated, and rows deleted.</p>
+ *          <p>Note that the "last updated" column the DMS console only indicates the time that AWS DMS
+ *          last updated the table statistics record for a table. It does not indicate the time of the
+ *          last update to the table.</p>
+ */
 export class DescribeTableStatisticsCommand extends $Command<
   DescribeTableStatisticsCommandInput,
   DescribeTableStatisticsCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeTableStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

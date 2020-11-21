@@ -24,6 +24,9 @@ export type DescribeOrganizationConfigurationCommandInput = DescribeOrganization
 export type DescribeOrganizationConfigurationCommandOutput = DescribeOrganizationConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the Amazon Macie configuration settings for an AWS organization.</p>
+ */
 export class DescribeOrganizationConfigurationCommand extends $Command<
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

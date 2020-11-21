@@ -20,6 +20,9 @@ import {
 export type UpdateDeviceDefinitionCommandInput = UpdateDeviceDefinitionRequest;
 export type UpdateDeviceDefinitionCommandOutput = UpdateDeviceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a device definition.
+ */
 export class UpdateDeviceDefinitionCommand extends $Command<
   UpdateDeviceDefinitionCommandInput,
   UpdateDeviceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDeviceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

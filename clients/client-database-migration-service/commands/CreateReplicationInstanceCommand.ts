@@ -24,6 +24,14 @@ import {
 export type CreateReplicationInstanceCommandInput = CreateReplicationInstanceMessage;
 export type CreateReplicationInstanceCommandOutput = CreateReplicationInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates the replication instance using the specified parameters.</p>
+ *          <p>AWS DMS requires that your account have certain roles with appropriate permissions
+ *          before you can create a replication instance. For information on the required roles, see
+ *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
+ *          information on the required permissions, see
+ *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use AWS DMS</a>.</p>
+ */
 export class CreateReplicationInstanceCommand extends $Command<
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
@@ -38,6 +46,9 @@ export class CreateReplicationInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

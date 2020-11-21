@@ -20,6 +20,10 @@ import {
 export type CreateAccessPolicyCommandInput = CreateAccessPolicyRequest;
 export type CreateAccessPolicyCommandOutput = CreateAccessPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or
+ *       IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.</p>
+ */
 export class CreateAccessPolicyCommand extends $Command<
   CreateAccessPolicyCommandInput,
   CreateAccessPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

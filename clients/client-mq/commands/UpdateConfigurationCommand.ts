@@ -20,6 +20,9 @@ import {
 export type UpdateConfigurationCommandInput = UpdateConfigurationRequest;
 export type UpdateConfigurationCommandOutput = UpdateConfigurationResponse & __MetadataBearer;
 
+/**
+ * Updates the specified configuration.
+ */
 export class UpdateConfigurationCommand extends $Command<
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeActionTargetsCommandInput = DescribeActionTargetsRequest;
 export type DescribeActionTargetsCommandOutput = DescribeActionTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
+ */
 export class DescribeActionTargetsCommand extends $Command<
   DescribeActionTargetsCommandInput,
   DescribeActionTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeActionTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

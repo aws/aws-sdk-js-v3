@@ -20,6 +20,10 @@ import {
 export type ListMedicalVocabulariesCommandInput = ListMedicalVocabulariesRequest;
 export type ListMedicalVocabulariesCommandOutput = ListMedicalVocabulariesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a
+ *             value in any of the request parameters, returns the entire list of vocabularies.</p>
+ */
 export class ListMedicalVocabulariesCommand extends $Command<
   ListMedicalVocabulariesCommandInput,
   ListMedicalVocabulariesCommandOutput,
@@ -34,6 +38,9 @@ export class ListMedicalVocabulariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

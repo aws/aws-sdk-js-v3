@@ -20,6 +20,10 @@ import {
 export type CreateVpnGatewayCommandInput = CreateVpnGatewayRequest;
 export type CreateVpnGatewayCommandOutput = CreateVpnGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ */
 export class CreateVpnGatewayCommand extends $Command<
   CreateVpnGatewayCommandInput,
   CreateVpnGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class CreateVpnGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -17,6 +17,12 @@ import {
 export type CancelJobCommandInput = CancelJobRequest;
 export type CancelJobCommandOutput = CancelJobResult & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
+ *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
+ *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
+ *       response element data returned.</p>
+ */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,
   CancelJobCommandOutput,
@@ -31,6 +37,9 @@ export class CancelJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DisassociateFleetCommandInput = DisassociateFleetRequest;
 export type DisassociateFleetCommandOutput = DisassociateFleetResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified fleet from the specified stack.</p>
+ */
 export class DisassociateFleetCommand extends $Command<
   DisassociateFleetCommandInput,
   DisassociateFleetCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

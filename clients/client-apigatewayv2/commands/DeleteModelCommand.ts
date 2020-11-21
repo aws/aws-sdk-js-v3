@@ -20,6 +20,9 @@ import {
 export type DeleteModelCommandInput = DeleteModelRequest;
 export type DeleteModelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Model.</p>
+ */
 export class DeleteModelCommand extends $Command<
   DeleteModelCommandInput,
   DeleteModelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

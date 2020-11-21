@@ -24,6 +24,9 @@ export type ListSubscriptionDefinitionVersionsCommandInput = ListSubscriptionDef
 export type ListSubscriptionDefinitionVersionsCommandOutput = ListSubscriptionDefinitionVersionsResponse &
   __MetadataBearer;
 
+/**
+ * Lists the versions of a subscription definition.
+ */
 export class ListSubscriptionDefinitionVersionsCommand extends $Command<
   ListSubscriptionDefinitionVersionsCommandInput,
   ListSubscriptionDefinitionVersionsCommandOutput,
@@ -38,6 +41,9 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

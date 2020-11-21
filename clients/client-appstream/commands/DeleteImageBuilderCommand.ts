@@ -20,6 +20,9 @@ import {
 export type DeleteImageBuilderCommandInput = DeleteImageBuilderRequest;
 export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified image builder and releases the capacity.</p>
+ */
 export class DeleteImageBuilderCommand extends $Command<
   DeleteImageBuilderCommandInput,
   DeleteImageBuilderCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteImageBuilderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

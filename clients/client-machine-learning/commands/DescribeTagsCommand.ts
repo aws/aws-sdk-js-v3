@@ -20,6 +20,9 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsInput;
 export type DescribeTagsCommandOutput = DescribeTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of the tags for your Amazon ML object.</p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

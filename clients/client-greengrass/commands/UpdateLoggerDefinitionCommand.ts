@@ -20,6 +20,9 @@ import {
 export type UpdateLoggerDefinitionCommandInput = UpdateLoggerDefinitionRequest;
 export type UpdateLoggerDefinitionCommandOutput = UpdateLoggerDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a logger definition.
+ */
 export class UpdateLoggerDefinitionCommand extends $Command<
   UpdateLoggerDefinitionCommandInput,
   UpdateLoggerDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateLoggerDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

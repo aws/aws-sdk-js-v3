@@ -20,6 +20,18 @@ import {
 export type ListServiceQuotasCommandInput = ListServiceQuotasRequest;
 export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all service quotas for the specified AWS service. This request returns a list of the
+ *       service quotas for the specified service. you'll see the default values are the values that
+ *       AWS provides for the quotas. </p>
+ *          <note>
+ *             <p>Always check the <code>NextToken</code> response parameter when calling any of the
+ *           <code>List*</code> operations. These operations can return an unexpected list of results,
+ *         even when there are more results available. When this happens, the <code>NextToken</code>
+ *         response parameter contains a value to pass the next call to the same API to request the
+ *         next part of the list.</p>
+ *          </note>
+ */
 export class ListServiceQuotasCommand extends $Command<
   ListServiceQuotasCommandInput,
   ListServiceQuotasCommandOutput,
@@ -34,6 +46,9 @@ export class ListServiceQuotasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDatastoreCommandInput = UpdateDatastoreRequest;
 export type UpdateDatastoreCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the settings of a data store.</p>
+ */
 export class UpdateDatastoreCommand extends $Command<
   UpdateDatastoreCommandInput,
   UpdateDatastoreCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDatastoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

@@ -20,6 +20,18 @@ import {
 export type RetrieveEnvironmentInfoCommandInput = RetrieveEnvironmentInfoMessage;
 export type RetrieveEnvironmentInfoCommandOutput = RetrieveEnvironmentInfoResultMessage & __MetadataBearer;
 
+/**
+ * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
+ *       request.</p>
+ *          <p>Related Topics</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>RequestEnvironmentInfo</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class RetrieveEnvironmentInfoCommand extends $Command<
   RetrieveEnvironmentInfoCommandInput,
   RetrieveEnvironmentInfoCommandOutput,
@@ -34,6 +46,9 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type StartDocumentClassificationJobCommandInput = StartDocumentClassificationJobRequest;
 export type StartDocumentClassificationJobCommandOutput = StartDocumentClassificationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
+ *       job.</p>
+ */
 export class StartDocumentClassificationJobCommand extends $Command<
   StartDocumentClassificationJobCommandInput,
   StartDocumentClassificationJobCommandOutput,
@@ -34,6 +38,9 @@ export class StartDocumentClassificationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

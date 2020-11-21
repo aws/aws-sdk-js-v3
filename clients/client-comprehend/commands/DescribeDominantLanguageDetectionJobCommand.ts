@@ -24,6 +24,10 @@ export type DescribeDominantLanguageDetectionJobCommandInput = DescribeDominantL
 export type DescribeDominantLanguageDetectionJobCommandOutput = DescribeDominantLanguageDetectionJobResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a dominant language detection job. Use this operation
+ *       to get the status of a detection job.</p>
+ */
 export class DescribeDominantLanguageDetectionJobCommand extends $Command<
   DescribeDominantLanguageDetectionJobCommandInput,
   DescribeDominantLanguageDetectionJobCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

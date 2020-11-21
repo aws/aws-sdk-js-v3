@@ -20,6 +20,9 @@ import {
 export type BatchGetDeploymentsCommandInput = BatchGetDeploymentsInput;
 export type BatchGetDeploymentsCommandOutput = BatchGetDeploymentsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
+ */
 export class BatchGetDeploymentsCommand extends $Command<
   BatchGetDeploymentsCommandInput,
   BatchGetDeploymentsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetDeploymentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

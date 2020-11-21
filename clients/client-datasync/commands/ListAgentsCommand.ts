@@ -20,6 +20,16 @@ import {
 export type ListAgentsCommandInput = ListAgentsRequest;
 export type ListAgentsCommandOutput = ListAgentsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the
+ *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
+ *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
+ *       pagination that enables you to optionally reduce the number of agents returned in a
+ *       response.</p>
+ *          <p>If you have more agents than are returned in a response (that is, the response returns
+ *       only a truncated list of your agents), the response contains a marker that you can specify in
+ *       your next request to fetch the next page of agents.</p>
+ */
 export class ListAgentsCommand extends $Command<
   ListAgentsCommandInput,
   ListAgentsCommandOutput,
@@ -34,6 +44,9 @@ export class ListAgentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

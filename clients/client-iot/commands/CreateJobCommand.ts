@@ -20,6 +20,9 @@ import {
 export type CreateJobCommandInput = CreateJobRequest;
 export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a job.</p>
+ */
 export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

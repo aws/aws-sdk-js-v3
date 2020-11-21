@@ -20,6 +20,9 @@ import {
 export type GetRepositoryPolicyCommandInput = GetRepositoryPolicyRequest;
 export type GetRepositoryPolicyCommandOutput = GetRepositoryPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the repository policy for the specified repository.</p>
+ */
 export class GetRepositoryPolicyCommand extends $Command<
   GetRepositoryPolicyCommandInput,
   GetRepositoryPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetRepositoryPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

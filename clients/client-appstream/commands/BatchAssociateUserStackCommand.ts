@@ -20,6 +20,9 @@ import {
 export type BatchAssociateUserStackCommandInput = BatchAssociateUserStackRequest;
 export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult & __MetadataBearer;
 
+/**
+ * <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
+ */
 export class BatchAssociateUserStackCommand extends $Command<
   BatchAssociateUserStackCommandInput,
   BatchAssociateUserStackCommandOutput,
@@ -34,6 +37,9 @@ export class BatchAssociateUserStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

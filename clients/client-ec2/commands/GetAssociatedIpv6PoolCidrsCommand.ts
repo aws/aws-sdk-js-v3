@@ -20,6 +20,9 @@ import {
 export type GetAssociatedIpv6PoolCidrsCommandInput = GetAssociatedIpv6PoolCidrsRequest;
 export type GetAssociatedIpv6PoolCidrsCommandOutput = GetAssociatedIpv6PoolCidrsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
+ */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
@@ -34,6 +37,9 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

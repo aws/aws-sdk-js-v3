@@ -20,6 +20,9 @@ import {
 export type GetGroupVersionCommandInput = GetGroupVersionRequest;
 export type GetGroupVersionCommandOutput = GetGroupVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a group version.
+ */
 export class GetGroupVersionCommand extends $Command<
   GetGroupVersionCommandInput,
   GetGroupVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetGroupVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

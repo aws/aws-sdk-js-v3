@@ -20,6 +20,13 @@ import {
 export type CreateLaunchTemplateCommandInput = CreateLaunchTemplateRequest;
 export type CreateLaunchTemplateCommandOutput = CreateLaunchTemplateResult & __MetadataBearer;
 
+/**
+ * <p>Creates a launch template. A launch template contains the parameters to launch an
+ *             instance. When you launch an instance using <a>RunInstances</a>, you can
+ *             specify a launch template instead of providing the launch parameters in the request. For
+ *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a
+ *                 launch template</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CreateLaunchTemplateCommand extends $Command<
   CreateLaunchTemplateCommandInput,
   CreateLaunchTemplateCommandOutput,
@@ -34,6 +41,9 @@ export class CreateLaunchTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

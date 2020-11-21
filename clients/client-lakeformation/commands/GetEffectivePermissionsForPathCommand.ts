@@ -20,6 +20,10 @@ import {
 export type GetEffectivePermissionsForPathCommandInput = GetEffectivePermissionsForPathRequest;
 export type GetEffectivePermissionsForPathCommandOutput = GetEffectivePermissionsForPathResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the Lake Formation permissions for a specified table or database resource located
+ *       at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.</p>
+ */
 export class GetEffectivePermissionsForPathCommand extends $Command<
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
@@ -34,6 +38,9 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

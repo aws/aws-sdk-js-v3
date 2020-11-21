@@ -20,6 +20,12 @@ import {
 export type CreateBranchCommandInput = CreateBranchInput;
 export type CreateBranchCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a branch in a repository and points the branch to a commit.</p>
+ *         <note>
+ *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
+ *          </note>
+ */
 export class CreateBranchCommand extends $Command<
   CreateBranchCommandInput,
   CreateBranchCommandOutput,
@@ -34,6 +40,9 @@ export class CreateBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

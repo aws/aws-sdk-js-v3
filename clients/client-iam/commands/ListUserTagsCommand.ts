@@ -17,6 +17,11 @@ import {
 export type ListUserTagsCommandInput = ListUserTagsRequest;
 export type ListUserTagsCommandOutput = ListUserTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags that are attached to the specified user. The returned list of tags is
+ *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
+ *         <i>IAM User Guide</i>.</p>
+ */
 export class ListUserTagsCommand extends $Command<
   ListUserTagsCommandInput,
   ListUserTagsCommandOutput,
@@ -31,6 +36,9 @@ export class ListUserTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

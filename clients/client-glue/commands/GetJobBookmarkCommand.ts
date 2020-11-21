@@ -20,6 +20,9 @@ import {
 export type GetJobBookmarkCommandInput = GetJobBookmarkRequest;
 export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information on a job bookmark entry.</p>
+ */
 export class GetJobBookmarkCommand extends $Command<
   GetJobBookmarkCommandInput,
   GetJobBookmarkCommandOutput,
@@ -34,6 +37,9 @@ export class GetJobBookmarkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

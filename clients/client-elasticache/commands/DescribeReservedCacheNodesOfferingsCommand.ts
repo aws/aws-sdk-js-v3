@@ -20,6 +20,10 @@ import {
 export type DescribeReservedCacheNodesOfferingsCommandInput = DescribeReservedCacheNodesOfferingsMessage;
 export type DescribeReservedCacheNodesOfferingsCommandOutput = ReservedCacheNodesOfferingMessage & __MetadataBearer;
 
+/**
+ * <p>Lists available reserved cache
+ *             node offerings.</p>
+ */
 export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
   DescribeReservedCacheNodesOfferingsCommandInput,
   DescribeReservedCacheNodesOfferingsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

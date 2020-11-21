@@ -24,6 +24,10 @@ export type DescribeVpcEndpointConnectionNotificationsCommandInput = DescribeVpc
 export type DescribeVpcEndpointConnectionNotificationsCommandOutput = DescribeVpcEndpointConnectionNotificationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the connection notifications for VPC endpoints and VPC endpoint
+ *             services.</p>
+ */
 export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
   DescribeVpcEndpointConnectionNotificationsCommandInput,
   DescribeVpcEndpointConnectionNotificationsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

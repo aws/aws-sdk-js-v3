@@ -20,6 +20,9 @@ import {
 export type UpdateCACertificateCommandInput = UpdateCACertificateRequest;
 export type UpdateCACertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates a registered CA certificate.</p>
+ */
 export class UpdateCACertificateCommand extends $Command<
   UpdateCACertificateCommandInput,
   UpdateCACertificateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCACertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

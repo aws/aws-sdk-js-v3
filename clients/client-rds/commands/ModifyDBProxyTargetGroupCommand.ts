@@ -20,6 +20,9 @@ import {
 export type ModifyDBProxyTargetGroupCommandInput = ModifyDBProxyTargetGroupRequest;
 export type ModifyDBProxyTargetGroupCommandOutput = ModifyDBProxyTargetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
+ */
 export class ModifyDBProxyTargetGroupCommand extends $Command<
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

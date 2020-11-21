@@ -20,6 +20,9 @@ import {
 export type BatchDeleteCommandInput = BatchDeleteRequest;
 export type BatchDeleteCommandOutput = BatchDeleteResponse & __MetadataBearer;
 
+/**
+ * Starts delete of resources.
+ */
 export class BatchDeleteCommand extends $Command<
   BatchDeleteCommandInput,
   BatchDeleteCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

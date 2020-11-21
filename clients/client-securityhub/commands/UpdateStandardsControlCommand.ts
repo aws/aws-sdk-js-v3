@@ -20,6 +20,10 @@ import {
 export type UpdateStandardsControlCommandInput = UpdateStandardsControlRequest;
 export type UpdateStandardsControlCommandOutput = UpdateStandardsControlResponse & __MetadataBearer;
 
+/**
+ * <p>Used to control whether an individual security standard control is enabled or
+ *          disabled.</p>
+ */
 export class UpdateStandardsControlCommand extends $Command<
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateStandardsControlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

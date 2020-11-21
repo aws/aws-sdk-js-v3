@@ -20,6 +20,10 @@ import {
 export type DescribeSpotFleetRequestsCommandInput = DescribeSpotFleetRequestsRequest;
 export type DescribeSpotFleetRequestsCommandOutput = DescribeSpotFleetRequestsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes your Spot Fleet requests.</p>
+ *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances are terminated.</p>
+ */
 export class DescribeSpotFleetRequestsCommand extends $Command<
   DescribeSpotFleetRequestsCommandInput,
   DescribeSpotFleetRequestsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

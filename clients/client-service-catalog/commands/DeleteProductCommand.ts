@@ -20,6 +20,11 @@ import {
 export type DeleteProductCommandInput = DeleteProductInput;
 export type DeleteProductCommandOutput = DeleteProductOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified product.</p>
+ *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class DeleteProductCommand extends $Command<
   DeleteProductCommandInput,
   DeleteProductCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

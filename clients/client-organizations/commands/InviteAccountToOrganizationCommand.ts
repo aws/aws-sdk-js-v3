@@ -20,6 +20,34 @@ import {
 export type InviteAccountToOrganizationCommandInput = InviteAccountToOrganizationRequest;
 export type InviteAccountToOrganizationCommandOutput = InviteAccountToOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Sends an invitation to another account to join your organization as a member account.
+ *             AWS Organizations sends email on your behalf to the email address that is associated with the
+ *             other account's owner. The invitation is implemented as a <a>Handshake</a>
+ *             whose details are in the response.</p>
+ *         <important>
+ *             <ul>
+ *                <li>
+ *                     <p>You can invite AWS accounts only from the same seller as the
+ *                         management account. For example, if your organization's management account was
+ *                         created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in
+ *                         India, you can invite only other AISPL accounts to your organization. You
+ *                         can't combine accounts from AISPL and AWS or from any other AWS seller.
+ *                         For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+ *                             Billing in India</a>.</p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you receive an exception that indicates that you exceeded your account
+ *                         limits for the organization or that the operation failed because your
+ *                         organization is still initializing, wait one hour and then try again. If the
+ *                         error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </important>
+ *         <p>If the request includes tags, then the requester must have the
+ *                 <code>organizations:TagResource</code> permission.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class InviteAccountToOrganizationCommand extends $Command<
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
@@ -34,6 +62,9 @@ export class InviteAccountToOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

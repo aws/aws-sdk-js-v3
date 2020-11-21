@@ -20,6 +20,19 @@ import {
 export type CreateDomainCommandInput = CreateDomainRequest;
 export type CreateDomainCommandOutput = CreateDomainResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an
+ *         organization. You can use a domain to apply permissions across many
+ *         repositories owned by different AWS accounts. An asset is stored only once
+ *         in a domain, even if it's in multiple repositories.
+ *     </p>
+ *
+ *          <p>Although you can have multiple domains, we recommend a single production domain that contains all
+ *         published artifacts so that your development teams can find and share packages. You can use a second
+ *         pre-production domain to test changes to the production domain configuration.
+ *       </p>
+ */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
@@ -34,6 +47,9 @@ export class CreateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

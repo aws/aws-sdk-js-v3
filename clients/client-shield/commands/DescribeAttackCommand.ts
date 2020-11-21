@@ -20,6 +20,9 @@ import {
 export type DescribeAttackCommandInput = DescribeAttackRequest;
 export type DescribeAttackCommandOutput = DescribeAttackResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the details of a DDoS attack. </p>
+ */
 export class DescribeAttackCommand extends $Command<
   DescribeAttackCommandInput,
   DescribeAttackCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAttackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

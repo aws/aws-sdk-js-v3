@@ -20,6 +20,12 @@ import {
 export type DisassociateApprovalRuleTemplateFromRepositoryCommandInput = DisassociateApprovalRuleTemplateFromRepositoryInput;
 export type DisassociateApprovalRuleTemplateFromRepositoryCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the association between a template and a repository so that approval rules
+ *             based on the template are not automatically created when pull requests are created in
+ *             the specified repository. This does not delete any approval rules previously created for
+ *             pull requests through the template association.</p>
+ */
 export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Command<
   DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
   DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
@@ -34,6 +40,9 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

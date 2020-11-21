@@ -20,6 +20,9 @@ import {
 export type UpdateUploadCommandInput = UpdateUploadRequest;
 export type UpdateUploadCommandOutput = UpdateUploadResult & __MetadataBearer;
 
+/**
+ * <p>Updates an uploaded test spec.</p>
+ */
 export class UpdateUploadCommand extends $Command<
   UpdateUploadCommandInput,
   UpdateUploadCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

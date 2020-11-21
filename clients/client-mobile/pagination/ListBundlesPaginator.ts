@@ -4,6 +4,9 @@ import { ListBundlesCommand, ListBundlesCommandInput, ListBundlesCommandOutput }
 import { MobilePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MobileClient,
   input: ListBundlesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBundlesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Mobile,
   input: ListBundlesCommandInput,

@@ -20,6 +20,9 @@ import {
 export type CreateSmsTemplateCommandInput = CreateSmsTemplateRequest;
 export type CreateSmsTemplateCommandOutput = CreateSmsTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a message template for messages that are sent through the SMS channel.</p>
+ */
 export class CreateSmsTemplateCommand extends $Command<
   CreateSmsTemplateCommandInput,
   CreateSmsTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSmsTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

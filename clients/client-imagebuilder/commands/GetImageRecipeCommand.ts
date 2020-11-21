@@ -20,6 +20,9 @@ import {
 export type GetImageRecipeCommandInput = GetImageRecipeRequest;
 export type GetImageRecipeCommandOutput = GetImageRecipeResponse & __MetadataBearer;
 
+/**
+ * <p> Gets an image recipe. </p>
+ */
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,
   GetImageRecipeCommandOutput,
@@ -34,6 +37,9 @@ export class GetImageRecipeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateRepositoryCommandInput = CreateRepositoryRequest;
 export type CreateRepositoryCommandOutput = CreateRepositoryResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR Repositories</a> in the
+ *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ */
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,
   CreateRepositoryCommandOutput,
@@ -34,6 +38,9 @@ export class CreateRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

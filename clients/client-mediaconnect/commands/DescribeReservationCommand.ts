@@ -20,6 +20,9 @@ import {
 export type DescribeReservationCommandInput = DescribeReservationRequest;
 export type DescribeReservationCommandOutput = DescribeReservationResponse & __MetadataBearer;
 
+/**
+ * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).
+ */
 export class DescribeReservationCommand extends $Command<
   DescribeReservationCommandInput,
   DescribeReservationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

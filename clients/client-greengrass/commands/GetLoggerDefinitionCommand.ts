@@ -20,6 +20,9 @@ import {
 export type GetLoggerDefinitionCommandInput = GetLoggerDefinitionRequest;
 export type GetLoggerDefinitionCommandOutput = GetLoggerDefinitionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a logger definition.
+ */
 export class GetLoggerDefinitionCommand extends $Command<
   GetLoggerDefinitionCommandInput,
   GetLoggerDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetLoggerDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

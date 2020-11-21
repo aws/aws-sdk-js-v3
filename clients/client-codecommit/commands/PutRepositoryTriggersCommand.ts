@@ -20,6 +20,9 @@ import {
 export type PutRepositoryTriggersCommandInput = PutRepositoryTriggersInput;
 export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput & __MetadataBearer;
 
+/**
+ * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>
+ */
 export class PutRepositoryTriggersCommand extends $Command<
   PutRepositoryTriggersCommandInput,
   PutRepositoryTriggersCommandOutput,
@@ -34,6 +37,9 @@ export class PutRepositoryTriggersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

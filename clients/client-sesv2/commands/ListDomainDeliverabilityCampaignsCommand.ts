@@ -24,6 +24,11 @@ export type ListDomainDeliverabilityCampaignsCommandInput = ListDomainDeliverabi
 export type ListDomainDeliverabilityCampaignsCommandOutput = ListDomainDeliverabilityCampaignsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
+ *             email during a specified time range. This data is available for a domain only if you
+ *             enabled the Deliverability dashboard for the domain.</p>
+ */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<
   ListDomainDeliverabilityCampaignsCommandInput,
   ListDomainDeliverabilityCampaignsCommandOutput,
@@ -38,6 +43,9 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

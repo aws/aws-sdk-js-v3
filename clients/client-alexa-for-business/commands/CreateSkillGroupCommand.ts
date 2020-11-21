@@ -20,6 +20,9 @@ import {
 export type CreateSkillGroupCommandInput = CreateSkillGroupRequest;
 export type CreateSkillGroupCommandOutput = CreateSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a skill group with a specified name and description.</p>
+ */
 export class CreateSkillGroupCommand extends $Command<
   CreateSkillGroupCommandInput,
   CreateSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

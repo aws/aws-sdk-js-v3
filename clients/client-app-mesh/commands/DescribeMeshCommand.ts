@@ -20,6 +20,9 @@ import {
 export type DescribeMeshCommandInput = DescribeMeshInput;
 export type DescribeMeshCommandOutput = DescribeMeshOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing service mesh.</p>
+ */
 export class DescribeMeshCommand extends $Command<
   DescribeMeshCommandInput,
   DescribeMeshCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMeshCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AddInstanceGroupsCommandInput = AddInstanceGroupsInput;
 export type AddInstanceGroupsCommandOutput = AddInstanceGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds one or more instance groups to a running cluster.</p>
+ */
 export class AddInstanceGroupsCommand extends $Command<
   AddInstanceGroupsCommandInput,
   AddInstanceGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class AddInstanceGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

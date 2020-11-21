@@ -20,6 +20,12 @@ import {
 export type GetExportSnapshotRecordsCommandInput = GetExportSnapshotRecordsRequest;
 export type GetExportSnapshotRecordsCommandOutput = GetExportSnapshotRecordsResult & __MetadataBearer;
 
+/**
+ * <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>
+ *       operation.</p>
+ *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
+ *       resources with the <code>create cloud formation stack</code> operation.</p>
+ */
 export class GetExportSnapshotRecordsCommand extends $Command<
   GetExportSnapshotRecordsCommandInput,
   GetExportSnapshotRecordsCommandOutput,
@@ -34,6 +40,9 @@ export class GetExportSnapshotRecordsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

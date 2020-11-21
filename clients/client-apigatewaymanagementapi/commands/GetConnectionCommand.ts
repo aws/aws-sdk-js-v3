@@ -24,6 +24,9 @@ import {
 export type GetConnectionCommandInput = GetConnectionRequest;
 export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Get information about the connection with the provided id.</p>
+ */
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
   GetConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class GetConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayManagementApiClientResolvedConfig,

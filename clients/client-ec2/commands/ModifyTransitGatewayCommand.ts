@@ -20,6 +20,9 @@ import {
 export type ModifyTransitGatewayCommandInput = ModifyTransitGatewayRequest;
 export type ModifyTransitGatewayCommandOutput = ModifyTransitGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
+ */
 export class ModifyTransitGatewayCommand extends $Command<
   ModifyTransitGatewayCommandInput,
   ModifyTransitGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyTransitGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

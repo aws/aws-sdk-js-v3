@@ -20,6 +20,48 @@ import {
 export type UpdateBuildCommandInput = UpdateBuildInput;
 export type UpdateBuildCommandOutput = UpdateBuildOutput & __MetadataBearer;
 
+/**
+ * <p>Updates metadata in a build resource, including the build name and version. To update
+ *             the metadata, specify the build ID to update and provide the new values. If successful,
+ *             a build object containing the updated metadata is returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+ *             Upload a Custom Server Build</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListBuilds</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBuild</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateBuildCommand extends $Command<
   UpdateBuildCommandInput,
   UpdateBuildCommandOutput,
@@ -34,6 +76,9 @@ export class UpdateBuildCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

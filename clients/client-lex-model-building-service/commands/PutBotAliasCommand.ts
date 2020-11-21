@@ -24,6 +24,13 @@ import {
 export type PutBotAliasCommandInput = PutBotAliasRequest;
 export type PutBotAliasCommandOutput = PutBotAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an alias for the specified version of the bot or replaces an alias for the
+ *       specified bot. To change the version of the bot that the alias points to, replace the alias.
+ *       For more information about aliases, see <a>versioning-aliases</a>.</p>
+ *          <p>This operation requires permissions for the <code>lex:PutBotAlias</code> action.
+ *     </p>
+ */
 export class PutBotAliasCommand extends $Command<
   PutBotAliasCommandInput,
   PutBotAliasCommandOutput,
@@ -38,6 +45,9 @@ export class PutBotAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

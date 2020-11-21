@@ -20,6 +20,9 @@ import {
 export type AssociateServiceRoleToAccountCommandInput = AssociateServiceRoleToAccountRequest;
 export type AssociateServiceRoleToAccountCommandOutput = AssociateServiceRoleToAccountResponse & __MetadataBearer;
 
+/**
+ * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
+ */
 export class AssociateServiceRoleToAccountCommand extends $Command<
   AssociateServiceRoleToAccountCommandInput,
   AssociateServiceRoleToAccountCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

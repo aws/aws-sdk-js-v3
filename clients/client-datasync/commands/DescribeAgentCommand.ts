@@ -20,6 +20,11 @@ import {
 export type DescribeAgentCommandInput = DescribeAgentRequest;
 export type DescribeAgentCommandOutput = DescribeAgentResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata such as the name, the network interfaces, and the status (that is,
+ *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
+ *       Amazon Resource Name (ARN) of the agent in your request. </p>
+ */
 export class DescribeAgentCommand extends $Command<
   DescribeAgentCommandInput,
   DescribeAgentCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAgentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

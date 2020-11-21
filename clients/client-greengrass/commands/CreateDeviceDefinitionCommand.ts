@@ -20,6 +20,9 @@ import {
 export type CreateDeviceDefinitionCommandInput = CreateDeviceDefinitionRequest;
 export type CreateDeviceDefinitionCommandOutput = CreateDeviceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
+ */
 export class CreateDeviceDefinitionCommand extends $Command<
   CreateDeviceDefinitionCommandInput,
   CreateDeviceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDeviceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteBaiduChannelCommandInput = DeleteBaiduChannelRequest;
 export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteBaiduChannelCommand extends $Command<
   DeleteBaiduChannelCommandInput,
   DeleteBaiduChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBaiduChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

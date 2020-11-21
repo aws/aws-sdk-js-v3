@@ -20,6 +20,9 @@ import {
 export type CreateSavingsPlanCommandInput = CreateSavingsPlanRequest;
 export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Savings Plan.</p>
+ */
 export class CreateSavingsPlanCommand extends $Command<
   CreateSavingsPlanCommandInput,
   CreateSavingsPlanCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSavingsPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SavingsplansClientResolvedConfig,

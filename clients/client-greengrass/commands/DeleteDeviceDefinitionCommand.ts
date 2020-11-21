@@ -20,6 +20,9 @@ import {
 export type DeleteDeviceDefinitionCommandInput = DeleteDeviceDefinitionRequest;
 export type DeleteDeviceDefinitionCommandOutput = DeleteDeviceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a device definition.
+ */
 export class DeleteDeviceDefinitionCommand extends $Command<
   DeleteDeviceDefinitionCommandInput,
   DeleteDeviceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

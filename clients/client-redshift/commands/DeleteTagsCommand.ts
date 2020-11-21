@@ -17,6 +17,10 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsMessage;
 export type DeleteTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes tags from a resource. You must provide the ARN of the resource
+ *             from which you want to delete the tag or tags.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

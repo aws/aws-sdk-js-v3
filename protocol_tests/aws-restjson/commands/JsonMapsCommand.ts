@@ -20,6 +20,9 @@ import {
 export type JsonMapsCommandInput = JsonMapsInputOutput;
 export type JsonMapsCommandOutput = JsonMapsInputOutput & __MetadataBearer;
 
+/**
+ * The example tests basic map serialization.
+ */
 export class JsonMapsCommand extends $Command<
   JsonMapsCommandInput,
   JsonMapsCommandOutput,
@@ -34,6 +37,9 @@ export class JsonMapsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

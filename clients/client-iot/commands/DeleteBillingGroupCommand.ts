@@ -20,6 +20,9 @@ import {
 export type DeleteBillingGroupCommandInput = DeleteBillingGroupRequest;
 export type DeleteBillingGroupCommandOutput = DeleteBillingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the billing group.</p>
+ */
 export class DeleteBillingGroupCommand extends $Command<
   DeleteBillingGroupCommandInput,
   DeleteBillingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBillingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

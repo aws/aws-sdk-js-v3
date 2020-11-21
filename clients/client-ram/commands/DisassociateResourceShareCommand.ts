@@ -20,6 +20,9 @@ import {
 export type DisassociateResourceShareCommandInput = DisassociateResourceShareRequest;
 export type DisassociateResourceShareCommandOutput = DisassociateResourceShareResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified principals or resources from the specified resource share.</p>
+ */
 export class DisassociateResourceShareCommand extends $Command<
   DisassociateResourceShareCommandInput,
   DisassociateResourceShareCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateResourceShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
+ */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,
   ListUsersCommandOutput,
@@ -34,6 +37,9 @@ export class ListUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

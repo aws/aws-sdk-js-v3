@@ -20,6 +20,11 @@ import {
 export type DetachPrincipalPolicyCommandInput = DetachPrincipalPolicyRequest;
 export type DetachPrincipalPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified policy from the specified certificate.</p>
+ *          <p>
+ *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+ */
 export class DetachPrincipalPolicyCommand extends $Command<
   DetachPrincipalPolicyCommandInput,
   DetachPrincipalPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class DetachPrincipalPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

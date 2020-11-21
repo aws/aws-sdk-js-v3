@@ -20,6 +20,10 @@ import {
 export type UpdateDetectorVersionStatusCommandInput = UpdateDetectorVersionStatusRequest;
 export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult & __MetadataBearer;
 
+/**
+ * <p>Updates the detector version’s status. You can perform the following promotions or
+ *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
+ */
 export class UpdateDetectorVersionStatusCommand extends $Command<
   UpdateDetectorVersionStatusCommandInput,
   UpdateDetectorVersionStatusCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

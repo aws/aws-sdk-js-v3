@@ -20,6 +20,9 @@ import {
 export type GetGroupCommandInput = GetGroupInput;
 export type GetGroupCommandOutput = GetGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specified resource group.</p>
+ */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,
   GetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class GetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

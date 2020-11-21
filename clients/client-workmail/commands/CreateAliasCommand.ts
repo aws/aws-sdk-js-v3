@@ -20,6 +20,9 @@ import {
 export type CreateAliasCommandInput = CreateAliasRequest;
 export type CreateAliasCommandOutput = CreateAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
+ */
 export class CreateAliasCommand extends $Command<
   CreateAliasCommandInput,
   CreateAliasCommandOutput,
@@ -34,6 +37,9 @@ export class CreateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

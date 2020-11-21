@@ -20,6 +20,9 @@ import {
 export type DescribeHumanTaskUiCommandInput = DescribeHumanTaskUiRequest;
 export type DescribeHumanTaskUiCommandOutput = DescribeHumanTaskUiResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the requested human task user interface (worker task template).</p>
+ */
 export class DescribeHumanTaskUiCommand extends $Command<
   DescribeHumanTaskUiCommandInput,
   DescribeHumanTaskUiCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeHumanTaskUiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

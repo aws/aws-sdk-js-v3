@@ -20,6 +20,12 @@ import {
 export type DescribeTableCommandInput = DescribeTableRequest;
 export type DescribeTableCommandOutput = DescribeTableResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the table, including the table name, database name,
+ *       retention duration of the memory store and the magnetic store.
+ *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *       </p>
+ */
 export class DescribeTableCommand extends $Command<
   DescribeTableCommandInput,
   DescribeTableCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

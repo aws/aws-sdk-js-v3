@@ -20,6 +20,12 @@ import {
 export type PurchaseHostReservationCommandInput = PurchaseHostReservationRequest;
 export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult & __MetadataBearer;
 
+/**
+ * <p>Purchase a reservation with configurations that match those of your Dedicated Host.
+ *             You must have active Dedicated Hosts in your account before you purchase a reservation.
+ *             This action results in the specified reservation being purchased and charged to your
+ *             account.</p>
+ */
 export class PurchaseHostReservationCommand extends $Command<
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
@@ -34,6 +40,9 @@ export class PurchaseHostReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

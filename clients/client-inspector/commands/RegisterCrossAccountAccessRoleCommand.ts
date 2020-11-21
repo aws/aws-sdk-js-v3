@@ -20,6 +20,10 @@ import {
 export type RegisterCrossAccountAccessRoleCommandInput = RegisterCrossAccountAccessRoleRequest;
 export type RegisterCrossAccountAccessRoleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
+ *          perform security assessments.</p>
+ */
 export class RegisterCrossAccountAccessRoleCommand extends $Command<
   RegisterCrossAccountAccessRoleCommandInput,
   RegisterCrossAccountAccessRoleCommandOutput,
@@ -34,6 +38,9 @@ export class RegisterCrossAccountAccessRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

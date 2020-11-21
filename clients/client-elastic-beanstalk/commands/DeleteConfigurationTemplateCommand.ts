@@ -20,6 +20,14 @@ import {
 export type DeleteConfigurationTemplateCommandInput = DeleteConfigurationTemplateMessage;
 export type DeleteConfigurationTemplateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified configuration template.</p>
+ *          <note>
+ *             <p>When you launch an environment using a configuration template, the environment gets a
+ *         copy of the template. You can delete or modify the environment's copy of the template
+ *         without affecting the running environment.</p>
+ *          </note>
+ */
 export class DeleteConfigurationTemplateCommand extends $Command<
   DeleteConfigurationTemplateCommandInput,
   DeleteConfigurationTemplateCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

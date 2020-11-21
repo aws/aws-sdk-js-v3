@@ -20,6 +20,9 @@ import {
 export type GetDirectoryCommandInput = GetDirectoryRequest;
 export type GetDirectoryCommandOutput = GetDirectoryResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves metadata about a directory.</p>
+ */
 export class GetDirectoryCommand extends $Command<
   GetDirectoryCommandInput,
   GetDirectoryCommandOutput,
@@ -34,6 +37,9 @@ export class GetDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

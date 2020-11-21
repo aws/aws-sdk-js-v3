@@ -20,6 +20,9 @@ import {
 export type ListBusinessReportSchedulesCommandInput = ListBusinessReportSchedulesRequest;
 export type ListBusinessReportSchedulesCommandOutput = ListBusinessReportSchedulesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.</p>
+ */
 export class ListBusinessReportSchedulesCommand extends $Command<
   ListBusinessReportSchedulesCommandInput,
   ListBusinessReportSchedulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

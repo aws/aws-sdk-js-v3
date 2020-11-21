@@ -20,6 +20,48 @@ import {
 export type CreateDatasetImportJobCommandInput = CreateDatasetImportJobRequest;
 export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket) to an
+ *       Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an
+ *       AWS Identity and Access Management (IAM) role that has permission to read from the data source, as Amazon Personalize makes a
+ *       copy of your data and processes it in an internal AWS system.</p>
+ *          <important>
+ *             <p>The dataset import job replaces any previous data in the dataset.</p>
+ *          </important>
+ *          <p>
+ *             <b>Status</b>
+ *          </p>
+ *          <p>A dataset import job can be in one of the following states:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *             </li>
+ *          </ul>
+ *          <p>To get the status of the import job, call <a>DescribeDatasetImportJob</a>,
+ *       providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is
+ *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
+ *       includes a <code>failureReason</code> key, which describes why the job failed.</p>
+ *          <note>
+ *             <p>Importing takes time. You must wait until the status shows as ACTIVE before training a
+ *         model using the dataset.</p>
+ *          </note>
+ *
+ *          <p class="title">
+ *             <b>Related APIs</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListDatasetImportJobs</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeDatasetImportJob</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateDatasetImportJobCommand extends $Command<
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
@@ -34,6 +76,9 @@ export class CreateDatasetImportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AcceptInputDeviceTransferCommandInput = AcceptInputDeviceTransferRequest;
 export type AcceptInputDeviceTransferCommandOutput = AcceptInputDeviceTransferResponse & __MetadataBearer;
 
+/**
+ * Accept an incoming input device transfer. The ownership of the device will transfer to your AWS account.
+ */
 export class AcceptInputDeviceTransferCommand extends $Command<
   AcceptInputDeviceTransferCommandInput,
   AcceptInputDeviceTransferCommandOutput,
@@ -34,6 +37,9 @@ export class AcceptInputDeviceTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

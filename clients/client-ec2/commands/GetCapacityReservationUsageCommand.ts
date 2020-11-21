@@ -20,6 +20,11 @@ import {
 export type GetCapacityReservationUsageCommandInput = GetCapacityReservationUsageRequest;
 export type GetCapacityReservationUsageCommandOutput = GetCapacityReservationUsageResult & __MetadataBearer;
 
+/**
+ * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
+ * 			and each AWS account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
+ * 			the Capacity Reservation owner's usage.</p>
+ */
 export class GetCapacityReservationUsageCommand extends $Command<
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
@@ -34,6 +39,9 @@ export class GetCapacityReservationUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

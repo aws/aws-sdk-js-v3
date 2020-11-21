@@ -20,6 +20,9 @@ import {
 export type DeleteExpressionCommandInput = DeleteExpressionRequest;
 export type DeleteExpressionCommandOutput = DeleteExpressionResponse & __MetadataBearer;
 
+/**
+ * <p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DeleteExpressionCommand extends $Command<
   DeleteExpressionCommandInput,
   DeleteExpressionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteExpressionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

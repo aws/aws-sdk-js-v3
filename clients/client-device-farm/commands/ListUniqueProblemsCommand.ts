@@ -20,6 +20,13 @@ import {
 export type ListUniqueProblemsCommandInput = ListUniqueProblemsRequest;
 export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about unique problems, such as exceptions or crashes.</p>
+ *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
+ *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
+ *                 MyActivity.java:386</code>), <code>ListUniqueProblems</code> returns a single entry instead of many
+ *             individual entries for that exception.</p>
+ */
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,
   ListUniqueProblemsCommandOutput,
@@ -34,6 +41,9 @@ export class ListUniqueProblemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteNetworkProfileCommandInput = DeleteNetworkProfileRequest;
 export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a network profile by the network profile ARN.</p>
+ */
 export class DeleteNetworkProfileCommand extends $Command<
   DeleteNetworkProfileCommandInput,
   DeleteNetworkProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

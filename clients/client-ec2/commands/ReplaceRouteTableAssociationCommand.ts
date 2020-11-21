@@ -20,6 +20,13 @@ import {
 export type ReplaceRouteTableAssociationCommandInput = ReplaceRouteTableAssociationRequest;
 export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult & __MetadataBearer;
 
+/**
+ * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
+ *       completes, the subnet or gateway uses the routes in the new route table. For more
+ *       information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
+ *         Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
+ */
 export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandInput,
   ReplaceRouteTableAssociationCommandOutput,
@@ -34,6 +41,9 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

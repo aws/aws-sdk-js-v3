@@ -20,6 +20,9 @@ import {
 export type DescribeBrokerEngineTypesCommandInput = DescribeBrokerEngineTypesRequest;
 export type DescribeBrokerEngineTypesCommandOutput = DescribeBrokerEngineTypesResponse & __MetadataBearer;
 
+/**
+ * Describe available engine types and versions.
+ */
 export class DescribeBrokerEngineTypesCommand extends $Command<
   DescribeBrokerEngineTypesCommandInput,
   DescribeBrokerEngineTypesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type StartApplicationCommandInput = StartApplicationRequest;
 export type StartApplicationCommandOutput = StartApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the specified Kinesis Data Analytics application. After creating an application, you must exclusively call this operation to
+ *       start your application.</p>
+ */
 export class StartApplicationCommand extends $Command<
   StartApplicationCommandInput,
   StartApplicationCommandOutput,
@@ -38,6 +42,9 @@ export class StartApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListAvailableSolutionStacksCommandInput = {};
 export type ListAvailableSolutionStacksCommandOutput = ListAvailableSolutionStacksResultMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the available solution stack names, with the public version first and
+ *       then in reverse chronological order.</p>
+ */
 export class ListAvailableSolutionStacksCommand extends $Command<
   ListAvailableSolutionStacksCommandInput,
   ListAvailableSolutionStacksCommandOutput,
@@ -34,6 +38,9 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

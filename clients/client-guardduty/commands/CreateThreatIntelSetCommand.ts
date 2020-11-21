@@ -20,6 +20,11 @@ import {
 export type CreateThreatIntelSetCommandInput = CreateThreatIntelSetRequest;
 export type CreateThreatIntelSetCommandOutput = CreateThreatIntelSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
+ *       GuardDuty generates findings based on ThreatIntelSets. Only users of the master account can
+ *       use this operation.</p>
+ */
 export class CreateThreatIntelSetCommand extends $Command<
   CreateThreatIntelSetCommandInput,
   CreateThreatIntelSetCommandOutput,
@@ -34,6 +39,9 @@ export class CreateThreatIntelSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type SearchDashboardsCommandInput = SearchDashboardsRequest;
 export type SearchDashboardsCommandOutput = SearchDashboardsResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for dashboards that belong to a user. </p>
+ */
 export class SearchDashboardsCommand extends $Command<
   SearchDashboardsCommandInput,
   SearchDashboardsCommandOutput,
@@ -34,6 +37,9 @@ export class SearchDashboardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

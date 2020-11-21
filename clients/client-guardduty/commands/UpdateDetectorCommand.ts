@@ -20,6 +20,9 @@ import {
 export type UpdateDetectorCommandInput = UpdateDetectorRequest;
 export type UpdateDetectorCommandOutput = UpdateDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
+ */
 export class UpdateDetectorCommand extends $Command<
   UpdateDetectorCommandInput,
   UpdateDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeAlarmHistoryCommandInput = DescribeAlarmHistoryInput;
 export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
+ * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
+ * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
+ */
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAlarmHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

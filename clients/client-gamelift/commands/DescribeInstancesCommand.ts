@@ -20,6 +20,39 @@ import {
 export type DescribeInstancesCommandInput = DescribeInstancesInput;
 export type DescribeInstancesCommandOutput = DescribeInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a fleet's instances, including instance IDs. Use this
+ *             operation to get details on all instances in the fleet or get details on one specific
+ *             instance.</p>
+ *         <p>To get a specific instance, specify fleet ID and instance ID. To get all instances
+ *             in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
+ *             as a set of sequential pages. If successful, an <a>Instance</a> object is
+ *             returned for each result.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet Instances</a>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet Issues</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeInstances</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetInstanceAccess</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,
   DescribeInstancesCommandOutput,
@@ -34,6 +67,9 @@ export class DescribeInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

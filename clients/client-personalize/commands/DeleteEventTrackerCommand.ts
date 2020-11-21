@@ -20,6 +20,11 @@ import {
 export type DeleteEventTrackerCommandInput = DeleteEventTrackerRequest;
 export type DeleteEventTrackerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
+ *         the associated dataset group. For more
+ *         information on event trackers, see <a>CreateEventTracker</a>.</p>
+ */
 export class DeleteEventTrackerCommand extends $Command<
   DeleteEventTrackerCommandInput,
   DeleteEventTrackerCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteEventTrackerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

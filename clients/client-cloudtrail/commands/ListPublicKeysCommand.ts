@@ -20,6 +20,12 @@ import {
 export type ListPublicKeysCommandInput = ListPublicKeysRequest;
 export type ListPublicKeysCommandOutput = ListPublicKeysResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p>
+ *          <note>
+ *             <p>CloudTrail uses different private/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.</p>
+ *          </note>
+ */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
@@ -34,6 +40,9 @@ export class ListPublicKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

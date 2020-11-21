@@ -20,6 +20,10 @@ import {
 export type DeleteAccountAssignmentCommandInput = DeleteAccountAssignmentRequest;
 export type DeleteAccountAssignmentCommandOutput = DeleteAccountAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a principal's access from a specified AWS account using a specified permission
+ *       set.</p>
+ */
 export class DeleteAccountAssignmentCommand extends $Command<
   DeleteAccountAssignmentCommandInput,
   DeleteAccountAssignmentCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAccountAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

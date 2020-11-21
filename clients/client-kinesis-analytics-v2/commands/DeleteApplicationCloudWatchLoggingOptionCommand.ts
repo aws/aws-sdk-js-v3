@@ -28,6 +28,9 @@ export type DeleteApplicationCloudWatchLoggingOptionCommandInput = DeleteApplica
 export type DeleteApplicationCloudWatchLoggingOptionCommandOutput = DeleteApplicationCloudWatchLoggingOptionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application. </p>
+ */
 export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
   DeleteApplicationCloudWatchLoggingOptionCommandInput,
   DeleteApplicationCloudWatchLoggingOptionCommandOutput,
@@ -42,6 +45,9 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

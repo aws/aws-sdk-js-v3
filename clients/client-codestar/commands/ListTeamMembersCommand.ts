@@ -20,6 +20,9 @@ import {
 export type ListTeamMembersCommandInput = ListTeamMembersRequest;
 export type ListTeamMembersCommandOutput = ListTeamMembersResult & __MetadataBearer;
 
+/**
+ * <p>Lists all team members associated with a project.</p>
+ */
 export class ListTeamMembersCommand extends $Command<
   ListTeamMembersCommandInput,
   ListTeamMembersCommandOutput,
@@ -34,6 +37,9 @@ export class ListTeamMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

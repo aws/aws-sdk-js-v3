@@ -20,6 +20,9 @@ import {
 export type UpdateWorkteamCommandInput = UpdateWorkteamRequest;
 export type UpdateWorkteamCommandOutput = UpdateWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing work team with new member definitions or description.</p>
+ */
 export class UpdateWorkteamCommand extends $Command<
   UpdateWorkteamCommandInput,
   UpdateWorkteamCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

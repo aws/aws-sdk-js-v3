@@ -20,6 +20,9 @@ import {
 export type GetProfileCommandInput = GetProfileRequest;
 export type GetProfileCommandOutput = GetProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the details of a room profile by profile ARN.</p>
+ */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,
   GetProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

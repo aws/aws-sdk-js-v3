@@ -20,6 +20,21 @@ import {
 export type GetConfigurationCommandInput = GetConfigurationRequest;
 export type GetConfigurationCommandOutput = Configuration & __MetadataBearer;
 
+/**
+ * <p>Receive information about a configuration.</p>
+ *          <important>
+ *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+ *             to identify the configuration version on your clients. If you don’t send
+ *                <code>ClientConfigurationVersion</code> with each call to
+ *                <code>GetConfiguration</code>, your clients receive the current configuration. You
+ *             are charged each time your clients receive a configuration.</p>
+ *             <p>To avoid excess charges, we recommend that you include the
+ *                <code>ClientConfigurationVersion</code> value with every call to
+ *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
+ *             calls to <code>GetConfiguration</code> must pass this value by using the
+ *                <code>ClientConfigurationVersion</code> parameter. </p>
+ *          </important>
+ */
 export class GetConfigurationCommand extends $Command<
   GetConfigurationCommandInput,
   GetConfigurationCommandOutput,
@@ -34,6 +49,9 @@ export class GetConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeTrafficMirrorTargetsCommandInput = DescribeTrafficMirrorTargetsRequest;
 export type DescribeTrafficMirrorTargetsCommandOutput = DescribeTrafficMirrorTargetsResult & __MetadataBearer;
 
+/**
+ * <p>Information about one or more Traffic Mirror targets.</p>
+ */
 export class DescribeTrafficMirrorTargetsCommand extends $Command<
   DescribeTrafficMirrorTargetsCommandInput,
   DescribeTrafficMirrorTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

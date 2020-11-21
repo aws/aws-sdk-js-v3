@@ -24,6 +24,9 @@ import {
 export type DeleteReplicationSubnetGroupCommandInput = DeleteReplicationSubnetGroupMessage;
 export type DeleteReplicationSubnetGroupCommandOutput = DeleteReplicationSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a subnet group.</p>
+ */
 export class DeleteReplicationSubnetGroupCommand extends $Command<
   DeleteReplicationSubnetGroupCommandInput,
   DeleteReplicationSubnetGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

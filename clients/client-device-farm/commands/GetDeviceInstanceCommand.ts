@@ -20,6 +20,9 @@ import {
 export type GetDeviceInstanceCommandInput = GetDeviceInstanceRequest;
 export type GetDeviceInstanceCommandOutput = GetDeviceInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a device instance that belongs to a private device fleet.</p>
+ */
 export class GetDeviceInstanceCommand extends $Command<
   GetDeviceInstanceCommandInput,
   GetDeviceInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeviceInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

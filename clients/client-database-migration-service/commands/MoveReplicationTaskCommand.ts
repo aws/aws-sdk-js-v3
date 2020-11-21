@@ -24,6 +24,12 @@ import {
 export type MoveReplicationTaskCommandInput = MoveReplicationTaskMessage;
 export type MoveReplicationTaskCommandOutput = MoveReplicationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Moves a replication task from its current replication instance to a different target
+ *          replication instance using the specified parameters. The target replication instance must
+ *          be created with the same or later AWS DMS version as the current replication
+ *          instance.</p>
+ */
 export class MoveReplicationTaskCommand extends $Command<
   MoveReplicationTaskCommandInput,
   MoveReplicationTaskCommandOutput,
@@ -38,6 +44,9 @@ export class MoveReplicationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

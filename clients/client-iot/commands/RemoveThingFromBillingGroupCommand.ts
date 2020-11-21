@@ -20,6 +20,9 @@ import {
 export type RemoveThingFromBillingGroupCommandInput = RemoveThingFromBillingGroupRequest;
 export type RemoveThingFromBillingGroupCommandOutput = RemoveThingFromBillingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the given thing from the billing group.</p>
+ */
 export class RemoveThingFromBillingGroupCommand extends $Command<
   RemoveThingFromBillingGroupCommandInput,
   RemoveThingFromBillingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

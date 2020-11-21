@@ -20,6 +20,10 @@ import {
 export type DescribeDatasetCommandInput = DescribeDatasetRequest;
 export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the definition of a specific AWS Glue DataBrew dataset that is in the current
+ *             AWS account.</p>
+ */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,
   DescribeDatasetCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

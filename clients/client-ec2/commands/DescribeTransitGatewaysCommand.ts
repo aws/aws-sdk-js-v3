@@ -20,6 +20,10 @@ import {
 export type DescribeTransitGatewaysCommandInput = DescribeTransitGatewaysRequest;
 export type DescribeTransitGatewaysCommandOutput = DescribeTransitGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
+ *          filter the results.</p>
+ */
 export class DescribeTransitGatewaysCommand extends $Command<
   DescribeTransitGatewaysCommandInput,
   DescribeTransitGatewaysCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeTransitGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

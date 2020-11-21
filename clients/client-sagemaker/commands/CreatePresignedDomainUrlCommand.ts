@@ -20,6 +20,18 @@ import {
 export type CreatePresignedDomainUrlCommandInput = CreatePresignedDomainUrlRequest;
 export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
+ *        the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of
+ *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
+ *        This operation can only be called when the authentication mode equals IAM.
+ *    </p>
+ *          <note>
+ *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
+ *             only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
+ *             are directed to the AWS console sign-in page.</p>
+ *          </note>
+ */
 export class CreatePresignedDomainUrlCommand extends $Command<
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
@@ -34,6 +46,9 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

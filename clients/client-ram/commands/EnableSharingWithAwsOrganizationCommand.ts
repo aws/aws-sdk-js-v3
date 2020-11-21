@@ -20,6 +20,10 @@ import {
 export type EnableSharingWithAwsOrganizationCommandInput = EnableSharingWithAwsOrganizationRequest;
 export type EnableSharingWithAwsOrganizationCommandOutput = EnableSharingWithAwsOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Enables resource sharing within your AWS Organization.</p>
+ *          <p>The caller must be the master account for the AWS Organization.</p>
+ */
 export class EnableSharingWithAwsOrganizationCommand extends $Command<
   EnableSharingWithAwsOrganizationCommandInput,
   EnableSharingWithAwsOrganizationCommandOutput,
@@ -34,6 +38,9 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

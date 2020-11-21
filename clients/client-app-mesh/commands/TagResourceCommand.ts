@@ -20,6 +20,12 @@ import {
 export type TagResourceCommandInput = TagResourceInput;
 export type TagResourceCommandOutput = TagResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>.
+ *          If existing tags on a resource aren't specified in the request parameters, they aren't
+ *          changed. When a resource is deleted, the tags associated with that resource are also
+ *          deleted.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +40,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

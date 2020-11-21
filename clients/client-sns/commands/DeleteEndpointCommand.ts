@@ -20,6 +20,13 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointInput;
 export type DeleteEndpointCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
+ *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
+ *             Notifications</a>. </p>
+ *         <p>When you delete an endpoint that is also subscribed to a topic, then you must also
+ *             unsubscribe the endpoint from the topic.</p>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

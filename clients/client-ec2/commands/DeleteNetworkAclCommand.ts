@@ -20,6 +20,9 @@ import {
 export type DeleteNetworkAclCommandInput = DeleteNetworkAclRequest;
 export type DeleteNetworkAclCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
+ */
 export class DeleteNetworkAclCommand extends $Command<
   DeleteNetworkAclCommandInput,
   DeleteNetworkAclCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNetworkAclCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

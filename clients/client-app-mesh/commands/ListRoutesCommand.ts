@@ -20,6 +20,9 @@ import {
 export type ListRoutesCommandInput = ListRoutesInput;
 export type ListRoutesCommandOutput = ListRoutesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing routes in a service mesh.</p>
+ */
 export class ListRoutesCommand extends $Command<
   ListRoutesCommandInput,
   ListRoutesCommandOutput,
@@ -34,6 +37,9 @@ export class ListRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

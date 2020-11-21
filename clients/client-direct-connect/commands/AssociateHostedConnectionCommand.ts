@@ -20,6 +20,16 @@ import {
 export type AssociateHostedConnectionCommandInput = AssociateHostedConnectionRequest;
 export type AssociateHostedConnectionCommandOutput = Connection & __MetadataBearer;
 
+/**
+ * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
+ *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
+ *       connection with a conflicting VLAN number or IP address, the operation fails. This
+ *       action temporarily interrupts the hosted connection's connectivity to AWS as it is being
+ *       migrated.</p>
+ *          <note>
+ *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class AssociateHostedConnectionCommand extends $Command<
   AssociateHostedConnectionCommandInput,
   AssociateHostedConnectionCommandOutput,
@@ -34,6 +44,9 @@ export class AssociateHostedConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

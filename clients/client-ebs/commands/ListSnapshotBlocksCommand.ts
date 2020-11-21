@@ -20,6 +20,9 @@ import {
 export type ListSnapshotBlocksCommandInput = ListSnapshotBlocksRequest;
 export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
+ */
 export class ListSnapshotBlocksCommand extends $Command<
   ListSnapshotBlocksCommandInput,
   ListSnapshotBlocksCommandOutput,
@@ -34,6 +37,9 @@ export class ListSnapshotBlocksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EBSClientResolvedConfig,

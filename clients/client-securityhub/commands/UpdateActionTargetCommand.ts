@@ -20,6 +20,9 @@ import {
 export type UpdateActionTargetCommandInput = UpdateActionTargetRequest;
 export type UpdateActionTargetCommandOutput = UpdateActionTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the name and description of a custom action target in Security Hub.</p>
+ */
 export class UpdateActionTargetCommand extends $Command<
   UpdateActionTargetCommandInput,
   UpdateActionTargetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateActionTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

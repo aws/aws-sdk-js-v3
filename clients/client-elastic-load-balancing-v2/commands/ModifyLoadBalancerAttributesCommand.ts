@@ -24,6 +24,12 @@ import {
 export type ModifyLoadBalancerAttributesCommandInput = ModifyLoadBalancerAttributesInput;
 export type ModifyLoadBalancerAttributesCommandOutput = ModifyLoadBalancerAttributesOutput & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
+ *       Balancer, or Gateway Load Balancer.</p>
+ *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
+ *       existing attributes that you do not modify retain their current values.</p>
+ */
 export class ModifyLoadBalancerAttributesCommand extends $Command<
   ModifyLoadBalancerAttributesCommandInput,
   ModifyLoadBalancerAttributesCommandOutput,
@@ -38,6 +44,9 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

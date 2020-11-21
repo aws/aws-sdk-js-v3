@@ -24,6 +24,9 @@ import {
 export type DescribeComponentConfigurationCommandInput = DescribeComponentConfigurationRequest;
 export type DescribeComponentConfigurationCommandOutput = DescribeComponentConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the monitoring configuration of the component.</p>
+ */
 export class DescribeComponentConfigurationCommand extends $Command<
   DescribeComponentConfigurationCommandInput,
   DescribeComponentConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeComponentConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

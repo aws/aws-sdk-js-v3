@@ -20,6 +20,9 @@ import {
 export type UpdateDataSourcePermissionsCommandInput = UpdateDataSourcePermissionsRequest;
 export type UpdateDataSourcePermissionsCommandOutput = UpdateDataSourcePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the permissions to a data source.</p>
+ */
 export class UpdateDataSourcePermissionsCommand extends $Command<
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

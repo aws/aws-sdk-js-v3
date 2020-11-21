@@ -20,6 +20,11 @@ import {
 export type RevokeCacheSecurityGroupIngressCommandInput = RevokeCacheSecurityGroupIngressMessage;
 export type RevokeCacheSecurityGroupIngressCommandOutput = RevokeCacheSecurityGroupIngressResult & __MetadataBearer;
 
+/**
+ * <p>Revokes ingress from a cache security group.
+ *             Use this operation to disallow access from an Amazon EC2 security group
+ *             that had been previously authorized.</p>
+ */
 export class RevokeCacheSecurityGroupIngressCommand extends $Command<
   RevokeCacheSecurityGroupIngressCommandInput,
   RevokeCacheSecurityGroupIngressCommandOutput,
@@ -34,6 +39,9 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type DescribeAssetPropertyCommandInput = DescribeAssetPropertyRequest;
 export type DescribeAssetPropertyCommandOutput = DescribeAssetPropertyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about an asset property.</p>
+ *          <note>
+ *             <p>When you call this operation for an attribute property, this response includes the
+ *         default attribute value that you define in the asset model. If you update the default value
+ *         in the model, this operation's response includes the new default value.</p>
+ *          </note>
+ *          <p>This operation doesn't return the value of the asset property. To get the value of an
+ *       asset property, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html">GetAssetPropertyValue</a>.</p>
+ */
 export class DescribeAssetPropertyCommand extends $Command<
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeAssetPropertyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

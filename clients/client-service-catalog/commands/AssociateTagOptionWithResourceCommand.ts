@@ -20,6 +20,9 @@ import {
 export type AssociateTagOptionWithResourceCommandInput = AssociateTagOptionWithResourceInput;
 export type AssociateTagOptionWithResourceCommandOutput = AssociateTagOptionWithResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Associate the specified TagOption with the specified portfolio or product.</p>
+ */
 export class AssociateTagOptionWithResourceCommand extends $Command<
   AssociateTagOptionWithResourceCommandInput,
   AssociateTagOptionWithResourceCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

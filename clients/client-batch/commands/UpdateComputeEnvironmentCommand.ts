@@ -20,6 +20,9 @@ import {
 export type UpdateComputeEnvironmentCommandInput = UpdateComputeEnvironmentRequest;
 export type UpdateComputeEnvironmentCommandOutput = UpdateComputeEnvironmentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an AWS Batch compute environment.</p>
+ */
 export class UpdateComputeEnvironmentCommand extends $Command<
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

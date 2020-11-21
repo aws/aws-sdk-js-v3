@@ -24,6 +24,17 @@ import {
 export type DeprovisionByoipCidrCommandInput = DeprovisionByoipCidrRequest;
 export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResponse & __MetadataBearer;
 
+/**
+ * <p>Releases the specified address range that you provisioned to use with your AWS resources
+ * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. To
+ * 			see an AWS CLI example of deprovisioning an address range, scroll down to
+ * 			<b>Example</b>.</p>
+ * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
+ * 			any accelerators that are using static IP addresses allocated from its address range.
+ * 		</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+ * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ */
 export class DeprovisionByoipCidrCommand extends $Command<
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
@@ -38,6 +49,9 @@ export class DeprovisionByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

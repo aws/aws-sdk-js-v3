@@ -20,6 +20,10 @@ import {
 export type ModifyClusterSnapshotCommandInput = ModifyClusterSnapshotMessage;
 export type ModifyClusterSnapshotCommandOutput = ModifyClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a snapshot.</p>
+ * 		       <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
+ */
 export class ModifyClusterSnapshotCommand extends $Command<
   ModifyClusterSnapshotCommandInput,
   ModifyClusterSnapshotCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

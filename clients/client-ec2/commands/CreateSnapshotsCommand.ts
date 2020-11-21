@@ -17,6 +17,12 @@ import {
 export type CreateSnapshotsCommandInput = CreateSnapshotsRequest;
 export type CreateSnapshotsCommandOutput = CreateSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
+ *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
+ *     each that is crash-consistent across the instance. Boot volumes can be excluded by changing the
+ *     parameters. </p>
+ */
 export class CreateSnapshotsCommand extends $Command<
   CreateSnapshotsCommandInput,
   CreateSnapshotsCommandOutput,
@@ -31,6 +37,9 @@ export class CreateSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

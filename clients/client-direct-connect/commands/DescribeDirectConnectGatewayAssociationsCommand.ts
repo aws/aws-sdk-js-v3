@@ -24,6 +24,15 @@ export type DescribeDirectConnectGatewayAssociationsCommandInput = DescribeDirec
 export type DescribeDirectConnectGatewayAssociationsCommandOutput = DescribeDirectConnectGatewayAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Lists the associations between your Direct Connect gateways and virtual private gateways.
+ *       You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify
+ *       a Direct Connect gateway, the response contains all virtual private gateways associated with
+ *       the Direct Connect gateway. If you specify a virtual private gateway, the response contains
+ *       all Direct Connect gateways associated with the virtual private gateway. If you specify both,
+ *       the response contains the association between the Direct Connect gateway and the virtual
+ *       private gateway.</p>
+ */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
   DescribeDirectConnectGatewayAssociationsCommandInput,
   DescribeDirectConnectGatewayAssociationsCommandOutput,
@@ -38,6 +47,9 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ListContactsCommandInput = ListContactsRequest;
 export type ListContactsCommandOutput = ListContactsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of contacts.</p>
+ *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
+ *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
+ *       </p>
+ */
 export class ListContactsCommand extends $Command<
   ListContactsCommandInput,
   ListContactsCommandOutput,
@@ -34,6 +40,9 @@ export class ListContactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DisassociateSkillFromSkillGroupCommandInput = DisassociateSkillFromSkillGroupRequest;
 export type DisassociateSkillFromSkillGroupCommandOutput = DisassociateSkillFromSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a skill from a skill group.</p>
+ */
 export class DisassociateSkillFromSkillGroupCommand extends $Command<
   DisassociateSkillFromSkillGroupCommandInput,
   DisassociateSkillFromSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeInputSecurityGroupCommandInput = DescribeInputSecurityGroupRequest;
 export type DescribeInputSecurityGroupCommandOutput = DescribeInputSecurityGroupResponse & __MetadataBearer;
 
+/**
+ * Produces a summary of an Input Security Group
+ */
 export class DescribeInputSecurityGroupCommand extends $Command<
   DescribeInputSecurityGroupCommandInput,
   DescribeInputSecurityGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

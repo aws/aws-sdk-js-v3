@@ -20,6 +20,16 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceMessage;
 export type ListTagsForResourceCommandOutput = TagListMessage & __MetadataBearer;
 
+/**
+ * <p>Lists all cost allocation tags currently on the named resource.
+ *             A <code>cost allocation tag</code> is a key-value pair where the key is case-sensitive and the value is optional.
+ *             You can use cost allocation tags to categorize and track your AWS costs.</p>
+ *         <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
+ *             returns an error.</p>
+ *
+ *         <p>You can have a maximum of 50 cost allocation tags on an ElastiCache resource.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Monitoring Costs with Tags</a>.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +44,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

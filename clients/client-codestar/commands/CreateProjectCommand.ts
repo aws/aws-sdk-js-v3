@@ -20,6 +20,11 @@ import {
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResult & __MetadataBearer;
 
+/**
+ * <p>Creates a project, including project resources. This action creates a project based on
+ *       a submitted project request. A set of source code files and a toolchain template file
+ *       can be included with the project request. If these are not provided, an empty project is created.</p>
+ */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -34,6 +39,9 @@ export class CreateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

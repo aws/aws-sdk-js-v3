@@ -24,6 +24,10 @@ export type PutConfigurationSetTrackingOptionsCommandInput = PutConfigurationSet
 export type PutConfigurationSetTrackingOptionsCommandOutput = PutConfigurationSetTrackingOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Specify a custom domain to use for open and click tracking elements in email that you
+ *             send using Amazon Pinpoint.</p>
+ */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<
   PutConfigurationSetTrackingOptionsCommandInput,
   PutConfigurationSetTrackingOptionsCommandOutput,
@@ -38,6 +42,9 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

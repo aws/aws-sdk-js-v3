@@ -24,6 +24,15 @@ import {
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
 export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the AWS DMS attributes for a customer account. These attributes include AWS
+ *          DMS quotas for the account and a unique account identifier in a particular DMS region. DMS
+ *          quotas include a list of resource quotas supported by the account, such as the number of
+ *          replication instances allowed. The description for each resource quota, includes the quota
+ *          name, current usage toward that quota, and the quota's maximum value. DMS uses the unique
+ *          account identifier to name each artifact used by DMS in the given region.</p>
+ *          <p>This command does not take any parameters.</p>
+ */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -38,6 +47,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

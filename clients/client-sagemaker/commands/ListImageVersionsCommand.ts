@@ -20,6 +20,10 @@ import {
 export type ListImageVersionsCommandInput = ListImageVersionsRequest;
 export type ListImageVersionsCommandOutput = ListImageVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the versions of a specified image and their properties. The list can be filtered
+ *         by creation time or modified time.</p>
+ */
 export class ListImageVersionsCommand extends $Command<
   ListImageVersionsCommandInput,
   ListImageVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListImageVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeSharedDirectoriesCommandInput = DescribeSharedDirectoriesRequest;
 export type DescribeSharedDirectoriesCommandOutput = DescribeSharedDirectoriesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the shared directories in your account. </p>
+ */
 export class DescribeSharedDirectoriesCommand extends $Command<
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetRelationalDatabaseEventsCommandInput = GetRelationalDatabaseEventsRequest;
 export type GetRelationalDatabaseEventsCommandOutput = GetRelationalDatabaseEventsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of events for a specific database in Amazon Lightsail.</p>
+ */
 export class GetRelationalDatabaseEventsCommand extends $Command<
   GetRelationalDatabaseEventsCommandInput,
   GetRelationalDatabaseEventsCommandOutput,
@@ -34,6 +37,9 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

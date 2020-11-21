@@ -20,6 +20,9 @@ import {
 export type DeleteRetentionConfigurationCommandInput = DeleteRetentionConfigurationRequest;
 export type DeleteRetentionConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the retention configuration.</p>
+ */
 export class DeleteRetentionConfigurationCommand extends $Command<
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRetentionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

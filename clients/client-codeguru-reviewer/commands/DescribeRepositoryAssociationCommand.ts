@@ -20,6 +20,14 @@ import {
 export type DescribeRepositoryAssociationCommandInput = DescribeRepositoryAssociationRequest;
 export type DescribeRepositoryAssociationCommandOutput = DescribeRepositoryAssociationResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
+ *                <code>RepositoryAssociation</code>
+ *             </a> object
+ *          that contains information about the requested repository association.
+ *       </p>
+ */
 export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandInput,
   DescribeRepositoryAssociationCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

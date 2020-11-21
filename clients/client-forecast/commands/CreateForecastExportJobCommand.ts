@@ -20,6 +20,22 @@ import {
 export type CreateForecastExportJobCommandInput = CreateForecastExportJobRequest;
 export type CreateForecastExportJobCommandOutput = CreateForecastExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
+ *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
+ *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
+ *          <p>where the <ExportTimestamp> component is in Java SimpleDateFormat
+ *       (yyyy-MM-ddTHH-mm-ssZ).</p>
+ *          <p>You must specify a <a>DataDestination</a> object that includes an AWS Identity and Access Management
+ *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
+ *         <a>aws-forecast-iam-roles</a>.</p>
+ *          <p>For more information, see <a>howitworks-forecast</a>.</p>
+ *          <p>To get a list of all your forecast export jobs, use the <a>ListForecastExportJobs</a> operation.</p>
+ *          <note>
+ *             <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
+ *         you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
+ *          </note>
+ */
 export class CreateForecastExportJobCommand extends $Command<
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput,
@@ -34,6 +50,9 @@ export class CreateForecastExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

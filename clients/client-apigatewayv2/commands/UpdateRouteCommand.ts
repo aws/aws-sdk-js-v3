@@ -20,6 +20,9 @@ import {
 export type UpdateRouteCommandInput = UpdateRouteRequest;
 export type UpdateRouteCommandOutput = UpdateRouteResult & __MetadataBearer;
 
+/**
+ * <p>Updates a Route.</p>
+ */
 export class UpdateRouteCommand extends $Command<
   UpdateRouteCommandInput,
   UpdateRouteCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

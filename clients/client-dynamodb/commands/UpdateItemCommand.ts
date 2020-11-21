@@ -20,6 +20,11 @@ import {
 export type UpdateItemCommandInput = UpdateItemInput;
 export type UpdateItemCommandOutput = UpdateItemOutput & __MetadataBearer;
 
+/**
+ * <p>Edits an existing item's attributes, or adds a new item to the table if it does not already exist. You can put, delete, or add attribute values. You can also perform a conditional update on an existing item (insert a new attribute name-value pair if it doesn't exist, or replace an existing name-value pair if it has certain expected attribute values).</p>
+ *          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
+ *       operation using the <code>ReturnValues</code> parameter.</p>
+ */
 export class UpdateItemCommand extends $Command<
   UpdateItemCommandInput,
   UpdateItemCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateItemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

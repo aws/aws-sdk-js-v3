@@ -20,6 +20,13 @@ import {
 export type CreateHyperParameterTuningJobCommandInput = CreateHyperParameterTuningJobRequest;
 export type CreateHyperParameterTuningJobCommandOutput = CreateHyperParameterTuningJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
+ *             of a model by running many training jobs on your dataset using the algorithm you choose
+ *             and values for hyperparameters within ranges that you specify. It then chooses the
+ *             hyperparameter values that result in a model that performs the best, as measured by an
+ *             objective metric that you choose.</p>
+ */
 export class CreateHyperParameterTuningJobCommand extends $Command<
   CreateHyperParameterTuningJobCommandInput,
   CreateHyperParameterTuningJobCommandOutput,
@@ -34,6 +41,9 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

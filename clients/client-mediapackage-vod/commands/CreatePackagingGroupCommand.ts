@@ -20,6 +20,9 @@ import {
 export type CreatePackagingGroupCommandInput = CreatePackagingGroupRequest;
 export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse & __MetadataBearer;
 
+/**
+ * Creates a new MediaPackage VOD PackagingGroup resource.
+ */
 export class CreatePackagingGroupCommand extends $Command<
   CreatePackagingGroupCommandInput,
   CreatePackagingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePackagingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

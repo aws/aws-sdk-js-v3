@@ -20,6 +20,9 @@ import {
 export type DescribeThingGroupCommandInput = DescribeThingGroupRequest;
 export type DescribeThingGroupCommandOutput = DescribeThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Describe a thing group.</p>
+ */
 export class DescribeThingGroupCommand extends $Command<
   DescribeThingGroupCommandInput,
   DescribeThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

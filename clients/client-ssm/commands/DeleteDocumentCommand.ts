@@ -20,6 +20,10 @@ import {
 export type DeleteDocumentCommandInput = DeleteDocumentRequest;
 export type DeleteDocumentCommandOutput = DeleteDocumentResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the Systems Manager document and all instance associations to the document.</p>
+ *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>
+ */
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,
   DeleteDocumentCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

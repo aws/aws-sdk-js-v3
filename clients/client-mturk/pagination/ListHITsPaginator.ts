@@ -4,6 +4,9 @@ import { ListHITsCommand, ListHITsCommandInput, ListHITsCommandOutput } from "..
 import { MTurkPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MTurkClient,
   input: ListHITsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHITsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MTurk,
   input: ListHITsCommandInput,

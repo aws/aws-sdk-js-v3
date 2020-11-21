@@ -20,6 +20,11 @@ import {
 export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyRequest;
 export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates the lifecycle policy for the specified repository. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle Policy
+ *                 Template</a>.</p>
+ */
 export class PutLifecyclePolicyCommand extends $Command<
   PutLifecyclePolicyCommandInput,
   PutLifecyclePolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

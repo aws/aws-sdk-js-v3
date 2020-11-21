@@ -20,6 +20,9 @@ import {
 export type SetTypeDefaultVersionCommandInput = SetTypeDefaultVersionInput;
 export type SetTypeDefaultVersionCommandOutput = SetTypeDefaultVersionOutput & __MetadataBearer;
 
+/**
+ * <p>Specify the default version of a type. The default version of a type will be used in CloudFormation operations.</p>
+ */
 export class SetTypeDefaultVersionCommand extends $Command<
   SetTypeDefaultVersionCommandInput,
   SetTypeDefaultVersionCommandOutput,
@@ -34,6 +37,9 @@ export class SetTypeDefaultVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type AddAttributesToFindingsCommandInput = AddAttributesToFindingsRequest;
 export type AddAttributesToFindingsCommandOutput = AddAttributesToFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
+ *          ARNs of the findings.</p>
+ */
 export class AddAttributesToFindingsCommand extends $Command<
   AddAttributesToFindingsCommandInput,
   AddAttributesToFindingsCommandOutput,
@@ -34,6 +38,9 @@ export class AddAttributesToFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

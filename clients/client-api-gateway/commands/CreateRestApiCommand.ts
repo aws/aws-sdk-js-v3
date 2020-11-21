@@ -20,6 +20,9 @@ import {
 export type CreateRestApiCommandInput = CreateRestApiRequest;
 export type CreateRestApiCommandOutput = RestApi & __MetadataBearer;
 
+/**
+ * <p>Creates a new <a>RestApi</a> resource.</p>
+ */
 export class CreateRestApiCommand extends $Command<
   CreateRestApiCommandInput,
   CreateRestApiCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

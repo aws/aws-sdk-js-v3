@@ -20,6 +20,9 @@ import {
 export type StartAuditMitigationActionsTaskCommandInput = StartAuditMitigationActionsTaskRequest;
 export type StartAuditMitigationActionsTaskCommandOutput = StartAuditMitigationActionsTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ */
 export class StartAuditMitigationActionsTaskCommand extends $Command<
   StartAuditMitigationActionsTaskCommandInput,
   StartAuditMitigationActionsTaskCommandOutput,
@@ -34,6 +37,9 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

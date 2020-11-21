@@ -20,6 +20,15 @@ import {
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
 export type DeleteDBClusterCommandOutput = DeleteDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
+ *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
+ *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+ *
+ *          <p>Note that the DB Cluster cannot be deleted if deletion protection is enabled.  To
+ *       delete it, you must first set its <code>DeletionProtection</code> field to
+ *       <code>False</code>.</p>
+ */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

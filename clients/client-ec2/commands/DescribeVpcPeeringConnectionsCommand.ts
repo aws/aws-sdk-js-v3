@@ -20,6 +20,9 @@ import {
 export type DescribeVpcPeeringConnectionsCommandInput = DescribeVpcPeeringConnectionsRequest;
 export type DescribeVpcPeeringConnectionsCommandOutput = DescribeVpcPeeringConnectionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your VPC peering connections.</p>
+ */
 export class DescribeVpcPeeringConnectionsCommand extends $Command<
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

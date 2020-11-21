@@ -20,6 +20,12 @@ import {
 export type ListLocationsCommandInput = ListLocationsRequest;
 export type ListLocationsCommandOutput = ListLocationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of source and destination locations.</p>
+ *          <p>If you have more locations than are returned in a response (that is, the response
+ *       returns only a truncated list of your agents), the response contains a token that you can
+ *       specify in your next request to fetch the next page of locations.</p>
+ */
 export class ListLocationsCommand extends $Command<
   ListLocationsCommandInput,
   ListLocationsCommandOutput,
@@ -34,6 +40,9 @@ export class ListLocationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

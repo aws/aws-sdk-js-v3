@@ -25,6 +25,10 @@ import {
 export type DeleteGroupCommandInput = DeleteGroupRequest;
 export type DeleteGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a group. Currently only groups with no members can be deleted.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,
   DeleteGroupCommandOutput,
@@ -39,6 +43,9 @@ export class DeleteGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,28 @@ import {
 export type ResetDBClusterParameterGroupCommandInput = ResetDBClusterParameterGroupMessage;
 export type ResetDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>
+ *             Modifies the parameters of a DB cluster parameter group to the default value. To
+ *             reset specific parameters submit a list of the following: <code>ParameterName</code>
+ *             and <code>ApplyMethod</code>. To reset the
+ *             entire DB cluster parameter group, specify the <code>DBClusterParameterGroupName</code>
+ *             and <code>ResetAllParameters</code> parameters.
+ *         </p>
+ *             <p>
+ *             When resetting the entire group, dynamic parameters are updated immediately and static parameters
+ *             are set to <code>pending-reboot</code> to take effect on the next DB instance restart
+ *             or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code> for every
+ *             DB instance in your DB cluster that you want the updated static parameter to apply to.</p>
+ *
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,
   ResetDBClusterParameterGroupCommandOutput,
@@ -34,6 +56,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

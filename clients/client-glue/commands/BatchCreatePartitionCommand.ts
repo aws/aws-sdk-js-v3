@@ -20,6 +20,9 @@ import {
 export type BatchCreatePartitionCommandInput = BatchCreatePartitionRequest;
 export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates one or more partitions in a batch operation.</p>
+ */
 export class BatchCreatePartitionCommand extends $Command<
   BatchCreatePartitionCommandInput,
   BatchCreatePartitionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchCreatePartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

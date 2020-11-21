@@ -20,6 +20,16 @@ import {
 export type CopyPackageVersionsCommandInput = CopyPackageVersionsRequest;
 export type CopyPackageVersionsCommandOutput = CopyPackageVersionsResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Copies package versions from one repository to another repository in the same domain.
+ *       </p>
+ *          <note>
+ *             <p>
+ *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
+ *       </p>
+ *          </note>
+ */
 export class CopyPackageVersionsCommand extends $Command<
   CopyPackageVersionsCommandInput,
   CopyPackageVersionsCommandOutput,
@@ -34,6 +44,9 @@ export class CopyPackageVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

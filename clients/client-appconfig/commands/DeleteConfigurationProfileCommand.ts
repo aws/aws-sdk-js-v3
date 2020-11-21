@@ -20,6 +20,10 @@ import {
 export type DeleteConfigurationProfileCommandInput = DeleteConfigurationProfileRequest;
 export type DeleteConfigurationProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete a configuration profile. Deleting a configuration profile does not delete a
+ *          configuration from a host.</p>
+ */
 export class DeleteConfigurationProfileCommand extends $Command<
   DeleteConfigurationProfileCommandInput,
   DeleteConfigurationProfileCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteConfigurationProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchDisassociateScramSecretCommandInput = BatchDisassociateScramSecretRequest;
 export type BatchDisassociateScramSecretCommandOutput = BatchDisassociateScramSecretResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
+ */
 export class BatchDisassociateScramSecretCommand extends $Command<
   BatchDisassociateScramSecretCommandInput,
   BatchDisassociateScramSecretCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDisassociateScramSecretCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetContactCommandInput = GetContactRequest;
 export type GetContactCommandOutput = GetContactResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the contact details by the contact ARN.</p>
+ */
 export class GetContactCommand extends $Command<
   GetContactCommandInput,
   GetContactCommandOutput,
@@ -34,6 +37,9 @@ export class GetContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

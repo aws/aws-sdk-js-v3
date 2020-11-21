@@ -20,6 +20,14 @@ import {
 export type RemoveRoleFromDBClusterCommandInput = RemoveRoleFromDBClusterMessage;
 export type RemoveRoleFromDBClusterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
+ *                 to Access Other AWS Services on Your Behalf </a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *         <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *         </note>
+ */
 export class RemoveRoleFromDBClusterCommand extends $Command<
   RemoveRoleFromDBClusterCommandInput,
   RemoveRoleFromDBClusterCommandOutput,
@@ -34,6 +42,9 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

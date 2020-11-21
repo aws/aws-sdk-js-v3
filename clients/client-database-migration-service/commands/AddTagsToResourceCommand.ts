@@ -24,6 +24,14 @@ import {
 export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
 export type AddTagsToResourceCommandOutput = AddTagsToResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
+ *          security group, and migration task. These tags can also be used with cost allocation
+ *          reporting to track cost associated with DMS resources, or used in a Condition statement in
+ *          an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+ *                <code>Tag</code>
+ *             </a> data type description.</p>
+ */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -38,6 +46,9 @@ export class AddTagsToResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

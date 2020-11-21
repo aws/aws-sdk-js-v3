@@ -20,6 +20,9 @@ import {
 export type DescribePackagingConfigurationCommandInput = DescribePackagingConfigurationRequest;
 export type DescribePackagingConfigurationCommandOutput = DescribePackagingConfigurationResponse & __MetadataBearer;
 
+/**
+ * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
+ */
 export class DescribePackagingConfigurationCommand extends $Command<
   DescribePackagingConfigurationCommandInput,
   DescribePackagingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePackagingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

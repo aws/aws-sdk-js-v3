@@ -20,6 +20,9 @@ import {
 export type UpdateEnvironmentMembershipCommandInput = UpdateEnvironmentMembershipRequest;
 export type UpdateEnvironmentMembershipCommandOutput = UpdateEnvironmentMembershipResult & __MetadataBearer;
 
+/**
+ * <p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>
+ */
 export class UpdateEnvironmentMembershipCommand extends $Command<
   UpdateEnvironmentMembershipCommandInput,
   UpdateEnvironmentMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

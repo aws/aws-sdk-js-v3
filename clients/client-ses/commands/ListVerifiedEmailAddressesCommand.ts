@@ -20,6 +20,10 @@ import {
 export type ListVerifiedEmailAddressesCommandInput = {};
 export type ListVerifiedEmailAddressesCommandOutput = ListVerifiedEmailAddressesResponse & __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+ *             and domains associated with your account.</p>
+ */
 export class ListVerifiedEmailAddressesCommand extends $Command<
   ListVerifiedEmailAddressesCommandInput,
   ListVerifiedEmailAddressesCommandOutput,
@@ -34,6 +38,9 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

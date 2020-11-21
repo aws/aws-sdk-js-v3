@@ -20,6 +20,9 @@ import {
 export type DeleteSipRuleCommandInput = DeleteSipRuleRequest;
 export type DeleteSipRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
+ */
 export class DeleteSipRuleCommand extends $Command<
   DeleteSipRuleCommandInput,
   DeleteSipRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSipRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

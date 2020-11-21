@@ -20,6 +20,12 @@ import {
 export type UpdateClusterCommandInput = UpdateClusterRequest;
 export type UpdateClusterCommandOutput = UpdateClusterResult & __MetadataBearer;
 
+/**
+ * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
+ *       state, you can update some of the information associated with a cluster. Once the cluster
+ *       changes to a different job state, usually 60 minutes after the cluster being created, this
+ *       action is no longer available.</p>
+ */
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

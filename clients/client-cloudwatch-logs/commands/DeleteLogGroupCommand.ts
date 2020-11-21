@@ -20,6 +20,10 @@ import {
 export type DeleteLogGroupCommandInput = DeleteLogGroupRequest;
 export type DeleteLogGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified log group and permanently deletes all the archived
+ *       log events associated with the log group.</p>
+ */
 export class DeleteLogGroupCommand extends $Command<
   DeleteLogGroupCommandInput,
   DeleteLogGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteLogGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteFleetCommandInput = DeleteFleetRequest;
 export type DeleteFleetCommandOutput = DeleteFleetResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified fleet.</p>
+ */
 export class DeleteFleetCommand extends $Command<
   DeleteFleetCommandInput,
   DeleteFleetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

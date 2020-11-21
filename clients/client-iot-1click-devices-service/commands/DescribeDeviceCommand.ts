@@ -24,6 +24,10 @@ import {
 export type DescribeDeviceCommandInput = DescribeDeviceRequest;
 export type DescribeDeviceCommandOutput = DescribeDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Given a device ID, returns a DescribeDeviceResponse object describing the
+ *  details of the device.</p>
+ */
 export class DescribeDeviceCommand extends $Command<
   DescribeDeviceCommandInput,
   DescribeDeviceCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

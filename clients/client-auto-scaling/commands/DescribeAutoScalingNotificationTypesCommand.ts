@@ -21,6 +21,9 @@ export type DescribeAutoScalingNotificationTypesCommandInput = {};
 export type DescribeAutoScalingNotificationTypesCommandOutput = DescribeAutoScalingNotificationTypesAnswer &
   __MetadataBearer;
 
+/**
+ * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
+ */
 export class DescribeAutoScalingNotificationTypesCommand extends $Command<
   DescribeAutoScalingNotificationTypesCommandInput,
   DescribeAutoScalingNotificationTypesCommandOutput,
@@ -35,6 +38,9 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

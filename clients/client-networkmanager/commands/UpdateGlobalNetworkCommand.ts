@@ -20,6 +20,10 @@ import {
 export type UpdateGlobalNetworkCommandInput = UpdateGlobalNetworkRequest;
 export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing global network. To remove information for any of the parameters,
+ *             specify an empty string.</p>
+ */
 export class UpdateGlobalNetworkCommand extends $Command<
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGlobalNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

@@ -25,6 +25,10 @@ import {
 export type DescribeUserPoolClientCommandInput = DescribeUserPoolClientRequest;
 export type DescribeUserPoolClientCommandOutput = DescribeUserPoolClientResponse & __MetadataBearer;
 
+/**
+ * <p>Client method for returning the configuration information and metadata of the
+ *             specified user pool app client.</p>
+ */
 export class DescribeUserPoolClientCommand extends $Command<
   DescribeUserPoolClientCommandInput,
   DescribeUserPoolClientCommandOutput,
@@ -39,6 +43,9 @@ export class DescribeUserPoolClientCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

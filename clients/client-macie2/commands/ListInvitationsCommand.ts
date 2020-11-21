@@ -20,6 +20,9 @@ import {
 export type ListInvitationsCommandInput = ListInvitationsRequest;
 export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the Amazon Macie membership invitations that were received by an account.</p>
+ */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

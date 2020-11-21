@@ -20,6 +20,9 @@ import {
 export type BatchDeleteClusterSnapshotsCommandInput = BatchDeleteClusterSnapshotsRequest;
 export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a set of cluster snapshots.</p>
+ */
 export class BatchDeleteClusterSnapshotsCommand extends $Command<
   BatchDeleteClusterSnapshotsCommandInput,
   BatchDeleteClusterSnapshotsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

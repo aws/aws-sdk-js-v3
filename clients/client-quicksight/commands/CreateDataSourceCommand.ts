@@ -20,6 +20,9 @@ import {
 export type CreateDataSourceCommandInput = CreateDataSourceRequest;
 export type CreateDataSourceCommandOutput = CreateDataSourceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a data source.</p>
+ */
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateReportGroupCommandInput = CreateReportGroupInput;
 export type CreateReportGroupCommandOutput = CreateReportGroupOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Creates a report group. A report group contains a collection of reports.
+ *     </p>
+ */
 export class CreateReportGroupCommand extends $Command<
   CreateReportGroupCommandInput,
   CreateReportGroupCommandOutput,
@@ -34,6 +39,9 @@ export class CreateReportGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

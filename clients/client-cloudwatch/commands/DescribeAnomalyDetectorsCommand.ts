@@ -20,6 +20,11 @@ import {
 export type DescribeAnomalyDetectorsCommandInput = DescribeAnomalyDetectorsInput;
 export type DescribeAnomalyDetectorsCommandOutput = DescribeAnomalyDetectorsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the anomaly detection models that you have created in your account. You can list all
+ * 			models in your account or filter the results to only the models that are related to a
+ * 			certain namespace, metric name, or metric dimension.</p>
+ */
 export class DescribeAnomalyDetectorsCommand extends $Command<
   DescribeAnomalyDetectorsCommandInput,
   DescribeAnomalyDetectorsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

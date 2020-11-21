@@ -20,6 +20,10 @@ import {
 export type RestartAppServerCommandInput = RestartAppServerMessage;
 export type RestartAppServerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Causes the environment to restart the application container server running on each
+ *       Amazon EC2 instance.</p>
+ */
 export class RestartAppServerCommand extends $Command<
   RestartAppServerCommandInput,
   RestartAppServerCommandOutput,
@@ -34,6 +38,9 @@ export class RestartAppServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

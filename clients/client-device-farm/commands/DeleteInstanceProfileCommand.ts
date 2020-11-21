@@ -20,6 +20,9 @@ import {
 export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
 export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a profile that can be applied to one or more private device instances.</p>
+ */
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

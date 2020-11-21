@@ -20,6 +20,9 @@ import {
 export type GetTraceGraphCommandInput = GetTraceGraphRequest;
 export type GetTraceGraphCommandOutput = GetTraceGraphResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a service graph for one or more specific trace IDs.</p>
+ */
 export class GetTraceGraphCommand extends $Command<
   GetTraceGraphCommandInput,
   GetTraceGraphCommandOutput,
@@ -34,6 +37,9 @@ export class GetTraceGraphCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

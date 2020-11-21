@@ -20,6 +20,10 @@ import {
 export type GetOperationCommandInput = GetOperationRequest;
 export type GetOperationCommandOutput = GetOperationResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific operation. Operations include events such as when you
+ *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
+ */
 export class GetOperationCommand extends $Command<
   GetOperationCommandInput,
   GetOperationCommandOutput,
@@ -34,6 +38,9 @@ export class GetOperationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

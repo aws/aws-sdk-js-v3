@@ -20,6 +20,9 @@ import {
 export type UpdateVoiceConnectorCommandInput = UpdateVoiceConnectorRequest;
 export type UpdateVoiceConnectorCommandOutput = UpdateVoiceConnectorResponse & __MetadataBearer;
 
+/**
+ * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class UpdateVoiceConnectorCommand extends $Command<
   UpdateVoiceConnectorCommandInput,
   UpdateVoiceConnectorCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVoiceConnectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type ModifyDBSnapshotCommandInput = ModifyDBSnapshotMessage;
 export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
+ *             or unencrypted, but not shared or public.
+ *
+ *         </p>
+ *
+ *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
+ *       </p>
+ */
 export class ModifyDBSnapshotCommand extends $Command<
   ModifyDBSnapshotCommandInput,
   ModifyDBSnapshotCommandOutput,
@@ -34,6 +43,9 @@ export class ModifyDBSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all tags for the given Elasticsearch domain.</p>
+ */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,
   ListTagsCommandOutput,
@@ -38,6 +41,9 @@ export class ListTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteRealtimeEndpointCommandInput = DeleteRealtimeEndpointInput;
 export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
+ */
 export class DeleteRealtimeEndpointCommand extends $Command<
   DeleteRealtimeEndpointCommandInput,
   DeleteRealtimeEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRealtimeEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

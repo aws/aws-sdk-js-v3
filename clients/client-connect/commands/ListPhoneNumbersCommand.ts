@@ -20,6 +20,11 @@ import {
 export type ListPhoneNumbersCommandInput = ListPhoneNumbersRequest;
 export type ListPhoneNumbersCommandOutput = ListPhoneNumbersResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
+ *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
+ *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class ListPhoneNumbersCommand extends $Command<
   ListPhoneNumbersCommandInput,
   ListPhoneNumbersCommandOutput,
@@ -34,6 +39,9 @@ export class ListPhoneNumbersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

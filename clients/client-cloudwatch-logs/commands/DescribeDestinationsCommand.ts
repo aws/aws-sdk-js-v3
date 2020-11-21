@@ -20,6 +20,9 @@ import {
 export type DescribeDestinationsCommandInput = DescribeDestinationsRequest;
 export type DescribeDestinationsCommandOutput = DescribeDestinationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
+ */
 export class DescribeDestinationsCommand extends $Command<
   DescribeDestinationsCommandInput,
   DescribeDestinationsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDestinationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

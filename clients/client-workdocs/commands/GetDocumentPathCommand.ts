@@ -20,6 +20,14 @@ import {
 export type GetDocumentPathCommandInput = GetDocumentPathRequest;
 export type GetDocumentPathCommandOutput = GetDocumentPathResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the path information (the hierarchy from the root folder) for the
+ *             requested document.</p>
+ *         <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
+ *             requested document and only includes the IDs of the parent folders in the path. You can
+ *             limit the maximum number of levels. You can also request the names of the parent
+ *             folders.</p>
+ */
 export class GetDocumentPathCommand extends $Command<
   GetDocumentPathCommandInput,
   GetDocumentPathCommandOutput,
@@ -34,6 +42,9 @@ export class GetDocumentPathCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListStatementsCommandInput = ListStatementsRequest;
 export type ListStatementsCommandOutput = ListStatementsResponse & __MetadataBearer;
 
+/**
+ * <p>List of SQL statements. By default, only finished statements are shown.
+ *         A token is returned to page through the statement list. </p>
+ */
 export class ListStatementsCommand extends $Command<
   ListStatementsCommandInput,
   ListStatementsCommandOutput,
@@ -34,6 +38,9 @@ export class ListStatementsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftDataClientResolvedConfig,

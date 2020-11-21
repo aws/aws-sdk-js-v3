@@ -20,6 +20,9 @@ import {
 export type DeleteProtectionCommandInput = DeleteProtectionRequest;
 export type DeleteProtectionCommandOutput = DeleteProtectionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>
+ */
 export class DeleteProtectionCommand extends $Command<
   DeleteProtectionCommandInput,
   DeleteProtectionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

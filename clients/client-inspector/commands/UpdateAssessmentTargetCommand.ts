@@ -20,6 +20,12 @@ import {
 export type UpdateAssessmentTargetCommandInput = UpdateAssessmentTargetRequest;
 export type UpdateAssessmentTargetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the assessment target that is specified by the ARN of the assessment
+ *          target.</p>
+ *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
+ *          and region are included in the assessment target.</p>
+ */
 export class UpdateAssessmentTargetCommand extends $Command<
   UpdateAssessmentTargetCommandInput,
   UpdateAssessmentTargetCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateAssessmentTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

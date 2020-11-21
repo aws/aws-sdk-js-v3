@@ -20,6 +20,10 @@ import {
 export type GetAnomalyMonitorsCommandInput = GetAnomalyMonitorsRequest;
 export type GetAnomalyMonitorsCommandOutput = GetAnomalyMonitorsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
+ *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
+ */
 export class GetAnomalyMonitorsCommand extends $Command<
   GetAnomalyMonitorsCommandInput,
   GetAnomalyMonitorsCommandOutput,
@@ -34,6 +38,9 @@ export class GetAnomalyMonitorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

@@ -24,6 +24,17 @@ import {
 export type DisableAvailabilityZonesForLoadBalancerCommandInput = RemoveAvailabilityZonesInput;
 export type DisableAvailabilityZonesForLoadBalancerCommandOutput = RemoveAvailabilityZonesOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
+ *             in EC2-Classic or a default VPC.</p>
+ *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
+ *         <p>There must be at least one Availability Zone registered with a load balancer at all times.
+ *          After an Availability Zone is removed, all instances registered with the load balancer that are in the removed
+ *          Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance
+ *          the traffic among its remaining Availability Zones.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   DisableAvailabilityZonesForLoadBalancerCommandInput,
   DisableAvailabilityZonesForLoadBalancerCommandOutput,
@@ -38,6 +49,9 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

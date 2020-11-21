@@ -20,6 +20,10 @@ import {
 export type GenerateAccessLogsCommandInput = GenerateAccessLogsRequest;
 export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult & __MetadataBearer;
 
+/**
+ * <p> Returns the website access logs for a specific time range using a presigned URL.
+ *         </p>
+ */
 export class GenerateAccessLogsCommand extends $Command<
   GenerateAccessLogsCommandInput,
   GenerateAccessLogsCommandOutput,
@@ -34,6 +38,9 @@ export class GenerateAccessLogsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

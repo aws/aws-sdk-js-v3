@@ -20,6 +20,9 @@ import {
 export type GetOutpostInstanceTypesCommandInput = GetOutpostInstanceTypesInput;
 export type GetOutpostInstanceTypesCommandOutput = GetOutpostInstanceTypesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the instance types for the specified Outpost.</p>
+ */
 export class GetOutpostInstanceTypesCommand extends $Command<
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
@@ -34,6 +37,9 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTThingsGraphClient,
   input: SearchEntitiesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchEntitiesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTThingsGraph,
   input: SearchEntitiesCommandInput,

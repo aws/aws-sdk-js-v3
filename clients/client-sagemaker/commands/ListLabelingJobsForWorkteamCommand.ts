@@ -20,6 +20,9 @@ import {
 export type ListLabelingJobsForWorkteamCommandInput = ListLabelingJobsForWorkteamRequest;
 export type ListLabelingJobsForWorkteamCommandOutput = ListLabelingJobsForWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
+ */
 export class ListLabelingJobsForWorkteamCommand extends $Command<
   ListLabelingJobsForWorkteamCommandInput,
   ListLabelingJobsForWorkteamCommandOutput,
@@ -34,6 +37,9 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

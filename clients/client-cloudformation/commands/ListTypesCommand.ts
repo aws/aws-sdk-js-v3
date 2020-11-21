@@ -17,6 +17,9 @@ import {
 export type ListTypesCommandInput = ListTypesInput;
 export type ListTypesCommandOutput = ListTypesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns summary information about types that have been registered with CloudFormation.</p>
+ */
 export class ListTypesCommand extends $Command<
   ListTypesCommandInput,
   ListTypesCommandOutput,
@@ -31,6 +34,9 @@ export class ListTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

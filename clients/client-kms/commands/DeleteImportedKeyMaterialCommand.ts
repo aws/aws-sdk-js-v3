@@ -20,6 +20,20 @@ import {
 export type DeleteImportedKeyMaterialCommandInput = DeleteImportedKeyMaterialRequest;
 export type DeleteImportedKeyMaterialCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes key material that you previously imported. This operation makes the specified
+ *       customer master key (CMK) unusable. For more information about importing key material into
+ *       AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
+ *         Material</a> in the <i>AWS Key Management Service Developer Guide</i>. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>When the specified CMK is in the <code>PendingDeletion</code> state, this operation does
+ *       not change the CMK's state. Otherwise, it changes the CMK's state to
+ *         <code>PendingImport</code>.</p>
+ *          <p>After you delete key material, you can use <a>ImportKeyMaterial</a> to reimport
+ *       the same key material into the CMK.</p>
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class DeleteImportedKeyMaterialCommand extends $Command<
   DeleteImportedKeyMaterialCommandInput,
   DeleteImportedKeyMaterialCommandOutput,
@@ -34,6 +48,9 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

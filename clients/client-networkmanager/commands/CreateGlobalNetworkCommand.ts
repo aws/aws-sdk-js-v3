@@ -20,6 +20,9 @@ import {
 export type CreateGlobalNetworkCommandInput = CreateGlobalNetworkRequest;
 export type CreateGlobalNetworkCommandOutput = CreateGlobalNetworkResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new, empty global network.</p>
+ */
 export class CreateGlobalNetworkCommand extends $Command<
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGlobalNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

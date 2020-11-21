@@ -24,6 +24,9 @@ export type ListDominantLanguageDetectionJobsCommandInput = ListDominantLanguage
 export type ListDominantLanguageDetectionJobsCommandOutput = ListDominantLanguageDetectionJobsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
+ */
 export class ListDominantLanguageDetectionJobsCommand extends $Command<
   ListDominantLanguageDetectionJobsCommandInput,
   ListDominantLanguageDetectionJobsCommandOutput,
@@ -38,6 +41,9 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

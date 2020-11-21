@@ -20,6 +20,9 @@ import {
 export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
 export type DescribeUserProfileCommandOutput = DescribeUserProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
+ */
 export class DescribeUserProfileCommand extends $Command<
   DescribeUserProfileCommandInput,
   DescribeUserProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

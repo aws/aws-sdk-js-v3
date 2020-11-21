@@ -20,6 +20,9 @@ import {
 export type ListApplicationsCommandInput = ListApplicationsRequest;
 export type ListApplicationsCommandOutput = Applications & __MetadataBearer;
 
+/**
+ * <p>List all applications in your AWS account.</p>
+ */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

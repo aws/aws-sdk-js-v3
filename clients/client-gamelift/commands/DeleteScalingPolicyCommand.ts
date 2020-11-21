@@ -20,6 +20,62 @@ import {
 export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyInput;
 export type DeleteScalingPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in
+ *             force and GameLift removes all record of it. To delete a scaling policy, specify both the scaling
+ *             policy name and the fleet ID it is associated with.</p>
+ *         <p>To temporarily suspend scaling policies, call <a>StopFleetActions</a>.
+ *             This operation suspends all policies for the fleet.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetCapacity</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetCapacity</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeEC2InstanceLimits</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Manage scaling policies:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>PutScalingPolicy</a> (auto-scaling)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeScalingPolicies</a> (auto-scaling)</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DeleteScalingPolicy</a> (auto-scaling)</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Manage fleet actions:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartFleetActions</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopFleetActions</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteScalingPolicyCommand extends $Command<
   DeleteScalingPolicyCommandInput,
   DeleteScalingPolicyCommandOutput,
@@ -34,6 +90,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

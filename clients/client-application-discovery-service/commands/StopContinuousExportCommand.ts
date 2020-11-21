@@ -24,6 +24,9 @@ import {
 export type StopContinuousExportCommandInput = StopContinuousExportRequest;
 export type StopContinuousExportCommandOutput = StopContinuousExportResponse & __MetadataBearer;
 
+/**
+ * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>
+ */
 export class StopContinuousExportCommand extends $Command<
   StopContinuousExportCommandInput,
   StopContinuousExportCommandOutput,
@@ -38,6 +41,9 @@ export class StopContinuousExportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

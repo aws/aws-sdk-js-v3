@@ -17,6 +17,11 @@ import {
 export type DescribeSubnetsCommandInput = DescribeSubnetsRequest;
 export type DescribeSubnetsCommandOutput = DescribeSubnetsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your subnets.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the
+ * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class DescribeSubnetsCommand extends $Command<
   DescribeSubnetsCommandInput,
   DescribeSubnetsCommandOutput,
@@ -31,6 +36,9 @@ export class DescribeSubnetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

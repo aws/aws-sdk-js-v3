@@ -24,6 +24,9 @@ export type CreateSimulationApplicationVersionCommandInput = CreateSimulationApp
 export type CreateSimulationApplicationVersionCommandOutput = CreateSimulationApplicationVersionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates a simulation application with a specific revision id.</p>
+ */
 export class CreateSimulationApplicationVersionCommand extends $Command<
   CreateSimulationApplicationVersionCommandInput,
   CreateSimulationApplicationVersionCommandOutput,
@@ -38,6 +41,9 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

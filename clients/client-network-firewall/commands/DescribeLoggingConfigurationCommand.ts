@@ -20,6 +20,9 @@ import {
 export type DescribeLoggingConfigurationCommandInput = DescribeLoggingConfigurationRequest;
 export type DescribeLoggingConfigurationCommandOutput = DescribeLoggingConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the logging configuration for the specified firewall. </p>
+ */
 export class DescribeLoggingConfigurationCommand extends $Command<
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

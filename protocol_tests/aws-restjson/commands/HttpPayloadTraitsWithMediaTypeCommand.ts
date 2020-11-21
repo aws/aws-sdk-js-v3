@@ -20,6 +20,10 @@ import {
 export type HttpPayloadTraitsWithMediaTypeCommandInput = HttpPayloadTraitsWithMediaTypeInputOutput;
 export type HttpPayloadTraitsWithMediaTypeCommandOutput = HttpPayloadTraitsWithMediaTypeInputOutput & __MetadataBearer;
 
+/**
+ * This examples uses a `@mediaType` trait on the payload to force a custom
+ * content-type to be serialized.
+ */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
   HttpPayloadTraitsWithMediaTypeCommandInput,
   HttpPayloadTraitsWithMediaTypeCommandOutput,
@@ -34,6 +38,9 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

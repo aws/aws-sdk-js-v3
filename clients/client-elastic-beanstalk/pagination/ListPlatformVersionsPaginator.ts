@@ -8,6 +8,9 @@ import {
 import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElasticBeanstalkClient,
   input: ListPlatformVersionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPlatformVersionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElasticBeanstalk,
   input: ListPlatformVersionsCommandInput,

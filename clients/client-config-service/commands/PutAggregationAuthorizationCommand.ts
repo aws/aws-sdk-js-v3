@@ -20,6 +20,10 @@ import {
 export type PutAggregationAuthorizationCommandInput = PutAggregationAuthorizationRequest;
 export type PutAggregationAuthorizationCommandOutput = PutAggregationAuthorizationResponse & __MetadataBearer;
 
+/**
+ * <p>Authorizes the aggregator account and region to collect data
+ * 			from the source account and region. </p>
+ */
 export class PutAggregationAuthorizationCommand extends $Command<
   PutAggregationAuthorizationCommandInput,
   PutAggregationAuthorizationCommandOutput,
@@ -34,6 +38,9 @@ export class PutAggregationAuthorizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

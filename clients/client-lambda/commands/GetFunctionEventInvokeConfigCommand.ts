@@ -20,6 +20,10 @@ import {
 export type GetFunctionEventInvokeConfigCommandInput = GetFunctionEventInvokeConfigRequest;
 export type GetFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
 
+/**
+ * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
+ *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ */
 export class GetFunctionEventInvokeConfigCommand extends $Command<
   GetFunctionEventInvokeConfigCommandInput,
   GetFunctionEventInvokeConfigCommandOutput,
@@ -34,6 +38,9 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

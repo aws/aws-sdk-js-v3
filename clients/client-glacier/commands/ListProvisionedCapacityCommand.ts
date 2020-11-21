@@ -20,6 +20,10 @@ import {
 export type ListProvisionedCapacityCommandInput = ListProvisionedCapacityInput;
 export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput & __MetadataBearer;
 
+/**
+ * <p>This operation lists the provisioned capacity units for the specified AWS
+ *          account.</p>
+ */
 export class ListProvisionedCapacityCommand extends $Command<
   ListProvisionedCapacityCommandInput,
   ListProvisionedCapacityCommandOutput,
@@ -34,6 +38,9 @@ export class ListProvisionedCapacityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

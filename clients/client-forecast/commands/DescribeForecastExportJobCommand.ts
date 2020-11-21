@@ -20,6 +20,33 @@ import {
 export type DescribeForecastExportJobCommandInput = DescribeForecastExportJobRequest;
 export type DescribeForecastExportJobCommandOutput = DescribeForecastExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
+ *          <p>In addition to listing the properties provided by the user in the
+ *         <code>CreateForecastExportJob</code> request, this operation lists the following
+ *       properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Message</code> - If an error occurred, information about the error.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeForecastExportJobCommand extends $Command<
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput,
@@ -34,6 +61,9 @@ export class DescribeForecastExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

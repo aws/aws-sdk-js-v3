@@ -20,6 +20,29 @@ import {
 export type UpdateRealtimeLogConfigCommandInput = UpdateRealtimeLogConfigRequest;
 export type UpdateRealtimeLogConfigCommandOutput = UpdateRealtimeLogConfigResult & __MetadataBearer;
 
+/**
+ * <p>Updates a real-time log configuration.</p>
+ * 		       <p>When you update a real-time log configuration, all the parameters are updated with the
+ * 			values provided in the request. You cannot update some parameters independent of others.
+ * 			To update a real-time log configuration:</p>
+ * 		       <ol>
+ *             <li>
+ * 				           <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log
+ * 					configuration.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Locally modify the parameters in the real-time log configuration that you want
+ * 					to update.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire
+ * 					real-time log configuration, including the parameters that you modified and
+ * 					those that you didn’t.</p>
+ * 			         </li>
+ *          </ol>
+ * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
+ * 			<code>ARN</code>.</p>
+ */
 export class UpdateRealtimeLogConfigCommand extends $Command<
   UpdateRealtimeLogConfigCommandInput,
   UpdateRealtimeLogConfigCommandOutput,
@@ -34,6 +57,9 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

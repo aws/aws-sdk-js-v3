@@ -20,6 +20,10 @@ import {
 export type ListDataSetsCommandInput = ListDataSetsRequest;
 export type ListDataSetsCommandOutput = ListDataSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the datasets belonging to the current AWS account in an AWS Region.</p>
+ * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
+ */
 export class ListDataSetsCommand extends $Command<
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDataSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

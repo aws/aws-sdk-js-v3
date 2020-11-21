@@ -20,6 +20,11 @@ import {
 export type CreateRepositoryCommandInput = CreateRepositoryRequest;
 export type CreateRepositoryCommandOutput = CreateRepositoryResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Creates a repository.
+ *       </p>
+ */
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,
   CreateRepositoryCommandOutput,
@@ -34,6 +39,9 @@ export class CreateRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

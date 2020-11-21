@@ -20,6 +20,16 @@ import {
 export type AssociateConnectionAliasCommandInput = AssociateConnectionAliasRequest;
 export type AssociateConnectionAliasCommandOutput = AssociateConnectionAliasResult & __MetadataBearer;
 
+/**
+ * <p>Associates the specified connection alias with the specified directory to enable cross-Region redirection.
+ *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+ *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ *
+ *          <note>
+ *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
+ *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+ *          </note>
+ */
 export class AssociateConnectionAliasCommand extends $Command<
   AssociateConnectionAliasCommandInput,
   AssociateConnectionAliasCommandOutput,
@@ -34,6 +44,9 @@ export class AssociateConnectionAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

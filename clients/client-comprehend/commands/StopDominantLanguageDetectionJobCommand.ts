@@ -20,6 +20,18 @@ import {
 export type StopDominantLanguageDetectionJobCommandInput = StopDominantLanguageDetectionJobRequest;
 export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a dominant language detection job in progress.</p>
+ *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
+ *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
+ *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
+ *         <code>STOPPED</code> state.</p>
+ *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
+ *         <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
+ *       Internal Request Exception. </p>
+ *          <p>When a job is stopped, any documents already processed are written to the output
+ *       location.</p>
+ */
 export class StopDominantLanguageDetectionJobCommand extends $Command<
   StopDominantLanguageDetectionJobCommandInput,
   StopDominantLanguageDetectionJobCommandOutput,
@@ -34,6 +46,9 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDistributionConfigurationCommandInput = GetDistributionConfigurationRequest;
 export type GetDistributionConfigurationCommandOutput = GetDistributionConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p> Gets a distribution configuration. </p>
+ */
 export class GetDistributionConfigurationCommand extends $Command<
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetDistributionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateApiCommandInput = UpdateApiRequest;
 export type UpdateApiCommandOutput = UpdateApiResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an Api resource.</p>
+ */
 export class UpdateApiCommand extends $Command<
   UpdateApiCommandInput,
   UpdateApiCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

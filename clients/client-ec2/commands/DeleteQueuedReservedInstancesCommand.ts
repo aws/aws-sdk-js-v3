@@ -20,6 +20,9 @@ import {
 export type DeleteQueuedReservedInstancesCommandInput = DeleteQueuedReservedInstancesRequest;
 export type DeleteQueuedReservedInstancesCommandOutput = DeleteQueuedReservedInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
+ */
 export class DeleteQueuedReservedInstancesCommand extends $Command<
   DeleteQueuedReservedInstancesCommandInput,
   DeleteQueuedReservedInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

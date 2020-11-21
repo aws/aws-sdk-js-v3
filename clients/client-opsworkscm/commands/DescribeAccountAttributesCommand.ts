@@ -20,6 +20,14 @@ import {
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesRequest;
 export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Describes your OpsWorks-CM account attributes.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

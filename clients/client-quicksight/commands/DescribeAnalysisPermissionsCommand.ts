@@ -20,6 +20,9 @@ import {
 export type DescribeAnalysisPermissionsCommandInput = DescribeAnalysisPermissionsRequest;
 export type DescribeAnalysisPermissionsCommandOutput = DescribeAnalysisPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides the read and write permissions for an analysis.</p>
+ */
 export class DescribeAnalysisPermissionsCommand extends $Command<
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

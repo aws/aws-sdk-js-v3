@@ -20,6 +20,11 @@ import {
 export type DescribeSignalingChannelCommandInput = DescribeSignalingChannelInput;
 export type DescribeSignalingChannelCommandOutput = DescribeSignalingChannelOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the most current information about the signaling channel. You must specify
+ *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
+ *             describe.</p>
+ */
 export class DescribeSignalingChannelCommand extends $Command<
   DescribeSignalingChannelCommandInput,
   DescribeSignalingChannelCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeSignalingChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

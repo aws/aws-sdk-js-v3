@@ -24,6 +24,9 @@ import {
 export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
 export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>
+ */
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,
   GetRawMessageContentCommandOutput,
@@ -38,6 +41,9 @@ export class GetRawMessageContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailMessageFlowClientResolvedConfig,

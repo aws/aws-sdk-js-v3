@@ -20,6 +20,32 @@ import {
 export type GetSavingsPlansCoverageCommandInput = GetSavingsPlansCoverageRequest;
 export type GetSavingsPlansCoverageCommandOutput = GetSavingsPlansCoverageResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s master account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
+ * 	        <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LINKED_ACCOUNT</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>REGION</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SERVICE</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>INSTANCE_FAMILY</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * 	        <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation.</p>
+ */
 export class GetSavingsPlansCoverageCommand extends $Command<
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
@@ -34,6 +60,9 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

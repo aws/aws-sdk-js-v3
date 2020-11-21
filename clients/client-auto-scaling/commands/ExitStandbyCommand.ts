@@ -17,6 +17,14 @@ import {
 export type ExitStandbyCommandInput = ExitStandbyQuery;
 export type ExitStandbyCommandOutput = ExitStandbyAnswer & __MetadataBearer;
 
+/**
+ * <p>Moves the specified instances out of the standby state.</p>
+ *         <p>After you put the instances back in service, the desired capacity is
+ *             incremented.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
+ *                 instances from your Auto Scaling group</a> in the
+ *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class ExitStandbyCommand extends $Command<
   ExitStandbyCommandInput,
   ExitStandbyCommandOutput,
@@ -31,6 +39,9 @@ export class ExitStandbyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

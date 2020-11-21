@@ -20,6 +20,10 @@ import {
 export type ListOperationsCommandInput = ListOperationsRequest;
 export type ListOperationsCommandOutput = ListOperationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about all of the operations that return an operation ID and that have ever been
+ * 			performed on domains that were registered by the current account. </p>
+ */
 export class ListOperationsCommand extends $Command<
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Associates the specified tags to a resource with the specified
+ *                 <code>resourceArn</code>. If existing tags on a resource are not specified in the
+ *             request parameters, they are not changed. When a resource is deleted, the tags
+ *             associated with that resource are deleted as well. Tags that you create for Amazon EKS
+ *             resources do not propagate to any other resources associated with the cluster. For
+ *             example, if you tag a cluster with this operation, that tag does not automatically
+ *             propagate to the subnets and worker nodes associated with the cluster.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +43,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

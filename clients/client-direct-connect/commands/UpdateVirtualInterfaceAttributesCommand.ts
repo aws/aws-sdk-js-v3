@@ -20,6 +20,15 @@ import {
 export type UpdateVirtualInterfaceAttributesCommandInput = UpdateVirtualInterfaceAttributesRequest;
 export type UpdateVirtualInterfaceAttributesCommandOutput = VirtualInterface & __MetadataBearer;
 
+/**
+ * <p>Updates the specified attributes of the specified virtual private interface.</p>
+ *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
+ *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
+ *       the connection disrupts network connectivity for all virtual interfaces associated with
+ *       the connection for up to 30 seconds. To check whether your connection supports jumbo
+ *       frames, call <a>DescribeConnections</a>. To check whether your virtual q
+ *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
+ */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command<
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
@@ -34,6 +43,9 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

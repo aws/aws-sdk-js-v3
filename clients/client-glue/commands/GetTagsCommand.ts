@@ -17,6 +17,9 @@ import {
 export type GetTagsCommandInput = GetTagsRequest;
 export type GetTagsCommandOutput = GetTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of tags associated with a resource.</p>
+ */
 export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

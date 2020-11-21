@@ -24,6 +24,9 @@ export type DescribeLocalGatewayVirtualInterfaceGroupsCommandInput = DescribeLoc
 export type DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput = DescribeLocalGatewayVirtualInterfaceGroupsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the specified local gateway virtual interface groups.</p>
+ */
 export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

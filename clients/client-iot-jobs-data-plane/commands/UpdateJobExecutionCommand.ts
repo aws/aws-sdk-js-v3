@@ -20,6 +20,9 @@ import {
 export type UpdateJobExecutionCommandInput = UpdateJobExecutionRequest;
 export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the status of a job execution.</p>
+ */
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,
   UpdateJobExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJobExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,

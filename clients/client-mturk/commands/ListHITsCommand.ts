@@ -17,6 +17,15 @@ import {
 export type ListHITsCommandInput = ListHITsRequest;
 export type ListHITsCommandOutput = ListHITsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>ListHITs</code>
+ *             operation returns all of a Requester's HITs. The operation returns
+ *             HITs of any status, except for HITs that have been deleted of with
+ *             the DeleteHIT operation or that have been auto-deleted.
+ *         </p>
+ */
 export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +36,9 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

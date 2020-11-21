@@ -20,6 +20,9 @@ import {
 export type GetEmailTemplateCommandInput = GetEmailTemplateRequest;
 export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
+ */
 export class GetEmailTemplateCommand extends $Command<
   GetEmailTemplateCommandInput,
   GetEmailTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

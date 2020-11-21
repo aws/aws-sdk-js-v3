@@ -20,6 +20,9 @@ import {
 export type DescribeInputCommandInput = DescribeInputRequest;
 export type DescribeInputCommandOutput = DescribeInputResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an input.</p>
+ */
 export class DescribeInputCommand extends $Command<
   DescribeInputCommandInput,
   DescribeInputCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

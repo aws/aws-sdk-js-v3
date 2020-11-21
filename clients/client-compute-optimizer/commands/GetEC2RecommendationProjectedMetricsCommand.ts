@@ -24,6 +24,17 @@ export type GetEC2RecommendationProjectedMetricsCommandInput = GetEC2Recommendat
 export type GetEC2RecommendationProjectedMetricsCommandOutput = GetEC2RecommendationProjectedMetricsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p>
+ *
+ *         <note>
+ *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
+ *                 utilization metrics returned when you run this action. Additionally, the
+ *                     <code>Memory</code> metric is returned only for resources that have the unified
+ *                 CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
+ *                     Utilization with the CloudWatch Agent</a>.</p>
+ *         </note>
+ */
 export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
   GetEC2RecommendationProjectedMetricsCommandInput,
   GetEC2RecommendationProjectedMetricsCommandOutput,
@@ -38,6 +49,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

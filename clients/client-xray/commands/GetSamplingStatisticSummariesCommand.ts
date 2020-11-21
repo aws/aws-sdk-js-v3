@@ -20,6 +20,9 @@ import {
 export type GetSamplingStatisticSummariesCommandInput = GetSamplingStatisticSummariesRequest;
 export type GetSamplingStatisticSummariesCommandOutput = GetSamplingStatisticSummariesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about recent sampling results for all sampling rules.</p>
+ */
 export class GetSamplingStatisticSummariesCommand extends $Command<
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput,
@@ -34,6 +37,9 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type UpdatePackageCommandInput = UpdatePackageRequest;
 export type UpdatePackageCommandOutput = UpdatePackageResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a package for use with Amazon ES domains.</p>
+ */
 export class UpdatePackageCommand extends $Command<
   UpdatePackageCommandInput,
   UpdatePackageCommandOutput,
@@ -38,6 +41,9 @@ export class UpdatePackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

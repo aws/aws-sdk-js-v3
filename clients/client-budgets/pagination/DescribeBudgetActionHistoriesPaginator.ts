@@ -8,6 +8,9 @@ import {
 import { BudgetsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: BudgetsClient,
   input: DescribeBudgetActionHistoriesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeBudgetActionHistoriesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Budgets,
   input: DescribeBudgetActionHistoriesCommandInput,

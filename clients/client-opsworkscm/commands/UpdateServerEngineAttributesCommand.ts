@@ -20,6 +20,22 @@ import {
 export type UpdateServerEngineAttributesCommandInput = UpdateServerEngineAttributesRequest;
 export type UpdateServerEngineAttributesCommandOutput = UpdateServerEngineAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Updates engine-specific attributes on a specified server. The server
+ *       enters the <code>MODIFYING</code> state when this operation
+ *       is in progress. Only one update can occur at a time.
+ *       You can use this command to reset a Chef server's public key (<code>CHEF_PIVOTAL_KEY</code>) or a Puppet server's
+ *       admin password (<code>PUPPET_ADMIN_PASSWORD</code>).
+ *     </p>
+ *          <p>
+ *       This operation is asynchronous.
+ *     </p>
+ *          <p>
+ *       This operation can only be called for servers in <code>HEALTHY</code> or <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is raised.
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class UpdateServerEngineAttributesCommand extends $Command<
   UpdateServerEngineAttributesCommandInput,
   UpdateServerEngineAttributesCommandOutput,
@@ -34,6 +50,9 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

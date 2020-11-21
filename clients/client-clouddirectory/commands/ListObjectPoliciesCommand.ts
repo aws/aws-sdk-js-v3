@@ -20,6 +20,9 @@ import {
 export type ListObjectPoliciesCommandInput = ListObjectPoliciesRequest;
 export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns policies attached to an object in pagination fashion.</p>
+ */
 export class ListObjectPoliciesCommand extends $Command<
   ListObjectPoliciesCommandInput,
   ListObjectPoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class ListObjectPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

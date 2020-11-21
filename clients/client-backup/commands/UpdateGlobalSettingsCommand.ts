@@ -20,6 +20,10 @@ import {
 export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsInput;
 export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the current global settings for the AWS Account. Use the
+ *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
+ */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

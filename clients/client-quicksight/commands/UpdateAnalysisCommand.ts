@@ -20,6 +20,9 @@ import {
 export type UpdateAnalysisCommandInput = UpdateAnalysisRequest;
 export type UpdateAnalysisCommandOutput = UpdateAnalysisResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an analysis in Amazon QuickSight</p>
+ */
 export class UpdateAnalysisCommand extends $Command<
   UpdateAnalysisCommandInput,
   UpdateAnalysisCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAnalysisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

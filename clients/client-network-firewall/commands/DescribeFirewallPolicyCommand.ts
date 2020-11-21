@@ -20,6 +20,9 @@ import {
 export type DescribeFirewallPolicyCommandInput = DescribeFirewallPolicyRequest;
 export type DescribeFirewallPolicyCommandOutput = DescribeFirewallPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the data objects for the specified firewall policy. </p>
+ */
 export class DescribeFirewallPolicyCommand extends $Command<
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFirewallPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

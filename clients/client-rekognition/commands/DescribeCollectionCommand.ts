@@ -20,6 +20,14 @@ import {
 export type DescribeCollectionCommandInput = DescribeCollectionRequest;
 export type DescribeCollectionCommandOutput = DescribeCollectionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get
+ *          information, such as the number of faces indexed into a collection and the version of the
+ *          model used by the collection for face detection.</p>
+ *
+ *          <p>For more information, see Describing a Collection in the
+ *      Amazon Rekognition Developer Guide.</p>
+ */
 export class DescribeCollectionCommand extends $Command<
   DescribeCollectionCommandInput,
   DescribeCollectionCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeCollectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

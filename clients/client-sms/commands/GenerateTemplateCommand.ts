@@ -20,6 +20,10 @@ import {
 export type GenerateTemplateCommandInput = GenerateTemplateRequest;
 export type GenerateTemplateCommandOutput = GenerateTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Generates an AWS CloudFormation template based on the current launch configuration and writes it to
+ *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
+ */
 export class GenerateTemplateCommand extends $Command<
   GenerateTemplateCommandInput,
   GenerateTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class GenerateTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

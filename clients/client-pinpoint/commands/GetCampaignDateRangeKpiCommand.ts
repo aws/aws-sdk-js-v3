@@ -20,6 +20,9 @@ import {
 export type GetCampaignDateRangeKpiCommandInput = GetCampaignDateRangeKpiRequest;
 export type GetCampaignDateRangeKpiCommandOutput = GetCampaignDateRangeKpiResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
+ */
 export class GetCampaignDateRangeKpiCommand extends $Command<
   GetCampaignDateRangeKpiCommandInput,
   GetCampaignDateRangeKpiCommandOutput,
@@ -34,6 +37,9 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListResolverRulesCommandInput = ListResolverRulesRequest;
 export type ListResolverRulesCommandOutput = ListResolverRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Resolver rules that were created using the current AWS account.</p>
+ */
 export class ListResolverRulesCommand extends $Command<
   ListResolverRulesCommandInput,
   ListResolverRulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolverRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

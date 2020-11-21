@@ -20,6 +20,10 @@ import {
 export type DescribeHostReservationsCommandInput = DescribeHostReservationsRequest;
 export type DescribeHostReservationsCommandOutput = DescribeHostReservationsResult & __MetadataBearer;
 
+/**
+ * <p>Describes reservations that are associated with Dedicated Hosts in your
+ *             account.</p>
+ */
 export class DescribeHostReservationsCommand extends $Command<
   DescribeHostReservationsCommandInput,
   DescribeHostReservationsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeHostReservationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,41 @@ import {
 export type UpdateQualificationTypeCommandInput = UpdateQualificationTypeRequest;
 export type UpdateQualificationTypeCommandOutput = UpdateQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>UpdateQualificationType</code>
+ *             operation modifies the attributes of an existing Qualification type,
+ *             which is represented by a QualificationType data structure. Only the
+ *             owner of a Qualification type can modify its attributes.
+ *         </p>
+ *         <p> Most attributes of a Qualification type can be changed after
+ *             the type has been created. However, the Name and Keywords fields
+ *             cannot be modified. The RetryDelayInSeconds parameter can be modified
+ *             or added to change the delay or to enable retries, but
+ *             RetryDelayInSeconds cannot be used to disable retries. </p>
+ *         <p> You can use this operation to update the test for a
+ *             Qualification type. The test is updated based on the values specified
+ *             for the Test, TestDurationInSeconds and AnswerKey parameters. All
+ *             three parameters specify the updated test. If you are updating the
+ *             test for a type, you must specify the Test and TestDurationInSeconds
+ *             parameters. The AnswerKey parameter is optional; omitting it specifies
+ *             that the updated test does not have an answer key. </p>
+ *         <p> If you omit the Test parameter, the test for the
+ *             Qualification type is unchanged. There is no way to remove a test from
+ *             a Qualification type that has one. If the type already has a test, you
+ *             cannot update it to be AutoGranted. If the Qualification type does not
+ *             have a test and one is provided by an update, the type will henceforth
+ *             have a test. </p>
+ *         <p> If you want to update the test duration or answer key for an
+ *             existing test without changing the questions, you must specify a Test
+ *             parameter with the original questions, along with the updated values. </p>
+ *         <p> If you provide an updated Test but no AnswerKey, the new test
+ *             will not have an answer key. Requests for such Qualifications must be
+ *             granted manually. </p>
+ *         <p> You can also update the AutoGranted and AutoGrantedValue
+ *             attributes of the Qualification type.</p>
+ */
 export class UpdateQualificationTypeCommand extends $Command<
   UpdateQualificationTypeCommandInput,
   UpdateQualificationTypeCommandOutput,
@@ -34,6 +69,9 @@ export class UpdateQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

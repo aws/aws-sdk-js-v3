@@ -24,6 +24,9 @@ import {
 export type UnshareApplicationCommandInput = UnshareApplicationRequest;
 export type UnshareApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
+ */
 export class UnshareApplicationCommand extends $Command<
   UnshareApplicationCommandInput,
   UnshareApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class UnshareApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

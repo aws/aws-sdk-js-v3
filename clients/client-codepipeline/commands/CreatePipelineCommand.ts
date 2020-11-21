@@ -20,6 +20,15 @@ import {
 export type CreatePipelineCommandInput = CreatePipelineInput;
 export type CreatePipelineCommandOutput = CreatePipelineOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a pipeline.</p>
+ *         <note>
+ *             <p>In the pipeline structure, you must include either <code>artifactStore</code>
+ *                 or <code>artifactStores</code> in your pipeline, but you cannot use both. If you
+ *                 create a cross-region action in your pipeline, you must use
+ *                     <code>artifactStores</code>.</p>
+ *         </note>
+ */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -34,6 +43,9 @@ export class CreatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

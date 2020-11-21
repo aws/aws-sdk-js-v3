@@ -20,6 +20,10 @@ import {
 export type SearchProfilesCommandInput = SearchProfilesRequest;
 export type SearchProfilesCommandOutput = SearchProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches room profiles and lists the ones that meet a set of filter
+ *          criteria.</p>
+ */
 export class SearchProfilesCommand extends $Command<
   SearchProfilesCommandInput,
   SearchProfilesCommandOutput,
@@ -34,6 +38,9 @@ export class SearchProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteRouteCommandInput = DeleteRouteInput;
 export type DeleteRouteCommandOutput = DeleteRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing route.</p>
+ */
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,
   DeleteRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

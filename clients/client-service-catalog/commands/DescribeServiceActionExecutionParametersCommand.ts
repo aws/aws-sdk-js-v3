@@ -24,6 +24,9 @@ export type DescribeServiceActionExecutionParametersCommandInput = DescribeServi
 export type DescribeServiceActionExecutionParametersCommandOutput = DescribeServiceActionExecutionParametersOutput &
   __MetadataBearer;
 
+/**
+ * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
+ */
 export class DescribeServiceActionExecutionParametersCommand extends $Command<
   DescribeServiceActionExecutionParametersCommandInput,
   DescribeServiceActionExecutionParametersCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

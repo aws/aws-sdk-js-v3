@@ -20,6 +20,9 @@ import {
 export type ModifyClientPropertiesCommandInput = ModifyClientPropertiesRequest;
 export type ModifyClientPropertiesCommandOutput = ModifyClientPropertiesResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
+ */
 export class ModifyClientPropertiesCommand extends $Command<
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyClientPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

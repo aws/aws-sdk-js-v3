@@ -20,6 +20,14 @@ import {
 export type DescribeBackupsCommandInput = DescribeBackupsRequest;
 export type DescribeBackupsCommandOutput = DescribeBackupsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about backups of AWS CloudHSM clusters.</p>
+ *          <p>This is a paginated operation, which means that each response might contain only a
+ *       subset of all the backups. When the response contains only a subset of backups, it includes a
+ *         <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code>
+ *       request to get more backups. When you receive a response with no <code>NextToken</code> (or an
+ *       empty or null value), that means there are no more backups to get.</p>
+ */
 export class DescribeBackupsCommand extends $Command<
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeBackupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

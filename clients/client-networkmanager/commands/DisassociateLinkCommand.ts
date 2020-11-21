@@ -20,6 +20,10 @@ import {
 export type DisassociateLinkCommandInput = DisassociateLinkRequest;
 export type DisassociateLinkCommandOutput = DisassociateLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates an existing device from a link. You must first disassociate any customer
+ *             gateways that are associated with the link.</p>
+ */
 export class DisassociateLinkCommand extends $Command<
   DisassociateLinkCommandInput,
   DisassociateLinkCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

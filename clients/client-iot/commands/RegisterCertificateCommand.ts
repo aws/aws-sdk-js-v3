@@ -20,6 +20,11 @@ import {
 export type RegisterCertificateCommandInput = RegisterCertificateRequest;
 export type RegisterCertificateCommandOutput = RegisterCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
+ *          that has the same subject field, you must specify the CA certificate that was used to sign
+ *          the device certificate being registered.</p>
+ */
 export class RegisterCertificateCommand extends $Command<
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput,
@@ -34,6 +39,9 @@ export class RegisterCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

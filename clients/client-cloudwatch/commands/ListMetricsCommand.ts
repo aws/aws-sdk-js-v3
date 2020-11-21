@@ -17,6 +17,22 @@ import {
 export type ListMetricsCommandInput = ListMetricsInput;
 export type ListMetricsCommandOutput = ListMetricsOutput & __MetadataBearer;
 
+/**
+ * <p>List the specified metrics. You can use the returned metrics with
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to obtain statistical data.</p>
+ * 		       <p>Up to 500 results are returned for any one call. To retrieve additional results,
+ * 			use the returned token with subsequent calls.</p>
+ * 		       <p>After you create a metric, allow up to 15 minutes before the metric appears.
+ * 			You can see statistics about the metric sooner by using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+ *
+ * 	        <p>
+ *             <code>ListMetrics</code> doesn't return information about metrics if those metrics haven't
+ * 	reported data in the past two weeks. To retrieve those metrics, use
+ * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+ * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+ */
 export class ListMetricsCommand extends $Command<
   ListMetricsCommandInput,
   ListMetricsCommandOutput,
@@ -31,6 +47,9 @@ export class ListMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

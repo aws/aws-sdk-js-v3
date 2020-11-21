@@ -20,6 +20,10 @@ import {
 export type GetPullRequestApprovalStatesCommandInput = GetPullRequestApprovalStatesInput;
 export type GetPullRequestApprovalStatesCommandOutput = GetPullRequestApprovalStatesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more
+ *         approval rules applied to them.</p>
+ */
 export class GetPullRequestApprovalStatesCommand extends $Command<
   GetPullRequestApprovalStatesCommandInput,
   GetPullRequestApprovalStatesCommandOutput,
@@ -34,6 +38,9 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

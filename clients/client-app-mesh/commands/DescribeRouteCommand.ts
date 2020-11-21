@@ -20,6 +20,9 @@ import {
 export type DescribeRouteCommandInput = DescribeRouteInput;
 export type DescribeRouteCommandOutput = DescribeRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing route.</p>
+ */
 export class DescribeRouteCommand extends $Command<
   DescribeRouteCommandInput,
   DescribeRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

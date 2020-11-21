@@ -20,6 +20,9 @@ import {
 export type ListServicesCommandInput = ListServicesRequest;
 export type ListServicesCommandOutput = ListServicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the services that are running in a specified cluster.</p>
+ */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,
   ListServicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

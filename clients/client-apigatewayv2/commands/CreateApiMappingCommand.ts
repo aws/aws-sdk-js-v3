@@ -20,6 +20,9 @@ import {
 export type CreateApiMappingCommandInput = CreateApiMappingRequest;
 export type CreateApiMappingCommandOutput = CreateApiMappingResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an API mapping.</p>
+ */
 export class CreateApiMappingCommand extends $Command<
   CreateApiMappingCommandInput,
   CreateApiMappingCommandOutput,
@@ -34,6 +37,9 @@ export class CreateApiMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

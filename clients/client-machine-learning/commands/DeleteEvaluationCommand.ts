@@ -20,6 +20,14 @@ import {
 export type DeleteEvaluationCommandInput = DeleteEvaluationInput;
 export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput & __MetadataBearer;
 
+/**
+ * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
+ *
+ *         <p>After invoking the <code>DeleteEvaluation</code> operation, you can use the
+ *           <code>GetEvaluation</code> operation to verify that the status of the <code>Evaluation</code> changed to <code>DELETED</code>.</p>
+ *         <p>
+ *             <b>Caution:</b> The results of the <code>DeleteEvaluation</code> operation are irreversible.</p>
+ */
 export class DeleteEvaluationCommand extends $Command<
   DeleteEvaluationCommandInput,
   DeleteEvaluationCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteEvaluationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DeleteApplicationVersionCommandInput = DeleteApplicationVersionMessage;
 export type DeleteApplicationVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified version from the specified application.</p>
+ *          <note>
+ *             <p>You cannot delete an application version that is associated with a running
+ *         environment.</p>
+ *          </note>
+ */
 export class DeleteApplicationVersionCommand extends $Command<
   DeleteApplicationVersionCommandInput,
   DeleteApplicationVersionCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteApplicationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

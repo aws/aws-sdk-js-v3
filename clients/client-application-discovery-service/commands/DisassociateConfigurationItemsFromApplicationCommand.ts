@@ -28,6 +28,9 @@ export type DisassociateConfigurationItemsFromApplicationCommandInput = Disassoc
 export type DisassociateConfigurationItemsFromApplicationCommandOutput = DisassociateConfigurationItemsFromApplicationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates one or more configuration items from an application.</p>
+ */
 export class DisassociateConfigurationItemsFromApplicationCommand extends $Command<
   DisassociateConfigurationItemsFromApplicationCommandInput,
   DisassociateConfigurationItemsFromApplicationCommandOutput,
@@ -42,6 +45,9 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

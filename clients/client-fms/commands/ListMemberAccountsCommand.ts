@@ -20,6 +20,12 @@ import {
 export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
 export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
+ *       administrator's AWS organization.</p>
+ *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
+ *       AWS Firewall Manager administrator.</p>
+ */
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,
   ListMemberAccountsCommandOutput,
@@ -34,6 +40,9 @@ export class ListMemberAccountsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

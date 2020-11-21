@@ -20,6 +20,9 @@ import {
 export type PutImageScanningConfigurationCommandInput = PutImageScanningConfigurationRequest;
 export type PutImageScanningConfigurationCommandOutput = PutImageScanningConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the image scanning configuration for the specified repository.</p>
+ */
 export class PutImageScanningConfigurationCommand extends $Command<
   PutImageScanningConfigurationCommandInput,
   PutImageScanningConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class PutImageScanningConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

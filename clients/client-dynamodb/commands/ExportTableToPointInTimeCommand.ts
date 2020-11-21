@@ -20,6 +20,11 @@ import {
 export type ExportTableToPointInTimeCommandInput = ExportTableToPointInTimeInput;
 export type ExportTableToPointInTimeCommandOutput = ExportTableToPointInTimeOutput & __MetadataBearer;
 
+/**
+ * <p>Exports table data to an S3 bucket. The table must have point in time recovery
+ *             enabled, and you can export data from any time within the point in time recovery
+ *             window.</p>
+ */
 export class ExportTableToPointInTimeCommand extends $Command<
   ExportTableToPointInTimeCommandInput,
   ExportTableToPointInTimeCommandOutput,
@@ -34,6 +39,9 @@ export class ExportTableToPointInTimeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

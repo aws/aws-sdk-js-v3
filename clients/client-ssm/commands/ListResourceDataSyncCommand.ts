@@ -20,6 +20,17 @@ import {
 export type ListResourceDataSyncCommandInput = ListResourceDataSyncRequest;
 export type ListResourceDataSyncCommandOutput = ListResourceDataSyncResult & __MetadataBearer;
 
+/**
+ * <p>Lists your resource data sync configurations. Includes information about the last time a
+ *    sync attempted to start, the last sync status, and the last time a sync successfully
+ *    completed.</p>
+ *          <p>The number of sync configurations might be too large to return using a single call to
+ *     <code>ListResourceDataSync</code>. You can limit the number of sync configurations returned by
+ *    using the <code>MaxResults</code> parameter. To determine whether there are more sync
+ *    configurations to list, check the value of <code>NextToken</code> in the output. If there are
+ *    more sync configurations to list, you can request them by specifying the <code>NextToken</code>
+ *    returned in the call to the parameter of a subsequent call. </p>
+ */
 export class ListResourceDataSyncCommand extends $Command<
   ListResourceDataSyncCommandInput,
   ListResourceDataSyncCommandOutput,
@@ -34,6 +45,9 @@ export class ListResourceDataSyncCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

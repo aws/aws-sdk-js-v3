@@ -20,6 +20,9 @@ import {
 export type CreateFleetCommandInput = CreateFleetRequest;
 export type CreateFleetCommandOutput = CreateFleetResult & __MetadataBearer;
 
+/**
+ * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
+ */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,
   CreateFleetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

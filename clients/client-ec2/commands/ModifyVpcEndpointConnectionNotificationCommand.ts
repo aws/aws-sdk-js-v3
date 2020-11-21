@@ -24,6 +24,10 @@ export type ModifyVpcEndpointConnectionNotificationCommandInput = ModifyVpcEndpo
 export type ModifyVpcEndpointConnectionNotificationCommandOutput = ModifyVpcEndpointConnectionNotificationResult &
   __MetadataBearer;
 
+/**
+ * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
+ *             can change the SNS topic for the notification, or the events for which to be notified. </p>
+ */
 export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   ModifyVpcEndpointConnectionNotificationCommandInput,
   ModifyVpcEndpointConnectionNotificationCommandOutput,
@@ -38,6 +42,9 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

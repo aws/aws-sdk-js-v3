@@ -20,6 +20,28 @@ import {
 export type CreateMLModelCommandInput = CreateMLModelInput;
 export type CreateMLModelCommandOutput = CreateMLModelOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
+ *             information sources. </p>
+ *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
+ *                 <code>MLModelName</code> and the <code>ScoreThreshold</code> in an
+ *                 <code>MLModel</code> without creating a new <code>MLModel</code>. </p>
+ *         <p>
+ *             <code>CreateMLModel</code> is an asynchronous operation. In response to
+ *                 <code>CreateMLModel</code>, Amazon Machine Learning (Amazon ML) immediately returns
+ *             and sets the <code>MLModel</code> status to <code>PENDING</code>. After the
+ *                 <code>MLModel</code> has been created and ready is for use, Amazon ML sets the
+ *             status to <code>COMPLETED</code>. </p>
+ *         <p>You can use the <code>GetMLModel</code> operation to check the progress of the
+ *                 <code>MLModel</code> during the creation operation.</p>
+ *
+ *         <p>
+ *            <code>CreateMLModel</code> requires a <code>DataSource</code> with computed statistics,
+ *           which can be created by setting <code>ComputeStatistics</code> to <code>true</code> in
+ *           <code>CreateDataSourceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
+ *           <code>CreateDataSourceFromRedshift</code> operations.
+ *         </p>
+ */
 export class CreateMLModelCommand extends $Command<
   CreateMLModelCommandInput,
   CreateMLModelCommandOutput,
@@ -34,6 +56,9 @@ export class CreateMLModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

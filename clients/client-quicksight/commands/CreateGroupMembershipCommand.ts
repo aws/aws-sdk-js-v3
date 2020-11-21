@@ -20,6 +20,9 @@ import {
 export type CreateGroupMembershipCommandInput = CreateGroupMembershipRequest;
 export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
+ */
 export class CreateGroupMembershipCommand extends $Command<
   CreateGroupMembershipCommandInput,
   CreateGroupMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGroupMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

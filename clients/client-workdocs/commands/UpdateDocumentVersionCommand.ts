@@ -20,6 +20,12 @@ import {
 export type UpdateDocumentVersionCommandInput = UpdateDocumentVersionRequest;
 export type UpdateDocumentVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the status of the document version to ACTIVE. </p>
+ *         <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
+ *             in a document upload, after the client uploads the document to an S3-presigned URL
+ *             returned by <a>InitiateDocumentVersionUpload</a>. </p>
+ */
 export class UpdateDocumentVersionCommand extends $Command<
   UpdateDocumentVersionCommandInput,
   UpdateDocumentVersionCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateDocumentVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

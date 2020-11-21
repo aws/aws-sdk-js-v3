@@ -20,6 +20,9 @@ import {
 export type DeleteFunctionDefinitionCommandInput = DeleteFunctionDefinitionRequest;
 export type DeleteFunctionDefinitionCommandOutput = DeleteFunctionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a Lambda function definition.
+ */
 export class DeleteFunctionDefinitionCommand extends $Command<
   DeleteFunctionDefinitionCommandInput,
   DeleteFunctionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFunctionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

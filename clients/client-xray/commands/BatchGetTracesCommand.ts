@@ -20,6 +20,11 @@ import {
 export type BatchGetTracesCommandInput = BatchGetTracesRequest;
 export type BatchGetTracesCommandOutput = BatchGetTracesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
+ *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
+ *       list of trace IDs.</p>
+ */
 export class BatchGetTracesCommand extends $Command<
   BatchGetTracesCommandInput,
   BatchGetTracesCommandOutput,
@@ -34,6 +39,9 @@ export class BatchGetTracesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

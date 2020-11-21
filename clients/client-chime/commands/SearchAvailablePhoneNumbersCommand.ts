@@ -20,6 +20,9 @@ import {
 export type SearchAvailablePhoneNumbersCommandInput = SearchAvailablePhoneNumbersRequest;
 export type SearchAvailablePhoneNumbersCommandOutput = SearchAvailablePhoneNumbersResponse & __MetadataBearer;
 
+/**
+ * <p>Searches phone numbers that can be ordered.</p>
+ */
 export class SearchAvailablePhoneNumbersCommand extends $Command<
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
@@ -34,6 +37,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

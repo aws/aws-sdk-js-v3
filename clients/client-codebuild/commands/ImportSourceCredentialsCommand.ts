@@ -20,6 +20,10 @@ import {
 export type ImportSourceCredentialsCommandInput = ImportSourceCredentialsInput;
 export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p> Imports the source repository credentials for an AWS CodeBuild project that has its
+ *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
+ */
 export class ImportSourceCredentialsCommand extends $Command<
   ImportSourceCredentialsCommandInput,
   ImportSourceCredentialsCommandOutput,
@@ -34,6 +38,9 @@ export class ImportSourceCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

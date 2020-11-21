@@ -20,6 +20,9 @@ import {
 export type CreateIndexCommandInput = CreateIndexRequest;
 export type CreateIndexCommandOutput = CreateIndexResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>
+ */
 export class CreateIndexCommand extends $Command<
   CreateIndexCommandInput,
   CreateIndexCommandOutput,
@@ -34,6 +37,9 @@ export class CreateIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

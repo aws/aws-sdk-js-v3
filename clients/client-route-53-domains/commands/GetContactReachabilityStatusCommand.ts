@@ -20,6 +20,11 @@ import {
 export type GetContactReachabilityStatusCommandInput = GetContactReachabilityStatusRequest;
 export type GetContactReachabilityStatusCommandOutput = GetContactReachabilityStatusResponse & __MetadataBearer;
 
+/**
+ * <p>For operations that require confirmation that the email address for the registrant contact is valid,
+ * 			such as registering a new domain, this operation returns information about whether the registrant contact has responded.</p>
+ * 		       <p>If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code> operation.</p>
+ */
 export class GetContactReachabilityStatusCommand extends $Command<
   GetContactReachabilityStatusCommandInput,
   GetContactReachabilityStatusCommandOutput,
@@ -34,6 +39,9 @@ export class GetContactReachabilityStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

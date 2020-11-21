@@ -20,6 +20,9 @@ import {
 export type UpdateVPCEConfigurationCommandInput = UpdateVPCEConfigurationRequest;
 export type UpdateVPCEConfigurationCommandOutput = UpdateVPCEConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
+ */
 export class UpdateVPCEConfigurationCommand extends $Command<
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVPCEConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

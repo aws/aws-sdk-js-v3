@@ -20,6 +20,9 @@ import {
 export type ListHealthChecksCommandInput = ListHealthChecksRequest;
 export type ListHealthChecksCommandOutput = ListHealthChecksResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>
+ */
 export class ListHealthChecksCommand extends $Command<
   ListHealthChecksCommandInput,
   ListHealthChecksCommandOutput,
@@ -34,6 +37,9 @@ export class ListHealthChecksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

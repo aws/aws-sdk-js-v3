@@ -24,6 +24,14 @@ import {
 export type CancelJobCommandInput = CancelJobRequest;
 export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
 
+/**
+ * <p>The CancelJob operation cancels an unfinished job.</p>
+ *         <note>
+ *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
+ *             pipeline from starting to process a job while you're getting the job identifier, use
+ *                 <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p>
+ *          </note>
+ */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,
   CancelJobCommandOutput,
@@ -38,6 +46,9 @@ export class CancelJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

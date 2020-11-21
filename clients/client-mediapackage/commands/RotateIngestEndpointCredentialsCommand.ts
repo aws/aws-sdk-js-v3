@@ -20,6 +20,9 @@ import {
 export type RotateIngestEndpointCredentialsCommandInput = RotateIngestEndpointCredentialsRequest;
 export type RotateIngestEndpointCredentialsCommandOutput = RotateIngestEndpointCredentialsResponse & __MetadataBearer;
 
+/**
+ * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
+ */
 export class RotateIngestEndpointCredentialsCommand extends $Command<
   RotateIngestEndpointCredentialsCommandInput,
   RotateIngestEndpointCredentialsCommandOutput,
@@ -34,6 +37,9 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

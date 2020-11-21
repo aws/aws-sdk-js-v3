@@ -8,6 +8,9 @@ import {
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
   input: ListUniqueProblemsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUniqueProblemsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DeviceFarm,
   input: ListUniqueProblemsCommandInput,

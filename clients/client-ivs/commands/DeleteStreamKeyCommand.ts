@@ -20,6 +20,10 @@ import {
 export type DeleteStreamKeyCommandInput = DeleteStreamKeyRequest;
 export type DeleteStreamKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
+ *       stream.</p>
+ */
 export class DeleteStreamKeyCommand extends $Command<
   DeleteStreamKeyCommandInput,
   DeleteStreamKeyCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteStreamKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteConnectorDefinitionCommandInput = DeleteConnectorDefinitionRequest;
 export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a connector definition.
+ */
 export class DeleteConnectorDefinitionCommand extends $Command<
   DeleteConnectorDefinitionCommandInput,
   DeleteConnectorDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

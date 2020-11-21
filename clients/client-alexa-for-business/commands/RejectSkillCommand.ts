@@ -20,6 +20,11 @@ import {
 export type RejectSkillCommandInput = RejectSkillRequest;
 export type RejectSkillCommandOutput = RejectSkillResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
+ *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
+ *          that is rejected can be added later by calling the ApproveSkill API. </p>
+ */
 export class RejectSkillCommand extends $Command<
   RejectSkillCommandInput,
   RejectSkillCommandOutput,
@@ -34,6 +39,9 @@ export class RejectSkillCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

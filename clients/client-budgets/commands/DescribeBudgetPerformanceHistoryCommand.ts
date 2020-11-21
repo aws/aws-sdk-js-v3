@@ -20,6 +20,9 @@ import {
 export type DescribeBudgetPerformanceHistoryCommandInput = DescribeBudgetPerformanceHistoryRequest;
 export type DescribeBudgetPerformanceHistoryCommandOutput = DescribeBudgetPerformanceHistoryResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
+ */
 export class DescribeBudgetPerformanceHistoryCommand extends $Command<
   DescribeBudgetPerformanceHistoryCommandInput,
   DescribeBudgetPerformanceHistoryCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

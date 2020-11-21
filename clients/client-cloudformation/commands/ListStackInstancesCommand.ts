@@ -20,6 +20,11 @@ import {
 export type ListStackInstancesCommandInput = ListStackInstancesInput;
 export type ListStackInstancesCommandOutput = ListStackInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns summary information about stack instances that are associated with the
+ *          specified stack set. You can filter for stack instances that are associated with a specific
+ *          AWS account name or Region, or that have a specific status.</p>
+ */
 export class ListStackInstancesCommand extends $Command<
   ListStackInstancesCommandInput,
   ListStackInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class ListStackInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

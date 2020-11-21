@@ -20,6 +20,40 @@ import {
 export type GetEntitiesCommandInput = GetEntitiesRequest;
 export type GetEntitiesCommandOutput = GetEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
+ *       following TDM entities.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Properties</p>
+ *             </li>
+ *             <li>
+ *                <p>States</p>
+ *             </li>
+ *             <li>
+ *                <p>Events</p>
+ *             </li>
+ *             <li>
+ *                <p>Actions</p>
+ *             </li>
+ *             <li>
+ *                <p>Capabilities</p>
+ *             </li>
+ *             <li>
+ *                <p>Mappings</p>
+ *             </li>
+ *             <li>
+ *                <p>Devices</p>
+ *             </li>
+ *             <li>
+ *                <p>Device Models</p>
+ *             </li>
+ *             <li>
+ *                <p>Services</p>
+ *             </li>
+ *          </ul>
+ *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
+ */
 export class GetEntitiesCommand extends $Command<
   GetEntitiesCommandInput,
   GetEntitiesCommandOutput,
@@ -34,6 +68,9 @@ export class GetEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

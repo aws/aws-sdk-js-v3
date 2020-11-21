@@ -20,6 +20,10 @@ import {
 export type GetSamplingTargetsCommandInput = GetSamplingTargetsRequest;
 export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult & __MetadataBearer;
 
+/**
+ * <p>Requests a sampling quota for rules that the service is using to sample requests.
+ *       </p>
+ */
 export class GetSamplingTargetsCommand extends $Command<
   GetSamplingTargetsCommandInput,
   GetSamplingTargetsCommandOutput,
@@ -34,6 +38,9 @@ export class GetSamplingTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

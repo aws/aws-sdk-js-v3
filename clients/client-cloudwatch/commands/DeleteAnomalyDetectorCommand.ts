@@ -20,6 +20,9 @@ import {
 export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorInput;
 export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified anomaly detection model from your account.</p>
+ */
 export class DeleteAnomalyDetectorCommand extends $Command<
   DeleteAnomalyDetectorCommandInput,
   DeleteAnomalyDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

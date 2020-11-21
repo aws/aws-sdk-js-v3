@@ -20,6 +20,10 @@ import {
 export type DeleteDeviceCommandInput = DeleteDeviceRequest;
 export type DeleteDeviceCommandOutput = DeleteDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing device. You must first disassociate the device from any links and
+ *             customer gateways.</p>
+ */
 export class DeleteDeviceCommand extends $Command<
   DeleteDeviceCommandInput,
   DeleteDeviceCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

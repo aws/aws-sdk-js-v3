@@ -20,6 +20,19 @@ import {
 export type ExecuteChangeSetCommandInput = ExecuteChangeSetInput;
 export type ExecuteChangeSetCommandOutput = ExecuteChangeSetOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a stack using the input information that was provided when the specified
+ *          change set was created. After the call successfully completes, AWS CloudFormation starts
+ *          updating the stack. Use the <a>DescribeStacks</a> action to view the status of
+ *          the update.</p>
+ *          <p>When you execute a change set, AWS CloudFormation deletes all other change sets
+ *          associated with the stack because they aren't valid for the updated stack.</p>
+ *          <p>If a stack policy is associated with the stack, AWS CloudFormation enforces the
+ *          policy during the update. You can't specify a temporary stack policy that overrides the
+ *          current policy.</p>
+ *          <p>To create a change set for the entire stack hierachy, <code>IncludeNestedStacks</code>
+ *          must have been set to <code>True</code>.</p>
+ */
 export class ExecuteChangeSetCommand extends $Command<
   ExecuteChangeSetCommandInput,
   ExecuteChangeSetCommandOutput,
@@ -34,6 +47,9 @@ export class ExecuteChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

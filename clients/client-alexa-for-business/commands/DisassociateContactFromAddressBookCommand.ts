@@ -24,6 +24,9 @@ export type DisassociateContactFromAddressBookCommandInput = DisassociateContact
 export type DisassociateContactFromAddressBookCommandOutput = DisassociateContactFromAddressBookResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a contact from a given address book.</p>
+ */
 export class DisassociateContactFromAddressBookCommand extends $Command<
   DisassociateContactFromAddressBookCommandInput,
   DisassociateContactFromAddressBookCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

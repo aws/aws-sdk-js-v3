@@ -20,6 +20,18 @@ import {
 export type AuthorizeSecurityGroupIngressCommandInput = AuthorizeSecurityGroupIngressRequest;
 export type AuthorizeSecurityGroupIngressCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds the specified ingress rules to a security group.</p>
+ *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
+ *        address ranges, or from the instances associated with the specified destination security groups.</p>
+ *          <p>You specify a protocol for each rule (for example, TCP).
+ *        For TCP and UDP, you must also specify the destination port or port range.
+ *        For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
+ *        You can use -1 to mean all types or all codes.</p>
+ *          <p>Rule changes are propagated to instances within the security group as quickly as possible.
+ *          However, a small delay might occur.</p>
+ *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+ */
 export class AuthorizeSecurityGroupIngressCommand extends $Command<
   AuthorizeSecurityGroupIngressCommandInput,
   AuthorizeSecurityGroupIngressCommandOutput,
@@ -34,6 +46,9 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { CodeartifactPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeartifactClient,
   input: ListPackageVersionAssetsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPackageVersionAssetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Codeartifact,
   input: ListPackageVersionAssetsCommandInput,

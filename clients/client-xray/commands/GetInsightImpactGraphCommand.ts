@@ -20,6 +20,10 @@ import {
 export type GetInsightImpactGraphCommandInput = GetInsightImpactGraphRequest;
 export type GetInsightImpactGraphCommandOutput = GetInsightImpactGraphResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
+ *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
+ */
 export class GetInsightImpactGraphCommand extends $Command<
   GetInsightImpactGraphCommandInput,
   GetInsightImpactGraphCommandOutput,
@@ -34,6 +38,9 @@ export class GetInsightImpactGraphCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

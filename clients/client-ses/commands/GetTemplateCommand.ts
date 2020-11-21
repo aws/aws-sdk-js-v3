@@ -17,6 +17,11 @@ import {
 export type GetTemplateCommandInput = GetTemplateRequest;
 export type GetTemplateCommandOutput = GetTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Displays the template object (which includes the Subject line, HTML part and text
+ *             part) for the template you specify.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,
   GetTemplateCommandOutput,
@@ -31,6 +36,9 @@ export class GetTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

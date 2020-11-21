@@ -20,6 +20,16 @@ import {
 export type DescribeRetentionConfigurationsCommandInput = DescribeRetentionConfigurationsRequest;
 export type DescribeRetentionConfigurationsCommandOutput = DescribeRetentionConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details of one or more retention configurations. If
+ * 			the retention configuration name is not specified, this action
+ * 			returns the details for all the retention configurations for that
+ * 			account.</p>
+ * 		       <note>
+ * 			         <p>Currently, AWS Config supports only one retention
+ * 				configuration per region in your account.</p>
+ * 		       </note>
+ */
 export class DescribeRetentionConfigurationsCommand extends $Command<
   DescribeRetentionConfigurationsCommandInput,
   DescribeRetentionConfigurationsCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyInput;
 export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>
+ *          <p>For information about how to construct an object lifecycle policy, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html">Components of an Object Lifecycle Policy</a>.</p>
+ */
 export class PutLifecyclePolicyCommand extends $Command<
   PutLifecyclePolicyCommandInput,
   PutLifecyclePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type NotifyApplicationStateCommandInput = NotifyApplicationStateRequest;
 export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult & __MetadataBearer;
 
+/**
+ * <p>Sets the migration state of an application. For a given application identified by the
+ *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
+ *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
+ *          COMPLETED</code>.</p>
+ */
 export class NotifyApplicationStateCommand extends $Command<
   NotifyApplicationStateCommandInput,
   NotifyApplicationStateCommandOutput,
@@ -34,6 +40,9 @@ export class NotifyApplicationStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

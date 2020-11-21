@@ -20,6 +20,9 @@ import {
 export type ListRecordHistoryCommandInput = ListRecordHistoryInput;
 export type ListRecordHistoryCommandOutput = ListRecordHistoryOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the specified requests or all performed requests.</p>
+ */
 export class ListRecordHistoryCommand extends $Command<
   ListRecordHistoryCommandInput,
   ListRecordHistoryCommandOutput,
@@ -34,6 +37,9 @@ export class ListRecordHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

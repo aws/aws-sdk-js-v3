@@ -20,6 +20,9 @@ import {
 export type UpdateDimensionCommandInput = UpdateDimensionRequest;
 export type UpdateDimensionCommandOutput = UpdateDimensionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and re-create it).</p>
+ */
 export class UpdateDimensionCommand extends $Command<
   UpdateDimensionCommandInput,
   UpdateDimensionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDimensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

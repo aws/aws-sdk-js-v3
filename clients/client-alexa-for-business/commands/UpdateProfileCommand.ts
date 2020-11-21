@@ -20,6 +20,9 @@ import {
 export type UpdateProfileCommandInput = UpdateProfileRequest;
 export type UpdateProfileCommandOutput = UpdateProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing room profile by room profile ARN.</p>
+ */
 export class UpdateProfileCommand extends $Command<
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

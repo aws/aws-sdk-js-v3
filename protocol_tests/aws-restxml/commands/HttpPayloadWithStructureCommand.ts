@@ -20,6 +20,12 @@ import {
 export type HttpPayloadWithStructureCommandInput = HttpPayloadWithStructureInputOutput;
 export type HttpPayloadWithStructureCommandOutput = HttpPayloadWithStructureInputOutput & __MetadataBearer;
 
+/**
+ * This examples serializes a structure in the payload.
+ *
+ * Note that serializing a structure changes the wrapper element name
+ * to match the targeted structure.
+ */
 export class HttpPayloadWithStructureCommand extends $Command<
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
@@ -34,6 +40,9 @@ export class HttpPayloadWithStructureCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

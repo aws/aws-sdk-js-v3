@@ -8,6 +8,9 @@ import {
 import { ConnectPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ConnectClient,
   input: GetCurrentMetricDataCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetCurrentMetricDataCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Connect,
   input: GetCurrentMetricDataCommandInput,

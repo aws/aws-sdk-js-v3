@@ -20,6 +20,34 @@ import {
 export type CreateSchemaCommandInput = CreateSchemaRequest;
 export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
+ *       must be in Avro JSON format.</p>
+ *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
+ *       type and has a set of required field and keywords.
+ *       You specify a schema when you call <a>CreateDataset</a>.</p>
+ *
+ *          <p class="title">
+ *             <b>Related APIs</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListSchemas</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeSchema</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteSchema</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,
   CreateSchemaCommandOutput,
@@ -34,6 +62,9 @@ export class CreateSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

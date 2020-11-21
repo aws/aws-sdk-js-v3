@@ -20,6 +20,11 @@ import {
 export type AuthorizeClientVpnIngressCommandInput = AuthorizeClientVpnIngressRequest;
 export type AuthorizeClientVpnIngressCommandOutput = AuthorizeClientVpnIngressResult & __MetadataBearer;
 
+/**
+ * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
+ * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
+ * 			enable clients to access resources in AWS or on-premises networks.</p>
+ */
 export class AuthorizeClientVpnIngressCommand extends $Command<
   AuthorizeClientVpnIngressCommandInput,
   AuthorizeClientVpnIngressCommandOutput,
@@ -34,6 +39,9 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

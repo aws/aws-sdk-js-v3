@@ -20,6 +20,9 @@ import {
 export type EnableLDAPSCommandInput = EnableLDAPSRequest;
 export type EnableLDAPSCommandOutput = EnableLDAPSResult & __MetadataBearer;
 
+/**
+ * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
+ */
 export class EnableLDAPSCommand extends $Command<
   EnableLDAPSCommandInput,
   EnableLDAPSCommandOutput,
@@ -34,6 +37,9 @@ export class EnableLDAPSCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,18 @@ import {
 export type GetDomainPermissionsPolicyCommandInput = GetDomainPermissionsPolicyRequest;
 export type GetDomainPermissionsPolicyCommandOutput = GetDomainPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns the resource policy attached to the specified domain.
+ *       </p>
+ *          <note>
+ *             <p>
+ *          The policy is a resource-based policy, not an identity-based policy. For more information, see
+ *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based policies
+ *            and resource-based policies </a> in the <i>AWS Identity and Access Management User Guide</i>.
+ *        </p>
+ *          </note>
+ */
 export class GetDomainPermissionsPolicyCommand extends $Command<
   GetDomainPermissionsPolicyCommandInput,
   GetDomainPermissionsPolicyCommandOutput,
@@ -34,6 +46,9 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

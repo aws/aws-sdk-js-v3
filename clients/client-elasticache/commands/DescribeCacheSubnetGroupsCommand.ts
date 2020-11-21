@@ -20,6 +20,12 @@ import {
 export type DescribeCacheSubnetGroupsCommandInput = DescribeCacheSubnetGroupsMessage;
 export type DescribeCacheSubnetGroupsCommandOutput = CacheSubnetGroupMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of cache subnet group
+ *             descriptions. If a subnet group name is specified, the list  contains only the
+ *             description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
+ *         </p>
+ */
 export class DescribeCacheSubnetGroupsCommand extends $Command<
   DescribeCacheSubnetGroupsCommandInput,
   DescribeCacheSubnetGroupsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

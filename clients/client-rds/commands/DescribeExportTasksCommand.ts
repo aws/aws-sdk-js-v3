@@ -20,6 +20,10 @@ import {
 export type DescribeExportTasksCommandInput = DescribeExportTasksMessage;
 export type DescribeExportTasksCommandOutput = ExportTasksMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
+ *             pagination. </p>
+ */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeExportTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

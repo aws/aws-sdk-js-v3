@@ -20,6 +20,15 @@ import {
 export type StopHyperParameterTuningJobCommandInput = StopHyperParameterTuningJobRequest;
 export type StopHyperParameterTuningJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a running hyperparameter tuning job and all running training jobs that the
+ *             tuning job launched.</p>
+ *         <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
+ *             data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the
+ *             tuning job moves to the <code>Stopped</code> state, it releases all
+ *             reserved
+ *             resources for the tuning job.</p>
+ */
 export class StopHyperParameterTuningJobCommand extends $Command<
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,
@@ -34,6 +43,9 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

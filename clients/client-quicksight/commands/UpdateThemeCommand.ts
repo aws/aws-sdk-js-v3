@@ -20,6 +20,9 @@ import {
 export type UpdateThemeCommandInput = UpdateThemeRequest;
 export type UpdateThemeCommandOutput = UpdateThemeResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a theme.</p>
+ */
 export class UpdateThemeCommand extends $Command<
   UpdateThemeCommandInput,
   UpdateThemeCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateThemeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

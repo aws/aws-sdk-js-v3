@@ -20,6 +20,9 @@ import {
 export type DescribeNatGatewaysCommandInput = DescribeNatGatewaysRequest;
 export type DescribeNatGatewaysCommandOutput = DescribeNatGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your NAT gateways.</p>
+ */
 export class DescribeNatGatewaysCommand extends $Command<
   DescribeNatGatewaysCommandInput,
   DescribeNatGatewaysCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNatGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

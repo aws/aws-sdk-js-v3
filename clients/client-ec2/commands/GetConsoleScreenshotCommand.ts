@@ -20,6 +20,11 @@ import {
 export type GetConsoleScreenshotCommandInput = GetConsoleScreenshotRequest;
 export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult & __MetadataBearer;
 
+/**
+ * <p>Retrieve a JPG-format screenshot of a running instance to help with
+ *             troubleshooting.</p>
+ *         <p>The returned content is Base64-encoded.</p>
+ */
 export class GetConsoleScreenshotCommand extends $Command<
   GetConsoleScreenshotCommandInput,
   GetConsoleScreenshotCommandOutput,
@@ -34,6 +39,9 @@ export class GetConsoleScreenshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type StartStreamProcessorCommandInput = StartStreamProcessorRequest;
 export type StartStreamProcessorCommandOutput = StartStreamProcessorResponse & __MetadataBearer;
 
+/**
+ * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
+ *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
+ *             <code>CreateStreamProcessor</code>.</p>
+ */
 export class StartStreamProcessorCommand extends $Command<
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
@@ -34,6 +39,9 @@ export class StartStreamProcessorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

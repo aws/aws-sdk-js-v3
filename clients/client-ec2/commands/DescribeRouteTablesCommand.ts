@@ -20,6 +20,12 @@ import {
 export type DescribeRouteTablesCommandInput = DescribeRouteTablesRequest;
 export type DescribeRouteTablesCommandOutput = DescribeRouteTablesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your route tables.</p>
+ *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+ * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class DescribeRouteTablesCommand extends $Command<
   DescribeRouteTablesCommandInput,
   DescribeRouteTablesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeRouteTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

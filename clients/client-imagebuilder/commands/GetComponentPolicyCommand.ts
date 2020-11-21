@@ -20,6 +20,9 @@ import {
 export type GetComponentPolicyCommandInput = GetComponentPolicyRequest;
 export type GetComponentPolicyCommandOutput = GetComponentPolicyResponse & __MetadataBearer;
 
+/**
+ * <p> Gets a component policy. </p>
+ */
 export class GetComponentPolicyCommand extends $Command<
   GetComponentPolicyCommandInput,
   GetComponentPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetComponentPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

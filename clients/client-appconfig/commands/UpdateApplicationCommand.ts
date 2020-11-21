@@ -20,6 +20,9 @@ import {
 export type UpdateApplicationCommandInput = UpdateApplicationRequest;
 export type UpdateApplicationCommandOutput = Application & __MetadataBearer;
 
+/**
+ * <p>Updates an application.</p>
+ */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

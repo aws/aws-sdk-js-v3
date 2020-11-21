@@ -20,6 +20,11 @@ import {
 export type CreateFlowTemplateCommandInput = CreateFlowTemplateRequest;
 export type CreateFlowTemplateCommandOutput = CreateFlowTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
+ *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the
+ *       latest version of the user's namespace unless another namespace version is specified in the request.</p>
+ */
 export class CreateFlowTemplateCommand extends $Command<
   CreateFlowTemplateCommandInput,
   CreateFlowTemplateCommandOutput,
@@ -34,6 +39,9 @@ export class CreateFlowTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

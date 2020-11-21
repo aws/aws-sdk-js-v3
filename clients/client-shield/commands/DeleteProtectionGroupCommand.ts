@@ -20,6 +20,9 @@ import {
 export type DeleteProtectionGroupCommandInput = DeleteProtectionGroupRequest;
 export type DeleteProtectionGroupCommandOutput = DeleteProtectionGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified protection group.</p>
+ */
 export class DeleteProtectionGroupCommand extends $Command<
   DeleteProtectionGroupCommandInput,
   DeleteProtectionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProtectionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type EvaluateExpressionCommandInput = EvaluateExpressionInput;
 export type EvaluateExpressionCommandOutput = EvaluateExpressionOutput & __MetadataBearer;
 
+/**
+ * <p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object.
+ *             For example, a task runner can evaluate SQL queries stored in Amazon S3.</p>
+ */
 export class EvaluateExpressionCommand extends $Command<
   EvaluateExpressionCommandInput,
   EvaluateExpressionCommandOutput,
@@ -34,6 +38,9 @@ export class EvaluateExpressionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

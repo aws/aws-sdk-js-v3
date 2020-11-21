@@ -20,6 +20,11 @@ import {
 export type DeleteActionTargetCommandInput = DeleteActionTargetRequest;
 export type DeleteActionTargetCommandOutput = DeleteActionTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a custom action target from Security Hub.</p>
+ *          <p>Deleting a custom action target does not affect any findings or insights that were
+ *          already sent to Amazon CloudWatch Events using the custom action.</p>
+ */
 export class DeleteActionTargetCommand extends $Command<
   DeleteActionTargetCommandInput,
   DeleteActionTargetCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteActionTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

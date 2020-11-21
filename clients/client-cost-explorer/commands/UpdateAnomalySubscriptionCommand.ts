@@ -20,6 +20,9 @@ import {
 export type UpdateAnomalySubscriptionCommandInput = UpdateAnomalySubscriptionRequest;
 export type UpdateAnomalySubscriptionCommandOutput = UpdateAnomalySubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p> Updates an existing cost anomaly monitor subscription. </p>
+ */
 export class UpdateAnomalySubscriptionCommand extends $Command<
   UpdateAnomalySubscriptionCommandInput,
   UpdateAnomalySubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAnomalySubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

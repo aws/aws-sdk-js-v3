@@ -17,6 +17,9 @@ import {
 export type DeleteFlowLogsCommandInput = DeleteFlowLogsRequest;
 export type DeleteFlowLogsCommandOutput = DeleteFlowLogsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more flow logs.</p>
+ */
 export class DeleteFlowLogsCommand extends $Command<
   DeleteFlowLogsCommandInput,
   DeleteFlowLogsCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteFlowLogsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

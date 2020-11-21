@@ -20,6 +20,9 @@ import {
 export type DeleteMetricFilterCommandInput = DeleteMetricFilterRequest;
 export type DeleteMetricFilterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified metric filter.</p>
+ */
 export class DeleteMetricFilterCommand extends $Command<
   DeleteMetricFilterCommandInput,
   DeleteMetricFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMetricFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -20,6 +20,26 @@ import {
 export type ListRepositoryAssociationsCommandInput = ListRepositoryAssociationsRequest;
 export type ListRepositoryAssociationsCommandOutput = ListRepositoryAssociationsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">
+ *                <code>RepositoryAssociationSummary</code>
+ *             </a> objects that
+ *          contain summary information about a repository association. You can filter the returned list by
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">
+ *                <code>ProviderType</code>
+ *             </a>,
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">
+ *                <code>Name</code>
+ *             </a>,
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">
+ *                <code>State</code>
+ *             </a>, and
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">
+ *                <code>Owner</code>
+ *             </a>.
+ *       </p>
+ */
 export class ListRepositoryAssociationsCommand extends $Command<
   ListRepositoryAssociationsCommandInput,
   ListRepositoryAssociationsCommandOutput,
@@ -34,6 +54,9 @@ export class ListRepositoryAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

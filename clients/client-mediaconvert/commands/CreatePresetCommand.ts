@@ -20,6 +20,9 @@ import {
 export type CreatePresetCommandInput = CreatePresetRequest;
 export type CreatePresetCommandOutput = CreatePresetResponse & __MetadataBearer;
 
+/**
+ * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ */
 export class CreatePresetCommand extends $Command<
   CreatePresetCommandInput,
   CreatePresetCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

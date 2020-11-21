@@ -20,6 +20,10 @@ import {
 export type CreateTrustCommandInput = CreateTrustRequest;
 export type CreateTrustCommandOutput = CreateTrustResult & __MetadataBearer;
 
+/**
+ * <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p>
+ *          <p>This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain. You can create either a forest trust or an external trust.</p>
+ */
 export class CreateTrustCommand extends $Command<
   CreateTrustCommandInput,
   CreateTrustCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTrustCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

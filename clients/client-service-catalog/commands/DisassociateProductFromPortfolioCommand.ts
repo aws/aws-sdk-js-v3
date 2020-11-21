@@ -20,6 +20,10 @@ import {
 export type DisassociateProductFromPortfolioCommandInput = DisassociateProductFromPortfolioInput;
 export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified product from the specified portfolio. </p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class DisassociateProductFromPortfolioCommand extends $Command<
   DisassociateProductFromPortfolioCommandInput,
   DisassociateProductFromPortfolioCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

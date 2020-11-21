@@ -20,6 +20,10 @@ import {
 export type DeleteIPSetCommandInput = DeleteIPSetRequest;
 export type DeleteIPSetCommandOutput = DeleteIPSetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
+ *       lists in the console user interface.</p>
+ */
 export class DeleteIPSetCommand extends $Command<
   DeleteIPSetCommandInput,
   DeleteIPSetCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteIPSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

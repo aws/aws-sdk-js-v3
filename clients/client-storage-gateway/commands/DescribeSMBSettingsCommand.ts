@@ -20,6 +20,10 @@ import {
 export type DescribeSMBSettingsCommandInput = DescribeSMBSettingsInput;
 export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a description of a Server Message Block (SMB) file share settings from a file
+ *          gateway. This operation is only supported for file gateways.</p>
+ */
 export class DescribeSMBSettingsCommand extends $Command<
   DescribeSMBSettingsCommandInput,
   DescribeSMBSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSMBSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

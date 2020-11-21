@@ -20,6 +20,9 @@ import {
 export type GetMaintenanceWindowExecutionCommandInput = GetMaintenanceWindowExecutionRequest;
 export type GetMaintenanceWindowExecutionCommandOutput = GetMaintenanceWindowExecutionResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves details about a specific a maintenance window execution.</p>
+ */
 export class GetMaintenanceWindowExecutionCommand extends $Command<
   GetMaintenanceWindowExecutionCommandInput,
   GetMaintenanceWindowExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
+ */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,
   ListTagsCommandOutput,
@@ -31,6 +34,9 @@ export class ListTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

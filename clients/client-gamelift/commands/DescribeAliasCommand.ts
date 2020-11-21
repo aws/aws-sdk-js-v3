@@ -20,6 +20,44 @@ import {
 export type DescribeAliasCommandInput = DescribeAliasInput;
 export type DescribeAliasCommandOutput = DescribeAliasOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves properties for an alias. This operation returns all alias metadata and
+ *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
+ *         <p>To get alias properties, specify the alias ID. If successful, the requested alias
+ *             record is returned.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListAliases</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResolveAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeAliasCommand extends $Command<
   DescribeAliasCommandInput,
   DescribeAliasCommandOutput,
@@ -34,6 +72,9 @@ export class DescribeAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteAccountSettingCommandInput = DeleteAccountSettingRequest;
 export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse & __MetadataBearer;
 
+/**
+ * <p>Disables an account setting for a specified IAM user, IAM role, or the root user for
+ * 			an account.</p>
+ */
 export class DeleteAccountSettingCommand extends $Command<
   DeleteAccountSettingCommandInput,
   DeleteAccountSettingCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAccountSettingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

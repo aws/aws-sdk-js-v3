@@ -20,6 +20,9 @@ import {
 export type BatchGetApplicationsCommandInput = BatchGetApplicationsInput;
 export type BatchGetApplicationsCommandOutput = BatchGetApplicationsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more applications. The maximum number of applications that can be returned is 100.</p>
+ */
 export class BatchGetApplicationsCommand extends $Command<
   BatchGetApplicationsCommandInput,
   BatchGetApplicationsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

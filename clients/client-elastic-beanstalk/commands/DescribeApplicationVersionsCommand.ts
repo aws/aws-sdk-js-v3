@@ -20,6 +20,9 @@ import {
 export type DescribeApplicationVersionsCommandInput = DescribeApplicationVersionsMessage;
 export type DescribeApplicationVersionsCommandOutput = ApplicationVersionDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Retrieve a list of application versions.</p>
+ */
 export class DescribeApplicationVersionsCommand extends $Command<
   DescribeApplicationVersionsCommandInput,
   DescribeApplicationVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeApplicationVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDirectoryConfigCommandInput = UpdateDirectoryConfigRequest;
 export type UpdateDirectoryConfigCommandOutput = UpdateDirectoryConfigResult & __MetadataBearer;
 
+/**
+ * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
+ */
 export class UpdateDirectoryConfigCommand extends $Command<
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDirectoryConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

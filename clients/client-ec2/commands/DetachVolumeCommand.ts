@@ -18,6 +18,19 @@ import {
 export type DetachVolumeCommandInput = DetachVolumeRequest;
 export type DetachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
 
+/**
+ * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
+ *       device within your operating system before detaching the volume. Failure to do so can result
+ *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
+ *       detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot
+ *       the instance, or all three. If an EBS volume is the root device of an instance, it can't be
+ *       detached while the instance is running. To detach the root volume, stop the instance
+ *       first.</p>
+ *          <p>When a volume with an AWS Marketplace product code is detached from an instance, the
+ *       product code is no longer associated with the instance.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching an Amazon EBS volume</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DetachVolumeCommand extends $Command<
   DetachVolumeCommandInput,
   DetachVolumeCommandOutput,
@@ -32,6 +45,9 @@ export class DetachVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

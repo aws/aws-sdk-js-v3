@@ -20,6 +20,16 @@ import {
 export type ListOriginRequestPoliciesCommandInput = ListOriginRequestPoliciesRequest;
 export type ListOriginRequestPoliciesCommandOutput = ListOriginRequestPoliciesResult & __MetadataBearer;
 
+/**
+ * <p>Gets a list of origin request policies.</p>
+ * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
+ * 			only the custom policies created in your AWS account.</p>
+ * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ * 			the total number of items in the list exceeds the maximum that you specify, or the
+ * 			default maximum, the response is paginated. To get the next page of items, send a
+ * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+ * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ */
 export class ListOriginRequestPoliciesCommand extends $Command<
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
@@ -34,6 +44,9 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

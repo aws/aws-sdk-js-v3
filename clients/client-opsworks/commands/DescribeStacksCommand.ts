@@ -20,6 +20,14 @@ import {
 export type DescribeStacksCommandInput = DescribeStacksRequest;
 export type DescribeStacksCommandOutput = DescribeStacksResult & __MetadataBearer;
 
+/**
+ * <p>Requests a description of one or more stacks.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+ *       Manage permissions level for the stack, or an attached policy that explicitly grants
+ *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,
   DescribeStacksCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeStacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

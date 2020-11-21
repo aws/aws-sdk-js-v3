@@ -20,6 +20,9 @@ import {
 export type UpdateBranchCommandInput = UpdateBranchRequest;
 export type UpdateBranchCommandOutput = UpdateBranchResult & __MetadataBearer;
 
+/**
+ * <p> Updates a branch for an Amplify app. </p>
+ */
 export class UpdateBranchCommand extends $Command<
   UpdateBranchCommandInput,
   UpdateBranchCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

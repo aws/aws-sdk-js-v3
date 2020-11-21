@@ -20,6 +20,9 @@ import {
 export type GetAuthorizerCommandInput = GetAuthorizerRequest;
 export type GetAuthorizerCommandOutput = GetAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Gets an Authorizer.</p>
+ */
 export class GetAuthorizerCommand extends $Command<
   GetAuthorizerCommandInput,
   GetAuthorizerCommandOutput,
@@ -34,6 +37,9 @@ export class GetAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

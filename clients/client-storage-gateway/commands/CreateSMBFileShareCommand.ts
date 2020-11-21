@@ -20,6 +20,24 @@ import {
 export type CreateSMBFileShareCommandInput = CreateSMBFileShareInput;
 export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage
+ *          Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
+ *          Storage Gateway exposes file shares using an SMB interface. This operation is only
+ *          supported for file gateways.</p>
+ *
+ *          <important>
+ *             <p>File gateways require AWS Security Token Service (AWS STS) to be activated to enable
+ *             you to create a file share. Make sure that AWS STS is activated in the AWS Region you
+ *             are creating your file gateway in. If AWS STS is not activated in this AWS Region,
+ *             activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and
+ *                Access Management User Guide</i>.</p>
+ *
+ *             <p>File gateways don't support creating hard or symbolic links on a file
+ *             share.</p>
+ *          </important>
+ */
 export class CreateSMBFileShareCommand extends $Command<
   CreateSMBFileShareCommandInput,
   CreateSMBFileShareCommandOutput,
@@ -34,6 +52,9 @@ export class CreateSMBFileShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

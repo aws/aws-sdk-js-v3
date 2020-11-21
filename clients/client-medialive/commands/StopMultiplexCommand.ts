@@ -20,6 +20,9 @@ import {
 export type StopMultiplexCommandInput = StopMultiplexRequest;
 export type StopMultiplexCommandOutput = StopMultiplexResponse & __MetadataBearer;
 
+/**
+ * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
+ */
 export class StopMultiplexCommand extends $Command<
   StopMultiplexCommandInput,
   StopMultiplexCommandOutput,
@@ -34,6 +37,9 @@ export class StopMultiplexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

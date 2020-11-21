@@ -20,6 +20,10 @@ import {
 export type GetContactListCommandInput = GetContactListRequest;
 export type GetContactListCommandOutput = GetContactListResponse & __MetadataBearer;
 
+/**
+ * <p>Returns contact list metadata. It does not return any information about the contacts
+ *             present in the list.</p>
+ */
 export class GetContactListCommand extends $Command<
   GetContactListCommandInput,
   GetContactListCommandOutput,
@@ -34,6 +38,9 @@ export class GetContactListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

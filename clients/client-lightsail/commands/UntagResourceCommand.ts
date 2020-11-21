@@ -20,6 +20,13 @@ import {
 export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail
+ *       resource.</p>
+ *          <p>The <code>untag resource</code> operation supports tag-based access control via request
+ *       tags and resource tags applied to the resource identified by <code>resource name</code>. For
+ *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +41,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

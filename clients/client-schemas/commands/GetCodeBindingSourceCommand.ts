@@ -20,6 +20,9 @@ import {
 export type GetCodeBindingSourceCommandInput = GetCodeBindingSourceRequest;
 export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse & __MetadataBearer;
 
+/**
+ * <p>Get the code binding source URI.</p>
+ */
 export class GetCodeBindingSourceCommand extends $Command<
   GetCodeBindingSourceCommandInput,
   GetCodeBindingSourceCommandOutput,
@@ -34,6 +37,9 @@ export class GetCodeBindingSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

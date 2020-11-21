@@ -20,6 +20,11 @@ import {
 export type CreateInstancesCommandInput = CreateInstancesRequest;
 export type CreateInstancesCommandOutput = CreateInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Creates one or more Amazon Lightsail instances.</p>
+ *          <p>The <code>create instances</code> operation supports tag-based access control via request
+ *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateInstancesCommand extends $Command<
   CreateInstancesCommandInput,
   CreateInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class CreateInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

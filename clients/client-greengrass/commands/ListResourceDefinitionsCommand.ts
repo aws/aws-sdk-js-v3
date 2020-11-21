@@ -20,6 +20,9 @@ import {
 export type ListResourceDefinitionsCommandInput = ListResourceDefinitionsRequest;
 export type ListResourceDefinitionsCommandOutput = ListResourceDefinitionsResponse & __MetadataBearer;
 
+/**
+ * Retrieves a list of resource definitions.
+ */
 export class ListResourceDefinitionsCommand extends $Command<
   ListResourceDefinitionsCommandInput,
   ListResourceDefinitionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourceDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

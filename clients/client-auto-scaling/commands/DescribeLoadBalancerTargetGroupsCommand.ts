@@ -20,6 +20,9 @@ import {
 export type DescribeLoadBalancerTargetGroupsCommandInput = DescribeLoadBalancerTargetGroupsRequest;
 export type DescribeLoadBalancerTargetGroupsCommandOutput = DescribeLoadBalancerTargetGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the target groups for the specified Auto Scaling group.</p>
+ */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
   DescribeLoadBalancerTargetGroupsCommandInput,
   DescribeLoadBalancerTargetGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

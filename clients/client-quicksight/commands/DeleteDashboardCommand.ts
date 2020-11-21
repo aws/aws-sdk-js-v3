@@ -20,6 +20,9 @@ import {
 export type DeleteDashboardCommandInput = DeleteDashboardRequest;
 export type DeleteDashboardCommandOutput = DeleteDashboardResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a dashboard.</p>
+ */
 export class DeleteDashboardCommand extends $Command<
   DeleteDashboardCommandInput,
   DeleteDashboardCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

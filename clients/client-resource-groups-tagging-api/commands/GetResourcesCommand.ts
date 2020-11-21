@@ -24,6 +24,33 @@ import {
 export type GetResourcesCommandInput = GetResourcesInput;
 export type GetResourcesCommandOutput = GetResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns all the tagged or previously tagged resources that are located in the
+ *             specified Region for the AWS account.</p>
+ *         <p>Depending on what information you want returned, you can also specify the
+ *             following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <i>Filters</i> that specify what tags and resource types you
+ *                     want returned. The response includes all tags that are associated with the
+ *                     requested resources.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Information about compliance with the account's effective tag policy. For more
+ *                     information on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
+ *                         Policies</a> in the <i>AWS Organizations User Guide.</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *         <note>
+ *             <p>You can check the <code>PaginationToken</code> response parameter to determine if
+ *                 a query is complete. Queries occasionally return fewer results on a page than
+ *                 allowed. The <code>PaginationToken</code> response parameter value is
+ *                     <code>null</code>
+ *                 <i>only</i> when there are no more results to display. </p>
+ *         </note>
+ */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,
   GetResourcesCommandOutput,
@@ -38,6 +65,9 @@ export class GetResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

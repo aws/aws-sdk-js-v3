@@ -20,6 +20,9 @@ import {
 export type DeleteBasePathMappingCommandInput = DeleteBasePathMappingRequest;
 export type DeleteBasePathMappingCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the <a>BasePathMapping</a> resource.</p>
+ */
 export class DeleteBasePathMappingCommand extends $Command<
   DeleteBasePathMappingCommandInput,
   DeleteBasePathMappingCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBasePathMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

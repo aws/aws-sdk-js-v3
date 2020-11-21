@@ -20,6 +20,11 @@ import {
 export type ModifyCacheParameterGroupCommandInput = ModifyCacheParameterGroupMessage;
 export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>Modifies the parameters of a cache
+ *             parameter group. You can modify up to 20 parameters in a single request by submitting a
+ *             list parameter name and value pairs.</p>
+ */
 export class ModifyCacheParameterGroupCommand extends $Command<
   ModifyCacheParameterGroupCommandInput,
   ModifyCacheParameterGroupCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

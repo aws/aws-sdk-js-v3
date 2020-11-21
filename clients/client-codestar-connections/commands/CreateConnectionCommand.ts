@@ -24,6 +24,11 @@ import {
 export type CreateConnectionCommandInput = CreateConnectionInput;
 export type CreateConnectionCommandOutput = CreateConnectionOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a connection that can then be given to other AWS services like CodePipeline so
+ *       that it can access third-party code repositories. The connection is in pending status until
+ *       the third-party connection handshake is completed from the console.</p>
+ */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
@@ -38,6 +43,9 @@ export class CreateConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

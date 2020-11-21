@@ -20,6 +20,12 @@ import {
 export type CreateDedicatedIpPoolCommandInput = CreateDedicatedIpPoolRequest;
 export type CreateDedicatedIpPoolCommandOutput = CreateDedicatedIpPoolResponse & __MetadataBearer;
 
+/**
+ * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
+ *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
+ *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
+ *             sends it using only the IP addresses in the associated pool.</p>
+ */
 export class CreateDedicatedIpPoolCommand extends $Command<
   CreateDedicatedIpPoolCommandInput,
   CreateDedicatedIpPoolCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDedicatedIpPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

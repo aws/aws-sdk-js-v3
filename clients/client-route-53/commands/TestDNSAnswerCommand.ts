@@ -21,6 +21,10 @@ import {
 export type TestDNSAnswerCommandInput = TestDNSAnswerRequest;
 export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify
+ * 			the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
+ */
 export class TestDNSAnswerCommand extends $Command<
   TestDNSAnswerCommandInput,
   TestDNSAnswerCommandOutput,
@@ -35,6 +39,9 @@ export class TestDNSAnswerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

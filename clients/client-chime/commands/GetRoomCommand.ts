@@ -20,6 +20,9 @@ import {
 export type GetRoomCommandInput = GetRoomRequest;
 export type GetRoomCommandOutput = GetRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
+ */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

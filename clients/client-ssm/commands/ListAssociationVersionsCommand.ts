@@ -20,6 +20,9 @@ import {
 export type ListAssociationVersionsCommandInput = ListAssociationVersionsRequest;
 export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves all versions of an association for a specific association ID.</p>
+ */
 export class ListAssociationVersionsCommand extends $Command<
   ListAssociationVersionsCommandInput,
   ListAssociationVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAssociationVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

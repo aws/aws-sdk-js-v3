@@ -20,6 +20,9 @@ import {
 export type GetStaticIpCommandInput = GetStaticIpRequest;
 export type GetStaticIpCommandOutput = GetStaticIpResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific static IP.</p>
+ */
 export class GetStaticIpCommand extends $Command<
   GetStaticIpCommandInput,
   GetStaticIpCommandOutput,
@@ -34,6 +37,9 @@ export class GetStaticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

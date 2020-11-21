@@ -17,6 +17,10 @@ import {
 export type StopQueryCommandInput = StopQueryRequest;
 export type StopQueryCommandOutput = StopQueryResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
+ *     returns an error indicating that the specified query is not running.</p>
+ */
 export class StopQueryCommand extends $Command<
   StopQueryCommandInput,
   StopQueryCommandOutput,
@@ -31,6 +35,9 @@ export class StopQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

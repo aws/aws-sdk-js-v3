@@ -20,6 +20,9 @@ import {
 export type DescribeClusterCommandInput = DescribeClusterInput;
 export type DescribeClusterCommandOutput = DescribeClusterOutput & __MetadataBearer;
 
+/**
+ * <p>Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. </p>
+ */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

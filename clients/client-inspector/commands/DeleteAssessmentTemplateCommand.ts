@@ -20,6 +20,10 @@ import {
 export type DeleteAssessmentTemplateCommandInput = DeleteAssessmentTemplateRequest;
 export type DeleteAssessmentTemplateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the assessment template that is specified by the ARN of the assessment
+ *          template.</p>
+ */
 export class DeleteAssessmentTemplateCommand extends $Command<
   DeleteAssessmentTemplateCommandInput,
   DeleteAssessmentTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAssessmentTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

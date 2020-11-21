@@ -20,6 +20,15 @@ import {
 export type DeleteCachePolicyCommandInput = DeleteCachePolicyRequest;
 export type DeleteCachePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a cache policy.</p>
+ * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update your
+ * 			distributions to remove the cache policy from all cache behaviors, then delete the cache
+ * 			policy.</p>
+ * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
+ * 			values, you can use <code>ListCachePolicies</code> or
+ * 			<code>GetCachePolicy</code>.</p>
+ */
 export class DeleteCachePolicyCommand extends $Command<
   DeleteCachePolicyCommandInput,
   DeleteCachePolicyCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteCachePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

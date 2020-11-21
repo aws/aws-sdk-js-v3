@@ -20,6 +20,9 @@ import {
 export type DeleteStackInstancesCommandInput = DeleteStackInstancesInput;
 export type DeleteStackInstancesCommandOutput = DeleteStackInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes stack instances for the specified accounts, in the specified Regions. </p>
+ */
 export class DeleteStackInstancesCommand extends $Command<
   DeleteStackInstancesCommandInput,
   DeleteStackInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteStackInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -24,6 +24,13 @@ export type CreateConfigurationSetTrackingOptionsCommandInput = CreateConfigurat
 export type CreateConfigurationSetTrackingOptionsCommandOutput = CreateConfigurationSetTrackingOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates an association between a configuration set and a custom domain for open and
+ *             click event tracking. </p>
+ *         <p>By default, images and links used for tracking open and click events are hosted on
+ *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
+ *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+ */
 export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
   CreateConfigurationSetTrackingOptionsCommandInput,
   CreateConfigurationSetTrackingOptionsCommandOutput,
@@ -38,6 +45,9 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

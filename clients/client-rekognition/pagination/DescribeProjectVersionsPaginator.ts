@@ -8,6 +8,9 @@ import {
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RekognitionClient,
   input: DescribeProjectVersionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeProjectVersionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Rekognition,
   input: DescribeProjectVersionsCommandInput,

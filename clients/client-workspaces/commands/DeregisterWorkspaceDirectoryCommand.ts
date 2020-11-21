@@ -20,6 +20,11 @@ import {
 export type DeregisterWorkspaceDirectoryCommandInput = DeregisterWorkspaceDirectoryRequest;
 export type DeregisterWorkspaceDirectoryCommandOutput = DeregisterWorkspaceDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Deregisters the specified directory. This operation is asynchronous
+ *          and returns before the WorkSpace directory is deregistered. If any WorkSpaces are
+ *       registered to this directory, you must remove them before you can deregister the directory.</p>
+ */
 export class DeregisterWorkspaceDirectoryCommand extends $Command<
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput,
@@ -34,6 +39,9 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

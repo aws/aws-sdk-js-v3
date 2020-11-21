@@ -24,6 +24,13 @@ import {
 export type DeletePlacementCommandInput = DeletePlacementRequest;
 export type DeletePlacementCommandOutput = DeletePlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a placement. To delete a placement, it must not have any devices associated with
+ *       it.</p>
+ *          <note>
+ *             <p>When you delete a placement, all associated data becomes irretrievable.</p>
+ *          </note>
+ */
 export class DeletePlacementCommand extends $Command<
   DeletePlacementCommandInput,
   DeletePlacementCommandOutput,
@@ -38,6 +45,9 @@ export class DeletePlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

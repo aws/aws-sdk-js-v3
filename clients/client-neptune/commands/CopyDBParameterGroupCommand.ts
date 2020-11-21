@@ -20,6 +20,9 @@ import {
 export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
 export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified DB parameter group.</p>
+ */
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,
   CopyDBParameterGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CopyDBParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

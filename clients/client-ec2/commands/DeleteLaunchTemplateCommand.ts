@@ -20,6 +20,9 @@ import {
 export type DeleteLaunchTemplateCommandInput = DeleteLaunchTemplateRequest;
 export type DeleteLaunchTemplateCommandOutput = DeleteLaunchTemplateResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>
+ */
 export class DeleteLaunchTemplateCommand extends $Command<
   DeleteLaunchTemplateCommandInput,
   DeleteLaunchTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLaunchTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeBrokerInstanceOptionsCommandInput = DescribeBrokerInstanceOptionsRequest;
 export type DescribeBrokerInstanceOptionsCommandOutput = DescribeBrokerInstanceOptionsResponse & __MetadataBearer;
 
+/**
+ * Describe available broker instance options.
+ */
 export class DescribeBrokerInstanceOptionsCommand extends $Command<
   DescribeBrokerInstanceOptionsCommandInput,
   DescribeBrokerInstanceOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type SearchAddressBooksCommandInput = SearchAddressBooksRequest;
 export type SearchAddressBooksCommandOutput = SearchAddressBooksResponse & __MetadataBearer;
 
+/**
+ * <p>Searches address books and lists the ones that meet a set of filter and sort
+ *          criteria.</p>
+ */
 export class SearchAddressBooksCommand extends $Command<
   SearchAddressBooksCommandInput,
   SearchAddressBooksCommandOutput,
@@ -34,6 +38,9 @@ export class SearchAddressBooksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

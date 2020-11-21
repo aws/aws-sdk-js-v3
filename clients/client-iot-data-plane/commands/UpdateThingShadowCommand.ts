@@ -20,6 +20,11 @@ import {
 export type UpdateThingShadowCommandInput = UpdateThingShadowRequest;
 export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the shadow for the specified thing.</p>
+ *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the
+ *         AWS IoT Developer Guide.</p>
+ */
 export class UpdateThingShadowCommand extends $Command<
   UpdateThingShadowCommandInput,
   UpdateThingShadowCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateThingShadowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTDataPlaneClientResolvedConfig,

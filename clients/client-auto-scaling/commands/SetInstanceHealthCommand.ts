@@ -20,6 +20,11 @@ import {
 export type SetInstanceHealthCommandInput = SetInstanceHealthQuery;
 export type SetInstanceHealthCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the health status of the specified instance.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
+ *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class SetInstanceHealthCommand extends $Command<
   SetInstanceHealthCommandInput,
   SetInstanceHealthCommandOutput,
@@ -34,6 +39,9 @@ export class SetInstanceHealthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

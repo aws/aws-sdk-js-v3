@@ -20,6 +20,9 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified tags for the specified WorkSpaces resource.</p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

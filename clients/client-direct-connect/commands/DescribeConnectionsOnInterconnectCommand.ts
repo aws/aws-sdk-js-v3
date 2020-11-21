@@ -20,6 +20,13 @@ import {
 export type DescribeConnectionsOnInterconnectCommandInput = DescribeConnectionsOnInterconnectRequest;
 export type DescribeConnectionsOnInterconnectCommandOutput = Connections & __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
+ *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
+ *          <note>
+ *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class DescribeConnectionsOnInterconnectCommand extends $Command<
   DescribeConnectionsOnInterconnectCommandInput,
   DescribeConnectionsOnInterconnectCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

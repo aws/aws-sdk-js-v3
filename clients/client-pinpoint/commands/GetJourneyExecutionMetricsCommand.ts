@@ -20,6 +20,9 @@ import {
 export type GetJourneyExecutionMetricsCommandInput = GetJourneyExecutionMetricsRequest;
 export type GetJourneyExecutionMetricsCommandOutput = GetJourneyExecutionMetricsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
+ */
 export class GetJourneyExecutionMetricsCommand extends $Command<
   GetJourneyExecutionMetricsCommandInput,
   GetJourneyExecutionMetricsCommandOutput,
@@ -34,6 +37,9 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

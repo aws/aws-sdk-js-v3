@@ -20,6 +20,14 @@ import {
 export type UpdateTrailCommandInput = UpdateTrailRequest;
 export type UpdateTrailCommandOutput = UpdateTrailResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the settings that specify delivery of log files. Changes to a trail do not require
+ *          stopping the CloudTrail service. Use this action to designate an existing bucket for log
+ *          delivery. If the existing bucket has previously been a target for CloudTrail log files,
+ *          an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the
+ *          region in which the trail was created; otherwise, an
+ *             <code>InvalidHomeRegionException</code> is thrown.</p>
+ */
 export class UpdateTrailCommand extends $Command<
   UpdateTrailCommandInput,
   UpdateTrailCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateTrailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

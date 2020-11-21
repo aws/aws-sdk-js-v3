@@ -20,6 +20,11 @@ import {
 export type StartCrawlerCommandInput = StartCrawlerRequest;
 export type StartCrawlerCommandOutput = StartCrawlerResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a crawl using the specified crawler, regardless
+ *       of what is scheduled. If the crawler is already running, returns a
+ *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
+ */
 export class StartCrawlerCommand extends $Command<
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -34,6 +39,9 @@ export class StartCrawlerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

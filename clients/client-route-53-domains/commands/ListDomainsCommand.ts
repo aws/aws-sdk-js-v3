@@ -20,6 +20,9 @@ import {
 export type ListDomainsCommandInput = ListDomainsRequest;
 export type ListDomainsCommandOutput = ListDomainsResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>
+ */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,
   ListDomainsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDomainsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

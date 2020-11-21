@@ -20,6 +20,10 @@ import {
 export type MergePullRequestByFastForwardCommandInput = MergePullRequestByFastForwardInput;
 export type MergePullRequestByFastForwardCommandOutput = MergePullRequestByFastForwardOutput & __MetadataBearer;
 
+/**
+ * <p>Attempts to merge the source commit of a pull request into the specified destination
+ *             branch for that pull request at the specified commit using the fast-forward merge strategy. If the merge is successful, it closes the pull request.</p>
+ */
 export class MergePullRequestByFastForwardCommand extends $Command<
   MergePullRequestByFastForwardCommandInput,
   MergePullRequestByFastForwardCommandOutput,
@@ -34,6 +38,9 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

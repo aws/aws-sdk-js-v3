@@ -20,6 +20,12 @@ import {
 export type UpdateFleetCommandInput = UpdateFleetRequest;
 export type UpdateFleetCommandOutput = UpdateFleetResult & __MetadataBearer;
 
+/**
+ * <p>Updates the specified fleet.</p>
+ *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name.
+ *             If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>, <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code> attributes.
+ *             If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>
+ */
 export class UpdateFleetCommand extends $Command<
   UpdateFleetCommandInput,
   UpdateFleetCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

@@ -24,6 +24,12 @@ export type GetAssociatedEnclaveCertificateIamRolesCommandInput = GetAssociatedE
 export type GetAssociatedEnclaveCertificateIamRolesCommandOutput = GetAssociatedEnclaveCertificateIamRolesResult &
   __MetadataBearer;
 
+/**
+ * <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate.
+ * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain,
+ * 			and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master key (CMK)
+ * 			that's used to encrypt the private key.</p>
+ */
 export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
   GetAssociatedEnclaveCertificateIamRolesCommandInput,
   GetAssociatedEnclaveCertificateIamRolesCommandOutput,
@@ -38,6 +44,9 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

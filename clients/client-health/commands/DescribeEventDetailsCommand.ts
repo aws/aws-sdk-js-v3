@@ -20,6 +20,14 @@ import {
 export type DescribeEventDetailsCommandInput = DescribeEventDetailsRequest;
 export type DescribeEventDetailsCommandOutput = DescribeEventDetailsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about one or more specified events. Information includes
+ *          standard event data (Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a
+ *          detailed event description, and possible additional metadata that depends upon the nature
+ *          of the event. Affected entities are not included. To retrieve those, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
+ *          <p>If a specified event cannot be retrieved, an error message is returned for that
+ *          event.</p>
+ */
 export class DescribeEventDetailsCommand extends $Command<
   DescribeEventDetailsCommandInput,
   DescribeEventDetailsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeEventDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

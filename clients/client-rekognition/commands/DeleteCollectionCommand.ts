@@ -20,6 +20,13 @@ import {
 export type DeleteCollectionCommandInput = DeleteCollectionRequest;
 export type DeleteCollectionCommandOutput = DeleteCollectionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified collection. Note that this operation
+ *       removes all faces in the collection. For an example, see <a>delete-collection-procedure</a>.</p>
+ *
+ *          <p>This operation requires permissions to perform the
+ *         <code>rekognition:DeleteCollection</code> action.</p>
+ */
 export class DeleteCollectionCommand extends $Command<
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteCollectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

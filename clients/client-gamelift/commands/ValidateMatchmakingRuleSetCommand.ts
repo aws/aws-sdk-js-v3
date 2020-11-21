@@ -20,6 +20,67 @@ import {
 export type ValidateMatchmakingRuleSetCommandInput = ValidateMatchmakingRuleSetInput;
 export type ValidateMatchmakingRuleSetCommandOutput = ValidateMatchmakingRuleSetOutput & __MetadataBearer;
 
+/**
+ * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that
+ *             the rule set is using syntactically correct JSON and that it conforms to allowed
+ *             property expressions. To validate syntax, provide a rule set JSON string.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a Rule
+ *                         Set</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ValidateMatchmakingRuleSetCommand extends $Command<
   ValidateMatchmakingRuleSetCommandInput,
   ValidateMatchmakingRuleSetCommandOutput,
@@ -34,6 +95,9 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

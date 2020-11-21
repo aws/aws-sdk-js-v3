@@ -20,6 +20,9 @@ import {
 export type DisassociateRepositoryCommandInput = DisassociateRepositoryRequest;
 export type DisassociateRepositoryCommandOutput = DisassociateRepositoryResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
+ */
 export class DisassociateRepositoryCommand extends $Command<
   DisassociateRepositoryCommandInput,
   DisassociateRepositoryCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

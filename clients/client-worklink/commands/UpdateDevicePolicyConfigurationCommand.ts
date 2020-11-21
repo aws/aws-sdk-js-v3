@@ -20,6 +20,9 @@ import {
 export type UpdateDevicePolicyConfigurationCommandInput = UpdateDevicePolicyConfigurationRequest;
 export type UpdateDevicePolicyConfigurationCommandOutput = UpdateDevicePolicyConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the device policy configuration for the fleet.</p>
+ */
 export class UpdateDevicePolicyConfigurationCommand extends $Command<
   UpdateDevicePolicyConfigurationCommandInput,
   UpdateDevicePolicyConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

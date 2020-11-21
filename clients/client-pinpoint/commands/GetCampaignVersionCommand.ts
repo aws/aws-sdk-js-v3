@@ -20,6 +20,9 @@ import {
 export type GetCampaignVersionCommandInput = GetCampaignVersionRequest;
 export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
+ */
 export class GetCampaignVersionCommand extends $Command<
   GetCampaignVersionCommandInput,
   GetCampaignVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetCampaignVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListReportsCommandInput = ListReportsInput;
 export type ListReportsCommandOutput = ListReportsOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns a list of ARNs for the reports in the current AWS account.
+ *     </p>
+ */
 export class ListReportsCommand extends $Command<
   ListReportsCommandInput,
   ListReportsCommandOutput,
@@ -34,6 +39,9 @@ export class ListReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

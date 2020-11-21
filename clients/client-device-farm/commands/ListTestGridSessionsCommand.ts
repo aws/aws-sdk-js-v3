@@ -20,6 +20,9 @@ import {
 export type ListTestGridSessionsCommandInput = ListTestGridSessionsRequest;
 export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of sessions for a <a>TestGridProject</a>.</p>
+ */
 export class ListTestGridSessionsCommand extends $Command<
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTestGridSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

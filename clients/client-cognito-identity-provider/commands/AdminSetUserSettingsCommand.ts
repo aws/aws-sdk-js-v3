@@ -25,6 +25,12 @@ import {
 export type AdminSetUserSettingsCommandInput = AdminSetUserSettingsRequest;
 export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             <i>This action is no longer supported.</i> You can use it to configure
+ *             only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either
+ *             type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
+ */
 export class AdminSetUserSettingsCommand extends $Command<
   AdminSetUserSettingsCommandInput,
   AdminSetUserSettingsCommandOutput,
@@ -39,6 +45,9 @@ export class AdminSetUserSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

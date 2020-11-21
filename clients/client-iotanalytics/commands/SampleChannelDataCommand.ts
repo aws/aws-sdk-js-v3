@@ -20,6 +20,10 @@ import {
 export type SampleChannelDataCommandInput = SampleChannelDataRequest;
 export type SampleChannelDataCommandOutput = SampleChannelDataResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a sample of messages from the specified channel ingested during the specified
+ *           timeframe. Up to 10 messages can be retrieved.</p>
+ */
 export class SampleChannelDataCommand extends $Command<
   SampleChannelDataCommandInput,
   SampleChannelDataCommandOutput,
@@ -34,6 +38,9 @@ export class SampleChannelDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

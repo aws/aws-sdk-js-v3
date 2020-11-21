@@ -20,6 +20,9 @@ import {
 export type DisableUserCommandInput = DisableUserRequest;
 export type DisableUserCommandOutput = DisableUserResult & __MetadataBearer;
 
+/**
+ * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
+ */
 export class DisableUserCommand extends $Command<
   DisableUserCommandInput,
   DisableUserCommandOutput,
@@ -34,6 +37,9 @@ export class DisableUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

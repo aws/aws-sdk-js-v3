@@ -20,6 +20,11 @@ import {
 export type GetDifferencesCommandInput = GetDifferencesInput;
 export type GetDifferencesCommandOutput = GetDifferencesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the differences in a valid commit specifier (such as a
+ *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
+ *             limited to a specified path.</p>
+ */
 export class GetDifferencesCommand extends $Command<
   GetDifferencesCommandInput,
   GetDifferencesCommandOutput,
@@ -34,6 +39,9 @@ export class GetDifferencesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

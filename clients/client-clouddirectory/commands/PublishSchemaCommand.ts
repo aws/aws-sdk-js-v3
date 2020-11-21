@@ -20,6 +20,9 @@ import {
 export type PublishSchemaCommandInput = PublishSchemaRequest;
 export type PublishSchemaCommandOutput = PublishSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Publishes a development schema with a major version and a recommended minor version.</p>
+ */
 export class PublishSchemaCommand extends $Command<
   PublishSchemaCommandInput,
   PublishSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class PublishSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

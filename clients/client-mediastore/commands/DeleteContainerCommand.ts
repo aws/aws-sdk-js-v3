@@ -20,6 +20,11 @@ import {
 export type DeleteContainerCommandInput = DeleteContainerInput;
 export type DeleteContainerCommandOutput = DeleteContainerOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
+ *          request, delete any objects in the container or in any folders in the container. You can
+ *          delete only empty containers. </p>
+ */
 export class DeleteContainerCommand extends $Command<
   DeleteContainerCommandInput,
   DeleteContainerCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteContainerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

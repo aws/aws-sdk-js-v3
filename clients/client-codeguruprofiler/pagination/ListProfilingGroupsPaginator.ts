@@ -8,6 +8,9 @@ import {
 import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeGuruProfilerClient,
   input: ListProfilingGroupsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProfilingGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeGuruProfiler,
   input: ListProfilingGroupsCommandInput,

@@ -20,6 +20,10 @@ import {
 export type ListBackupSelectionsCommandInput = ListBackupSelectionsInput;
 export type ListBackupSelectionsCommandOutput = ListBackupSelectionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array containing metadata of the resources associated with the target backup
+ *          plan.</p>
+ */
 export class ListBackupSelectionsCommand extends $Command<
   ListBackupSelectionsCommandInput,
   ListBackupSelectionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListBackupSelectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

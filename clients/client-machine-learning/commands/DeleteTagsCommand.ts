@@ -20,6 +20,10 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsInput;
 export type DeleteTagsCommandOutput = DeleteTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
+ * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

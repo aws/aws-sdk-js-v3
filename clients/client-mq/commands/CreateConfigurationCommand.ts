@@ -20,6 +20,9 @@ import {
 export type CreateConfigurationCommandInput = CreateConfigurationRequest;
 export type CreateConfigurationCommandOutput = CreateConfigurationResponse & __MetadataBearer;
 
+/**
+ * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
+ */
 export class CreateConfigurationCommand extends $Command<
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

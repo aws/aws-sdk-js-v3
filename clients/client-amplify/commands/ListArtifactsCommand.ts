@@ -20,6 +20,9 @@ import {
 export type ListArtifactsCommandInput = ListArtifactsRequest;
 export type ListArtifactsCommandOutput = ListArtifactsResult & __MetadataBearer;
 
+/**
+ * <p> Returns a list of artifacts for a specified app, branch, and job. </p>
+ */
 export class ListArtifactsCommand extends $Command<
   ListArtifactsCommandInput,
   ListArtifactsCommandOutput,
@@ -34,6 +37,9 @@ export class ListArtifactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

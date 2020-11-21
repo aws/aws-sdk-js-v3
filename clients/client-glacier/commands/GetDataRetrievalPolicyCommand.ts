@@ -20,6 +20,11 @@ import {
 export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
 export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>This operation returns the current data retrieval policy for the account and region
+ *          specified in the GET request. For more information about data retrieval policies, see
+ *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon Glacier Data Retrieval Policies</a>.</p>
+ */
 export class GetDataRetrievalPolicyCommand extends $Command<
   GetDataRetrievalPolicyCommandInput,
   GetDataRetrievalPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateTaskCommandInput = UpdateTaskRequest;
 export type UpdateTaskCommandOutput = UpdateTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the metadata associated with a task.</p>
+ */
 export class UpdateTaskCommand extends $Command<
   UpdateTaskCommandInput,
   UpdateTaskCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

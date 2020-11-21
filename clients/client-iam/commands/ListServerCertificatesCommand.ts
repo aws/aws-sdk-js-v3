@@ -20,6 +20,16 @@ import {
 export type ListServerCertificatesCommandInput = ListServerCertificatesRequest;
 export type ListServerCertificatesCommandOutput = ListServerCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
+ *          none exist, the operation returns an empty list.</p>
+ *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
+ *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
+ *          also includes a list of AWS services that can use the server certificates that you manage
+ *          with IAM.</p>
+ */
 export class ListServerCertificatesCommand extends $Command<
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
@@ -34,6 +44,9 @@ export class ListServerCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

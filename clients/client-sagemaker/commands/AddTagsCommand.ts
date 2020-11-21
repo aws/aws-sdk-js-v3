@@ -17,6 +17,25 @@ import {
 export type AddTagsCommandInput = AddTagsInput;
 export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
+ *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
+ *             jobs, models, labeling jobs, work teams, endpoint configurations, and
+ *             endpoints.</p>
+ *         <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+ *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+ *                 Tagging Strategies</a>.</p>
+ *         <note>
+ *             <p>Tags that you add to a hyperparameter tuning job by calling this API are also
+ *                 added to any training jobs that the hyperparameter tuning job launches after you
+ *                 call this API, but not to training jobs that the hyperparameter tuning job launched
+ *                 before you called this API. To make sure that the tags associated with a
+ *                 hyperparameter tuning job are also added to all training jobs that the
+ *                 hyperparameter tuning job launches, add the tags when you first create the tuning
+ *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
+ *             </p>
+ *         </note>
+ */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +46,9 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

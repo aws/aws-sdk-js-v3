@@ -20,6 +20,11 @@ import {
 export type DeleteModelPackageCommandInput = DeleteModelPackageInput;
 export type DeleteModelPackageCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a model package.</p>
+ *         <p>A model package is used to create Amazon SageMaker models or list on AWS Marketplace. Buyers can
+ *             subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
+ */
 export class DeleteModelPackageCommand extends $Command<
   DeleteModelPackageCommandInput,
   DeleteModelPackageCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteModelPackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

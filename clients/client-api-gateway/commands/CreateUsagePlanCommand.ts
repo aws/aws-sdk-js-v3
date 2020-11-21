@@ -20,6 +20,9 @@ import {
 export type CreateUsagePlanCommandInput = CreateUsagePlanRequest;
 export type CreateUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
 
+/**
+ * <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>
+ */
 export class CreateUsagePlanCommand extends $Command<
   CreateUsagePlanCommandInput,
   CreateUsagePlanCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUsagePlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

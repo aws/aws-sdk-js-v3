@@ -20,6 +20,17 @@ import {
 export type StartTaskExecutionCommandInput = StartTaskExecutionRequest;
 export type StartTaskExecutionCommandOutput = StartTaskExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
+ *       an individual run of a task. Each task can have at most one <code>TaskExecution</code> at a
+ *       time.</p>
+ *          <p>
+ *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
+ *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
+ *
+ *          <p>For detailed information, see the Task Execution section in the Components
+ *       and Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+ */
 export class StartTaskExecutionCommand extends $Command<
   StartTaskExecutionCommandInput,
   StartTaskExecutionCommandOutput,
@@ -34,6 +45,9 @@ export class StartTaskExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

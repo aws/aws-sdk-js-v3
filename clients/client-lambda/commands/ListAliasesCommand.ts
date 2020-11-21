@@ -20,6 +20,10 @@ import {
 export type ListAliasesCommandInput = ListAliasesRequest;
 export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+ *       for a Lambda function.</p>
+ */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,
   ListAliasesCommandOutput,
@@ -34,6 +38,9 @@ export class ListAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

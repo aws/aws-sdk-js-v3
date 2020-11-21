@@ -20,6 +20,9 @@ import {
 export type StartImagePipelineExecutionCommandInput = StartImagePipelineExecutionRequest;
 export type StartImagePipelineExecutionCommandOutput = StartImagePipelineExecutionResponse & __MetadataBearer;
 
+/**
+ * <p> Manually triggers a pipeline to create an image. </p>
+ */
 export class StartImagePipelineExecutionCommand extends $Command<
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StartImagePipelineExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

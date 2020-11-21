@@ -20,6 +20,10 @@ import {
 export type DeleteEnvironmentCommandInput = DeleteEnvironmentRequest;
 export type DeleteEnvironmentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete an environment. Deleting an environment does not delete a configuration from a
+ *          host.</p>
+ */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,
   DeleteEnvironmentCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

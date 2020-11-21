@@ -20,6 +20,9 @@ import {
 export type DeleteSmsTemplateCommandInput = DeleteSmsTemplateRequest;
 export type DeleteSmsTemplateCommandOutput = DeleteSmsTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
+ */
 export class DeleteSmsTemplateCommand extends $Command<
   DeleteSmsTemplateCommandInput,
   DeleteSmsTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSmsTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

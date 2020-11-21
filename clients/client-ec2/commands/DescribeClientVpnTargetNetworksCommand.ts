@@ -20,6 +20,9 @@ import {
 export type DescribeClientVpnTargetNetworksCommandInput = DescribeClientVpnTargetNetworksRequest;
 export type DescribeClientVpnTargetNetworksCommandOutput = DescribeClientVpnTargetNetworksResult & __MetadataBearer;
 
+/**
+ * <p>Describes the target networks associated with the specified Client VPN endpoint.</p>
+ */
 export class DescribeClientVpnTargetNetworksCommand extends $Command<
   DescribeClientVpnTargetNetworksCommandInput,
   DescribeClientVpnTargetNetworksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClientVpnTargetNetworksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

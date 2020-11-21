@@ -20,6 +20,35 @@ import {
 export type DeleteArchiveCommandInput = DeleteArchiveInput;
 export type DeleteArchiveCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
+ *          retrieval of this archive will fail. Archive retrievals that are in progress for this
+ *          archive ID may or may not succeed according to the following scenarios:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the archive retrieval job is actively preparing the data for download when
+ *                Amazon S3 Glacier receives the delete archive request, the archival retrieval operation
+ *                might fail.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the archive retrieval job has successfully prepared the archive for download
+ *                when Amazon S3 Glacier receives the delete archive request, you will be able to download
+ *                the output.</p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>This operation is idempotent. Attempting to delete an already-deleted archive does
+ *          not result in an error.</p>
+ *
+ *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
+ *          Identity and Access Management (IAM) users don't have any permissions by default. You must
+ *          grant them explicit permission to perform specific actions. For more information, see
+ *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
+ *             AWS Identity and Access Management (IAM)</a>.</p>
+ *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html">Deleting an Archive in Amazon
+ *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html">Delete Archive</a> in the
+ *             <i>Amazon Glacier Developer Guide</i>. </p>
+ */
 export class DeleteArchiveCommand extends $Command<
   DeleteArchiveCommandInput,
   DeleteArchiveCommandOutput,
@@ -34,6 +63,9 @@ export class DeleteArchiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

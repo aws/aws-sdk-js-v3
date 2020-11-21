@@ -20,6 +20,10 @@ import {
 export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
 export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm
+ * 			name, the alarm state, or a prefix for any action.</p>
+ */
 export class DescribeAlarmsCommand extends $Command<
   DescribeAlarmsCommandInput,
   DescribeAlarmsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAlarmsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

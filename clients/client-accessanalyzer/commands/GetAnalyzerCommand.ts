@@ -20,6 +20,9 @@ import {
 export type GetAnalyzerCommandInput = GetAnalyzerRequest;
 export type GetAnalyzerCommandOutput = GetAnalyzerResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the specified analyzer.</p>
+ */
 export class GetAnalyzerCommand extends $Command<
   GetAnalyzerCommandInput,
   GetAnalyzerCommandOutput,
@@ -34,6 +37,9 @@ export class GetAnalyzerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

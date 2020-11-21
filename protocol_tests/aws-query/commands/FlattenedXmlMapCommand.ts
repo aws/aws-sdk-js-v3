@@ -20,6 +20,9 @@ import {
 export type FlattenedXmlMapCommandInput = {};
 export type FlattenedXmlMapCommandOutput = FlattenedXmlMapOutput & __MetadataBearer;
 
+/**
+ * Flattened maps
+ */
 export class FlattenedXmlMapCommand extends $Command<
   FlattenedXmlMapCommandInput,
   FlattenedXmlMapCommandOutput,
@@ -34,6 +37,9 @@ export class FlattenedXmlMapCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

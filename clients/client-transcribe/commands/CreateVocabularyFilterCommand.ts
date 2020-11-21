@@ -20,6 +20,10 @@ import {
 export type CreateVocabularyFilterCommandInput = CreateVocabularyFilterRequest;
 export type CreateVocabularyFilterCommandOutput = CreateVocabularyFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new vocabulary filter that you can use to filter words, such as profane
+ *             words, from the output of a transcription job.</p>
+ */
 export class CreateVocabularyFilterCommand extends $Command<
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
@@ -34,6 +38,9 @@ export class CreateVocabularyFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

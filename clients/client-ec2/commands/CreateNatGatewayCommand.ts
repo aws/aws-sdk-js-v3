@@ -20,6 +20,14 @@ import {
 export type CreateNatGatewayCommandInput = CreateNatGatewayRequest;
 export type CreateNatGatewayCommandOutput = CreateNatGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Creates a NAT gateway in the specified public subnet. This action creates a network
+ *             interface in the specified subnet with a private IP address from the IP address range of
+ *             the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
+ *             gateway, therefore enabling instances in the private subnet to connect to the internet.
+ *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the
+ *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateNatGatewayCommand extends $Command<
   CreateNatGatewayCommandInput,
   CreateNatGatewayCommandOutput,
@@ -34,6 +42,9 @@ export class CreateNatGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

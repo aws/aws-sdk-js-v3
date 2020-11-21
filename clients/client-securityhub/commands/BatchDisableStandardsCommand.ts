@@ -20,6 +20,12 @@ import {
 export type BatchDisableStandardsCommandInput = BatchDisableStandardsRequest;
 export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the standards specified by the provided
+ *          <code>StandardsSubscriptionArns</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>AWS Security Hub User
+ *          Guide</i>.</p>
+ */
 export class BatchDisableStandardsCommand extends $Command<
   BatchDisableStandardsCommandInput,
   BatchDisableStandardsCommandOutput,
@@ -34,6 +40,9 @@ export class BatchDisableStandardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

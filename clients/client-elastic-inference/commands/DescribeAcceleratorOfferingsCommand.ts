@@ -20,6 +20,11 @@ import {
 export type DescribeAcceleratorOfferingsCommandInput = DescribeAcceleratorOfferingsRequest;
 export type DescribeAcceleratorOfferingsCommandOutput = DescribeAcceleratorOfferingsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             Describes the locations in which a given accelerator type or set of types is present in a given region.
+ *         </p>
+ */
 export class DescribeAcceleratorOfferingsCommand extends $Command<
   DescribeAcceleratorOfferingsCommandInput,
   DescribeAcceleratorOfferingsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAcceleratorOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticInferenceClientResolvedConfig,

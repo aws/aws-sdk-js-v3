@@ -20,6 +20,10 @@ import {
 export type DescribePortfolioShareStatusCommandInput = DescribePortfolioShareStatusInput;
 export type DescribePortfolioShareStatusCommandOutput = DescribePortfolioShareStatusOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the status of the specified portfolio share operation. This API can only be called
+ *          by the management account in the organization or by a delegated admin.</p>
+ */
 export class DescribePortfolioShareStatusCommand extends $Command<
   DescribePortfolioShareStatusCommandInput,
   DescribePortfolioShareStatusCommandOutput,
@@ -34,6 +38,9 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

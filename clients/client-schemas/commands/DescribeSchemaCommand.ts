@@ -20,6 +20,9 @@ import {
 export type DescribeSchemaCommandInput = DescribeSchemaRequest;
 export type DescribeSchemaCommandOutput = DescribeSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve the schema definition.</p>
+ */
 export class DescribeSchemaCommand extends $Command<
   DescribeSchemaCommandInput,
   DescribeSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

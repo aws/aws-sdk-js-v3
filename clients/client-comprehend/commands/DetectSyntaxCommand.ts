@@ -20,6 +20,10 @@ import {
 export type DetectSyntaxCommandInput = DetectSyntaxRequest;
 export type DetectSyntaxCommandOutput = DetectSyntaxResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects text for syntax and the part of speech of words in the document. For more
+ *       information, <a>how-syntax</a>.</p>
+ */
 export class DetectSyntaxCommand extends $Command<
   DetectSyntaxCommandInput,
   DetectSyntaxCommandOutput,
@@ -34,6 +38,9 @@ export class DetectSyntaxCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

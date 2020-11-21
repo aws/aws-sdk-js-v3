@@ -20,6 +20,9 @@ import {
 export type DescribeImagesCommandInput = DescribeImagesRequest;
 export type DescribeImagesCommandOutput = DescribeImagesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.</p>
+ */
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

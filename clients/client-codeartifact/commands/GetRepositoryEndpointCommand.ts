@@ -20,6 +20,29 @@ import {
 export type GetRepositoryEndpointCommandInput = GetRepositoryEndpointRequest;
 export type GetRepositoryEndpointCommandOutput = GetRepositoryEndpointResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
+ *       package format:
+ *     </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>npm</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>pypi</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>maven</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetRepositoryEndpointCommand extends $Command<
   GetRepositoryEndpointCommandInput,
   GetRepositoryEndpointCommandOutput,
@@ -34,6 +57,9 @@ export class GetRepositoryEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

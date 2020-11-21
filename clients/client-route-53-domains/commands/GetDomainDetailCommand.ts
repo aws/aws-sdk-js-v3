@@ -20,6 +20,10 @@ import {
 export type GetDomainDetailCommandInput = GetDomainDetailRequest;
 export type GetDomainDetailCommandOutput = GetDomainDetailResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns detailed information about a specified domain that is associated with the current AWS account.
+ * 			Contact information for the domain is also returned as part of the output.</p>
+ */
 export class GetDomainDetailCommand extends $Command<
   GetDomainDetailCommandInput,
   GetDomainDetailCommandOutput,
@@ -34,6 +38,9 @@ export class GetDomainDetailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

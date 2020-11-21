@@ -20,6 +20,11 @@ import {
 export type UnmonitorInstancesCommandInput = UnmonitorInstancesRequest;
 export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
+ *                 your instances and volumes</a> in the <i>Amazon Elastic Compute Cloud
+ *                 User Guide</i>.</p>
+ */
 export class UnmonitorInstancesCommand extends $Command<
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class UnmonitorInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

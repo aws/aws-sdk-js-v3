@@ -20,6 +20,9 @@ import {
 export type ListResourcesInProtectionGroupCommandInput = ListResourcesInProtectionGroupRequest;
 export type ListResourcesInProtectionGroupCommandOutput = ListResourcesInProtectionGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the resources that are included in the protection group. </p>
+ */
 export class ListResourcesInProtectionGroupCommand extends $Command<
   ListResourcesInProtectionGroupCommandInput,
   ListResourcesInProtectionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

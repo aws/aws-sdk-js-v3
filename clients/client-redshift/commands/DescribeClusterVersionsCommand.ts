@@ -20,6 +20,14 @@ import {
 export type DescribeClusterVersionsCommandInput = DescribeClusterVersionsMessage;
 export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
+ *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
+ *
+ * For more information about managing clusters, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class DescribeClusterVersionsCommand extends $Command<
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeClusterVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

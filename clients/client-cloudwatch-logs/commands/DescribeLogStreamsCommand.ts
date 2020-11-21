@@ -20,6 +20,12 @@ import {
 export type DescribeLogStreamsCommandInput = DescribeLogStreamsRequest;
 export type DescribeLogStreamsCommandOutput = DescribeLogStreamsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the log streams for the specified log group.
+ *       You can list all the log streams or filter the results by prefix.
+ *       You can also control how the results are ordered.</p>
+ *          <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>
+ */
 export class DescribeLogStreamsCommand extends $Command<
   DescribeLogStreamsCommandInput,
   DescribeLogStreamsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeLogStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

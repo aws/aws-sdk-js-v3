@@ -20,6 +20,9 @@ import {
 export type DescribeUserHierarchyGroupCommandInput = DescribeUserHierarchyGroupRequest;
 export type DescribeUserHierarchyGroupCommandOutput = DescribeUserHierarchyGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified hierarchy group.</p>
+ */
 export class DescribeUserHierarchyGroupCommand extends $Command<
   DescribeUserHierarchyGroupCommandInput,
   DescribeUserHierarchyGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

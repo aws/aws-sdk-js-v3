@@ -20,6 +20,9 @@ import {
 export type PutSchemaFromJsonCommandInput = PutSchemaFromJsonRequest;
 export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse & __MetadataBearer;
 
+/**
+ * <p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
+ */
 export class PutSchemaFromJsonCommand extends $Command<
   PutSchemaFromJsonCommandInput,
   PutSchemaFromJsonCommandOutput,
@@ -34,6 +37,9 @@ export class PutSchemaFromJsonCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

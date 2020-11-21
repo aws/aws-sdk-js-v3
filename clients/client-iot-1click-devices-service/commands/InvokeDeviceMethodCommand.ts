@@ -24,6 +24,10 @@ import {
 export type InvokeDeviceMethodCommandInput = InvokeDeviceMethodRequest;
 export type InvokeDeviceMethodCommandOutput = InvokeDeviceMethodResponse & __MetadataBearer;
 
+/**
+ * <p>Given a device ID, issues a request to invoke a named device method (with possible
+ *  parameters). See the "Example POST" code snippet below.</p>
+ */
 export class InvokeDeviceMethodCommand extends $Command<
   InvokeDeviceMethodCommandInput,
   InvokeDeviceMethodCommandOutput,
@@ -38,6 +42,9 @@ export class InvokeDeviceMethodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

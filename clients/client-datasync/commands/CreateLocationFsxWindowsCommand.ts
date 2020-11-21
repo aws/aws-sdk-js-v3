@@ -20,6 +20,9 @@ import {
 export type CreateLocationFsxWindowsCommandInput = CreateLocationFsxWindowsRequest;
 export type CreateLocationFsxWindowsCommandOutput = CreateLocationFsxWindowsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an endpoint for an Amazon FSx for Windows file system.</p>
+ */
 export class CreateLocationFsxWindowsCommand extends $Command<
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

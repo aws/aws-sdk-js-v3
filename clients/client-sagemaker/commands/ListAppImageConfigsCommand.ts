@@ -20,6 +20,11 @@ import {
 export type ListAppImageConfigsCommandInput = ListAppImageConfigsRequest;
 export type ListAppImageConfigsCommandOutput = ListAppImageConfigsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AppImageConfigs in your account and their properties. The list can be
+ *         filtered by creation time or modified time, and whether the AppImageConfig name contains
+ *         a specified string.</p>
+ */
 export class ListAppImageConfigsCommand extends $Command<
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -34,6 +39,9 @@ export class ListAppImageConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

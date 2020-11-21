@@ -20,6 +20,9 @@ import {
 export type GetActiveNamesCommandInput = GetActiveNamesRequest;
 export type GetActiveNamesCommandOutput = GetActiveNamesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the names of all active (not deleted) resources.</p>
+ */
 export class GetActiveNamesCommand extends $Command<
   GetActiveNamesCommandInput,
   GetActiveNamesCommandOutput,
@@ -34,6 +37,9 @@ export class GetActiveNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

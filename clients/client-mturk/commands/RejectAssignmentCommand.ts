@@ -20,6 +20,21 @@ import {
 export type RejectAssignmentCommandInput = RejectAssignmentRequest;
 export type RejectAssignmentCommandOutput = RejectAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
+ *         </p>
+ *         <p>
+ *             You can include an optional feedback message with the rejection,
+ *             which the Worker can see in the Status section of the web site.
+ *             When you include a feedback message with the rejection,
+ *             it helps the Worker understand why the assignment was rejected,
+ *             and can improve the quality of the results the Worker submits in the future.
+ *         </p>
+ *         <p>
+ *             Only the Requester who created the HIT can reject an assignment for the HIT.
+ *         </p>
+ */
 export class RejectAssignmentCommand extends $Command<
   RejectAssignmentCommandInput,
   RejectAssignmentCommandOutput,
@@ -34,6 +49,9 @@ export class RejectAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

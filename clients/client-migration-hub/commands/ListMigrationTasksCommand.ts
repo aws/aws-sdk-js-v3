@@ -20,6 +20,22 @@ import {
 export type ListMigrationTasksCommandInput = ListMigrationTasksRequest;
 export type ListMigrationTasksCommandOutput = ListMigrationTasksResult & __MetadataBearer;
 
+/**
+ * <p>Lists all, or filtered by resource name, migration tasks associated with the user
+ *          account making this call. This API has the following traits:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Can show a summary list of the most recent migration tasks.</p>
+ *             </li>
+ *             <li>
+ *                <p>Can show a summary list of migration tasks associated with a given discovered
+ *                resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>Lists migration tasks in a paginated interface.</p>
+ *             </li>
+ *          </ul>
+ */
 export class ListMigrationTasksCommand extends $Command<
   ListMigrationTasksCommandInput,
   ListMigrationTasksCommandOutput,
@@ -34,6 +50,9 @@ export class ListMigrationTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DeleteDBSnapshotCommandInput = DeleteDBSnapshotMessage;
 export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
+ *             terminated.</p>
+ *          <note>
+ *             <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p>
+ *          </note>
+ */
 export class DeleteDBSnapshotCommand extends $Command<
   DeleteDBSnapshotCommandInput,
   DeleteDBSnapshotCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteDBSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

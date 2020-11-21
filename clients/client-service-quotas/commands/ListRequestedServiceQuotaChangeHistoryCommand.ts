@@ -24,6 +24,9 @@ export type ListRequestedServiceQuotaChangeHistoryCommandInput = ListRequestedSe
 export type ListRequestedServiceQuotaChangeHistoryCommandOutput = ListRequestedServiceQuotaChangeHistoryResponse &
   __MetadataBearer;
 
+/**
+ * <p>Requests a list of the changes to quotas for a service.</p>
+ */
 export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
   ListRequestedServiceQuotaChangeHistoryCommandInput,
   ListRequestedServiceQuotaChangeHistoryCommandOutput,
@@ -38,6 +41,9 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

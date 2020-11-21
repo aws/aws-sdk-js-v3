@@ -20,6 +20,17 @@ import {
 export type RegisterContainerImageCommandInput = RegisterContainerImageRequest;
 export type RegisterContainerImageCommandOutput = RegisterContainerImageResult & __MetadataBearer;
 
+/**
+ * <p>Registers a container image to your Amazon Lightsail container service.</p>
+ *
+ *          <note>
+ *             <p>This action is not required if you install and use the Lightsail Control
+ *         (lightsailctl) plugin to push container images to your Lightsail container service. For
+ *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
+ *           managing container images on your Amazon Lightsail container services</a> in the
+ *           <i>Lightsail Dev Guide</i>.</p>
+ *          </note>
+ */
 export class RegisterContainerImageCommand extends $Command<
   RegisterContainerImageCommandInput,
   RegisterContainerImageCommandOutput,
@@ -34,6 +45,9 @@ export class RegisterContainerImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

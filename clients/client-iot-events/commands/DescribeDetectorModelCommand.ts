@@ -20,6 +20,10 @@ import {
 export type DescribeDetectorModelCommandInput = DescribeDetectorModelRequest;
 export type DescribeDetectorModelCommandOutput = DescribeDetectorModelResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
+ *       information about the latest version is returned.</p>
+ */
 export class DescribeDetectorModelCommand extends $Command<
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDetectorModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

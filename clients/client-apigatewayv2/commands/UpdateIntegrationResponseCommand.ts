@@ -20,6 +20,9 @@ import {
 export type UpdateIntegrationResponseCommandInput = UpdateIntegrationResponseRequest;
 export type UpdateIntegrationResponseCommandOutput = UpdateIntegrationResponseResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an IntegrationResponses.</p>
+ */
 export class UpdateIntegrationResponseCommand extends $Command<
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateIntegrationResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

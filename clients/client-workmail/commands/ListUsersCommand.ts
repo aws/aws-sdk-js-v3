@@ -17,6 +17,9 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns summaries of the organization's users.</p>
+ */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,
   ListUsersCommandOutput,
@@ -31,6 +34,9 @@ export class ListUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

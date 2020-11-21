@@ -20,6 +20,9 @@ import {
 export type DescribeIAMPolicyAssignmentCommandInput = DescribeIAMPolicyAssignmentRequest;
 export type DescribeIAMPolicyAssignmentCommandOutput = DescribeIAMPolicyAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>
+ */
 export class DescribeIAMPolicyAssignmentCommand extends $Command<
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeIAMPolicyAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

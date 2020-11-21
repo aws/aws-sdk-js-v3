@@ -20,6 +20,10 @@ import {
 export type ModifyDBSubnetGroupCommandInput = ModifyDBSubnetGroupMessage;
 export type ModifyDBSubnetGroupCommandOutput = ModifyDBSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing subnet group. subnet groups must contain at least one
+ *             subnet in at least two Availability Zones in the AWS Region.</p>
+ */
 export class ModifyDBSubnetGroupCommand extends $Command<
   ModifyDBSubnetGroupCommandInput,
   ModifyDBSubnetGroupCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

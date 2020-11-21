@@ -20,6 +20,18 @@ import {
 export type DeleteFirewallCommandInput = DeleteFirewallRequest;
 export type DeleteFirewallCommandOutput = DeleteFirewallResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>. This operation requires the firewall's <code>DeleteProtection</code> flag to be
+ *             <code>FALSE</code>. You can't revert this operation. </p>
+ *          <p>You can check whether a firewall is
+ *          in use by reviewing the route tables for the Availability Zones where you have
+ *          firewall subnet mappings. Retrieve the subnet mappings by calling <a>DescribeFirewall</a>.
+ *          You define and update the route tables through Amazon VPC. As needed, update the route tables for the
+ *          zones to remove the firewall endpoints. When the route tables no longer use the firewall endpoints,
+ *          you can remove the firewall safely.</p>
+ *          <p>To delete a firewall, remove the delete protection if you need to using <a>UpdateFirewallDeleteProtection</a>,
+ *          then delete the firewall by calling <a>DeleteFirewall</a>. </p>
+ */
 export class DeleteFirewallCommand extends $Command<
   DeleteFirewallCommandInput,
   DeleteFirewallCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteFirewallCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

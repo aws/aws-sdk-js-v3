@@ -20,6 +20,9 @@ import {
 export type DescribePatchGroupsCommandInput = DescribePatchGroupsRequest;
 export type DescribePatchGroupsCommandOutput = DescribePatchGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Lists all patch groups that have been registered with patch baselines.</p>
+ */
 export class DescribePatchGroupsCommand extends $Command<
   DescribePatchGroupsCommandInput,
   DescribePatchGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePatchGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

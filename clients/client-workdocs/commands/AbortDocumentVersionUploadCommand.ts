@@ -20,6 +20,12 @@ import {
 export type AbortDocumentVersionUploadCommandInput = AbortDocumentVersionUploadRequest;
 export type AbortDocumentVersionUploadCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Aborts the upload of the specified document version that was previously initiated
+ *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
+ *             only when it no longer intends to upload the document version, or fails to do
+ *             so.</p>
+ */
 export class AbortDocumentVersionUploadCommand extends $Command<
   AbortDocumentVersionUploadCommandInput,
   AbortDocumentVersionUploadCommandOutput,
@@ -34,6 +40,9 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AcceptResourceShareInvitationCommandInput = AcceptResourceShareInvitationRequest;
 export type AcceptResourceShareInvitationCommandOutput = AcceptResourceShareInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts an invitation to a resource share from another AWS account.</p>
+ */
 export class AcceptResourceShareInvitationCommand extends $Command<
   AcceptResourceShareInvitationCommandInput,
   AcceptResourceShareInvitationCommandOutput,
@@ -34,6 +37,9 @@ export class AcceptResourceShareInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

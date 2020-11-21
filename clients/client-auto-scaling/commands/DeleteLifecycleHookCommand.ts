@@ -20,6 +20,12 @@ import {
 export type DeleteLifecycleHookCommandInput = DeleteLifecycleHookType;
 export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified lifecycle hook.</p>
+ *         <p>If there are any outstanding lifecycle actions, they are completed first
+ *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
+ *             instances).</p>
+ */
 export class DeleteLifecycleHookCommand extends $Command<
   DeleteLifecycleHookCommandInput,
   DeleteLifecycleHookCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteLifecycleHookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

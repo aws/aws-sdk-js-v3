@@ -21,6 +21,24 @@ import {
 export type GetPublicAccessBlockCommandInput = GetPublicAccessBlockRequest;
 export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
+ *             public access</a>.</p>
+ *          <p>Related actions include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html">PutPublicAccessBlock</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetPublicAccessBlockCommand extends $Command<
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
@@ -35,6 +53,9 @@ export class GetPublicAccessBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

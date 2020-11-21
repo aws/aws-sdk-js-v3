@@ -20,6 +20,9 @@ import {
 export type CreateBotCommandInput = CreateBotRequest;
 export type CreateBotCommandOutput = CreateBotResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a bot for an Amazon Chime Enterprise account.</p>
+ */
 export class CreateBotCommand extends $Command<
   CreateBotCommandInput,
   CreateBotCommandOutput,
@@ -34,6 +37,9 @@ export class CreateBotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

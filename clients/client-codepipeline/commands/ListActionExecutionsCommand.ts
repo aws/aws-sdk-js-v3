@@ -20,6 +20,9 @@ import {
 export type ListActionExecutionsCommandInput = ListActionExecutionsInput;
 export type ListActionExecutionsCommandOutput = ListActionExecutionsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the action executions that have occurred in a pipeline.</p>
+ */
 export class ListActionExecutionsCommand extends $Command<
   ListActionExecutionsCommandInput,
   ListActionExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListActionExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

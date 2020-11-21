@@ -20,6 +20,12 @@ import {
 export type ListOnPremisesInstancesCommandInput = ListOnPremisesInstancesInput;
 export type ListOnPremisesInstancesCommandOutput = ListOnPremisesInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a list of names for one or more on-premises instances.</p>
+ *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
+ *             names are listed. To list only registered or deregistered on-premises instance names,
+ *             use the registration status parameter.</p>
+ */
 export class ListOnPremisesInstancesCommand extends $Command<
   ListOnPremisesInstancesCommandInput,
   ListOnPremisesInstancesCommandOutput,
@@ -34,6 +40,9 @@ export class ListOnPremisesInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

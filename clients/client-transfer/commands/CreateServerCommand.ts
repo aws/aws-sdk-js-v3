@@ -20,6 +20,12 @@ import {
 export type CreateServerCommandInput = CreateServerRequest;
 export type CreateServerCommandOutput = CreateServerResponse & __MetadataBearer;
 
+/**
+ * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in
+ *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
+ *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
+ *       created server.</p>
+ */
 export class CreateServerCommand extends $Command<
   CreateServerCommandInput,
   CreateServerCommandOutput,
@@ -34,6 +40,9 @@ export class CreateServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

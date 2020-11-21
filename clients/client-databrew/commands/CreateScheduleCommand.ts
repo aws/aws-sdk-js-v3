@@ -20,6 +20,10 @@ import {
 export type CreateScheduleCommandInput = CreateScheduleRequest;
 export type CreateScheduleCommandOutput = CreateScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a
+ *             specific date and time, or at regular intervals.</p>
+ */
 export class CreateScheduleCommand extends $Command<
   CreateScheduleCommandInput,
   CreateScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

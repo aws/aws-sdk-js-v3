@@ -20,6 +20,45 @@ import {
 export type ListScriptsCommandInput = ListScriptsInput;
 export type ListScriptsCommandOutput = ListScriptsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves script records for all Realtime scripts that are associated with the AWS account in use. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListScripts</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteScript</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListScriptsCommand extends $Command<
   ListScriptsCommandInput,
   ListScriptsCommandOutput,
@@ -34,6 +73,9 @@ export class ListScriptsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

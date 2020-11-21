@@ -20,6 +20,11 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = UntagResourceOutput & __MetadataBearer;
 
+/**
+ * <p> Disassociates a resource from a list of tags. The resource is identified by the
+ *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
+ *             keys in the <code>TagKeys</code> input parameter. </p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +39,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

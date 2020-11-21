@@ -20,6 +20,9 @@ import {
 export type CreateInvalidationCommandInput = CreateInvalidationRequest;
 export type CreateInvalidationCommandOutput = CreateInvalidationResult & __MetadataBearer;
 
+/**
+ * <p>Create a new invalidation. </p>
+ */
 export class CreateInvalidationCommand extends $Command<
   CreateInvalidationCommandInput,
   CreateInvalidationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateInvalidationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

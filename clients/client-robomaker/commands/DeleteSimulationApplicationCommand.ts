@@ -20,6 +20,9 @@ import {
 export type DeleteSimulationApplicationCommandInput = DeleteSimulationApplicationRequest;
 export type DeleteSimulationApplicationCommandOutput = DeleteSimulationApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a simulation application.</p>
+ */
 export class DeleteSimulationApplicationCommand extends $Command<
   DeleteSimulationApplicationCommandInput,
   DeleteSimulationApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSimulationApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

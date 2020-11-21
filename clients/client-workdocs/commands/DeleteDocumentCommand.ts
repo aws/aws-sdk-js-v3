@@ -20,6 +20,9 @@ import {
 export type DeleteDocumentCommandInput = DeleteDocumentRequest;
 export type DeleteDocumentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Permanently deletes the specified document and its associated metadata.</p>
+ */
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,
   DeleteDocumentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

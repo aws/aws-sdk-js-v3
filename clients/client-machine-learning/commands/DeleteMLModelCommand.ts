@@ -20,6 +20,14 @@ import {
 export type DeleteMLModelCommandInput = DeleteMLModelInput;
 export type DeleteMLModelCommandOutput = DeleteMLModelOutput & __MetadataBearer;
 
+/**
+ * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
+ *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
+ *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
+ *
+ *         <p>
+ *             <b>Caution:</b> The result of the <code>DeleteMLModel</code> operation is irreversible.</p>
+ */
 export class DeleteMLModelCommand extends $Command<
   DeleteMLModelCommandInput,
   DeleteMLModelCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteMLModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

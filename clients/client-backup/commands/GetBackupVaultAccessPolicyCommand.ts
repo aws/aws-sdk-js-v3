@@ -20,6 +20,10 @@ import {
 export type GetBackupVaultAccessPolicyCommandInput = GetBackupVaultAccessPolicyInput;
 export type GetBackupVaultAccessPolicyCommandOutput = GetBackupVaultAccessPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the access policy document that is associated with the named backup
+ *          vault.</p>
+ */
 export class GetBackupVaultAccessPolicyCommand extends $Command<
   GetBackupVaultAccessPolicyCommandInput,
   GetBackupVaultAccessPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

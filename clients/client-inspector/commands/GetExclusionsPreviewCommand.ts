@@ -20,6 +20,11 @@ import {
 export type GetExclusionsPreviewCommandInput = GetExclusionsPreviewRequest;
 export type GetExclusionsPreviewCommandOutput = GetExclusionsPreviewResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
+ *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
+ *          API.</p>
+ */
 export class GetExclusionsPreviewCommand extends $Command<
   GetExclusionsPreviewCommandInput,
   GetExclusionsPreviewCommandOutput,
@@ -34,6 +39,9 @@ export class GetExclusionsPreviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

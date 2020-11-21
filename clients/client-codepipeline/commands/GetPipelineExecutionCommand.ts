@@ -20,6 +20,11 @@ import {
 export type GetPipelineExecutionCommandInput = GetPipelineExecutionInput;
 export type GetPipelineExecutionCommandOutput = GetPipelineExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about an execution of a pipeline, including details about
+ *             artifacts, the pipeline execution ID, and the name, version, and status of the
+ *             pipeline.</p>
+ */
 export class GetPipelineExecutionCommand extends $Command<
   GetPipelineExecutionCommandInput,
   GetPipelineExecutionCommandOutput,
@@ -34,6 +39,9 @@ export class GetPipelineExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

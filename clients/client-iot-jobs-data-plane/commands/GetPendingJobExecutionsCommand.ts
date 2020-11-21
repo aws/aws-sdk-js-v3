@@ -20,6 +20,9 @@ import {
 export type GetPendingJobExecutionsCommandInput = GetPendingJobExecutionsRequest;
 export type GetPendingJobExecutionsCommandOutput = GetPendingJobExecutionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
+ */
 export class GetPendingJobExecutionsCommand extends $Command<
   GetPendingJobExecutionsCommandInput,
   GetPendingJobExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetPendingJobExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,

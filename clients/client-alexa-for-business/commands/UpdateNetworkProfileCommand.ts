@@ -20,6 +20,9 @@ import {
 export type UpdateNetworkProfileCommandInput = UpdateNetworkProfileRequest;
 export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a network profile by the network profile ARN.</p>
+ */
 export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandInput,
   UpdateNetworkProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

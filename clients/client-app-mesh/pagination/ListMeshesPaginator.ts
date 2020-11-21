@@ -4,6 +4,9 @@ import { ListMeshesCommand, ListMeshesCommandInput, ListMeshesCommandOutput } fr
 import { AppMeshPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AppMeshClient,
   input: ListMeshesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMeshesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: AppMesh,
   input: ListMeshesCommandInput,

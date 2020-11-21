@@ -24,6 +24,9 @@ export type ExecuteProvisionedProductServiceActionCommandInput = ExecuteProvisio
 export type ExecuteProvisionedProductServiceActionCommandOutput = ExecuteProvisionedProductServiceActionOutput &
   __MetadataBearer;
 
+/**
+ * <p>Executes a self-service action against a provisioned product.</p>
+ */
 export class ExecuteProvisionedProductServiceActionCommand extends $Command<
   ExecuteProvisionedProductServiceActionCommandInput,
   ExecuteProvisionedProductServiceActionCommandOutput,
@@ -38,6 +41,9 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

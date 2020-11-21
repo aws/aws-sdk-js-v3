@@ -22,6 +22,9 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the users in the Amazon Cognito user pool.</p>
+ */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,
   ListUsersCommandOutput,
@@ -36,6 +39,9 @@ export class ListUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

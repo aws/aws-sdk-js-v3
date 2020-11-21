@@ -20,6 +20,15 @@ import {
 export type SendTestEventNotificationCommandInput = SendTestEventNotificationRequest;
 export type SendTestEventNotificationCommandOutput = SendTestEventNotificationResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send
+ *             a notification message as if a HIT event occurred, according to the provided
+ *             notification specification. This allows you to test notifications without
+ *             setting up notifications for a real HIT type and trying to trigger them using the website.
+ *             When you call this operation, the service attempts to send the test notification immediately.
+ *         </p>
+ */
 export class SendTestEventNotificationCommand extends $Command<
   SendTestEventNotificationCommandInput,
   SendTestEventNotificationCommandOutput,
@@ -34,6 +43,9 @@ export class SendTestEventNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

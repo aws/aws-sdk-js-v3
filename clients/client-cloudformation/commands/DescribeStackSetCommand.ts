@@ -20,6 +20,9 @@ import {
 export type DescribeStackSetCommandInput = DescribeStackSetInput;
 export type DescribeStackSetCommandOutput = DescribeStackSetOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the description of the specified stack set. </p>
+ */
 export class DescribeStackSetCommand extends $Command<
   DescribeStackSetCommandInput,
   DescribeStackSetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStackSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -24,6 +24,9 @@ export type ListCloudFrontOriginAccessIdentitiesCommandInput = ListCloudFrontOri
 export type ListCloudFrontOriginAccessIdentitiesCommandOutput = ListCloudFrontOriginAccessIdentitiesResult &
   __MetadataBearer;
 
+/**
+ * <p>Lists origin access identities.</p>
+ */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
@@ -38,6 +41,9 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

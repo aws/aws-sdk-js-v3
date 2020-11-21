@@ -20,6 +20,9 @@ import {
 export type DeleteAliasCommandInput = DeleteAliasRequest;
 export type DeleteAliasCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,
   DeleteAliasCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

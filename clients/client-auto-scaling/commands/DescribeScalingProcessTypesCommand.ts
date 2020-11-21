@@ -20,6 +20,10 @@ import {
 export type DescribeScalingProcessTypesCommandInput = {};
 export type DescribeScalingProcessTypesCommandOutput = ProcessesType & __MetadataBearer;
 
+/**
+ * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
+ *             and <a>SuspendProcesses</a> APIs.</p>
+ */
 export class DescribeScalingProcessTypesCommand extends $Command<
   DescribeScalingProcessTypesCommandInput,
   DescribeScalingProcessTypesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

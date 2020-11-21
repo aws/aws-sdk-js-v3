@@ -24,6 +24,10 @@ import {
 export type DescribeRxNormInferenceJobCommandInput = DescribeRxNormInferenceJobRequest;
 export type DescribeRxNormInferenceJobCommandOutput = DescribeRxNormInferenceJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with an InferRxNorm job.
+ *       Use this operation to get the status of an inference job.</p>
+ */
 export class DescribeRxNormInferenceJobCommand extends $Command<
   DescribeRxNormInferenceJobCommandInput,
   DescribeRxNormInferenceJobCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

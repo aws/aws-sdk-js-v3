@@ -20,6 +20,15 @@ import {
 export type RebootNodeCommandInput = RebootNodeRequest;
 export type RebootNodeCommandOutput = RebootNodeResponse & __MetadataBearer;
 
+/**
+ * <p>Reboots a single node of a DAX cluster. The reboot action takes place
+ *             as soon as possible. During the
+ *             reboot, the node status is set to REBOOTING.</p>
+ *         <note>
+ *             <p>
+ *                <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache.  </p>
+ *         </note>
+ */
 export class RebootNodeCommand extends $Command<
   RebootNodeCommandInput,
   RebootNodeCommandOutput,
@@ -34,6 +43,9 @@ export class RebootNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreateDomainConfigurationCommandInput = CreateDomainConfigurationRequest;
 export type CreateDomainConfigurationCommandOutput = CreateDomainConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a domain configuration.</p>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ */
 export class CreateDomainConfigurationCommand extends $Command<
   CreateDomainConfigurationCommandInput,
   CreateDomainConfigurationCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDomainConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

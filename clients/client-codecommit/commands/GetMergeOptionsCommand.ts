@@ -20,6 +20,11 @@ import {
 export type GetMergeOptionsCommandInput = GetMergeOptionsInput;
 export type GetMergeOptionsCommandOutput = GetMergeOptionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the merge options available for merging two specified
+ *             branches. For details about why a merge option is not available, use GetMergeConflicts
+ *             or DescribeMergeConflicts.</p>
+ */
 export class GetMergeOptionsCommand extends $Command<
   GetMergeOptionsCommandInput,
   GetMergeOptionsCommandOutput,
@@ -34,6 +39,9 @@ export class GetMergeOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

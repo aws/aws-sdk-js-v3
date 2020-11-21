@@ -20,6 +20,13 @@ import {
 export type DiscoverPollEndpointCommandInput = DiscoverPollEndpointRequest;
 export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *          </note>
+ *          <p>Returns an endpoint for
+ * 			the Amazon ECS agent to poll for updates.</p>
+ */
 export class DiscoverPollEndpointCommand extends $Command<
   DiscoverPollEndpointCommandInput,
   DiscoverPollEndpointCommandOutput,
@@ -34,6 +41,9 @@ export class DiscoverPollEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateTestGridProjectCommandInput = CreateTestGridProjectRequest;
 export type CreateTestGridProjectCommandOutput = CreateTestGridProjectResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
+ *          instances.</p>
+ */
 export class CreateTestGridProjectCommand extends $Command<
   CreateTestGridProjectCommandInput,
   CreateTestGridProjectCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTestGridProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

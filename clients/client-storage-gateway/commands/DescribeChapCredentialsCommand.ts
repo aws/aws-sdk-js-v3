@@ -20,6 +20,11 @@ import {
 export type DescribeChapCredentialsCommandInput = DescribeChapCredentialsInput;
 export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
+ *          information for a specified iSCSI target, one for each target-initiator pair. This
+ *          operation is supported in the volume and tape gateway types.</p>
+ */
 export class DescribeChapCredentialsCommand extends $Command<
   DescribeChapCredentialsCommandInput,
   DescribeChapCredentialsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeChapCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

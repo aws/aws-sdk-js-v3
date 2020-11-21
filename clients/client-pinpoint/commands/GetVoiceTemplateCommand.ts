@@ -20,6 +20,9 @@ import {
 export type GetVoiceTemplateCommandInput = GetVoiceTemplateRequest;
 export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
+ */
 export class GetVoiceTemplateCommand extends $Command<
   GetVoiceTemplateCommandInput,
   GetVoiceTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetVoiceTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

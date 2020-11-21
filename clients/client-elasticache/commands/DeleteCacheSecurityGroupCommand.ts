@@ -20,6 +20,12 @@ import {
 export type DeleteCacheSecurityGroupCommandInput = DeleteCacheSecurityGroupMessage;
 export type DeleteCacheSecurityGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a cache security group.</p>
+ *         <note>
+ *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
+ *          </note>
+ */
 export class DeleteCacheSecurityGroupCommand extends $Command<
   DeleteCacheSecurityGroupCommandInput,
   DeleteCacheSecurityGroupCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

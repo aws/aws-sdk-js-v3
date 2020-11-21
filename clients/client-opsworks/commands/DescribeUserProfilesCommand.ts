@@ -20,6 +20,13 @@ import {
 export type DescribeUserProfilesCommandInput = DescribeUserProfilesRequest;
 export type DescribeUserProfilesCommandOutput = DescribeUserProfilesResult & __MetadataBearer;
 
+/**
+ * <p>Describe specified users.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
+ *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeUserProfilesCommand extends $Command<
   DescribeUserProfilesCommandInput,
   DescribeUserProfilesCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeUserProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

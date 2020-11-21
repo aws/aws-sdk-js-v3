@@ -20,6 +20,9 @@ import {
 export type GetConnectivityInfoCommandInput = GetConnectivityInfoRequest;
 export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse & __MetadataBearer;
 
+/**
+ * Retrieves the connectivity information for a core.
+ */
 export class GetConnectivityInfoCommand extends $Command<
   GetConnectivityInfoCommandInput,
   GetConnectivityInfoCommandOutput,
@@ -34,6 +37,9 @@ export class GetConnectivityInfoCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

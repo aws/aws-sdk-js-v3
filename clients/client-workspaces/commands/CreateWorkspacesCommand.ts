@@ -20,6 +20,10 @@ import {
 export type CreateWorkspacesCommandInput = CreateWorkspacesRequest;
 export type CreateWorkspacesCommandOutput = CreateWorkspacesResult & __MetadataBearer;
 
+/**
+ * <p>Creates one or more WorkSpaces.</p>
+ *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
+ */
 export class CreateWorkspacesCommand extends $Command<
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
@@ -34,6 +38,9 @@ export class CreateWorkspacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

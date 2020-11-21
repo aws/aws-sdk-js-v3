@@ -20,6 +20,9 @@ import {
 export type PutEventsCommandInput = PutEventsRequest;
 export type PutEventsCommandOutput = PutEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
+ */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,
   PutEventsCommandOutput,
@@ -34,6 +37,9 @@ export class PutEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

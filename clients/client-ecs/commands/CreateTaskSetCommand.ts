@@ -20,6 +20,12 @@ import {
 export type CreateTaskSetCommandInput = CreateTaskSetRequest;
 export type CreateTaskSetCommandOutput = CreateTaskSetResponse & __MetadataBearer;
 
+/**
+ * <p>Create a task set in the specified cluster and service. This is used when a service
+ * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
+ * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class CreateTaskSetCommand extends $Command<
   CreateTaskSetCommandInput,
   CreateTaskSetCommandOutput,
@@ -34,6 +40,9 @@ export class CreateTaskSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

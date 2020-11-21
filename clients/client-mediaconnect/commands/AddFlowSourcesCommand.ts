@@ -20,6 +20,9 @@ import {
 export type AddFlowSourcesCommandInput = AddFlowSourcesRequest;
 export type AddFlowSourcesCommandOutput = AddFlowSourcesResponse & __MetadataBearer;
 
+/**
+ * Adds Sources to flow
+ */
 export class AddFlowSourcesCommand extends $Command<
   AddFlowSourcesCommandInput,
   AddFlowSourcesCommandOutput,
@@ -34,6 +37,9 @@ export class AddFlowSourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

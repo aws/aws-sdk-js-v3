@@ -20,6 +20,10 @@ import {
 export type ModifyVpnConnectionOptionsCommandInput = ModifyVpnConnectionOptionsRequest;
 export type ModifyVpnConnectionOptionsCommandOutput = ModifyVpnConnectionOptionsResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
+ *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
+ */
 export class ModifyVpnConnectionOptionsCommand extends $Command<
   ModifyVpnConnectionOptionsCommandInput,
   ModifyVpnConnectionOptionsCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

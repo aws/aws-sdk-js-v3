@@ -8,6 +8,9 @@ import {
 import { SQSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SQSClient,
   input: ListDeadLetterSourceQueuesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeadLetterSourceQueuesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SQS,
   input: ListDeadLetterSourceQueuesCommandInput,

@@ -8,6 +8,9 @@ import {
 import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ApplicationInsightsClient,
   input: ListLogPatternsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLogPatternsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ApplicationInsights,
   input: ListLogPatternsCommandInput,

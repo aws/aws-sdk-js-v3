@@ -20,6 +20,16 @@ import {
 export type GetConfigurationSetCommandInput = GetConfigurationSetRequest;
 export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Get information about an existing configuration set, including the dedicated IP pool
+ *             that it's associated with, whether or not it's enabled for sending email, and
+ *             more.</p>
+ *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
+ *             apply to the emails you send. You apply a configuration set to an email by including a
+ *             reference to the configuration set in the headers of the email. When you apply a
+ *             configuration set to an email, all of the rules in that configuration set are applied to
+ *             the email.</p>
+ */
 export class GetConfigurationSetCommand extends $Command<
   GetConfigurationSetCommandInput,
   GetConfigurationSetCommandOutput,
@@ -34,6 +44,9 @@ export class GetConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

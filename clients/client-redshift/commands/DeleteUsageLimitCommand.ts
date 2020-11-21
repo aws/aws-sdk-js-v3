@@ -20,6 +20,9 @@ import {
 export type DeleteUsageLimitCommandInput = DeleteUsageLimitMessage;
 export type DeleteUsageLimitCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a usage limit from a cluster.</p>
+ */
 export class DeleteUsageLimitCommand extends $Command<
   DeleteUsageLimitCommandInput,
   DeleteUsageLimitCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUsageLimitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

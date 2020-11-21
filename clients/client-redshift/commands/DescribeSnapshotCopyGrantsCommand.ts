@@ -20,6 +20,15 @@ import {
 export type DescribeSnapshotCopyGrantsCommandInput = DescribeSnapshotCopyGrantsMessage;
 export type DescribeSnapshotCopyGrantsCommandOutput = SnapshotCopyGrantMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of snapshot copy grants owned by the AWS account in the destination
+ *             region.</p>
+ *         <p>
+ * For more information about managing snapshot copy grants, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ */
 export class DescribeSnapshotCopyGrantsCommand extends $Command<
   DescribeSnapshotCopyGrantsCommandInput,
   DescribeSnapshotCopyGrantsCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

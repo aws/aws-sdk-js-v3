@@ -20,6 +20,13 @@ import {
 export type GetContainerServiceMetricDataCommandInput = GetContainerServiceMetricDataRequest;
 export type GetContainerServiceMetricDataCommandOutput = GetContainerServiceMetricDataResult & __MetadataBearer;
 
+/**
+ * <p>Returns the data points of a specific metric of your Amazon Lightsail container
+ *       service.</p>
+ *
+ *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
+ *       regularly to maintain the reliability, availability, and performance of your resources.</p>
+ */
 export class GetContainerServiceMetricDataCommand extends $Command<
   GetContainerServiceMetricDataCommandInput,
   GetContainerServiceMetricDataCommandOutput,
@@ -34,6 +41,9 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

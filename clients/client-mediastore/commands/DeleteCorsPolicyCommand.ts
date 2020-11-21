@@ -20,6 +20,13 @@ import {
 export type DeleteCorsPolicyCommandInput = DeleteCorsPolicyInput;
 export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
+ *          set for the container.</p>
+ *          <p>To use this operation, you must have permission to perform the
+ *             <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission
+ *          by default and can grant this permission to others.</p>
+ */
 export class DeleteCorsPolicyCommand extends $Command<
   DeleteCorsPolicyCommandInput,
   DeleteCorsPolicyCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteCorsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

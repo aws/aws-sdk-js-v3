@@ -20,6 +20,11 @@ import {
 export type DeleteTrailCommandInput = DeleteTrailRequest;
 export type DeleteTrailCommandOutput = DeleteTrailResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a trail. This operation must be called from the region in which the trail was
+ *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
+ *          in other regions) of a trail that is enabled in all regions.</p>
+ */
 export class DeleteTrailCommand extends $Command<
   DeleteTrailCommandInput,
   DeleteTrailCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteTrailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

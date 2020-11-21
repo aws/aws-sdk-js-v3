@@ -20,6 +20,9 @@ import {
 export type GetResourceShareInvitationsCommandInput = GetResourceShareInvitationsRequest;
 export type GetResourceShareInvitationsCommandOutput = GetResourceShareInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the invitations for resource sharing that you've received.</p>
+ */
 export class GetResourceShareInvitationsCommand extends $Command<
   GetResourceShareInvitationsCommandInput,
   GetResourceShareInvitationsCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourceShareInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

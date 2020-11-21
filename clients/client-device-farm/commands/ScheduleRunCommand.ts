@@ -20,6 +20,9 @@ import {
 export type ScheduleRunCommandInput = ScheduleRunRequest;
 export type ScheduleRunCommandOutput = ScheduleRunResult & __MetadataBearer;
 
+/**
+ * <p>Schedules a run.</p>
+ */
 export class ScheduleRunCommand extends $Command<
   ScheduleRunCommandInput,
   ScheduleRunCommandOutput,
@@ -34,6 +37,9 @@ export class ScheduleRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

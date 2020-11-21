@@ -20,6 +20,11 @@ import {
 export type ModifyLaunchTemplateCommandInput = ModifyLaunchTemplateRequest;
 export type ModifyLaunchTemplateCommandOutput = ModifyLaunchTemplateResult & __MetadataBearer;
 
+/**
+ * <p>Modifies a launch template. You can specify which version of the launch template to
+ *             set as the default version. When launching an instance, the default version applies when
+ *             a launch template version is not specified.</p>
+ */
 export class ModifyLaunchTemplateCommand extends $Command<
   ModifyLaunchTemplateCommandInput,
   ModifyLaunchTemplateCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyLaunchTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

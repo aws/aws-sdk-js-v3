@@ -20,6 +20,9 @@ import {
 export type CancelSchemaExtensionCommandInput = CancelSchemaExtensionRequest;
 export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult & __MetadataBearer;
 
+/**
+ * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.</p>
+ */
 export class CancelSchemaExtensionCommand extends $Command<
   CancelSchemaExtensionCommandInput,
   CancelSchemaExtensionCommandOutput,
@@ -34,6 +37,9 @@ export class CancelSchemaExtensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

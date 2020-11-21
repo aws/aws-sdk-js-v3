@@ -20,6 +20,9 @@ import {
 export type CreateConditionalForwarderCommandInput = CreateConditionalForwarderRequest;
 export type CreateConditionalForwarderCommandOutput = CreateConditionalForwarderResult & __MetadataBearer;
 
+/**
+ * <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>
+ */
 export class CreateConditionalForwarderCommand extends $Command<
   CreateConditionalForwarderCommandInput,
   CreateConditionalForwarderCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConditionalForwarderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

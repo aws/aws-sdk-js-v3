@@ -20,6 +20,9 @@ import {
 export type GetArchiveRuleCommandInput = GetArchiveRuleRequest;
 export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about an archive rule.</p>
+ */
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,
   GetArchiveRuleCommandOutput,
@@ -34,6 +37,9 @@ export class GetArchiveRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

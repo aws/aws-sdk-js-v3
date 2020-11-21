@@ -20,6 +20,15 @@ import {
 export type ListTrafficPoliciesCommandInput = ListTrafficPoliciesRequest;
 export type ListTrafficPoliciesCommandOutput = ListTrafficPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the latest version for every traffic policy that is associated with the current AWS account.
+ * 			Policies are listed in the order that they were created in. </p>
+ *
+ * 		       <p>For information about how of deleting a traffic policy affects the response from <code>ListTrafficPolicies</code>, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
+ *
+ * 		</p>
+ */
 export class ListTrafficPoliciesCommand extends $Command<
   ListTrafficPoliciesCommandInput,
   ListTrafficPoliciesCommandOutput,
@@ -34,6 +43,9 @@ export class ListTrafficPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

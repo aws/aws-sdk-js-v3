@@ -20,6 +20,9 @@ import {
 export type GetFunctionDefinitionVersionCommandInput = GetFunctionDefinitionVersionRequest;
 export type GetFunctionDefinitionVersionCommandOutput = GetFunctionDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
+ */
 export class GetFunctionDefinitionVersionCommand extends $Command<
   GetFunctionDefinitionVersionCommandInput,
   GetFunctionDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

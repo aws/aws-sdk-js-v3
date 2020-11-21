@@ -20,6 +20,9 @@ import {
 export type GetRelationalDatabaseSnapshotCommandInput = GetRelationalDatabaseSnapshotRequest;
 export type GetRelationalDatabaseSnapshotCommandOutput = GetRelationalDatabaseSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>
+ */
 export class GetRelationalDatabaseSnapshotCommand extends $Command<
   GetRelationalDatabaseSnapshotCommandInput,
   GetRelationalDatabaseSnapshotCommandOutput,
@@ -34,6 +37,9 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

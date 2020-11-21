@@ -20,6 +20,9 @@ import {
 export type DeleteReportGroupCommandInput = DeleteReportGroupInput;
 export type DeleteReportGroupCommandOutput = DeleteReportGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
+ */
 export class DeleteReportGroupCommand extends $Command<
   DeleteReportGroupCommandInput,
   DeleteReportGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteReportGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

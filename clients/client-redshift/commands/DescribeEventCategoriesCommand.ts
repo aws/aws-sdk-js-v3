@@ -20,6 +20,11 @@ import {
 export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
 export type DescribeEventCategoriesCommandOutput = EventCategoriesMessage & __MetadataBearer;
 
+/**
+ * <p>Displays a list of event categories for all event source types, or for a specified
+ *             source type. For a list of the event categories and source types, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift Event
+ *                 Notifications</a>.</p>
+ */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

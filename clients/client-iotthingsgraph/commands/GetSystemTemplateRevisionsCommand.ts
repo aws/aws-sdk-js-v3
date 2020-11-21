@@ -20,6 +20,10 @@ import {
 export type GetSystemTemplateRevisionsCommandInput = GetSystemTemplateRevisionsRequest;
 export type GetSystemTemplateRevisionsCommandOutput = GetSystemTemplateRevisionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
+ *       the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>
+ */
 export class GetSystemTemplateRevisionsCommand extends $Command<
   GetSystemTemplateRevisionsCommandInput,
   GetSystemTemplateRevisionsCommandOutput,
@@ -34,6 +38,9 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type SetIdentityPoolConfigurationCommandInput = SetIdentityPoolConfigurationRequest;
 export type SetIdentityPoolConfigurationCommandOutput = SetIdentityPoolConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the necessary configuration for push sync.</p>
+ *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class SetIdentityPoolConfigurationCommand extends $Command<
   SetIdentityPoolConfigurationCommandInput,
   SetIdentityPoolConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeDBEngineVersionsCommandInput = DescribeDBEngineVersionsMessage;
 export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the available DB engines.</p>
+ */
 export class DescribeDBEngineVersionsCommand extends $Command<
   DescribeDBEngineVersionsCommandInput,
   DescribeDBEngineVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetApplicationRevisionCommandInput = GetApplicationRevisionInput;
 export type GetApplicationRevisionCommandOutput = GetApplicationRevisionOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about an application revision.</p>
+ */
 export class GetApplicationRevisionCommand extends $Command<
   GetApplicationRevisionCommandInput,
   GetApplicationRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class GetApplicationRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

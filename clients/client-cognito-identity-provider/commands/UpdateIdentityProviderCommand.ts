@@ -25,6 +25,9 @@ import {
 export type UpdateIdentityProviderCommandInput = UpdateIdentityProviderRequest;
 export type UpdateIdentityProviderCommandOutput = UpdateIdentityProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Updates identity provider information for a user pool.</p>
+ */
 export class UpdateIdentityProviderCommand extends $Command<
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
@@ -39,6 +42,9 @@ export class UpdateIdentityProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

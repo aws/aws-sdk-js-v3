@@ -20,6 +20,13 @@ import {
 export type TestIdentityProviderCommandInput = TestIdentityProviderRequest;
 export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse & __MetadataBearer;
 
+/**
+ * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
+ *         <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly
+ *       recommend that you call this operation to test your authentication method as soon as you
+ *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
+ *       to ensure that your users can successfully use the service.</p>
+ */
 export class TestIdentityProviderCommand extends $Command<
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput,
@@ -34,6 +41,9 @@ export class TestIdentityProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetConnectionsCommandInput = GetConnectionsRequest;
 export type GetConnectionsCommandOutput = GetConnectionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
+ */
 export class GetConnectionsCommand extends $Command<
   GetConnectionsCommandInput,
   GetConnectionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

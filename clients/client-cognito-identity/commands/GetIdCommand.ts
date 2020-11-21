@@ -17,6 +17,11 @@ import {
 export type GetIdCommandInput = GetIdInput;
 export type GetIdCommandOutput = GetIdResponse & __MetadataBearer;
 
+/**
+ * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
+ *          implicit linked account.</p>
+ *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +32,9 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

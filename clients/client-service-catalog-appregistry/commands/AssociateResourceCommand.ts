@@ -24,6 +24,9 @@ import {
 export type AssociateResourceCommandInput = AssociateResourceRequest;
 export type AssociateResourceCommandOutput = AssociateResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a resource with an application. Both the resource and the application can be specified either by ID or name.</p>
+ */
 export class AssociateResourceCommand extends $Command<
   AssociateResourceCommandInput,
   AssociateResourceCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

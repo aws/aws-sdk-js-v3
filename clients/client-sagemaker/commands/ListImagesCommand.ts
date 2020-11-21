@@ -20,6 +20,10 @@ import {
 export type ListImagesCommandInput = ListImagesRequest;
 export type ListImagesCommandOutput = ListImagesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the images in your account and their properties. The list can be filtered by
+ *         creation time or modified time, and whether the image name contains a specified string.</p>
+ */
 export class ListImagesCommand extends $Command<
   ListImagesCommandInput,
   ListImagesCommandOutput,
@@ -34,6 +38,9 @@ export class ListImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

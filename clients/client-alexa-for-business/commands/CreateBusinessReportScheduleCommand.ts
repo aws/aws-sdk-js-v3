@@ -20,6 +20,10 @@ import {
 export type CreateBusinessReportScheduleCommandInput = CreateBusinessReportScheduleRequest;
 export type CreateBusinessReportScheduleCommandOutput = CreateBusinessReportScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
+ *          location with a specified daily or weekly interval.</p>
+ */
 export class CreateBusinessReportScheduleCommand extends $Command<
   CreateBusinessReportScheduleCommandInput,
   CreateBusinessReportScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

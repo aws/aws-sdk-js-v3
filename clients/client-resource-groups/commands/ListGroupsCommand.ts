@@ -20,6 +20,9 @@ import {
 export type ListGroupsCommandInput = ListGroupsInput;
 export type ListGroupsCommandOutput = ListGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing resource groups in your account.</p>
+ */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,
   ListGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

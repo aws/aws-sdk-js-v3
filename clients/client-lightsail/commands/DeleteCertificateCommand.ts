@@ -20,6 +20,13 @@ import {
 export type DeleteCertificateCommandInput = DeleteCertificateRequest;
 export type DeleteCertificateCommandOutput = DeleteCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
+ *         <code>DetachCertificateFromDistribution</code> action to detach a certificate from a
+ *       distribution.</p>
+ */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

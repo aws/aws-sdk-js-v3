@@ -20,6 +20,9 @@ import {
 export type GetMembersCommandInput = GetMembersRequest;
 export type GetMembersCommandOutput = GetMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
+ */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,
   GetMembersCommandOutput,
@@ -34,6 +37,9 @@ export class GetMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

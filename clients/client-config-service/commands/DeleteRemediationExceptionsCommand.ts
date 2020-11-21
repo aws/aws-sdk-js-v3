@@ -20,6 +20,13 @@ import {
 export type DeleteRemediationExceptionsCommandInput = DeleteRemediationExceptionsRequest;
 export type DeleteRemediationExceptionsCommandOutput = DeleteRemediationExceptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
+ * 		       <note>
+ *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+ * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+ *          </note>
+ */
 export class DeleteRemediationExceptionsCommand extends $Command<
   DeleteRemediationExceptionsCommandInput,
   DeleteRemediationExceptionsCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

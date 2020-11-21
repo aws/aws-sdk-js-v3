@@ -20,6 +20,9 @@ import {
 export type CreateRoomCommandInput = CreateRoomRequest;
 export type CreateRoomCommandOutput = CreateRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a room with the specified details.</p>
+ */
 export class CreateRoomCommand extends $Command<
   CreateRoomCommandInput,
   CreateRoomCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

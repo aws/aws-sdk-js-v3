@@ -20,6 +20,9 @@ import {
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
 export type RevokeInvitationCommandOutput = RevokeInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Revokes an invitation and invalidates the enrollment URL.</p>
+ */
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,
   RevokeInvitationCommandOutput,
@@ -34,6 +37,9 @@ export class RevokeInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

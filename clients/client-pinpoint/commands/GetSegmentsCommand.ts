@@ -20,6 +20,9 @@ import {
 export type GetSegmentsCommandInput = GetSegmentsRequest;
 export type GetSegmentsCommandOutput = GetSegmentsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
+ */
 export class GetSegmentsCommand extends $Command<
   GetSegmentsCommandInput,
   GetSegmentsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSegmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

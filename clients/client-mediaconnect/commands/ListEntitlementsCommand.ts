@@ -20,6 +20,9 @@ import {
 export type ListEntitlementsCommandInput = ListEntitlementsRequest;
 export type ListEntitlementsCommandOutput = ListEntitlementsResponse & __MetadataBearer;
 
+/**
+ * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
+ */
 export class ListEntitlementsCommand extends $Command<
   ListEntitlementsCommandInput,
   ListEntitlementsCommandOutput,
@@ -34,6 +37,9 @@ export class ListEntitlementsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

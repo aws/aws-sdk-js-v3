@@ -20,6 +20,14 @@ import {
 export type DeleteUserPolicyCommandInput = DeleteUserPolicyRequest;
 export type DeleteUserPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified inline policy that is embedded in the specified IAM user.</p>
+ *          <p>A user can also have managed policies attached to it. To detach a managed policy from a
+ *          user, use <a>DetachUserPolicy</a>. For more information about policies, refer to
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *             Policies and Inline Policies</a> in the
+ *          <i>IAM User Guide</i>.</p>
+ */
 export class DeleteUserPolicyCommand extends $Command<
   DeleteUserPolicyCommandInput,
   DeleteUserPolicyCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteUserPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type RemoveTagsFromVaultCommandInput = RemoveTagsFromVaultInput;
 export type RemoveTagsFromVaultCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation removes one or more tags from the set of tags attached to a vault. For
+ *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
+ *          This operation is idempotent. The operation will be successful, even if there are no tags
+ *          attached to the vault. </p>
+ */
 export class RemoveTagsFromVaultCommand extends $Command<
   RemoveTagsFromVaultCommandInput,
   RemoveTagsFromVaultCommandOutput,
@@ -34,6 +40,9 @@ export class RemoveTagsFromVaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

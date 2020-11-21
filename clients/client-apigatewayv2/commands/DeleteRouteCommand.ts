@@ -20,6 +20,9 @@ import {
 export type DeleteRouteCommandInput = DeleteRouteRequest;
 export type DeleteRouteCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Route.</p>
+ */
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,
   DeleteRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

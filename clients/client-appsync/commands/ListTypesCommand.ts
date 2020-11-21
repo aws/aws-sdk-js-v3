@@ -20,6 +20,9 @@ import {
 export type ListTypesCommandInput = ListTypesRequest;
 export type ListTypesCommandOutput = ListTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the types for a given API.</p>
+ */
 export class ListTypesCommand extends $Command<
   ListTypesCommandInput,
   ListTypesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

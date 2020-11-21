@@ -20,6 +20,10 @@ import {
 export type DeleteEmailIdentityCommandInput = DeleteEmailIdentityRequest;
 export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an email identity. An identity can be either an email address or a domain
+ *             name.</p>
+ */
 export class DeleteEmailIdentityCommand extends $Command<
   DeleteEmailIdentityCommandInput,
   DeleteEmailIdentityCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteEmailIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreatePipelineCommandInput = CreatePipelineRequest;
 export type CreatePipelineCommandOutput = CreatePipelineResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows
+ *           you to process the messages before storing them in a data store. You must specify both a
+ *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
+ *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
+ */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -34,6 +40,9 @@ export class CreatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

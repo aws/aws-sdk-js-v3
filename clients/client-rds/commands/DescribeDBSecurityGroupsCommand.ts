@@ -20,6 +20,12 @@ import {
 export type DescribeDBSecurityGroupsCommandInput = DescribeDBSecurityGroupsMessage;
 export type DescribeDBSecurityGroupsCommandOutput = DBSecurityGroupMessage & __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
+ *             the list will contain only the descriptions of the specified DB security group.
+ *         </p>
+ */
 export class DescribeDBSecurityGroupsCommand extends $Command<
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

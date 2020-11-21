@@ -20,6 +20,14 @@ import {
 export type DescribeReplicationGroupsCommandInput = DescribeReplicationGroupsMessage;
 export type DescribeReplicationGroupsCommandOutput = ReplicationGroupMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about a particular
+ *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
+ *             returns information about all replication groups.</p>
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class DescribeReplicationGroupsCommand extends $Command<
   DescribeReplicationGroupsCommandInput,
   DescribeReplicationGroupsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeReplicationGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

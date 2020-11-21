@@ -20,6 +20,9 @@ import {
 export type ListConferenceProvidersCommandInput = ListConferenceProvidersRequest;
 export type ListConferenceProvidersCommandOutput = ListConferenceProvidersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists conference providers under a specific AWS account.</p>
+ */
 export class ListConferenceProvidersCommand extends $Command<
   ListConferenceProvidersCommandInput,
   ListConferenceProvidersCommandOutput,
@@ -34,6 +37,9 @@ export class ListConferenceProvidersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

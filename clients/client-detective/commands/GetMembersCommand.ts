@@ -20,6 +20,10 @@ import {
 export type GetMembersCommandInput = GetMembersRequest;
 export type GetMembersCommandOutput = GetMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the membership details for specified member accounts for a behavior
+ *          graph.</p>
+ */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,
   GetMembersCommandOutput,
@@ -34,6 +38,9 @@ export class GetMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

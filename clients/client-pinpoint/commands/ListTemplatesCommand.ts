@@ -20,6 +20,9 @@ import {
 export type ListTemplatesCommandInput = ListTemplatesRequest;
 export type ListTemplatesCommandOutput = ListTemplatesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
+ */
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,
   ListTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

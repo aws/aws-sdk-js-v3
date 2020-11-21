@@ -17,6 +17,15 @@ import {
 export type GetAlarmsCommandInput = GetAlarmsRequest;
 export type GetAlarmsCommandOutput = GetAlarmsResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the configured alarms. Specify an alarm name in your request to
+ *       return information about a specific alarm, or specify a monitored resource name to return
+ *       information about all alarms for a specific resource.</p>
+ *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
+ *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
+ *       on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *         in Amazon Lightsail</a>.</p>
+ */
 export class GetAlarmsCommand extends $Command<
   GetAlarmsCommandInput,
   GetAlarmsCommandOutput,
@@ -31,6 +40,9 @@ export class GetAlarmsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

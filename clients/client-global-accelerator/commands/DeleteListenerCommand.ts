@@ -24,6 +24,9 @@ import {
 export type DeleteListenerCommandInput = DeleteListenerRequest;
 export type DeleteListenerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete a listener from an accelerator.</p>
+ */
 export class DeleteListenerCommand extends $Command<
   DeleteListenerCommandInput,
   DeleteListenerCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

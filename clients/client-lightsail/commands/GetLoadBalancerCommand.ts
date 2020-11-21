@@ -20,6 +20,9 @@ import {
 export type GetLoadBalancerCommandInput = GetLoadBalancerRequest;
 export type GetLoadBalancerCommandOutput = GetLoadBalancerResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified Lightsail load balancer.</p>
+ */
 export class GetLoadBalancerCommand extends $Command<
   GetLoadBalancerCommandInput,
   GetLoadBalancerCommandOutput,
@@ -34,6 +37,9 @@ export class GetLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

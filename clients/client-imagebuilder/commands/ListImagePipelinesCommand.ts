@@ -20,6 +20,9 @@ import {
 export type ListImagePipelinesCommandInput = ListImagePipelinesRequest;
 export type ListImagePipelinesCommandOutput = ListImagePipelinesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of image pipelines. </p>
+ */
 export class ListImagePipelinesCommand extends $Command<
   ListImagePipelinesCommandInput,
   ListImagePipelinesCommandOutput,
@@ -34,6 +37,9 @@ export class ListImagePipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

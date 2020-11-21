@@ -20,6 +20,10 @@ import {
 export type GetPermissionPolicyCommandInput = GetPermissionPolicyRequest;
 export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the IAM policy that is attached to the specified rule group.</p>
+ *         <p>You must be the owner of the rule group to perform this operation.</p>
+ */
 export class GetPermissionPolicyCommand extends $Command<
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetPermissionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

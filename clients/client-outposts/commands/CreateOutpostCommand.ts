@@ -20,6 +20,9 @@ import {
 export type CreateOutpostCommandInput = CreateOutpostInput;
 export type CreateOutpostCommandOutput = CreateOutpostOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an Outpost.</p>
+ */
 export class CreateOutpostCommand extends $Command<
   CreateOutpostCommandInput,
   CreateOutpostCommandOutput,
@@ -34,6 +37,9 @@ export class CreateOutpostCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

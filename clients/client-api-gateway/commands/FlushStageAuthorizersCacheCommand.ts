@@ -20,6 +20,9 @@ import {
 export type FlushStageAuthorizersCacheCommandInput = FlushStageAuthorizersCacheRequest;
 export type FlushStageAuthorizersCacheCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Flushes all authorizer cache entries on a stage.</p>
+ */
 export class FlushStageAuthorizersCacheCommand extends $Command<
   FlushStageAuthorizersCacheCommandInput,
   FlushStageAuthorizersCacheCommandOutput,
@@ -34,6 +37,9 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

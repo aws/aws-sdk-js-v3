@@ -21,6 +21,11 @@ import {
 export type GetBotCommandInput = GetBotRequest;
 export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata information for a specific bot. You must provide the bot name and the
+ *       bot version or alias. </p>
+ *          <p> This operation requires permissions for the <code>lex:GetBot</code> action. </p>
+ */
 export class GetBotCommand extends $Command<
   GetBotCommandInput,
   GetBotCommandOutput,
@@ -35,6 +40,9 @@ export class GetBotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

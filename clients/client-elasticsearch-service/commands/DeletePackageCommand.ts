@@ -24,6 +24,9 @@ import {
 export type DeletePackageCommandInput = DeletePackageRequest;
 export type DeletePackageCommandOutput = DeletePackageResponse & __MetadataBearer;
 
+/**
+ * <p>Delete the package.</p>
+ */
 export class DeletePackageCommand extends $Command<
   DeletePackageCommandInput,
   DeletePackageCommandOutput,
@@ -38,6 +41,9 @@ export class DeletePackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteIAMPolicyAssignmentCommandInput = DeleteIAMPolicyAssignmentRequest;
 export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing IAM policy assignment.</p>
+ */
 export class DeleteIAMPolicyAssignmentCommand extends $Command<
   DeleteIAMPolicyAssignmentCommandInput,
   DeleteIAMPolicyAssignmentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

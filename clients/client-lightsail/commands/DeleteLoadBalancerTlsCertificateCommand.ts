@@ -20,6 +20,12 @@ import {
 export type DeleteLoadBalancerTlsCertificateCommandInput = DeleteLoadBalancerTlsCertificateRequest;
 export type DeleteLoadBalancerTlsCertificateCommandOutput = DeleteLoadBalancerTlsCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>
+ *          <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by <code>load balancer
+ *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
   DeleteLoadBalancerTlsCertificateCommandInput,
   DeleteLoadBalancerTlsCertificateCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

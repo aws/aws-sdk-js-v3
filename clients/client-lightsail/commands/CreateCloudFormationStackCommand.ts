@@ -20,6 +20,16 @@ import {
 export type CreateCloudFormationStackCommandInput = CreateCloudFormationStackRequest;
 export type CreateCloudFormationStackCommandOutput = CreateCloudFormationStackResult & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported
+ *       Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be
+ *       used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack
+ *         records</code> operation to get a list of the CloudFormation stacks created.</p>
+ *          <important>
+ *             <p>Wait until after your new Amazon EC2 instance is created before running the <code>create
+ *           cloud formation stack</code> operation again with the same export snapshot record.</p>
+ *          </important>
+ */
 export class CreateCloudFormationStackCommand extends $Command<
   CreateCloudFormationStackCommandInput,
   CreateCloudFormationStackCommandOutput,
@@ -34,6 +44,9 @@ export class CreateCloudFormationStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

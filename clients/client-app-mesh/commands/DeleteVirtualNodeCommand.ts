@@ -20,6 +20,11 @@ import {
 export type DeleteVirtualNodeCommandInput = DeleteVirtualNodeInput;
 export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing virtual node.</p>
+ *          <p>You must delete any virtual services that list a virtual node as a service provider
+ *          before you can delete the virtual node itself.</p>
+ */
 export class DeleteVirtualNodeCommand extends $Command<
   DeleteVirtualNodeCommandInput,
   DeleteVirtualNodeCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteVirtualNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

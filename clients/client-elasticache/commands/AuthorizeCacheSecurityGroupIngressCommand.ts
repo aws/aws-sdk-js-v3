@@ -24,6 +24,15 @@ export type AuthorizeCacheSecurityGroupIngressCommandInput = AuthorizeCacheSecur
 export type AuthorizeCacheSecurityGroupIngressCommandOutput = AuthorizeCacheSecurityGroupIngressResult &
   __MetadataBearer;
 
+/**
+ * <p>Allows network ingress to a cache
+ *             security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2
+ *             security groups are used as the authorization mechanism.</p>
+ *         <note>
+ *             <p>You cannot authorize ingress from an Amazon EC2 security group in one region to an
+ *             ElastiCache cluster in another region.</p>
+ *          </note>
+ */
 export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
   AuthorizeCacheSecurityGroupIngressCommandInput,
   AuthorizeCacheSecurityGroupIngressCommandOutput,
@@ -38,6 +47,9 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

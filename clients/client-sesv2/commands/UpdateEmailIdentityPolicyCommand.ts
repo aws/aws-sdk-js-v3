@@ -20,6 +20,21 @@ import {
 export type UpdateEmailIdentityPolicyCommandInput = UpdateEmailIdentityPolicyRequest;
 export type UpdateEmailIdentityPolicyCommandOutput = UpdateEmailIdentityPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified sending authorization policy for the given identity (an email
+ *             address or a domain). This API returns successfully even if a policy with the specified
+ *             name does not exist.</p>
+ *         <note>
+ *             <p>This API is for the identity owner only. If you have not verified the identity,
+ *                 this API will return an error.</p>
+ *         </note>
+ *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+ *             senders to use its identities. For information about using sending authorization, see
+ *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class UpdateEmailIdentityPolicyCommand extends $Command<
   UpdateEmailIdentityPolicyCommandInput,
   UpdateEmailIdentityPolicyCommandOutput,
@@ -34,6 +49,9 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

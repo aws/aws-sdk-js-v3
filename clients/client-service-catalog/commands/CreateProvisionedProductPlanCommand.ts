@@ -20,6 +20,15 @@ import {
 export type CreateProvisionedProductPlanCommandInput = CreateProvisionedProductPlanInput;
 export type CreateProvisionedProductPlanCommandOutput = CreateProvisionedProductPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a plan. A plan includes the list of resources to be
+ *          created (when provisioning a new product) or modified (when updating a provisioned product)
+ *          when the plan is executed.</p>
+ *          <p>You can create one plan per provisioned product. To create a plan for an existing
+ *          provisioned product, the product status must be AVAILBLE or TAINTED.</p>
+ *          <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
+ *          To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>
+ */
 export class CreateProvisionedProductPlanCommand extends $Command<
   CreateProvisionedProductPlanCommandInput,
   CreateProvisionedProductPlanCommandOutput,
@@ -34,6 +43,9 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

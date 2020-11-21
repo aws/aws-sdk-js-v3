@@ -28,6 +28,16 @@ export type GetCompatibleElasticsearchVersionsCommandInput = GetCompatibleElasti
 export type GetCompatibleElasticsearchVersionsCommandOutput = GetCompatibleElasticsearchVersionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns a list of upgrade compatible Elastisearch versions.
+ *         You can optionally pass a
+ *         <code>
+ *           <a>DomainName</a>
+ *         </code>
+ *         to get all upgrade compatible Elasticsearch versions for that specific domain.
+ *       </p>
+ */
 export class GetCompatibleElasticsearchVersionsCommand extends $Command<
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput,
@@ -42,6 +52,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

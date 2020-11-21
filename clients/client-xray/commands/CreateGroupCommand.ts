@@ -20,6 +20,9 @@ import {
 export type CreateGroupCommandInput = CreateGroupRequest;
 export type CreateGroupCommandOutput = CreateGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a group resource with a name and a filter expression. </p>
+ */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,
   CreateGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

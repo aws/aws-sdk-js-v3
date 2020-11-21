@@ -20,6 +20,10 @@ import {
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
 export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Declines invitations sent to the current member account by AWS accounts specified by their
+ *       account IDs.</p>
+ */
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,
   DeclineInvitationsCommandOutput,
@@ -34,6 +38,9 @@ export class DeclineInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -24,6 +24,9 @@ export type UpdateApprovalRuleTemplateDescriptionCommandInput = UpdateApprovalRu
 export type UpdateApprovalRuleTemplateDescriptionCommandOutput = UpdateApprovalRuleTemplateDescriptionOutput &
   __MetadataBearer;
 
+/**
+ * <p>Updates the description for a specified approval rule template.</p>
+ */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
   UpdateApprovalRuleTemplateDescriptionCommandInput,
   UpdateApprovalRuleTemplateDescriptionCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

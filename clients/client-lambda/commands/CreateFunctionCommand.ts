@@ -20,6 +20,37 @@ import {
 export type CreateFunctionCommandInput = CreateFunctionRequest;
 export type CreateFunctionCommandOutput = FunctionConfiguration & __MetadataBearer;
 
+/**
+ * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
+ *       deployment package contains your function code. The execution role grants the function permission to use AWS
+ *       services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>
+ *
+ *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
+ *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
+ *       modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in
+ *       the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For
+ *       more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
+ *         States</a>.</p>
+ *
+ *          <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version
+ *       changes when you update your function's code and configuration. A published version is a snapshot of your function
+ *       code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be
+ *       changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of
+ *       your function from its initial configuration.</p>
+ *
+ *          <p>The other parameters let you configure version-specific and function-level settings. You can modify
+ *       version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply
+ *       to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)
+ *       and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>
+ *
+ *          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
+ *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
+ *       or on an alias.</p>
+ *
+ *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
+ *       in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
+ *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ */
 export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandInput,
   CreateFunctionCommandOutput,
@@ -34,6 +65,9 @@ export class CreateFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

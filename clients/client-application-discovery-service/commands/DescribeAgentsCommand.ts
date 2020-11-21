@@ -24,6 +24,11 @@ import {
 export type DescribeAgentsCommandInput = DescribeAgentsRequest;
 export type DescribeAgentsCommandOutput = DescribeAgentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists agents or connectors as specified by ID or other filters. All agents/connectors
+ *       associated with your user account can be listed if you call <code>DescribeAgents</code> as is
+ *       without passing any parameters.</p>
+ */
 export class DescribeAgentsCommand extends $Command<
   DescribeAgentsCommandInput,
   DescribeAgentsCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeAgentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

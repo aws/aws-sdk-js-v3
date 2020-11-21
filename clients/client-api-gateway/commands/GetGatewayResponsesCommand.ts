@@ -20,6 +20,9 @@ import {
 export type GetGatewayResponsesCommandInput = GetGatewayResponsesRequest;
 export type GetGatewayResponsesCommandOutput = GatewayResponses & __MetadataBearer;
 
+/**
+ * <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
+ */
 export class GetGatewayResponsesCommand extends $Command<
   GetGatewayResponsesCommandInput,
   GetGatewayResponsesCommandOutput,
@@ -34,6 +37,9 @@ export class GetGatewayResponsesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

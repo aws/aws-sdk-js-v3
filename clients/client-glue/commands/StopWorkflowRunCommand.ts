@@ -20,6 +20,9 @@ import {
 export type StopWorkflowRunCommandInput = StopWorkflowRunRequest;
 export type StopWorkflowRunCommandOutput = StopWorkflowRunResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the execution of the specified workflow run.</p>
+ */
 export class StopWorkflowRunCommand extends $Command<
   StopWorkflowRunCommandInput,
   StopWorkflowRunCommandOutput,
@@ -34,6 +37,9 @@ export class StopWorkflowRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

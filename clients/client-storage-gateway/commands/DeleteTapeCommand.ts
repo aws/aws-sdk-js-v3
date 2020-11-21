@@ -20,6 +20,10 @@ import {
 export type DeleteTapeCommandInput = DeleteTapeInput;
 export type DeleteTapeCommandOutput = DeleteTapeOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified virtual tape. This operation is only supported in the tape gateway
+ *          type.</p>
+ */
 export class DeleteTapeCommand extends $Command<
   DeleteTapeCommandInput,
   DeleteTapeCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTapeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListResourceComplianceSummariesCommandInput = ListResourceComplianceSummariesRequest;
 export type ListResourceComplianceSummariesCommandOutput = ListResourceComplianceSummariesResult & __MetadataBearer;
 
+/**
+ * <p>Returns a resource-level summary count. The summary includes information about compliant and
+ *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
+ *    criteria you specify.</p>
+ */
 export class ListResourceComplianceSummariesCommand extends $Command<
   ListResourceComplianceSummariesCommandInput,
   ListResourceComplianceSummariesCommandOutput,
@@ -34,6 +39,9 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

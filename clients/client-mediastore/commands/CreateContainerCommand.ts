@@ -20,6 +20,10 @@ import {
 export type CreateContainerCommandInput = CreateContainerInput;
 export type CreateContainerCommandOutput = CreateContainerOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a storage container to hold objects. A container is similar to a bucket in
+ *          the Amazon S3 service.</p>
+ */
 export class CreateContainerCommand extends $Command<
   CreateContainerCommandInput,
   CreateContainerCommandOutput,
@@ -34,6 +38,9 @@ export class CreateContainerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

@@ -24,6 +24,17 @@ export type ListAWSServiceAccessForOrganizationCommandInput = ListAWSServiceAcce
 export type ListAWSServiceAccessForOrganizationCommandOutput = ListAWSServiceAccessForOrganizationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of the AWS services that you enabled to integrate with your
+ *             organization. After a service on this list creates the resources that it requires for
+ *             the integration, it can perform operations on your organization and its accounts.</p>
+ *         <p>For more information about integrating other services with AWS Organizations, including the
+ *             list of services that currently work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other
+ *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
+ *          </p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class ListAWSServiceAccessForOrganizationCommand extends $Command<
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput,
@@ -38,6 +49,9 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

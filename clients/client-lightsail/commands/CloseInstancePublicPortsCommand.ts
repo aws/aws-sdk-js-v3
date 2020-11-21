@@ -20,6 +20,12 @@ import {
 export type CloseInstancePublicPortsCommandInput = CloseInstancePublicPortsRequest;
 export type CloseInstancePublicPortsCommandOutput = CloseInstancePublicPortsResult & __MetadataBearer;
 
+/**
+ * <p>Closes ports for a specific Amazon Lightsail instance.</p>
+ *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
+ *       resource tags applied to the resource identified by <code>instanceName</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CloseInstancePublicPortsCommand extends $Command<
   CloseInstancePublicPortsCommandInput,
   CloseInstancePublicPortsCommandOutput,
@@ -34,6 +40,9 @@ export class CloseInstancePublicPortsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

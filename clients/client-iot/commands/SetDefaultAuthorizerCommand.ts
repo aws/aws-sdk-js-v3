@@ -20,6 +20,10 @@ import {
 export type SetDefaultAuthorizerCommandInput = SetDefaultAuthorizerRequest;
 export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the default authorizer. This will be used if a websocket connection is made
+ *          without specifying an authorizer.</p>
+ */
 export class SetDefaultAuthorizerCommand extends $Command<
   SetDefaultAuthorizerCommandInput,
   SetDefaultAuthorizerCommandOutput,
@@ -34,6 +38,9 @@ export class SetDefaultAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

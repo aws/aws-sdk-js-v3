@@ -20,6 +20,9 @@ import {
 export type DeleteConnectionCommandInput = DeleteConnectionRequest;
 export type DeleteConnectionCommandOutput = DeleteConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a connection from the Data Catalog.</p>
+ */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

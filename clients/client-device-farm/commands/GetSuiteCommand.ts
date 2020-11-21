@@ -17,6 +17,9 @@ import {
 export type GetSuiteCommandInput = GetSuiteRequest;
 export type GetSuiteCommandOutput = GetSuiteResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a suite.</p>
+ */
 export class GetSuiteCommand extends $Command<
   GetSuiteCommandInput,
   GetSuiteCommandOutput,
@@ -31,6 +34,9 @@ export class GetSuiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

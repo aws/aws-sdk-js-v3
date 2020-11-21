@@ -24,6 +24,11 @@ import {
 export type DescribeAccountLimitsCommandInput = DescribeAccountLimitsInput;
 export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

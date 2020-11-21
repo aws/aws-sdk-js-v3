@@ -20,6 +20,9 @@ import {
 export type DescribeDomainCommandInput = DescribeDomainRequest;
 export type DescribeDomainCommandOutput = DescribeDomainResponse & __MetadataBearer;
 
+/**
+ * <p>The description of the domain.</p>
+ */
 export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandInput,
   DescribeDomainCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreateMissionProfileCommandInput = CreateMissionProfileRequest;
 export type CreateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a mission profile.</p>
+ *          <p>
+ *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
+ *          has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>
+ */
 export class CreateMissionProfileCommand extends $Command<
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput,
@@ -34,6 +40,9 @@ export class CreateMissionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

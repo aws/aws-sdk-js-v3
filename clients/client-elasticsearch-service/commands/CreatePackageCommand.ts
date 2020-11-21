@@ -24,6 +24,9 @@ import {
 export type CreatePackageCommandInput = CreatePackageRequest;
 export type CreatePackageCommandOutput = CreatePackageResponse & __MetadataBearer;
 
+/**
+ * <p>Create a package for use with Amazon ES domains.</p>
+ */
 export class CreatePackageCommand extends $Command<
   CreatePackageCommandInput,
   CreatePackageCommandOutput,
@@ -38,6 +41,9 @@ export class CreatePackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

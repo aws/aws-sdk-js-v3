@@ -20,6 +20,9 @@ import {
 export type DeleteWorkteamCommandInput = DeleteWorkteamRequest;
 export type DeleteWorkteamCommandOutput = DeleteWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing work team. This operation can't be undone.</p>
+ */
 export class DeleteWorkteamCommand extends $Command<
   DeleteWorkteamCommandInput,
   DeleteWorkteamCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

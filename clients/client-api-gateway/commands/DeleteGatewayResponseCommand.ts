@@ -20,6 +20,9 @@ import {
 export type DeleteGatewayResponseCommandInput = DeleteGatewayResponseRequest;
 export type DeleteGatewayResponseCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
+ */
 export class DeleteGatewayResponseCommand extends $Command<
   DeleteGatewayResponseCommandInput,
   DeleteGatewayResponseCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGatewayResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -24,6 +24,36 @@ import {
 export type CreateListenerCommandInput = CreateListenerInput;
 export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer. or
+ *       Gateway Load Balancer.</p>
+ *
+ *
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for
+ *           your Application Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your
+ *           Network Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your
+ *           Gateway Load Balancers</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>This operation is idempotent, which means that it completes at most one time. If you
+ *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
+ */
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,
   CreateListenerCommandOutput,
@@ -38,6 +68,9 @@ export class CreateListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceMessage;
 export type ListTagsForResourceCommandOutput = TagListMessage & __MetadataBearer;
 
+/**
+ * <p>Lists all tags on an Amazon Neptune resource.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +37,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

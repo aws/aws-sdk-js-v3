@@ -20,6 +20,15 @@ import {
 export type EnableVpcClassicLinkDnsSupportCommandInput = EnableVpcClassicLinkDnsSupportRequest;
 export type EnableVpcClassicLinkDnsSupportCommandOutput = EnableVpcClassicLinkDnsSupportResult & __MetadataBearer;
 
+/**
+ * <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
+ * 			hostname of a linked EC2-Classic instance resolves to its private IP address when
+ * 			addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
+ * 			of an instance in a VPC resolves to its private IP address when addressed from a linked
+ * 			EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
+ * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>You must specify a VPC ID in the request.</p>
+ */
 export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
   EnableVpcClassicLinkDnsSupportCommandInput,
   EnableVpcClassicLinkDnsSupportCommandOutput,
@@ -34,6 +43,9 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

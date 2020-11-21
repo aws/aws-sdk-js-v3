@@ -20,6 +20,10 @@ import {
 export type UpdatePublishingDestinationCommandInput = UpdatePublishingDestinationRequest;
 export type UpdatePublishingDestinationCommandOutput = UpdatePublishingDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates information about the publishing destination specified by the
+ *         <code>destinationId</code>.</p>
+ */
 export class UpdatePublishingDestinationCommand extends $Command<
   UpdatePublishingDestinationCommandInput,
   UpdatePublishingDestinationCommandOutput,
@@ -34,6 +38,9 @@ export class UpdatePublishingDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

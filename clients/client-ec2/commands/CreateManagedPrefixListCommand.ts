@@ -20,6 +20,10 @@ import {
 export type CreateManagedPrefixListCommandInput = CreateManagedPrefixListRequest;
 export type CreateManagedPrefixListCommandOutput = CreateManagedPrefixListResult & __MetadataBearer;
 
+/**
+ * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>
+ *         <p>You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.</p>
+ */
 export class CreateManagedPrefixListCommand extends $Command<
   CreateManagedPrefixListCommandInput,
   CreateManagedPrefixListCommandOutput,
@@ -34,6 +38,9 @@ export class CreateManagedPrefixListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

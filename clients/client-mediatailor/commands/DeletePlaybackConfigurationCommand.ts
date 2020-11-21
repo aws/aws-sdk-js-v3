@@ -20,6 +20,9 @@ import {
 export type DeletePlaybackConfigurationCommandInput = DeletePlaybackConfigurationRequest;
 export type DeletePlaybackConfigurationCommandOutput = DeletePlaybackConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the playback configuration for the specified name. </p>
+ */
 export class DeletePlaybackConfigurationCommand extends $Command<
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,

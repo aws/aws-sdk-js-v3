@@ -20,6 +20,9 @@ import {
 export type CancelContactCommandInput = CancelContactRequest;
 export type CancelContactCommandOutput = ContactIdResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a contact with a specified contact ID.</p>
+ */
 export class CancelContactCommand extends $Command<
   CancelContactCommandInput,
   CancelContactCommandOutput,
@@ -34,6 +37,9 @@ export class CancelContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateAnomalyMonitorCommandInput = CreateAnomalyMonitorRequest;
 export type CreateAnomalyMonitorCommandOutput = CreateAnomalyMonitorResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
+ *       specification. </p>
+ */
 export class CreateAnomalyMonitorCommand extends $Command<
   CreateAnomalyMonitorCommandInput,
   CreateAnomalyMonitorCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAnomalyMonitorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

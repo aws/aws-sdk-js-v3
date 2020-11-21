@@ -20,6 +20,13 @@ import {
 export type ConfirmSubscriptionCommandInput = ConfirmSubscriptionInput;
 export type ConfirmSubscriptionCommandOutput = ConfirmSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
+ *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
+ *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
+ *             requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is
+ *             set to "true".</p>
+ */
 export class ConfirmSubscriptionCommand extends $Command<
   ConfirmSubscriptionCommandInput,
   ConfirmSubscriptionCommandOutput,
@@ -34,6 +41,9 @@ export class ConfirmSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

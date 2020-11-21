@@ -20,6 +20,9 @@ import {
 export type DeleteRequestValidatorCommandInput = DeleteRequestValidatorRequest;
 export type DeleteRequestValidatorCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ */
 export class DeleteRequestValidatorCommand extends $Command<
   DeleteRequestValidatorCommandInput,
   DeleteRequestValidatorCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRequestValidatorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

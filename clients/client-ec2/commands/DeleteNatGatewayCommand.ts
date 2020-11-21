@@ -20,6 +20,9 @@ import {
 export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
 export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.</p>
+ */
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,
   DeleteNatGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNatGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

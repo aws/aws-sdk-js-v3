@@ -24,6 +24,9 @@ export type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput = Disass
 export type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput = DisassociatePhoneNumbersFromVoiceConnectorGroupResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
+ */
 export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Command<
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

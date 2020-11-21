@@ -24,6 +24,13 @@ export type GetCustomVerificationEmailTemplateCommandInput = GetCustomVerificati
 export type GetCustomVerificationEmailTemplateCommandOutput = GetCustomVerificationEmailTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the custom email verification template for the template name you
+ *             specify.</p>
+ *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+ *                 Guide</i>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<
   GetCustomVerificationEmailTemplateCommandInput,
   GetCustomVerificationEmailTemplateCommandOutput,
@@ -38,6 +45,9 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

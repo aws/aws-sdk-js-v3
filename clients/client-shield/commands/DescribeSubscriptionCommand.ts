@@ -20,6 +20,9 @@ import {
 export type DescribeSubscriptionCommandInput = DescribeSubscriptionRequest;
 export type DescribeSubscriptionCommandOutput = DescribeSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Provides details about the AWS Shield Advanced subscription for an account.</p>
+ */
 export class DescribeSubscriptionCommand extends $Command<
   DescribeSubscriptionCommandInput,
   DescribeSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

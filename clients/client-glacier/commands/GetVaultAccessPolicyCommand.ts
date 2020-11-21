@@ -20,6 +20,14 @@ import {
 export type GetVaultAccessPolicyCommandInput = GetVaultAccessPolicyInput;
 export type GetVaultAccessPolicyCommandOutput = GetVaultAccessPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
+ *          for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set Vault Access Policy
+ *             (PUT access-policy)</a>. If there is no access policy set on the vault, the
+ *          operation returns a <code>404 Not found</code> error. For more information about vault
+ *          access policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control
+ *             with Vault Access Policies</a>.</p>
+ */
 export class GetVaultAccessPolicyCommand extends $Command<
   GetVaultAccessPolicyCommandInput,
   GetVaultAccessPolicyCommandOutput,
@@ -34,6 +42,9 @@ export class GetVaultAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

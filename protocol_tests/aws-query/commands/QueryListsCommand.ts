@@ -17,6 +17,9 @@ import {
 export type QueryListsCommandInput = QueryListsInput;
 export type QueryListsCommandOutput = __MetadataBearer;
 
+/**
+ * This test serializes simple and complex lists.
+ */
 export class QueryListsCommand extends $Command<
   QueryListsCommandInput,
   QueryListsCommandOutput,
@@ -31,6 +34,9 @@ export class QueryListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

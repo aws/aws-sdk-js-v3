@@ -20,6 +20,9 @@ import {
 export type DescribeJobQueuesCommandInput = DescribeJobQueuesRequest;
 export type DescribeJobQueuesCommandOutput = DescribeJobQueuesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your job queues.</p>
+ */
 export class DescribeJobQueuesCommand extends $Command<
   DescribeJobQueuesCommandInput,
   DescribeJobQueuesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeJobQueuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeNetworkAclsCommandInput = DescribeNetworkAclsRequest;
 export type DescribeNetworkAclsCommandOutput = DescribeNetworkAclsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your network ACLs.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
+ * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class DescribeNetworkAclsCommand extends $Command<
   DescribeNetworkAclsCommandInput,
   DescribeNetworkAclsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeNetworkAclsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

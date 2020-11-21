@@ -24,6 +24,12 @@ export type DeleteVpcEndpointServiceConfigurationsCommandInput = DeleteVpcEndpoi
 export type DeleteVpcEndpointServiceConfigurationsCommandOutput = DeleteVpcEndpointServiceConfigurationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes one or more VPC endpoint service configurations in your account. Before you
+ *             delete the endpoint service configuration, you must reject any <code>Available</code> or
+ *                 <code>PendingAcceptance</code> interface endpoint connections that are attached to
+ *             the service.</p>
+ */
 export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
   DeleteVpcEndpointServiceConfigurationsCommandInput,
   DeleteVpcEndpointServiceConfigurationsCommandOutput,
@@ -38,6 +44,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

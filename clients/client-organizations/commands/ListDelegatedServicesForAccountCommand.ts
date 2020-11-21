@@ -20,6 +20,12 @@ import {
 export type ListDelegatedServicesForAccountCommandInput = ListDelegatedServicesForAccountRequest;
 export type ListDelegatedServicesForAccountCommandOutput = ListDelegatedServicesForAccountResponse & __MetadataBearer;
 
+/**
+ * <p>List the AWS services for which the specified account is a delegated
+ *             administrator.</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class ListDelegatedServicesForAccountCommand extends $Command<
   ListDelegatedServicesForAccountCommandInput,
   ListDelegatedServicesForAccountCommandOutput,
@@ -34,6 +40,9 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

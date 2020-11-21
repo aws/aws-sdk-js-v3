@@ -24,6 +24,10 @@ export type DescribeDocumentClassificationJobCommandInput = DescribeDocumentClas
 export type DescribeDocumentClassificationJobCommandOutput = DescribeDocumentClassificationJobResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a document classification job. Use this operation to
+ *       get the status of a classification job.</p>
+ */
 export class DescribeDocumentClassificationJobCommand extends $Command<
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateJobTemplateCommandInput = UpdateJobTemplateRequest;
 export type UpdateJobTemplateCommandOutput = UpdateJobTemplateResponse & __MetadataBearer;
 
+/**
+ * Modify one of your existing job templates.
+ */
 export class UpdateJobTemplateCommand extends $Command<
   UpdateJobTemplateCommandInput,
   UpdateJobTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJobTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

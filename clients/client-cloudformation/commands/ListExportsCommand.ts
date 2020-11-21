@@ -17,6 +17,15 @@ import {
 export type ListExportsCommandInput = ListExportsInput;
 export type ListExportsCommandOutput = ListExportsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all exported output values in the account and Region in which you call this
+ *          action. Use this action to see the exported output values that you can import into other
+ *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
+ *                <code>Fn::ImportValue</code>
+ *             </a> function. </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html"> AWS
+ *             CloudFormation Export Stack Output Values</a>.</p>
+ */
 export class ListExportsCommand extends $Command<
   ListExportsCommandInput,
   ListExportsCommandOutput,
@@ -31,6 +40,9 @@ export class ListExportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

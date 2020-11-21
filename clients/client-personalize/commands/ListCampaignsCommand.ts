@@ -20,6 +20,12 @@ import {
 export type ListCampaignsCommandInput = ListCampaignsRequest;
 export type ListCampaignsCommandOutput = ListCampaignsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of campaigns that use the given solution.
+ *       When a solution is not specified, all the campaigns associated with the account are listed.
+ *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
+ *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ */
 export class ListCampaignsCommand extends $Command<
   ListCampaignsCommandInput,
   ListCampaignsCommandOutput,
@@ -34,6 +40,9 @@ export class ListCampaignsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListIdentityPoolUsageCommandInput = ListIdentityPoolUsageRequest;
 export type ListIdentityPoolUsageCommandOutput = ListIdentityPoolUsageResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of identity pools registered with Cognito.</p>
+ *          <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class ListIdentityPoolUsageCommand extends $Command<
   ListIdentityPoolUsageCommandInput,
   ListIdentityPoolUsageCommandOutput,
@@ -34,6 +38,9 @@ export class ListIdentityPoolUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

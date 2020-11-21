@@ -20,6 +20,9 @@ import {
 export type EnableTopicRuleCommandInput = EnableTopicRuleRequest;
 export type EnableTopicRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables the rule.</p>
+ */
 export class EnableTopicRuleCommand extends $Command<
   EnableTopicRuleCommandInput,
   EnableTopicRuleCommandOutput,
@@ -34,6 +37,9 @@ export class EnableTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

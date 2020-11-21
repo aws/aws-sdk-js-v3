@@ -20,6 +20,9 @@ import {
 export type DescribeLocationSmbCommandInput = DescribeLocationSmbRequest;
 export type DescribeLocationSmbCommandOutput = DescribeLocationSmbResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata, such as the path and user information about an SMB location.</p>
+ */
 export class DescribeLocationSmbCommand extends $Command<
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLocationSmbCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

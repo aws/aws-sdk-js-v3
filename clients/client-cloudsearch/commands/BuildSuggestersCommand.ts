@@ -20,6 +20,9 @@ import {
 export type BuildSuggestersCommandInput = BuildSuggestersRequest;
 export type BuildSuggestersCommandOutput = BuildSuggestersResponse & __MetadataBearer;
 
+/**
+ * <p>Indexes the search suggestions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class BuildSuggestersCommand extends $Command<
   BuildSuggestersCommandInput,
   BuildSuggestersCommandOutput,
@@ -34,6 +37,9 @@ export class BuildSuggestersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type BatchWriteCommandInput = BatchWriteRequest;
 export type BatchWriteCommandOutput = BatchWriteResponse & __MetadataBearer;
 
+/**
+ * <p>Performs all the write operations in a batch. Either all the operations succeed or
+ *       none.</p>
+ */
 export class BatchWriteCommand extends $Command<
   BatchWriteCommandInput,
   BatchWriteCommandOutput,
@@ -34,6 +38,9 @@ export class BatchWriteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type DeleteApplicationsCommandInput = DeleteApplicationsRequest;
 export type DeleteApplicationsCommandOutput = DeleteApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a list of applications and their associations with configuration
+ *       items.</p>
+ */
 export class DeleteApplicationsCommand extends $Command<
   DeleteApplicationsCommandInput,
   DeleteApplicationsCommandOutput,
@@ -38,6 +42,9 @@ export class DeleteApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

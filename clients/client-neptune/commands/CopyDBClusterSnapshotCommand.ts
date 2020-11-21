@@ -20,6 +20,12 @@ import {
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
 export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Copies a snapshot of a DB cluster.</p>
+ *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
+ *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
+ *       shared DB cluster snapshot.</p>
+ */
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,
   CopyDBClusterSnapshotCommandOutput,
@@ -34,6 +40,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeDataSetPermissionsCommandInput = DescribeDataSetPermissionsRequest;
 export type DescribeDataSetPermissionsCommandOutput = DescribeDataSetPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the permissions on a dataset.</p>
+ * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ */
 export class DescribeDataSetPermissionsCommand extends $Command<
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

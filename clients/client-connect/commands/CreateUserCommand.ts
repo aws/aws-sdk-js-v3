@@ -20,6 +20,11 @@ import {
 export type CreateUserCommandInput = CreateUserRequest;
 export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a user account for the specified Amazon Connect instance.</p>
+ *          <p>For information about how to create user accounts using the Amazon Connect console, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in
+ *    the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,
   CreateUserCommandOutput,
@@ -34,6 +39,9 @@ export class CreateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchDetectKeyPhrasesCommandInput = BatchDetectKeyPhrasesRequest;
 export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse & __MetadataBearer;
 
+/**
+ * <p>Detects the key noun phrases found in a batch of documents.</p>
+ */
 export class BatchDetectKeyPhrasesCommand extends $Command<
   BatchDetectKeyPhrasesCommandInput,
   BatchDetectKeyPhrasesCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

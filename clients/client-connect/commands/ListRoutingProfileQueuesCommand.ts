@@ -20,6 +20,9 @@ import {
 export type ListRoutingProfileQueuesCommandInput = ListRoutingProfileQueuesRequest;
 export type ListRoutingProfileQueuesCommandOutput = ListRoutingProfileQueuesResponse & __MetadataBearer;
 
+/**
+ * <p>List the queues associated with a routing profile.</p>
+ */
 export class ListRoutingProfileQueuesCommand extends $Command<
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
@@ -34,6 +37,9 @@ export class ListRoutingProfileQueuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

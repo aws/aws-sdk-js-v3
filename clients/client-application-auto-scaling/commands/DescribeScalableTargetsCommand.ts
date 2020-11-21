@@ -24,6 +24,11 @@ import {
 export type DescribeScalableTargetsCommandInput = DescribeScalableTargetsRequest;
 export type DescribeScalableTargetsCommandOutput = DescribeScalableTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the scalable targets in the specified namespace.</p>
+ *          <p>You can filter the results using <code>ResourceIds</code> and
+ *             <code>ScalableDimension</code>.</p>
+ */
 export class DescribeScalableTargetsCommand extends $Command<
   DescribeScalableTargetsCommandInput,
   DescribeScalableTargetsCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeScalableTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

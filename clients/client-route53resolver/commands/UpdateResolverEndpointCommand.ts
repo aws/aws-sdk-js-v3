@@ -20,6 +20,9 @@ import {
 export type UpdateResolverEndpointCommandInput = UpdateResolverEndpointRequest;
 export type UpdateResolverEndpointCommandOutput = UpdateResolverEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>
+ */
 export class UpdateResolverEndpointCommand extends $Command<
   UpdateResolverEndpointCommandInput,
   UpdateResolverEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateResolverEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

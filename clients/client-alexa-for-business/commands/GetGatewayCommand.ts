@@ -20,6 +20,9 @@ import {
 export type GetGatewayCommandInput = GetGatewayRequest;
 export type GetGatewayCommandOutput = GetGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details of a gateway.</p>
+ */
 export class GetGatewayCommand extends $Command<
   GetGatewayCommandInput,
   GetGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class GetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

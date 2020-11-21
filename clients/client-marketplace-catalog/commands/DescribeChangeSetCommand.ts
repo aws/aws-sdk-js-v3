@@ -24,6 +24,9 @@ import {
 export type DescribeChangeSetCommandInput = DescribeChangeSetRequest;
 export type DescribeChangeSetCommandOutput = DescribeChangeSetResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about a given change set.</p>
+ */
 export class DescribeChangeSetCommand extends $Command<
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

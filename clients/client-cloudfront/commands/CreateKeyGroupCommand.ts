@@ -20,6 +20,16 @@ import {
 export type CreateKeyGroupCommandInput = CreateKeyGroupRequest;
 export type CreateKeyGroupCommandOutput = CreateKeyGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+ * 		       <p>To create a key group, you must specify at least one public key for the key group. After you
+ * 			create a key group, you can reference it from one or more cache behaviors. When you
+ * 			reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies
+ * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
+ * 			a private key whose corresponding public key is in the key group. The signed URL or
+ * 			cookie contains information about which public key CloudFront should use to verify the
+ * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ */
 export class CreateKeyGroupCommand extends $Command<
   CreateKeyGroupCommandInput,
   CreateKeyGroupCommandOutput,
@@ -34,6 +44,9 @@ export class CreateKeyGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

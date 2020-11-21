@@ -20,6 +20,14 @@ import {
 export type CreateTrafficMirrorTargetCommandInput = CreateTrafficMirrorTargetRequest;
 export type CreateTrafficMirrorTargetCommandOutput = CreateTrafficMirrorTargetResult & __MetadataBearer;
 
+/**
+ * <p>Creates a target for your Traffic Mirror session.</p>
+ *          <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
+ *          the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
+ *          different VPCs connected via VPC peering or a transit gateway.</p>
+ *          <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p>
+ *          <p>To use the target in a Traffic Mirror session, use  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
+ */
 export class CreateTrafficMirrorTargetCommand extends $Command<
   CreateTrafficMirrorTargetCommandInput,
   CreateTrafficMirrorTargetCommandOutput,
@@ -34,6 +42,9 @@ export class CreateTrafficMirrorTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type ListInstanceProfilesForRoleCommandInput = ListInstanceProfilesForRoleRequest;
 export type ListInstanceProfilesForRoleCommandOutput = ListInstanceProfilesForRoleResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the instance profiles that have the specified associated IAM role. If there are
+ *          none, the operation returns an empty list. For more information about instance profiles, go
+ *          to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+ *             Instance Profiles</a>.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListInstanceProfilesForRoleCommand extends $Command<
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput,
@@ -34,6 +42,9 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

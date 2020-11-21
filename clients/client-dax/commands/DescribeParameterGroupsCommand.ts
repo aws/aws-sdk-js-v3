@@ -20,6 +20,10 @@ import {
 export type DescribeParameterGroupsCommandInput = DescribeParameterGroupsRequest;
 export type DescribeParameterGroupsCommandOutput = DescribeParameterGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of parameter group descriptions. If a parameter group name is
+ *             specified, the list will contain only the descriptions for that group.</p>
+ */
 export class DescribeParameterGroupsCommand extends $Command<
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeParameterGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

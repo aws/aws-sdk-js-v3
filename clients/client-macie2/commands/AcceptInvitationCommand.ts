@@ -20,6 +20,9 @@ import {
 export type AcceptInvitationCommandInput = AcceptInvitationRequest;
 export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>
+ */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
@@ -34,6 +37,9 @@ export class AcceptInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

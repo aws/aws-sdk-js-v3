@@ -21,6 +21,24 @@ import {
 export type UpdateTrafficPolicyInstanceCommandInput = UpdateTrafficPolicyInstanceRequest;
 export type UpdateTrafficPolicyInstanceCommandOutput = UpdateTrafficPolicyInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.</p>
+ * 		       <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name
+ * 			(such as example.com) while it replaces one group of resource record sets with another. Route 53 performs the following operations:</p>
+ * 		       <ol>
+ *             <li>
+ * 				           <p>Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true regardless of how significant
+ * 					the differences are between the existing resource record sets and the new resource record sets. </p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>When all of the new resource record sets have been created, Route 53 starts to respond to DNS queries for the root resource record set name
+ * 					(such as example.com) by using the new resource record sets.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.</p>
+ * 			         </li>
+ *          </ol>
+ */
 export class UpdateTrafficPolicyInstanceCommand extends $Command<
   UpdateTrafficPolicyInstanceCommandInput,
   UpdateTrafficPolicyInstanceCommandOutput,
@@ -35,6 +53,9 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

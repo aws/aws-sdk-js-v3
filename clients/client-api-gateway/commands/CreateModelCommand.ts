@@ -20,6 +20,9 @@ import {
 export type CreateModelCommandInput = CreateModelRequest;
 export type CreateModelCommandOutput = Model & __MetadataBearer;
 
+/**
+ * <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>
+ */
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,
   CreateModelCommandOutput,
@@ -34,6 +37,9 @@ export class CreateModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

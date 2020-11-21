@@ -20,6 +20,51 @@ import {
 export type RequestUploadCredentialsCommandInput = RequestUploadCredentialsInput;
 export type RequestUploadCredentialsCommandOutput = RequestUploadCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
+ *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
+ *                 <a>CreateBuild</a>.</p>
+ *         <p>To request new credentials, specify the build ID as returned with an initial
+ *                 <code>CreateBuild</code> request. If successful, a new set of credentials are
+ *             returned, along with the S3 storage location associated with the build ID.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
+ *             Create a Build with Files in S3</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListBuilds</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBuild</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class RequestUploadCredentialsCommand extends $Command<
   RequestUploadCredentialsCommandInput,
   RequestUploadCredentialsCommandOutput,
@@ -34,6 +79,9 @@ export class RequestUploadCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

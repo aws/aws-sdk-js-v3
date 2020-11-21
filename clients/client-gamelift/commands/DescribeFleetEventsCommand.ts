@@ -20,6 +20,88 @@ import {
 export type DescribeFleetEventsCommandInput = DescribeFleetEventsInput;
 export type DescribeFleetEventsCommandOutput = DescribeFleetEventsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves entries from the specified fleet's event log. You can specify a time
+ *             range to limit the result set. Use the pagination parameters to retrieve results as a
+ *             set of sequential pages. If successful, a collection of event log entries matching the
+ *             request are returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Describe fleets:</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetAttributes</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetCapacity</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetPortSettings</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetUtilization</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeRuntimeConfiguration</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeEC2InstanceLimits</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeFleetEvents</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeFleetEventsCommand extends $Command<
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
@@ -34,6 +116,9 @@ export class DescribeFleetEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

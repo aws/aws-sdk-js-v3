@@ -24,6 +24,10 @@ export type DescribeVpcEndpointServicePermissionsCommandInput = DescribeVpcEndpo
 export type DescribeVpcEndpointServicePermissionsCommandOutput = DescribeVpcEndpointServicePermissionsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the principals (service consumers) that are permitted to discover your VPC
+ *             endpoint service.</p>
+ */
 export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
   DescribeVpcEndpointServicePermissionsCommandInput,
   DescribeVpcEndpointServicePermissionsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

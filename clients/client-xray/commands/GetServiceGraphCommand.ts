@@ -20,6 +20,13 @@ import {
 export type GetServiceGraphCommandInput = GetServiceGraphRequest;
 export type GetServiceGraphCommandOutput = GetServiceGraphResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a document that describes services that process incoming requests, and
+ *       downstream services that they call as a result. Root services process incoming requests and
+ *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">AWS X-Ray SDK</a>.
+ *       Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL
+ *       databases.</p>
+ */
 export class GetServiceGraphCommand extends $Command<
   GetServiceGraphCommandInput,
   GetServiceGraphCommandOutput,
@@ -34,6 +41,9 @@ export class GetServiceGraphCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

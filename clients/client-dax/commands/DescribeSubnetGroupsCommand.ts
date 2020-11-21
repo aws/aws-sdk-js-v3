@@ -20,6 +20,10 @@ import {
 export type DescribeSubnetGroupsCommandInput = DescribeSubnetGroupsRequest;
 export type DescribeSubnetGroupsCommandOutput = DescribeSubnetGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of subnet group descriptions. If a subnet group name is specified,
+ *             the list will contain only the description of that group.</p>
+ */
 export class DescribeSubnetGroupsCommand extends $Command<
   DescribeSubnetGroupsCommandInput,
   DescribeSubnetGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSubnetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

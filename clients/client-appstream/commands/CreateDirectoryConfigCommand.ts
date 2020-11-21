@@ -20,6 +20,9 @@ import {
 export type CreateDirectoryConfigCommandInput = CreateDirectoryConfigRequest;
 export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
+ */
 export class CreateDirectoryConfigCommand extends $Command<
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDirectoryConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

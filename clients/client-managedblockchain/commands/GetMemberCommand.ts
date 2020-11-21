@@ -24,6 +24,9 @@ import {
 export type GetMemberCommandInput = GetMemberInput;
 export type GetMemberCommandOutput = GetMemberOutput & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about a member.</p>
+ */
 export class GetMemberCommand extends $Command<
   GetMemberCommandInput,
   GetMemberCommandOutput,
@@ -38,6 +41,9 @@ export class GetMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

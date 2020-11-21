@@ -20,6 +20,9 @@ import {
 export type DescribeBackupPolicyCommandInput = DescribeBackupPolicyRequest;
 export type DescribeBackupPolicyCommandOutput = BackupPolicyDescription & __MetadataBearer;
 
+/**
+ * <p>Returns the backup policy for the specified EFS file system.</p>
+ */
 export class DescribeBackupPolicyCommand extends $Command<
   DescribeBackupPolicyCommandInput,
   DescribeBackupPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBackupPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

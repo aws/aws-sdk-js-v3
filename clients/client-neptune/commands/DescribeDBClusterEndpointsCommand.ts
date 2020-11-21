@@ -20,6 +20,13 @@ import {
 export type DescribeDBClusterEndpointsCommandInput = DescribeDBClusterEndpointsMessage;
 export type DescribeDBClusterEndpointsCommandOutput = DBClusterEndpointMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about endpoints for an Amazon Neptune DB cluster.</p>
+ *          <note>
+ *             <p>This operation can also return information for Amazon RDS clusters
+ *         and Amazon DocDB clusters.</p>
+ *          </note>
+ */
 export class DescribeDBClusterEndpointsCommand extends $Command<
   DescribeDBClusterEndpointsCommandInput,
   DescribeDBClusterEndpointsCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

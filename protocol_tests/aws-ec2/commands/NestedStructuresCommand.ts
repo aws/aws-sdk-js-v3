@@ -20,6 +20,9 @@ import {
 export type NestedStructuresCommandInput = NestedStructuresInput;
 export type NestedStructuresCommandOutput = __MetadataBearer;
 
+/**
+ * This test serializes nested and recursive structure members.
+ */
 export class NestedStructuresCommand extends $Command<
   NestedStructuresCommandInput,
   NestedStructuresCommandOutput,
@@ -34,6 +37,9 @@ export class NestedStructuresCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,

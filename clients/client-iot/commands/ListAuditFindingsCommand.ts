@@ -20,6 +20,10 @@ import {
 export type ListAuditFindingsCommandInput = ListAuditFindingsRequest;
 export type ListAuditFindingsCommandOutput = ListAuditFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the findings (results) of a Device Defender audit or of the audits
+ *         performed during a specified time period. (Findings are retained for 90 days.)</p>
+ */
 export class ListAuditFindingsCommand extends $Command<
   ListAuditFindingsCommandInput,
   ListAuditFindingsCommandOutput,
@@ -34,6 +38,9 @@ export class ListAuditFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

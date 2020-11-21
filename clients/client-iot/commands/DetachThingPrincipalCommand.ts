@@ -20,6 +20,15 @@ import {
 export type DetachThingPrincipalCommandInput = DetachThingPrincipalRequest;
 export type DetachThingPrincipalCommandOutput = DetachThingPrincipalResponse & __MetadataBearer;
 
+/**
+ * <p>Detaches the specified principal from the specified thing. A principal can be X.509
+ * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+ * 			identities.</p>
+ * 		       <note>
+ * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
+ * 				propagate.</p>
+ * 		       </note>
+ */
 export class DetachThingPrincipalCommand extends $Command<
   DetachThingPrincipalCommandInput,
   DetachThingPrincipalCommandOutput,
@@ -34,6 +43,9 @@ export class DetachThingPrincipalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

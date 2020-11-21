@@ -21,6 +21,10 @@ import {
 export type SignUpCommandInput = SignUpRequest;
 export type SignUpCommandOutput = SignUpResponse & __MetadataBearer;
 
+/**
+ * <p>Registers the user in the specified user pool and creates a user name, password, and
+ *             user attributes.</p>
+ */
 export class SignUpCommand extends $Command<
   SignUpCommandInput,
   SignUpCommandOutput,
@@ -35,6 +39,9 @@ export class SignUpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

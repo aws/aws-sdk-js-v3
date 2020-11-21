@@ -20,6 +20,9 @@ import {
 export type GetUserEndpointsCommandInput = GetUserEndpointsRequest;
 export type GetUserEndpointsCommandOutput = GetUserEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
+ */
 export class GetUserEndpointsCommand extends $Command<
   GetUserEndpointsCommandInput,
   GetUserEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class GetUserEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

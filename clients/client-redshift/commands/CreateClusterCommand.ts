@@ -20,6 +20,15 @@ import {
 export type CreateClusterCommandInput = CreateClusterMessage;
 export type CreateClusterCommandOutput = CreateClusterResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new cluster with the specified parameters.</p>
+ *         <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
+ *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
+ *             Amazon Redshift uses when creating the cluster.
+ * For more information about managing clusters, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -34,6 +43,9 @@ export class CreateClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

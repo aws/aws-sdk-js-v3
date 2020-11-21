@@ -20,6 +20,10 @@ import {
 export type HttpRequestWithLabelsCommandInput = HttpRequestWithLabelsInput;
 export type HttpRequestWithLabelsCommandOutput = __MetadataBearer;
 
+/**
+ * The example tests how requests are serialized when there's no input
+ * payload but there are HTTP labels.
+ */
 export class HttpRequestWithLabelsCommand extends $Command<
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
@@ -34,6 +38,9 @@ export class HttpRequestWithLabelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type DescribeEventTypesCommandInput = DescribeEventTypesRequest;
 export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the event types that meet the specified filter criteria. If no filter criteria
+ *          are specified, all event types are returned, in no particular order.</p>
+ *
+ *          <note>
+ *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *          </note>
+ */
 export class DescribeEventTypesCommand extends $Command<
   DescribeEventTypesCommandInput,
   DescribeEventTypesCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeEventTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

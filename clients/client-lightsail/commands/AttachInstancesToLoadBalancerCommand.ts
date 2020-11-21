@@ -20,6 +20,14 @@ import {
 export type AttachInstancesToLoadBalancerCommandInput = AttachInstancesToLoadBalancerRequest;
 export type AttachInstancesToLoadBalancerCommandOutput = AttachInstancesToLoadBalancerResult & __MetadataBearer;
 
+/**
+ * <p>Attaches one or more Lightsail instances to a load balancer.</p>
+ *          <p>After some time, the instances are attached to the load balancer and the health check
+ *       status is available.</p>
+ *          <p>The <code>attach instances to load balancer</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by <code>load balancer
+ *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class AttachInstancesToLoadBalancerCommand extends $Command<
   AttachInstancesToLoadBalancerCommandInput,
   AttachInstancesToLoadBalancerCommandOutput,
@@ -34,6 +42,9 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

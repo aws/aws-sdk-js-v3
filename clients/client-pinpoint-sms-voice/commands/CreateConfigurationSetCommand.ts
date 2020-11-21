@@ -20,6 +20,9 @@ import {
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
 export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
+ */
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

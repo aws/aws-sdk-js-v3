@@ -20,6 +20,11 @@ import {
 export type ConstantAndVariableQueryStringCommandInput = ConstantAndVariableQueryStringInput;
 export type ConstantAndVariableQueryStringCommandOutput = __MetadataBearer;
 
+/**
+ * This example uses fixed query string params and variable query string params.
+ * The fixed query string parameters and variable parameters must both be
+ * serialized (implementations may need to merge them together).
+ */
 export class ConstantAndVariableQueryStringCommand extends $Command<
   ConstantAndVariableQueryStringCommandInput,
   ConstantAndVariableQueryStringCommandOutput,
@@ -34,6 +39,9 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

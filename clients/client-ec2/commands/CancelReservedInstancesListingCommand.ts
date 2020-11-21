@@ -20,6 +20,12 @@ import {
 export type CancelReservedInstancesListingCommandInput = CancelReservedInstancesListingRequest;
 export type CancelReservedInstancesListingCommandOutput = CancelReservedInstancesListingResult & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
+ *          <p>For more information, see
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
+ *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CancelReservedInstancesListingCommand extends $Command<
   CancelReservedInstancesListingCommandInput,
   CancelReservedInstancesListingCommandOutput,
@@ -34,6 +40,9 @@ export class CancelReservedInstancesListingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

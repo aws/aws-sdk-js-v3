@@ -20,6 +20,17 @@ import {
 export type PutRemediationConfigurationsCommandInput = PutRemediationConfigurationsRequest;
 export type PutRemediationConfigurationsCommandOutput = PutRemediationConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the
+ * 			selected target or action.
+ * 			The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
+ * 		The AWS Config rule must already exist for you to add a remediation configuration.
+ * 		The target (SSM document) must exist and have permissions to use the target. </p>
+ * 		       <note>
+ *             <p>If you make backward incompatible changes to the SSM document,
+ * 			you must call this again to ensure the remediations can run.</p>
+ *          </note>
+ */
 export class PutRemediationConfigurationsCommand extends $Command<
   PutRemediationConfigurationsCommandInput,
   PutRemediationConfigurationsCommandOutput,
@@ -34,6 +45,9 @@ export class PutRemediationConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

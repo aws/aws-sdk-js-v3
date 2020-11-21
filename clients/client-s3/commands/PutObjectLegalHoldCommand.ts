@@ -21,6 +21,20 @@ import {
 export type PutObjectLegalHoldCommandInput = PutObjectLegalHoldRequest;
 export type PutObjectLegalHoldCommandOutput = PutObjectLegalHoldOutput & __MetadataBearer;
 
+/**
+ * <p>Applies a Legal Hold configuration to the specified object.</p>
+ *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p class="title">
+ *             <b>Related Resources</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class PutObjectLegalHoldCommand extends $Command<
   PutObjectLegalHoldCommandInput,
   PutObjectLegalHoldCommandOutput,
@@ -35,6 +49,9 @@ export class PutObjectLegalHoldCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

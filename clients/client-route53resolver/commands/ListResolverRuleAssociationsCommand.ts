@@ -20,6 +20,9 @@ import {
 export type ListResolverRuleAssociationsCommandInput = ListResolverRuleAssociationsRequest;
 export type ListResolverRuleAssociationsCommandOutput = ListResolverRuleAssociationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the associations that were created between Resolver rules and VPCs using the current AWS account.</p>
+ */
 export class ListResolverRuleAssociationsCommand extends $Command<
   ListResolverRuleAssociationsCommandInput,
   ListResolverRuleAssociationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

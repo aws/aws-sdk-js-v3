@@ -20,6 +20,9 @@ import {
 export type ModifyDBProxyCommandInput = ModifyDBProxyRequest;
 export type ModifyDBProxyCommandOutput = ModifyDBProxyResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the settings for an existing DB proxy.</p>
+ */
 export class ModifyDBProxyCommand extends $Command<
   ModifyDBProxyCommandInput,
   ModifyDBProxyCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyDBProxyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

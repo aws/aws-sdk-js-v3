@@ -24,6 +24,9 @@ export type DescribeProvisioningTemplateVersionCommandInput = DescribeProvisioni
 export type DescribeProvisioningTemplateVersionCommandOutput = DescribeProvisioningTemplateVersionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns information about a fleet provisioning template version.</p>
+ */
 export class DescribeProvisioningTemplateVersionCommand extends $Command<
   DescribeProvisioningTemplateVersionCommandInput,
   DescribeProvisioningTemplateVersionCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

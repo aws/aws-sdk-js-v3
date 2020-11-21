@@ -24,6 +24,10 @@ import {
 export type DescribePHIDetectionJobCommandInput = DescribePHIDetectionJobRequest;
 export type DescribePHIDetectionJobCommandOutput = DescribePHIDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a protected health information (PHI) detection job.
+ *       Use this operation to get the status of a detection job.</p>
+ */
 export class DescribePHIDetectionJobCommand extends $Command<
   DescribePHIDetectionJobCommandInput,
   DescribePHIDetectionJobCommandOutput,
@@ -38,6 +42,9 @@ export class DescribePHIDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

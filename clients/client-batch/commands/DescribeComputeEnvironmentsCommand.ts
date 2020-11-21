@@ -20,6 +20,12 @@ import {
 export type DescribeComputeEnvironmentsCommandInput = DescribeComputeEnvironmentsRequest;
 export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmentsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your compute environments.</p>
+ *          <p>If you are using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
+ *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
+ *    into.</p>
+ */
 export class DescribeComputeEnvironmentsCommand extends $Command<
   DescribeComputeEnvironmentsCommandInput,
   DescribeComputeEnvironmentsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

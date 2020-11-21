@@ -20,6 +20,14 @@ import {
 export type CreateHITTypeCommandInput = CreateHITTypeRequest;
 export type CreateHITTypeCommandOutput = CreateHITTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>CreateHITType</code> operation creates a new HIT type. This operation
+ *             allows you to define a standard set of HIT properties to use when creating HITs.
+ *             If you register a HIT type with values that match an existing HIT type, the HIT type
+ *             ID of the existing type will be returned.
+ *         </p>
+ */
 export class CreateHITTypeCommand extends $Command<
   CreateHITTypeCommandInput,
   CreateHITTypeCommandOutput,
@@ -34,6 +42,9 @@ export class CreateHITTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

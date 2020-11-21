@@ -20,6 +20,9 @@ import {
 export type DescribeAvailablePatchesCommandInput = DescribeAvailablePatchesRequest;
 export type DescribeAvailablePatchesCommandOutput = DescribeAvailablePatchesResult & __MetadataBearer;
 
+/**
+ * <p>Lists all patches eligible to be included in a patch baseline.</p>
+ */
 export class DescribeAvailablePatchesCommand extends $Command<
   DescribeAvailablePatchesCommandInput,
   DescribeAvailablePatchesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAvailablePatchesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

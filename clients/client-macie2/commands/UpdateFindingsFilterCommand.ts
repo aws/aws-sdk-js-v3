@@ -20,6 +20,9 @@ import {
 export type UpdateFindingsFilterCommandInput = UpdateFindingsFilterRequest;
 export type UpdateFindingsFilterCommandOutput = UpdateFindingsFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the criteria and other settings for a findings filter.</p>
+ */
 export class UpdateFindingsFilterCommand extends $Command<
   UpdateFindingsFilterCommandInput,
   UpdateFindingsFilterCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFindingsFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

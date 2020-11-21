@@ -20,6 +20,9 @@ import {
 export type GetResourceShareAssociationsCommandInput = GetResourceShareAssociationsRequest;
 export type GetResourceShareAssociationsCommandOutput = GetResourceShareAssociationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the resources or principals for the resource shares that you own.</p>
+ */
 export class GetResourceShareAssociationsCommand extends $Command<
   GetResourceShareAssociationsCommandInput,
   GetResourceShareAssociationsCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourceShareAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

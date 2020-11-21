@@ -20,6 +20,12 @@ import {
 export type UpdateFunctionCodeCommandInput = UpdateFunctionCodeRequest;
 export type UpdateFunctionCodeCommandOutput = FunctionConfiguration & __MetadataBearer;
 
+/**
+ * <p>Updates a Lambda function's code.</p>
+ *
+ *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
+ *       only the unpublished version.</p>
+ */
 export class UpdateFunctionCodeCommand extends $Command<
   UpdateFunctionCodeCommandInput,
   UpdateFunctionCodeCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateFunctionCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

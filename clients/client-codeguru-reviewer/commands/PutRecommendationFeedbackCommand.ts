@@ -20,6 +20,11 @@ import {
 export type PutRecommendationFeedbackCommandInput = PutRecommendationFeedbackRequest;
 export type PutRecommendationFeedbackCommandOutput = PutRecommendationFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
+ *       </p>
+ */
 export class PutRecommendationFeedbackCommand extends $Command<
   PutRecommendationFeedbackCommandInput,
   PutRecommendationFeedbackCommandOutput,
@@ -34,6 +39,9 @@ export class PutRecommendationFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

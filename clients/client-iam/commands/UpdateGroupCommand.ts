@@ -17,6 +17,22 @@ import {
 export type UpdateGroupCommandInput = UpdateGroupRequest;
 export type UpdateGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the name and/or the path of the specified IAM group.</p>
+ *          <important>
+ *             <p> You should understand the implications of changing a group's path or name. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming Users and
+ *                Groups</a> in the <i>IAM User Guide</i>.</p>
+ *          </important>
+ *          <note>
+ *             <p>The person making the request (the principal), must have permission to change the
+ *             role group with the old name and the new name. For example, to change the group named
+ *                <code>Managers</code> to <code>MGRs</code>, the principal must have a policy that
+ *             allows them to update both groups. If the principal has permission to update the
+ *                <code>Managers</code> group, but not the <code>MGRs</code> group, then the update
+ *             fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>. </p>
+ *          </note>
+ */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,
   UpdateGroupCommandOutput,
@@ -31,6 +47,9 @@ export class UpdateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

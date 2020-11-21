@@ -20,6 +20,9 @@ import {
 export type DeleteIntegrationCommandInput = DeleteIntegrationRequest;
 export type DeleteIntegrationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an Integration.</p>
+ */
 export class DeleteIntegrationCommand extends $Command<
   DeleteIntegrationCommandInput,
   DeleteIntegrationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteIntegrationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

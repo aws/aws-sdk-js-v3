@@ -20,6 +20,14 @@ import {
 export type ResumeSessionCommandInput = ResumeSessionRequest;
 export type ResumeSessionCommandOutput = ResumeSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Reconnects a session to an instance after it has been disconnected. Connections can be
+ *    resumed for disconnected sessions, but not terminated sessions.</p>
+ *          <note>
+ *             <p>This command is primarily for use by client machines to automatically reconnect during
+ *     intermittent network issues. It is not intended for any other use.</p>
+ *          </note>
+ */
 export class ResumeSessionCommand extends $Command<
   ResumeSessionCommandInput,
   ResumeSessionCommandOutput,
@@ -34,6 +42,9 @@ export class ResumeSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

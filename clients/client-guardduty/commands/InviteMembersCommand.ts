@@ -20,6 +20,11 @@ import {
 export type InviteMembersCommandInput = InviteMembersRequest;
 export type InviteMembersCommandOutput = InviteMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Invites other AWS accounts (created as members of the current AWS account by
+ *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
+ *       accounts' GuardDuty findings on their behalf as the master account.</p>
+ */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,
   InviteMembersCommandOutput,
@@ -34,6 +39,9 @@ export class InviteMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

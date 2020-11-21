@@ -20,6 +20,13 @@ import {
 export type ListContactFlowsCommandInput = ListContactFlowsRequest;
 export type ListContactFlowsCommandOutput = ListContactFlowsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
+ *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ *          <p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the
+ *     <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class ListContactFlowsCommand extends $Command<
   ListContactFlowsCommandInput,
   ListContactFlowsCommandOutput,
@@ -34,6 +41,9 @@ export class ListContactFlowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type DisableSecurityHubCommandInput = DisableSecurityHubRequest;
 export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse & __MetadataBearer;
 
+/**
+ * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
+ *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
+ *          <p>When you disable Security Hub for a master account, it doesn't disable Security Hub for any associated
+ *          member accounts.</p>
+ *          <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration
+ *          settings are deleted after 90 days and cannot be recovered. Any standards that were enabled
+ *          are disabled, and your master and member account associations are removed.</p>
+ *          <p>If you want to save your existing findings, you must export them before you disable
+ *          Security Hub.</p>
+ */
 export class DisableSecurityHubCommand extends $Command<
   DisableSecurityHubCommandInput,
   DisableSecurityHubCommandOutput,
@@ -34,6 +45,9 @@ export class DisableSecurityHubCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

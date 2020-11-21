@@ -20,6 +20,12 @@ import {
 export type CreateInstanceExportTaskCommandInput = CreateInstanceExportTaskRequest;
 export type CreateInstanceExportTaskCommandOutput = CreateInstanceExportTaskResult & __MetadataBearer;
 
+/**
+ * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
+ *          <p>For information about the supported operating systems, image formats, and known limitations for the types of
+ *    instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an Instance as
+ *     a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+ */
 export class CreateInstanceExportTaskCommand extends $Command<
   CreateInstanceExportTaskCommandInput,
   CreateInstanceExportTaskCommandOutput,
@@ -34,6 +40,9 @@ export class CreateInstanceExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DisassociateHealthCheckCommandInput = DisassociateHealthCheckRequest;
 export type DisassociateHealthCheckCommandOutput = DisassociateHealthCheckResponse & __MetadataBearer;
 
+/**
+ * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation. </p>
+ *          <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>. </p>
+ */
 export class DisassociateHealthCheckCommand extends $Command<
   DisassociateHealthCheckCommandInput,
   DisassociateHealthCheckCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateHealthCheckCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDatasetContentCommandInput = GetDatasetContentRequest;
 export type GetDatasetContentCommandOutput = GetDatasetContentResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the contents of a data set as presigned URIs.</p>
+ */
 export class GetDatasetContentCommand extends $Command<
   GetDatasetContentCommandInput,
   GetDatasetContentCommandOutput,
@@ -34,6 +37,9 @@ export class GetDatasetContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

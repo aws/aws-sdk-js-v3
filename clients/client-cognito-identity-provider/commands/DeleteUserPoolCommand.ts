@@ -25,6 +25,9 @@ import {
 export type DeleteUserPoolCommandInput = DeleteUserPoolRequest;
 export type DeleteUserPoolCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Amazon Cognito user pool.</p>
+ */
 export class DeleteUserPoolCommand extends $Command<
   DeleteUserPoolCommandInput,
   DeleteUserPoolCommandOutput,
@@ -39,6 +42,9 @@ export class DeleteUserPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

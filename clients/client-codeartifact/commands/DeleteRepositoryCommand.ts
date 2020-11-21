@@ -20,6 +20,11 @@ import {
 export type DeleteRepositoryCommandInput = DeleteRepositoryRequest;
 export type DeleteRepositoryCommandOutput = DeleteRepositoryResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Deletes a repository.
+ *        </p>
+ */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,
   DeleteRepositoryCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

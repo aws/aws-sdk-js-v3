@@ -20,6 +20,10 @@ import {
 export type DeleteIpGroupCommandInput = DeleteIpGroupRequest;
 export type DeleteIpGroupCommandOutput = DeleteIpGroupResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified IP access control group.</p>
+ *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
+ */
 export class DeleteIpGroupCommand extends $Command<
   DeleteIpGroupCommandInput,
   DeleteIpGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteIpGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

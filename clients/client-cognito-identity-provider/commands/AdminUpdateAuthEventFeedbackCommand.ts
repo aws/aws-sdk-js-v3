@@ -25,6 +25,11 @@ import {
 export type AdminUpdateAuthEventFeedbackCommandInput = AdminUpdateAuthEventFeedbackRequest;
 export type AdminUpdateAuthEventFeedbackCommandOutput = AdminUpdateAuthEventFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>Provides feedback for an authentication event as to whether it was from a valid user.
+ *             This feedback is used for improving the risk evaluation decision for the user pool as
+ *             part of Amazon Cognito advanced security.</p>
+ */
 export class AdminUpdateAuthEventFeedbackCommand extends $Command<
   AdminUpdateAuthEventFeedbackCommandInput,
   AdminUpdateAuthEventFeedbackCommandOutput,
@@ -39,6 +44,9 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

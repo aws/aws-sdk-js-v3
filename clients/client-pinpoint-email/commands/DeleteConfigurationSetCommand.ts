@@ -20,6 +20,14 @@ import {
 export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
 export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Delete an existing configuration set.</p>
+ *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
+ *             apply to the emails you send. You apply a configuration set to an email by including a
+ *             reference to the configuration set in the headers of the email. When you apply a
+ *             configuration set to an email, all of the rules in that configuration set are applied to
+ *             the email.</p>
+ */
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

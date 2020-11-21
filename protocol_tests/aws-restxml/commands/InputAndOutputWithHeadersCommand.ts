@@ -20,6 +20,10 @@ import {
 export type InputAndOutputWithHeadersCommandInput = InputAndOutputWithHeadersIO;
 export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO & __MetadataBearer;
 
+/**
+ * The example tests how requests and responses are serialized when there is
+ * no input or output payload but there are HTTP header bindings.
+ */
 export class InputAndOutputWithHeadersCommand extends $Command<
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
@@ -34,6 +38,9 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

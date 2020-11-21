@@ -20,6 +20,9 @@ import {
 export type UngroupResourcesCommandInput = UngroupResourcesInput;
 export type UngroupResourcesCommandOutput = UngroupResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified resources from the specified group.</p>
+ */
 export class UngroupResourcesCommand extends $Command<
   UngroupResourcesCommandInput,
   UngroupResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class UngroupResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

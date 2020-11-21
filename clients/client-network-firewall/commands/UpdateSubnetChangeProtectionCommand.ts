@@ -20,6 +20,9 @@ import {
 export type UpdateSubnetChangeProtectionCommandInput = UpdateSubnetChangeProtectionRequest;
 export type UpdateSubnetChangeProtectionCommandOutput = UpdateSubnetChangeProtectionResponse & __MetadataBearer;
 
+/**
+ * <p></p>
+ */
 export class UpdateSubnetChangeProtectionCommand extends $Command<
   UpdateSubnetChangeProtectionCommandInput,
   UpdateSubnetChangeProtectionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

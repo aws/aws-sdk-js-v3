@@ -20,6 +20,14 @@ import {
 export type SetInstanceProtectionCommandInput = SetInstanceProtectionQuery;
 export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer & __MetadataBearer;
 
+/**
+ * <p>Updates the instance protection settings of the specified instances.</p>
+ *         <p>For more information about preventing instances that are part of an Auto Scaling group from
+ *             terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance scale-in protection</a> in the
+ *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call
+ *             fails.</p>
+ */
 export class SetInstanceProtectionCommand extends $Command<
   SetInstanceProtectionCommandInput,
   SetInstanceProtectionCommandOutput,
@@ -34,6 +42,9 @@ export class SetInstanceProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchDeletePartitionCommandInput = BatchDeletePartitionRequest;
 export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more partitions in a batch operation.</p>
+ */
 export class BatchDeletePartitionCommand extends $Command<
   BatchDeletePartitionCommandInput,
   BatchDeletePartitionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeletePartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

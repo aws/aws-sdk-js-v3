@@ -20,6 +20,15 @@ import {
 export type CreateVirtualRouterCommandInput = CreateVirtualRouterInput;
 export type CreateVirtualRouterCommandOutput = CreateVirtualRouterOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a virtual router within a service mesh.</p>
+ *          <p>Specify a <code>listener</code> for any inbound traffic that your virtual router
+ *          receives. Create a virtual router for each protocol and port that you need to route.
+ *          Virtual routers handle traffic for one or more virtual services within your mesh. After you
+ *          create your virtual router, create and associate routes for your virtual router that direct
+ *          incoming requests to different virtual nodes.</p>
+ *          <p>For more information about virtual routers, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html">Virtual routers</a>.</p>
+ */
 export class CreateVirtualRouterCommand extends $Command<
   CreateVirtualRouterCommandInput,
   CreateVirtualRouterCommandOutput,
@@ -34,6 +43,9 @@ export class CreateVirtualRouterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

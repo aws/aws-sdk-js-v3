@@ -20,6 +20,10 @@ import {
 export type ListFargateProfilesCommandInput = ListFargateProfilesRequest;
 export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS Fargate profiles associated with the specified cluster in your AWS
+ *             account in the specified Region.</p>
+ */
 export class ListFargateProfilesCommand extends $Command<
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
@@ -34,6 +38,9 @@ export class ListFargateProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

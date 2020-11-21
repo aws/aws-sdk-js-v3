@@ -20,6 +20,10 @@ import {
 export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
 export type DeleteInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
 
+/**
+ * <p>Deletes the installation medium for a DB engine that requires an on-premises customer provided license,
+ *             such as Microsoft SQL Server.</p>
+ */
 export class DeleteInstallationMediaCommand extends $Command<
   DeleteInstallationMediaCommandInput,
   DeleteInstallationMediaCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteInstallationMediaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -17,6 +17,11 @@ import {
 export type AddTagsCommandInput = AddTagsInput;
 export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
+ * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
+ * 			<code>AddTags</code> updates the tag's value.</p>
+ */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,
   AddTagsCommandOutput,
@@ -31,6 +36,9 @@ export class AddTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ServiceCatalogAppRegistryClient,
   input: ListAttributeGroupsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttributeGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ServiceCatalogAppRegistry,
   input: ListAttributeGroupsCommandInput,

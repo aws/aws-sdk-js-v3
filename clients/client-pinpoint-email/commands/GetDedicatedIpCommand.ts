@@ -20,6 +20,11 @@ import {
 export type GetDedicatedIpCommandInput = GetDedicatedIpRequest;
 export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse & __MetadataBearer;
 
+/**
+ * <p>Get information about a dedicated IP address, including the name of the dedicated IP
+ *             pool that it's associated with, as well information about the automatic warm-up process
+ *             for the address.</p>
+ */
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,
   GetDedicatedIpCommandOutput,
@@ -34,6 +39,9 @@ export class GetDedicatedIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

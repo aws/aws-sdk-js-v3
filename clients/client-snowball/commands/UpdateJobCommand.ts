@@ -17,6 +17,11 @@ import {
 export type UpdateJobCommandInput = UpdateJobRequest;
 export type UpdateJobCommandOutput = UpdateJobResult & __MetadataBearer;
 
+/**
+ * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
+ *       the information associated with a job. Once the job changes to a different job state, usually
+ *       within 60 minutes of the job being created, this action is no longer available.</p>
+ */
 export class UpdateJobCommand extends $Command<
   UpdateJobCommandInput,
   UpdateJobCommandOutput,
@@ -31,6 +36,9 @@ export class UpdateJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

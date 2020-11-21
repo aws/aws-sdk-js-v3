@@ -20,6 +20,10 @@ import {
 export type SkipWaitTimeForInstanceTerminationCommandInput = SkipWaitTimeForInstanceTerminationInput;
 export type SkipWaitTimeForInstanceTerminationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
+ *             instances immediately after the traffic routing is complete.</p>
+ */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
   SkipWaitTimeForInstanceTerminationCommandInput,
   SkipWaitTimeForInstanceTerminationCommandOutput,
@@ -34,6 +38,9 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

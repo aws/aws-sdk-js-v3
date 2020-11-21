@@ -20,6 +20,9 @@ import {
 export type GetIntrospectionSchemaCommandInput = GetIntrospectionSchemaRequest;
 export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the introspection schema for a GraphQL API.</p>
+ */
 export class GetIntrospectionSchemaCommand extends $Command<
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class GetIntrospectionSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

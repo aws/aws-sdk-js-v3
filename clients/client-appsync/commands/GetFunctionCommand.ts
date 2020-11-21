@@ -20,6 +20,9 @@ import {
 export type GetFunctionCommandInput = GetFunctionRequest;
 export type GetFunctionCommandOutput = GetFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Get a <code>Function</code>.</p>
+ */
 export class GetFunctionCommand extends $Command<
   GetFunctionCommandInput,
   GetFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class GetFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

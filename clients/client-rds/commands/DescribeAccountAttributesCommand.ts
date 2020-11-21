@@ -20,6 +20,10 @@ import {
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
 export type DescribeAccountAttributesCommandOutput = AccountAttributesMessage & __MetadataBearer;
 
+/**
+ * <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
+ *          <p>This command doesn't take any parameters.</p>
+ */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

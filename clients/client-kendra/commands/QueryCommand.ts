@@ -17,6 +17,29 @@ import {
 export type QueryCommandInput = QueryRequest;
 export type QueryCommandOutput = QueryResult & __MetadataBearer;
 
+/**
+ * <p>Searches an active index. Use this API to search your documents using query. The
+ *             <code>Query</code> operation enables to do faceted search and to filter results based on
+ *          document attributes.</p>
+ *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce document
+ *          access control in the search results. </p>
+ *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ) content.
+ *          By default the response contains three types of results.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Relevant passages</p>
+ *             </li>
+ *             <li>
+ *                <p>Matching FAQs</p>
+ *             </li>
+ *             <li>
+ *                <p>Relevant documents</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can specify that the query return only one type of result using the
+ *             <code>QueryResultTypeConfig</code> parameter.</p>
+ *          <p>Each query returns the 100 most relevant results. </p>
+ */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, KendraClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +50,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

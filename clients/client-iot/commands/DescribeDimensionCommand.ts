@@ -20,6 +20,9 @@ import {
 export type DescribeDimensionCommandInput = DescribeDimensionRequest;
 export type DescribeDimensionCommandOutput = DescribeDimensionResponse & __MetadataBearer;
 
+/**
+ * <p>Provides details about a dimension that is defined in your AWS account.</p>
+ */
 export class DescribeDimensionCommand extends $Command<
   DescribeDimensionCommandInput,
   DescribeDimensionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDimensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

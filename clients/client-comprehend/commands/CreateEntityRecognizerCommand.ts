@@ -20,6 +20,11 @@ import {
 export type CreateEntityRecognizerCommandInput = CreateEntityRecognizerRequest;
 export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an entity recognizer using submitted files. After your
+ *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
+ *          API. </p>
+ */
 export class CreateEntityRecognizerCommand extends $Command<
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
@@ -34,6 +39,9 @@ export class CreateEntityRecognizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListJobTemplatesCommandInput = ListJobTemplatesRequest;
 export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse & __MetadataBearer;
 
+/**
+ * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+ */
 export class ListJobTemplatesCommand extends $Command<
   ListJobTemplatesCommandInput,
   ListJobTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class ListJobTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type UpdateAccountCommandInput = UpdateAccountRequest;
 export type UpdateAccountCommandOutput = UpdateAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Updates account details for the specified Amazon Chime account. Currently, only
+ *        account name updates are supported for this action.</p>
+ */
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,
   UpdateAccountCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

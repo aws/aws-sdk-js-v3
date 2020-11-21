@@ -20,6 +20,9 @@ import {
 export type UpdateRegistryCommandInput = UpdateRegistryRequest;
 export type UpdateRegistryCommandOutput = UpdateRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a registry.</p>
+ */
 export class UpdateRegistryCommand extends $Command<
   UpdateRegistryCommandInput,
   UpdateRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

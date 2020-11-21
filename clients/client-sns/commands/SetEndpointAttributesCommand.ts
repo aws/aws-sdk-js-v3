@@ -20,6 +20,11 @@ import {
 export type SetEndpointAttributesCommandInput = SetEndpointAttributesInput;
 export type SetEndpointAttributesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the attributes for an endpoint for a device on one of the supported push
+ *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
+ *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+ */
 export class SetEndpointAttributesCommand extends $Command<
   SetEndpointAttributesCommandInput,
   SetEndpointAttributesCommandOutput,
@@ -34,6 +39,9 @@ export class SetEndpointAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

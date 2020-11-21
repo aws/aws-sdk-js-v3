@@ -20,6 +20,10 @@ import {
 export type DeleteAssessmentRunCommandInput = DeleteAssessmentRunRequest;
 export type DeleteAssessmentRunCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the assessment run that is specified by the ARN of the assessment
+ *          run.</p>
+ */
 export class DeleteAssessmentRunCommand extends $Command<
   DeleteAssessmentRunCommandInput,
   DeleteAssessmentRunCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

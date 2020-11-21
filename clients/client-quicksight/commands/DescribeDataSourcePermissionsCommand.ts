@@ -20,6 +20,9 @@ import {
 export type DescribeDataSourcePermissionsCommandInput = DescribeDataSourcePermissionsRequest;
 export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the resource permissions for a data source.</p>
+ */
 export class DescribeDataSourcePermissionsCommand extends $Command<
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

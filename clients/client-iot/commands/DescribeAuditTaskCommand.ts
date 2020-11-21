@@ -21,6 +21,9 @@ import {
 export type DescribeAuditTaskCommandInput = DescribeAuditTaskRequest;
 export type DescribeAuditTaskCommandOutput = DescribeAuditTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a Device Defender audit.</p>
+ */
 export class DescribeAuditTaskCommand extends $Command<
   DescribeAuditTaskCommandInput,
   DescribeAuditTaskCommandOutput,
@@ -35,6 +38,9 @@ export class DescribeAuditTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

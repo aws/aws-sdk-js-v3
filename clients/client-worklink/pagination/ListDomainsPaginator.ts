@@ -4,6 +4,9 @@ import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput }
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: WorkLinkClient,
   input: ListDomainsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDomainsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: WorkLink,
   input: ListDomainsCommandInput,

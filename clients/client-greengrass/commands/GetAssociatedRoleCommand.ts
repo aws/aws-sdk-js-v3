@@ -20,6 +20,9 @@ import {
 export type GetAssociatedRoleCommandInput = GetAssociatedRoleRequest;
 export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse & __MetadataBearer;
 
+/**
+ * Retrieves the role associated with a particular group.
+ */
 export class GetAssociatedRoleCommand extends $Command<
   GetAssociatedRoleCommandInput,
   GetAssociatedRoleCommandOutput,
@@ -34,6 +37,9 @@ export class GetAssociatedRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

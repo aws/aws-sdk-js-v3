@@ -20,6 +20,9 @@ import {
 export type DescribeFaqCommandInput = DescribeFaqRequest;
 export type DescribeFaqCommandOutput = DescribeFaqResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about an FAQ list.</p>
+ */
 export class DescribeFaqCommand extends $Command<
   DescribeFaqCommandInput,
   DescribeFaqCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFaqCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListTemplateVersionsCommandInput = ListTemplateVersionsRequest;
 export type ListTemplateVersionsCommandOutput = ListTemplateVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the versions of a specific message template.</p>
+ */
 export class ListTemplateVersionsCommand extends $Command<
   ListTemplateVersionsCommandInput,
   ListTemplateVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTemplateVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

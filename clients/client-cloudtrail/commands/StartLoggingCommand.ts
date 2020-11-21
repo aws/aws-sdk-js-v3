@@ -20,6 +20,9 @@ import {
 export type StartLoggingCommandInput = StartLoggingRequest;
 export type StartLoggingCommandOutput = StartLoggingResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
+ */
 export class StartLoggingCommand extends $Command<
   StartLoggingCommandInput,
   StartLoggingCommandOutput,
@@ -34,6 +37,9 @@ export class StartLoggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

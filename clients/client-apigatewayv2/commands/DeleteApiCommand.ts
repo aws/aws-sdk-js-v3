@@ -20,6 +20,9 @@ import {
 export type DeleteApiCommandInput = DeleteApiRequest;
 export type DeleteApiCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an Api resource.</p>
+ */
 export class DeleteApiCommand extends $Command<
   DeleteApiCommandInput,
   DeleteApiCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

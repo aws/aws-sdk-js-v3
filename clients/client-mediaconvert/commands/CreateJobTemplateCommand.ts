@@ -20,6 +20,9 @@ import {
 export type CreateJobTemplateCommandInput = CreateJobTemplateRequest;
 export type CreateJobTemplateCommandOutput = CreateJobTemplateResponse & __MetadataBearer;
 
+/**
+ * Create a new job template. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ */
 export class CreateJobTemplateCommand extends $Command<
   CreateJobTemplateCommandInput,
   CreateJobTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class CreateJobTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

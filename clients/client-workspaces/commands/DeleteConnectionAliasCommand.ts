@@ -20,6 +20,26 @@ import {
 export type DeleteConnectionAliasCommandInput = DeleteConnectionAliasRequest;
 export type DeleteConnectionAliasCommandOutput = DeleteConnectionAliasResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+ *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ *
+ *          <important>
+ *             <p>
+ *                <b>If you will no longer be using a fully qualified domain name (FQDN) as the registration code
+ *             for your WorkSpaces users, you must take certain precautions to prevent potential security issues.</b>
+ *             For more information, see
+ *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations">
+ *                Security Considerations if You Stop Using Cross-Region Redirection</a>.</p>
+ *          </important>
+ *
+ *          <note>
+ *             <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias
+ *             from any directories it has been associated with. Then you must unshare the connection alias from the account it has
+ *             been shared with. You can delete a connection alias only after it is no longer shared with any accounts or
+ *             associated with any directories.</p>
+ *          </note>
+ */
 export class DeleteConnectionAliasCommand extends $Command<
   DeleteConnectionAliasCommandInput,
   DeleteConnectionAliasCommandOutput,
@@ -34,6 +54,9 @@ export class DeleteConnectionAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

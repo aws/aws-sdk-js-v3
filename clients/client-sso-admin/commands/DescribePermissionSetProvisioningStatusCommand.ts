@@ -24,6 +24,9 @@ export type DescribePermissionSetProvisioningStatusCommandInput = DescribePermis
 export type DescribePermissionSetProvisioningStatusCommandOutput = DescribePermissionSetProvisioningStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the status for the given permission set provisioning request.</p>
+ */
 export class DescribePermissionSetProvisioningStatusCommand extends $Command<
   DescribePermissionSetProvisioningStatusCommandInput,
   DescribePermissionSetProvisioningStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

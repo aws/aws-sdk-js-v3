@@ -4,6 +4,9 @@ import { ListSamplesCommand, ListSamplesCommandInput, ListSamplesCommandOutput }
 import { DeviceFarmPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DeviceFarmClient,
   input: ListSamplesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSamplesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DeviceFarm,
   input: ListSamplesCommandInput,

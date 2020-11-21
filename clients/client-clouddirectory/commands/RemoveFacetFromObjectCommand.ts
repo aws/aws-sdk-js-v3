@@ -20,6 +20,9 @@ import {
 export type RemoveFacetFromObjectCommandInput = RemoveFacetFromObjectRequest;
 export type RemoveFacetFromObjectCommandOutput = RemoveFacetFromObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified facet from the specified object.</p>
+ */
 export class RemoveFacetFromObjectCommand extends $Command<
   RemoveFacetFromObjectCommandInput,
   RemoveFacetFromObjectCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveFacetFromObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

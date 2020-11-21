@@ -24,6 +24,9 @@ export type ListServiceQuotaIncreaseRequestsInTemplateCommandInput = ListService
 export type ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = ListServiceQuotaIncreaseRequestsInTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of the quota increase requests in the template. </p>
+ */
 export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ListServiceQuotaIncreaseRequestsInTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

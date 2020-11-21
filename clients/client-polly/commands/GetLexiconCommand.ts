@@ -20,6 +20,11 @@ import {
 export type GetLexiconCommandInput = GetLexiconInput;
 export type GetLexiconCommandOutput = GetLexiconOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For
+ *       more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
+ *         Lexicons</a>.</p>
+ */
 export class GetLexiconCommand extends $Command<
   GetLexiconCommandInput,
   GetLexiconCommandOutput,
@@ -34,6 +39,9 @@ export class GetLexiconCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,

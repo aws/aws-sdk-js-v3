@@ -20,6 +20,9 @@ import {
 export type GetV2LoggingOptionsCommandInput = GetV2LoggingOptionsRequest;
 export type GetV2LoggingOptionsCommandOutput = GetV2LoggingOptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the fine grained logging options.</p>
+ */
 export class GetV2LoggingOptionsCommand extends $Command<
   GetV2LoggingOptionsCommandInput,
   GetV2LoggingOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetV2LoggingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

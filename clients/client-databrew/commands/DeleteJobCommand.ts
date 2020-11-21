@@ -20,6 +20,10 @@ import {
 export type DeleteJobCommandInput = DeleteJobRequest;
 export type DeleteJobCommandOutput = DeleteJobResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified AWS Glue DataBrew job from the current AWS account. The job can
+ *             be for a recipe or for a profile.</p>
+ */
 export class DeleteJobCommand extends $Command<
   DeleteJobCommandInput,
   DeleteJobCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

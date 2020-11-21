@@ -20,6 +20,9 @@ import {
 export type DeleteAdmChannelCommandInput = DeleteAdmChannelRequest;
 export type DeleteAdmChannelCommandOutput = DeleteAdmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteAdmChannelCommand extends $Command<
   DeleteAdmChannelCommandInput,
   DeleteAdmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAdmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

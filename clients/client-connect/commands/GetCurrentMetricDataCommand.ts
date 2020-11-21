@@ -20,6 +20,11 @@ import {
 export type GetCurrentMetricDataCommandInput = GetCurrentMetricDataRequest;
 export type GetCurrentMetricDataCommandOutput = GetCurrentMetricDataResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
+ *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
+ *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class GetCurrentMetricDataCommand extends $Command<
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
@@ -34,6 +39,9 @@ export class GetCurrentMetricDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

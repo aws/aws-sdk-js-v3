@@ -20,6 +20,9 @@ import {
 export type UpdateRevisionCommandInput = UpdateRevisionRequest;
 export type UpdateRevisionCommandOutput = UpdateRevisionResponse & __MetadataBearer;
 
+/**
+ * <p>This operation updates a revision.</p>
+ */
 export class UpdateRevisionCommand extends $Command<
   UpdateRevisionCommandInput,
   UpdateRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

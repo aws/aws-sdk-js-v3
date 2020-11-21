@@ -20,6 +20,9 @@ import {
 export type GetOperationsForResourceCommandInput = GetOperationsForResourceRequest;
 export type GetOperationsForResourceCommandOutput = GetOperationsForResourceResult & __MetadataBearer;
 
+/**
+ * <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>
+ */
 export class GetOperationsForResourceCommand extends $Command<
   GetOperationsForResourceCommandInput,
   GetOperationsForResourceCommandOutput,
@@ -34,6 +37,9 @@ export class GetOperationsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

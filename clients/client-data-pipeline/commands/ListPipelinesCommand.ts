@@ -20,6 +20,9 @@ import {
 export type ListPipelinesCommandInput = ListPipelinesInput;
 export type ListPipelinesCommandOutput = ListPipelinesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
+ */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

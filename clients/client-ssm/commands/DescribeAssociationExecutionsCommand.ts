@@ -20,6 +20,9 @@ import {
 export type DescribeAssociationExecutionsCommandInput = DescribeAssociationExecutionsRequest;
 export type DescribeAssociationExecutionsCommandOutput = DescribeAssociationExecutionsResult & __MetadataBearer;
 
+/**
+ * <p>Use this API action to view all executions for a specific association ID. </p>
+ */
 export class DescribeAssociationExecutionsCommand extends $Command<
   DescribeAssociationExecutionsCommandInput,
   DescribeAssociationExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

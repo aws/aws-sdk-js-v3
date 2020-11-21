@@ -20,6 +20,12 @@ import {
 export type CreateSnapshotCommandInput = CreateSnapshotRequest;
 export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.</p>
+ *          <note>
+ *             <p>You cannot take snapshots of AD Connector directories.</p>
+ *          </note>
+ */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput,
@@ -34,6 +40,9 @@ export class CreateSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

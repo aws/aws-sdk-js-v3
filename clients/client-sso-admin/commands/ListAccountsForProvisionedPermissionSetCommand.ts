@@ -24,6 +24,9 @@ export type ListAccountsForProvisionedPermissionSetCommandInput = ListAccountsFo
 export type ListAccountsForProvisionedPermissionSetCommandOutput = ListAccountsForProvisionedPermissionSetResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists all the AWS accounts where the specified permission set is provisioned.</p>
+ */
 export class ListAccountsForProvisionedPermissionSetCommand extends $Command<
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
@@ -38,6 +41,9 @@ export class ListAccountsForProvisionedPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetWorkflowRunsCommandInput = GetWorkflowRunsRequest;
 export type GetWorkflowRunsCommandOutput = GetWorkflowRunsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves metadata for all runs of a given workflow.</p>
+ */
 export class GetWorkflowRunsCommand extends $Command<
   GetWorkflowRunsCommandInput,
   GetWorkflowRunsCommandOutput,
@@ -34,6 +37,9 @@ export class GetWorkflowRunsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

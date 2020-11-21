@@ -20,6 +20,10 @@ import {
 export type CreateDataCatalogCommandInput = CreateDataCatalogInput;
 export type CreateDataCatalogCommandOutput = CreateDataCatalogOutput & __MetadataBearer;
 
+/**
+ * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
+ *             created are visible to all users of the same AWS account.</p>
+ */
 export class CreateDataCatalogCommand extends $Command<
   CreateDataCatalogCommandInput,
   CreateDataCatalogCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDataCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ListApplicationsCommandInput = ListApplicationsRequest;
 export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists applications owned by the requester.</p>
+ */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -38,6 +41,9 @@ export class ListApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

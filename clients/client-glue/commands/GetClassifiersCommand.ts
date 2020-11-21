@@ -20,6 +20,9 @@ import {
 export type GetClassifiersCommandInput = GetClassifiersRequest;
 export type GetClassifiersCommandOutput = GetClassifiersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all classifier objects in the Data Catalog.</p>
+ */
 export class GetClassifiersCommand extends $Command<
   GetClassifiersCommandInput,
   GetClassifiersCommandOutput,
@@ -34,6 +37,9 @@ export class GetClassifiersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

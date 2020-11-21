@@ -20,6 +20,17 @@ import {
 export type ListPackageVersionDependenciesCommandInput = ListPackageVersionDependenciesRequest;
 export type ListPackageVersionDependenciesCommandOutput = ListPackageVersionDependenciesResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns the direct dependencies for a package version. The dependencies are returned as
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">
+ *                <code>PackageDependency</code>
+ *             </a>
+ *           objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package
+ *           format (for example, the <code>package.json</code> file for npm packages and the <code>pom.xml</code> file
+ *         for Maven). Any package version dependencies that are not listed in the configuration file are not returned.
+ *       </p>
+ */
 export class ListPackageVersionDependenciesCommand extends $Command<
   ListPackageVersionDependenciesCommandInput,
   ListPackageVersionDependenciesCommandOutput,
@@ -34,6 +45,9 @@ export class ListPackageVersionDependenciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

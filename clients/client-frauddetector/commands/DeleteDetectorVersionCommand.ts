@@ -20,6 +20,10 @@ import {
 export type DeleteDetectorVersionCommandInput = DeleteDetectorVersionRequest;
 export type DeleteDetectorVersionCommandOutput = DeleteDetectorVersionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
+ * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteDetectorVersionCommand extends $Command<
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDetectorVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

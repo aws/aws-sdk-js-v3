@@ -20,6 +20,9 @@ import {
 export type SendCommandCommandInput = SendCommandRequest;
 export type SendCommandCommandOutput = SendCommandResult & __MetadataBearer;
 
+/**
+ * <p>Runs commands on one or more managed instances.</p>
+ */
 export class SendCommandCommand extends $Command<
   SendCommandCommandInput,
   SendCommandCommandOutput,
@@ -34,6 +37,9 @@ export class SendCommandCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

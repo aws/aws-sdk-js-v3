@@ -20,6 +20,11 @@ import {
 export type ListRuleGroupsCommandInput = ListRuleGroupsRequest;
 export type ListRuleGroupsCommandOutput = ListRuleGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the metadata for the rule groups that you have defined. Depending on your
+ *          setting for max results and the number of rule groups, a single call might not return the
+ *          full list. </p>
+ */
 export class ListRuleGroupsCommand extends $Command<
   ListRuleGroupsCommandInput,
   ListRuleGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class ListRuleGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

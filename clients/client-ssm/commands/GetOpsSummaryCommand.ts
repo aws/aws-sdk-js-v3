@@ -20,6 +20,9 @@ import {
 export type GetOpsSummaryCommandInput = GetOpsSummaryRequest;
 export type GetOpsSummaryCommandOutput = GetOpsSummaryResult & __MetadataBearer;
 
+/**
+ * <p>View a summary of OpsItems based on specified filters and aggregators.</p>
+ */
 export class GetOpsSummaryCommand extends $Command<
   GetOpsSummaryCommandInput,
   GetOpsSummaryCommandOutput,
@@ -34,6 +37,9 @@ export class GetOpsSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

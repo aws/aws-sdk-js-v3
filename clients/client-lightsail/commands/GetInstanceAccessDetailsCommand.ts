@@ -20,6 +20,13 @@ import {
 export type GetInstanceAccessDetailsCommandInput = GetInstanceAccessDetailsRequest;
 export type GetInstanceAccessDetailsCommandOutput = GetInstanceAccessDetailsResult & __MetadataBearer;
 
+/**
+ * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or
+ *         <i>instance</i>.</p>
+ *          <p>The <code>get instance access details</code> operation supports tag-based access control
+ *       via resource tags applied to the resource identified by <code>instance name</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class GetInstanceAccessDetailsCommand extends $Command<
   GetInstanceAccessDetailsCommandInput,
   GetInstanceAccessDetailsCommandOutput,
@@ -34,6 +41,9 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

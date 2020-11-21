@@ -20,6 +20,9 @@ import {
 export type DeleteEgressOnlyInternetGatewayCommandInput = DeleteEgressOnlyInternetGatewayRequest;
 export type DeleteEgressOnlyInternetGatewayCommandOutput = DeleteEgressOnlyInternetGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an egress-only internet gateway.</p>
+ */
 export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
   DeleteEgressOnlyInternetGatewayCommandInput,
   DeleteEgressOnlyInternetGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

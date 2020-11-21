@@ -20,6 +20,9 @@ import {
 export type ModifyOptionGroupCommandInput = ModifyOptionGroupMessage;
 export type ModifyOptionGroupCommandOutput = ModifyOptionGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing option group.</p>
+ */
 export class ModifyOptionGroupCommand extends $Command<
   ModifyOptionGroupCommandInput,
   ModifyOptionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyOptionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

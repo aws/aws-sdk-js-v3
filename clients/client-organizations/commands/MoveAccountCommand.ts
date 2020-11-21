@@ -20,6 +20,11 @@ import {
 export type MoveAccountCommandInput = MoveAccountRequest;
 export type MoveAccountCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Moves an account from its current source parent root or organizational unit (OU) to
+ *             the specified destination parent root or OU.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class MoveAccountCommand extends $Command<
   MoveAccountCommandInput,
   MoveAccountCommandOutput,
@@ -34,6 +39,9 @@ export class MoveAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeStandardsControlsCommandInput = DescribeStandardsControlsRequest;
 export type DescribeStandardsControlsCommandOutput = DescribeStandardsControlsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of security standards controls.</p>
+ *          <p>For each control, the results include information about whether it is currently enabled,
+ *          the severity, and a link to remediation information.</p>
+ */
 export class DescribeStandardsControlsCommand extends $Command<
   DescribeStandardsControlsCommandInput,
   DescribeStandardsControlsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeStandardsControlsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

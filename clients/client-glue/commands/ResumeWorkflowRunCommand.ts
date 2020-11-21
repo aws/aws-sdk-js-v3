@@ -20,6 +20,9 @@ import {
 export type ResumeWorkflowRunCommandInput = ResumeWorkflowRunRequest;
 export type ResumeWorkflowRunCommandOutput = ResumeWorkflowRunResponse & __MetadataBearer;
 
+/**
+ * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
+ */
 export class ResumeWorkflowRunCommand extends $Command<
   ResumeWorkflowRunCommandInput,
   ResumeWorkflowRunCommandOutput,
@@ -34,6 +37,9 @@ export class ResumeWorkflowRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

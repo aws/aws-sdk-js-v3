@@ -24,6 +24,28 @@ export type PutEmailIdentityDkimSigningAttributesCommandInput = PutEmailIdentity
 export type PutEmailIdentityDkimSigningAttributesCommandOutput = PutEmailIdentityDkimSigningAttributesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Used to configure or change the DKIM authentication settings for an email domain
+ *             identity. You can use this operation to do any of the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
+ *                     (BYODKIM).</p>
+ *             </li>
+ *             <li>
+ *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Change from using no DKIM authentication to using BYODKIM.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Change from using Easy DKIM to using BYODKIM.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Change from using BYODKIM to using Easy DKIM.</p>
+ *             </li>
+ *          </ul>
+ */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
   PutEmailIdentityDkimSigningAttributesCommandInput,
   PutEmailIdentityDkimSigningAttributesCommandOutput,
@@ -38,6 +60,9 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

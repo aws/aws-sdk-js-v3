@@ -24,6 +24,9 @@ import {
 export type GetSessionCommandInput = GetSessionRequest;
 export type GetSessionCommandOutput = GetSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns session information for a specified bot, alias, and user ID.</p>
+ */
 export class GetSessionCommand extends $Command<
   GetSessionCommandInput,
   GetSessionCommandOutput,
@@ -38,6 +41,9 @@ export class GetSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexRuntimeServiceClientResolvedConfig,

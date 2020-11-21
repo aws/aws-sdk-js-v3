@@ -24,6 +24,9 @@ export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput = Bat
 export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = BatchAssociateApprovalRuleTemplateWithRepositoriesOutput &
   __MetadataBearer;
 
+/**
+ * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
+ */
 export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command<
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
@@ -38,6 +41,9 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

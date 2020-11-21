@@ -17,6 +17,10 @@ import {
 export type CreateDomainCommandInput = CreateDomainRequest;
 export type CreateDomainCommandOutput = CreateDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new search domain. For more information,
+ *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html" target="_blank">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
@@ -31,6 +35,9 @@ export class CreateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

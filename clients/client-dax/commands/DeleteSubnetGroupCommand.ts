@@ -20,6 +20,13 @@ import {
 export type DeleteSubnetGroupCommandInput = DeleteSubnetGroupRequest;
 export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a subnet group.</p>
+ *         <note>
+ *             <p>You cannot delete a subnet group if it is associated with any DAX
+ *                 clusters.</p>
+ *         </note>
+ */
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,
   DeleteSubnetGroupCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

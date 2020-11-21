@@ -20,6 +20,12 @@ import {
 export type AssociateDhcpOptionsCommandInput = AssociateDhcpOptionsRequest;
 export type AssociateDhcpOptionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
+ *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a>
+ *           in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class AssociateDhcpOptionsCommand extends $Command<
   AssociateDhcpOptionsCommandInput,
   AssociateDhcpOptionsCommandOutput,
@@ -34,6 +40,9 @@ export class AssociateDhcpOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

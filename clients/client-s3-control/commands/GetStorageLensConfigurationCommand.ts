@@ -21,6 +21,17 @@ import {
 export type GetStorageLensConfigurationCommandInput = GetStorageLensConfigurationRequest;
 export type GetStorageLensConfigurationCommandOutput = GetStorageLensConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see
+ *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
+ *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <note>
+ *             <p>To use this action,
+ *          you must have permission to perform the <code>s3:GetStorageLensConfiguration</code> action. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
+ *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          </note>
+ */
 export class GetStorageLensConfigurationCommand extends $Command<
   GetStorageLensConfigurationCommandInput,
   GetStorageLensConfigurationCommandOutput,
@@ -35,6 +46,9 @@ export class GetStorageLensConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

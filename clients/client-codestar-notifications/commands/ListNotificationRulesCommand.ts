@@ -24,6 +24,9 @@ import {
 export type ListNotificationRulesCommandInput = ListNotificationRulesRequest;
 export type ListNotificationRulesCommandOutput = ListNotificationRulesResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the notification rules for an AWS account.</p>
+ */
 export class ListNotificationRulesCommand extends $Command<
   ListNotificationRulesCommandInput,
   ListNotificationRulesCommandOutput,
@@ -38,6 +41,9 @@ export class ListNotificationRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

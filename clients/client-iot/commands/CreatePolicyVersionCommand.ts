@@ -20,6 +20,15 @@ import {
 export type CreatePolicyVersionCommandInput = CreatePolicyVersionRequest;
 export type CreatePolicyVersionCommandOutput = CreatePolicyVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a
+ *          new policy version. A managed policy can have up to five versions. If the policy has five
+ *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
+ *          before you create a new one.</p>
+ *          <p>Optionally, you can set the new version as the policy's default version. The default
+ *          version is the operative version (that is, the version that is in effect for the
+ *          certificates to which the policy is attached).</p>
+ */
 export class CreatePolicyVersionCommand extends $Command<
   CreatePolicyVersionCommandInput,
   CreatePolicyVersionCommandOutput,
@@ -34,6 +43,9 @@ export class CreatePolicyVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

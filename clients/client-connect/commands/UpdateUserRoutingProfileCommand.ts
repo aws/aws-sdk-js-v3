@@ -20,6 +20,9 @@ import {
 export type UpdateUserRoutingProfileCommandInput = UpdateUserRoutingProfileRequest;
 export type UpdateUserRoutingProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Assigns the specified routing profile to the specified user.</p>
+ */
 export class UpdateUserRoutingProfileCommand extends $Command<
   UpdateUserRoutingProfileCommandInput,
   UpdateUserRoutingProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

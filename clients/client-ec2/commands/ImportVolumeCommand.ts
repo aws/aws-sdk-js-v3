@@ -17,6 +17,11 @@ import {
 export type ImportVolumeCommandInput = ImportVolumeRequest;
 export type ImportVolumeCommandOutput = ImportVolumeResult & __MetadataBearer;
 
+/**
+ * <p>Creates an import volume task using metadata from the specified disk image.For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html">Importing
+ *     Disks to Amazon EBS</a>.</p>
+ *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ */
 export class ImportVolumeCommand extends $Command<
   ImportVolumeCommandInput,
   ImportVolumeCommandOutput,
@@ -31,6 +36,9 @@ export class ImportVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

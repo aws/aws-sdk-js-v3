@@ -20,6 +20,10 @@ import {
 export type DescribeInstanceTypesCommandInput = DescribeInstanceTypesRequest;
 export type DescribeInstanceTypesCommandOutput = DescribeInstanceTypesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the details of the instance types that are offered in a location. The results can be filtered by the
+ *    attributes of the instance types.</p>
+ */
 export class DescribeInstanceTypesCommand extends $Command<
   DescribeInstanceTypesCommandInput,
   DescribeInstanceTypesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeInstanceTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

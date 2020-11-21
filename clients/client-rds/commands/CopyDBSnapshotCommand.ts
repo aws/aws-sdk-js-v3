@@ -21,6 +21,17 @@ import {
 export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
 export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
+ *
+ *         <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
+ *             where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the
+ *             DB snapshot copy. </p>
+ *
+ *         <p>For more information about copying snapshots, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i>
+ *         </p>
+ */
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,
   CopyDBSnapshotCommandOutput,
@@ -35,6 +46,9 @@ export class CopyDBSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteRemediationConfigurationCommandInput = DeleteRemediationConfigurationRequest;
 export type DeleteRemediationConfigurationCommandOutput = DeleteRemediationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the remediation configuration.</p>
+ */
 export class DeleteRemediationConfigurationCommand extends $Command<
   DeleteRemediationConfigurationCommandInput,
   DeleteRemediationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

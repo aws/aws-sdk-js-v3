@@ -20,6 +20,9 @@ import {
 export type DescribeProvisioningTemplateCommandInput = DescribeProvisioningTemplateRequest;
 export type DescribeProvisioningTemplateCommandOutput = DescribeProvisioningTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a fleet provisioning template.</p>
+ */
 export class DescribeProvisioningTemplateCommand extends $Command<
   DescribeProvisioningTemplateCommandInput,
   DescribeProvisioningTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProvisioningTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

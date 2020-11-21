@@ -20,6 +20,13 @@ import {
 export type GetSSHPublicKeyCommandInput = GetSSHPublicKeyRequest;
 export type GetSSHPublicKeyCommandOutput = GetSSHPublicKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
+ *          <p>The SSH public key retrieved by this operation is used only for authenticating the
+ *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
+ *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
+ *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+ */
 export class GetSSHPublicKeyCommand extends $Command<
   GetSSHPublicKeyCommandInput,
   GetSSHPublicKeyCommandOutput,
@@ -34,6 +41,9 @@ export class GetSSHPublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

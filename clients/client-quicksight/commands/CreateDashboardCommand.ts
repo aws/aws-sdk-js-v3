@@ -20,6 +20,15 @@ import {
 export type CreateDashboardCommandInput = CreateDashboardRequest;
 export type CreateDashboardCommandOutput = CreateDashboardResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a dashboard from a template. To first create a template, see the <code>
+ *                <a>CreateTemplate</a>
+ *             </code> API operation.</p>
+ *         <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created
+ *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
+ *             create scheduled email reports from them. If you have the correct permissions, you can
+ *             create a dashboard from a template that exists in a different AWS account.</p>
+ */
 export class CreateDashboardCommand extends $Command<
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -34,6 +43,9 @@ export class CreateDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

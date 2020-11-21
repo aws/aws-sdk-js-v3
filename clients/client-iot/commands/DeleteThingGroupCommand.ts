@@ -20,6 +20,9 @@ import {
 export type DeleteThingGroupCommandInput = DeleteThingGroupRequest;
 export type DeleteThingGroupCommandOutput = DeleteThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a thing group.</p>
+ */
 export class DeleteThingGroupCommand extends $Command<
   DeleteThingGroupCommandInput,
   DeleteThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

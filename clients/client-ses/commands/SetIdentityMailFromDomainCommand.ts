@@ -20,6 +20,18 @@ import {
 export type SetIdentityMailFromDomainCommandInput = SetIdentityMailFromDomainRequest;
 export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
+ *             email address or a domain).</p>
+ *         <important>
+ *             <p>To send emails using the specified MAIL FROM domain, you must add an MX record to
+ *                 your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy
+ *                 Framework (SPF) checks, you must also add or update an SPF record. For more
+ *                 information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         </important>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class SetIdentityMailFromDomainCommand extends $Command<
   SetIdentityMailFromDomainCommandInput,
   SetIdentityMailFromDomainCommandOutput,
@@ -34,6 +46,9 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

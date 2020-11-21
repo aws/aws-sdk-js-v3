@@ -20,6 +20,12 @@ import {
 export type DescribeBundleTasksCommandInput = DescribeBundleTasksRequest;
 export type DescribeBundleTasksCommandOutput = DescribeBundleTasksResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
+ *          <note>
+ *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
+ *          </note>
+ */
 export class DescribeBundleTasksCommand extends $Command<
   DescribeBundleTasksCommandInput,
   DescribeBundleTasksCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeBundleTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

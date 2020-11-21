@@ -20,6 +20,9 @@ import {
 export type RemoveAutoScalingPolicyCommandInput = RemoveAutoScalingPolicyInput;
 export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Removes an automatic scaling policy from a specified instance group within an EMR cluster.</p>
+ */
 export class RemoveAutoScalingPolicyCommand extends $Command<
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DeleteJobQueueCommandInput = DeleteJobQueueRequest;
 export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you delete a job queue.</p>
+ *          <p>It is not necessary to disassociate compute environments from a queue before submitting a
+ *     <code>DeleteJobQueue</code> request.</p>
+ */
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,
   DeleteJobQueueCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteJobQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

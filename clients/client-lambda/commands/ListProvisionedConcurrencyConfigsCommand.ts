@@ -24,6 +24,9 @@ export type ListProvisionedConcurrencyConfigsCommandInput = ListProvisionedConcu
 export type ListProvisionedConcurrencyConfigsCommandOutput = ListProvisionedConcurrencyConfigsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
+ */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command<
   ListProvisionedConcurrencyConfigsCommandInput,
   ListProvisionedConcurrencyConfigsCommandOutput,
@@ -38,6 +41,9 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

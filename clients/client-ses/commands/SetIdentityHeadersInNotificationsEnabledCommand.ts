@@ -24,6 +24,14 @@ export type SetIdentityHeadersInNotificationsEnabledCommandInput = SetIdentityHe
 export type SetIdentityHeadersInNotificationsEnabledCommandOutput = SetIdentityHeadersInNotificationsEnabledResponse &
   __MetadataBearer;
 
+/**
+ * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
+ *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
+ *             type.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ */
 export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   SetIdentityHeadersInNotificationsEnabledCommandInput,
   SetIdentityHeadersInNotificationsEnabledCommandOutput,
@@ -38,6 +46,9 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

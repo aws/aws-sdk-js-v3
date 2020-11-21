@@ -20,6 +20,10 @@ import {
 export type DescribeDBClusterSnapshotsCommandInput = DescribeDBClusterSnapshotsMessage;
 export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about DB cluster snapshots. This API action supports
+ *       pagination.</p>
+ */
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

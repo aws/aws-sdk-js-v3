@@ -20,6 +20,11 @@ import {
 export type ListUsageForLicenseConfigurationCommandInput = ListUsageForLicenseConfigurationRequest;
 export type ListUsageForLicenseConfigurationCommandOutput = ListUsageForLicenseConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all license usage records for a license configuration, displaying license
+ *          consumption details by resource at a selected point in time. Use this action to audit the
+ *          current license consumption for any license inventory and configuration.</p>
+ */
 export class ListUsageForLicenseConfigurationCommand extends $Command<
   ListUsageForLicenseConfigurationCommandInput,
   ListUsageForLicenseConfigurationCommandOutput,
@@ -34,6 +39,9 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

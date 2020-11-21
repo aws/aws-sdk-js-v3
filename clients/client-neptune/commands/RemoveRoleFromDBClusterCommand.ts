@@ -20,6 +20,9 @@ import {
 export type RemoveRoleFromDBClusterCommandInput = RemoveRoleFromDBClusterMessage;
 export type RemoveRoleFromDBClusterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
+ */
 export class RemoveRoleFromDBClusterCommand extends $Command<
   RemoveRoleFromDBClusterCommandInput,
   RemoveRoleFromDBClusterCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

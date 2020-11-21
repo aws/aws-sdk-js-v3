@@ -20,6 +20,10 @@ import {
 export type UnsubscribeFromEventCommandInput = UnsubscribeFromEventRequest;
 export type UnsubscribeFromEventCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
+ *          notifications about a specified event to a specified SNS topic.</p>
+ */
 export class UnsubscribeFromEventCommand extends $Command<
   UnsubscribeFromEventCommandInput,
   UnsubscribeFromEventCommandOutput,
@@ -34,6 +38,9 @@ export class UnsubscribeFromEventCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

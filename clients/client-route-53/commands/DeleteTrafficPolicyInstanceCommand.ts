@@ -21,6 +21,12 @@ import {
 export type DeleteTrafficPolicyInstanceCommandInput = DeleteTrafficPolicyInstanceRequest;
 export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.</p>
+ * 		       <note>
+ * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
+ * 		       </note>
+ */
 export class DeleteTrafficPolicyInstanceCommand extends $Command<
   DeleteTrafficPolicyInstanceCommandInput,
   DeleteTrafficPolicyInstanceCommandOutput,
@@ -35,6 +41,9 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

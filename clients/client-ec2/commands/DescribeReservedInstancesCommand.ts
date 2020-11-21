@@ -20,6 +20,11 @@ import {
 export type DescribeReservedInstancesCommandInput = DescribeReservedInstancesRequest;
 export type DescribeReservedInstancesCommandOutput = DescribeReservedInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of the Reserved Instances that you purchased.</p>
+ *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
+ * 				Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeReservedInstancesCommand extends $Command<
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeReservedInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -17,6 +17,12 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsRequest;
 export type DeleteTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified set of tags from the specified set of resources.</p>
+ *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see
+ *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a>
+ *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -31,6 +37,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
 export type DescribeExportTasksCommandOutput = DescribeExportTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100
+ *       export tasks.</p>
+ */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeExportTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

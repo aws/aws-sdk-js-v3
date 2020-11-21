@@ -20,6 +20,10 @@ import {
 export type CreateLifecyclePolicyCommandInput = CreateLifecyclePolicyRequest;
 export type CreateLifecyclePolicyCommandOutput = CreateLifecyclePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can
+ * 			create up to 100 lifecycle policies.</p>
+ */
 export class CreateLifecyclePolicyCommand extends $Command<
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class CreateLifecyclePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DLMClientResolvedConfig,

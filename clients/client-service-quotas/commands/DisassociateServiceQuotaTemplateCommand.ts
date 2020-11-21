@@ -20,6 +20,24 @@ import {
 export type DisassociateServiceQuotaTemplateCommandInput = DisassociateServiceQuotaTemplateRequest;
 export type DisassociateServiceQuotaTemplateCommandOutput = DisassociateServiceQuotaTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the Service Quotas template. Once the template is disabled, it does not request
+ *       quota increases for new accounts in your organization. Disabling the quota template does not
+ *       apply the quota increase requests from the template. </p>
+ *
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To enable the quota template, call <a>AssociateServiceQuotaTemplate</a>.
+ *         </p>
+ *             </li>
+ *             <li>
+ *                <p>To delete a specific service quota from the template, use <a>DeleteServiceQuotaIncreaseRequestFromTemplate</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DisassociateServiceQuotaTemplateCommand extends $Command<
   DisassociateServiceQuotaTemplateCommandInput,
   DisassociateServiceQuotaTemplateCommandOutput,
@@ -34,6 +52,9 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

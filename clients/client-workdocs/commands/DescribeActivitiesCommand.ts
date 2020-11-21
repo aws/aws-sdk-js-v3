@@ -20,6 +20,9 @@ import {
 export type DescribeActivitiesCommandInput = DescribeActivitiesRequest;
 export type DescribeActivitiesCommandOutput = DescribeActivitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the user activities in a specified time period.</p>
+ */
 export class DescribeActivitiesCommand extends $Command<
   DescribeActivitiesCommandInput,
   DescribeActivitiesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeActivitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

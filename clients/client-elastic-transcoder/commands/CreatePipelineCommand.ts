@@ -24,6 +24,9 @@ import {
 export type CreatePipelineCommandInput = CreatePipelineRequest;
 export type CreatePipelineCommandOutput = CreatePipelineResponse & __MetadataBearer;
 
+/**
+ * <p>The CreatePipeline operation creates a pipeline with settings that you specify.</p>
+ */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -38,6 +41,9 @@ export class CreatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

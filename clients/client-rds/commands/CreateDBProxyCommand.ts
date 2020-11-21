@@ -20,6 +20,9 @@ import {
 export type CreateDBProxyCommandInput = CreateDBProxyRequest;
 export type CreateDBProxyCommandOutput = CreateDBProxyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB proxy.</p>
+ */
 export class CreateDBProxyCommand extends $Command<
   CreateDBProxyCommandInput,
   CreateDBProxyCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDBProxyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type VerifyTrustCommandInput = VerifyTrustRequest;
 export type VerifyTrustCommandOutput = VerifyTrustResult & __MetadataBearer;
 
+/**
+ * <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>
+ *          <p>This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
+ */
 export class VerifyTrustCommand extends $Command<
   VerifyTrustCommandInput,
   VerifyTrustCommandOutput,
@@ -34,6 +38,9 @@ export class VerifyTrustCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

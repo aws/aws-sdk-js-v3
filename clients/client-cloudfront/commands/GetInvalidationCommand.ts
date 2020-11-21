@@ -20,6 +20,9 @@ import {
 export type GetInvalidationCommandInput = GetInvalidationRequest;
 export type GetInvalidationCommandOutput = GetInvalidationResult & __MetadataBearer;
 
+/**
+ * <p>Get the information about an invalidation. </p>
+ */
 export class GetInvalidationCommand extends $Command<
   GetInvalidationCommandInput,
   GetInvalidationCommandOutput,
@@ -34,6 +37,9 @@ export class GetInvalidationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

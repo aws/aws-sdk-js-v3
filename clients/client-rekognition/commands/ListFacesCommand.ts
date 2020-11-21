@@ -17,6 +17,16 @@ import {
 export type ListFacesCommandInput = ListFacesRequest;
 export type ListFacesCommandOutput = ListFacesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata for faces in the specified collection.
+ *       This metadata includes information such as the bounding box coordinates, the confidence
+ *       (that the bounding box contains a face), and face ID. For an example, see Listing Faces in a Collection
+ *       in the Amazon Rekognition Developer Guide.</p>
+ *
+ *
+ *          <p>This operation requires permissions to perform the
+ *       <code>rekognition:ListFaces</code> action.</p>
+ */
 export class ListFacesCommand extends $Command<
   ListFacesCommandInput,
   ListFacesCommandOutput,
@@ -31,6 +41,9 @@ export class ListFacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

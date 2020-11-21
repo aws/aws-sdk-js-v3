@@ -8,6 +8,9 @@ import {
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: PinpointEmailClient,
   input: GetDedicatedIpsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetDedicatedIpsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: PinpointEmail,
   input: GetDedicatedIpsCommandInput,

@@ -20,6 +20,23 @@ import {
 export type DescribeInstancesCommandInput = DescribeInstancesRequest;
 export type DescribeInstancesCommandOutput = DescribeInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified instances or all instances.</p>
+ *         <p>If you specify instance IDs, the output includes information for only the specified instances.
+ *             If you specify filters, the output includes information for only those instances that meet the filter criteria.
+ *             If you do not specify instance IDs or filters, the output includes information for all instances,
+ *             which can affect performance. We recommend that you use pagination to ensure that the operation
+ *             returns quickly and successfully.</p>
+ *         <p>If you specify an instance ID that is not valid, an error is returned. If you
+ *             specify an instance that you do not own, it is not included in the output.</p>
+ *         <p>Recently terminated instances might appear in the returned results. This interval is
+ *             usually less than one hour.</p>
+ *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
+ *             a service disruption and you specify instance IDs that are in the affected zone, or do
+ *             not specify any instance IDs at all, the call fails. If you describe instances and
+ *             specify only instance IDs that are in an unaffected zone, the call works
+ *             normally.</p>
+ */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,
   DescribeInstancesCommandOutput,
@@ -34,6 +51,9 @@ export class DescribeInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

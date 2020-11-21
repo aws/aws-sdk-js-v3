@@ -20,6 +20,9 @@ import {
 export type CreateLoggerDefinitionVersionCommandInput = CreateLoggerDefinitionVersionRequest;
 export type CreateLoggerDefinitionVersionCommandOutput = CreateLoggerDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a logger definition that has already been defined.
+ */
 export class CreateLoggerDefinitionVersionCommand extends $Command<
   CreateLoggerDefinitionVersionCommandInput,
   CreateLoggerDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLoggerDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

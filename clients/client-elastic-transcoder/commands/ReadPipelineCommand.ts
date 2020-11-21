@@ -24,6 +24,9 @@ import {
 export type ReadPipelineCommandInput = ReadPipelineRequest;
 export type ReadPipelineCommandOutput = ReadPipelineResponse & __MetadataBearer;
 
+/**
+ * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
+ */
 export class ReadPipelineCommand extends $Command<
   ReadPipelineCommandInput,
   ReadPipelineCommandOutput,
@@ -38,6 +41,9 @@ export class ReadPipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

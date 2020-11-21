@@ -20,6 +20,9 @@ import {
 export type DeletePlatformVersionCommandInput = DeletePlatformVersionRequest;
 export type DeletePlatformVersionCommandOutput = DeletePlatformVersionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified version of a custom platform.</p>
+ */
 export class DeletePlatformVersionCommand extends $Command<
   DeletePlatformVersionCommandInput,
   DeletePlatformVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePlatformVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -24,6 +24,9 @@ export type BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput = 
 export type BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput = BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput &
   __MetadataBearer;
 
+/**
+ * <p>Removes the association between an approval rule template and one or more specified repositories. </p>
+ */
 export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extends $Command<
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
@@ -38,6 +41,9 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

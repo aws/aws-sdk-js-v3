@@ -24,6 +24,9 @@ export type DeleteAppReplicationConfigurationCommandInput = DeleteAppReplication
 export type DeleteAppReplicationConfigurationCommandOutput = DeleteAppReplicationConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the replication configuration for the specified application.</p>
+ */
 export class DeleteAppReplicationConfigurationCommand extends $Command<
   DeleteAppReplicationConfigurationCommandInput,
   DeleteAppReplicationConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
 export type DeleteDBClusterCommandOutput = DeleteDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
+ *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
+ *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
+ *          <p></p>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -34,6 +47,9 @@ export class DeleteDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

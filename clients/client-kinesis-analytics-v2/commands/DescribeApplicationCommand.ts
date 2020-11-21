@@ -24,6 +24,11 @@ import {
 export type DescribeApplicationCommandInput = DescribeApplicationRequest;
 export type DescribeApplicationCommandOutput = DescribeApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific Kinesis Data Analytics application.</p>
+ *          <p>If you want to retrieve a list of all applications in your account,
+ *       use the <a>ListApplications</a> operation.</p>
+ */
 export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

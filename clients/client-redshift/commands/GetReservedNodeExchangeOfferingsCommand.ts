@@ -24,6 +24,10 @@ export type GetReservedNodeExchangeOfferingsCommandInput = GetReservedNodeExchan
 export type GetReservedNodeExchangeOfferingsCommandOutput = GetReservedNodeExchangeOfferingsOutputMessage &
   __MetadataBearer;
 
+/**
+ * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
+ *             and usage price of the given DC1 reserved node.</p>
+ */
 export class GetReservedNodeExchangeOfferingsCommand extends $Command<
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
@@ -38,6 +42,9 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -17,6 +17,11 @@ import {
 export type XmlTimestampsCommandInput = {};
 export type XmlTimestampsCommandOutput = XmlTimestampsOutput & __MetadataBearer;
 
+/**
+ * This tests how timestamps are serialized, including using the
+ * default format of date-time and various @timestampFormat trait
+ * values.
+ */
 export class XmlTimestampsCommand extends $Command<
   XmlTimestampsCommandInput,
   XmlTimestampsCommandOutput,
@@ -31,6 +36,9 @@ export class XmlTimestampsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,

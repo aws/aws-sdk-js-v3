@@ -20,6 +20,11 @@ import {
 export type PutDestinationPolicyCommandInput = PutDestinationPolicyRequest;
 export type PutDestinationPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates or updates an access policy associated with an existing
+ *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
+ *       to authorize claims to register a subscription filter against a given destination.</p>
+ */
 export class PutDestinationPolicyCommand extends $Command<
   PutDestinationPolicyCommandInput,
   PutDestinationPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutDestinationPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

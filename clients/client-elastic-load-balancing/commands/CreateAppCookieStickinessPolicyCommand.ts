@@ -24,6 +24,17 @@ import {
 export type CreateAppCookieStickinessPolicyCommandInput = CreateAppCookieStickinessPolicyInput;
 export type CreateAppCookieStickinessPolicyCommandOutput = CreateAppCookieStickinessPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
+ *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
+ *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
+ *             follows the lifetime of the application-generated cookie specified in the policy configuration.
+ *             The load balancer only inserts a new stickiness cookie when the application response
+ *             includes a new application cookie.</p>
+ *         <p>If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled Session Stickiness</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class CreateAppCookieStickinessPolicyCommand extends $Command<
   CreateAppCookieStickinessPolicyCommandInput,
   CreateAppCookieStickinessPolicyCommandOutput,
@@ -38,6 +49,9 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

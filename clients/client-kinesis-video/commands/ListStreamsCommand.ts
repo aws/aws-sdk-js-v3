@@ -20,6 +20,11 @@ import {
 export type ListStreamsCommandInput = ListStreamsInput;
 export type ListStreamsCommandOutput = ListStreamsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
+ *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
+ *                 <code>StreamNameCondition</code>. </p>
+ */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,
   ListStreamsCommandOutput,
@@ -34,6 +39,9 @@ export class ListStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

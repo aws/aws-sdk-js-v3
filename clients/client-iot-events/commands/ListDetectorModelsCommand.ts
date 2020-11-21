@@ -20,6 +20,10 @@ import {
 export type ListDetectorModelsCommandInput = ListDetectorModelsRequest;
 export type ListDetectorModelsCommandOutput = ListDetectorModelsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the detector models you have created. Only the metadata associated with each
+ *       detector model is returned.</p>
+ */
 export class ListDetectorModelsCommand extends $Command<
   ListDetectorModelsCommandInput,
   ListDetectorModelsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDetectorModelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

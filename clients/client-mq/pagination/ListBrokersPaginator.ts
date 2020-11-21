@@ -4,6 +4,9 @@ import { ListBrokersCommand, ListBrokersCommandInput, ListBrokersCommandOutput }
 import { MqPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MqClient,
   input: ListBrokersCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBrokersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Mq,
   input: ListBrokersCommandInput,

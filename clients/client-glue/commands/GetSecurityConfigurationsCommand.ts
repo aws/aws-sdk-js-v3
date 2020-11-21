@@ -20,6 +20,9 @@ import {
 export type GetSecurityConfigurationsCommandInput = GetSecurityConfigurationsRequest;
 export type GetSecurityConfigurationsCommandOutput = GetSecurityConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of all security configurations.</p>
+ */
 export class GetSecurityConfigurationsCommand extends $Command<
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSecurityConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

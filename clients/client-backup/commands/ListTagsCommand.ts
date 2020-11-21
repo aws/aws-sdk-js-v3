@@ -20,6 +20,14 @@ import {
 export type ListTagsCommandInput = ListTagsInput;
 export type ListTagsCommandOutput = ListTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
+ *          backup vault.</p>
+ *          <note>
+ *             <p>
+ *                <code>ListTags</code> are currently only supported with Amazon EFS backups.</p>
+ *          </note>
+ */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, BackupClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +38,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

@@ -24,6 +24,11 @@ import {
 export type DescribeContinuousExportsCommandInput = DescribeContinuousExportsRequest;
 export type DescribeContinuousExportsCommandOutput = DescribeContinuousExportsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists exports as specified by ID. All continuous exports associated with your user
+ *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
+ *       any parameters.</p>
+ */
 export class DescribeContinuousExportsCommand extends $Command<
   DescribeContinuousExportsCommandInput,
   DescribeContinuousExportsCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeContinuousExportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

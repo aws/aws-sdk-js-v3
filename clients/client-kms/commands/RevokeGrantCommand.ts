@@ -20,6 +20,12 @@ import {
 export type RevokeGrantCommandInput = RevokeGrantRequest;
 export type RevokeGrantCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a
+ *       grant to actively deny operations that depend on it.</p>
+ *          <p>To perform this operation on a CMK in a different AWS account, specify the key
+ *   ARN in the value of the <code>KeyId</code> parameter.</p>
+ */
 export class RevokeGrantCommand extends $Command<
   RevokeGrantCommandInput,
   RevokeGrantCommandOutput,
@@ -34,6 +40,9 @@ export class RevokeGrantCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

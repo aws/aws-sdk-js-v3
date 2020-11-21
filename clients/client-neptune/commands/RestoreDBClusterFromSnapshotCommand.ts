@@ -20,6 +20,14 @@ import {
 export type RestoreDBClusterFromSnapshotCommandInput = RestoreDBClusterFromSnapshotMessage;
 export type RestoreDBClusterFromSnapshotCommandOutput = RestoreDBClusterFromSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
+ *          <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
+ *       snapshot with a default configuration and default security group.</p>
+ *          <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB
+ *       cluster restore point with the same configuration as the original source DB cluster, except
+ *       that the new DB cluster is created with the default security group.</p>
+ */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandInput,
   RestoreDBClusterFromSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

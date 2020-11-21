@@ -24,6 +24,10 @@ export type AcceptTransitGatewayPeeringAttachmentCommandInput = AcceptTransitGat
 export type AcceptTransitGatewayPeeringAttachmentCommandOutput = AcceptTransitGatewayPeeringAttachmentResult &
   __MetadataBearer;
 
+/**
+ * <p>Accepts a transit gateway peering attachment request. The peering attachment must be
+ *             in the <code>pendingAcceptance</code> state.</p>
+ */
 export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
   AcceptTransitGatewayPeeringAttachmentCommandInput,
   AcceptTransitGatewayPeeringAttachmentCommandOutput,
@@ -38,6 +42,9 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

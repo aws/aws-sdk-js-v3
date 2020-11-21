@@ -17,6 +17,9 @@ import {
 export type LaunchAppCommandInput = LaunchAppRequest;
 export type LaunchAppCommandOutput = LaunchAppResponse & __MetadataBearer;
 
+/**
+ * <p>Launches the specified application as a stack in AWS CloudFormation.</p>
+ */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

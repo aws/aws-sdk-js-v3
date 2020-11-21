@@ -20,6 +20,9 @@ import {
 export type StopNotebookExecutionCommandInput = StopNotebookExecutionInput;
 export type StopNotebookExecutionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a notebook execution.</p>
+ */
 export class StopNotebookExecutionCommand extends $Command<
   StopNotebookExecutionCommandInput,
   StopNotebookExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StopNotebookExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

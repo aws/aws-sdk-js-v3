@@ -20,6 +20,9 @@ import {
 export type ListOutpostsCommandInput = ListOutpostsInput;
 export type ListOutpostsCommandOutput = ListOutpostsOutput & __MetadataBearer;
 
+/**
+ * <p>List the Outposts for your AWS account.</p>
+ */
 export class ListOutpostsCommand extends $Command<
   ListOutpostsCommandInput,
   ListOutpostsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOutpostsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

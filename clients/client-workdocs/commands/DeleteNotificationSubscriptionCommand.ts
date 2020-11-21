@@ -20,6 +20,9 @@ import {
 export type DeleteNotificationSubscriptionCommandInput = DeleteNotificationSubscriptionRequest;
 export type DeleteNotificationSubscriptionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified subscription from the specified organization.</p>
+ */
 export class DeleteNotificationSubscriptionCommand extends $Command<
   DeleteNotificationSubscriptionCommandInput,
   DeleteNotificationSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

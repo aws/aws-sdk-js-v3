@@ -20,6 +20,12 @@ import {
 export type DeleteDBSecurityGroupCommandInput = DeleteDBSecurityGroupMessage;
 export type DeleteDBSecurityGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a DB security group.</p>
+ *          <note>
+ *             <p>The specified DB security group must not be associated with any DB instances.</p>
+ *          </note>
+ */
 export class DeleteDBSecurityGroupCommand extends $Command<
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDBSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

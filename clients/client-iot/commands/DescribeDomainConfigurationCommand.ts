@@ -20,6 +20,12 @@ import {
 export type DescribeDomainConfigurationCommandInput = DescribeDomainConfigurationRequest;
 export type DescribeDomainConfigurationCommandOutput = DescribeDomainConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets summary information about a domain configuration.</p>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ */
 export class DescribeDomainConfigurationCommand extends $Command<
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeDomainConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

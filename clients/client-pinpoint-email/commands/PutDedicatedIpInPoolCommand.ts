@@ -20,6 +20,18 @@ import {
 export type PutDedicatedIpInPoolCommandInput = PutDedicatedIpInPoolRequest;
 export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse & __MetadataBearer;
 
+/**
+ * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
+ *         <note>
+ *             <p>The dedicated IP address that you specify must already exist, and must be
+ *                 associated with your Amazon Pinpoint account.
+ *
+ *             </p>
+ *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
+ *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
+ *
+ *         </note>
+ */
 export class PutDedicatedIpInPoolCommand extends $Command<
   PutDedicatedIpInPoolCommandInput,
   PutDedicatedIpInPoolCommandOutput,
@@ -34,6 +46,9 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

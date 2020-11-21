@@ -20,6 +20,9 @@ import {
 export type ListProtocolsListsCommandInput = ListProtocolsListsRequest;
 export type ListProtocolsListsCommandOutput = ListProtocolsListsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
+ */
 export class ListProtocolsListsCommand extends $Command<
   ListProtocolsListsCommandInput,
   ListProtocolsListsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProtocolsListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

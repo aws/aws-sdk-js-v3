@@ -20,6 +20,9 @@ import {
 export type UpdateArchiveRuleCommandInput = UpdateArchiveRuleRequest;
 export type UpdateArchiveRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the criteria and values for the specified archive rule.</p>
+ */
 export class UpdateArchiveRuleCommand extends $Command<
   UpdateArchiveRuleCommandInput,
   UpdateArchiveRuleCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateArchiveRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

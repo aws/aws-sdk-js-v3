@@ -20,6 +20,9 @@ import {
 export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
 export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput & __MetadataBearer;
 
+/**
+ * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
+ */
 export class StartAccessLoggingCommand extends $Command<
   StartAccessLoggingCommandInput,
   StartAccessLoggingCommandOutput,
@@ -34,6 +37,9 @@ export class StartAccessLoggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

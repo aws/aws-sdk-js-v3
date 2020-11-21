@@ -20,6 +20,10 @@ import {
 export type UpdateMailboxQuotaCommandInput = UpdateMailboxQuotaRequest;
 export type UpdateMailboxQuotaCommandOutput = UpdateMailboxQuotaResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a user's current mailbox quota for a specified organization and
+ *          user.</p>
+ */
 export class UpdateMailboxQuotaCommand extends $Command<
   UpdateMailboxQuotaCommandInput,
   UpdateMailboxQuotaCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateMailboxQuotaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -17,6 +17,13 @@ import {
 export type BundleInstanceCommandInput = BundleInstanceRequest;
 export type BundleInstanceCommandOutput = BundleInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Bundles an Amazon instance store-backed Windows instance.</p>
+ *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
+ *          <note>
+ *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
+ * 			      </note>
+ */
 export class BundleInstanceCommand extends $Command<
   BundleInstanceCommandInput,
   BundleInstanceCommandOutput,
@@ -31,6 +38,9 @@ export class BundleInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

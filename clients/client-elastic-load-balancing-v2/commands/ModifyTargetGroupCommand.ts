@@ -24,6 +24,10 @@ import {
 export type ModifyTargetGroupCommandInput = ModifyTargetGroupInput;
 export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Modifies the health checks used when evaluating the health state of the targets in the
+ *       specified target group.</p>
+ */
 export class ModifyTargetGroupCommand extends $Command<
   ModifyTargetGroupCommandInput,
   ModifyTargetGroupCommandOutput,
@@ -38,6 +42,9 @@ export class ModifyTargetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

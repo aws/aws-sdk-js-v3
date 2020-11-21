@@ -20,6 +20,11 @@ import {
 export type UpdateServiceAccessPoliciesCommandInput = UpdateServiceAccessPoliciesRequest;
 export type UpdateServiceAccessPoliciesCommandOutput = UpdateServiceAccessPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Configures the access rules that control access to the domain's document and search endpoints.
+ *       For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">
+ *         Configuring Access for an Amazon CloudSearch Domain</a>.</p>
+ */
 export class UpdateServiceAccessPoliciesCommand extends $Command<
   UpdateServiceAccessPoliciesCommandInput,
   UpdateServiceAccessPoliciesCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

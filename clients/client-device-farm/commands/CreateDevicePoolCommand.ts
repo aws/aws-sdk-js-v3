@@ -20,6 +20,9 @@ import {
 export type CreateDevicePoolCommandInput = CreateDevicePoolRequest;
 export type CreateDevicePoolCommandOutput = CreateDevicePoolResult & __MetadataBearer;
 
+/**
+ * <p>Creates a device pool.</p>
+ */
 export class CreateDevicePoolCommand extends $Command<
   CreateDevicePoolCommandInput,
   CreateDevicePoolCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDevicePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListCodeRepositoriesCommandInput = ListCodeRepositoriesInput;
 export type ListCodeRepositoriesCommandOutput = ListCodeRepositoriesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the Git repositories in your account.</p>
+ */
 export class ListCodeRepositoriesCommand extends $Command<
   ListCodeRepositoriesCommandInput,
   ListCodeRepositoriesCommandOutput,
@@ -34,6 +37,9 @@ export class ListCodeRepositoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

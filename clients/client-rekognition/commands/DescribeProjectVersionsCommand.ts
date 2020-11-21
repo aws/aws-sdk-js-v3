@@ -20,6 +20,13 @@ import {
 export type DescribeProjectVersionsCommandInput = DescribeProjectVersionsRequest;
 export type DescribeProjectVersionsCommandOutput = DescribeProjectVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists and describes the models in an Amazon Rekognition Custom Labels project. You
+ *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
+ *          you don't specify a value, descriptions for all models are returned.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
+ *             action.</p>
+ */
 export class DescribeProjectVersionsCommand extends $Command<
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeProjectVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

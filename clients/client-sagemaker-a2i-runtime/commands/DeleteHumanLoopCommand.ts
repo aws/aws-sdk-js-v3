@@ -24,6 +24,9 @@ import {
 export type DeleteHumanLoopCommandInput = DeleteHumanLoopRequest;
 export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified human loop for a flow definition.</p>
+ */
 export class DeleteHumanLoopCommand extends $Command<
   DeleteHumanLoopCommandInput,
   DeleteHumanLoopCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteHumanLoopCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerA2IRuntimeClientResolvedConfig,

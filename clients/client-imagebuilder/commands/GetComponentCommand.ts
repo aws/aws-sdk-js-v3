@@ -20,6 +20,9 @@ import {
 export type GetComponentCommandInput = GetComponentRequest;
 export type GetComponentCommandOutput = GetComponentResponse & __MetadataBearer;
 
+/**
+ * <p> Gets a component object. </p>
+ */
 export class GetComponentCommand extends $Command<
   GetComponentCommandInput,
   GetComponentCommandOutput,
@@ -34,6 +37,9 @@ export class GetComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

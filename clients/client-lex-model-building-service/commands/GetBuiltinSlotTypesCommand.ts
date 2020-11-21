@@ -24,6 +24,13 @@ import {
 export type GetBuiltinSlotTypesCommandInput = GetBuiltinSlotTypesRequest;
 export type GetBuiltinSlotTypesCommandOutput = GetBuiltinSlotTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of built-in slot types that meet the specified criteria.</p>
+ *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills Kit</i>.</p>
+ *
+ *          <p>This operation requires permission for the <code>lex:GetBuiltInSlotTypes</code>
+ *       action.</p>
+ */
 export class GetBuiltinSlotTypesCommand extends $Command<
   GetBuiltinSlotTypesCommandInput,
   GetBuiltinSlotTypesCommandOutput,
@@ -38,6 +45,9 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

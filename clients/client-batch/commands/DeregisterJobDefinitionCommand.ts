@@ -20,6 +20,10 @@ import {
 export type DeregisterJobDefinitionCommandInput = DeregisterJobDefinitionRequest;
 export type DeregisterJobDefinitionCommandOutput = DeregisterJobDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters an AWS Batch job definition.
+ *    Job definitions will be permanently deleted after 180 days.</p>
+ */
 export class DeregisterJobDefinitionCommand extends $Command<
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput,
@@ -34,6 +38,9 @@ export class DeregisterJobDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

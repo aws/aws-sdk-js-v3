@@ -20,6 +20,10 @@ import {
 export type CancelAuditTaskCommandInput = CancelAuditTaskRequest;
 export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
+ *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
+ */
 export class CancelAuditTaskCommand extends $Command<
   CancelAuditTaskCommandInput,
   CancelAuditTaskCommandOutput,
@@ -34,6 +38,9 @@ export class CancelAuditTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

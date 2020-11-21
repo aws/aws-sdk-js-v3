@@ -20,6 +20,9 @@ import {
 export type UpdateCampaignCommandInput = UpdateCampaignRequest;
 export type UpdateCampaignCommandOutput = UpdateCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the configuration and other settings for a campaign.</p>
+ */
 export class UpdateCampaignCommand extends $Command<
   UpdateCampaignCommandInput,
   UpdateCampaignCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

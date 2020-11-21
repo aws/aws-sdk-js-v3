@@ -4,6 +4,9 @@ import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands
 import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: TimestreamQueryClient,
   input: QueryCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new QueryCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: TimestreamQuery,
   input: QueryCommandInput,

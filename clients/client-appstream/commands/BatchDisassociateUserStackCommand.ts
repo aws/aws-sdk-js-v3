@@ -20,6 +20,9 @@ import {
 export type BatchDisassociateUserStackCommandInput = BatchDisassociateUserStackRequest;
 export type BatchDisassociateUserStackCommandOutput = BatchDisassociateUserStackResult & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified users from the specified stacks.</p>
+ */
 export class BatchDisassociateUserStackCommand extends $Command<
   BatchDisassociateUserStackCommandInput,
   BatchDisassociateUserStackCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDisassociateUserStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

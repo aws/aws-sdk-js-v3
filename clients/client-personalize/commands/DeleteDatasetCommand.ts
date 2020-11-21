@@ -20,6 +20,11 @@ import {
 export type DeleteDatasetCommandInput = DeleteDatasetRequest;
 export type DeleteDatasetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a dataset. You can't delete a dataset if an associated
+ *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the CREATE PENDING or IN
+ *       PROGRESS state. For more information on datasets, see <a>CreateDataset</a>.</p>
+ */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

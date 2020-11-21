@@ -20,6 +20,10 @@ import {
 export type DeleteContainerImageCommandInput = DeleteContainerImageRequest;
 export type DeleteContainerImageCommandOutput = DeleteContainerImageResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a container image that is registered to your Amazon Lightsail container
+ *       service.</p>
+ */
 export class DeleteContainerImageCommand extends $Command<
   DeleteContainerImageCommandInput,
   DeleteContainerImageCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteContainerImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

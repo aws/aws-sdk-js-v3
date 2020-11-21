@@ -20,6 +20,15 @@ import {
 export type SetActiveReceiptRuleSetCommandInput = SetActiveReceiptRuleSetRequest;
 export type SetActiveReceiptRuleSetCommandOutput = SetActiveReceiptRuleSetResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
+ *         <note>
+ *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
+ *                 with RuleSetName set to null.</p>
+ *         </note>
+ *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class SetActiveReceiptRuleSetCommand extends $Command<
   SetActiveReceiptRuleSetCommandInput,
   SetActiveReceiptRuleSetCommandOutput,
@@ -34,6 +43,9 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

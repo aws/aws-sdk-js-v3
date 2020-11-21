@@ -20,6 +20,15 @@ import {
 export type CreateTapesCommandInput = CreateTapesInput;
 export type CreateTapesCommandOutput = CreateTapesOutput & __MetadataBearer;
 
+/**
+ * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive
+ *          the tapes. This operation is only supported in the tape gateway type.</p>
+ *
+ *          <note>
+ *             <p>Cache storage must be allocated to the gateway before you can create virtual tapes.
+ *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
+ *          </note>
+ */
 export class CreateTapesCommand extends $Command<
   CreateTapesCommandInput,
   CreateTapesCommandOutput,
@@ -34,6 +43,9 @@ export class CreateTapesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

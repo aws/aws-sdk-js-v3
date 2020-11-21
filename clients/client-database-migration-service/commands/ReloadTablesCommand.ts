@@ -24,6 +24,9 @@ import {
 export type ReloadTablesCommandInput = ReloadTablesMessage;
 export type ReloadTablesCommandOutput = ReloadTablesResponse & __MetadataBearer;
 
+/**
+ * <p>Reloads the target database table with the source data. </p>
+ */
 export class ReloadTablesCommand extends $Command<
   ReloadTablesCommandInput,
   ReloadTablesCommandOutput,
@@ -38,6 +41,9 @@ export class ReloadTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

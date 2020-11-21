@@ -20,6 +20,10 @@ import {
 export type UpdateEvaluationCommandInput = UpdateEvaluationInput;
 export type UpdateEvaluationCommandOutput = UpdateEvaluationOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
+ *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
+ */
 export class UpdateEvaluationCommand extends $Command<
   UpdateEvaluationCommandInput,
   UpdateEvaluationCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateEvaluationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

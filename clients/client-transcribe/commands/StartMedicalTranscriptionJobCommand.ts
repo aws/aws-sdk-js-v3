@@ -20,6 +20,9 @@ import {
 export type StartMedicalTranscriptionJobCommandInput = StartMedicalTranscriptionJobRequest;
 export type StartMedicalTranscriptionJobCommandOutput = StartMedicalTranscriptionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a batch job to transcribe medical speech to text.</p>
+ */
 export class StartMedicalTranscriptionJobCommand extends $Command<
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

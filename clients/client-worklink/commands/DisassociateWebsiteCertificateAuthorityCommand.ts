@@ -24,6 +24,9 @@ export type DisassociateWebsiteCertificateAuthorityCommandInput = DisassociateWe
 export type DisassociateWebsiteCertificateAuthorityCommandOutput = DisassociateWebsiteCertificateAuthorityResponse &
   __MetadataBearer;
 
+/**
+ * <p>Removes a certificate authority (CA).</p>
+ */
 export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
   DisassociateWebsiteCertificateAuthorityCommandInput,
   DisassociateWebsiteCertificateAuthorityCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

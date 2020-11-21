@@ -24,6 +24,9 @@ export type BatchDisassociateServiceActionFromProvisioningArtifactCommandInput =
 export type BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput = BatchDisassociateServiceActionFromProvisioningArtifactOutput &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
+ */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
@@ -38,6 +41,9 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

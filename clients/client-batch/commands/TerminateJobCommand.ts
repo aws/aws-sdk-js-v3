@@ -20,6 +20,11 @@ import {
 export type TerminateJobCommandInput = TerminateJobRequest;
 export type TerminateJobCommandOutput = TerminateJobResponse & __MetadataBearer;
 
+/**
+ * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
+ *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
+ *     <code>STARTING</code> state are cancelled.</p>
+ */
 export class TerminateJobCommand extends $Command<
   TerminateJobCommandInput,
   TerminateJobCommandOutput,
@@ -34,6 +39,9 @@ export class TerminateJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

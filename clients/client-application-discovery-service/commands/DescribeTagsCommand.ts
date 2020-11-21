@@ -24,6 +24,24 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of configuration items that have tags as specified by the key-value
+ *       pairs, name and value, passed to the optional parameter <code>filters</code>.</p>
+ *          <p>There are three valid tag filter names:</p>
+ *          <ul>
+ *             <li>
+ *                <p>tagKey</p>
+ *             </li>
+ *             <li>
+ *                <p>tagValue</p>
+ *             </li>
+ *             <li>
+ *                <p>configurationId</p>
+ *             </li>
+ *          </ul>
+ *          <p>Also, all configuration items associated with your user account that have tags can be
+ *       listed if you call <code>DescribeTags</code> as is without passing any parameters.</p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -38,6 +56,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

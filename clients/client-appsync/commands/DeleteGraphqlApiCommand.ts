@@ -20,6 +20,9 @@ import {
 export type DeleteGraphqlApiCommandInput = DeleteGraphqlApiRequest;
 export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a <code>GraphqlApi</code> object.</p>
+ */
 export class DeleteGraphqlApiCommand extends $Command<
   DeleteGraphqlApiCommandInput,
   DeleteGraphqlApiCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGraphqlApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

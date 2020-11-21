@@ -17,6 +17,10 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
+ *       the <code>ServerId</code> parameter.</p>
+ */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,
   ListUsersCommandOutput,
@@ -31,6 +35,9 @@ export class ListUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

@@ -24,6 +24,14 @@ import {
 export type ExportConfigurationsCommandInput = {};
 export type ExportConfigurationsCommandOutput = ExportConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
+ *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
+ *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,
+ *       connections, servers, and system performance. This API returns an export ID that you can query
+ *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
+ *       two configuration exports in six hours.</p>
+ */
 export class ExportConfigurationsCommand extends $Command<
   ExportConfigurationsCommandInput,
   ExportConfigurationsCommandOutput,
@@ -38,6 +46,9 @@ export class ExportConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

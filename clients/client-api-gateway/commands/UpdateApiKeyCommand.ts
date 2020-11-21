@@ -20,6 +20,9 @@ import {
 export type UpdateApiKeyCommandInput = UpdateApiKeyRequest;
 export type UpdateApiKeyCommandOutput = ApiKey & __MetadataBearer;
 
+/**
+ * <p>Changes information about an <a>ApiKey</a> resource.</p>
+ */
 export class UpdateApiKeyCommand extends $Command<
   UpdateApiKeyCommandInput,
   UpdateApiKeyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

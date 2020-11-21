@@ -24,6 +24,11 @@ import {
 export type ConfigureHealthCheckCommandInput = ConfigureHealthCheckInput;
 export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput & __MetadataBearer;
 
+/**
+ * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class ConfigureHealthCheckCommand extends $Command<
   ConfigureHealthCheckCommandInput,
   ConfigureHealthCheckCommandOutput,
@@ -38,6 +43,9 @@ export class ConfigureHealthCheckCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

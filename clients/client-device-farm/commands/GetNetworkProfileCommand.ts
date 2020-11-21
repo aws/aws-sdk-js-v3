@@ -20,6 +20,9 @@ import {
 export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
 export type GetNetworkProfileCommandOutput = GetNetworkProfileResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a network profile.</p>
+ */
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,
   GetNetworkProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

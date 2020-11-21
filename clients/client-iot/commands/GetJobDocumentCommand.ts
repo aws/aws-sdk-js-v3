@@ -20,6 +20,9 @@ import {
 export type GetJobDocumentCommandInput = GetJobDocumentRequest;
 export type GetJobDocumentCommandOutput = GetJobDocumentResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a job document.</p>
+ */
 export class GetJobDocumentCommand extends $Command<
   GetJobDocumentCommandInput,
   GetJobDocumentCommandOutput,
@@ -34,6 +37,9 @@ export class GetJobDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

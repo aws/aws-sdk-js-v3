@@ -20,6 +20,11 @@ import {
 export type StreamJournalToKinesisCommandInput = StreamJournalToKinesisRequest;
 export type StreamJournalToKinesisCommandOutput = StreamJournalToKinesisResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
+ *          document revision that is committed to the ledger's journal and delivers the data to a
+ *          specified Amazon Kinesis Data Streams resource.</p>
+ */
 export class StreamJournalToKinesisCommand extends $Command<
   StreamJournalToKinesisCommandInput,
   StreamJournalToKinesisCommandOutput,
@@ -34,6 +39,9 @@ export class StreamJournalToKinesisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

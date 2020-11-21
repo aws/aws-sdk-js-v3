@@ -20,6 +20,9 @@ import {
 export type UpdateBotCommandInput = UpdateBotRequest;
 export type UpdateBotCommandOutput = UpdateBotResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
+ */
 export class UpdateBotCommand extends $Command<
   UpdateBotCommandInput,
   UpdateBotCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

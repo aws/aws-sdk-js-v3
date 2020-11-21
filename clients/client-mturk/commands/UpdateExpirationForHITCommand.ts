@@ -20,6 +20,12 @@ import {
 export type UpdateExpirationForHITCommandInput = UpdateExpirationForHITRequest;
 export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>UpdateExpirationForHIT</code> operation allows you update the expiration time of a HIT.
+ *             If you update it to a time in the past, the HIT will be immediately expired.
+ *         </p>
+ */
 export class UpdateExpirationForHITCommand extends $Command<
   UpdateExpirationForHITCommandInput,
   UpdateExpirationForHITCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateExpirationForHITCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

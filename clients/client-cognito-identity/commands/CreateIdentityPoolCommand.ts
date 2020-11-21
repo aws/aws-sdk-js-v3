@@ -21,6 +21,35 @@ import {
 export type CreateIdentityPoolCommandInput = CreateIdentityPoolInput;
 export type CreateIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
 
+/**
+ * <p>Creates a new identity pool. The identity pool is a store of user identity
+ *          information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>Facebook: <code>graph.facebook.com</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Google: <code>accounts.google.com</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon: <code>www.amazon.com</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Twitter: <code>api.twitter.com</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Digits: <code>www.digits.com</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class CreateIdentityPoolCommand extends $Command<
   CreateIdentityPoolCommandInput,
   CreateIdentityPoolCommandOutput,
@@ -35,6 +64,9 @@ export class CreateIdentityPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

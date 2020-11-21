@@ -20,6 +20,10 @@ import {
 export type ListHostedConfigurationVersionsCommandInput = ListHostedConfigurationVersionsRequest;
 export type ListHostedConfigurationVersionsCommandOutput = HostedConfigurationVersions & __MetadataBearer;
 
+/**
+ * <p>View a list of configurations stored in the AppConfig configuration store by
+ *          version.</p>
+ */
 export class ListHostedConfigurationVersionsCommand extends $Command<
   ListHostedConfigurationVersionsCommandInput,
   ListHostedConfigurationVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

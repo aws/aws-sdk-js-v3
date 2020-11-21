@@ -20,6 +20,10 @@ import {
 export type CreateVpnConnectionRouteCommandInput = CreateVpnConnectionRouteRequest;
 export type CreateVpnConnectionRouteCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ */
 export class CreateVpnConnectionRouteCommand extends $Command<
   CreateVpnConnectionRouteCommandInput,
   CreateVpnConnectionRouteCommandOutput,
@@ -34,6 +38,9 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

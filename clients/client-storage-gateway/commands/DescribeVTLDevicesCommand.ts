@@ -20,6 +20,12 @@ import {
 export type DescribeVTLDevicesCommandInput = DescribeVTLDevicesInput;
 export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
+ *          gateway. In the response, AWS Storage Gateway returns VTL device information.</p>
+ *
+ *          <p>This operation is only supported in the tape gateway type.</p>
+ */
 export class DescribeVTLDevicesCommand extends $Command<
   DescribeVTLDevicesCommandInput,
   DescribeVTLDevicesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeVTLDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

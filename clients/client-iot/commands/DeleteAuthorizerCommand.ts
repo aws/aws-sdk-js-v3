@@ -20,6 +20,9 @@ import {
 export type DeleteAuthorizerCommandInput = DeleteAuthorizerRequest;
 export type DeleteAuthorizerCommandOutput = DeleteAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an authorizer.</p>
+ */
 export class DeleteAuthorizerCommand extends $Command<
   DeleteAuthorizerCommandInput,
   DeleteAuthorizerCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

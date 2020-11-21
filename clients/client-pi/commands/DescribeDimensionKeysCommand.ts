@@ -20,6 +20,10 @@ import {
 export type DescribeDimensionKeysCommandInput = DescribeDimensionKeysRequest;
 export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse & __MetadataBearer;
 
+/**
+ * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a
+ *       metric.</p>
+ */
 export class DescribeDimensionKeysCommand extends $Command<
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDimensionKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PIClientResolvedConfig,

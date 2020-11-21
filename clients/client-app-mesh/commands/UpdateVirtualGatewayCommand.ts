@@ -20,6 +20,9 @@ import {
 export type UpdateVirtualGatewayCommandInput = UpdateVirtualGatewayInput;
 export type UpdateVirtualGatewayCommandOutput = UpdateVirtualGatewayOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing virtual gateway in a specified service mesh.</p>
+ */
 export class UpdateVirtualGatewayCommand extends $Command<
   UpdateVirtualGatewayCommandInput,
   UpdateVirtualGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVirtualGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

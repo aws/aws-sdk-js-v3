@@ -20,6 +20,9 @@ import {
 export type ListTableMetadataCommandInput = ListTableMetadataInput;
 export type ListTableMetadataCommandOutput = ListTableMetadataOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the metadata for the tables in the specified data catalog database.</p>
+ */
 export class ListTableMetadataCommand extends $Command<
   ListTableMetadataCommandInput,
   ListTableMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class ListTableMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

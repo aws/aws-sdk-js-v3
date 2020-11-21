@@ -20,6 +20,9 @@ import {
 export type DescribeImageBuildersCommandInput = DescribeImageBuildersRequest;
 export type DescribeImageBuildersCommandOutput = DescribeImageBuildersResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
+ */
 export class DescribeImageBuildersCommand extends $Command<
   DescribeImageBuildersCommandInput,
   DescribeImageBuildersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImageBuildersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

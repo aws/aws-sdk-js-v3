@@ -20,6 +20,9 @@ import {
 export type AssociateLinkCommandInput = AssociateLinkRequest;
 export type AssociateLinkCommandOutput = AssociateLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
+ */
 export class AssociateLinkCommand extends $Command<
   AssociateLinkCommandInput,
   AssociateLinkCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

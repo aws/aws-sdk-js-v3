@@ -20,6 +20,9 @@ import {
 export type ExpireSessionCommandInput = ExpireSessionRequest;
 export type ExpireSessionCommandOutput = ExpireSessionResult & __MetadataBearer;
 
+/**
+ * <p>Immediately stops the specified streaming session.</p>
+ */
 export class ExpireSessionCommand extends $Command<
   ExpireSessionCommandInput,
   ExpireSessionCommandOutput,
@@ -34,6 +37,9 @@ export class ExpireSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

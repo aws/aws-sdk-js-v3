@@ -20,6 +20,13 @@ import {
 export type DescribeTapeArchivesCommandInput = DescribeTapeArchivesInput;
 export type DescribeTapeArchivesCommandOutput = DescribeTapeArchivesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
+ *          operation is only supported in the tape gateway type.</p>
+ *
+ *          <p>If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
+ *          description of all virtual tapes found in the VTS associated with your account.</p>
+ */
 export class DescribeTapeArchivesCommand extends $Command<
   DescribeTapeArchivesCommandInput,
   DescribeTapeArchivesCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeTapeArchivesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

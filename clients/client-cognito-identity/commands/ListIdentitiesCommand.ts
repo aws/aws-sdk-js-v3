@@ -21,6 +21,10 @@ import {
 export type ListIdentitiesCommandInput = ListIdentitiesInput;
 export type ListIdentitiesCommandOutput = ListIdentitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the identities in an identity pool.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class ListIdentitiesCommand extends $Command<
   ListIdentitiesCommandInput,
   ListIdentitiesCommandOutput,
@@ -35,6 +39,9 @@ export class ListIdentitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

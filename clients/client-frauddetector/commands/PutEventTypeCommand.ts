@@ -20,6 +20,9 @@ import {
 export type PutEventTypeCommandInput = PutEventTypeRequest;
 export type PutEventTypeCommandOutput = PutEventTypeResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.</p>
+ */
 export class PutEventTypeCommand extends $Command<
   PutEventTypeCommandInput,
   PutEventTypeCommandOutput,
@@ -34,6 +37,9 @@ export class PutEventTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

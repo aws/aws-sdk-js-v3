@@ -20,6 +20,42 @@ import {
 export type DeleteGameSessionQueueCommandInput = DeleteGameSessionQueueInput;
 export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a>StartGameSessionPlacement</a> requests that reference the queue will fail.
+ *             To delete a queue, specify the queue name.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
+ *             Using Multi-Region Queues</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionQueues</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteGameSessionQueueCommand extends $Command<
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput,
@@ -34,6 +70,9 @@ export class DeleteGameSessionQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

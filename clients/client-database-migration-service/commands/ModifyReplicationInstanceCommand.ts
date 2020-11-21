@@ -24,6 +24,13 @@ import {
 export type ModifyReplicationInstanceCommandInput = ModifyReplicationInstanceMessage;
 export type ModifyReplicationInstanceCommandOutput = ModifyReplicationInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the replication instance to apply new settings. You can change one or more
+ *          parameters by specifying these parameters and the new values in the request.</p>
+ *          <p>Some settings are applied during the maintenance window.</p>
+ *
+ *          <p></p>
+ */
 export class ModifyReplicationInstanceCommand extends $Command<
   ModifyReplicationInstanceCommandInput,
   ModifyReplicationInstanceCommandOutput,
@@ -38,6 +45,9 @@ export class ModifyReplicationInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

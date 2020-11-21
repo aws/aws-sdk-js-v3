@@ -20,6 +20,9 @@ import {
 export type DeletePolicyCommandInput = DeletePolicyRequest;
 export type DeletePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Permanently deletes an AWS Firewall Manager policy. </p>
+ */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,
   DeletePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

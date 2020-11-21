@@ -20,6 +20,14 @@ import {
 export type AcceptVpcPeeringConnectionCommandInput = AcceptVpcPeeringConnectionRequest;
 export type AcceptVpcPeeringConnectionCommandOutput = AcceptVpcPeeringConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
+ *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
+ *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
+ *       peering connection requests.</p>
+ *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
+ *       connection in the Region of the accepter VPC.</p>
+ */
 export class AcceptVpcPeeringConnectionCommand extends $Command<
   AcceptVpcPeeringConnectionCommandInput,
   AcceptVpcPeeringConnectionCommandOutput,
@@ -34,6 +42,9 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

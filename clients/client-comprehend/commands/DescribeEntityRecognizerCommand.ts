@@ -20,6 +20,10 @@ import {
 export type DescribeEntityRecognizerCommandInput = DescribeEntityRecognizerRequest;
 export type DescribeEntityRecognizerCommandOutput = DescribeEntityRecognizerResponse & __MetadataBearer;
 
+/**
+ * <p>Provides details about an entity recognizer including status, S3 buckets containing
+ *       training data, recognizer metadata, metrics, and so on.</p>
+ */
 export class DescribeEntityRecognizerCommand extends $Command<
   DescribeEntityRecognizerCommandInput,
   DescribeEntityRecognizerCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEntityRecognizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

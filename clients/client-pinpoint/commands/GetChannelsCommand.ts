@@ -20,6 +20,9 @@ import {
 export type GetChannelsCommandInput = GetChannelsRequest;
 export type GetChannelsCommandOutput = GetChannelsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the history and status of each channel for an application.</p>
+ */
 export class GetChannelsCommand extends $Command<
   GetChannelsCommandInput,
   GetChannelsCommandOutput,
@@ -34,6 +37,9 @@ export class GetChannelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

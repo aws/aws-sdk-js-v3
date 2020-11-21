@@ -20,6 +20,9 @@ import {
 export type SearchProductsCommandInput = SearchProductsInput;
 export type SearchProductsCommandOutput = SearchProductsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the products to which the caller has access.</p>
+ */
 export class SearchProductsCommand extends $Command<
   SearchProductsCommandInput,
   SearchProductsCommandOutput,
@@ -34,6 +37,9 @@ export class SearchProductsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

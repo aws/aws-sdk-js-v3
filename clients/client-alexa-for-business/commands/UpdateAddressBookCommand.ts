@@ -20,6 +20,9 @@ import {
 export type UpdateAddressBookCommandInput = UpdateAddressBookRequest;
 export type UpdateAddressBookCommandOutput = UpdateAddressBookResponse & __MetadataBearer;
 
+/**
+ * <p>Updates address book details by the address book ARN.</p>
+ */
 export class UpdateAddressBookCommand extends $Command<
   UpdateAddressBookCommandInput,
   UpdateAddressBookCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

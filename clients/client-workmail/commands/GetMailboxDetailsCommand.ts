@@ -20,6 +20,9 @@ import {
 export type GetMailboxDetailsCommandInput = GetMailboxDetailsRequest;
 export type GetMailboxDetailsCommandOutput = GetMailboxDetailsResponse & __MetadataBearer;
 
+/**
+ * <p>Requests a user's mailbox details for a specified organization and user.</p>
+ */
 export class GetMailboxDetailsCommand extends $Command<
   GetMailboxDetailsCommandInput,
   GetMailboxDetailsCommandOutput,
@@ -34,6 +37,9 @@ export class GetMailboxDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

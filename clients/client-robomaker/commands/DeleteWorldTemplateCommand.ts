@@ -20,6 +20,9 @@ import {
 export type DeleteWorldTemplateCommandInput = DeleteWorldTemplateRequest;
 export type DeleteWorldTemplateCommandOutput = DeleteWorldTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a world template.</p>
+ */
 export class DeleteWorldTemplateCommand extends $Command<
   DeleteWorldTemplateCommandInput,
   DeleteWorldTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteWorldTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

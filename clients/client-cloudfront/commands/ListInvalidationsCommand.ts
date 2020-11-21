@@ -20,6 +20,9 @@ import {
 export type ListInvalidationsCommandInput = ListInvalidationsRequest;
 export type ListInvalidationsCommandOutput = ListInvalidationsResult & __MetadataBearer;
 
+/**
+ * <p>Lists invalidation batches. </p>
+ */
 export class ListInvalidationsCommand extends $Command<
   ListInvalidationsCommandInput,
   ListInvalidationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListInvalidationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

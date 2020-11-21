@@ -20,6 +20,9 @@ import {
 export type ListRecipesCommandInput = ListRecipesRequest;
 export type ListRecipesCommandOutput = ListRecipesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the AWS Glue DataBrew recipes in the current AWS account.</p>
+ */
 export class ListRecipesCommand extends $Command<
   ListRecipesCommandInput,
   ListRecipesCommandOutput,
@@ -34,6 +37,9 @@ export class ListRecipesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

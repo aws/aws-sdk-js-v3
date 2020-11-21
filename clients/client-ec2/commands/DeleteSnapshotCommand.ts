@@ -17,6 +17,18 @@ import {
 export type DeleteSnapshotCommandInput = DeleteSnapshotRequest;
 export type DeleteSnapshotCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified snapshot.</p>
+ *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
+ *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
+ *       When you delete a snapshot, only the data not needed for any other snapshot is removed. So
+ *       regardless of which prior snapshots have been deleted, all active snapshots will have access
+ *       to all the information needed to restore the volume.</p>
+ *          <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
+ *       You must first de-register the AMI before you can delete the snapshot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS snapshot</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,
   DeleteSnapshotCommandOutput,
@@ -31,6 +43,9 @@ export class DeleteSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

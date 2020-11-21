@@ -20,6 +20,21 @@ import {
 export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
 export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult & __MetadataBearer;
 
+/**
+ * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
+ *       time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
+ *       days. The target DB cluster is created from the source DB cluster with the same configuration
+ *       as the original DB cluster, except that the new DB cluster is created with the default DB
+ *       security group.</p>
+ *          <note>
+ *             <p>This action only restores the DB cluster, not the DB instances for that DB cluster. You
+ *         must invoke the <a>CreateDBInstance</a> action to create DB instances for the
+ *         restored DB cluster, specifying the identifier of the restored DB cluster in
+ *         <code>DBClusterIdentifier</code>. You can create DB instances only after the
+ *         <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster is
+ *         available.</p>
+ *          </note>
+ */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,
   RestoreDBClusterToPointInTimeCommandOutput,
@@ -34,6 +49,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

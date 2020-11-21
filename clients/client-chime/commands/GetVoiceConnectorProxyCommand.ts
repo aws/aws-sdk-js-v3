@@ -20,6 +20,9 @@ import {
 export type GetVoiceConnectorProxyCommandInput = GetVoiceConnectorProxyRequest;
 export type GetVoiceConnectorProxyCommandOutput = GetVoiceConnectorProxyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class GetVoiceConnectorProxyCommand extends $Command<
   GetVoiceConnectorProxyCommandInput,
   GetVoiceConnectorProxyCommandOutput,
@@ -34,6 +37,9 @@ export class GetVoiceConnectorProxyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeFleetsCommandInput = DescribeFleetsRequest;
 export type DescribeFleetsCommandOutput = DescribeFleetsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
+ */
 export class DescribeFleetsCommand extends $Command<
   DescribeFleetsCommandInput,
   DescribeFleetsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteGroupCommandInput = DeleteGroupInput;
 export type DeleteGroupCommandOutput = DeleteGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified resource group. Deleting a resource group does not delete any
+ *             resources that are members of the group; it only deletes the group structure.</p>
+ */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,
   DeleteGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

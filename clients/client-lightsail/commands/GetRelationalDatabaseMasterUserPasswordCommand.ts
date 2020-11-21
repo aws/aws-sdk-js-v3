@@ -24,6 +24,13 @@ export type GetRelationalDatabaseMasterUserPasswordCommandInput = GetRelationalD
 export type GetRelationalDatabaseMasterUserPasswordCommandOutput = GetRelationalDatabaseMasterUserPasswordResult &
   __MetadataBearer;
 
+/**
+ * <p>Returns the current, previous, or pending versions of the master user password for a
+ *       Lightsail database.</p>
+ *          <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based
+ *       access control via resource tags applied to the resource identified by
+ *       relationalDatabaseName.</p>
+ */
 export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
   GetRelationalDatabaseMasterUserPasswordCommandInput,
   GetRelationalDatabaseMasterUserPasswordCommandOutput,
@@ -38,6 +45,9 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

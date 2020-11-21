@@ -20,6 +20,12 @@ import {
 export type TestRenderEmailTemplateCommandInput = TestRenderEmailTemplateRequest;
 export type TestRenderEmailTemplateCommandOutput = TestRenderEmailTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a preview of the MIME content of an email when provided with a template and a
+ *             set of replacement data.</p>
+ *
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class TestRenderEmailTemplateCommand extends $Command<
   TestRenderEmailTemplateCommandInput,
   TestRenderEmailTemplateCommandOutput,
@@ -34,6 +40,9 @@ export class TestRenderEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

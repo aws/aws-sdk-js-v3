@@ -20,6 +20,10 @@ import {
 export type DescribeLogGroupsCommandInput = DescribeLogGroupsRequest;
 export type DescribeLogGroupsCommandOutput = DescribeLogGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
+ *       The results are ASCII-sorted by log group name.</p>
+ */
 export class DescribeLogGroupsCommand extends $Command<
   DescribeLogGroupsCommandInput,
   DescribeLogGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeLogGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

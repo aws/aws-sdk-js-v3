@@ -20,6 +20,9 @@ import {
 export type ListDomainAssociationsCommandInput = ListDomainAssociationsRequest;
 export type ListDomainAssociationsCommandOutput = ListDomainAssociationsResult & __MetadataBearer;
 
+/**
+ * <p> Returns the domain associations for an Amplify app. </p>
+ */
 export class ListDomainAssociationsCommand extends $Command<
   ListDomainAssociationsCommandInput,
   ListDomainAssociationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDomainAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

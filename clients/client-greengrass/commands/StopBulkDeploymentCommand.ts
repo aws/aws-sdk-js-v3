@@ -20,6 +20,9 @@ import {
 export type StopBulkDeploymentCommandInput = StopBulkDeploymentRequest;
 export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse & __MetadataBearer;
 
+/**
+ * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
+ */
 export class StopBulkDeploymentCommand extends $Command<
   StopBulkDeploymentCommandInput,
   StopBulkDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class StopBulkDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

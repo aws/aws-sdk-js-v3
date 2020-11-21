@@ -20,6 +20,9 @@ import {
 export type DescribeBillingGroupCommandInput = DescribeBillingGroupRequest;
 export type DescribeBillingGroupCommandOutput = DescribeBillingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a billing group.</p>
+ */
 export class DescribeBillingGroupCommand extends $Command<
   DescribeBillingGroupCommandInput,
   DescribeBillingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBillingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

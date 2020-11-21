@@ -20,6 +20,9 @@ import {
 export type DeleteDirectoryConfigCommandInput = DeleteDirectoryConfigRequest;
 export type DeleteDirectoryConfigCommandOutput = DeleteDirectoryConfigResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
+ */
 export class DeleteDirectoryConfigCommand extends $Command<
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDirectoryConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

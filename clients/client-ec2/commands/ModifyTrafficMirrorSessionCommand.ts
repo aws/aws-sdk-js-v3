@@ -20,6 +20,9 @@ import {
 export type ModifyTrafficMirrorSessionCommandInput = ModifyTrafficMirrorSessionRequest;
 export type ModifyTrafficMirrorSessionCommandOutput = ModifyTrafficMirrorSessionResult & __MetadataBearer;
 
+/**
+ * <p>Modifies a Traffic Mirror session.</p>
+ */
 export class ModifyTrafficMirrorSessionCommand extends $Command<
   ModifyTrafficMirrorSessionCommandInput,
   ModifyTrafficMirrorSessionCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

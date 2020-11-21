@@ -20,6 +20,9 @@ import {
 export type DescribeEnvironmentStatusCommandInput = DescribeEnvironmentStatusRequest;
 export type DescribeEnvironmentStatusCommandOutput = DescribeEnvironmentStatusResult & __MetadataBearer;
 
+/**
+ * <p>Gets status information for an AWS Cloud9 development environment.</p>
+ */
 export class DescribeEnvironmentStatusCommand extends $Command<
   DescribeEnvironmentStatusCommandInput,
   DescribeEnvironmentStatusCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

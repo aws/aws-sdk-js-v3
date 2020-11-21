@@ -4,6 +4,9 @@ import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } fr
 import { KMSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: KMSClient,
   input: ListGrantsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGrantsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: KMS,
   input: ListGrantsCommandInput,

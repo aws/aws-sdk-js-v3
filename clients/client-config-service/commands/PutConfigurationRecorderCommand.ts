@@ -20,6 +20,22 @@ import {
 export type PutConfigurationRecorderCommandInput = PutConfigurationRecorderRequest;
 export type PutConfigurationRecorderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a new configuration recorder to record the selected
+ * 			resource configurations.</p>
+ * 		       <p>You can use this action to change the role <code>roleARN</code>
+ * 			or the <code>recordingGroup</code> of an existing recorder. To
+ * 			change the role, call the action on the existing configuration
+ * 			recorder and specify a role.</p>
+ * 		       <note>
+ * 			         <p>Currently, you can specify only one configuration recorder
+ * 				per region in your account.</p>
+ * 			         <p>If <code>ConfigurationRecorder</code> does not have the
+ * 					<b>recordingGroup</b> parameter
+ * 				specified, the default is to record all supported resource
+ * 				types.</p>
+ * 		       </note>
+ */
 export class PutConfigurationRecorderCommand extends $Command<
   PutConfigurationRecorderCommandInput,
   PutConfigurationRecorderCommandOutput,
@@ -34,6 +50,9 @@ export class PutConfigurationRecorderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

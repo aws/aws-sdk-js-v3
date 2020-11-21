@@ -20,6 +20,10 @@ import {
 export type CreateAlgorithmCommandInput = CreateAlgorithmInput;
 export type CreateAlgorithmCommandOutput = CreateAlgorithmOutput & __MetadataBearer;
 
+/**
+ * <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS
+ *             Marketplace.</p>
+ */
 export class CreateAlgorithmCommand extends $Command<
   CreateAlgorithmCommandInput,
   CreateAlgorithmCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAlgorithmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

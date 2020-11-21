@@ -20,6 +20,10 @@ import {
 export type GetKeyPolicyCommandInput = GetKeyPolicyRequest;
 export type GetKeyPolicyCommandOutput = GetKeyPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a key policy attached to the specified customer master key (CMK).
+ *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ */
 export class GetKeyPolicyCommand extends $Command<
   GetKeyPolicyCommandInput,
   GetKeyPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetKeyPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

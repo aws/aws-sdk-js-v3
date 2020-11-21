@@ -20,6 +20,9 @@ import {
 export type UpdateResourceCommandInput = UpdateResourceRequest;
 export type UpdateResourceCommandOutput = Resource & __MetadataBearer;
 
+/**
+ * <p>Changes information about a <a>Resource</a> resource.</p>
+ */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

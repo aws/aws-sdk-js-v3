@@ -20,6 +20,11 @@ import {
 export type UntagLogGroupCommandInput = UntagLogGroupRequest;
 export type UntagLogGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified tags from the specified log group.</p>
+ *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+ *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
+ */
 export class UntagLogGroupCommand extends $Command<
   UntagLogGroupCommandInput,
   UntagLogGroupCommandOutput,
@@ -34,6 +39,9 @@ export class UntagLogGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

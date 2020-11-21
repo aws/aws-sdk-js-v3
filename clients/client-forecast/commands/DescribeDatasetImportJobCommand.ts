@@ -20,6 +20,43 @@ import {
 export type DescribeDatasetImportJobCommandInput = DescribeDatasetImportJobRequest;
 export type DescribeDatasetImportJobCommandOutput = DescribeDatasetImportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a dataset import job created using the <a>CreateDatasetImportJob</a>
+ *       operation.</p>
+ *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
+ *       request, this operation includes the following properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DataSize</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FieldStatistics</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Message</code> - If an error occurred, information about the error.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeDatasetImportJobCommand extends $Command<
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
@@ -34,6 +71,9 @@ export class DescribeDatasetImportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

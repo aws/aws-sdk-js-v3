@@ -20,6 +20,17 @@ import {
 export type SetIdentityNotificationTopicCommandInput = SetIdentityNotificationTopicRequest;
 export type SetIdentityNotificationTopicCommandOutput = SetIdentityNotificationTopicResponse & __MetadataBearer;
 
+/**
+ * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
+ *             this operation, you specify a verified identity, such as an email address or domain.
+ *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
+ *             notifications to the topic you specified. You can send bounce, complaint, or delivery
+ *             notifications (or any combination of the three) to the Amazon SNS topic that you
+ *             specify.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ *         <p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ */
 export class SetIdentityNotificationTopicCommand extends $Command<
   SetIdentityNotificationTopicCommandInput,
   SetIdentityNotificationTopicCommandOutput,
@@ -34,6 +45,9 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

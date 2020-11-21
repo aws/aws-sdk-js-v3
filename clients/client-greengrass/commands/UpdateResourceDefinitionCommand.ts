@@ -20,6 +20,9 @@ import {
 export type UpdateResourceDefinitionCommandInput = UpdateResourceDefinitionRequest;
 export type UpdateResourceDefinitionCommandOutput = UpdateResourceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a resource definition.
+ */
 export class UpdateResourceDefinitionCommand extends $Command<
   UpdateResourceDefinitionCommandInput,
   UpdateResourceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateResourceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

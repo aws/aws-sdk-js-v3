@@ -20,6 +20,22 @@ import {
 export type GetSignalingChannelEndpointCommandInput = GetSignalingChannelEndpointInput;
 export type GetSignalingChannelEndpointCommandOutput = GetSignalingChannelEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
+ *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
+ *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
+ *         <p>
+ *             <code>Protocols</code> is used to determine the communication mechanism. For example,
+ *             if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
+ *             endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS
+ *             endpoint. </p>
+ *         <p>
+ *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
+ *             results in this API generating an endpoint that a client can use to communicate with any
+ *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
+ *             an endpoint that a client can use to communicate only with a
+ *                 <code>MASTER</code>. </p>
+ */
 export class GetSignalingChannelEndpointCommand extends $Command<
   GetSignalingChannelEndpointCommandInput,
   GetSignalingChannelEndpointCommandOutput,
@@ -34,6 +50,9 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

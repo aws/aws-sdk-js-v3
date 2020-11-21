@@ -20,6 +20,9 @@ import {
 export type CreateUserHierarchyGroupCommandInput = CreateUserHierarchyGroupRequest;
 export type CreateUserHierarchyGroupCommandOutput = CreateUserHierarchyGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new user hierarchy group.</p>
+ */
 export class CreateUserHierarchyGroupCommand extends $Command<
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUserHierarchyGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

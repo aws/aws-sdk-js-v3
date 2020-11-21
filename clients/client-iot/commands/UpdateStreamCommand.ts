@@ -20,6 +20,9 @@ import {
 export type UpdateStreamCommandInput = UpdateStreamRequest;
 export type UpdateStreamCommandOutput = UpdateStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing stream. The stream version will be incremented by one.</p>
+ */
 export class UpdateStreamCommand extends $Command<
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

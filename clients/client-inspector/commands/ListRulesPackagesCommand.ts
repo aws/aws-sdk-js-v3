@@ -20,6 +20,9 @@ import {
 export type ListRulesPackagesCommandInput = ListRulesPackagesRequest;
 export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all available Amazon Inspector rules packages.</p>
+ */
 export class ListRulesPackagesCommand extends $Command<
   ListRulesPackagesCommandInput,
   ListRulesPackagesCommandOutput,
@@ -34,6 +37,9 @@ export class ListRulesPackagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

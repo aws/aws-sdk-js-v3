@@ -20,6 +20,16 @@ import {
 export type StartMaintenanceCommandInput = StartMaintenanceRequest;
 export type StartMaintenanceCommandOutput = StartMaintenanceResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying
+ *       cause of maintenance failure has been resolved. The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
+ *     </p>
+ *          <p>
+ *       Maintenance can only be started on servers in <code>HEALTHY</code> and <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is thrown.
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class StartMaintenanceCommand extends $Command<
   StartMaintenanceCommandInput,
   StartMaintenanceCommandOutput,
@@ -34,6 +44,9 @@ export class StartMaintenanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

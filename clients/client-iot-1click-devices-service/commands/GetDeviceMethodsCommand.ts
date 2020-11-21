@@ -24,6 +24,9 @@ import {
 export type GetDeviceMethodsCommandInput = GetDeviceMethodsRequest;
 export type GetDeviceMethodsCommandOutput = GetDeviceMethodsResponse & __MetadataBearer;
 
+/**
+ * <p>Given a device ID, returns the invokable methods associated with the device.</p>
+ */
 export class GetDeviceMethodsCommand extends $Command<
   GetDeviceMethodsCommandInput,
   GetDeviceMethodsCommandOutput,
@@ -38,6 +41,9 @@ export class GetDeviceMethodsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

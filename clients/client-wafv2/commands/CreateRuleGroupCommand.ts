@@ -20,6 +20,13 @@ import {
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
 export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ *          </note>
+ *          <p>Creates a <a>RuleGroup</a> per the specifications provided. </p>
+ *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
+ */
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
   CreateRuleGroupCommandOutput,
@@ -34,6 +41,9 @@ export class CreateRuleGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

@@ -24,6 +24,9 @@ export type UpdateNotebookInstanceLifecycleConfigCommandInput = UpdateNotebookIn
 export type UpdateNotebookInstanceLifecycleConfigCommandOutput = UpdateNotebookInstanceLifecycleConfigOutput &
   __MetadataBearer;
 
+/**
+ * <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
+ */
 export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

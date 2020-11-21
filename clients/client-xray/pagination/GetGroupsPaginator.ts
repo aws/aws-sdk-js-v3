@@ -4,6 +4,9 @@ import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from 
 import { XRayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: XRayClient,
   input: GetGroupsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: XRay,
   input: GetGroupsCommandInput,

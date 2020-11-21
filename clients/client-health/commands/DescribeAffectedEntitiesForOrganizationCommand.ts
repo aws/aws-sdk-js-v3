@@ -24,6 +24,21 @@ export type DescribeAffectedEntitiesForOrganizationCommandInput = DescribeAffect
 export type DescribeAffectedEntitiesForOrganizationCommandOutput = DescribeAffectedEntitiesForOrganizationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of entities that have been affected by one or more events for one or more
+ *          accounts in your organization in AWS Organizations, based on the filter criteria. Entities can refer
+ *          to individual customer resources, groups of customer resources, or any other construct,
+ *          depending on the AWS service.</p>
+ *          <p>At least one event Amazon Resource Name (ARN) and account ID are required. Results are
+ *          sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most
+ *          recent.</p>
+ *          <p>Before you can call this operation, you must first enable AWS Health to work with
+ *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
+ *          operation from your organization's master account. </p>
+ *          <note>
+ *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *          </note>
+ */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
   DescribeAffectedEntitiesForOrganizationCommandInput,
   DescribeAffectedEntitiesForOrganizationCommandOutput,
@@ -38,6 +53,9 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateConnectorDefinitionVersionCommandInput = CreateConnectorDefinitionVersionRequest;
 export type CreateConnectorDefinitionVersionCommandOutput = CreateConnectorDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a connector definition which has already been defined.
+ */
 export class CreateConnectorDefinitionVersionCommand extends $Command<
   CreateConnectorDefinitionVersionCommandInput,
   CreateConnectorDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

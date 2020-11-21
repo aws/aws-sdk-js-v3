@@ -20,6 +20,9 @@ import {
 export type DeleteApnsVoipSandboxChannelCommandInput = DeleteApnsVoipSandboxChannelRequest;
 export type DeleteApnsVoipSandboxChannelCommandOutput = DeleteApnsVoipSandboxChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteApnsVoipSandboxChannelCommand extends $Command<
   DeleteApnsVoipSandboxChannelCommandInput,
   DeleteApnsVoipSandboxChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

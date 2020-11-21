@@ -20,6 +20,9 @@ import {
 export type DescribeSnapshotSchedulesCommandInput = DescribeSnapshotSchedulesMessage;
 export type DescribeSnapshotSchedulesCommandOutput = DescribeSnapshotSchedulesOutputMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of snapshot schedules. </p>
+ */
 export class DescribeSnapshotSchedulesCommand extends $Command<
   DescribeSnapshotSchedulesCommandInput,
   DescribeSnapshotSchedulesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

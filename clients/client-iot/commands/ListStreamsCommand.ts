@@ -20,6 +20,9 @@ import {
 export type ListStreamsCommandInput = ListStreamsRequest;
 export type ListStreamsCommandOutput = ListStreamsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the streams in your AWS account.</p>
+ */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,
   ListStreamsCommandOutput,
@@ -34,6 +37,9 @@ export class ListStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

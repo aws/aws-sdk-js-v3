@@ -20,6 +20,9 @@ import {
 export type CreateFlowDefinitionCommandInput = CreateFlowDefinitionRequest;
 export type CreateFlowDefinitionCommandOutput = CreateFlowDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a flow definition.</p>
+ */
 export class CreateFlowDefinitionCommand extends $Command<
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFlowDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

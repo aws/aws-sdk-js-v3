@@ -20,6 +20,10 @@ import {
 export type DeleteExternalModelCommandInput = DeleteExternalModelRequest;
 export type DeleteExternalModelCommandOutput = DeleteExternalModelResult & __MetadataBearer;
 
+/**
+ * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
+ * 	        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
+ */
 export class DeleteExternalModelCommand extends $Command<
   DeleteExternalModelCommandInput,
   DeleteExternalModelCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteExternalModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

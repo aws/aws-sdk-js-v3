@@ -20,6 +20,9 @@ import {
 export type DescribeMigrationTaskCommandInput = DescribeMigrationTaskRequest;
 export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
+ */
 export class DescribeMigrationTaskCommand extends $Command<
   DescribeMigrationTaskCommandInput,
   DescribeMigrationTaskCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMigrationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

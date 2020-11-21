@@ -20,6 +20,9 @@ import {
 export type DeleteLocalGatewayRouteCommandInput = DeleteLocalGatewayRouteRequest;
 export type DeleteLocalGatewayRouteCommandOutput = DeleteLocalGatewayRouteResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified route from the specified local gateway route table.</p>
+ */
 export class DeleteLocalGatewayRouteCommand extends $Command<
   DeleteLocalGatewayRouteCommandInput,
   DeleteLocalGatewayRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

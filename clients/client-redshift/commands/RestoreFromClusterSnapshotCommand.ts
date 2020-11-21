@@ -20,6 +20,20 @@ import {
 export type RestoreFromClusterSnapshotCommandInput = RestoreFromClusterSnapshotMessage;
 export type RestoreFromClusterSnapshotCommandOutput = RestoreFromClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
+ *             cluster with the same configuration as the original cluster from which the snapshot was
+ *             created, except that the new cluster is created with the default cluster security and
+ *             parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different
+ *             parameter group with the restored cluster. If you are using a DS node type, you can also
+ *             choose to change to another DS node type of the same size during restore.</p>
+ *         <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where
+ *             you want the cluster restored.</p>
+ *         <p>
+ * For more information about working with snapshots, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class RestoreFromClusterSnapshotCommand extends $Command<
   RestoreFromClusterSnapshotCommandInput,
   RestoreFromClusterSnapshotCommandOutput,
@@ -34,6 +48,9 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetInstanceSnapshotsCommandInput = GetInstanceSnapshotsRequest;
 export type GetInstanceSnapshotsCommandOutput = GetInstanceSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Returns all instance snapshots for the user's account.</p>
+ */
 export class GetInstanceSnapshotsCommand extends $Command<
   GetInstanceSnapshotsCommandInput,
   GetInstanceSnapshotsCommandOutput,
@@ -34,6 +37,9 @@ export class GetInstanceSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

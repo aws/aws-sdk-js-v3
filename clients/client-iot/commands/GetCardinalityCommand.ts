@@ -20,6 +20,9 @@ import {
 export type GetCardinalityCommandInput = GetCardinalityRequest;
 export type GetCardinalityCommandOutput = GetCardinalityResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the approximate count of unique values that match the query.</p>
+ */
 export class GetCardinalityCommand extends $Command<
   GetCardinalityCommandInput,
   GetCardinalityCommandOutput,
@@ -34,6 +37,9 @@ export class GetCardinalityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

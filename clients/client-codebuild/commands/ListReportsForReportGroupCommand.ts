@@ -20,6 +20,11 @@ import {
 export type ListReportsForReportGroupCommandInput = ListReportsForReportGroupInput;
 export type ListReportsForReportGroupCommandOutput = ListReportsForReportGroupOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
+ *     </p>
+ */
 export class ListReportsForReportGroupCommand extends $Command<
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput,
@@ -34,6 +39,9 @@ export class ListReportsForReportGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

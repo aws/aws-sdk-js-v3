@@ -20,6 +20,9 @@ import {
 export type DescribeTrafficMirrorSessionsCommandInput = DescribeTrafficMirrorSessionsRequest;
 export type DescribeTrafficMirrorSessionsCommandOutput = DescribeTrafficMirrorSessionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+ */
 export class DescribeTrafficMirrorSessionsCommand extends $Command<
   DescribeTrafficMirrorSessionsCommandInput,
   DescribeTrafficMirrorSessionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

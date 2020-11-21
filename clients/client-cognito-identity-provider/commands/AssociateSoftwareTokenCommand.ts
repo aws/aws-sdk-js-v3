@@ -25,6 +25,10 @@ import {
 export type AssociateSoftwareTokenCommandInput = AssociateSoftwareTokenRequest;
 export type AssociateSoftwareTokenCommandOutput = AssociateSoftwareTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a unique generated shared secret key code for the user account. The request
+ *             takes an access token or a session string, but not both.</p>
+ */
 export class AssociateSoftwareTokenCommand extends $Command<
   AssociateSoftwareTokenCommandInput,
   AssociateSoftwareTokenCommandOutput,
@@ -39,6 +43,9 @@ export class AssociateSoftwareTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

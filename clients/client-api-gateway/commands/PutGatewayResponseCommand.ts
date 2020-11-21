@@ -20,6 +20,9 @@ import {
 export type PutGatewayResponseCommandInput = PutGatewayResponseRequest;
 export type PutGatewayResponseCommandOutput = GatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>
+ */
 export class PutGatewayResponseCommand extends $Command<
   PutGatewayResponseCommandInput,
   PutGatewayResponseCommandOutput,
@@ -34,6 +37,9 @@ export class PutGatewayResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

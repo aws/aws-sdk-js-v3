@@ -24,6 +24,9 @@ import {
 export type DisassociateAttributeGroupCommandInput = DisassociateAttributeGroupRequest;
 export type DisassociateAttributeGroupCommandOutput = DisassociateAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts AssociateAttributeGroup.</p>
+ */
 export class DisassociateAttributeGroupCommand extends $Command<
   DisassociateAttributeGroupCommandInput,
   DisassociateAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

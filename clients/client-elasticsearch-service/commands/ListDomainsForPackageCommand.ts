@@ -24,6 +24,9 @@ import {
 export type ListDomainsForPackageCommandInput = ListDomainsForPackageRequest;
 export type ListDomainsForPackageCommandOutput = ListDomainsForPackageResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all Amazon ES domains associated with the package.</p>
+ */
 export class ListDomainsForPackageCommand extends $Command<
   ListDomainsForPackageCommandInput,
   ListDomainsForPackageCommandOutput,
@@ -38,6 +41,9 @@ export class ListDomainsForPackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

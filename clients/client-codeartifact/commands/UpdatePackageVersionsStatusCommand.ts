@@ -20,6 +20,11 @@ import {
 export type UpdatePackageVersionsStatusCommandInput = UpdatePackageVersionsStatusRequest;
 export type UpdatePackageVersionsStatusCommandOutput = UpdatePackageVersionsStatusResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Updates the status of one or more versions of a package.
+ *     </p>
+ */
 export class UpdatePackageVersionsStatusCommand extends $Command<
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -34,6 +39,9 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

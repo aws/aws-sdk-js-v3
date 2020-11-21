@@ -20,6 +20,9 @@ import {
 export type ListBackendEnvironmentsCommandInput = ListBackendEnvironmentsRequest;
 export type ListBackendEnvironmentsCommandOutput = ListBackendEnvironmentsResult & __MetadataBearer;
 
+/**
+ * <p> Lists the backend environments for an Amplify app. </p>
+ */
 export class ListBackendEnvironmentsCommand extends $Command<
   ListBackendEnvironmentsCommandInput,
   ListBackendEnvironmentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListBackendEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

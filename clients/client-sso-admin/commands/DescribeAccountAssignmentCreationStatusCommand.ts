@@ -24,6 +24,9 @@ export type DescribeAccountAssignmentCreationStatusCommandInput = DescribeAccoun
 export type DescribeAccountAssignmentCreationStatusCommandOutput = DescribeAccountAssignmentCreationStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the status of the assignment creation request.</p>
+ */
 export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
   DescribeAccountAssignmentCreationStatusCommandInput,
   DescribeAccountAssignmentCreationStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

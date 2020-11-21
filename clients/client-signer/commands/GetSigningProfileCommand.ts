@@ -20,6 +20,9 @@ import {
 export type GetSigningProfileCommandInput = GetSigningProfileRequest;
 export type GetSigningProfileCommandOutput = GetSigningProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information on a specific signing profile.</p>
+ */
 export class GetSigningProfileCommand extends $Command<
   GetSigningProfileCommandInput,
   GetSigningProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetSigningProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

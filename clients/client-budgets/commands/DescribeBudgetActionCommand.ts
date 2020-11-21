@@ -20,6 +20,11 @@ import {
 export type DescribeBudgetActionCommandInput = DescribeBudgetActionRequest;
 export type DescribeBudgetActionCommandOutput = DescribeBudgetActionResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Describes a budget action detail.
+ *       </p>
+ */
 export class DescribeBudgetActionCommand extends $Command<
   DescribeBudgetActionCommandInput,
   DescribeBudgetActionCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeBudgetActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

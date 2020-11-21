@@ -20,6 +20,9 @@ import {
 export type DescribeApplicationsCommandInput = DescribeApplicationsMessage;
 export type DescribeApplicationsCommandOutput = ApplicationDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns the descriptions of existing applications.</p>
+ */
 export class DescribeApplicationsCommand extends $Command<
   DescribeApplicationsCommandInput,
   DescribeApplicationsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

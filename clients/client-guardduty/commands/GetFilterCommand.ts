@@ -20,6 +20,9 @@ import {
 export type GetFilterCommandInput = GetFilterRequest;
 export type GetFilterCommandOutput = GetFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details of the filter specified by the filter name.</p>
+ */
 export class GetFilterCommand extends $Command<
   GetFilterCommandInput,
   GetFilterCommandOutput,
@@ -34,6 +37,9 @@ export class GetFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

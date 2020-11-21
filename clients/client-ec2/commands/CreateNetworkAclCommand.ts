@@ -20,6 +20,11 @@ import {
 export type CreateNetworkAclCommandInput = CreateNetworkAclRequest;
 export type CreateNetworkAclCommandOutput = CreateNetworkAclResult & __MetadataBearer;
 
+/**
+ * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
+ * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateNetworkAclCommand extends $Command<
   CreateNetworkAclCommandInput,
   CreateNetworkAclCommandOutput,
@@ -34,6 +39,9 @@ export class CreateNetworkAclCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

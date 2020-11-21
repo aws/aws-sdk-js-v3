@@ -20,6 +20,9 @@ import {
 export type DeletePortalCommandInput = DeletePortalRequest;
 export type DeletePortalCommandOutput = DeletePortalResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a portal from AWS IoT SiteWise Monitor.</p>
+ */
 export class DeletePortalCommand extends $Command<
   DeletePortalCommandInput,
   DeletePortalCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePortalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

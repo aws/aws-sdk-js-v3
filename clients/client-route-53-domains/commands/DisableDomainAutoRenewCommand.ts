@@ -20,6 +20,9 @@ import {
 export type DisableDomainAutoRenewCommandInput = DisableDomainAutoRenewRequest;
 export type DisableDomainAutoRenewCommandOutput = DisableDomainAutoRenewResponse & __MetadataBearer;
 
+/**
+ * <p>This operation disables automatic renewal of domain registration for the specified domain.</p>
+ */
 export class DisableDomainAutoRenewCommand extends $Command<
   DisableDomainAutoRenewCommandInput,
   DisableDomainAutoRenewCommandOutput,
@@ -34,6 +37,9 @@ export class DisableDomainAutoRenewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

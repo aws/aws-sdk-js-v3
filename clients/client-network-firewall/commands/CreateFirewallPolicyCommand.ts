@@ -20,6 +20,12 @@ import {
 export type CreateFirewallPolicyCommandInput = CreateFirewallPolicyRequest;
 export type CreateFirewallPolicyCommandOutput = CreateFirewallPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates the firewall policy for the firewall according to the specifications. </p>
+ *          <p>An AWS Network Firewall firewall policy defines the behavior of a firewall, in a collection of
+ *          stateless and stateful rule groups and other settings. You can use one firewall policy for
+ *          multiple firewalls. </p>
+ */
 export class CreateFirewallPolicyCommand extends $Command<
   CreateFirewallPolicyCommandInput,
   CreateFirewallPolicyCommandOutput,
@@ -34,6 +40,9 @@ export class CreateFirewallPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

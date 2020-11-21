@@ -20,6 +20,14 @@ import {
 export type ListStreamsCommandInput = ListStreamsInput;
 export type ListStreamsCommandOutput = ListStreamsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of stream ARNs associated with the current account and endpoint. If the
+ *         <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the
+ *       streams ARNs for that table.</p>
+ *          <note>
+ *             <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p>
+ *          </note>
+ */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,
   ListStreamsCommandOutput,
@@ -34,6 +42,9 @@ export class ListStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBStreamsClientResolvedConfig,

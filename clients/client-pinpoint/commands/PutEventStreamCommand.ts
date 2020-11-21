@@ -20,6 +20,9 @@ import {
 export type PutEventStreamCommandInput = PutEventStreamRequest;
 export type PutEventStreamCommandOutput = PutEventStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
+ */
 export class PutEventStreamCommand extends $Command<
   PutEventStreamCommandInput,
   PutEventStreamCommandOutput,
@@ -34,6 +37,9 @@ export class PutEventStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

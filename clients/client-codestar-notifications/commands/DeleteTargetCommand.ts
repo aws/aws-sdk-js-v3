@@ -24,6 +24,9 @@ import {
 export type DeleteTargetCommandInput = DeleteTargetRequest;
 export type DeleteTargetCommandOutput = DeleteTargetResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified target for notifications.</p>
+ */
 export class DeleteTargetCommand extends $Command<
   DeleteTargetCommandInput,
   DeleteTargetCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

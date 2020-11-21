@@ -20,6 +20,20 @@ import {
 export type DeleteDBClusterSnapshotCommandInput = DeleteDBClusterSnapshotMessage;
 export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
+ *          <note>
+ *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
+ *             deleted.</p>
+ *          </note>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,
   DeleteDBClusterSnapshotCommandOutput,
@@ -34,6 +48,9 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

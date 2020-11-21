@@ -20,6 +20,10 @@ import {
 export type UpdateDetectorVersionMetadataCommandInput = UpdateDetectorVersionMetadataRequest;
 export type UpdateDetectorVersionMetadataCommandOutput = UpdateDetectorVersionMetadataResult & __MetadataBearer;
 
+/**
+ * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
+ *                 <code>INACTIVE</code>). </p>
+ */
 export class UpdateDetectorVersionMetadataCommand extends $Command<
   UpdateDetectorVersionMetadataCommandInput,
   UpdateDetectorVersionMetadataCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListStreamingDistributionsCommandInput = ListStreamingDistributionsRequest;
 export type ListStreamingDistributionsCommandOutput = ListStreamingDistributionsResult & __MetadataBearer;
 
+/**
+ * <p>List streaming distributions. </p>
+ */
 export class ListStreamingDistributionsCommand extends $Command<
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListStreamingDistributionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

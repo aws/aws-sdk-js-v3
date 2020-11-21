@@ -20,6 +20,14 @@ import {
 export type UpdateStackSetCommandInput = UpdateStackSetInput;
 export type UpdateStackSetCommandOutput = UpdateStackSetOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the stack set, and associated stack instances in the specified accounts and
+ *          Regions.</p>
+ *          <p>Even if the stack set operation created by updating the stack set fails (completely
+ *          or partially, below or above a specified failure tolerance), the stack set is updated with
+ *          your changes. Subsequent <a>CreateStackInstances</a> calls on the specified
+ *          stack set use the updated stack set.</p>
+ */
 export class UpdateStackSetCommand extends $Command<
   UpdateStackSetCommandInput,
   UpdateStackSetCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateStackSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

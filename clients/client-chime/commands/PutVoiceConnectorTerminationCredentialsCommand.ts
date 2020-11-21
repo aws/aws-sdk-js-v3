@@ -20,6 +20,9 @@ import {
 export type PutVoiceConnectorTerminationCredentialsCommandInput = PutVoiceConnectorTerminationCredentialsRequest;
 export type PutVoiceConnectorTerminationCredentialsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
+ */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
   PutVoiceConnectorTerminationCredentialsCommandInput,
   PutVoiceConnectorTerminationCredentialsCommandOutput,
@@ -34,6 +37,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

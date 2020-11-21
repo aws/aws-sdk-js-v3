@@ -20,6 +20,11 @@ import {
 export type ListAccountsCommandInput = ListAccountsRequest;
 export type ListAccountsCommandOutput = ListAccountsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
+ *       accounts by account name prefix. To find out which Amazon Chime account a user belongs to, you
+ *       can filter by the user's email address, which returns one account result.</p>
+ */
 export class ListAccountsCommand extends $Command<
   ListAccountsCommandInput,
   ListAccountsCommandOutput,
@@ -34,6 +39,9 @@ export class ListAccountsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

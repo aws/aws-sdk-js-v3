@@ -20,6 +20,10 @@ import {
 export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsRequest;
 export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business
+ *       Calling and Amazon Chime Voice Connector settings.</p>
+ */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

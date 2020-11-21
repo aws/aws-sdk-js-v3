@@ -20,6 +20,9 @@ import {
 export type DeleteVocabularyCommandInput = DeleteVocabularyRequest;
 export type DeleteVocabularyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a vocabulary from Amazon Transcribe. </p>
+ */
 export class DeleteVocabularyCommand extends $Command<
   DeleteVocabularyCommandInput,
   DeleteVocabularyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVocabularyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

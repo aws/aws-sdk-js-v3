@@ -20,6 +20,11 @@ import {
 export type DeleteDirectoryCommandInput = DeleteDirectoryRequest;
 export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
+ *         caution
+ *         when deleting directories.</p>
+ */
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,
   DeleteDirectoryCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

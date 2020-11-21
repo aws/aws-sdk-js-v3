@@ -20,6 +20,14 @@ import {
 export type DeleteApplicationOutputCommandInput = DeleteApplicationOutputRequest;
 export type DeleteApplicationOutputCommandOutput = DeleteApplicationOutputResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
+ *          </note>
+ *         <p>Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.</p>
+ *         <p>This operation requires permissions to perform the
+ *             <code>kinesisanalytics:DeleteApplicationOutput</code> action.</p>
+ */
 export class DeleteApplicationOutputCommand extends $Command<
   DeleteApplicationOutputCommandInput,
   DeleteApplicationOutputCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteApplicationOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,

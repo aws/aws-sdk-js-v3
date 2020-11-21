@@ -24,6 +24,9 @@ export type PutClassificationExportConfigurationCommandInput = PutClassification
 export type PutClassificationExportConfigurationCommandOutput = PutClassificationExportConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates or updates the configuration settings for storing data classification results.</p>
+ */
 export class PutClassificationExportConfigurationCommand extends $Command<
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

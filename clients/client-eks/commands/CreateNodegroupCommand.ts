@@ -20,6 +20,18 @@ import {
 export type CreateNodegroupCommandInput = CreateNodegroupRequest;
 export type CreateNodegroupCommandOutput = CreateNodegroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a managed worker node group for an Amazon EKS cluster. You can only create a node
+ *             group for your cluster that is equal to the current Kubernetes version for the cluster.
+ *             All node groups are created with the latest AMI release version for the respective minor
+ *             Kubernetes version of the cluster, unless you deploy a custom AMI using a launch
+ *             template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+ *                 template support</a>.</p>
+ *         <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
+ *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the
+ *             Amazon EKS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+ *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
+ */
 export class CreateNodegroupCommand extends $Command<
   CreateNodegroupCommandInput,
   CreateNodegroupCommandOutput,
@@ -34,6 +46,9 @@ export class CreateNodegroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

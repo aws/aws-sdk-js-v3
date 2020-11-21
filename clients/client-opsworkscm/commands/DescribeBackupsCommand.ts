@@ -20,6 +20,19 @@ import {
 export type DescribeBackupsCommandInput = DescribeBackupsRequest;
 export type DescribeBackupsCommandOutput = DescribeBackupsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Describes backups. The results are ordered by time, with newest backups first.
+ *       If you do not specify a BackupId or ServerName, the command returns all backups.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ *          <p>
+ *       A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
+ *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class DescribeBackupsCommand extends $Command<
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeBackupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

@@ -20,6 +20,24 @@ import {
 export type SetSecurityTokenServicePreferencesCommandInput = SetSecurityTokenServicePreferencesRequest;
 export type SetSecurityTokenServicePreferencesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the specified version of the global endpoint token as the token version used for
+ *          the AWS account.</p>
+ *          <p>By default, AWS Security Token Service (STS) is available as a global service, and all STS requests
+ *          go to a single endpoint at <code>https://sts.amazonaws.com</code>. AWS recommends using
+ *          Regional STS endpoints to reduce latency, build in redundancy, and increase session token
+ *          availability. For information about Regional endpoints for STS, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region">AWS Regions and
+ *             Endpoints</a> in the <i>AWS General Reference</i>.</p>
+ *          <p>If you make an STS call to the global endpoint, the resulting session tokens might be
+ *          valid in some Regions but not others. It depends on the version that is set in this
+ *          operation. Version 1 tokens are valid only in AWS Regions that are available by default.
+ *          These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong).
+ *          Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might
+ *          affect systems where you temporarily store tokens. For information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and Deactivating STS in an AWS Region</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ *          <p>To view the current session token version, see the
+ *             <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
+ */
 export class SetSecurityTokenServicePreferencesCommand extends $Command<
   SetSecurityTokenServicePreferencesCommandInput,
   SetSecurityTokenServicePreferencesCommandOutput,
@@ -34,6 +52,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

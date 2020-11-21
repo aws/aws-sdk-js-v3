@@ -24,6 +24,12 @@ import {
 export type GetBotChannelAssociationCommandInput = GetBotChannelAssociationRequest;
 export type GetBotChannelAssociationCommandOutput = GetBotChannelAssociationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the association between an Amazon Lex bot and a messaging
+ *       platform.</p>
+ *          <p>This operation requires permissions for the <code>lex:GetBotChannelAssociation</code>
+ *       action.</p>
+ */
 export class GetBotChannelAssociationCommand extends $Command<
   GetBotChannelAssociationCommandInput,
   GetBotChannelAssociationCommandOutput,
@@ -38,6 +44,9 @@ export class GetBotChannelAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

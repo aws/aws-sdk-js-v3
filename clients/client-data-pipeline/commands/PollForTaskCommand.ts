@@ -20,6 +20,17 @@ import {
 export type PollForTaskCommandInput = PollForTaskInput;
 export type PollForTaskCommandOutput = PollForTaskOutput & __MetadataBearer;
 
+/**
+ * <p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform
+ *             by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that
+ *             match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials
+ *             specified by the task runner.</p>
+ *         <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue,
+ *             <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly
+ *             scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task
+ *             runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds.
+ *         </p>
+ */
 export class PollForTaskCommand extends $Command<
   PollForTaskCommandInput,
   PollForTaskCommandOutput,
@@ -34,6 +45,9 @@ export class PollForTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

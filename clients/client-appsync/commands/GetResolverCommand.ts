@@ -20,6 +20,9 @@ import {
 export type GetResolverCommandInput = GetResolverRequest;
 export type GetResolverCommandOutput = GetResolverResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a <code>Resolver</code> object.</p>
+ */
 export class GetResolverCommand extends $Command<
   GetResolverCommandInput,
   GetResolverCommandOutput,
@@ -34,6 +37,9 @@ export class GetResolverCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type MergeBranchesByThreeWayCommandInput = MergeBranchesByThreeWayInput;
 export type MergeBranchesByThreeWayCommandOutput = MergeBranchesByThreeWayOutput & __MetadataBearer;
 
+/**
+ * <p>Merges two specified branches using the three-way merge strategy.</p>
+ */
 export class MergeBranchesByThreeWayCommand extends $Command<
   MergeBranchesByThreeWayCommandInput,
   MergeBranchesByThreeWayCommandOutput,
@@ -34,6 +37,9 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

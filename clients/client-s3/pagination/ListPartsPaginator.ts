@@ -4,6 +4,9 @@ import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from 
 import { S3PaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: S3Client,
   input: ListPartsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPartsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: S3,
   input: ListPartsCommandInput,

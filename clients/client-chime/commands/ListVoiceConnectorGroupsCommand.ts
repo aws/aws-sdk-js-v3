@@ -20,6 +20,9 @@ import {
 export type ListVoiceConnectorGroupsCommandInput = ListVoiceConnectorGroupsRequest;
 export type ListVoiceConnectorGroupsCommandOutput = ListVoiceConnectorGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
+ */
 export class ListVoiceConnectorGroupsCommand extends $Command<
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

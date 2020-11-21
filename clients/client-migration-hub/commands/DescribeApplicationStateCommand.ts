@@ -20,6 +20,9 @@ import {
 export type DescribeApplicationStateCommandInput = DescribeApplicationStateRequest;
 export type DescribeApplicationStateCommandOutput = DescribeApplicationStateResult & __MetadataBearer;
 
+/**
+ * <p>Gets the migration status of an application.</p>
+ */
 export class DescribeApplicationStateCommand extends $Command<
   DescribeApplicationStateCommandInput,
   DescribeApplicationStateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeApplicationStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

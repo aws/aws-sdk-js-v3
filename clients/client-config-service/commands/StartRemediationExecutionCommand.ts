@@ -20,6 +20,10 @@ import {
 export type StartRemediationExecutionCommandInput = StartRemediationExecutionRequest;
 export type StartRemediationExecutionCommandOutput = StartRemediationExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.</p>
+ * 			      <p>You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.</p>
+ */
 export class StartRemediationExecutionCommand extends $Command<
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
@@ -34,6 +38,9 @@ export class StartRemediationExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

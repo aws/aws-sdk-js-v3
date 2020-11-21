@@ -20,6 +20,11 @@ import {
 export type CreateInternetGatewayCommandInput = CreateInternetGatewayRequest;
 export type CreateInternetGatewayCommandOutput = CreateInternetGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,
+ * 			you attach it to a VPC using <a>AttachInternetGateway</a>.</p>
+ *          <p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ */
 export class CreateInternetGatewayCommand extends $Command<
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput,
@@ -34,6 +39,9 @@ export class CreateInternetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

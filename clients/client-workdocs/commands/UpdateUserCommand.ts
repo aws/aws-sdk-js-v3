@@ -20,6 +20,10 @@ import {
 export type UpdateUserCommandInput = UpdateUserRequest;
 export type UpdateUserCommandOutput = UpdateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified attributes of the specified user, and grants or revokes
+ *             administrative privileges to the Amazon WorkDocs site.</p>
+ */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,
   UpdateUserCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

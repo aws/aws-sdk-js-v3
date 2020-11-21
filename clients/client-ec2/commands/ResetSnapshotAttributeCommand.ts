@@ -20,6 +20,11 @@ import {
 export type ResetSnapshotAttributeCommandInput = ResetSnapshotAttributeRequest;
 export type ResetSnapshotAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Resets permission settings for the specified snapshot.</p>
+ *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class ResetSnapshotAttributeCommand extends $Command<
   ResetSnapshotAttributeCommandInput,
   ResetSnapshotAttributeCommandOutput,
@@ -34,6 +39,9 @@ export class ResetSnapshotAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type ListPredictorsCommandInput = ListPredictorsRequest;
 export type ListPredictorsCommandOutput = ListPredictorsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of predictors created using the <a>CreatePredictor</a>
+ *       operation. For each predictor, this operation returns a summary of its properties, including
+ *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
+ *       ARN with the <a>DescribePredictor</a> operation. You can filter the list using an
+ *       array of <a>Filter</a> objects.</p>
+ */
 export class ListPredictorsCommand extends $Command<
   ListPredictorsCommandInput,
   ListPredictorsCommandOutput,
@@ -34,6 +41,9 @@ export class ListPredictorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

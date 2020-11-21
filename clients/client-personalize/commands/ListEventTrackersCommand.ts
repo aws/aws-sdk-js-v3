@@ -20,6 +20,12 @@ import {
 export type ListEventTrackersCommandInput = ListEventTrackersRequest;
 export type ListEventTrackersCommandOutput = ListEventTrackersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the list of event trackers associated with the account.
+ *       The response provides the properties for each event tracker, including the Amazon Resource
+ *       Name (ARN) and tracking ID. For more
+ *       information on event trackers, see <a>CreateEventTracker</a>.</p>
+ */
 export class ListEventTrackersCommand extends $Command<
   ListEventTrackersCommandInput,
   ListEventTrackersCommandOutput,
@@ -34,6 +40,9 @@ export class ListEventTrackersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

@@ -24,6 +24,26 @@ export type DescribeTrustedAdvisorCheckSummariesCommandInput = DescribeTrustedAd
 export type DescribeTrustedAdvisorCheckSummariesCommandOutput = DescribeTrustedAdvisorCheckSummariesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the results for the AWS Trusted Advisor check summaries for the check IDs that you
+ *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
+ *         <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
+ *             objects.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
   DescribeTrustedAdvisorCheckSummariesCommandInput,
   DescribeTrustedAdvisorCheckSummariesCommandOutput,
@@ -38,6 +58,9 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,

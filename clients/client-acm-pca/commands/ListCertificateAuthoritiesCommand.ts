@@ -20,6 +20,9 @@ import {
 export type ListCertificateAuthoritiesCommandInput = ListCertificateAuthoritiesRequest;
 export type ListCertificateAuthoritiesCommandOutput = ListCertificateAuthoritiesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
+ */
 export class ListCertificateAuthoritiesCommand extends $Command<
   ListCertificateAuthoritiesCommandInput,
   ListCertificateAuthoritiesCommandOutput,
@@ -34,6 +37,9 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

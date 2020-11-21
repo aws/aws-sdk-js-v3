@@ -20,6 +20,9 @@ import {
 export type UpdateProjectCommandInput = UpdateProjectRequest;
 export type UpdateProjectCommandOutput = UpdateProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an AWS IoT SiteWise Monitor project.</p>
+ */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

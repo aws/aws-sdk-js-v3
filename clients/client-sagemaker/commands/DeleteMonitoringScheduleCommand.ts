@@ -20,6 +20,10 @@ import {
 export type DeleteMonitoringScheduleCommandInput = DeleteMonitoringScheduleRequest;
 export type DeleteMonitoringScheduleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
+ *          This does not delete the job execution history of the monitoring schedule. </p>
+ */
 export class DeleteMonitoringScheduleCommand extends $Command<
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

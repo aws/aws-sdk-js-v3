@@ -20,6 +20,9 @@ import {
 export type UpdateAuditStreamConfigurationCommandInput = UpdateAuditStreamConfigurationRequest;
 export type UpdateAuditStreamConfigurationCommandOutput = UpdateAuditStreamConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the audit stream configuration for the fleet.</p>
+ */
 export class UpdateAuditStreamConfigurationCommand extends $Command<
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

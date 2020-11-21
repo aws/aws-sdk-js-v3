@@ -19,6 +19,14 @@ import {
 export type EnableHealthServiceAccessForOrganizationCommandInput = {};
 export type EnableHealthServiceAccessForOrganizationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Calling this operation enables AWS Health to work with AWS Organizations. This applies a
+ *          service-linked role (SLR) to the master account in the organization. To call this
+ *          operation, you must sign in as an IAM user, assume an IAM role, or sign in as the root
+ *          user (not recommended) in the organization's master account.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating AWS Health events</a> in the <i>AWS Health User
+ *             Guide</i>.</p>
+ */
 export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
   EnableHealthServiceAccessForOrganizationCommandInput,
   EnableHealthServiceAccessForOrganizationCommandOutput,
@@ -33,6 +41,9 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

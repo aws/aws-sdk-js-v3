@@ -21,6 +21,10 @@ import {
 export type GetIdentityPoolRolesCommandInput = GetIdentityPoolRolesInput;
 export type GetIdentityPoolRolesCommandOutput = GetIdentityPoolRolesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the roles for an identity pool.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class GetIdentityPoolRolesCommand extends $Command<
   GetIdentityPoolRolesCommandInput,
   GetIdentityPoolRolesCommandOutput,
@@ -35,6 +39,9 @@ export class GetIdentityPoolRolesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

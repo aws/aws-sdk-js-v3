@@ -24,6 +24,13 @@ import {
 export type ListApplicationsCommandInput = ListApplicationsRequest;
 export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of Kinesis Data Analytics applications in your account. For each
+ *       application, the response includes the application name, Amazon Resource Name (ARN), and
+ *       status. </p>
+ *          <p>If you want detailed information about a specific application, use
+ *       <a>DescribeApplication</a>.</p>
+ */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -38,6 +45,9 @@ export class ListApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

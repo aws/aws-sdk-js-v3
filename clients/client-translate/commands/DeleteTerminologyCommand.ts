@@ -20,6 +20,9 @@ import {
 export type DeleteTerminologyCommandInput = DeleteTerminologyRequest;
 export type DeleteTerminologyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>A synchronous action that deletes a custom terminology.</p>
+ */
 export class DeleteTerminologyCommand extends $Command<
   DeleteTerminologyCommandInput,
   DeleteTerminologyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTerminologyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

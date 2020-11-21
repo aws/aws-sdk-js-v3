@@ -20,6 +20,9 @@ import {
 export type DescribeLocationEfsCommandInput = DescribeLocationEfsRequest;
 export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
+ */
 export class DescribeLocationEfsCommand extends $Command<
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLocationEfsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

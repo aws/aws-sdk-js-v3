@@ -20,6 +20,25 @@ import {
 export type DeliverConfigSnapshotCommandInput = DeliverConfigSnapshotRequest;
 export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Schedules delivery of a configuration snapshot to the Amazon S3
+ * 			bucket in the specified delivery channel. After the delivery has
+ * 			started, AWS Config sends the following notifications using an
+ * 			Amazon SNS topic that you have specified.</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>Notification of the start of the delivery.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Notification of the completion of the delivery, if the
+ * 					delivery was successfully completed.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Notification of delivery failure, if the delivery
+ * 					failed.</p>
+ * 			         </li>
+ *          </ul>
+ */
 export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandInput,
   DeliverConfigSnapshotCommandOutput,
@@ -34,6 +53,9 @@ export class DeliverConfigSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

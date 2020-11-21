@@ -20,6 +20,12 @@ import {
 export type CreateWorkteamCommandInput = CreateWorkteamRequest;
 export type CreateWorkteamCommandOutput = CreateWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new work team for labeling your data. A work team is defined by one or more
+ *             Amazon Cognito user pools. You must first create the user pools before you can create a work
+ *             team.</p>
+ *         <p>You cannot create more than 25 work teams in an account and region.</p>
+ */
 export class CreateWorkteamCommand extends $Command<
   CreateWorkteamCommandInput,
   CreateWorkteamCommandOutput,
@@ -34,6 +40,9 @@ export class CreateWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

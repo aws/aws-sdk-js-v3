@@ -20,6 +20,9 @@ import {
 export type DeleteEnvironmentCommandInput = DeleteEnvironmentRequest;
 export type DeleteEnvironmentCommandOutput = DeleteEnvironmentResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>
+ */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,
   DeleteEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

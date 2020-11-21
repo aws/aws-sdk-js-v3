@@ -20,6 +20,10 @@ import {
 export type DescribeEntityAggregatesCommandInput = DescribeEntityAggregatesRequest;
 export type DescribeEntityAggregatesCommandOutput = DescribeEntityAggregatesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the number of entities that are affected by each of the specified events. If no
+ *          events are specified, the counts of all affected entities are returned.</p>
+ */
 export class DescribeEntityAggregatesCommand extends $Command<
   DescribeEntityAggregatesCommandInput,
   DescribeEntityAggregatesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEntityAggregatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

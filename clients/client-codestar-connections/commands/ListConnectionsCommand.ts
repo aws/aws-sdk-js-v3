@@ -24,6 +24,9 @@ import {
 export type ListConnectionsCommandInput = ListConnectionsInput;
 export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the connections associated with your account.</p>
+ */
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
@@ -38,6 +41,9 @@ export class ListConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

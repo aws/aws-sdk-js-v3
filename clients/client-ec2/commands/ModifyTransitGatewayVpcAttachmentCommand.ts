@@ -20,6 +20,9 @@ import {
 export type ModifyTransitGatewayVpcAttachmentCommandInput = ModifyTransitGatewayVpcAttachmentRequest;
 export type ModifyTransitGatewayVpcAttachmentCommandOutput = ModifyTransitGatewayVpcAttachmentResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified VPC attachment.</p>
+ */
 export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

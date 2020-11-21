@@ -20,6 +20,9 @@ import {
 export type GetDeploymentsCommandInput = GetDeploymentsRequest;
 export type GetDeploymentsCommandOutput = Deployments & __MetadataBearer;
 
+/**
+ * <p>Gets information about a <a>Deployments</a> collection.</p>
+ */
 export class GetDeploymentsCommand extends $Command<
   GetDeploymentsCommandInput,
   GetDeploymentsCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeploymentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

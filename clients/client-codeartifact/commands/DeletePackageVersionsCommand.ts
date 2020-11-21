@@ -20,6 +20,17 @@ import {
 export type DeletePackageVersionsCommandInput = DeletePackageVersionsRequest;
 export type DeletePackageVersionsCommandOutput = DeletePackageVersionsResult & __MetadataBearer;
 
+/**
+ * <p> Deletes one or more versions of a package. A deleted package version cannot be restored
+ *       in your repository. If you want to remove a package version from your repository and be able
+ *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
+ *       downloaded from a repository and don't show up with list package APIs (for example,
+ *           <code>
+ *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>
+ *             </code>), but you can restore them using <code>
+ *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>
+ *             </code>. </p>
+ */
 export class DeletePackageVersionsCommand extends $Command<
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -34,6 +45,9 @@ export class DeletePackageVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

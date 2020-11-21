@@ -20,6 +20,11 @@ import {
 export type AssociateDeviceWithRoomCommandInput = AssociateDeviceWithRoomRequest;
 export type AssociateDeviceWithRoomCommandOutput = AssociateDeviceWithRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a device with a given room. This applies all the settings from the room
+ *          profile to the device, and all the skills in any skill groups added to that room. This
+ *          operation requires the device to be online, or else a manual sync is required. </p>
+ */
 export class AssociateDeviceWithRoomCommand extends $Command<
   AssociateDeviceWithRoomCommandInput,
   AssociateDeviceWithRoomCommandOutput,
@@ -34,6 +39,9 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

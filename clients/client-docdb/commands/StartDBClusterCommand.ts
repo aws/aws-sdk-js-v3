@@ -20,6 +20,11 @@ import {
 export type StartDBClusterCommandInput = StartDBClusterMessage;
 export type StartDBClusterCommandOutput = StartDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
+ *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
+ *                 Starting an Amazon DocumentDB Cluster</a>.</p>
+ */
 export class StartDBClusterCommand extends $Command<
   StartDBClusterCommandInput,
   StartDBClusterCommandOutput,
@@ -34,6 +39,9 @@ export class StartDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

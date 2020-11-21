@@ -20,6 +20,9 @@ import {
 export type UpdateMemberSessionCommandInput = UpdateMemberSessionRequest;
 export type UpdateMemberSessionCommandOutput = UpdateMemberSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Enables an Amazon Macie master account to suspend or re-enable a member account.</p>
+ */
 export class UpdateMemberSessionCommand extends $Command<
   UpdateMemberSessionCommandInput,
   UpdateMemberSessionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMemberSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

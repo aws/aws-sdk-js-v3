@@ -20,6 +20,15 @@ import {
 export type CreateDBClusterCommandInput = CreateDBClusterMessage;
 export type CreateDBClusterCommandOutput = CreateDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Neptune DB cluster.</p>
+ *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
+ *       cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
+ *          <p>Note that when you create a new cluster using <code>CreateDBCluster</code> directly,
+ *       deletion protection is disabled by default (when you create a new production cluster in
+ *       the console, deletion protection is enabled by default). You can only delete a DB
+ *       cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
+ */
 export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandInput,
   CreateDBClusterCommandOutput,
@@ -34,6 +43,9 @@ export class CreateDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type DeleteReplicationTaskCommandInput = DeleteReplicationTaskMessage;
 export type DeleteReplicationTaskCommandOutput = DeleteReplicationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified replication task.</p>
+ */
 export class DeleteReplicationTaskCommand extends $Command<
   DeleteReplicationTaskCommandInput,
   DeleteReplicationTaskCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteReplicationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

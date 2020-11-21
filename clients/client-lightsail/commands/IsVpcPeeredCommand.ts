@@ -20,6 +20,9 @@ import {
 export type IsVpcPeeredCommandInput = IsVpcPeeredRequest;
 export type IsVpcPeeredCommandOutput = IsVpcPeeredResult & __MetadataBearer;
 
+/**
+ * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
+ */
 export class IsVpcPeeredCommand extends $Command<
   IsVpcPeeredCommandInput,
   IsVpcPeeredCommandOutput,
@@ -34,6 +37,9 @@ export class IsVpcPeeredCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

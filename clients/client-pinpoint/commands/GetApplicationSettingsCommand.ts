@@ -20,6 +20,9 @@ import {
 export type GetApplicationSettingsCommandInput = GetApplicationSettingsRequest;
 export type GetApplicationSettingsCommandOutput = GetApplicationSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the settings for an application.</p>
+ */
 export class GetApplicationSettingsCommand extends $Command<
   GetApplicationSettingsCommandInput,
   GetApplicationSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetApplicationSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

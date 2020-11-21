@@ -17,6 +17,10 @@ import {
 export type DeleteAppCommandInput = DeleteAppRequest;
 export type DeleteAppCommandOutput = DeleteAppResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified application. Optionally deletes the launched stack associated with
+ *             the application and all AWS SMS replication jobs for servers in the application.</p>
+ */
 export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +31,9 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

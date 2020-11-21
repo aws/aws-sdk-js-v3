@@ -20,6 +20,15 @@ import {
 export type GetCurrentUserCommandInput = GetCurrentUserRequest;
 export type GetCurrentUserCommandOutput = GetCurrentUserResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details of the current user for whom the authentication token was
+ *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
+ *         <p>This action requires an authentication token. To get an authentication token,
+ *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
+ *                 Control for User Applications</a> in the
+ *             <i>Amazon
+ *                 WorkDocs Developer Guide</i>.</p>
+ */
 export class GetCurrentUserCommand extends $Command<
   GetCurrentUserCommandInput,
   GetCurrentUserCommandOutput,
@@ -34,6 +43,9 @@ export class GetCurrentUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type EstimateTemplateCostCommandInput = EstimateTemplateCostInput;
 export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the estimated monthly cost of a template. The return value is an AWS Simple
+ *          Monthly Calculator URL with a query string that describes the resources required to run the
+ *          template.</p>
+ */
 export class EstimateTemplateCostCommand extends $Command<
   EstimateTemplateCostCommandInput,
   EstimateTemplateCostCommandOutput,
@@ -34,6 +39,9 @@ export class EstimateTemplateCostCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

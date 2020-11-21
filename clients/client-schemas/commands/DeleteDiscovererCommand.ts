@@ -20,6 +20,9 @@ import {
 export type DeleteDiscovererCommandInput = DeleteDiscovererRequest;
 export type DeleteDiscovererCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a discoverer.</p>
+ */
 export class DeleteDiscovererCommand extends $Command<
   DeleteDiscovererCommandInput,
   DeleteDiscovererCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDiscovererCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

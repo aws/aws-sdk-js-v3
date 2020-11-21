@@ -4,6 +4,9 @@ import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput }
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
   input: ListImportsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListImportsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CloudFormation,
   input: ListImportsCommandInput,

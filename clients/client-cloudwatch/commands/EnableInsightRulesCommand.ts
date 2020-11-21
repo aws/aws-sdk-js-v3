@@ -20,6 +20,9 @@ import {
 export type EnableInsightRulesCommandInput = EnableInsightRulesInput;
 export type EnableInsightRulesCommandOutput = EnableInsightRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
+ */
 export class EnableInsightRulesCommand extends $Command<
   EnableInsightRulesCommandInput,
   EnableInsightRulesCommandOutput,
@@ -34,6 +37,9 @@ export class EnableInsightRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

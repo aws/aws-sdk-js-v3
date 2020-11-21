@@ -17,6 +17,33 @@ import {
 export type AttachVolumeCommandInput = AttachVolumeRequest;
 export type AttachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
 
+/**
+ * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
+ *       with the specified device name.</p>
+ *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
+ *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>After you attach an EBS volume, you must make it available. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS volume available for use</a>.</p>
+ *          <p>If a volume has an AWS Marketplace product code:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The volume can be attached only to a stopped instance.</p>
+ *             </li>
+ *             <li>
+ *                <p>AWS Marketplace product codes are copied from the volume to the instance.</p>
+ *             </li>
+ *             <li>
+ *                <p>You must be subscribed to the product.</p>
+ *             </li>
+ *             <li>
+ *                <p>The instance type and operating system of the instance must support the product. For
+ *           example, you can't detach a volume from a Windows instance and attach it to a Linux
+ *           instance.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS volumes</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class AttachVolumeCommand extends $Command<
   AttachVolumeCommandInput,
   AttachVolumeCommandOutput,
@@ -31,6 +58,9 @@ export class AttachVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

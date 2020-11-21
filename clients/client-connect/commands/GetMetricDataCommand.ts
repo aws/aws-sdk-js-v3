@@ -20,6 +20,11 @@ import {
 export type GetMetricDataCommandInput = GetMetricDataRequest;
 export type GetMetricDataCommandOutput = GetMetricDataResponse & __MetadataBearer;
 
+/**
+ * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
+ *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
+ *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class GetMetricDataCommand extends $Command<
   GetMetricDataCommandInput,
   GetMetricDataCommandOutput,
@@ -34,6 +39,9 @@ export class GetMetricDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

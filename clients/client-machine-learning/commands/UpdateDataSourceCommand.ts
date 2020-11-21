@@ -20,6 +20,10 @@ import {
 export type UpdateDataSourceCommandInput = UpdateDataSourceInput;
 export type UpdateDataSourceCommandOutput = UpdateDataSourceOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
+ *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
+ */
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetSmsTemplateCommandInput = GetSmsTemplateRequest;
 export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
+ */
 export class GetSmsTemplateCommand extends $Command<
   GetSmsTemplateCommandInput,
   GetSmsTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetSmsTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

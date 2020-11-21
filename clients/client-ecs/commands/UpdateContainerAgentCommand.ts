@@ -20,6 +20,17 @@ import {
 export type UpdateContainerAgentCommandInput = UpdateContainerAgentRequest;
 export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
+ * 			Amazon ECS container agent does not interrupt running tasks or services on the container
+ * 			instance. The process for updating the agent differs depending on whether your container
+ * 			instance was launched with the Amazon ECS-optimized AMI or another operating system.</p>
+ * 		       <p>
+ * 			         <code>UpdateContainerAgent</code> requires the Amazon ECS-optimized AMI or Amazon Linux with
+ * 			the <code>ecs-init</code> service installed and running. For help updating the Amazon ECS
+ * 			container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually Updating the Amazon ECS Container Agent</a> in the
+ * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class UpdateContainerAgentCommand extends $Command<
   UpdateContainerAgentCommandInput,
   UpdateContainerAgentCommandOutput,
@@ -34,6 +45,9 @@ export class UpdateContainerAgentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

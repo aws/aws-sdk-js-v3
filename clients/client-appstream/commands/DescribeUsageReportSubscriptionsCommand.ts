@@ -20,6 +20,9 @@ import {
 export type DescribeUsageReportSubscriptionsCommandInput = DescribeUsageReportSubscriptionsRequest;
 export type DescribeUsageReportSubscriptionsCommandOutput = DescribeUsageReportSubscriptionsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more usage report subscriptions.</p>
+ */
 export class DescribeUsageReportSubscriptionsCommand extends $Command<
   DescribeUsageReportSubscriptionsCommandInput,
   DescribeUsageReportSubscriptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

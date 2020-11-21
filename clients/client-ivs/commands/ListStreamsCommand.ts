@@ -20,6 +20,10 @@ import {
 export type ListStreamsCommandInput = ListStreamsRequest;
 export type ListStreamsCommandOutput = ListStreamsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets summary information about live streams in your account, in the AWS region where the
+ *       API request is processed.</p>
+ */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,
   ListStreamsCommandOutput,
@@ -34,6 +38,9 @@ export class ListStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

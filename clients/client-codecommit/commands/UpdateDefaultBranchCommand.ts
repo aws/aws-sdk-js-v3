@@ -20,6 +20,12 @@ import {
 export type UpdateDefaultBranchCommandInput = UpdateDefaultBranchInput;
 export type UpdateDefaultBranchCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets or changes the default branch name for the specified repository.</p>
+ *         <note>
+ *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
+ *          </note>
+ */
 export class UpdateDefaultBranchCommand extends $Command<
   UpdateDefaultBranchCommandInput,
   UpdateDefaultBranchCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateDefaultBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

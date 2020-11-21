@@ -20,6 +20,19 @@ import {
 export type CopySnapshotCommandInput = CopySnapshotRequest;
 export type CopySnapshotCommandOutput = CopySnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
+ *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
+ *       used to copy a manual or automatic snapshot of an instance or a disk from one AWS Region to
+ *       another in Amazon Lightsail.</p>
+ *          <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source
+ *         region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code>
+ *       parameters.</p>
+ *          <p>When copying an <i>automatic snapshot</i>, be sure to define the
+ *         <code>source region</code>, <code>source resource name</code>, <code>target snapshot
+ *         name</code>, and either the <code>restore date</code> or the <code>use latest restorable
+ *         auto snapshot</code> parameters.</p>
+ */
 export class CopySnapshotCommand extends $Command<
   CopySnapshotCommandInput,
   CopySnapshotCommandOutput,
@@ -34,6 +47,9 @@ export class CopySnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

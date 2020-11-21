@@ -20,6 +20,10 @@ import {
 export type DescribeProtectedResourceCommandInput = DescribeProtectedResourceInput;
 export type DescribeProtectedResourceCommandOutput = DescribeProtectedResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a saved resource, including the last time it was backed up,
+ *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
+ */
 export class DescribeProtectedResourceCommand extends $Command<
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeProtectedResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

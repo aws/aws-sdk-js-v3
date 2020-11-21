@@ -20,6 +20,11 @@ import {
 export type DescribeRecommendationFeedbackCommandInput = DescribeRecommendationFeedbackRequest;
 export type DescribeRecommendationFeedbackCommandOutput = DescribeRecommendationFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Describes the customer feedback for a CodeGuru Reviewer recommendation.
+ *       </p>
+ */
 export class DescribeRecommendationFeedbackCommand extends $Command<
   DescribeRecommendationFeedbackCommandInput,
   DescribeRecommendationFeedbackCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

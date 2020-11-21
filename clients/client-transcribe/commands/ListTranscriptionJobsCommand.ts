@@ -20,6 +20,9 @@ import {
 export type ListTranscriptionJobsCommandInput = ListTranscriptionJobsRequest;
 export type ListTranscriptionJobsCommandOutput = ListTranscriptionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists transcription jobs with the specified status.</p>
+ */
 export class ListTranscriptionJobsCommand extends $Command<
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTranscriptionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

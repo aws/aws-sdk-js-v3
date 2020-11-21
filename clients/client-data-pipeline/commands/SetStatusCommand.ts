@@ -17,6 +17,11 @@ import {
 export type SetStatusCommandInput = SetStatusInput;
 export type SetStatusCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline.
+ *             This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity).
+ *             You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>
+ */
 export class SetStatusCommand extends $Command<
   SetStatusCommandInput,
   SetStatusCommandOutput,
@@ -31,6 +36,9 @@ export class SetStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

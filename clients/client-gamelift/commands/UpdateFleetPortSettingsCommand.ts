@@ -20,6 +20,75 @@ import {
 export type UpdateFleetPortSettingsCommandInput = UpdateFleetPortSettingsInput;
 export type UpdateFleetPortSettingsCommandOutput = UpdateFleetPortSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>Updates port settings for a fleet. To update settings, specify the fleet ID to be
+ *             updated and list the permissions you want to update. List the permissions you want to
+ *             add in <code>InboundPermissionAuthorizations</code>, and permissions you want to remove
+ *             in <code>InboundPermissionRevocations</code>. Permissions to be removed must match
+ *             existing fleet permissions. If successful, the fleet ID for the updated fleet is
+ *             returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Update fleets:</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetAttributes</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetCapacity</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetPortSettings</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateRuntimeConfiguration</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateFleetPortSettingsCommand extends $Command<
   UpdateFleetPortSettingsCommandInput,
   UpdateFleetPortSettingsCommandOutput,
@@ -34,6 +103,9 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

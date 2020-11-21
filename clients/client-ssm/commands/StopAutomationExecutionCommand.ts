@@ -20,6 +20,9 @@ import {
 export type StopAutomationExecutionCommandInput = StopAutomationExecutionRequest;
 export type StopAutomationExecutionCommandOutput = StopAutomationExecutionResult & __MetadataBearer;
 
+/**
+ * <p>Stop an Automation that is currently running.</p>
+ */
 export class StopAutomationExecutionCommand extends $Command<
   StopAutomationExecutionCommandInput,
   StopAutomationExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StopAutomationExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

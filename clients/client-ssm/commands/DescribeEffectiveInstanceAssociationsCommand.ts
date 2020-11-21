@@ -24,6 +24,9 @@ export type DescribeEffectiveInstanceAssociationsCommandInput = DescribeEffectiv
 export type DescribeEffectiveInstanceAssociationsCommandOutput = DescribeEffectiveInstanceAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>All associations for the instance(s).</p>
+ */
 export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
   DescribeEffectiveInstanceAssociationsCommandInput,
   DescribeEffectiveInstanceAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

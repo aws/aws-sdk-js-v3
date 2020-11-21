@@ -20,6 +20,10 @@ import {
 export type StopProjectVersionCommandInput = StopProjectVersionRequest;
 export type StopProjectVersionCommandOutput = StopProjectVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a running model. The operation might take a while to complete. To
+ *          check the current status, call <a>DescribeProjectVersions</a>. </p>
+ */
 export class StopProjectVersionCommand extends $Command<
   StopProjectVersionCommandInput,
   StopProjectVersionCommandOutput,
@@ -34,6 +38,9 @@ export class StopProjectVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

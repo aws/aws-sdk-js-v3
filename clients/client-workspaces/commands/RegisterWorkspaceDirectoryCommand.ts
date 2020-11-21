@@ -20,6 +20,13 @@ import {
 export type RegisterWorkspaceDirectoryCommandInput = RegisterWorkspaceDirectoryRequest;
 export type RegisterWorkspaceDirectoryCommandOutput = RegisterWorkspaceDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Registers the specified directory. This operation is asynchronous
+ *          and returns before the WorkSpace directory is registered. If this is the first time you are
+ *          registering a directory, you will need to create the workspaces_DefaultRole role before you can
+ *          register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
+ *             Creating the workspaces_DefaultRole Role</a>.</p>
+ */
 export class RegisterWorkspaceDirectoryCommand extends $Command<
   RegisterWorkspaceDirectoryCommandInput,
   RegisterWorkspaceDirectoryCommandOutput,
@@ -34,6 +41,9 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

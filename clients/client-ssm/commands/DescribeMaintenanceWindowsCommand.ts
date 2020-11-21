@@ -20,6 +20,9 @@ import {
 export type DescribeMaintenanceWindowsCommandInput = DescribeMaintenanceWindowsRequest;
 export type DescribeMaintenanceWindowsCommandOutput = DescribeMaintenanceWindowsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the maintenance windows in an AWS account.</p>
+ */
 export class DescribeMaintenanceWindowsCommand extends $Command<
   DescribeMaintenanceWindowsCommandInput,
   DescribeMaintenanceWindowsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

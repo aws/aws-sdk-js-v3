@@ -20,6 +20,12 @@ import {
 export type ImportMigrationTaskCommandInput = ImportMigrationTaskRequest;
 export type ImportMigrationTaskCommandOutput = ImportMigrationTaskResult & __MetadataBearer;
 
+/**
+ * <p>Registers a new migration task which represents a server, database, etc., being migrated
+ *          to AWS by a migration tool.</p>
+ *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
+ *          the migration tool must first register the migration task with Migration Hub.</p>
+ */
 export class ImportMigrationTaskCommand extends $Command<
   ImportMigrationTaskCommandInput,
   ImportMigrationTaskCommandOutput,
@@ -34,6 +40,9 @@ export class ImportMigrationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

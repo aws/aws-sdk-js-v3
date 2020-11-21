@@ -24,6 +24,10 @@ import {
 export type StartRxNormInferenceJobCommandInput = StartRxNormInferenceJobRequest;
 export type StartRxNormInferenceJobCommandOutput = StartRxNormInferenceJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm ontology. Use the
+ *       <code>DescribeRxNormInferenceJob</code> operation to track the status of a job.</p>
+ */
 export class StartRxNormInferenceJobCommand extends $Command<
   StartRxNormInferenceJobCommandInput,
   StartRxNormInferenceJobCommandOutput,
@@ -38,6 +42,9 @@ export class StartRxNormInferenceJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

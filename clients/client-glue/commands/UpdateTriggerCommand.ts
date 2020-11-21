@@ -20,6 +20,9 @@ import {
 export type UpdateTriggerCommandInput = UpdateTriggerRequest;
 export type UpdateTriggerCommandOutput = UpdateTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a trigger definition.</p>
+ */
 export class UpdateTriggerCommand extends $Command<
   UpdateTriggerCommandInput,
   UpdateTriggerCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

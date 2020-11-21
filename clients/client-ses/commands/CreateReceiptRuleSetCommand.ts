@@ -20,6 +20,12 @@ import {
 export type CreateReceiptRuleSetCommandInput = CreateReceiptRuleSetRequest;
 export type CreateReceiptRuleSetCommandOutput = CreateReceiptRuleSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an empty receipt rule set.</p>
+ *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateReceiptRuleSetCommand extends $Command<
   CreateReceiptRuleSetCommandInput,
   CreateReceiptRuleSetCommandOutput,
@@ -34,6 +40,9 @@ export class CreateReceiptRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

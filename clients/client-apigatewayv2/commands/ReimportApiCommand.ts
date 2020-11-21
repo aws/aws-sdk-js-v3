@@ -20,6 +20,9 @@ import {
 export type ReimportApiCommandInput = ReimportApiRequest;
 export type ReimportApiCommandOutput = ReimportApiResponse & __MetadataBearer;
 
+/**
+ * <p>Puts an Api resource.</p>
+ */
 export class ReimportApiCommand extends $Command<
   ReimportApiCommandInput,
   ReimportApiCommandOutput,
@@ -34,6 +37,9 @@ export class ReimportApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

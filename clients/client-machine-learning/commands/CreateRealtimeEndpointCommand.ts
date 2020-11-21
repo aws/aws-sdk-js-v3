@@ -20,6 +20,9 @@ import {
 export type CreateRealtimeEndpointCommandInput = CreateRealtimeEndpointInput;
 export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
+ */
 export class CreateRealtimeEndpointCommand extends $Command<
   CreateRealtimeEndpointCommandInput,
   CreateRealtimeEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRealtimeEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

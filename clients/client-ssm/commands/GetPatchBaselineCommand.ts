@@ -20,6 +20,9 @@ import {
 export type GetPatchBaselineCommandInput = GetPatchBaselineRequest;
 export type GetPatchBaselineCommandOutput = GetPatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a patch baseline.</p>
+ */
 export class GetPatchBaselineCommand extends $Command<
   GetPatchBaselineCommandInput,
   GetPatchBaselineCommandOutput,
@@ -34,6 +37,9 @@ export class GetPatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

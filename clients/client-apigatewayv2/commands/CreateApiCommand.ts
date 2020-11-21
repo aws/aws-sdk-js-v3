@@ -20,6 +20,9 @@ import {
 export type CreateApiCommandInput = CreateApiRequest;
 export type CreateApiCommandOutput = CreateApiResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Api resource.</p>
+ */
 export class CreateApiCommand extends $Command<
   CreateApiCommandInput,
   CreateApiCommandOutput,
@@ -34,6 +37,9 @@ export class CreateApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

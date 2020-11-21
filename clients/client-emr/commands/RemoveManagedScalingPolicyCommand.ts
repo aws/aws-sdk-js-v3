@@ -20,6 +20,11 @@ import {
 export type RemoveManagedScalingPolicyCommandInput = RemoveManagedScalingPolicyInput;
 export type RemoveManagedScalingPolicyCommandOutput = RemoveManagedScalingPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *          Removes a managed scaling policy from a specified EMR cluster.
+ *       </p>
+ */
 export class RemoveManagedScalingPolicyCommand extends $Command<
   RemoveManagedScalingPolicyCommandInput,
   RemoveManagedScalingPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

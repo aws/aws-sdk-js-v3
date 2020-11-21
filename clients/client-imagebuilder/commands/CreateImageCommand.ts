@@ -20,6 +20,10 @@ import {
 export type CreateImageCommandInput = CreateImageRequest;
 export type CreateImageCommandOutput = CreateImageResponse & __MetadataBearer;
 
+/**
+ * <p> Creates a new image. This request will create a new image along with all of the
+ *       configured output resources defined in the distribution configuration. </p>
+ */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,
   CreateImageCommandOutput,
@@ -34,6 +38,9 @@ export class CreateImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

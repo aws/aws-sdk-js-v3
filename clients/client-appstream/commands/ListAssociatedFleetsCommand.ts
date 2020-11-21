@@ -20,6 +20,9 @@ import {
 export type ListAssociatedFleetsCommandInput = ListAssociatedFleetsRequest;
 export type ListAssociatedFleetsCommandOutput = ListAssociatedFleetsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
+ */
 export class ListAssociatedFleetsCommand extends $Command<
   ListAssociatedFleetsCommandInput,
   ListAssociatedFleetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAssociatedFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

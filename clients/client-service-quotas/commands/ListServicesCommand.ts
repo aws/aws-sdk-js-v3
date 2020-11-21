@@ -20,6 +20,11 @@ import {
 export type ListServicesCommandInput = ListServicesRequest;
 export type ListServicesCommandOutput = ListServicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS services available in Service Quotas. Not all AWS services are available in
+ *       Service Quotas. To list the see the list of the service quotas for a specific service, use
+ *         <a>ListServiceQuotas</a>.</p>
+ */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,
   ListServicesCommandOutput,
@@ -34,6 +39,9 @@ export class ListServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

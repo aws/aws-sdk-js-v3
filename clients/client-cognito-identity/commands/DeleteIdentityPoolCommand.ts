@@ -21,6 +21,11 @@ import {
 export type DeleteIdentityPoolCommandInput = DeleteIdentityPoolInput;
 export type DeleteIdentityPoolCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to
+ *          authenticate with the pool.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class DeleteIdentityPoolCommand extends $Command<
   DeleteIdentityPoolCommandInput,
   DeleteIdentityPoolCommandOutput,
@@ -35,6 +40,9 @@ export class DeleteIdentityPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

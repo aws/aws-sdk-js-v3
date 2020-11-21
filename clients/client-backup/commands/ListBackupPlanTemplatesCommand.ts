@@ -20,6 +20,10 @@ import {
 export type ListBackupPlanTemplatesCommandInput = ListBackupPlanTemplatesInput;
 export type ListBackupPlanTemplatesCommandOutput = ListBackupPlanTemplatesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
+ *          and the creation and deletion dates.</p>
+ */
 export class ListBackupPlanTemplatesCommand extends $Command<
   ListBackupPlanTemplatesCommandInput,
   ListBackupPlanTemplatesCommandOutput,
@@ -34,6 +38,9 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

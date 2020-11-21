@@ -20,6 +20,10 @@ import {
 export type CreateArchiveRuleCommandInput = CreateArchiveRuleRequest;
 export type CreateArchiveRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
+ *          findings that meet the criteria you define when you create the rule.</p>
+ */
 export class CreateArchiveRuleCommand extends $Command<
   CreateArchiveRuleCommandInput,
   CreateArchiveRuleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateArchiveRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ReportTaskProgressCommandInput = ReportTaskProgressInput;
 export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput & __MetadataBearer;
 
+/**
+ * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not
+ *             receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement,
+ *             the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
+ *             from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p>
+ */
 export class ReportTaskProgressCommand extends $Command<
   ReportTaskProgressCommandInput,
   ReportTaskProgressCommandOutput,
@@ -34,6 +40,9 @@ export class ReportTaskProgressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

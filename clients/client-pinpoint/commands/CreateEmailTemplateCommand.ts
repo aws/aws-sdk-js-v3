@@ -20,6 +20,9 @@ import {
 export type CreateEmailTemplateCommandInput = CreateEmailTemplateRequest;
 export type CreateEmailTemplateCommandOutput = CreateEmailTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a message template for messages that are sent through the email channel.</p>
+ */
 export class CreateEmailTemplateCommand extends $Command<
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class CreateEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

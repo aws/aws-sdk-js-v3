@@ -20,6 +20,63 @@ import {
 export type BatchImportFindingsCommandInput = BatchImportFindingsRequest;
 export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Imports security findings generated from an integrated third-party product into Security Hub.
+ *          This action is requested by the integrated product to import its findings into
+ *          Security Hub.</p>
+ *          <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
+ *          larger than 240 Kb.</p>
+ *          <p>After a finding is created, <code>BatchImportFindings</code> cannot be used to update
+ *          the following finding fields and objects, which Security Hub customers use to manage their
+ *          investigation workflow.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>Confidence</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Criticality</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Note</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RelatedFindings</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Severity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Types</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UserDefinedFields</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>VerificationState</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Workflow</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class BatchImportFindingsCommand extends $Command<
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
@@ -34,6 +91,9 @@ export class BatchImportFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

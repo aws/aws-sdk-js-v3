@@ -20,6 +20,9 @@ import {
 export type GetDomainNamesCommandInput = GetDomainNamesRequest;
 export type GetDomainNamesCommandOutput = GetDomainNamesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the domain names for an AWS account.</p>
+ */
 export class GetDomainNamesCommand extends $Command<
   GetDomainNamesCommandInput,
   GetDomainNamesCommandOutput,
@@ -34,6 +37,9 @@ export class GetDomainNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

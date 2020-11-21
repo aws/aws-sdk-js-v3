@@ -20,6 +20,9 @@ import {
 export type CreateSnapshotScheduleCommandInput = CreateSnapshotScheduleMessage;
 export type CreateSnapshotScheduleCommandOutput = SnapshotSchedule & __MetadataBearer;
 
+/**
+ * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
+ */
 export class CreateSnapshotScheduleCommand extends $Command<
   CreateSnapshotScheduleCommandInput,
   CreateSnapshotScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSnapshotScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

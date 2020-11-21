@@ -20,6 +20,10 @@ import {
 export type DeregisterInstanceCommandInput = DeregisterInstanceRequest;
 export type DeregisterInstanceCommandOutput = DeregisterInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
+ *    instance.</p>
+ */
 export class DeregisterInstanceCommand extends $Command<
   DeregisterInstanceCommandInput,
   DeregisterInstanceCommandOutput,
@@ -34,6 +38,9 @@ export class DeregisterInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

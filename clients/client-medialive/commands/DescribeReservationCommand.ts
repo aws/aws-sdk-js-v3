@@ -20,6 +20,9 @@ import {
 export type DescribeReservationCommandInput = DescribeReservationRequest;
 export type DescribeReservationCommandOutput = DescribeReservationResponse & __MetadataBearer;
 
+/**
+ * Get details for a reservation.
+ */
 export class DescribeReservationCommand extends $Command<
   DescribeReservationCommandInput,
   DescribeReservationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

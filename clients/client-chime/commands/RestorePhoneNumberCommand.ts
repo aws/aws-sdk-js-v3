@@ -20,6 +20,10 @@ import {
 export type RestorePhoneNumberCommandInput = RestorePhoneNumberRequest;
 export type RestorePhoneNumberCommandOutput = RestorePhoneNumberResponse & __MetadataBearer;
 
+/**
+ * <p>Moves a phone number from the <b>Deletion queue</b> back into
+ *       the phone number <b>Inventory</b>.</p>
+ */
 export class RestorePhoneNumberCommand extends $Command<
   RestorePhoneNumberCommandInput,
   RestorePhoneNumberCommandOutput,
@@ -34,6 +38,9 @@ export class RestorePhoneNumberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

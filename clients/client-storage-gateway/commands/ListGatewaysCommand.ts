@@ -20,6 +20,18 @@ import {
 export type ListGatewaysCommandInput = ListGatewaysInput;
 export type ListGatewaysCommandOutput = ListGatewaysOutput & __MetadataBearer;
 
+/**
+ * <p>Lists gateways owned by an AWS account in an AWS Region specified in the request. The
+ *          returned list is ordered by gateway Amazon Resource Name (ARN).</p>
+ *
+ *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
+ *          pagination that allows you to optionally reduce the number of gateways returned in a
+ *          response.</p>
+ *
+ *          <p>If you have more gateways than are returned in a response (that is, the response returns
+ *          only a truncated list of your gateways), the response contains a marker that you can
+ *          specify in your next request to fetch the next page of gateways.</p>
+ */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
@@ -34,6 +46,9 @@ export class ListGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

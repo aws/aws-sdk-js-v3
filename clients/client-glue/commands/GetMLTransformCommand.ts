@@ -21,6 +21,13 @@ import {
 export type GetMLTransformCommandInput = GetMLTransformRequest;
 export type GetMLTransformCommandOutput = GetMLTransformResponse & __MetadataBearer;
 
+/**
+ * <p>Gets an AWS Glue machine learning transform artifact and all its corresponding metadata.
+ *       Machine learning transforms are a special type of transform that use machine learning to learn
+ *       the details of the transformation to be performed by learning from examples provided by
+ *       humans. These transformations are then saved by AWS Glue. You can retrieve their metadata by
+ *       calling <code>GetMLTransform</code>.</p>
+ */
 export class GetMLTransformCommand extends $Command<
   GetMLTransformCommandInput,
   GetMLTransformCommandOutput,
@@ -35,6 +42,9 @@ export class GetMLTransformCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

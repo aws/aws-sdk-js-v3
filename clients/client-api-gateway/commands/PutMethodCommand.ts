@@ -20,6 +20,9 @@ import {
 export type PutMethodCommandInput = PutMethodRequest;
 export type PutMethodCommandOutput = Method & __MetadataBearer;
 
+/**
+ * <p>Add a method to an existing <a>Resource</a> resource.</p>
+ */
 export class PutMethodCommand extends $Command<
   PutMethodCommandInput,
   PutMethodCommandOutput,
@@ -34,6 +37,9 @@ export class PutMethodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

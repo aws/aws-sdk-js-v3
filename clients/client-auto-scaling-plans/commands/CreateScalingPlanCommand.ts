@@ -20,6 +20,9 @@ import {
 export type CreateScalingPlanCommandInput = CreateScalingPlanRequest;
 export type CreateScalingPlanCommandOutput = CreateScalingPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a scaling plan.</p>
+ */
 export class CreateScalingPlanCommand extends $Command<
   CreateScalingPlanCommandInput,
   CreateScalingPlanCommandOutput,
@@ -34,6 +37,9 @@ export class CreateScalingPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type PutDetectorCommandInput = PutDetectorRequest;
 export type PutDetectorCommandOutput = PutDetectorResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates a detector. </p>
+ */
 export class PutDetectorCommand extends $Command<
   PutDetectorCommandInput,
   PutDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class PutDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

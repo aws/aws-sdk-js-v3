@@ -20,6 +20,16 @@ import {
 export type CreateUnreferencedMergeCommitCommandInput = CreateUnreferencedMergeCommitInput;
 export type CreateUnreferencedMergeCommitCommandOutput = CreateUnreferencedMergeCommitOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an unreferenced commit that represents the result of merging two branches
+ *             using a specified merge strategy. This can help you determine the outcome of a potential
+ *             merge. This API cannot be used with the fast-forward merge strategy because that
+ *             strategy does not create a merge commit.</p>
+ *         <note>
+ *             <p>This unreferenced merge commit
+ *         can only be accessed using the GetCommit API or through git commands such as git fetch. To retrieve this commit, you must specify its commit ID or otherwise reference it.</p>
+ *          </note>
+ */
 export class CreateUnreferencedMergeCommitCommand extends $Command<
   CreateUnreferencedMergeCommitCommandInput,
   CreateUnreferencedMergeCommitCommandOutput,
@@ -34,6 +44,9 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

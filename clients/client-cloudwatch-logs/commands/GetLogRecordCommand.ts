@@ -20,6 +20,12 @@ import {
 export type GetLogRecordCommandInput = GetLogRecordRequest;
 export type GetLogRecordCommandOutput = GetLogRecordResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
+ *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
+ *       subset of fields. Fields are returned as field name/field value pairs.</p>
+ *          <p>The full unparsed log event is returned within <code>@message</code>.</p>
+ */
 export class GetLogRecordCommand extends $Command<
   GetLogRecordCommandInput,
   GetLogRecordCommandOutput,
@@ -34,6 +40,9 @@ export class GetLogRecordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

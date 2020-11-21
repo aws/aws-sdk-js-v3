@@ -24,6 +24,10 @@ export type DescribeEngineDefaultClusterParametersCommandInput = DescribeEngineD
 export type DescribeEngineDefaultClusterParametersCommandOutput = DescribeEngineDefaultClusterParametersResult &
   __MetadataBearer;
 
+/**
+ * <p>Returns the default engine and system parameter information for the cluster database
+ *             engine.</p>
+ */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   DescribeEngineDefaultClusterParametersCommandInput,
   DescribeEngineDefaultClusterParametersCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

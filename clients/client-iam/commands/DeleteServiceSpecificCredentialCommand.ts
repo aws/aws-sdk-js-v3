@@ -20,6 +20,9 @@ import {
 export type DeleteServiceSpecificCredentialCommandInput = DeleteServiceSpecificCredentialRequest;
 export type DeleteServiceSpecificCredentialCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified service-specific credential.</p>
+ */
 export class DeleteServiceSpecificCredentialCommand extends $Command<
   DeleteServiceSpecificCredentialCommandInput,
   DeleteServiceSpecificCredentialCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DeleteUserCommandInput = DeleteUserRequest;
 export type DeleteUserCommandOutput = DeleteUserResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
+ * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
+ * 			isn't deleted as a result of this call. </p>
+ */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,
   DeleteUserCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

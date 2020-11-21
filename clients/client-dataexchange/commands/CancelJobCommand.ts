@@ -20,6 +20,9 @@ import {
 export type CancelJobCommandInput = CancelJobRequest;
 export type CancelJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
+ */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,
   CancelJobCommandOutput,
@@ -34,6 +37,9 @@ export class CancelJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

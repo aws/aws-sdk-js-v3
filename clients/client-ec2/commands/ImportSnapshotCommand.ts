@@ -17,6 +17,9 @@ import {
 export type ImportSnapshotCommandInput = ImportSnapshotRequest;
 export type ImportSnapshotCommandOutput = ImportSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Imports a disk into an EBS snapshot.</p>
+ */
 export class ImportSnapshotCommand extends $Command<
   ImportSnapshotCommandInput,
   ImportSnapshotCommandOutput,
@@ -31,6 +34,9 @@ export class ImportSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type StopDBClusterCommandInput = StopDBClusterMessage;
 export type StopDBClusterCommandOutput = StopDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
+ *             cluster must be in the <i>available</i> state. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
+ *                 Starting an Amazon DocumentDB Cluster</a>.</p>
+ */
 export class StopDBClusterCommand extends $Command<
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
@@ -34,6 +40,9 @@ export class StopDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

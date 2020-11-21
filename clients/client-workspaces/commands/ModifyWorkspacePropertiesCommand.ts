@@ -20,6 +20,13 @@ import {
 export type ModifyWorkspacePropertiesCommandInput = ModifyWorkspacePropertiesRequest;
 export type ModifyWorkspacePropertiesCommandOutput = ModifyWorkspacePropertiesResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified WorkSpace properties. For important information about how
+ *          to modify the size of the root and user volumes, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
+ *             Modify a WorkSpace</a>.
+ *       </p>
+ */
 export class ModifyWorkspacePropertiesCommand extends $Command<
   ModifyWorkspacePropertiesCommandInput,
   ModifyWorkspacePropertiesCommandOutput,
@@ -34,6 +41,9 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

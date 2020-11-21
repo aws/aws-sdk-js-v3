@@ -20,6 +20,9 @@ import {
 export type ListFiltersCommandInput = ListFiltersRequest;
 export type ListFiltersCommandOutput = ListFiltersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all filters that belong to a given dataset group.</p>
+ */
 export class ListFiltersCommand extends $Command<
   ListFiltersCommandInput,
   ListFiltersCommandOutput,
@@ -34,6 +37,9 @@ export class ListFiltersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

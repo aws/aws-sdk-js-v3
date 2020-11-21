@@ -20,6 +20,11 @@ import {
 export type DeleteDeliveryChannelCommandInput = DeleteDeliveryChannelRequest;
 export type DeleteDeliveryChannelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the delivery channel.</p>
+ * 		       <p>Before you can delete the delivery channel, you must stop the
+ * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
+ */
 export class DeleteDeliveryChannelCommand extends $Command<
   DeleteDeliveryChannelCommandInput,
   DeleteDeliveryChannelCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDeliveryChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

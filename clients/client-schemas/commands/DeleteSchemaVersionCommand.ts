@@ -20,6 +20,9 @@ import {
 export type DeleteSchemaVersionCommandInput = DeleteSchemaVersionRequest;
 export type DeleteSchemaVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete the schema version definition</p>
+ */
 export class DeleteSchemaVersionCommand extends $Command<
   DeleteSchemaVersionCommandInput,
   DeleteSchemaVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSchemaVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

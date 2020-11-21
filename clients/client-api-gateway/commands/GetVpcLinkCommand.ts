@@ -20,6 +20,9 @@ import {
 export type GetVpcLinkCommandInput = GetVpcLinkRequest;
 export type GetVpcLinkCommandOutput = VpcLink & __MetadataBearer;
 
+/**
+ * <p>Gets a specified VPC link under the caller's account in a region.</p>
+ */
 export class GetVpcLinkCommand extends $Command<
   GetVpcLinkCommandInput,
   GetVpcLinkCommandOutput,
@@ -34,6 +37,9 @@ export class GetVpcLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

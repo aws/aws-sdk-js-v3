@@ -20,6 +20,9 @@ import {
 export type UpdateAgentCommandInput = UpdateAgentRequest;
 export type UpdateAgentCommandOutput = UpdateAgentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the name of an agent.</p>
+ */
 export class UpdateAgentCommand extends $Command<
   UpdateAgentCommandInput,
   UpdateAgentCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAgentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

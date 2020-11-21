@@ -20,6 +20,9 @@ import {
 export type ListGroupCertificateAuthoritiesCommandInput = ListGroupCertificateAuthoritiesRequest;
 export type ListGroupCertificateAuthoritiesCommandOutput = ListGroupCertificateAuthoritiesResponse & __MetadataBearer;
 
+/**
+ * Retrieves the current CAs for a group.
+ */
 export class ListGroupCertificateAuthoritiesCommand extends $Command<
   ListGroupCertificateAuthoritiesCommandInput,
   ListGroupCertificateAuthoritiesCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

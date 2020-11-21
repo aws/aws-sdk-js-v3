@@ -20,6 +20,10 @@ import {
 export type DescribeElasticGpusCommandInput = DescribeElasticGpusRequest;
 export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult & __MetadataBearer;
 
+/**
+ * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
+ *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
+ */
 export class DescribeElasticGpusCommand extends $Command<
   DescribeElasticGpusCommandInput,
   DescribeElasticGpusCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeElasticGpusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

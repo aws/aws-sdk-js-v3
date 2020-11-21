@@ -20,6 +20,9 @@ import {
 export type DeleteGatewayRouteCommandInput = DeleteGatewayRouteInput;
 export type DeleteGatewayRouteCommandOutput = DeleteGatewayRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing gateway route.</p>
+ */
 export class DeleteGatewayRouteCommand extends $Command<
   DeleteGatewayRouteCommandInput,
   DeleteGatewayRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGatewayRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

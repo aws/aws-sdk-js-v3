@@ -20,6 +20,11 @@ import {
 export type UpdateResourceCommandInput = UpdateResourceRequest;
 export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Updates data for the resource. To have the latest information, it must be preceded by
+ *          a <a>DescribeResource</a> call. The dataset in the request should be the one
+ *          expected when performing another <code>DescribeResource</code> call.</p>
+ */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

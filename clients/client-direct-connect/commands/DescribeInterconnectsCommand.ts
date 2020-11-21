@@ -20,6 +20,9 @@ import {
 export type DescribeInterconnectsCommandInput = DescribeInterconnectsRequest;
 export type DescribeInterconnectsCommandOutput = Interconnects & __MetadataBearer;
 
+/**
+ * <p>Lists the interconnects owned by the AWS account or only the specified interconnect.</p>
+ */
 export class DescribeInterconnectsCommand extends $Command<
   DescribeInterconnectsCommandInput,
   DescribeInterconnectsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInterconnectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteServiceCommandInput = DeleteServiceRequest;
 export type DeleteServiceCommandOutput = DeleteServiceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified service. If the service still contains one or more registered instances, the request
+ *    fails.</p>
+ */
 export class DeleteServiceCommand extends $Command<
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

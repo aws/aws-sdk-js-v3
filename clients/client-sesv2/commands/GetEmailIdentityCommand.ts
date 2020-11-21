@@ -20,6 +20,11 @@ import {
 export type GetEmailIdentityCommandInput = GetEmailIdentityRequest;
 export type GetEmailIdentityCommandOutput = GetEmailIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about a specific identity, including the identity's verification
+ *             status, sending authorization policies, its DKIM authentication status, and its custom
+ *             Mail-From settings.</p>
+ */
 export class GetEmailIdentityCommand extends $Command<
   GetEmailIdentityCommandInput,
   GetEmailIdentityCommandOutput,
@@ -34,6 +39,9 @@ export class GetEmailIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

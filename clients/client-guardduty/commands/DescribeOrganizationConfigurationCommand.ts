@@ -24,6 +24,10 @@ export type DescribeOrganizationConfigurationCommandInput = DescribeOrganization
 export type DescribeOrganizationConfigurationCommandOutput = DescribeOrganizationConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns information about the account selected as the delegated administrator for
+ *       GuardDuty.</p>
+ */
 export class DescribeOrganizationConfigurationCommand extends $Command<
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

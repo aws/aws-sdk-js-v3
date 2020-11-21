@@ -20,6 +20,10 @@ import {
 export type GetAccountSendingEnabledCommandInput = {};
 export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetAccountSendingEnabledCommand extends $Command<
   GetAccountSendingEnabledCommandInput,
   GetAccountSendingEnabledCommandOutput,
@@ -34,6 +38,9 @@ export class GetAccountSendingEnabledCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

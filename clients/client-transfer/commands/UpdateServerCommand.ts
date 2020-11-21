@@ -20,6 +20,13 @@ import {
 export type UpdateServerCommandInput = UpdateServerRequest;
 export type UpdateServerCommandOutput = UpdateServerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the file transfer protocol-enabled server's properties after that server has
+ *       been created.</p>
+ *
+ *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
+ *       updated.</p>
+ */
 export class UpdateServerCommand extends $Command<
   UpdateServerCommandInput,
   UpdateServerCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

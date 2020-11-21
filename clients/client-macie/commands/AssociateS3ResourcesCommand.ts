@@ -20,6 +20,13 @@ import {
 export type AssociateS3ResourcesCommandInput = AssociateS3ResourcesRequest;
 export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult & __MetadataBearer;
 
+/**
+ * <p>Associates specified S3 resources with Amazon Macie Classic for monitoring and data
+ *       classification. If memberAccountId isn't specified, the action associates specified S3
+ *       resources with Macie Classic for the current master account. If memberAccountId is specified,
+ *       the action associates specified S3 resources with Macie Classic for the specified member
+ *       account. </p>
+ */
 export class AssociateS3ResourcesCommand extends $Command<
   AssociateS3ResourcesCommandInput,
   AssociateS3ResourcesCommandOutput,
@@ -34,6 +41,9 @@ export class AssociateS3ResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

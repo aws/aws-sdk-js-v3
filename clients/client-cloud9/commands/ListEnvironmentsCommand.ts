@@ -20,6 +20,9 @@ import {
 export type ListEnvironmentsCommandInput = ListEnvironmentsRequest;
 export type ListEnvironmentsCommandOutput = ListEnvironmentsResult & __MetadataBearer;
 
+/**
+ * <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
+ */
 export class ListEnvironmentsCommand extends $Command<
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

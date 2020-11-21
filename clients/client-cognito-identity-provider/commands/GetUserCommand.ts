@@ -21,6 +21,9 @@ import {
 export type GetUserCommandInput = GetUserRequest;
 export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the user attributes and metadata for a user.</p>
+ */
 export class GetUserCommand extends $Command<
   GetUserCommandInput,
   GetUserCommandOutput,
@@ -35,6 +38,9 @@ export class GetUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

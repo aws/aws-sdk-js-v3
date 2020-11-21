@@ -20,6 +20,10 @@ import {
 export type CreateLocationObjectStorageCommandInput = CreateLocationObjectStorageRequest;
 export type CreateLocationObjectStorageCommandOutput = CreateLocationObjectStorageResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an endpoint for a self-managed object storage bucket. For more information
+ *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
+ */
 export class CreateLocationObjectStorageCommand extends $Command<
   CreateLocationObjectStorageCommandInput,
   CreateLocationObjectStorageCommandOutput,
@@ -34,6 +38,9 @@ export class CreateLocationObjectStorageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

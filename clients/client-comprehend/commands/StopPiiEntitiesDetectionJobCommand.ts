@@ -20,6 +20,9 @@ import {
 export type StopPiiEntitiesDetectionJobCommandInput = StopPiiEntitiesDetectionJobRequest;
 export type StopPiiEntitiesDetectionJobCommandOutput = StopPiiEntitiesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a PII entities detection job in progress.</p>
+ */
 export class StopPiiEntitiesDetectionJobCommand extends $Command<
   StopPiiEntitiesDetectionJobCommandInput,
   StopPiiEntitiesDetectionJobCommandOutput,
@@ -34,6 +37,9 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

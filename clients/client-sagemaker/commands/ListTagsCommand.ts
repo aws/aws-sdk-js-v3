@@ -17,6 +17,9 @@ import {
 export type ListTagsCommandInput = ListTagsInput;
 export type ListTagsCommandOutput = ListTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the tags for the specified Amazon SageMaker resource.</p>
+ */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,
   ListTagsCommandOutput,
@@ -31,6 +34,9 @@ export class ListTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

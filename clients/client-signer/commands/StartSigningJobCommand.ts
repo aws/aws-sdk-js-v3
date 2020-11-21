@@ -20,6 +20,36 @@ import {
 export type StartSigningJobCommandInput = StartSigningJobRequest;
 export type StartSigningJobCommandOutput = StartSigningJobResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
+ * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
+ * 			performed. Note the following requirements: </p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> in the
+ * 						<i>Amazon S3 Getting Started Guide</i>. </p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Your S3 source bucket must be version enabled.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>You must create an S3 destination bucket. Code signing uses your S3 destination
+ * 					bucket to write your signed code.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>You specify the name of the source and destination buckets when calling the
+ * 						<code>StartSigningJob</code> operation.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>You must also specify a request token that identifies your request to
+ * 					code signing.</p>
+ * 			         </li>
+ *          </ul>
+ * 		       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call
+ * 			<code>StartSigningJob</code>.</p>
+ * 		       <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a>
+ *          </p>
+ */
 export class StartSigningJobCommand extends $Command<
   StartSigningJobCommandInput,
   StartSigningJobCommandOutput,
@@ -34,6 +64,9 @@ export class StartSigningJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

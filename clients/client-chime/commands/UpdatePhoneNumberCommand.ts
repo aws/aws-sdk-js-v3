@@ -20,6 +20,12 @@ import {
 export type UpdatePhoneNumberCommandInput = UpdatePhoneNumberRequest;
 export type UpdatePhoneNumberCommandOutput = UpdatePhoneNumberResponse & __MetadataBearer;
 
+/**
+ * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
+ *          <p>For toll-free numbers, you must use the Amazon Chime Voice Connector product
+ *       type.</p>
+ *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
+ */
 export class UpdatePhoneNumberCommand extends $Command<
   UpdatePhoneNumberCommandInput,
   UpdatePhoneNumberCommandOutput,
@@ -34,6 +40,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

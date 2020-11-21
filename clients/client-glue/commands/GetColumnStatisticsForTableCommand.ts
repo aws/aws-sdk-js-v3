@@ -20,6 +20,11 @@ import {
 export type GetColumnStatisticsForTableCommandInput = GetColumnStatisticsForTableRequest;
 export type GetColumnStatisticsForTableCommandOutput = GetColumnStatisticsForTableResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves table statistics of columns.</p>
+ *
+ *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
+ */
 export class GetColumnStatisticsForTableCommand extends $Command<
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
@@ -34,6 +39,9 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

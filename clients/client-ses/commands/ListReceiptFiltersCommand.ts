@@ -20,6 +20,13 @@ import {
 export type ListReceiptFiltersCommandInput = ListReceiptFiltersRequest;
 export type ListReceiptFiltersCommandOutput = ListReceiptFiltersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IP address filters associated with your AWS account in the current AWS
+ *             Region.</p>
+ *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class ListReceiptFiltersCommand extends $Command<
   ListReceiptFiltersCommandInput,
   ListReceiptFiltersCommandOutput,
@@ -34,6 +41,9 @@ export class ListReceiptFiltersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

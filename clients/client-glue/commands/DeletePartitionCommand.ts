@@ -20,6 +20,9 @@ import {
 export type DeletePartitionCommandInput = DeletePartitionRequest;
 export type DeletePartitionCommandOutput = DeletePartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified partition.</p>
+ */
 export class DeletePartitionCommand extends $Command<
   DeletePartitionCommandInput,
   DeletePartitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

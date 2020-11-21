@@ -17,6 +17,9 @@ import {
 export type XmlBlobsCommandInput = XmlBlobsInputOutput;
 export type XmlBlobsCommandOutput = XmlBlobsInputOutput & __MetadataBearer;
 
+/**
+ * Blobs are base64 encoded
+ */
 export class XmlBlobsCommand extends $Command<
   XmlBlobsCommandInput,
   XmlBlobsCommandOutput,
@@ -31,6 +34,9 @@ export class XmlBlobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

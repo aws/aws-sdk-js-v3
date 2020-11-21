@@ -20,6 +20,9 @@ import {
 export type UpdateTrustCommandInput = UpdateTrustRequest;
 export type UpdateTrustCommandOutput = UpdateTrustResult & __MetadataBearer;
 
+/**
+ * <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>
+ */
 export class UpdateTrustCommand extends $Command<
   UpdateTrustCommandInput,
   UpdateTrustCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTrustCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

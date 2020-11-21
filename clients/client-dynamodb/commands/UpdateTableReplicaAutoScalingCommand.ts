@@ -20,6 +20,12 @@ import {
 export type UpdateTableReplicaAutoScalingCommandInput = UpdateTableReplicaAutoScalingInput;
 export type UpdateTableReplicaAutoScalingCommandOutput = UpdateTableReplicaAutoScalingOutput & __MetadataBearer;
 
+/**
+ * <p>Updates auto scaling settings on your global tables at once.</p>
+ *          <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
+ *          </note>
+ */
 export class UpdateTableReplicaAutoScalingCommand extends $Command<
   UpdateTableReplicaAutoScalingCommandInput,
   UpdateTableReplicaAutoScalingCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

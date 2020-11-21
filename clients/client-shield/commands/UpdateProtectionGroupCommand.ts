@@ -20,6 +20,9 @@ import {
 export type UpdateProtectionGroupCommandInput = UpdateProtectionGroupRequest;
 export type UpdateProtectionGroupCommandOutput = UpdateProtectionGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+ */
 export class UpdateProtectionGroupCommand extends $Command<
   UpdateProtectionGroupCommandInput,
   UpdateProtectionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProtectionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

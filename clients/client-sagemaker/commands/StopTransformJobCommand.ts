@@ -20,6 +20,14 @@ import {
 export type StopTransformJobCommandInput = StopTransformJobRequest;
 export type StopTransformJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a transform job.</p>
+ *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
+ *             changes to <code>Stopping</code>. After Amazon SageMaker
+ *             stops
+ *             the job, the status is set to <code>Stopped</code>. When you stop a transform job before
+ *             it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
+ */
 export class StopTransformJobCommand extends $Command<
   StopTransformJobCommandInput,
   StopTransformJobCommandOutput,
@@ -34,6 +42,9 @@ export class StopTransformJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

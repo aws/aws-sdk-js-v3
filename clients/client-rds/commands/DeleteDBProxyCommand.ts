@@ -20,6 +20,9 @@ import {
 export type DeleteDBProxyCommandInput = DeleteDBProxyRequest;
 export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing proxy.</p>
+ */
 export class DeleteDBProxyCommand extends $Command<
   DeleteDBProxyCommandInput,
   DeleteDBProxyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDBProxyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

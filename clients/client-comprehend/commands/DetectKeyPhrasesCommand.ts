@@ -20,6 +20,9 @@ import {
 export type DetectKeyPhrasesCommandInput = DetectKeyPhrasesRequest;
 export type DetectKeyPhrasesCommandOutput = DetectKeyPhrasesResponse & __MetadataBearer;
 
+/**
+ * <p>Detects the key noun phrases found in the text. </p>
+ */
 export class DetectKeyPhrasesCommand extends $Command<
   DetectKeyPhrasesCommandInput,
   DetectKeyPhrasesCommandOutput,
@@ -34,6 +37,9 @@ export class DetectKeyPhrasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

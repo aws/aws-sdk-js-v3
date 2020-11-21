@@ -20,6 +20,9 @@ import {
 export type StartDeploymentCommandInput = StartDeploymentRequest;
 export type StartDeploymentCommandOutput = Deployment & __MetadataBearer;
 
+/**
+ * <p>Starts a deployment.</p>
+ */
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,
   StartDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class StartDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

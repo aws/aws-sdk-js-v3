@@ -20,6 +20,9 @@ import {
 export type CreateDBClusterEndpointCommandInput = CreateDBClusterEndpointMessage;
 export type CreateDBClusterEndpointCommandOutput = CreateDBClusterEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
+ */
 export class CreateDBClusterEndpointCommand extends $Command<
   CreateDBClusterEndpointCommandInput,
   CreateDBClusterEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDBClusterEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeAccountCommandInput = DescribeAccountRequest;
 export type DescribeAccountCommandOutput = DescribeAccountResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
+ *          the specified account.</p>
+ */
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,
   DescribeAccountCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

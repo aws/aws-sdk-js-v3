@@ -20,6 +20,11 @@ import {
 export type DescribeVolumeAttributeCommandInput = DescribeVolumeAttributeRequest;
 export type DescribeVolumeAttributeCommandOutput = DescribeVolumeAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified volume. You can specify only one
+ *       attribute at a time.</p>
+ *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeVolumeAttributeCommand extends $Command<
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeVolumeAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

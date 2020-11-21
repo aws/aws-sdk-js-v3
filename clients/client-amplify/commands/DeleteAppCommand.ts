@@ -20,6 +20,9 @@ import {
 export type DeleteAppCommandInput = DeleteAppRequest;
 export type DeleteAppCommandOutput = DeleteAppResult & __MetadataBearer;
 
+/**
+ * <p> Deletes an existing Amplify app specified by an app ID. </p>
+ */
 export class DeleteAppCommand extends $Command<
   DeleteAppCommandInput,
   DeleteAppCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

@@ -24,6 +24,9 @@ export type CreateLocalGatewayRouteTableVpcAssociationCommandInput = CreateLocal
 export type CreateLocalGatewayRouteTableVpcAssociationCommandOutput = CreateLocalGatewayRouteTableVpcAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Associates the specified VPC with the specified local gateway route table.</p>
+ */
 export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -38,6 +41,9 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

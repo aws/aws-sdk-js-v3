@@ -20,6 +20,11 @@ import {
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Creates an AWS Mobile Hub project.
+ *         </p>
+ */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -34,6 +39,9 @@ export class CreateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

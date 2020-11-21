@@ -20,6 +20,9 @@ import {
 export type GetTriggersCommandInput = GetTriggersRequest;
 export type GetTriggersCommandOutput = GetTriggersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets all the triggers associated with a job.</p>
+ */
 export class GetTriggersCommand extends $Command<
   GetTriggersCommandInput,
   GetTriggersCommandOutput,
@@ -34,6 +37,9 @@ export class GetTriggersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

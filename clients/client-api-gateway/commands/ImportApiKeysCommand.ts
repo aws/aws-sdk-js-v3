@@ -20,6 +20,9 @@ import {
 export type ImportApiKeysCommandInput = ImportApiKeysRequest;
 export type ImportApiKeysCommandOutput = ApiKeyIds & __MetadataBearer;
 
+/**
+ * <p>Import API keys from an external source, such as a CSV-formatted file.</p>
+ */
 export class ImportApiKeysCommand extends $Command<
   ImportApiKeysCommandInput,
   ImportApiKeysCommandOutput,
@@ -34,6 +37,9 @@ export class ImportApiKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

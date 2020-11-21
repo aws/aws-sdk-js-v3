@@ -20,6 +20,12 @@ import {
 export type GetDefaultCreditSpecificationCommandInput = GetDefaultCreditSpecificationRequest;
 export type GetDefaultCreditSpecificationCommandOutput = GetDefaultCreditSpecificationResult & __MetadataBearer;
 
+/**
+ * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+ *             performance instances</a> in the <i>Amazon Elastic Compute Cloud User
+ *                 Guide</i>.</p>
+ */
 export class GetDefaultCreditSpecificationCommand extends $Command<
   GetDefaultCreditSpecificationCommandInput,
   GetDefaultCreditSpecificationCommandOutput,
@@ -34,6 +40,9 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

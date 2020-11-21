@@ -20,6 +20,9 @@ import {
 export type GetDeviceDefinitionCommandInput = GetDeviceDefinitionRequest;
 export type GetDeviceDefinitionCommandOutput = GetDeviceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a device definition.
+ */
 export class GetDeviceDefinitionCommand extends $Command<
   GetDeviceDefinitionCommandInput,
   GetDeviceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeviceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

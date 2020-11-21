@@ -20,6 +20,13 @@ import {
 export type RegisterOnPremisesInstanceCommandInput = RegisterOnPremisesInstanceInput;
 export type RegisterOnPremisesInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Registers an on-premises instance.</p>
+ *         <note>
+ *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
+ *                 You cannot use both.</p>
+ *         </note>
+ */
 export class RegisterOnPremisesInstanceCommand extends $Command<
   RegisterOnPremisesInstanceCommandInput,
   RegisterOnPremisesInstanceCommandOutput,
@@ -34,6 +41,9 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

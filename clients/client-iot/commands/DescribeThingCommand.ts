@@ -20,6 +20,9 @@ import {
 export type DescribeThingCommandInput = DescribeThingRequest;
 export type DescribeThingCommandOutput = DescribeThingResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified thing.</p>
+ */
 export class DescribeThingCommand extends $Command<
   DescribeThingCommandInput,
   DescribeThingCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

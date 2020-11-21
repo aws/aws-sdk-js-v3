@@ -20,6 +20,13 @@ import {
 export type PutLoggingOptionsCommandInput = PutLoggingOptionsRequest;
 export type PutLoggingOptionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets or updates the AWS IoT Events logging options.</p>
+ *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
+ *       minute for the change to take effect. If you change the policy attached to the role you
+ *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it
+ *       takes up to five minutes for that change to take effect.</p>
+ */
 export class PutLoggingOptionsCommand extends $Command<
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
@@ -34,6 +41,9 @@ export class PutLoggingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

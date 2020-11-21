@@ -20,6 +20,11 @@ import {
 export type CreateNetworkInterfacePermissionCommandInput = CreateNetworkInterfacePermissionRequest;
 export type CreateNetworkInterfacePermissionCommandOutput = CreateNetworkInterfacePermissionResult & __MetadataBearer;
 
+/**
+ * <p>Grants an AWS-authorized account permission to attach the specified network interface to
+ *             an instance in their account.</p>
+ * 		       <p>You can grant permission to a single AWS account only, and only one account at a time.</p>
+ */
 export class CreateNetworkInterfacePermissionCommand extends $Command<
   CreateNetworkInterfacePermissionCommandInput,
   CreateNetworkInterfacePermissionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

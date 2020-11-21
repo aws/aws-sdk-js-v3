@@ -20,6 +20,9 @@ import {
 export type DescribeImageScanFindingsCommandInput = DescribeImageScanFindingsRequest;
 export type DescribeImageScanFindingsCommandOutput = DescribeImageScanFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the scan findings for the specified image.</p>
+ */
 export class DescribeImageScanFindingsCommand extends $Command<
   DescribeImageScanFindingsCommandInput,
   DescribeImageScanFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImageScanFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

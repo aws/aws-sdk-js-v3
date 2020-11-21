@@ -20,6 +20,50 @@ import {
 export type CreateDatasetCommandInput = CreateDatasetRequest;
 export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
+ *       Forecast understand how to consume the data for model training. This includes the
+ *       following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>
+ *                      <code>DataFrequency</code>
+ *                   </i> - How frequently your historical
+ *           time-series data is collected.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>
+ *                      <code>Domain</code>
+ *                   </i> and
+ *             <i>
+ *                      <code>DatasetType</code>
+ *                   </i> - Each dataset has an associated dataset
+ *           domain and a type within the domain. Amazon Forecast provides a list of predefined domains and
+ *           types within each domain. For each unique dataset domain and type within the domain,
+ *           Amazon Forecast requires your data to include a minimum set of predefined fields.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>
+ *                      <code>Schema</code>
+ *                   </i> - A schema specifies the fields in the dataset,
+ *           including the field name and data type.</p>
+ *             </li>
+ *          </ul>
+ *          <p>After creating a dataset, you import your training data into it and add the dataset to a
+ *       dataset group. You use the dataset group to create a predictor. For more information, see
+ *         <a>howitworks-datasets-groups</a>.</p>
+ *          <p>To get a list of all your datasets, use the <a>ListDatasets</a>
+ *       operation.</p>
+ *          <p>For example Forecast datasets, see the <a href="https://github.com/aws-samples/amazon-forecast-samples">Amazon Forecast Sample GitHub
+ *         repository</a>.</p>
+ *          <note>
+ *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
+ *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
+ *          </note>
+ */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
@@ -34,6 +78,9 @@ export class CreateDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

@@ -25,6 +25,9 @@ import {
 export type DeleteUserPoolDomainCommandInput = DeleteUserPoolDomainRequest;
 export type DeleteUserPoolDomainCommandOutput = DeleteUserPoolDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a domain for a user pool.</p>
+ */
 export class DeleteUserPoolDomainCommand extends $Command<
   DeleteUserPoolDomainCommandInput,
   DeleteUserPoolDomainCommandOutput,
@@ -39,6 +42,9 @@ export class DeleteUserPoolDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

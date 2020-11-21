@@ -20,6 +20,9 @@ import {
 export type UpdateRoleAliasCommandInput = UpdateRoleAliasRequest;
 export type UpdateRoleAliasCommandOutput = UpdateRoleAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a role alias.</p>
+ */
 export class UpdateRoleAliasCommand extends $Command<
   UpdateRoleAliasCommandInput,
   UpdateRoleAliasCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRoleAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

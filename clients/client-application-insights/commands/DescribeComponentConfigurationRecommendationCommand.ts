@@ -28,6 +28,9 @@ export type DescribeComponentConfigurationRecommendationCommandInput = DescribeC
 export type DescribeComponentConfigurationRecommendationCommandOutput = DescribeComponentConfigurationRecommendationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the recommended monitoring configuration of the component.</p>
+ */
 export class DescribeComponentConfigurationRecommendationCommand extends $Command<
   DescribeComponentConfigurationRecommendationCommandInput,
   DescribeComponentConfigurationRecommendationCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

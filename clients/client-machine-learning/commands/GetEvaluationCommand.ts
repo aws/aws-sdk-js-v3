@@ -20,6 +20,9 @@ import {
 export type GetEvaluationCommandInput = GetEvaluationInput;
 export type GetEvaluationCommandOutput = GetEvaluationOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
+ */
 export class GetEvaluationCommand extends $Command<
   GetEvaluationCommandInput,
   GetEvaluationCommandOutput,
@@ -34,6 +37,9 @@ export class GetEvaluationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

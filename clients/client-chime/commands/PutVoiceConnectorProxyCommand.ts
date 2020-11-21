@@ -20,6 +20,9 @@ import {
 export type PutVoiceConnectorProxyCommandInput = PutVoiceConnectorProxyRequest;
 export type PutVoiceConnectorProxyCommandOutput = PutVoiceConnectorProxyResponse & __MetadataBearer;
 
+/**
+ * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
+ */
 export class PutVoiceConnectorProxyCommand extends $Command<
   PutVoiceConnectorProxyCommandInput,
   PutVoiceConnectorProxyCommandOutput,
@@ -34,6 +37,9 @@ export class PutVoiceConnectorProxyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

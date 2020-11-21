@@ -20,6 +20,12 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Adds one or more tags to a signing profile. Tags are labels that you can use to
+ * 			identify and organize your AWS resources. Each tag consists of a key and an optional
+ * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
+ * 			the tag, use a key-value pair.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +40,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

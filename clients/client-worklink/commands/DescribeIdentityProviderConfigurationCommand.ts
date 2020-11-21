@@ -24,6 +24,9 @@ export type DescribeIdentityProviderConfigurationCommandInput = DescribeIdentity
 export type DescribeIdentityProviderConfigurationCommandOutput = DescribeIdentityProviderConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the identity provider configuration of the specified fleet.</p>
+ */
 export class DescribeIdentityProviderConfigurationCommand extends $Command<
   DescribeIdentityProviderConfigurationCommandInput,
   DescribeIdentityProviderConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeWorkspaceDirectoriesCommandInput = DescribeWorkspaceDirectoriesRequest;
 export type DescribeWorkspaceDirectoriesCommandOutput = DescribeWorkspaceDirectoriesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the available directories that are registered with
+ *          Amazon WorkSpaces.</p>
+ */
 export class DescribeWorkspaceDirectoriesCommand extends $Command<
   DescribeWorkspaceDirectoriesCommandInput,
   DescribeWorkspaceDirectoriesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

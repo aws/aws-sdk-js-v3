@@ -21,6 +21,34 @@ import {
 export type UpdateJobPriorityCommandInput = UpdateJobPriorityRequest;
 export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult & __MetadataBearer;
 
+/**
+ * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
+ *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p></p>
+ *          <p>Related actions include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateJobPriorityCommand extends $Command<
   UpdateJobPriorityCommandInput,
   UpdateJobPriorityCommandOutput,
@@ -35,6 +63,9 @@ export class UpdateJobPriorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

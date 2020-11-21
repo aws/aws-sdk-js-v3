@@ -20,6 +20,9 @@ import {
 export type EnableStageTransitionCommandInput = EnableStageTransitionInput;
 export type EnableStageTransitionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
+ */
 export class EnableStageTransitionCommand extends $Command<
   EnableStageTransitionCommandInput,
   EnableStageTransitionCommandOutput,
@@ -34,6 +37,9 @@ export class EnableStageTransitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateClientVpnEndpointCommandInput = CreateClientVpnEndpointRequest;
 export type CreateClientVpnEndpointCommandOutput = CreateClientVpnEndpointResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to
+ * 			enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions
+ * 			are terminated.</p>
+ */
 export class CreateClientVpnEndpointCommand extends $Command<
   CreateClientVpnEndpointCommandInput,
   CreateClientVpnEndpointCommandOutput,
@@ -34,6 +39,9 @@ export class CreateClientVpnEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

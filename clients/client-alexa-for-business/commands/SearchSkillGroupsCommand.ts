@@ -20,6 +20,10 @@ import {
 export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
 export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Searches skill groups and lists the ones that meet a set of filter and sort
+ *          criteria.</p>
+ */
 export class SearchSkillGroupsCommand extends $Command<
   SearchSkillGroupsCommandInput,
   SearchSkillGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class SearchSkillGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

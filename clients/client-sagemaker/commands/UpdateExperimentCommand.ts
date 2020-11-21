@@ -20,6 +20,10 @@ import {
 export type UpdateExperimentCommandInput = UpdateExperimentRequest;
 export type UpdateExperimentCommandOutput = UpdateExperimentResponse & __MetadataBearer;
 
+/**
+ * <p>Adds, updates, or removes the description of an experiment. Updates the display name of an
+ *       experiment.</p>
+ */
 export class UpdateExperimentCommand extends $Command<
   UpdateExperimentCommandInput,
   UpdateExperimentCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateExperimentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

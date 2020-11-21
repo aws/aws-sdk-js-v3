@@ -20,6 +20,9 @@ import {
 export type UpdateFirewallPolicyCommandInput = UpdateFirewallPolicyRequest;
 export type UpdateFirewallPolicyCommandOutput = UpdateFirewallPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the properties of the specified firewall policy.</p>
+ */
 export class UpdateFirewallPolicyCommand extends $Command<
   UpdateFirewallPolicyCommandInput,
   UpdateFirewallPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFirewallPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

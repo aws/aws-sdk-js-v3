@@ -20,6 +20,9 @@ import {
 export type UpdateClusterSettingsCommandInput = UpdateClusterSettingsRequest;
 export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings to use for a cluster.</p>
+ */
 export class UpdateClusterSettingsCommand extends $Command<
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateClusterSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

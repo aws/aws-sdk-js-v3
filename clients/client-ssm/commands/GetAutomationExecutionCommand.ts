@@ -20,6 +20,9 @@ import {
 export type GetAutomationExecutionCommandInput = GetAutomationExecutionRequest;
 export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult & __MetadataBearer;
 
+/**
+ * <p>Get detailed information about a particular Automation execution.</p>
+ */
 export class GetAutomationExecutionCommand extends $Command<
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class GetAutomationExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

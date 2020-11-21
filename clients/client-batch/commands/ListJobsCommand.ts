@@ -20,6 +20,23 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of AWS Batch jobs.</p>
+ *          <p>You must specify only one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>a job queue ID to return a list of jobs in that job queue</p>
+ *             </li>
+ *             <li>
+ *                <p>a multi-node parallel job ID to return a list of that job's nodes</p>
+ *             </li>
+ *             <li>
+ *                <p>an array job ID to return a list of that job's children</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you do not specify a
+ *    status, only <code>RUNNING</code> jobs are returned.</p>
+ */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, BatchClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +47,9 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

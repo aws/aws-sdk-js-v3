@@ -20,6 +20,16 @@ import {
 export type DescribeProvisioningParametersCommandInput = DescribeProvisioningParametersInput;
 export type DescribeProvisioningParametersCommandOutput = DescribeProvisioningParametersOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the configuration required to provision the specified product using
+ *          the specified provisioning artifact.</p>
+ *          <p>If the output contains a TagOption key with an empty list of values, there is a
+ *          TagOption conflict for that key. The end user cannot take action to fix the conflict, and
+ *          launch is not blocked. In subsequent calls to <a>ProvisionProduct</a>,
+ *          do not include conflicted TagOption keys as tags, or this causes the error
+ *          "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
+ *          Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
+ */
 export class DescribeProvisioningParametersCommand extends $Command<
   DescribeProvisioningParametersCommandInput,
   DescribeProvisioningParametersCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

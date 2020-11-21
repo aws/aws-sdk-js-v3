@@ -20,6 +20,9 @@ import {
 export type CreateRoutingProfileCommandInput = CreateRoutingProfileRequest;
 export type CreateRoutingProfileCommandOutput = CreateRoutingProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new routing profile.</p>
+ */
 export class CreateRoutingProfileCommand extends $Command<
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRoutingProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetAssetCommandInput = GetAssetRequest;
 export type GetAssetCommandOutput = GetAssetResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns information about an asset.</p>
+ */
 export class GetAssetCommand extends $Command<
   GetAssetCommandInput,
   GetAssetCommandOutput,
@@ -34,6 +37,9 @@ export class GetAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

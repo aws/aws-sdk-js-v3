@@ -20,6 +20,12 @@ import {
 export type StartMailboxExportJobCommandInput = StartMailboxExportJobRequest;
 export type StartMailboxExportJobCommandOutput = StartMailboxExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
+ *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
+ *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
+ *          the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ */
 export class StartMailboxExportJobCommand extends $Command<
   StartMailboxExportJobCommandInput,
   StartMailboxExportJobCommandOutput,
@@ -34,6 +40,9 @@ export class StartMailboxExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

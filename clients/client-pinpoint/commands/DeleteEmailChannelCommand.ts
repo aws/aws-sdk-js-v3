@@ -20,6 +20,9 @@ import {
 export type DeleteEmailChannelCommandInput = DeleteEmailChannelRequest;
 export type DeleteEmailChannelCommandOutput = DeleteEmailChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteEmailChannelCommand extends $Command<
   DeleteEmailChannelCommandInput,
   DeleteEmailChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEmailChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

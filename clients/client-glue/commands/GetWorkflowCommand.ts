@@ -20,6 +20,9 @@ import {
 export type GetWorkflowCommandInput = GetWorkflowRequest;
 export type GetWorkflowCommandOutput = GetWorkflowResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves resource metadata for a workflow.</p>
+ */
 export class GetWorkflowCommand extends $Command<
   GetWorkflowCommandInput,
   GetWorkflowCommandOutput,
@@ -34,6 +37,9 @@ export class GetWorkflowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

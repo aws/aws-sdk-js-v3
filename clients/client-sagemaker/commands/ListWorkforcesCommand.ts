@@ -20,6 +20,10 @@ import {
 export type ListWorkforcesCommandInput = ListWorkforcesRequest;
 export type ListWorkforcesCommandOutput = ListWorkforcesResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to list all private and vendor workforces in an AWS Region. Note that you can only
+ *       have one private workforce per AWS Region.</p>
+ */
 export class ListWorkforcesCommand extends $Command<
   ListWorkforcesCommandInput,
   ListWorkforcesCommandOutput,
@@ -34,6 +38,9 @@ export class ListWorkforcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateDatastoreCommandInput = CreateDatastoreRequest;
 export type CreateDatastoreCommandOutput = CreateDatastoreResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a data store, which is a repository for messages.</p>
+ */
 export class CreateDatastoreCommand extends $Command<
   CreateDatastoreCommandInput,
   CreateDatastoreCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDatastoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

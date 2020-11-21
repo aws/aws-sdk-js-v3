@@ -20,6 +20,9 @@ import {
 export type UpdateChannelClassCommandInput = UpdateChannelClassRequest;
 export type UpdateChannelClassCommandOutput = UpdateChannelClassResponse & __MetadataBearer;
 
+/**
+ * Changes the class of the channel.
+ */
 export class UpdateChannelClassCommand extends $Command<
   UpdateChannelClassCommandInput,
   UpdateChannelClassCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateChannelClassCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

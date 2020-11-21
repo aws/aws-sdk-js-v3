@@ -20,6 +20,12 @@ import {
 export type ListOrganizationPortfolioAccessCommandInput = ListOrganizationPortfolioAccessInput;
 export type ListOrganizationPortfolioAccessCommandOutput = ListOrganizationPortfolioAccessOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the organization nodes that have access to the specified portfolio. This API can
+ *          only be called by the management account in the organization or by a delegated
+ *          admin.</p>
+ *          <p>If a delegated admin is de-registered, they can no longer perform this operation.</p>
+ */
 export class ListOrganizationPortfolioAccessCommand extends $Command<
   ListOrganizationPortfolioAccessCommandInput,
   ListOrganizationPortfolioAccessCommandOutput,
@@ -34,6 +40,9 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

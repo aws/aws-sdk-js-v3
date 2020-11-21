@@ -24,6 +24,17 @@ import {
 export type StartExportTaskCommandInput = StartExportTaskRequest;
 export type StartExportTaskCommandOutput = StartExportTaskResponse & __MetadataBearer;
 
+/**
+ * <p> Begins the export of discovered data to an S3 bucket.</p>
+ *          <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
+ *       detailed data collected by the identified Application Discovery Agent, including network,
+ *       process, and performance details. A time range for exported agent data may be set by using
+ *         <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to
+ *       five concurrently running exports. </p>
+ *          <p> If you do not include an <code>agentIds</code> filter, summary data is exported that
+ *       includes both AWS Agentless Discovery Connector data and summary data from AWS Discovery
+ *       Agents. Export of summary data is limited to two exports per day. </p>
+ */
 export class StartExportTaskCommand extends $Command<
   StartExportTaskCommandInput,
   StartExportTaskCommandOutput,
@@ -38,6 +49,9 @@ export class StartExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

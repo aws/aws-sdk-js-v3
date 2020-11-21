@@ -8,6 +8,9 @@ import {
 import { XRayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: XRayClient,
   input: GetTraceGraphCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetTraceGraphCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: XRay,
   input: GetTraceGraphCommandInput,

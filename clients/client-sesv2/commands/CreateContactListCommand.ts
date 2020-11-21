@@ -20,6 +20,9 @@ import {
 export type CreateContactListCommandInput = CreateContactListRequest;
 export type CreateContactListCommandOutput = CreateContactListResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a contact list.</p>
+ */
 export class CreateContactListCommand extends $Command<
   CreateContactListCommandInput,
   CreateContactListCommandOutput,
@@ -34,6 +37,9 @@ export class CreateContactListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

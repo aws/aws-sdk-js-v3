@@ -20,6 +20,10 @@ import {
 export type CreateImageBuilderCommandInput = CreateImageBuilderRequest;
 export type CreateImageBuilderCommandOutput = CreateImageBuilderResult & __MetadataBearer;
 
+/**
+ * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
+ *         <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
+ */
 export class CreateImageBuilderCommand extends $Command<
   CreateImageBuilderCommandInput,
   CreateImageBuilderCommandOutput,
@@ -34,6 +38,9 @@ export class CreateImageBuilderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ModifyClusterSubnetGroupCommandInput = ModifyClusterSubnetGroupMessage;
 export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
+ *             operation replaces the existing list of subnets with the new list of subnets.</p>
+ */
 export class ModifyClusterSubnetGroupCommand extends $Command<
   ModifyClusterSubnetGroupCommandInput,
   ModifyClusterSubnetGroupCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

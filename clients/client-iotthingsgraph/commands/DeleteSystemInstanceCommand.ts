@@ -20,6 +20,11 @@ import {
 export type DeleteSystemInstanceCommandInput = DeleteSystemInstanceRequest;
 export type DeleteSystemInstanceCommandOutput = DeleteSystemInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a system instance.
+ *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
+ *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
+ */
 export class DeleteSystemInstanceCommand extends $Command<
   DeleteSystemInstanceCommandInput,
   DeleteSystemInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteSystemInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

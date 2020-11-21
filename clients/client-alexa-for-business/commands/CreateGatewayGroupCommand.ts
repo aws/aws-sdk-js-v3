@@ -20,6 +20,9 @@ import {
 export type CreateGatewayGroupCommandInput = CreateGatewayGroupRequest;
 export type CreateGatewayGroupCommandOutput = CreateGatewayGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a gateway group with the specified details.</p>
+ */
 export class CreateGatewayGroupCommand extends $Command<
   CreateGatewayGroupCommandInput,
   CreateGatewayGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGatewayGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

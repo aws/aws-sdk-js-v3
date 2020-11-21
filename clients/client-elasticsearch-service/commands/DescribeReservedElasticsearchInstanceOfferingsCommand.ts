@@ -28,6 +28,9 @@ export type DescribeReservedElasticsearchInstanceOfferingsCommandInput = Describ
 export type DescribeReservedElasticsearchInstanceOfferingsCommandOutput = DescribeReservedElasticsearchInstanceOfferingsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists available reserved Elasticsearch instance offerings.</p>
+ */
 export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Command<
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

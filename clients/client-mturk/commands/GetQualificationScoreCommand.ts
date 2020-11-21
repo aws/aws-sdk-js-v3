@@ -20,6 +20,22 @@ import {
 export type GetQualificationScoreCommandInput = GetQualificationScoreRequest;
 export type GetQualificationScoreCommandOutput = GetQualificationScoreResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>GetQualificationScore</code>
+ *             operation returns the value of a Worker's Qualification for a given
+ *             Qualification type.
+ *         </p>
+ *         <p>
+ *             To get a Worker's Qualification, you must know the Worker's ID. The
+ *             Worker's ID is included in the assignment data returned by the
+ *             <code>ListAssignmentsForHIT</code>
+ *             operation.
+ *         </p>
+ *         <p>Only the owner of a Qualification type can query the value of
+ *             a Worker's Qualification of that type.</p>
+ */
 export class GetQualificationScoreCommand extends $Command<
   GetQualificationScoreCommandInput,
   GetQualificationScoreCommandOutput,
@@ -34,6 +50,9 @@ export class GetQualificationScoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

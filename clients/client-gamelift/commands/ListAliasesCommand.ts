@@ -20,6 +20,46 @@ import {
 export type ListAliasesCommandInput = ListAliasesInput;
 export type ListAliasesCommandOutput = ListAliasesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves all aliases for this AWS account. You can filter the result set by
+ *             alias name and/or routing strategy type. Use the pagination parameters to retrieve
+ *             results in sequential pages.</p>
+ *         <note>
+ *             <p>Returned aliases are not listed in any particular order.</p>
+ *         </note>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListAliases</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResolveAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,
   ListAliasesCommandOutput,
@@ -34,6 +74,9 @@ export class ListAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -24,6 +24,16 @@ export type ModifyVpcEndpointServiceConfigurationCommandInput = ModifyVpcEndpoin
 export type ModifyVpcEndpointServiceConfigurationCommandOutput = ModifyVpcEndpointServiceConfigurationResult &
   __MetadataBearer;
 
+/**
+ * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
+ *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
+ *             required for requests to connect to your endpoint service through an interface VPC
+ *             endpoint.</p>
+ * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
+ *             domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
+ *                 Private DNS Name Verification</a> in the
+ *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
   ModifyVpcEndpointServiceConfigurationCommandInput,
   ModifyVpcEndpointServiceConfigurationCommandOutput,
@@ -38,6 +48,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeDocumentCommandInput = DescribeDocumentRequest;
 export type DescribeDocumentCommandOutput = DescribeDocumentResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified Systems Manager document.</p>
+ */
 export class DescribeDocumentCommand extends $Command<
   DescribeDocumentCommandInput,
   DescribeDocumentCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

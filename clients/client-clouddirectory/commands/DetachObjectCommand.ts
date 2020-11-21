@@ -20,6 +20,10 @@ import {
 export type DetachObjectCommandInput = DetachObjectRequest;
 export type DetachObjectCommandOutput = DetachObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Detaches a given object from the parent object. The object that is to be detached from the
+ *       parent is specified by the link name.</p>
+ */
 export class DetachObjectCommand extends $Command<
   DetachObjectCommandInput,
   DetachObjectCommandOutput,
@@ -34,6 +38,9 @@ export class DetachObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

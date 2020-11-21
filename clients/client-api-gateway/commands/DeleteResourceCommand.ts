@@ -20,6 +20,9 @@ import {
 export type DeleteResourceCommandInput = DeleteResourceRequest;
 export type DeleteResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a <a>Resource</a> resource.</p>
+ */
 export class DeleteResourceCommand extends $Command<
   DeleteResourceCommandInput,
   DeleteResourceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

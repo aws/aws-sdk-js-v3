@@ -20,6 +20,9 @@ import {
 export type DescribeEndpointsCommandInput = DescribeEndpointsRequest;
 export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the regional endpoint information.</p>
+ */
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

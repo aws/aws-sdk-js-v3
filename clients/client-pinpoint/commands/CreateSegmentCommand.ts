@@ -20,6 +20,9 @@ import {
 export type CreateSegmentCommandInput = CreateSegmentRequest;
 export type CreateSegmentCommandOutput = CreateSegmentResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
+ */
 export class CreateSegmentCommand extends $Command<
   CreateSegmentCommandInput,
   CreateSegmentCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSegmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RetryBuildCommandInput = RetryBuildInput;
 export type RetryBuildCommandOutput = RetryBuildOutput & __MetadataBearer;
 
+/**
+ * <p>Restarts a build.</p>
+ */
 export class RetryBuildCommand extends $Command<
   RetryBuildCommandInput,
   RetryBuildCommandOutput,
@@ -34,6 +37,9 @@ export class RetryBuildCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

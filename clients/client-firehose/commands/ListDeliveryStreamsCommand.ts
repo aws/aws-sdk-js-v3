@@ -20,6 +20,16 @@ import {
 export type ListDeliveryStreamsCommandInput = ListDeliveryStreamsInput;
 export type ListDeliveryStreamsCommandOutput = ListDeliveryStreamsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists your delivery streams in alphabetical order of their names.</p>
+ *          <p>The number of delivery streams might be too large to return using a single call to
+ *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
+ *          using the <code>Limit</code> parameter. To determine whether there are more delivery
+ *          streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
+ *          there are more delivery streams to list, you can request them by calling this operation
+ *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
+ *          of the last delivery stream returned in the last call.</p>
+ */
 export class ListDeliveryStreamsCommand extends $Command<
   ListDeliveryStreamsCommandInput,
   ListDeliveryStreamsCommandOutput,
@@ -34,6 +44,9 @@ export class ListDeliveryStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,

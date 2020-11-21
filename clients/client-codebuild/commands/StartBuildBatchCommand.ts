@@ -20,6 +20,9 @@ import {
 export type StartBuildBatchCommandInput = StartBuildBatchInput;
 export type StartBuildBatchCommandOutput = StartBuildBatchOutput & __MetadataBearer;
 
+/**
+ * <p>Starts a batch build for a project.</p>
+ */
 export class StartBuildBatchCommand extends $Command<
   StartBuildBatchCommandInput,
   StartBuildBatchCommandOutput,
@@ -34,6 +37,9 @@ export class StartBuildBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

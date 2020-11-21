@@ -20,6 +20,9 @@ import {
 export type StartFleetCommandInput = StartFleetRequest;
 export type StartFleetCommandOutput = StartFleetResult & __MetadataBearer;
 
+/**
+ * <p>Starts the specified fleet.</p>
+ */
 export class StartFleetCommand extends $Command<
   StartFleetCommandInput,
   StartFleetCommandOutput,
@@ -34,6 +37,9 @@ export class StartFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

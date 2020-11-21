@@ -20,6 +20,9 @@ import {
 export type UpdateJobCommandInput = UpdateJobRequest;
 export type UpdateJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates supported fields of the specified job.</p>
+ */
 export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

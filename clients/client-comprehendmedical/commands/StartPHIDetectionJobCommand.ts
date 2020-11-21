@@ -24,6 +24,10 @@ import {
 export type StartPHIDetectionJobCommandInput = StartPHIDetectionJobRequest;
 export type StartPHIDetectionJobCommandOutput = StartPHIDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
+ *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
+ */
 export class StartPHIDetectionJobCommand extends $Command<
   StartPHIDetectionJobCommandInput,
   StartPHIDetectionJobCommandOutput,
@@ -38,6 +42,9 @@ export class StartPHIDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

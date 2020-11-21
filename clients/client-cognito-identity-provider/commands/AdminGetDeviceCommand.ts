@@ -25,6 +25,10 @@ import {
 export type AdminGetDeviceCommandInput = AdminGetDeviceRequest;
 export type AdminGetDeviceCommandOutput = AdminGetDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the device, as an administrator.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminGetDeviceCommand extends $Command<
   AdminGetDeviceCommandInput,
   AdminGetDeviceCommandOutput,
@@ -39,6 +43,9 @@ export class AdminGetDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

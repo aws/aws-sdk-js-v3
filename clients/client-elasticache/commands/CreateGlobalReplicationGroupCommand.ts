@@ -20,6 +20,22 @@ import {
 export type CreateGlobalReplicationGroupCommandInput = CreateGlobalReplicationGroupMessage;
 export type CreateGlobalReplicationGroupCommandOutput = CreateGlobalReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Global Datastore for Redis offers fully managed, fast,
+ *             reliable and secure cross-region replication.
+ *             Using Global Datastore for Redis, you can create cross-region
+ *             read replica clusters for ElastiCache for Redis to enable low-latency reads
+ *             and disaster recovery across regions. For more information,
+ *             see <a href="/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters.html">Replication Across Regions Using Global Datastore</a>. </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global Datastore.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <b>PrimaryReplicationGroupId</b> represents the name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateGlobalReplicationGroupCommand extends $Command<
   CreateGlobalReplicationGroupCommandInput,
   CreateGlobalReplicationGroupCommandOutput,
@@ -34,6 +50,9 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

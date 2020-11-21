@@ -20,6 +20,35 @@ import {
 export type GetResourcePolicyCommandInput = GetResourcePolicyRequest;
 export type GetResourcePolicyCommandOutput = GetResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the JSON text of the resource-based policy document attached to the
+ *       specified secret. The JSON request string input and response output displays formatted code
+ *       with white space and line breaks for better readability. Submit your input as a single line
+ *       JSON string.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:GetResourcePolicy</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -34,6 +63,9 @@ export class GetResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

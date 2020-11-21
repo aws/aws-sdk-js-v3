@@ -17,6 +17,9 @@ import {
 export type ModifyUserCommandInput = ModifyUserMessage;
 export type ModifyUserCommandOutput = User & __MetadataBearer;
 
+/**
+ * <p>Changes user password(s) and/or access string.</p>
+ */
 export class ModifyUserCommand extends $Command<
   ModifyUserCommandInput,
   ModifyUserCommandOutput,
@@ -31,6 +34,9 @@ export class ModifyUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

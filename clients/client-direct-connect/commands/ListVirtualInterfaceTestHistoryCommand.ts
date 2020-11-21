@@ -20,6 +20,9 @@ import {
 export type ListVirtualInterfaceTestHistoryCommandInput = ListVirtualInterfaceTestHistoryRequest;
 export type ListVirtualInterfaceTestHistoryCommandOutput = ListVirtualInterfaceTestHistoryResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the virtual interface failover test history.</p>
+ */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
@@ -34,6 +37,9 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeSessionsCommandInput = DescribeSessionsRequest;
 export type DescribeSessionsCommandOutput = DescribeSessionsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
+ *             only streaming sessions for that user are described. If an authentication type is not provided,
+ *             the default is to authenticate users using a streaming URL.</p>
+ */
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,
   DescribeSessionsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

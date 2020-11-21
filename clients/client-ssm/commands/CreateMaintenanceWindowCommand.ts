@@ -20,6 +20,17 @@ import {
 export type CreateMaintenanceWindowCommandInput = CreateMaintenanceWindowRequest;
 export type CreateMaintenanceWindowCommandOutput = CreateMaintenanceWindowResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new maintenance window.</p>
+ *          <note>
+ *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
+ *     maintenance window based on the time it begins. No maintenance window tasks are permitted to
+ *     start after the resulting endtime minus the number of hours you specify for <code>Cutoff</code>.
+ *     For example, if the maintenance window starts at 3 PM, the duration is three hours, and the
+ *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
+ *     after 5 PM.</p>
+ *          </note>
+ */
 export class CreateMaintenanceWindowCommand extends $Command<
   CreateMaintenanceWindowCommandInput,
   CreateMaintenanceWindowCommandOutput,
@@ -34,6 +45,9 @@ export class CreateMaintenanceWindowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

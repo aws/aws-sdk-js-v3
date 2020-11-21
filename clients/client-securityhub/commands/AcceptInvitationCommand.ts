@@ -20,6 +20,12 @@ import {
 export type AcceptInvitationCommandInput = AcceptInvitationRequest;
 export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts the invitation to be a member account and be monitored by the Security Hub master
+ *          account that the invitation was sent from.</p>
+ *          <p>When the member account accepts the invitation, permission is granted to the master
+ *          account to view findings generated in the member account.</p>
+ */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
@@ -34,6 +40,9 @@ export class AcceptInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

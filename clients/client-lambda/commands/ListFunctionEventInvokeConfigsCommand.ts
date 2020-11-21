@@ -20,6 +20,10 @@ import {
 export type ListFunctionEventInvokeConfigsCommandInput = ListFunctionEventInvokeConfigsRequest;
 export type ListFunctionEventInvokeConfigsCommandOutput = ListFunctionEventInvokeConfigsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
+ *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ */
 export class ListFunctionEventInvokeConfigsCommand extends $Command<
   ListFunctionEventInvokeConfigsCommandInput,
   ListFunctionEventInvokeConfigsCommandOutput,
@@ -34,6 +38,9 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

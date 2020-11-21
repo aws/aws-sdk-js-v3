@@ -20,6 +20,9 @@ import {
 export type ListLicenseConfigurationsCommandInput = ListLicenseConfigurationsRequest;
 export type ListLicenseConfigurationsCommandOutput = ListLicenseConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the license configurations for your account.</p>
+ */
 export class ListLicenseConfigurationsCommand extends $Command<
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListLicenseConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

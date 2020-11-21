@@ -8,6 +8,9 @@ import {
 import { TranscribePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: TranscribeClient,
   input: ListVocabularyFiltersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVocabularyFiltersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Transcribe,
   input: ListVocabularyFiltersCommandInput,

@@ -20,6 +20,13 @@ import {
 export type DescribeCacheCommandInput = DescribeCacheInput;
 export type DescribeCacheCommandOutput = DescribeCacheOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the cache of a gateway. This operation is only supported in
+ *          the cached volume, tape, and file gateway types.</p>
+ *
+ *          <p>The response includes disk IDs that are configured as cache, and it includes the amount
+ *          of cache allocated and used.</p>
+ */
 export class DescribeCacheCommand extends $Command<
   DescribeCacheCommandInput,
   DescribeCacheCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

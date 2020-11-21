@@ -20,6 +20,13 @@ import {
 export type ExecuteSqlCommandInput = ExecuteSqlRequest;
 export type ExecuteSqlCommandOutput = ExecuteSqlResponse & __MetadataBearer;
 
+/**
+ * <p>Runs one or more SQL statements.</p>
+ *         <important>
+ *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
+ *                     <code>ExecuteStatement</code> operation.</p>
+ *         </important>
+ */
 export class ExecuteSqlCommand extends $Command<
   ExecuteSqlCommandInput,
   ExecuteSqlCommandOutput,
@@ -34,6 +41,9 @@ export class ExecuteSqlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

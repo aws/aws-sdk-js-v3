@@ -20,6 +20,11 @@ import {
 export type StopFlowCommandInput = StopFlowRequest;
 export type StopFlowCommandOutput = StopFlowResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Deactivates the existing flow. For on-demand flows, this operation returns an <code>unsupportedOperationException</code> error message. For schedule and event-triggered flows, this operation deactivates the flow.
+ * </p>
+ */
 export class StopFlowCommand extends $Command<
   StopFlowCommandInput,
   StopFlowCommandOutput,
@@ -34,6 +39,9 @@ export class StopFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

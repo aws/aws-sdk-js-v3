@@ -20,6 +20,9 @@ import {
 export type DescribeTasksCommandInput = DescribeTasksRequest;
 export type DescribeTasksCommandOutput = DescribeTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a specified task or tasks.</p>
+ */
 export class DescribeTasksCommand extends $Command<
   DescribeTasksCommandInput,
   DescribeTasksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

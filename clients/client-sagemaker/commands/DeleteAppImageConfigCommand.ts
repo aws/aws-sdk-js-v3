@@ -20,6 +20,9 @@ import {
 export type DeleteAppImageConfigCommandInput = DeleteAppImageConfigRequest;
 export type DeleteAppImageConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an AppImageConfig.</p>
+ */
 export class DeleteAppImageConfigCommand extends $Command<
   DeleteAppImageConfigCommandInput,
   DeleteAppImageConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppImageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

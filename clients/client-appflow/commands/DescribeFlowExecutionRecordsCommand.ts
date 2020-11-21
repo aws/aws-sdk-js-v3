@@ -20,6 +20,11 @@ import {
 export type DescribeFlowExecutionRecordsCommandInput = DescribeFlowExecutionRecordsRequest;
 export type DescribeFlowExecutionRecordsCommandOutput = DescribeFlowExecutionRecordsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Fetches the execution history of the flow.
+ * </p>
+ */
 export class DescribeFlowExecutionRecordsCommand extends $Command<
   DescribeFlowExecutionRecordsCommandInput,
   DescribeFlowExecutionRecordsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

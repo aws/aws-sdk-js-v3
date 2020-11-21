@@ -20,6 +20,14 @@ import {
 export type RemoveThingFromThingGroupCommandInput = RemoveThingFromThingGroupRequest;
 export type RemoveThingFromThingGroupCommandOutput = RemoveThingFromThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Remove the specified thing from the specified group.</p>
+ * 		       <p>You must specify either a <code>thingGroupArn</code> or a
+ * 			<code>thingGroupName</code> to identify the thing group and
+ * 			either a <code>thingArn</code> or a <code>thingName</code> to
+ * 			identify the thing to remove from the thing group.
+ * 		</p>
+ */
 export class RemoveThingFromThingGroupCommand extends $Command<
   RemoveThingFromThingGroupCommandInput,
   RemoveThingFromThingGroupCommandOutput,
@@ -34,6 +42,9 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

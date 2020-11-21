@@ -20,6 +20,10 @@ import {
 export type StartPipelineExecutionCommandInput = StartPipelineExecutionInput;
 export type StartPipelineExecutionCommandOutput = StartPipelineExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
+ *             to the source location specified as part of the pipeline.</p>
+ */
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
@@ -34,6 +38,9 @@ export class StartPipelineExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateApiKeyCommandInput = CreateApiKeyRequest;
 export type CreateApiKeyCommandOutput = CreateApiKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a unique key that you can distribute to clients who are executing your
+ *          API.</p>
+ */
 export class CreateApiKeyCommand extends $Command<
   CreateApiKeyCommandInput,
   CreateApiKeyCommandOutput,
@@ -34,6 +38,9 @@ export class CreateApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

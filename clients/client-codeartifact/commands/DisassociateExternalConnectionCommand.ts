@@ -20,6 +20,11 @@ import {
 export type DisassociateExternalConnectionCommandInput = DisassociateExternalConnectionRequest;
 export type DisassociateExternalConnectionCommandOutput = DisassociateExternalConnectionResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Removes an existing external connection from a repository.
+ *     </p>
+ */
 export class DisassociateExternalConnectionCommand extends $Command<
   DisassociateExternalConnectionCommandInput,
   DisassociateExternalConnectionCommandOutput,
@@ -34,6 +39,9 @@ export class DisassociateExternalConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

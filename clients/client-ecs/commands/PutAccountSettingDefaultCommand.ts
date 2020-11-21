@@ -20,6 +20,11 @@ import {
 export type PutAccountSettingDefaultCommandInput = PutAccountSettingDefaultRequest;
 export type PutAccountSettingDefaultCommandOutput = PutAccountSettingDefaultResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies an account setting for all IAM users on an account for whom no individual
+ * 			account setting has been specified. Account settings are set on a per-Region
+ * 			basis.</p>
+ */
 export class PutAccountSettingDefaultCommand extends $Command<
   PutAccountSettingDefaultCommandInput,
   PutAccountSettingDefaultCommandOutput,
@@ -34,6 +39,9 @@ export class PutAccountSettingDefaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

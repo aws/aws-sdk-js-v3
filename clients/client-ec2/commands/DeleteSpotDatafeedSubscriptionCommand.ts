@@ -20,6 +20,9 @@ import {
 export type DeleteSpotDatafeedSubscriptionCommandInput = DeleteSpotDatafeedSubscriptionRequest;
 export type DeleteSpotDatafeedSubscriptionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the data feed for Spot Instances.</p>
+ */
 export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

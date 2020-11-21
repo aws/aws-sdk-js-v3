@@ -20,6 +20,12 @@ import {
 export type DescribeAccountLimitsCommandInput = DescribeAccountLimitsInput;
 export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves your account's AWS CloudFormation limits, such as the maximum number of
+ *          stacks that you can create in your account. For more information about account limits, see
+ *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS CloudFormation
+ *             Limits</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

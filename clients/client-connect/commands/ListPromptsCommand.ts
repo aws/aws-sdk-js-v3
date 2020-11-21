@@ -20,6 +20,10 @@ import {
 export type ListPromptsCommandInput = ListPromptsRequest;
 export type ListPromptsCommandOutput = ListPromptsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about the prompts for the specified Amazon Connect
+ *    instance.</p>
+ */
 export class ListPromptsCommand extends $Command<
   ListPromptsCommandInput,
   ListPromptsCommandOutput,
@@ -34,6 +38,9 @@ export class ListPromptsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

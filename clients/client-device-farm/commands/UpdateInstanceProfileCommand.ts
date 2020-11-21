@@ -20,6 +20,9 @@ import {
 export type UpdateInstanceProfileCommandInput = UpdateInstanceProfileRequest;
 export type UpdateInstanceProfileCommandOutput = UpdateInstanceProfileResult & __MetadataBearer;
 
+/**
+ * <p>Updates information about an existing private device instance profile.</p>
+ */
 export class UpdateInstanceProfileCommand extends $Command<
   UpdateInstanceProfileCommandInput,
   UpdateInstanceProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribePublishingDestinationCommandInput = DescribePublishingDestinationRequest;
 export type DescribePublishingDestinationCommandOutput = DescribePublishingDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the publishing destination specified by the provided
+ *         <code>destinationId</code>.</p>
+ */
 export class DescribePublishingDestinationCommand extends $Command<
   DescribePublishingDestinationCommandInput,
   DescribePublishingDestinationCommandOutput,
@@ -34,6 +38,9 @@ export class DescribePublishingDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

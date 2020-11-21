@@ -17,6 +17,9 @@ import {
 export type GetJobsCommandInput = GetJobsRequest;
 export type GetJobsCommandOutput = GetJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all current job definitions.</p>
+ */
 export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

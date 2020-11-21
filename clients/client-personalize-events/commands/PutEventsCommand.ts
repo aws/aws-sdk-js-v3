@@ -24,6 +24,9 @@ import {
 export type PutEventsCommandInput = PutEventsRequest;
 export type PutEventsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Records user interaction event data. For more information see <a>event-record-api</a>.</p>
+ */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,
   PutEventsCommandOutput,
@@ -38,6 +41,9 @@ export class PutEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeEventsClientResolvedConfig,

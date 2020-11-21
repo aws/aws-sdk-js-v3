@@ -24,6 +24,12 @@ import {
 export type PutApplicationPolicyCommandInput = PutApplicationPolicyRequest;
 export type PutApplicationPolicyCommandOutput = PutApplicationPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see
+ *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
+ *  Permissions</a>
+ *  .</p>
+ */
 export class PutApplicationPolicyCommand extends $Command<
   PutApplicationPolicyCommandInput,
   PutApplicationPolicyCommandOutput,
@@ -38,6 +44,9 @@ export class PutApplicationPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

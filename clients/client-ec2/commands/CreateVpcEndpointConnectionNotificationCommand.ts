@@ -24,6 +24,13 @@ export type CreateVpcEndpointConnectionNotificationCommandInput = CreateVpcEndpo
 export type CreateVpcEndpointConnectionNotificationCommandOutput = CreateVpcEndpointConnectionNotificationResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
+ *             service. A connection notification notifies you of specific endpoint events. You must
+ *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
+ *             the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
+ *         <p>You can create a connection notification for interface endpoints only.</p>
+ */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
   CreateVpcEndpointConnectionNotificationCommandInput,
   CreateVpcEndpointConnectionNotificationCommandOutput,
@@ -38,6 +45,9 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

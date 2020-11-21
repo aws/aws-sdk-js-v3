@@ -20,6 +20,9 @@ import {
 export type FailoverGlobalReplicationGroupCommandInput = FailoverGlobalReplicationGroupMessage;
 export type FailoverGlobalReplicationGroupCommandOutput = FailoverGlobalReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Used to failover the primary region to a selected secondary region. The selected secondary region will become primary, and all other clusters will become secondary.</p>
+ */
 export class FailoverGlobalReplicationGroupCommand extends $Command<
   FailoverGlobalReplicationGroupCommandInput,
   FailoverGlobalReplicationGroupCommandOutput,
@@ -34,6 +37,9 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

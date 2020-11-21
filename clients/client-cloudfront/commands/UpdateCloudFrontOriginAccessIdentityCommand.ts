@@ -24,6 +24,9 @@ export type UpdateCloudFrontOriginAccessIdentityCommandInput = UpdateCloudFrontO
 export type UpdateCloudFrontOriginAccessIdentityCommandOutput = UpdateCloudFrontOriginAccessIdentityResult &
   __MetadataBearer;
 
+/**
+ * <p>Update an origin access identity. </p>
+ */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

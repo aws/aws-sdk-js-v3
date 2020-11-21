@@ -20,6 +20,11 @@ import {
 export type GetReservationUtilizationCommandInput = GetReservationUtilizationRequest;
 export type GetReservationUtilizationCommandOutput = GetReservationUtilizationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the reservation utilization for your account. Master account in an organization have access to member accounts.
+ * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
+ * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
+ */
 export class GetReservationUtilizationCommand extends $Command<
   GetReservationUtilizationCommandInput,
   GetReservationUtilizationCommandOutput,
@@ -34,6 +39,9 @@ export class GetReservationUtilizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

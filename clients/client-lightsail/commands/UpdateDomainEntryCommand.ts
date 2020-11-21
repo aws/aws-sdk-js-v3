@@ -20,6 +20,12 @@ import {
 export type UpdateDomainEntryCommandInput = UpdateDomainEntryRequest;
 export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult & __MetadataBearer;
 
+/**
+ * <p>Updates a domain recordset after it is created.</p>
+ *          <p>The <code>update domain entry</code> operation supports tag-based access control via
+ *       resource tags applied to the resource identified by <code>domain name</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class UpdateDomainEntryCommand extends $Command<
   UpdateDomainEntryCommandInput,
   UpdateDomainEntryCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateDomainEntryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

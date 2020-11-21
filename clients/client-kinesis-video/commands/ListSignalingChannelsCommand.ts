@@ -20,6 +20,11 @@ import {
 export type ListSignalingChannelsCommandInput = ListSignalingChannelsInput;
 export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
+ *             signaling channel. To retrieve only those channels that satisfy a specific condition, you can
+ *             specify a <code>ChannelNameCondition</code>.</p>
+ */
 export class ListSignalingChannelsCommand extends $Command<
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
@@ -34,6 +39,9 @@ export class ListSignalingChannelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteLinkCommandInput = DeleteLinkRequest;
 export type DeleteLinkCommandOutput = DeleteLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing link. You must first disassociate the link from any devices and
+ *             customer gateways.</p>
+ */
 export class DeleteLinkCommand extends $Command<
   DeleteLinkCommandInput,
   DeleteLinkCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

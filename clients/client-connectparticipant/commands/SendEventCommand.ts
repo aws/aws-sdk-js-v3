@@ -24,6 +24,10 @@ import {
 export type SendEventCommandInput = SendEventRequest;
 export type SendEventCommandOutput = SendEventResponse & __MetadataBearer;
 
+/**
+ * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
+ *             ParticipantToken.</p>
+ */
 export class SendEventCommand extends $Command<
   SendEventCommandInput,
   SendEventCommandOutput,
@@ -38,6 +42,9 @@ export class SendEventCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,

@@ -20,6 +20,25 @@ import {
 export type GetEventSelectorsCommandInput = GetEventSelectorsRequest;
 export type GetEventSelectorsCommandOutput = GetEventSelectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the settings for the event selectors that you configured for your trail.
+ *          The information returned for your event selectors includes the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If your event selector includes read-only events, write-only events, or
+ *             all events. This applies to both management events and data events.</p>
+ *             </li>
+ *             <li>
+ *                <p>If your event selector includes management events.</p>
+ *             </li>
+ *             <li>
+ *                <p>If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions
+ *             that you are logging for data events.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails
+ *       </a> in the <i>AWS CloudTrail User Guide</i>.</p>
+ */
 export class GetEventSelectorsCommand extends $Command<
   GetEventSelectorsCommandInput,
   GetEventSelectorsCommandOutput,
@@ -34,6 +53,9 @@ export class GetEventSelectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ListEntitiesDetectionV2JobsCommandInput = ListEntitiesDetectionV2JobsRequest;
 export type ListEntitiesDetectionV2JobsCommandOutput = ListEntitiesDetectionV2JobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
+ */
 export class ListEntitiesDetectionV2JobsCommand extends $Command<
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput,
@@ -38,6 +41,9 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

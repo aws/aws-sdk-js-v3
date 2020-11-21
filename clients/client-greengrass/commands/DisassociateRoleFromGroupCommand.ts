@@ -20,6 +20,9 @@ import {
 export type DisassociateRoleFromGroupCommandInput = DisassociateRoleFromGroupRequest;
 export type DisassociateRoleFromGroupCommandOutput = DisassociateRoleFromGroupResponse & __MetadataBearer;
 
+/**
+ * Disassociates the role from a group.
+ */
 export class DisassociateRoleFromGroupCommand extends $Command<
   DisassociateRoleFromGroupCommandInput,
   DisassociateRoleFromGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

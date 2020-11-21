@@ -21,6 +21,11 @@ import {
 export type DescribeIdentityCommandInput = DescribeIdentityInput;
 export type DescribeIdentityCommandOutput = IdentityDescription & __MetadataBearer;
 
+/**
+ * <p>Returns metadata related to the given identity, including when the identity was
+ *          created and any associated linked logins.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class DescribeIdentityCommand extends $Command<
   DescribeIdentityCommandInput,
   DescribeIdentityCommandOutput,
@@ -35,6 +40,9 @@ export class DescribeIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

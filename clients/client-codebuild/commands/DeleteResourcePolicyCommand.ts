@@ -20,6 +20,9 @@ import {
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyInput;
 export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyOutput & __MetadataBearer;
 
+/**
+ * <p> Deletes a resource policy that is identified by its resource ARN. </p>
+ */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

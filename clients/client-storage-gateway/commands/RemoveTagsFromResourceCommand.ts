@@ -20,6 +20,10 @@ import {
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceInput;
 export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Removes one or more tags from the specified resource. This operation is supported in
+ *          storage gateways of all types.</p>
+ */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -34,6 +38,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetOutpostCommandInput = GetOutpostInput;
 export type GetOutpostCommandOutput = GetOutpostOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified Outpost.</p>
+ */
 export class GetOutpostCommand extends $Command<
   GetOutpostCommandInput,
   GetOutpostCommandOutput,
@@ -34,6 +37,9 @@ export class GetOutpostCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

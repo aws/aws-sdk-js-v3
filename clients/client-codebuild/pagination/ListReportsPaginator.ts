@@ -4,6 +4,9 @@ import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput }
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeBuildClient,
   input: ListReportsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListReportsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeBuild,
   input: ListReportsCommandInput,

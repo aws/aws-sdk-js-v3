@@ -20,6 +20,9 @@ import {
 export type CreateGroupCertificateAuthorityCommandInput = CreateGroupCertificateAuthorityRequest;
 export type CreateGroupCertificateAuthorityCommandOutput = CreateGroupCertificateAuthorityResponse & __MetadataBearer;
 
+/**
+ * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
+ */
 export class CreateGroupCertificateAuthorityCommand extends $Command<
   CreateGroupCertificateAuthorityCommandInput,
   CreateGroupCertificateAuthorityCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

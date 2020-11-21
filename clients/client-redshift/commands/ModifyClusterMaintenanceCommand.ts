@@ -20,6 +20,9 @@ import {
 export type ModifyClusterMaintenanceCommandInput = ModifyClusterMaintenanceMessage;
 export type ModifyClusterMaintenanceCommandOutput = ModifyClusterMaintenanceResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the maintenance settings of a cluster.</p>
+ */
 export class ModifyClusterMaintenanceCommand extends $Command<
   ModifyClusterMaintenanceCommandInput,
   ModifyClusterMaintenanceCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

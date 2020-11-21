@@ -20,6 +20,13 @@ import {
 export type TestInvokeAuthorizerCommandInput = TestInvokeAuthorizerRequest;
 export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
+ *       <div class="seeAlso">
+ *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use Lambda Function as Authorizer</a>
+ *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
+ *       </div>
+ */
 export class TestInvokeAuthorizerCommand extends $Command<
   TestInvokeAuthorizerCommandInput,
   TestInvokeAuthorizerCommandOutput,
@@ -34,6 +41,9 @@ export class TestInvokeAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

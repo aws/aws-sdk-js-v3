@@ -20,6 +20,9 @@ import {
 export type GetProjectCommandInput = GetProjectRequest;
 export type GetProjectCommandOutput = GetProjectResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a project.</p>
+ */
 export class GetProjectCommand extends $Command<
   GetProjectCommandInput,
   GetProjectCommandOutput,
@@ -34,6 +37,9 @@ export class GetProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

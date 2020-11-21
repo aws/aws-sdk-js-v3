@@ -20,6 +20,9 @@ import {
 export type DisableMetricsCollectionCommandInput = DisableMetricsCollectionQuery;
 export type DisableMetricsCollectionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disables group metrics for the specified Auto Scaling group.</p>
+ */
 export class DisableMetricsCollectionCommand extends $Command<
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
@@ -34,6 +37,9 @@ export class DisableMetricsCollectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

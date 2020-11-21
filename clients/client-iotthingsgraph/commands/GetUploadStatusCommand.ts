@@ -20,6 +20,9 @@ import {
 export type GetUploadStatusCommandInput = GetUploadStatusRequest;
 export type GetUploadStatusCommandOutput = GetUploadStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the status of the specified upload.</p>
+ */
 export class GetUploadStatusCommand extends $Command<
   GetUploadStatusCommandInput,
   GetUploadStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetUploadStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

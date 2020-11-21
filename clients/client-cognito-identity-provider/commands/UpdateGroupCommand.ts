@@ -25,6 +25,14 @@ import {
 export type UpdateGroupCommandInput = UpdateGroupRequest;
 export type UpdateGroupCommandOutput = UpdateGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified group with the specified attributes.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ *         <important>
+ *             <p>If you don't provide a value for an attribute, it will be set to the default
+ *                 value.</p>
+ *         </important>
+ */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,
   UpdateGroupCommandOutput,
@@ -39,6 +47,9 @@ export class UpdateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

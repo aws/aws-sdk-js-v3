@@ -20,6 +20,9 @@ import {
 export type DescribeAppCommandInput = DescribeAppRequest;
 export type DescribeAppCommandOutput = DescribeAppResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the app.</p>
+ */
 export class DescribeAppCommand extends $Command<
   DescribeAppCommandInput,
   DescribeAppCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

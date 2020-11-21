@@ -20,6 +20,9 @@ import {
 export type GetApiCacheCommandInput = GetApiCacheRequest;
 export type GetApiCacheCommandOutput = GetApiCacheResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves an <code>ApiCache</code> object.</p>
+ */
 export class GetApiCacheCommand extends $Command<
   GetApiCacheCommandInput,
   GetApiCacheCommandOutput,
@@ -34,6 +37,9 @@ export class GetApiCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

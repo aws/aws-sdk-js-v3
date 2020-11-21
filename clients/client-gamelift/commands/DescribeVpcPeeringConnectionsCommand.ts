@@ -20,6 +20,47 @@ import {
 export type DescribeVpcPeeringConnectionsCommandInput = DescribeVpcPeeringConnectionsInput;
 export type DescribeVpcPeeringConnectionsCommandOutput = DescribeVpcPeeringConnectionsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves information on VPC peering connections. Use this operation to get peering
+ *             information for all fleets or for one specific fleet ID. </p>
+ *         <p>To retrieve connection information, call this operation from the AWS account that
+ *             is used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty
+ *             to retrieve all connection records. If successful, the retrieved information includes
+ *             both active and pending connections. Active connections identify the IpV4 CIDR block
+ *             that the VPC uses to connect. </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringAuthorizations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringConnections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeVpcPeeringConnectionsCommand extends $Command<
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
@@ -34,6 +75,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

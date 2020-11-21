@@ -24,6 +24,9 @@ import {
 export type UpdateNodeCommandInput = UpdateNodeInput;
 export type UpdateNodeCommandOutput = UpdateNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a node configuration with new parameters.</p>
+ */
 export class UpdateNodeCommand extends $Command<
   UpdateNodeCommandInput,
   UpdateNodeCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

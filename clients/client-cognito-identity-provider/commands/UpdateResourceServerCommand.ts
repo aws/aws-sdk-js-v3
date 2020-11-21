@@ -25,6 +25,13 @@ import {
 export type UpdateResourceServerCommandInput = UpdateResourceServerRequest;
 export type UpdateResourceServerCommandOutput = UpdateResourceServerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ *         <important>
+ *             <p>If you don't provide a value for an attribute, it will be set to the default
+ *                 value.</p>
+ *         </important>
+ */
 export class UpdateResourceServerCommand extends $Command<
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
@@ -39,6 +46,9 @@ export class UpdateResourceServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

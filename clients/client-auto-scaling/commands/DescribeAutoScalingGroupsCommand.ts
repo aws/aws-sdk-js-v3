@@ -20,6 +20,9 @@ import {
 export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
 export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType & __MetadataBearer;
 
+/**
+ * <p>Describes one or more Auto Scaling groups.</p>
+ */
 export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandInput,
   DescribeAutoScalingGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

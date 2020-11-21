@@ -20,6 +20,9 @@ import {
 export type QueryIdempotencyTokenAutoFillCommandInput = QueryIdempotencyTokenAutoFillInput;
 export type QueryIdempotencyTokenAutoFillCommandOutput = __MetadataBearer;
 
+/**
+ * Automatically adds idempotency tokens.
+ */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -34,6 +37,9 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,

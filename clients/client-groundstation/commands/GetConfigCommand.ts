@@ -20,6 +20,10 @@ import {
 export type GetConfigCommandInput = GetConfigRequest;
 export type GetConfigCommandOutput = GetConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Returns <code>Config</code> information.</p>
+ *          <p>Only one <code>Config</code> response can be returned.</p>
+ */
 export class GetConfigCommand extends $Command<
   GetConfigCommandInput,
   GetConfigCommandOutput,
@@ -34,6 +38,9 @@ export class GetConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

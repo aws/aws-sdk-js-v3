@@ -20,6 +20,9 @@ import {
 export type DisableVgwRoutePropagationCommandInput = DisableVgwRoutePropagationRequest;
 export type DisableVgwRoutePropagationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.</p>
+ */
 export class DisableVgwRoutePropagationCommand extends $Command<
   DisableVgwRoutePropagationCommandInput,
   DisableVgwRoutePropagationCommandOutput,
@@ -34,6 +37,9 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

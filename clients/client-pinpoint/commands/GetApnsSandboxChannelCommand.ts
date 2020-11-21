@@ -20,6 +20,9 @@ import {
 export type GetApnsSandboxChannelCommandInput = GetApnsSandboxChannelRequest;
 export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
+ */
 export class GetApnsSandboxChannelCommand extends $Command<
   GetApnsSandboxChannelCommandInput,
   GetApnsSandboxChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetApnsSandboxChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

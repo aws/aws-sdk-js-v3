@@ -24,6 +24,28 @@ export type CreateVpcEndpointServiceConfigurationCommandInput = CreateVpcEndpoin
 export type CreateVpcEndpointServiceConfigurationCommandOutput = CreateVpcEndpointServiceConfigurationResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
+ *             IAM users, and IAM roles) can connect.</p>
+ *         <p>To create an endpoint service configuration, you must first create one of the
+ *             following for your service:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an
+ *                     interface endpoint.</p>
+ *             </li>
+ *             <li>
+ *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a
+ *                     Gateway Load Balancer endpoint.</p>
+ *             </li>
+ *          </ul>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the
+ *                 <i>Amazon Virtual Private Cloud User Guide</i>. </p>
+ *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
+ *             name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
+ *                 Private DNS Name Verification</a> in the
+ *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
   CreateVpcEndpointServiceConfigurationCommandInput,
   CreateVpcEndpointServiceConfigurationCommandOutput,
@@ -38,6 +60,9 @@ export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

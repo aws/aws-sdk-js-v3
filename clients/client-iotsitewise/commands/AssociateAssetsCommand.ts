@@ -20,6 +20,11 @@ import {
 export type AssociateAssetsCommandInput = AssociateAssetsRequest;
 export type AssociateAssetsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
+ *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class AssociateAssetsCommand extends $Command<
   AssociateAssetsCommandInput,
   AssociateAssetsCommandOutput,
@@ -34,6 +39,9 @@ export class AssociateAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

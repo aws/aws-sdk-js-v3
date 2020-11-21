@@ -24,6 +24,13 @@ export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBIn
 export type DescribeValidDBInstanceModificationsCommandOutput = DescribeValidDBInstanceModificationsResult &
   __MetadataBearer;
 
+/**
+ * <p>You can call <code>DescribeValidDBInstanceModifications</code>
+ *             to learn what modifications you can make to your DB instance.
+ *             You can use this information when you call
+ *             <code>ModifyDBInstance</code>.
+ *         </p>
+ */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandInput,
   DescribeValidDBInstanceModificationsCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

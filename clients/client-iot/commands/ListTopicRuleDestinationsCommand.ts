@@ -20,6 +20,9 @@ import {
 export type ListTopicRuleDestinationsCommandInput = ListTopicRuleDestinationsRequest;
 export type ListTopicRuleDestinationsCommandOutput = ListTopicRuleDestinationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the topic rule destinations in your AWS account.</p>
+ */
 export class ListTopicRuleDestinationsCommand extends $Command<
   ListTopicRuleDestinationsCommandInput,
   ListTopicRuleDestinationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

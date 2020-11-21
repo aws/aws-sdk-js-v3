@@ -24,6 +24,10 @@ export type DescribeTransitGatewayVpcAttachmentsCommandInput = DescribeTransitGa
 export type DescribeTransitGatewayVpcAttachmentsCommandOutput = DescribeTransitGatewayVpcAttachmentsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
+ *          Alternatively, you can filter the results.</p>
+ */
 export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
   DescribeTransitGatewayVpcAttachmentsCommandInput,
   DescribeTransitGatewayVpcAttachmentsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ApplicationDiscoveryServiceClient,
   input: DescribeImportTasksCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeImportTasksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ApplicationDiscoveryService,
   input: DescribeImportTasksCommandInput,

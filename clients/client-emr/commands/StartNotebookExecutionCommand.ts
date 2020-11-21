@@ -20,6 +20,9 @@ import {
 export type StartNotebookExecutionCommandInput = StartNotebookExecutionInput;
 export type StartNotebookExecutionCommandOutput = StartNotebookExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Starts a notebook execution.</p>
+ */
 export class StartNotebookExecutionCommand extends $Command<
   StartNotebookExecutionCommandInput,
   StartNotebookExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StartNotebookExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

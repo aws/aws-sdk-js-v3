@@ -20,6 +20,67 @@ import {
 export type AcceptMatchCommandInput = AcceptMatchInput;
 export type AcceptMatchCommandOutput = AcceptMatchOutput & __MetadataBearer;
 
+/**
+ * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
+ *             matchmaking configuration may require player acceptance; if so, then matches built with
+ *             that configuration cannot be completed unless all players accept the proposed match
+ *             within a specified time limit. </p>
+ *         <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
+ *             match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for
+ *             your game to get acceptance from all players in the ticket. Acceptances are only valid
+ *             for tickets when they are in this status; all other acceptances result in an
+ *             error.</p>
+ *         <p>To register acceptance, specify the ticket ID, a response, and one or more players.
+ *             Once all players have registered acceptance, the matchmaking tickets advance to status
+ *             <code>PLACING</code>, where a new game session is created for the match. </p>
+ *         <p>If any player rejects the match, or if acceptances are not received before a specified
+ *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
+ *             of two ways: For tickets where one or more players rejected the match, the ticket status
+ *             is returned to <code>SEARCHING</code> to find a new match. For tickets where one or more
+ *             players failed to respond, the ticket status is set to <code>CANCELLED</code>, and
+ *             processing is terminated. A new matchmaking request for these players can be submitted
+ *             as needed. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
+ *                 Add FlexMatch to a Game Client</a>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-events.html"> FlexMatch Events Reference</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>StartMatchmaking</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmaking</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopMatchmaking</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>AcceptMatch</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartMatchBackfill</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class AcceptMatchCommand extends $Command<
   AcceptMatchCommandInput,
   AcceptMatchCommandOutput,
@@ -34,6 +95,9 @@ export class AcceptMatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDomainNamesCommandInput = GetDomainNamesRequest;
 export type GetDomainNamesCommandOutput = DomainNames & __MetadataBearer;
 
+/**
+ * <p>Represents a collection of <a>DomainName</a> resources.</p>
+ */
 export class GetDomainNamesCommand extends $Command<
   GetDomainNamesCommandInput,
   GetDomainNamesCommandOutput,
@@ -34,6 +37,9 @@ export class GetDomainNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

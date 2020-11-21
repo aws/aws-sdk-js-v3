@@ -8,6 +8,9 @@ import {
 import { TranscribePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: TranscribeClient,
   input: ListMedicalVocabulariesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMedicalVocabulariesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Transcribe,
   input: ListMedicalVocabulariesCommandInput,

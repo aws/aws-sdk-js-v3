@@ -24,6 +24,13 @@ export type DescribeDirectConnectGatewayAttachmentsCommandInput = DescribeDirect
 export type DescribeDirectConnectGatewayAttachmentsCommandOutput = DescribeDirectConnectGatewayAttachmentsResult &
   __MetadataBearer;
 
+/**
+ * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
+ *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
+ *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
+ *       response contains all Direct Connect gateways attached to the virtual interface. If you specify both,
+ *       the response contains the attachment between the Direct Connect gateway and the virtual interface.</p>
+ */
 export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
   DescribeDirectConnectGatewayAttachmentsCommandInput,
   DescribeDirectConnectGatewayAttachmentsCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateApiCacheCommandInput = UpdateApiCacheRequest;
 export type UpdateApiCacheCommandOutput = UpdateApiCacheResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the cache for the GraphQL API.</p>
+ */
 export class UpdateApiCacheCommand extends $Command<
   UpdateApiCacheCommandInput,
   UpdateApiCacheCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApiCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type UpdateCertificateAuthorityCommandInput = UpdateCertificateAuthorityRequest;
 export type UpdateCertificateAuthorityCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the status or configuration of a private certificate authority (CA). Your
+ * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
+ * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
+ * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
+ * 		       <note>
+ *                         <p>Both PCA and the IAM principal must have permission to write to
+ *                         the S3 bucket that you specify. If the IAM principal making the call
+ *                         does not have permission to write to the bucket, then an exception is
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+ *                         Access to ACM Private CA</a>.</p>
+ *                 </note>
+ */
 export class UpdateCertificateAuthorityCommand extends $Command<
   UpdateCertificateAuthorityCommandInput,
   UpdateCertificateAuthorityCommandOutput,
@@ -34,6 +47,9 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

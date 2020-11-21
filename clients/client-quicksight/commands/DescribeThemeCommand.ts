@@ -20,6 +20,9 @@ import {
 export type DescribeThemeCommandInput = DescribeThemeRequest;
 export type DescribeThemeCommandOutput = DescribeThemeResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a theme.</p>
+ */
 export class DescribeThemeCommand extends $Command<
   DescribeThemeCommandInput,
   DescribeThemeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThemeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

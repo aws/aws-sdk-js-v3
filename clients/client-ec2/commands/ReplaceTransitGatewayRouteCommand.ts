@@ -20,6 +20,9 @@ import {
 export type ReplaceTransitGatewayRouteCommandInput = ReplaceTransitGatewayRouteRequest;
 export type ReplaceTransitGatewayRouteCommandOutput = ReplaceTransitGatewayRouteResult & __MetadataBearer;
 
+/**
+ * <p>Replaces the specified route in the specified transit gateway route table.</p>
+ */
 export class ReplaceTransitGatewayRouteCommand extends $Command<
   ReplaceTransitGatewayRouteCommandInput,
   ReplaceTransitGatewayRouteCommandOutput,
@@ -34,6 +37,9 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

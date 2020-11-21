@@ -20,6 +20,15 @@ import {
 export type DescribeDBInstanceAutomatedBackupsCommandInput = DescribeDBInstanceAutomatedBackupsMessage;
 export type DescribeDBInstanceAutomatedBackupsCommandOutput = DBInstanceAutomatedBackupMessage & __MetadataBearer;
 
+/**
+ * <p>Displays backups for both current and deleted
+ *             instances. For example, use this operation to
+ *             find details about automated backups for previously deleted instances. Current instances
+ *             with retention periods greater than zero (0) are returned for both the
+ *             <code>DescribeDBInstanceAutomatedBackups</code> and
+ *             <code>DescribeDBInstances</code> operations.</p>
+ * 	        <p>All parameters are optional.</p>
+ */
 export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
   DescribeDBInstanceAutomatedBackupsCommandInput,
   DescribeDBInstanceAutomatedBackupsCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

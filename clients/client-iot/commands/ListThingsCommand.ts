@@ -20,6 +20,16 @@ import {
 export type ListThingsCommandInput = ListThingsRequest;
 export type ListThingsCommandOutput = ListThingsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists your things. Use the <b>attributeName</b> and
+ * 				<b>attributeValue</b> parameters to filter your things.
+ * 			For example, calling <code>ListThings</code> with attributeName=Color and
+ * 			attributeValue=Red retrieves all things in the registry that contain an attribute
+ * 				<b>Color</b> with the value <b>Red</b>. </p>
+ * 		       <note>
+ * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
+ * 		       </note>
+ */
 export class ListThingsCommand extends $Command<
   ListThingsCommandInput,
   ListThingsCommandOutput,
@@ -34,6 +44,9 @@ export class ListThingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

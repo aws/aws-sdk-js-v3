@@ -20,6 +20,9 @@ import {
 export type ValidateSecurityProfileBehaviorsCommandInput = ValidateSecurityProfileBehaviorsRequest;
 export type ValidateSecurityProfileBehaviorsCommandOutput = ValidateSecurityProfileBehaviorsResponse & __MetadataBearer;
 
+/**
+ * <p>Validates a Device Defender security profile behaviors specification.</p>
+ */
 export class ValidateSecurityProfileBehaviorsCommand extends $Command<
   ValidateSecurityProfileBehaviorsCommandInput,
   ValidateSecurityProfileBehaviorsCommandOutput,
@@ -34,6 +37,9 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

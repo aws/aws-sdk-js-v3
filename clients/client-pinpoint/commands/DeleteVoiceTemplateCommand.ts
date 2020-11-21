@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceTemplateCommandInput = DeleteVoiceTemplateRequest;
 export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a message template for messages that were sent through the voice channel.</p>
+ */
 export class DeleteVoiceTemplateCommand extends $Command<
   DeleteVoiceTemplateCommandInput,
   DeleteVoiceTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

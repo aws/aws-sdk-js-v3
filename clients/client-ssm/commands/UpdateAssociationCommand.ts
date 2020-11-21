@@ -20,6 +20,21 @@ import {
 export type UpdateAssociationCommandInput = UpdateAssociationRequest;
 export type UpdateAssociationCommandOutput = UpdateAssociationResult & __MetadataBearer;
 
+/**
+ * <p>Updates an association. You can update the association name and version, the document
+ *    version, schedule, parameters, and Amazon S3 output. </p>
+ *          <p>In order to call this API action, your IAM user account, group, or role must be configured
+ *    with permission to call the <a>DescribeAssociation</a> API action. If you don't have
+ *    permission to call DescribeAssociation, then you receive the following error: <code>An error
+ *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
+ *     <user_arn> is not authorized to perform: ssm:DescribeAssociation on resource:
+ *     <resource_arn></code>
+ *          </p>
+ *          <important>
+ *             <p>When you update an association, the association immediately runs against the specified
+ *     targets.</p>
+ *          </important>
+ */
 export class UpdateAssociationCommand extends $Command<
   UpdateAssociationCommandInput,
   UpdateAssociationCommandOutput,
@@ -34,6 +49,9 @@ export class UpdateAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

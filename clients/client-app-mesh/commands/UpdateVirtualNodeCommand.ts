@@ -20,6 +20,9 @@ import {
 export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
 export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing virtual node in a specified service mesh.</p>
+ */
 export class UpdateVirtualNodeCommand extends $Command<
   UpdateVirtualNodeCommandInput,
   UpdateVirtualNodeCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVirtualNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

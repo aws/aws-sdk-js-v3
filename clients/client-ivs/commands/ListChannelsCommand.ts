@@ -20,6 +20,10 @@ import {
 export type ListChannelsCommandInput = ListChannelsRequest;
 export type ListChannelsCommandOutput = ListChannelsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets summary information about all channels in your account, in the AWS region where the
+ *       API request is processed. This list can be filtered to match a specified string.</p>
+ */
 export class ListChannelsCommand extends $Command<
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
@@ -34,6 +38,9 @@ export class ListChannelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsType;
 export type DeleteTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified tags.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

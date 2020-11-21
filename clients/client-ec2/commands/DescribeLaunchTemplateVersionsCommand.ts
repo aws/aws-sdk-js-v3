@@ -20,6 +20,12 @@ import {
 export type DescribeLaunchTemplateVersionsCommandInput = DescribeLaunchTemplateVersionsRequest;
 export type DescribeLaunchTemplateVersionsCommandOutput = DescribeLaunchTemplateVersionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more versions of a specified launch template. You can describe all
+ *             versions, individual versions, or a range of versions. You can also describe all the
+ *             latest versions or all the default versions of all the launch templates in your
+ *             account.</p>
+ */
 export class DescribeLaunchTemplateVersionsCommand extends $Command<
   DescribeLaunchTemplateVersionsCommandInput,
   DescribeLaunchTemplateVersionsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

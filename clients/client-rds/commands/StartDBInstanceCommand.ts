@@ -20,6 +20,24 @@ import {
 export type StartDBInstanceCommandInput = StartDBInstanceMessage;
 export type StartDBInstanceCommandOutput = StartDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action.
+ *         </p>
+ *
+ *         <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
+ *                 Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
+ *             <i>Amazon RDS User Guide.</i>
+ *          </p>
+ *
+ *         <note>
+ *             <p>
+ *             This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+ *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.
+ *           </p>
+ *         </note>
+ */
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,
   StartDBInstanceCommandOutput,
@@ -34,6 +52,9 @@ export class StartDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

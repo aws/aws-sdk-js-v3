@@ -20,6 +20,9 @@ import {
 export type CreateUserDefinedFunctionCommandInput = CreateUserDefinedFunctionRequest;
 export type CreateUserDefinedFunctionCommandOutput = CreateUserDefinedFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new function definition in the Data Catalog.</p>
+ */
 export class CreateUserDefinedFunctionCommand extends $Command<
   CreateUserDefinedFunctionCommandInput,
   CreateUserDefinedFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

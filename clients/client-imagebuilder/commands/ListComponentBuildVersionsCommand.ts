@@ -20,6 +20,9 @@ import {
 export type ListComponentBuildVersionsCommandInput = ListComponentBuildVersionsRequest;
 export type ListComponentBuildVersionsCommandOutput = ListComponentBuildVersionsResponse & __MetadataBearer;
 
+/**
+ * <p> Returns the list of component build versions for the specified semantic version. </p>
+ */
 export class ListComponentBuildVersionsCommand extends $Command<
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListComponentBuildVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

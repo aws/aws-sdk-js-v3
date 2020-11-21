@@ -20,6 +20,10 @@ import {
 export type DeleteGlobalNetworkCommandInput = DeleteGlobalNetworkRequest;
 export type DeleteGlobalNetworkCommandOutput = DeleteGlobalNetworkResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing global network. You must first delete all global network objects
+ *             (devices, links, and sites) and deregister all transit gateways.</p>
+ */
 export class DeleteGlobalNetworkCommand extends $Command<
   DeleteGlobalNetworkCommandInput,
   DeleteGlobalNetworkCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteGlobalNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

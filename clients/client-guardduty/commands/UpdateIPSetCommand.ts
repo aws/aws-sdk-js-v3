@@ -20,6 +20,9 @@ import {
 export type UpdateIPSetCommandInput = UpdateIPSetRequest;
 export type UpdateIPSetCommandOutput = UpdateIPSetResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the IPSet specified by the IPSet ID.</p>
+ */
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,
   UpdateIPSetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateIPSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

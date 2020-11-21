@@ -20,6 +20,16 @@ import {
 export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeRequest;
 export type DescribeInstanceAttributeCommandOutput = InstanceAttribute & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified instance. You can specify only one
+ *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
+ *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
+ *                 <code>disableApiTermination</code> | <code>instanceInitiatedShutdownBehavior</code>
+ *             | <code>rootDeviceName</code> | <code>blockDeviceMapping</code> |
+ *                 <code>productCodes</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
+ *                 <code>ebsOptimized</code> | <code>sriovNetSupport</code>
+ *         </p>
+ */
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

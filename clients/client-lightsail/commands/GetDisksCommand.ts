@@ -17,6 +17,9 @@ import {
 export type GetDisksCommandInput = GetDisksRequest;
 export type GetDisksCommandOutput = GetDisksResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about all block storage disks in your AWS account and region.</p>
+ */
 export class GetDisksCommand extends $Command<
   GetDisksCommandInput,
   GetDisksCommandOutput,
@@ -31,6 +34,9 @@ export class GetDisksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

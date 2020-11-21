@@ -20,6 +20,9 @@ import {
 export type DeprecateFlowTemplateCommandInput = DeprecateFlowTemplateRequest;
 export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
+ */
 export class DeprecateFlowTemplateCommand extends $Command<
   DeprecateFlowTemplateCommandInput,
   DeprecateFlowTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeprecateFlowTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

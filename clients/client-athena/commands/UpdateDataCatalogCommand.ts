@@ -20,6 +20,9 @@ import {
 export type UpdateDataCatalogCommandInput = UpdateDataCatalogInput;
 export type UpdateDataCatalogCommandOutput = UpdateDataCatalogOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the data catalog that has the specified name.</p>
+ */
 export class UpdateDataCatalogCommand extends $Command<
   UpdateDataCatalogCommandInput,
   UpdateDataCatalogCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDataCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

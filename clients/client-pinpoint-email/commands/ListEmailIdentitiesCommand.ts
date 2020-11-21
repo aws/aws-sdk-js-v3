@@ -20,6 +20,11 @@ import {
 export type ListEmailIdentitiesCommandInput = ListEmailIdentitiesRequest;
 export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint
+ *             account. An identity can be either an email address or a domain. This operation returns
+ *             identities that are verified as well as those that aren't.</p>
+ */
 export class ListEmailIdentitiesCommand extends $Command<
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
@@ -34,6 +39,9 @@ export class ListEmailIdentitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

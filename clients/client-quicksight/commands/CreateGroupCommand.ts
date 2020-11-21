@@ -20,6 +20,13 @@ import {
 export type CreateGroupCommandInput = CreateGroupRequest;
 export type CreateGroupCommandOutput = CreateGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon QuickSight group.</p>
+ * 		       <p>The permissions resource is
+ * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
+ *             </code>.</p>
+ * 		       <p>The response is a group object.</p>
+ */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,
   CreateGroupCommandOutput,
@@ -34,6 +41,9 @@ export class CreateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

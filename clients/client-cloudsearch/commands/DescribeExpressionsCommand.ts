@@ -20,6 +20,9 @@ import {
 export type DescribeExpressionsCommandInput = DescribeExpressionsRequest;
 export type DescribeExpressionsCommandOutput = DescribeExpressionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeExpressionsCommand extends $Command<
   DescribeExpressionsCommandInput,
   DescribeExpressionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExpressionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateImageCommandInput = CreateImageRequest;
 export type CreateImageCommandOutput = CreateImageResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
+ *         version represents a container image stored in Amazon Container Registry (ECR). For more information, see
+ *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
+ */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,
   CreateImageCommandOutput,
@@ -34,6 +39,9 @@ export class CreateImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

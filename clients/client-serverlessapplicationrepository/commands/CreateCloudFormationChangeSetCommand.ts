@@ -24,6 +24,9 @@ import {
 export type CreateCloudFormationChangeSetCommandInput = CreateCloudFormationChangeSetRequest;
 export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS CloudFormation change set for the given application.</p>
+ */
 export class CreateCloudFormationChangeSetCommand extends $Command<
   CreateCloudFormationChangeSetCommandInput,
   CreateCloudFormationChangeSetCommandOutput,
@@ -38,6 +41,9 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

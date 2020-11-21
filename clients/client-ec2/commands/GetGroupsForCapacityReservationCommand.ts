@@ -20,6 +20,9 @@ import {
 export type GetGroupsForCapacityReservationCommandInput = GetGroupsForCapacityReservationRequest;
 export type GetGroupsForCapacityReservationCommandOutput = GetGroupsForCapacityReservationResult & __MetadataBearer;
 
+/**
+ * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
+ */
 export class GetGroupsForCapacityReservationCommand extends $Command<
   GetGroupsForCapacityReservationCommandInput,
   GetGroupsForCapacityReservationCommandOutput,
@@ -34,6 +37,9 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListFindingsCommandInput = ListFindingsRequest;
 export type ListFindingsCommandOutput = ListFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a subset of information about one or more findings.</p>
+ */
 export class ListFindingsCommand extends $Command<
   ListFindingsCommandInput,
   ListFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

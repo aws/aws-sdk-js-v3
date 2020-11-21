@@ -20,6 +20,16 @@ import {
 export type PutDomainPermissionsPolicyCommandInput = PutDomainPermissionsPolicyRequest;
 export type PutDomainPermissionsPolicyCommandOutput = PutDomainPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Sets a resource policy on a domain that specifies permissions to access it.
+ *       </p>
+ *          <p>
+ *        When you call <code>PutDomainPermissionsPolicy</code>, the resource policy on the domain is ignored when evaluting permissions.
+ *        This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being
+ *        able to update the resource policy.
+ *      </p>
+ */
 export class PutDomainPermissionsPolicyCommand extends $Command<
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
@@ -34,6 +44,9 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

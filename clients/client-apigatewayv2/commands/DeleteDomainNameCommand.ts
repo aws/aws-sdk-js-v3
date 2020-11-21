@@ -20,6 +20,9 @@ import {
 export type DeleteDomainNameCommandInput = DeleteDomainNameRequest;
 export type DeleteDomainNameCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a domain name.</p>
+ */
 export class DeleteDomainNameCommand extends $Command<
   DeleteDomainNameCommandInput,
   DeleteDomainNameCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDomainNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

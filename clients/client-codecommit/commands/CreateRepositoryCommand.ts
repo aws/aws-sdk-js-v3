@@ -20,6 +20,9 @@ import {
 export type CreateRepositoryCommandInput = CreateRepositoryInput;
 export type CreateRepositoryCommandOutput = CreateRepositoryOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new, empty repository.</p>
+ */
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,
   CreateRepositoryCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

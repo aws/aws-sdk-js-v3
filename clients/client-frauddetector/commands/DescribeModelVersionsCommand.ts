@@ -20,6 +20,9 @@ import {
 export type DescribeModelVersionsCommandInput = DescribeModelVersionsRequest;
 export type DescribeModelVersionsCommandOutput = DescribeModelVersionsResult & __MetadataBearer;
 
+/**
+ * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
+ */
 export class DescribeModelVersionsCommand extends $Command<
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeModelVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

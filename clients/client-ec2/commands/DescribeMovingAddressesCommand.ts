@@ -20,6 +20,9 @@ import {
 export type DescribeMovingAddressesCommandInput = DescribeMovingAddressesRequest;
 export type DescribeMovingAddressesCommandOutput = DescribeMovingAddressesResult & __MetadataBearer;
 
+/**
+ * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>
+ */
 export class DescribeMovingAddressesCommand extends $Command<
   DescribeMovingAddressesCommandInput,
   DescribeMovingAddressesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMovingAddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateGatewayResponseCommandInput = UpdateGatewayResponseRequest;
 export type UpdateGatewayResponseCommandOutput = GatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
+ */
 export class UpdateGatewayResponseCommand extends $Command<
   UpdateGatewayResponseCommandInput,
   UpdateGatewayResponseCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGatewayResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

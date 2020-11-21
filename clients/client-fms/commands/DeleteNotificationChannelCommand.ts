@@ -20,6 +20,10 @@ import {
 export type DeleteNotificationChannelCommandInput = DeleteNotificationChannelRequest;
 export type DeleteNotificationChannelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple
+ *       Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.</p>
+ */
 export class DeleteNotificationChannelCommand extends $Command<
   DeleteNotificationChannelCommandInput,
   DeleteNotificationChannelCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteNotificationChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

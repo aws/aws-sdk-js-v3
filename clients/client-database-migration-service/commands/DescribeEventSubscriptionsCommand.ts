@@ -24,6 +24,14 @@ import {
 export type DescribeEventSubscriptionsCommandInput = DescribeEventSubscriptionsMessage;
 export type DescribeEventSubscriptionsCommandOutput = DescribeEventSubscriptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the event subscriptions for a customer account. The description of a
+ *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
+ *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
+ *             <code>CreationTime</code>, and <code>Status</code>. </p>
+ *          <p>If you specify <code>SubscriptionName</code>, this action lists the description for that
+ *          subscription.</p>
+ */
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
@@ -38,6 +46,9 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

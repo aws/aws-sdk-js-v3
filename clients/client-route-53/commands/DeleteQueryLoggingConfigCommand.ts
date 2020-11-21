@@ -21,6 +21,13 @@ import {
 export type DeleteQueryLoggingConfigCommandInput = DeleteQueryLoggingConfigRequest;
 export type DeleteQueryLoggingConfigCommandOutput = DeleteQueryLoggingConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs.
+ * 			Route 53 doesn't delete any logs that are already in CloudWatch Logs.</p>
+ *
+ * 		       <p>For more information about DNS query logs, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
+ */
 export class DeleteQueryLoggingConfigCommand extends $Command<
   DeleteQueryLoggingConfigCommandInput,
   DeleteQueryLoggingConfigCommandOutput,
@@ -35,6 +42,9 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

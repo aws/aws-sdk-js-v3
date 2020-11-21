@@ -20,6 +20,9 @@ import {
 export type GetSkillGroupCommandInput = GetSkillGroupRequest;
 export type GetSkillGroupCommandOutput = GetSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Gets skill group details by skill group ARN.</p>
+ */
 export class GetSkillGroupCommand extends $Command<
   GetSkillGroupCommandInput,
   GetSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class GetSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

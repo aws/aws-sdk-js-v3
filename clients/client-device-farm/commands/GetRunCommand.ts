@@ -17,6 +17,9 @@ import {
 export type GetRunCommandInput = GetRunRequest;
 export type GetRunCommandOutput = GetRunResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a run.</p>
+ */
 export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

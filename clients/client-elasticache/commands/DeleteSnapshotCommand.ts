@@ -20,6 +20,15 @@ import {
 export type DeleteSnapshotCommandInput = DeleteSnapshotMessage;
 export type DeleteSnapshotCommandOutput = DeleteSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing snapshot. When you receive a
+ *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
+ *             you cannot cancel or revert this operation.</p>
+ *
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,
   DeleteSnapshotCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

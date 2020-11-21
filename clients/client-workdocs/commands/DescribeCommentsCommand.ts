@@ -20,6 +20,9 @@ import {
 export type DescribeCommentsCommandInput = DescribeCommentsRequest;
 export type DescribeCommentsCommandOutput = DescribeCommentsResponse & __MetadataBearer;
 
+/**
+ * <p>List all the comments for the specified document version.</p>
+ */
 export class DescribeCommentsCommand extends $Command<
   DescribeCommentsCommandInput,
   DescribeCommentsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCommentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

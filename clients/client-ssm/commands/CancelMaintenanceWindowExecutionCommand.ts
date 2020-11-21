@@ -20,6 +20,11 @@ import {
 export type CancelMaintenanceWindowExecutionCommandInput = CancelMaintenanceWindowExecutionRequest;
 export type CancelMaintenanceWindowExecutionCommandOutput = CancelMaintenanceWindowExecutionResult & __MetadataBearer;
 
+/**
+ * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
+ *    the window that have not already starting running. (Tasks already in progress will continue to
+ *    completion.)</p>
+ */
 export class CancelMaintenanceWindowExecutionCommand extends $Command<
   CancelMaintenanceWindowExecutionCommandInput,
   CancelMaintenanceWindowExecutionCommandOutput,
@@ -34,6 +39,9 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

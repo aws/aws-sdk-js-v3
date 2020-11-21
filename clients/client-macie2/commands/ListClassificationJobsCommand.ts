@@ -20,6 +20,9 @@ import {
 export type ListClassificationJobsCommandInput = ListClassificationJobsRequest;
 export type ListClassificationJobsCommandOutput = ListClassificationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a subset of information about one or more classification jobs.</p>
+ */
 export class ListClassificationJobsCommand extends $Command<
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListClassificationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

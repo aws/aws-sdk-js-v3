@@ -24,6 +24,9 @@ export type GetCloudFrontOriginAccessIdentityConfigCommandInput = GetCloudFrontO
 export type GetCloudFrontOriginAccessIdentityConfigCommandOutput = GetCloudFrontOriginAccessIdentityConfigResult &
   __MetadataBearer;
 
+/**
+ * <p>Get the configuration information about an origin access identity. </p>
+ */
 export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
@@ -38,6 +41,9 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
+ *                 <code>UntagResource</code> up to five times per second, per account. </p>
+ *          <p>For an overview on tagging DynamoDB resources, see
+ *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
+ *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +41,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CancelJobCommandInput = CancelJobRequest;
 export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
 
+/**
+ * Permanently cancel a job. Once you have canceled a job, you can't start it again.
+ */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,
   CancelJobCommandOutput,
@@ -34,6 +37,9 @@ export class CancelJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

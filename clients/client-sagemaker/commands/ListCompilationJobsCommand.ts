@@ -20,6 +20,11 @@ import {
 export type ListCompilationJobsCommandInput = ListCompilationJobsRequest;
 export type ListCompilationJobsCommandOutput = ListCompilationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists model compilation jobs that satisfy various filters.</p>
+ *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+ *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
+ */
 export class ListCompilationJobsCommand extends $Command<
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
@@ -34,6 +39,9 @@ export class ListCompilationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

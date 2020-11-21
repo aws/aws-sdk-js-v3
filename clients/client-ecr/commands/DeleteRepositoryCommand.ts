@@ -20,6 +20,11 @@ import {
 export type DeleteRepositoryCommandInput = DeleteRepositoryRequest;
 export type DeleteRepositoryCommandOutput = DeleteRepositoryResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a repository. If the repository contains images, you must either delete all
+ *             images in the repository or use the <code>force</code> option to delete the
+ *             repository.</p>
+ */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,
   DeleteRepositoryCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

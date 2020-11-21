@@ -20,6 +20,9 @@ import {
 export type ListCoreDefinitionsCommandInput = ListCoreDefinitionsRequest;
 export type ListCoreDefinitionsCommandOutput = ListCoreDefinitionsResponse & __MetadataBearer;
 
+/**
+ * Retrieves a list of core definitions.
+ */
 export class ListCoreDefinitionsCommand extends $Command<
   ListCoreDefinitionsCommandInput,
   ListCoreDefinitionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListCoreDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

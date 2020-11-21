@@ -20,6 +20,9 @@ import {
 export type GetVoiceChannelCommandInput = GetVoiceChannelRequest;
 export type GetVoiceChannelCommandOutput = GetVoiceChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
+ */
 export class GetVoiceChannelCommand extends $Command<
   GetVoiceChannelCommandInput,
   GetVoiceChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetVoiceChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

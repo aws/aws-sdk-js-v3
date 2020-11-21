@@ -20,6 +20,10 @@ import {
 export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
 export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult & __MetadataBearer;
 
+/**
+ * <p>Returns the default engine and system parameter information for the specified database
+ *       engine.</p>
+ */
 export class DescribeEngineDefaultParametersCommand extends $Command<
   DescribeEngineDefaultParametersCommandInput,
   DescribeEngineDefaultParametersCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

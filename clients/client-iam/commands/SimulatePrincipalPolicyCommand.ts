@@ -20,6 +20,30 @@ import {
 export type SimulatePrincipalPolicyCommandInput = SimulatePrincipalPolicyRequest;
 export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
+ *          API operations and AWS resources to determine the policies' effective permissions. The
+ *          entity can be an IAM user, group, or role. If you specify a user, then the simulation
+ *          also includes all of the policies that are attached to groups that the user belongs
+ *          to.</p>
+ *          <p>You can optionally include a list of one or more additional policies specified as
+ *          strings to include in the simulation. If you want to simulate only policies specified as
+ *          strings, use <a>SimulateCustomPolicy</a> instead.</p>
+ *          <p>You can also optionally include one resource-based policy to be evaluated with each of
+ *          the resources included in the simulation.</p>
+ *          <p>The simulation does not perform the API operations; it only checks the authorization to
+ *          determine if the simulated policies allow or deny the operations.</p>
+ *          <p>
+ *             <b>Note:</b> This API discloses information about the permissions
+ *          granted to other users. If you do not want users to see other user's permissions, then
+ *          consider allowing them to use <a>SimulateCustomPolicy</a> instead.</p>
+ *          <p>Context keys are variables maintained by AWS and its services that provide details
+ *          about the context of an API query request. You can use the <code>Condition</code> element
+ *          of an IAM policy to evaluate context keys. To get the list of context keys that the
+ *          policies require for correct simulation, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
+ *          <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters to paginate the results.</p>
+ */
 export class SimulatePrincipalPolicyCommand extends $Command<
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
@@ -34,6 +58,9 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

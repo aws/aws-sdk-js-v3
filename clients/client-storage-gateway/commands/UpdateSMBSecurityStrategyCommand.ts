@@ -20,6 +20,16 @@ import {
 export type UpdateSMBSecurityStrategyCommandInput = UpdateSMBSecurityStrategyInput;
 export type UpdateSMBSecurityStrategyCommandOutput = UpdateSMBSecurityStrategyOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
+ *          file gateways.</p>
+ *
+ *          <note>
+ *             <p>This API is called Security level in the User Guide.</p>
+ *
+ *             <p>A higher security level can affect performance of the gateway.</p>
+ *          </note>
+ */
 export class UpdateSMBSecurityStrategyCommand extends $Command<
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
@@ -34,6 +44,9 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

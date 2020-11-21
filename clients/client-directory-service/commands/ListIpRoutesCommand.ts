@@ -20,6 +20,9 @@ import {
 export type ListIpRoutesCommandInput = ListIpRoutesRequest;
 export type ListIpRoutesCommandOutput = ListIpRoutesResult & __MetadataBearer;
 
+/**
+ * <p>Lists the address blocks that you have added to a directory.</p>
+ */
 export class ListIpRoutesCommand extends $Command<
   ListIpRoutesCommandInput,
   ListIpRoutesCommandOutput,
@@ -34,6 +37,9 @@ export class ListIpRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

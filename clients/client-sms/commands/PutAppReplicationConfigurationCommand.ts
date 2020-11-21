@@ -20,6 +20,9 @@ import {
 export type PutAppReplicationConfigurationCommandInput = PutAppReplicationConfigurationRequest;
 export type PutAppReplicationConfigurationCommandOutput = PutAppReplicationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates the replication configuration for the specified application.</p>
+ */
 export class PutAppReplicationConfigurationCommand extends $Command<
   PutAppReplicationConfigurationCommandInput,
   PutAppReplicationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

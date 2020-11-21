@@ -20,6 +20,9 @@ import {
 export type DeleteThreatIntelSetCommandInput = DeleteThreatIntelSetRequest;
 export type DeleteThreatIntelSetCommandOutput = DeleteThreatIntelSetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
+ */
 export class DeleteThreatIntelSetCommand extends $Command<
   DeleteThreatIntelSetCommandInput,
   DeleteThreatIntelSetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteThreatIntelSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

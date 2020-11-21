@@ -25,6 +25,10 @@ import {
 export type ConfirmDeviceCommandInput = ConfirmDeviceRequest;
 export type ConfirmDeviceCommandOutput = ConfirmDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Confirms tracking of the device. This API call is the call that begins device
+ *             tracking.</p>
+ */
 export class ConfirmDeviceCommand extends $Command<
   ConfirmDeviceCommandInput,
   ConfirmDeviceCommandOutput,
@@ -39,6 +43,9 @@ export class ConfirmDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

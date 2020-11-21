@@ -20,6 +20,9 @@ import {
 export type DeleteLogSubscriptionCommandInput = DeleteLogSubscriptionRequest;
 export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified log subscription.</p>
+ */
 export class DeleteLogSubscriptionCommand extends $Command<
   DeleteLogSubscriptionCommandInput,
   DeleteLogSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLogSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

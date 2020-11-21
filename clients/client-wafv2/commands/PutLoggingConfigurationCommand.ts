@@ -20,6 +20,30 @@ import {
 export type PutLoggingConfigurationCommandInput = PutLoggingConfigurationRequest;
 export type PutLoggingConfigurationCommandOutput = PutLoggingConfigurationResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ *          </note>
+ *          <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
+ *          <p>You can access information about all traffic that AWS WAF inspects using the following
+ *          steps:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Create an Amazon Kinesis Data
+ *             Firehose. </p>
+ *                <p>Create the data firehose with a PUT source and in the Region that you are operating. If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
+ *                <p>Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>. For example, <code>aws-waf-logs-us-east-2-analytics</code>.</p>
+ *                <note>
+ *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your source.</p>
+ *                </note>
+ *             </li>
+ *             <li>
+ *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
+ *             </li>
+ *          </ol>
+ *
+ *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ */
 export class PutLoggingConfigurationCommand extends $Command<
   PutLoggingConfigurationCommandInput,
   PutLoggingConfigurationCommandOutput,
@@ -34,6 +58,9 @@ export class PutLoggingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

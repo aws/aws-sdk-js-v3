@@ -20,6 +20,15 @@ import {
 export type ListSigningPlatformsCommandInput = ListSigningPlatformsRequest;
 export type ListSigningPlatformsCommandOutput = ListSigningPlatformsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all signing platforms available in code signing that match the request parameters. If
+ * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
+ * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
+ * 			values. You can continue calling <code>ListSigningJobs</code> with your
+ * 				<code>maxResults</code> parameter and with new values that code signing returns in the
+ * 				<code>nextToken</code> parameter until all of your signing jobs have been
+ * 			returned.</p>
+ */
 export class ListSigningPlatformsCommand extends $Command<
   ListSigningPlatformsCommandInput,
   ListSigningPlatformsCommandOutput,
@@ -34,6 +43,9 @@ export class ListSigningPlatformsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

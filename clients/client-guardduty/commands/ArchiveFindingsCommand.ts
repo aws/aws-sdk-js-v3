@@ -20,6 +20,13 @@ import {
 export type ArchiveFindingsCommandInput = ArchiveFindingsRequest;
 export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
+ *          <note>
+ *             <p>Only the master account can archive findings. Member accounts don't have permission to
+ *         archive findings from their accounts.</p>
+ *          </note>
+ */
 export class ArchiveFindingsCommand extends $Command<
   ArchiveFindingsCommandInput,
   ArchiveFindingsCommandOutput,
@@ -34,6 +41,9 @@ export class ArchiveFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

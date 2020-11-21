@@ -20,6 +20,9 @@ import {
 export type GetPolicyVersionCommandInput = GetPolicyVersionRequest;
 export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified policy version.</p>
+ */
 export class GetPolicyVersionCommand extends $Command<
   GetPolicyVersionCommandInput,
   GetPolicyVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetPolicyVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

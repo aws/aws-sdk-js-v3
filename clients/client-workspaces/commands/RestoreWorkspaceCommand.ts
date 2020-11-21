@@ -20,6 +20,16 @@ import {
 export type RestoreWorkspaceCommandInput = RestoreWorkspaceRequest;
 export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult & __MetadataBearer;
 
+/**
+ * <p>Restores the specified WorkSpace to its last known healthy state.</p>
+ *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
+ *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
+ *          <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of
+ *          data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html">Restore a
+ *          WorkSpace</a>.</p>
+ *          <p>This operation is asynchronous and returns before the WorkSpace is completely
+ *          restored.</p>
+ */
 export class RestoreWorkspaceCommand extends $Command<
   RestoreWorkspaceCommandInput,
   RestoreWorkspaceCommandOutput,
@@ -34,6 +44,9 @@ export class RestoreWorkspaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

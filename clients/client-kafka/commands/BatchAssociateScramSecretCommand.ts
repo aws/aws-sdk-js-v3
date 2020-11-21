@@ -20,6 +20,9 @@ import {
 export type BatchAssociateScramSecretCommandInput = BatchAssociateScramSecretRequest;
 export type BatchAssociateScramSecretCommandOutput = BatchAssociateScramSecretResponse & __MetadataBearer;
 
+/**
+ * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
+ */
 export class BatchAssociateScramSecretCommand extends $Command<
   BatchAssociateScramSecretCommandInput,
   BatchAssociateScramSecretCommandOutput,
@@ -34,6 +37,9 @@ export class BatchAssociateScramSecretCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type AcknowledgeThirdPartyJobCommandInput = AcknowledgeThirdPartyJobInput;
 export type AcknowledgeThirdPartyJobCommandOutput = AcknowledgeThirdPartyJobOutput & __MetadataBearer;
 
+/**
+ * <p>Confirms a job worker has received the specified job. Used for partner actions
+ *             only.</p>
+ */
 export class AcknowledgeThirdPartyJobCommand extends $Command<
   AcknowledgeThirdPartyJobCommandInput,
   AcknowledgeThirdPartyJobCommandOutput,
@@ -34,6 +38,9 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

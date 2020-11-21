@@ -20,6 +20,10 @@ import {
 export type DescribeAddressCommandInput = DescribeAddressRequest;
 export type DescribeAddressCommandOutput = DescribeAddressResult & __MetadataBearer;
 
+/**
+ * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
+ *       form of an <code>Address</code> object.</p>
+ */
 export class DescribeAddressCommand extends $Command<
   DescribeAddressCommandInput,
   DescribeAddressCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsRequest;
 export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Obtains information about the directory snapshots that belong to this account.</p>
+ *          <p>This operation supports pagination with the use of the <i>NextToken</i> request and
+ *          response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>
+ *          member contains a token that you pass in the next call to <a>DescribeSnapshots</a> to
+ *          retrieve the next set of items.</p>
+ *          <p>You can also specify a maximum number of return results with the <i>Limit</i>
+ *          parameter.</p>
+ */
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

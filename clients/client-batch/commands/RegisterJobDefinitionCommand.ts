@@ -20,6 +20,9 @@ import {
 export type RegisterJobDefinitionCommandInput = RegisterJobDefinitionRequest;
 export type RegisterJobDefinitionCommandOutput = RegisterJobDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Registers an AWS Batch job definition.</p>
+ */
 export class RegisterJobDefinitionCommand extends $Command<
   RegisterJobDefinitionCommandInput,
   RegisterJobDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class RegisterJobDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

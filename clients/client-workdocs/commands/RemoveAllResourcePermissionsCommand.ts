@@ -20,6 +20,9 @@ import {
 export type RemoveAllResourcePermissionsCommandInput = RemoveAllResourcePermissionsRequest;
 export type RemoveAllResourcePermissionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes all the permissions from the specified resource.</p>
+ */
 export class RemoveAllResourcePermissionsCommand extends $Command<
   RemoveAllResourcePermissionsCommandInput,
   RemoveAllResourcePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

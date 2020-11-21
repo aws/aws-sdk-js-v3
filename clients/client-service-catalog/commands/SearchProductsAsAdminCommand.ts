@@ -20,6 +20,9 @@ import {
 export type SearchProductsAsAdminCommandInput = SearchProductsAsAdminInput;
 export type SearchProductsAsAdminCommandOutput = SearchProductsAsAdminOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the products for the specified portfolio or all products.</p>
+ */
 export class SearchProductsAsAdminCommand extends $Command<
   SearchProductsAsAdminCommandInput,
   SearchProductsAsAdminCommandOutput,
@@ -34,6 +37,9 @@ export class SearchProductsAsAdminCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateGatewayCommandInput = CreateGatewayRequest;
 export type CreateGatewayCommandOutput = CreateGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
+ *       from local servers to AWS IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class CreateGatewayCommand extends $Command<
   CreateGatewayCommandInput,
   CreateGatewayCommandOutput,
@@ -34,6 +39,9 @@ export class CreateGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

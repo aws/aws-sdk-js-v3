@@ -20,6 +20,9 @@ import {
 export type DescribeUserHierarchyStructureCommandInput = DescribeUserHierarchyStructureRequest;
 export type DescribeUserHierarchyStructureCommandOutput = DescribeUserHierarchyStructureResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
+ */
 export class DescribeUserHierarchyStructureCommand extends $Command<
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

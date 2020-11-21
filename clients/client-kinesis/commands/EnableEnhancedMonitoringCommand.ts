@@ -20,6 +20,9 @@ import {
 export type EnableEnhancedMonitoringCommandInput = EnableEnhancedMonitoringInput;
 export type EnableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput & __MetadataBearer;
 
+/**
+ * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
+ */
 export class EnableEnhancedMonitoringCommand extends $Command<
   EnableEnhancedMonitoringCommandInput,
   EnableEnhancedMonitoringCommandOutput,
@@ -34,6 +37,9 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetIdentityPoolConfigurationCommandInput = GetIdentityPoolConfigurationRequest;
 export type GetIdentityPoolConfigurationCommandOutput = GetIdentityPoolConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the configuration settings of an identity pool.</p>
+ *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class GetIdentityPoolConfigurationCommand extends $Command<
   GetIdentityPoolConfigurationCommandInput,
   GetIdentityPoolConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

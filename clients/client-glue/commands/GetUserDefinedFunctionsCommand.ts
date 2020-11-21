@@ -20,6 +20,9 @@ import {
 export type GetUserDefinedFunctionsCommandInput = GetUserDefinedFunctionsRequest;
 export type GetUserDefinedFunctionsCommandOutput = GetUserDefinedFunctionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves multiple function definitions from the Data Catalog.</p>
+ */
 export class GetUserDefinedFunctionsCommand extends $Command<
   GetUserDefinedFunctionsCommandInput,
   GetUserDefinedFunctionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetUserDefinedFunctionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

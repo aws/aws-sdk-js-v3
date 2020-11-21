@@ -20,6 +20,11 @@ import {
 export type ListAssociationsCommandInput = ListAssociationsRequest;
 export type ListAssociationsCommandOutput = ListAssociationsResult & __MetadataBearer;
 
+/**
+ * <p>Returns all State Manager associations in the current AWS account and Region. You can limit
+ *    the results to a specific State Manager association document or instance by specifying a
+ *    filter.</p>
+ */
 export class ListAssociationsCommand extends $Command<
   ListAssociationsCommandInput,
   ListAssociationsCommandOutput,
@@ -34,6 +39,9 @@ export class ListAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

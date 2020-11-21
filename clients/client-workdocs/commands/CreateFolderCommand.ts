@@ -20,6 +20,9 @@ import {
 export type CreateFolderCommandInput = CreateFolderRequest;
 export type CreateFolderCommandOutput = CreateFolderResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a folder with the specified name and parent folder.</p>
+ */
 export class CreateFolderCommand extends $Command<
   CreateFolderCommandInput,
   CreateFolderCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFolderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

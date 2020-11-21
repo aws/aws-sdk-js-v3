@@ -20,6 +20,13 @@ import {
 export type UpdateRepositoryNameCommandInput = UpdateRepositoryNameInput;
 export type UpdateRepositoryNameCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Renames a repository. The repository name must be unique across the calling AWS
+ *             account. Repository names are limited to 100 alphanumeric, dash, and underscore
+ *             characters, and cannot include certain characters. The suffix .git is prohibited. For
+ *             more information about the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a> in the AWS CodeCommit
+ *             User Guide.</p>
+ */
 export class UpdateRepositoryNameCommand extends $Command<
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateRepositoryNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

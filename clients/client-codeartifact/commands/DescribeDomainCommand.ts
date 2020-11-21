@@ -20,6 +20,15 @@ import {
 export type DescribeDomainCommandInput = DescribeDomainRequest;
 export type DescribeDomainCommandOutput = DescribeDomainResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns a
+ *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">
+ *                <code>DomainDescription</code>
+ *             </a>
+ *       object that contains information about the requested domain.
+ *      </p>
+ */
 export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandInput,
   DescribeDomainCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

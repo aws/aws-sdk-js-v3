@@ -24,6 +24,10 @@ import {
 export type DisconnectParticipantCommandInput = DisconnectParticipantRequest;
 export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse & __MetadataBearer;
 
+/**
+ * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
+ *             instead of ParticipantToken.</p>
+ */
 export class DisconnectParticipantCommand extends $Command<
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
@@ -38,6 +42,9 @@ export class DisconnectParticipantCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,

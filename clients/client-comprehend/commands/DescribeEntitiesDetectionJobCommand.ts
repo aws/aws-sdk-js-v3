@@ -20,6 +20,10 @@ import {
 export type DescribeEntitiesDetectionJobCommandInput = DescribeEntitiesDetectionJobRequest;
 export type DescribeEntitiesDetectionJobCommandOutput = DescribeEntitiesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with an entities detection job. Use this operation to get
+ *       the status of a detection job.</p>
+ */
 export class DescribeEntitiesDetectionJobCommand extends $Command<
   DescribeEntitiesDetectionJobCommandInput,
   DescribeEntitiesDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

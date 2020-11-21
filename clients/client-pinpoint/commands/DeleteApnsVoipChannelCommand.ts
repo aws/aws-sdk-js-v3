@@ -20,6 +20,9 @@ import {
 export type DeleteApnsVoipChannelCommandInput = DeleteApnsVoipChannelRequest;
 export type DeleteApnsVoipChannelCommandOutput = DeleteApnsVoipChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteApnsVoipChannelCommand extends $Command<
   DeleteApnsVoipChannelCommandInput,
   DeleteApnsVoipChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

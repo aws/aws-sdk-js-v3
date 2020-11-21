@@ -28,6 +28,11 @@ export type AddApplicationInputProcessingConfigurationCommandInput = AddApplicat
 export type AddApplicationInputProcessingConfigurationCommandOutput = AddApplicationInputProcessingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records
+ *       on the input stream before the
+ *       application's SQL code executes. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
+ */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command<
   AddApplicationInputProcessingConfigurationCommandInput,
   AddApplicationInputProcessingConfigurationCommandOutput,
@@ -42,6 +47,9 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

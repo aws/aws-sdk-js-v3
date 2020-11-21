@@ -20,6 +20,9 @@ import {
 export type UpdateCodeRepositoryCommandInput = UpdateCodeRepositoryInput;
 export type UpdateCodeRepositoryCommandOutput = UpdateCodeRepositoryOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the specified Git repository with the specified values.</p>
+ */
 export class UpdateCodeRepositoryCommand extends $Command<
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateCodeRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

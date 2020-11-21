@@ -20,6 +20,11 @@ import {
 export type ListPolicyPrincipalsCommandInput = ListPolicyPrincipalsRequest;
 export type ListPolicyPrincipalsCommandOutput = ListPolicyPrincipalsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the principals associated with the specified policy.</p>
+ *          <p>
+ *             <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+ */
 export class ListPolicyPrincipalsCommand extends $Command<
   ListPolicyPrincipalsCommandInput,
   ListPolicyPrincipalsCommandOutput,
@@ -34,6 +39,9 @@ export class ListPolicyPrincipalsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

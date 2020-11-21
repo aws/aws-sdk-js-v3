@@ -20,6 +20,9 @@ import {
 export type UpdatePermissionSetCommandInput = UpdatePermissionSetRequest;
 export type UpdatePermissionSetCommandOutput = UpdatePermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing permission set.</p>
+ */
 export class UpdatePermissionSetCommand extends $Command<
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

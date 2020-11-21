@@ -24,6 +24,9 @@ import {
 export type DeleteElasticsearchDomainCommandInput = DeleteElasticsearchDomainRequest;
 export type DeleteElasticsearchDomainCommandOutput = DeleteElasticsearchDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
+ */
 export class DeleteElasticsearchDomainCommand extends $Command<
   DeleteElasticsearchDomainCommandInput,
   DeleteElasticsearchDomainCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

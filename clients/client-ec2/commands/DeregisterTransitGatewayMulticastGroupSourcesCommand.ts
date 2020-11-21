@@ -24,6 +24,9 @@ export type DeregisterTransitGatewayMulticastGroupSourcesCommandInput = Deregist
 export type DeregisterTransitGatewayMulticastGroupSourcesCommandOutput = DeregisterTransitGatewayMulticastGroupSourcesResult &
   __MetadataBearer;
 
+/**
+ * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>
+ */
 export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Command<
   DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
   DeregisterTransitGatewayMulticastGroupSourcesCommandOutput,
@@ -38,6 +41,9 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

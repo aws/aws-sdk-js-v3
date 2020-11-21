@@ -20,6 +20,9 @@ import {
 export type GetRemoteAccessSessionCommandInput = GetRemoteAccessSessionRequest;
 export type GetRemoteAccessSessionCommandOutput = GetRemoteAccessSessionResult & __MetadataBearer;
 
+/**
+ * <p>Returns a link to a currently running remote access session.</p>
+ */
 export class GetRemoteAccessSessionCommand extends $Command<
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput,
@@ -34,6 +37,9 @@ export class GetRemoteAccessSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StopConfigurationRecorderCommandInput = StopConfigurationRecorderRequest;
 export type StopConfigurationRecorderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>
+ */
 export class StopConfigurationRecorderCommand extends $Command<
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
@@ -34,6 +37,9 @@ export class StopConfigurationRecorderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

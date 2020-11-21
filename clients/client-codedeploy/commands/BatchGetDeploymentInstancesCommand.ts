@@ -20,6 +20,16 @@ import {
 export type BatchGetDeploymentInstancesCommandInput = BatchGetDeploymentInstancesInput;
 export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstancesOutput & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
+ *                 instead. </p>
+ *         </note>
+ *         <p> Returns an array of one or more instances associated with a deployment. This method works with
+ *             EC2/On-premises and AWS Lambda compute platforms. The newer
+ *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms.
+ *             The maximum number of instances that can be returned is 25.</p>
+ */
 export class BatchGetDeploymentInstancesCommand extends $Command<
   BatchGetDeploymentInstancesCommandInput,
   BatchGetDeploymentInstancesCommandOutput,
@@ -34,6 +44,9 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

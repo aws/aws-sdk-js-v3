@@ -20,6 +20,10 @@ import {
 export type GetInventorySchemaCommandInput = GetInventorySchemaRequest;
 export type GetInventorySchemaCommandOutput = GetInventorySchemaResult & __MetadataBearer;
 
+/**
+ * <p>Return a list of inventory type names for the account, or return a list of attribute names
+ *    for a specific Inventory item type.</p>
+ */
 export class GetInventorySchemaCommand extends $Command<
   GetInventorySchemaCommandInput,
   GetInventorySchemaCommandOutput,
@@ -34,6 +38,9 @@ export class GetInventorySchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

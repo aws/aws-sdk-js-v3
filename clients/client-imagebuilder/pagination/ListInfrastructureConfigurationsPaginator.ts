@@ -8,6 +8,9 @@ import {
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ImagebuilderClient,
   input: ListInfrastructureConfigurationsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInfrastructureConfigurationsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Imagebuilder,
   input: ListInfrastructureConfigurationsCommandInput,

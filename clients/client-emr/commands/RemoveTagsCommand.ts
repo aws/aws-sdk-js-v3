@@ -20,6 +20,12 @@ import {
 export type RemoveTagsCommandInput = RemoveTagsInput;
 export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
+ *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>.
+ *       </p>
+ *          <p>The following example removes the stack tag with value Prod from a cluster:</p>
+ */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,
   RemoveTagsCommandOutput,
@@ -34,6 +40,9 @@ export class RemoveTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

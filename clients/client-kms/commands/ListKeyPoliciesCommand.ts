@@ -20,6 +20,12 @@ import {
 export type ListKeyPoliciesCommandInput = ListKeyPoliciesRequest;
 export type ListKeyPoliciesCommandOutput = ListKeyPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the names of the key policies that are attached to a customer master key (CMK). This
+ *       operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
+ *       operation. However, the only valid policy name is <code>default</code>.
+ *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ */
 export class ListKeyPoliciesCommand extends $Command<
   ListKeyPoliciesCommandInput,
   ListKeyPoliciesCommandOutput,
@@ -34,6 +40,9 @@ export class ListKeyPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

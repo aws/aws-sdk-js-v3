@@ -20,6 +20,9 @@ import {
 export type GroupResourcesCommandInput = GroupResourcesInput;
 export type GroupResourcesCommandOutput = GroupResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Adds the specified resources to the specified group.</p>
+ */
 export class GroupResourcesCommand extends $Command<
   GroupResourcesCommandInput,
   GroupResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class GroupResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

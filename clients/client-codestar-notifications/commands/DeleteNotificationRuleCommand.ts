@@ -24,6 +24,9 @@ import {
 export type DeleteNotificationRuleCommandInput = DeleteNotificationRuleRequest;
 export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a notification rule for a resource.</p>
+ */
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,
   DeleteNotificationRuleCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteNotificationRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

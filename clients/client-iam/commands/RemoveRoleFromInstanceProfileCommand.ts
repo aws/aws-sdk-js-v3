@@ -20,6 +20,17 @@ import {
 export type RemoveRoleFromInstanceProfileCommandInput = RemoveRoleFromInstanceProfileRequest;
 export type RemoveRoleFromInstanceProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
+ *          <important>
+ *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you are
+ *             about to remove from the instance profile. Removing a role from an instance profile that
+ *             is associated with a running instance might break any applications running on the
+ *             instance.</p>
+ *          </important>
+ *          <p> For more information about IAM roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>. For more
+ *          information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
+ */
 export class RemoveRoleFromInstanceProfileCommand extends $Command<
   RemoveRoleFromInstanceProfileCommandInput,
   RemoveRoleFromInstanceProfileCommandOutput,
@@ -34,6 +45,9 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

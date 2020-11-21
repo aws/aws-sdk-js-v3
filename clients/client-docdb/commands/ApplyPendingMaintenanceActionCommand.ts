@@ -20,6 +20,10 @@ import {
 export type ApplyPendingMaintenanceActionCommandInput = ApplyPendingMaintenanceActionMessage;
 export type ApplyPendingMaintenanceActionCommandOutput = ApplyPendingMaintenanceActionResult & __MetadataBearer;
 
+/**
+ * <p>Applies a pending maintenance action to a resource (for example,
+ *             to an Amazon DocumentDB instance).</p>
+ */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput,
@@ -34,6 +38,9 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

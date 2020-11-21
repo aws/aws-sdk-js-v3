@@ -24,6 +24,9 @@ export type DescribeSubscribersForNotificationCommandInput = DescribeSubscribers
 export type DescribeSubscribersForNotificationCommandOutput = DescribeSubscribersForNotificationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the subscribers that are associated with a notification.</p>
+ */
 export class DescribeSubscribersForNotificationCommand extends $Command<
   DescribeSubscribersForNotificationCommandInput,
   DescribeSubscribersForNotificationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

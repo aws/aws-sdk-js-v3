@@ -20,6 +20,9 @@ import {
 export type ModifyVpnTunnelCertificateCommandInput = ModifyVpnTunnelCertificateRequest;
 export type ModifyVpnTunnelCertificateCommandOutput = ModifyVpnTunnelCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the VPN tunnel endpoint certificate.</p>
+ */
 export class ModifyVpnTunnelCertificateCommand extends $Command<
   ModifyVpnTunnelCertificateCommandInput,
   ModifyVpnTunnelCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

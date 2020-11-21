@@ -20,6 +20,15 @@ import {
 export type DeleteNotebookInstanceCommandInput = DeleteNotebookInstanceInput;
 export type DeleteNotebookInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p> Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you
+ *             must call the <code>StopNotebookInstance</code> API. </p>
+ *         <important>
+ *             <p>When you delete a notebook instance, you lose all of your data. Amazon SageMaker removes
+ *                 the ML compute instance, and deletes the ML storage volume and the network interface
+ *                 associated with the notebook instance. </p>
+ *         </important>
+ */
 export class DeleteNotebookInstanceCommand extends $Command<
   DeleteNotebookInstanceCommandInput,
   DeleteNotebookInstanceCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteNotebookInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

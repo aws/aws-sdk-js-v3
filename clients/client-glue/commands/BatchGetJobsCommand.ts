@@ -20,6 +20,10 @@ import {
 export type BatchGetJobsCommandInput = BatchGetJobsRequest;
 export type BatchGetJobsCommandOutput = BatchGetJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
+ * </p>
+ */
 export class BatchGetJobsCommand extends $Command<
   BatchGetJobsCommandInput,
   BatchGetJobsCommandOutput,
@@ -34,6 +38,9 @@ export class BatchGetJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteLoggerDefinitionCommandInput = DeleteLoggerDefinitionRequest;
 export type DeleteLoggerDefinitionCommandOutput = DeleteLoggerDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a logger definition.
+ */
 export class DeleteLoggerDefinitionCommand extends $Command<
   DeleteLoggerDefinitionCommandInput,
   DeleteLoggerDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

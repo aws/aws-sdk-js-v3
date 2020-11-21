@@ -20,6 +20,14 @@ import {
 export type CreatePermissionSetCommandInput = CreatePermissionSetRequest;
 export type CreatePermissionSetCommandOutput = CreatePermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a permission set within a specified SSO instance.</p>
+ *          <note>
+ *             <p>To grant users and groups access to AWS account resources, use <code>
+ *                   <a>CreateAccountAssignment</a>
+ *                </code>.</p>
+ *          </note>
+ */
 export class CreatePermissionSetCommand extends $Command<
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
@@ -34,6 +42,9 @@ export class CreatePermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

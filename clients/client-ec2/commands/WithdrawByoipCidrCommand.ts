@@ -20,6 +20,13 @@ import {
 export type WithdrawByoipCidrCommandInput = WithdrawByoipCidrRequest;
 export type WithdrawByoipCidrCommandOutput = WithdrawByoipCidrResult & __MetadataBearer;
 
+/**
+ * <p>Stops advertising an address range that is provisioned as an address pool.</p>
+ *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
+ *          address ranges each time.</p>
+ *          <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS
+ *           because of BGP propagation delays.</p>
+ */
 export class WithdrawByoipCidrCommand extends $Command<
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
@@ -34,6 +41,9 @@ export class WithdrawByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

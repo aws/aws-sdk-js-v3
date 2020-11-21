@@ -4,6 +4,9 @@ import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from 
 import { IdentitystorePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IdentitystoreClient,
   input: ListUsersCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUsersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Identitystore,
   input: ListUsersCommandInput,

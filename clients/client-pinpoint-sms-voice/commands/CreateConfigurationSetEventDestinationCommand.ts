@@ -24,6 +24,9 @@ export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigura
 export type CreateConfigurationSetEventDestinationCommandOutput = CreateConfigurationSetEventDestinationResponse &
   __MetadataBearer;
 
+/**
+ * Create a new event destination in a configuration set.
+ */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
   CreateConfigurationSetEventDestinationCommandInput,
   CreateConfigurationSetEventDestinationCommandOutput,
@@ -38,6 +41,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

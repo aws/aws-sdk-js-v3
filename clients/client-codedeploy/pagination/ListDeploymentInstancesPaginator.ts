@@ -8,6 +8,9 @@ import {
 import { CodeDeployPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeDeployClient,
   input: ListDeploymentInstancesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeploymentInstancesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeDeploy,
   input: ListDeploymentInstancesCommandInput,

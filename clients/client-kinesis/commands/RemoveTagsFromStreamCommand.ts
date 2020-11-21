@@ -20,6 +20,14 @@ import {
 export type RemoveTagsFromStreamCommandInput = RemoveTagsFromStreamInput;
 export type RemoveTagsFromStreamCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
+ *             cannot be recovered after this operation successfully completes.</p>
+ *         <p>If you specify a tag that does not exist, it is ignored.</p>
+ *         <p>
+ *             <a>RemoveTagsFromStream</a> has a limit of five transactions per second per
+ *             account.</p>
+ */
 export class RemoveTagsFromStreamCommand extends $Command<
   RemoveTagsFromStreamCommandInput,
   RemoveTagsFromStreamCommandOutput,
@@ -34,6 +42,9 @@ export class RemoveTagsFromStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

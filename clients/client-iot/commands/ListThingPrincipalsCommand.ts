@@ -20,6 +20,11 @@ import {
 export type ListThingPrincipalsCommandInput = ListThingPrincipalsRequest;
 export type ListThingPrincipalsCommandOutput = ListThingPrincipalsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the principals associated with the specified thing. A principal can be X.509
+ * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+ * 			identities.</p>
+ */
 export class ListThingPrincipalsCommand extends $Command<
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
@@ -34,6 +39,9 @@ export class ListThingPrincipalsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

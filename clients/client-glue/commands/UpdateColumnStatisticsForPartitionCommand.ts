@@ -24,6 +24,11 @@ export type UpdateColumnStatisticsForPartitionCommandInput = UpdateColumnStatist
 export type UpdateColumnStatisticsForPartitionCommandOutput = UpdateColumnStatisticsForPartitionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates or updates partition statistics of columns.</p>
+ *
+ *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
+ */
 export class UpdateColumnStatisticsForPartitionCommand extends $Command<
   UpdateColumnStatisticsForPartitionCommandInput,
   UpdateColumnStatisticsForPartitionCommandOutput,
@@ -38,6 +43,9 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

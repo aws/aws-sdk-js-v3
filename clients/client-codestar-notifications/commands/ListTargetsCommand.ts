@@ -24,6 +24,9 @@ import {
 export type ListTargetsCommandInput = ListTargetsRequest;
 export type ListTargetsCommandOutput = ListTargetsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the notification rule targets for an AWS account.</p>
+ */
 export class ListTargetsCommand extends $Command<
   ListTargetsCommandInput,
   ListTargetsCommandOutput,
@@ -38,6 +41,9 @@ export class ListTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

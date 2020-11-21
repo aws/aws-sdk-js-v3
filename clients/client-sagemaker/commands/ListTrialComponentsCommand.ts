@@ -20,6 +20,28 @@ import {
 export type ListTrialComponentsCommandInput = ListTrialComponentsRequest;
 export type ListTrialComponentsCommandOutput = ListTrialComponentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the trial components in your account. You can sort the list by trial component name
+ *       or creation time. You can filter the list to show only components that were created in a
+ *       specific time range. You can also filter on one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ExperimentName</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SourceArn</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TrialName</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListTrialComponentsCommand extends $Command<
   ListTrialComponentsCommandInput,
   ListTrialComponentsCommandOutput,
@@ -34,6 +56,9 @@ export class ListTrialComponentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

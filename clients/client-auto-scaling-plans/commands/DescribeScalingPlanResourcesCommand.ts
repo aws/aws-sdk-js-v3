@@ -20,6 +20,9 @@ import {
 export type DescribeScalingPlanResourcesCommandInput = DescribeScalingPlanResourcesRequest;
 export type DescribeScalingPlanResourcesCommandOutput = DescribeScalingPlanResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the scalable resources in the specified scaling plan.</p>
+ */
 export class DescribeScalingPlanResourcesCommand extends $Command<
   DescribeScalingPlanResourcesCommandInput,
   DescribeScalingPlanResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,

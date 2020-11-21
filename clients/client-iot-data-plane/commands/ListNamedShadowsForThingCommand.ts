@@ -20,6 +20,9 @@ import {
 export type ListNamedShadowsForThingCommandInput = ListNamedShadowsForThingRequest;
 export type ListNamedShadowsForThingCommandOutput = ListNamedShadowsForThingResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the shadows for the specified thing.</p>
+ */
 export class ListNamedShadowsForThingCommand extends $Command<
   ListNamedShadowsForThingCommandInput,
   ListNamedShadowsForThingCommandOutput,
@@ -34,6 +37,9 @@ export class ListNamedShadowsForThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTDataPlaneClientResolvedConfig,

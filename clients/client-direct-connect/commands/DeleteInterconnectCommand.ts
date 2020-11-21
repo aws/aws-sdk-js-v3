@@ -20,6 +20,13 @@ import {
 export type DeleteInterconnectCommandInput = DeleteInterconnectRequest;
 export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified interconnect.</p>
+ *          <note>
+ *             <p>Intended for use
+ *         by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class DeleteInterconnectCommand extends $Command<
   DeleteInterconnectCommandInput,
   DeleteInterconnectCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteInterconnectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

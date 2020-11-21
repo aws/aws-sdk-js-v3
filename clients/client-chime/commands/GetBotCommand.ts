@@ -17,6 +17,9 @@ import {
 export type GetBotCommandInput = GetBotRequest;
 export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
+ */
 export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

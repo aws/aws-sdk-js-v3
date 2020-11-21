@@ -20,6 +20,9 @@ import {
 export type UpdateDynamicThingGroupCommandInput = UpdateDynamicThingGroupRequest;
 export type UpdateDynamicThingGroupCommandOutput = UpdateDynamicThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a dynamic thing group.</p>
+ */
 export class UpdateDynamicThingGroupCommand extends $Command<
   UpdateDynamicThingGroupCommandInput,
   UpdateDynamicThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type ListContainersCommandInput = ListContainersInput;
 export type ListContainersCommandOutput = ListContainersOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>
+ *          <p>You can query to receive all the containers in one response. Or you can include the
+ *             <code>MaxResults</code> parameter to receive a limited number of containers in each
+ *          response. In this case, the response includes a token. To get the next set of containers,
+ *          send the command again, this time with the <code>NextToken</code> parameter (with the
+ *          returned token as its value). The next set of responses appears, with a token if there are
+ *          still more containers to receive. </p>
+ *          <p>See also <a>DescribeContainer</a>, which gets the properties of one
+ *          container. </p>
+ */
 export class ListContainersCommand extends $Command<
   ListContainersCommandInput,
   ListContainersCommandOutput,
@@ -34,6 +45,9 @@ export class ListContainersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

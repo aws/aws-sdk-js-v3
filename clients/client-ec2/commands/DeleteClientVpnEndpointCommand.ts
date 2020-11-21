@@ -20,6 +20,10 @@ import {
 export type DeleteClientVpnEndpointCommandInput = DeleteClientVpnEndpointRequest;
 export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you
+ * 			can delete a Client VPN endpoint.</p>
+ */
 export class DeleteClientVpnEndpointCommand extends $Command<
   DeleteClientVpnEndpointCommandInput,
   DeleteClientVpnEndpointCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

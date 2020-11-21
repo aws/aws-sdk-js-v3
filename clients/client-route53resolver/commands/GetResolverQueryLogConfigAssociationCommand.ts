@@ -24,6 +24,10 @@ export type GetResolverQueryLogConfigAssociationCommandInput = GetResolverQueryL
 export type GetResolverQueryLogConfigAssociationCommandOutput = GetResolverQueryLogConfigAssociationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
+ * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
+ */
 export class GetResolverQueryLogConfigAssociationCommand extends $Command<
   GetResolverQueryLogConfigAssociationCommandInput,
   GetResolverQueryLogConfigAssociationCommandOutput,
@@ -38,6 +42,9 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

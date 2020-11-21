@@ -20,6 +20,9 @@ import {
 export type DeleteSchemaCommandInput = DeleteSchemaRequest;
 export type DeleteSchemaCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete a schema definition.</p>
+ */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

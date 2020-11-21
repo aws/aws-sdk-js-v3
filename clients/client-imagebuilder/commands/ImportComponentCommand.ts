@@ -20,6 +20,9 @@ import {
 export type ImportComponentCommandInput = ImportComponentRequest;
 export type ImportComponentCommandOutput = ImportComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Imports a component and transforms its data into a component document. </p>
+ */
 export class ImportComponentCommand extends $Command<
   ImportComponentCommandInput,
   ImportComponentCommandOutput,
@@ -34,6 +37,9 @@ export class ImportComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

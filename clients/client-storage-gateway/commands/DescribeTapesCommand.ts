@@ -20,6 +20,12 @@ import {
 export type DescribeTapesCommandInput = DescribeTapesInput;
 export type DescribeTapesCommandOutput = DescribeTapesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a
+ *             <code>TapeARN</code> is not specified, returns a description of all virtual tapes
+ *          associated with the specified gateway. This operation is only supported in the tape gateway
+ *          type.</p>
+ */
 export class DescribeTapesCommand extends $Command<
   DescribeTapesCommandInput,
   DescribeTapesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeTapesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AssociateSkillWithSkillGroupCommandInput = AssociateSkillWithSkillGroupRequest;
 export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a skill with a skill group.</p>
+ */
 export class AssociateSkillWithSkillGroupCommand extends $Command<
   AssociateSkillWithSkillGroupCommandInput,
   AssociateSkillWithSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

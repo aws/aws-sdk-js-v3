@@ -20,6 +20,33 @@ import {
 export type UpdateEventSourceMappingCommandInput = UpdateEventSourceMappingRequest;
 export type UpdateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
+/**
+ * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and
+ *       resume later from the same location.</p>
+ *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateEventSourceMappingCommand extends $Command<
   UpdateEventSourceMappingCommandInput,
   UpdateEventSourceMappingCommandOutput,
@@ -34,6 +61,9 @@ export class UpdateEventSourceMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

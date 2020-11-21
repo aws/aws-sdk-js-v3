@@ -20,6 +20,10 @@ import {
 export type PutDataCatalogEncryptionSettingsCommandInput = PutDataCatalogEncryptionSettingsRequest;
 export type PutDataCatalogEncryptionSettingsCommandOutput = PutDataCatalogEncryptionSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the security configuration for a specified catalog. After the configuration has been
+ *       set, the specified encryption is applied to every catalog write thereafter.</p>
+ */
 export class PutDataCatalogEncryptionSettingsCommand extends $Command<
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ResetFpgaImageAttributeCommandInput = ResetFpgaImageAttributeRequest;
 export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
+ * 		    You can only reset the load permission attribute.</p>
+ */
 export class ResetFpgaImageAttributeCommand extends $Command<
   ResetFpgaImageAttributeCommandInput,
   ResetFpgaImageAttributeCommandOutput,
@@ -34,6 +38,9 @@ export class ResetFpgaImageAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -28,6 +28,11 @@ export type DeleteApplicationReferenceDataSourceCommandInput = DeleteApplication
 export type DeleteApplicationReferenceDataSourceCommandOutput = DeleteApplicationReferenceDataSourceResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>
+ *          <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table
+ *       that you created using the <a>AddApplicationReferenceDataSource</a> operation.  </p>
+ */
 export class DeleteApplicationReferenceDataSourceCommand extends $Command<
   DeleteApplicationReferenceDataSourceCommandInput,
   DeleteApplicationReferenceDataSourceCommandOutput,
@@ -42,6 +47,9 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

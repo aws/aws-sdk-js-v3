@@ -20,6 +20,11 @@ import {
 export type DeleteVirtualRouterCommandInput = DeleteVirtualRouterInput;
 export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing virtual router.</p>
+ *          <p>You must delete any routes associated with the virtual router before you can delete the
+ *          router itself.</p>
+ */
 export class DeleteVirtualRouterCommand extends $Command<
   DeleteVirtualRouterCommandInput,
   DeleteVirtualRouterCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteVirtualRouterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

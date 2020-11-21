@@ -24,6 +24,9 @@ export type DeleteVpcEndpointConnectionNotificationsCommandInput = DeleteVpcEndp
 export type DeleteVpcEndpointConnectionNotificationsCommandOutput = DeleteVpcEndpointConnectionNotificationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes one or more VPC endpoint connection notifications.</p>
+ */
 export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

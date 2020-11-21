@@ -20,6 +20,9 @@ import {
 export type AddTagsToOnPremisesInstancesCommandInput = AddTagsToOnPremisesInstancesInput;
 export type AddTagsToOnPremisesInstancesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds tags to on-premises instances.</p>
+ */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<
   AddTagsToOnPremisesInstancesCommandInput,
   AddTagsToOnPremisesInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

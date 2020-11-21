@@ -20,6 +20,9 @@ import {
 export type GetInstanceCommandInput = GetInstanceRequest;
 export type GetInstanceCommandOutput = GetInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified instance.</p>
+ */
 export class GetInstanceCommand extends $Command<
   GetInstanceCommandInput,
   GetInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class GetInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

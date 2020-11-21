@@ -20,6 +20,10 @@ import {
 export type DisableImportFindingsForProductCommandInput = DisableImportFindingsForProductRequest;
 export type DisableImportFindingsForProductCommandOutput = DisableImportFindingsForProductResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the integration of the specified product with Security Hub. After the integration is
+ *          disabled, findings from that product are no longer sent to Security Hub.</p>
+ */
 export class DisableImportFindingsForProductCommand extends $Command<
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput,
@@ -34,6 +38,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

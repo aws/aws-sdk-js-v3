@@ -20,6 +20,9 @@ import {
 export type ListPoliciesCommandInput = ListPoliciesRequest;
 export type ListPoliciesCommandOutput = ListPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists your policies.</p>
+ */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

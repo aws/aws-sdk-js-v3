@@ -20,6 +20,10 @@ import {
 export type CreateChannelCommandInput = CreateChannelRequest;
 export type CreateChannelCommandOutput = CreateChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a channel. A channel collects data from an MQTT topic and archives the
+ *           raw, unprocessed messages before publishing the data to a pipeline.</p>
+ */
 export class CreateChannelCommand extends $Command<
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
@@ -34,6 +38,9 @@ export class CreateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

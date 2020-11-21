@@ -20,6 +20,11 @@ import {
 export type DeleteFileCommandInput = DeleteFileInput;
 export type DeleteFileCommandOutput = DeleteFileOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified file from a specified branch. A commit is created on the branch
+ *             that contains the revision. The file still exists in the commits earlier to the commit
+ *             that contains the deletion.</p>
+ */
 export class DeleteFileCommand extends $Command<
   DeleteFileCommandInput,
   DeleteFileCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteFileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

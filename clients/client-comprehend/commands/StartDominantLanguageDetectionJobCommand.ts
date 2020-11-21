@@ -24,6 +24,11 @@ export type StartDominantLanguageDetectionJobCommandInput = StartDominantLanguag
 export type StartDominantLanguageDetectionJobCommandOutput = StartDominantLanguageDetectionJobResponse &
   __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
+ *       the  operation to track the status
+ *       of a job.</p>
+ */
 export class StartDominantLanguageDetectionJobCommand extends $Command<
   StartDominantLanguageDetectionJobCommandInput,
   StartDominantLanguageDetectionJobCommandOutput,
@@ -38,6 +43,9 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

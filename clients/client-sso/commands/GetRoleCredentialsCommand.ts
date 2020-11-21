@@ -20,6 +20,10 @@ import {
 export type GetRoleCredentialsCommandInput = GetRoleCredentialsRequest;
 export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the STS short-term credentials for a given role name that is assigned to the
+ *       user.</p>
+ */
 export class GetRoleCredentialsCommand extends $Command<
   GetRoleCredentialsCommandInput,
   GetRoleCredentialsCommandOutput,
@@ -34,6 +38,9 @@ export class GetRoleCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchGetPartitionCommandInput = BatchGetPartitionRequest;
 export type BatchGetPartitionCommandOutput = BatchGetPartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves partitions in a batch request.</p>
+ */
 export class BatchGetPartitionCommand extends $Command<
   BatchGetPartitionCommandInput,
   BatchGetPartitionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetPartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

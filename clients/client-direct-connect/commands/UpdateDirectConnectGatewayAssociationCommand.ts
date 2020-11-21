@@ -24,6 +24,10 @@ export type UpdateDirectConnectGatewayAssociationCommandInput = UpdateDirectConn
 export type UpdateDirectConnectGatewayAssociationCommandOutput = UpdateDirectConnectGatewayAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
+ *          <p>Add or remove prefixes from the association.</p>
+ */
 export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

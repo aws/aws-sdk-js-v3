@@ -20,6 +20,9 @@ import {
 export type ResetDeploymentsCommandInput = ResetDeploymentsRequest;
 export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse & __MetadataBearer;
 
+/**
+ * Resets a group's deployments.
+ */
 export class ResetDeploymentsCommand extends $Command<
   ResetDeploymentsCommandInput,
   ResetDeploymentsCommandOutput,
@@ -34,6 +37,9 @@ export class ResetDeploymentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteRecipeVersionCommandInput = DeleteRecipeVersionRequest;
 export type DeleteRecipeVersionCommandOutput = DeleteRecipeVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a single version of an AWS Glue DataBrew recipe.</p>
+ */
 export class DeleteRecipeVersionCommand extends $Command<
   DeleteRecipeVersionCommandInput,
   DeleteRecipeVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRecipeVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

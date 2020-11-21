@@ -20,6 +20,9 @@ import {
 export type DescribeBatchPredictionsCommandInput = DescribeBatchPredictionsInput;
 export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
+ */
 export class DescribeBatchPredictionsCommand extends $Command<
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBatchPredictionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

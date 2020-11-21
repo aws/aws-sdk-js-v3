@@ -20,6 +20,10 @@ import {
 export type ListTagsForStreamCommandInput = ListTagsForStreamInput;
 export type ListTagsForStreamCommandOutput = ListTagsForStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
+ *             five transactions per second per account.</p>
+ */
 export class ListTagsForStreamCommand extends $Command<
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

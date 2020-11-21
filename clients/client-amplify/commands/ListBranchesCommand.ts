@@ -20,6 +20,9 @@ import {
 export type ListBranchesCommandInput = ListBranchesRequest;
 export type ListBranchesCommandOutput = ListBranchesResult & __MetadataBearer;
 
+/**
+ * <p> Lists the branches of an Amplify app. </p>
+ */
 export class ListBranchesCommand extends $Command<
   ListBranchesCommandInput,
   ListBranchesCommandOutput,
@@ -34,6 +37,9 @@ export class ListBranchesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
 export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>
+ */
 export class GetDimensionValuesCommand extends $Command<
   GetDimensionValuesCommandInput,
   GetDimensionValuesCommandOutput,
@@ -34,6 +37,9 @@ export class GetDimensionValuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

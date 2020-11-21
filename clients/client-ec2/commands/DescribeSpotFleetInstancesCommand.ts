@@ -20,6 +20,9 @@ import {
 export type DescribeSpotFleetInstancesCommandInput = DescribeSpotFleetInstancesRequest;
 export type DescribeSpotFleetInstancesCommandOutput = DescribeSpotFleetInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the running instances for the specified Spot Fleet.</p>
+ */
 export class DescribeSpotFleetInstancesCommand extends $Command<
   DescribeSpotFleetInstancesCommandInput,
   DescribeSpotFleetInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

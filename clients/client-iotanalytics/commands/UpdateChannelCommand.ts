@@ -20,6 +20,9 @@ import {
 export type UpdateChannelCommandInput = UpdateChannelRequest;
 export type UpdateChannelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the settings of a channel.</p>
+ */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SSOAdminClient,
   input: ListPermissionSetProvisioningStatusCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPermissionSetProvisioningStatusCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SSOAdmin,
   input: ListPermissionSetProvisioningStatusCommandInput,

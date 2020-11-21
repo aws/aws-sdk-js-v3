@@ -20,6 +20,12 @@ import {
 export type ListDatasetGroupsCommandInput = ListDatasetGroupsRequest;
 export type ListDatasetGroupsCommandOutput = ListDatasetGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>
+ *       operation. For each dataset group, this operation returns a summary of its properties,
+ *       including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
+ *       using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.</p>
+ */
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,
   ListDatasetGroupsCommandOutput,
@@ -34,6 +40,9 @@ export class ListDatasetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListRemoteAccessSessionsCommandInput = ListRemoteAccessSessionsRequest;
 export type ListRemoteAccessSessionsCommandOutput = ListRemoteAccessSessionsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all currently running remote access sessions.</p>
+ */
 export class ListRemoteAccessSessionsCommand extends $Command<
   ListRemoteAccessSessionsCommandInput,
   ListRemoteAccessSessionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

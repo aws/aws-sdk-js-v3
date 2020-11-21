@@ -20,6 +20,14 @@ import {
 export type ResetEbsDefaultKmsKeyIdCommandInput = ResetEbsDefaultKmsKeyIdRequest;
 export type ResetEbsDefaultKmsKeyIdCommandOutput = ResetEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
+/**
+ * <p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region
+ *       to the AWS managed CMK for EBS.</p>
+ *          <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a
+ *       customer managed CMK by specifying it when you create the volume. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
   ResetEbsDefaultKmsKeyIdCommandInput,
   ResetEbsDefaultKmsKeyIdCommandOutput,
@@ -34,6 +42,9 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

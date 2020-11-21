@@ -20,6 +20,9 @@ import {
 export type ListInfrastructureConfigurationsCommandInput = ListInfrastructureConfigurationsRequest;
 export type ListInfrastructureConfigurationsCommandOutput = ListInfrastructureConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p> Returns a list of infrastructure configurations. </p>
+ */
 export class ListInfrastructureConfigurationsCommand extends $Command<
   ListInfrastructureConfigurationsCommandInput,
   ListInfrastructureConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

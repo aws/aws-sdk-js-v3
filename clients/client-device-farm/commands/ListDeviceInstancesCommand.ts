@@ -20,6 +20,10 @@ import {
 export type ListDeviceInstancesCommandInput = ListDeviceInstancesRequest;
 export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the private device instances associated with one or more AWS
+ *             accounts.</p>
+ */
 export class ListDeviceInstancesCommand extends $Command<
   ListDeviceInstancesCommandInput,
   ListDeviceInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class ListDeviceInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

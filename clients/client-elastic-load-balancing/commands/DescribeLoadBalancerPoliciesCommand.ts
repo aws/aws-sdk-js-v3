@@ -24,6 +24,13 @@ import {
 export type DescribeLoadBalancerPoliciesCommandInput = DescribeLoadBalancerPoliciesInput;
 export type DescribeLoadBalancerPoliciesCommandOutput = DescribeLoadBalancerPoliciesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified policies.</p>
+ *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
+ *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
+ *     If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies.
+ *     The names of the sample policies have the <code>ELBSample-</code> prefix.</p>
+ */
 export class DescribeLoadBalancerPoliciesCommand extends $Command<
   DescribeLoadBalancerPoliciesCommandInput,
   DescribeLoadBalancerPoliciesCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

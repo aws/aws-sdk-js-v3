@@ -20,6 +20,12 @@ import {
 export type DisassociateTeamMemberCommandInput = DisassociateTeamMemberRequest;
 export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult & __MetadataBearer;
 
+/**
+ * <p>Removes a user from a project. Removing a user from a project also removes the IAM
+ *       policies from that user that allowed access to the project and its resources. Disassociating a
+ *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
+ *       IAM.</p>
+ */
 export class DisassociateTeamMemberCommand extends $Command<
   DisassociateTeamMemberCommandInput,
   DisassociateTeamMemberCommandOutput,
@@ -34,6 +40,9 @@ export class DisassociateTeamMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

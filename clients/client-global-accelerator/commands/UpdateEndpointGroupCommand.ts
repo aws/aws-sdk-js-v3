@@ -24,6 +24,10 @@ import {
 export type UpdateEndpointGroupCommandInput = UpdateEndpointGroupRequest;
 export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
+ * 		       <p>To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>. </p>
+ */
 export class UpdateEndpointGroupCommand extends $Command<
   UpdateEndpointGroupCommandInput,
   UpdateEndpointGroupCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

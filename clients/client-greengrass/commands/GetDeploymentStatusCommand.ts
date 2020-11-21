@@ -20,6 +20,9 @@ import {
 export type GetDeploymentStatusCommandInput = GetDeploymentStatusRequest;
 export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse & __MetadataBearer;
 
+/**
+ * Returns the status of a deployment.
+ */
 export class GetDeploymentStatusCommand extends $Command<
   GetDeploymentStatusCommandInput,
   GetDeploymentStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeploymentStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

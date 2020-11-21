@@ -8,6 +8,9 @@ import {
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
   input: ListEnabledProductsForImportCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnabledProductsForImportCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SecurityHub,
   input: ListEnabledProductsForImportCommandInput,

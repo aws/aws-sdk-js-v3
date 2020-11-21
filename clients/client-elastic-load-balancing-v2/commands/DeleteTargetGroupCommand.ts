@@ -24,6 +24,13 @@ import {
 export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
 export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified target group.</p>
+ *          <p>You can delete a target group if it is not referenced by any actions. Deleting a target
+ *       group also deletes any associated health checks. Deleting a target group does not affect its
+ *       registered targets. For example, any EC2 instances continue to run until you stop or terminate
+ *       them.</p>
+ */
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput,
@@ -38,6 +45,9 @@ export class DeleteTargetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

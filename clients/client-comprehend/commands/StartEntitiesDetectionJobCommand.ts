@@ -20,6 +20,13 @@ import {
 export type StartEntitiesDetectionJobCommandInput = StartEntitiesDetectionJobRequest;
 export type StartEntitiesDetectionJobCommandOutput = StartEntitiesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
+ *          <p>This API can be used for either standard entity detection or custom entity recognition. In
+ *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
+ *       must be used in order to provide access to the recognizer being used to detect the custom
+ *       entity.</p>
+ */
 export class StartEntitiesDetectionJobCommand extends $Command<
   StartEntitiesDetectionJobCommandInput,
   StartEntitiesDetectionJobCommandOutput,
@@ -34,6 +41,9 @@ export class StartEntitiesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

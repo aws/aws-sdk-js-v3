@@ -20,6 +20,9 @@ import {
 export type DeleteRouteRequestParameterCommandInput = DeleteRouteRequestParameterRequest;
 export type DeleteRouteRequestParameterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a route request parameter.</p>
+ */
 export class DeleteRouteRequestParameterCommand extends $Command<
   DeleteRouteRequestParameterCommandInput,
   DeleteRouteRequestParameterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRouteRequestParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

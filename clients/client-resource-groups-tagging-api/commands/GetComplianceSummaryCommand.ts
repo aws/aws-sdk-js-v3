@@ -24,6 +24,14 @@ import {
 export type GetComplianceSummaryCommandInput = GetComplianceSummaryInput;
 export type GetComplianceSummaryCommandOutput = GetComplianceSummaryOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a table that shows counts of resources that are noncompliant with their tag
+ *             policies.</p>
+ *         <p>For more information on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
+ *             the <i>AWS Organizations User Guide.</i>
+ *          </p>
+ *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+ */
 export class GetComplianceSummaryCommand extends $Command<
   GetComplianceSummaryCommandInput,
   GetComplianceSummaryCommandOutput,
@@ -38,6 +46,9 @@ export class GetComplianceSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

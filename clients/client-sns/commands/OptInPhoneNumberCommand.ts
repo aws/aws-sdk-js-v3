@@ -20,6 +20,11 @@ import {
 export type OptInPhoneNumberCommandInput = OptInPhoneNumberInput;
 export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse & __MetadataBearer;
 
+/**
+ * <p>Use this request to opt in a phone number that is opted out, which enables you to
+ *             resume sending SMS messages to the number.</p>
+ *         <p>You can opt in a phone number only once every 30 days.</p>
+ */
 export class OptInPhoneNumberCommand extends $Command<
   OptInPhoneNumberCommandInput,
   OptInPhoneNumberCommandOutput,
@@ -34,6 +39,9 @@ export class OptInPhoneNumberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

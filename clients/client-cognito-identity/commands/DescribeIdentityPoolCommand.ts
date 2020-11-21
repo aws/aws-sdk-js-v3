@@ -21,6 +21,11 @@ import {
 export type DescribeIdentityPoolCommandInput = DescribeIdentityPoolInput;
 export type DescribeIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
 
+/**
+ * <p>Gets details about a particular identity pool, including the pool name, ID
+ *          description, creation date, and current number of users.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class DescribeIdentityPoolCommand extends $Command<
   DescribeIdentityPoolCommandInput,
   DescribeIdentityPoolCommandOutput,
@@ -35,6 +40,9 @@ export class DescribeIdentityPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeHubCommandInput = DescribeHubRequest;
 export type DescribeHubCommandOutput = DescribeHubResponse & __MetadataBearer;
 
+/**
+ * <p>Returns details about the Hub resource in your account, including the
+ *             <code>HubArn</code> and the time when you enabled Security Hub.</p>
+ */
 export class DescribeHubCommand extends $Command<
   DescribeHubCommandInput,
   DescribeHubCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeHubCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

@@ -20,6 +20,21 @@ import {
 export type AssociateTargetsWithJobCommandInput = AssociateTargetsWithJobRequest;
 export type AssociateTargetsWithJobCommandOutput = AssociateTargetsWithJobResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a group with a continuous job. The following criteria must be met: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>The job must have been created with the <code>targetSelection</code> field set to
+ *                     "CONTINUOUS".</p>
+ *             </li>
+ *             <li>
+ *                 <p>The job status must currently be "IN_PROGRESS".</p>
+ *             </li>
+ *             <li>
+ *                 <p>The total number of targets associated with a job must not exceed 100.</p>
+ *             </li>
+ *          </ul>
+ */
 export class AssociateTargetsWithJobCommand extends $Command<
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
@@ -34,6 +49,9 @@ export class AssociateTargetsWithJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

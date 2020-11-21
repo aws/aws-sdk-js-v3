@@ -24,6 +24,9 @@ export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput = Associate
 export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput = AssociatePhoneNumbersWithVoiceConnectorGroupResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
+ */
 export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command<
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
@@ -38,6 +41,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

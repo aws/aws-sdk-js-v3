@@ -20,6 +20,20 @@ import {
 export type CreateTaskCommandInput = CreateTaskRequest;
 export type CreateTaskCommandOutput = CreateTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a task. A task is a set of two locations (source and destination) and a set of
+ *       Options that you use to control the behavior of a task. If you don't specify Options when you
+ *       create a task, AWS DataSync populates them with service defaults.</p>
+ *          <p>When you create a task, it first enters the CREATING state. During CREATING
+ *       AWS DataSync attempts to mount the on-premises Network File System (NFS) location. The task
+ *       transitions to the AVAILABLE state without waiting for the AWS location to become mounted. If
+ *       required, AWS DataSync mounts the AWS location before each task execution.</p>
+ *          <p>If an agent that is associated with a source (NFS) location goes offline, the task
+ *       transitions to the UNAVAILABLE status. If the status of the task remains in the CREATING
+ *       status for more than a few minutes, it means that your agent might be having trouble mounting
+ *       the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount issues are often
+ *       caused by either a misconfigured firewall or a mistyped NFS server hostname.</p>
+ */
 export class CreateTaskCommand extends $Command<
   CreateTaskCommandInput,
   CreateTaskCommandOutput,
@@ -34,6 +48,9 @@ export class CreateTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

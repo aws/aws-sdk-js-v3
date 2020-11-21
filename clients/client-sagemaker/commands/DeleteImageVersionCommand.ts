@@ -20,6 +20,10 @@ import {
 export type DeleteImageVersionCommandInput = DeleteImageVersionRequest;
 export type DeleteImageVersionCommandOutput = DeleteImageVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
+ *         deleted.</p>
+ */
 export class DeleteImageVersionCommand extends $Command<
   DeleteImageVersionCommandInput,
   DeleteImageVersionCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteImageVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

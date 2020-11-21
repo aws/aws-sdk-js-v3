@@ -20,6 +20,9 @@ import {
 export type EvaluatePullRequestApprovalRulesCommandInput = EvaluatePullRequestApprovalRulesInput;
 export type EvaluatePullRequestApprovalRulesCommandOutput = EvaluatePullRequestApprovalRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>
+ */
 export class EvaluatePullRequestApprovalRulesCommand extends $Command<
   EvaluatePullRequestApprovalRulesCommandInput,
   EvaluatePullRequestApprovalRulesCommandOutput,
@@ -34,6 +37,9 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

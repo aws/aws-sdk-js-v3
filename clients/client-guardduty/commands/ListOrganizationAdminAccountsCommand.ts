@@ -20,6 +20,9 @@ import {
 export type ListOrganizationAdminAccountsCommandInput = ListOrganizationAdminAccountsRequest;
 export type ListOrganizationAdminAccountsCommandOutput = ListOrganizationAdminAccountsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the accounts configured as GuardDuty delegated administrators.</p>
+ */
 export class ListOrganizationAdminAccountsCommand extends $Command<
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

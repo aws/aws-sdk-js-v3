@@ -28,6 +28,9 @@ export type StartElasticsearchServiceSoftwareUpdateCommandInput = StartElasticse
 export type StartElasticsearchServiceSoftwareUpdateCommandOutput = StartElasticsearchServiceSoftwareUpdateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Schedules a service software update for an Amazon ES domain.</p>
+ */
 export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput,
@@ -42,6 +45,9 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

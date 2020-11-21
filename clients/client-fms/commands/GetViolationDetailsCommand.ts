@@ -20,6 +20,9 @@ import {
 export type GetViolationDetailsCommandInput = GetViolationDetailsRequest;
 export type GetViolationDetailsCommandOutput = GetViolationDetailsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
+ */
 export class GetViolationDetailsCommand extends $Command<
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
@@ -34,6 +37,9 @@ export class GetViolationDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ListFunctionsCommandInput = ListFunctionsRequest;
 export type ListFunctionsCommandOutput = ListFunctionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
+ *       functions per call.</p>
+ *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
+ *       addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
+ */
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,
   ListFunctionsCommandOutput,
@@ -34,6 +40,9 @@ export class ListFunctionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

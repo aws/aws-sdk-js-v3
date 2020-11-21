@@ -20,6 +20,13 @@ import {
 export type ReportInstanceStatusCommandInput = ReportInstanceStatusRequest;
 export type ReportInstanceStatusCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Submits feedback about the status of an instance. The instance must be in the
+ *                 <code>running</code> state. If your experience with the instance differs from the
+ *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
+ *             EC2 collects this information to improve the accuracy of status checks.</p>
+ *         <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
+ */
 export class ReportInstanceStatusCommand extends $Command<
   ReportInstanceStatusCommandInput,
   ReportInstanceStatusCommandOutput,
@@ -34,6 +41,9 @@ export class ReportInstanceStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteTrafficMirrorSessionCommandInput = DeleteTrafficMirrorSessionRequest;
 export type DeleteTrafficMirrorSessionCommandOutput = DeleteTrafficMirrorSessionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Traffic Mirror session.</p>
+ */
 export class DeleteTrafficMirrorSessionCommand extends $Command<
   DeleteTrafficMirrorSessionCommandInput,
   DeleteTrafficMirrorSessionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTrafficMirrorSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

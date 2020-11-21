@@ -24,6 +24,9 @@ export type ListProvisioningArtifactsForServiceActionCommandInput = ListProvisio
 export type ListProvisioningArtifactsForServiceActionCommandOutput = ListProvisioningArtifactsForServiceActionOutput &
   __MetadataBearer;
 
+/**
+ * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
+ */
 export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
   ListProvisioningArtifactsForServiceActionCommandInput,
   ListProvisioningArtifactsForServiceActionCommandOutput,
@@ -38,6 +41,9 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

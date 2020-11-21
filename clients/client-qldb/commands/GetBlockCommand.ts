@@ -20,6 +20,18 @@ import {
 export type GetBlockCommandInput = GetBlockRequest;
 export type GetBlockCommandOutput = GetBlockResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a block object at a specified address in a journal. Also returns a proof of the
+ *          specified block for verification if <code>DigestTipAddress</code> is provided.</p>
+ *          <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the
+ *             <i>Amazon QLDB Developer Guide</i>.</p>
+ *          <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws
+ *             <code>ResourceNotFoundException</code>.</p>
+ *          <p>If the specified ledger is in <code>CREATING</code> status, then throws
+ *             <code>ResourcePreconditionNotMetException</code>.</p>
+ *          <p>If no block exists with the specified address, then throws
+ *             <code>InvalidParameterException</code>.</p>
+ */
 export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockCommandOutput, QLDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +42,9 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

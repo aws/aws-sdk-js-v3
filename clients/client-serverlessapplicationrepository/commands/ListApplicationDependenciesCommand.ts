@@ -24,6 +24,9 @@ import {
 export type ListApplicationDependenciesCommandInput = ListApplicationDependenciesRequest;
 export type ListApplicationDependenciesCommandOutput = ListApplicationDependenciesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the list of applications nested in the containing application.</p>
+ */
 export class ListApplicationDependenciesCommand extends $Command<
   ListApplicationDependenciesCommandInput,
   ListApplicationDependenciesCommandOutput,
@@ -38,6 +41,9 @@ export class ListApplicationDependenciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

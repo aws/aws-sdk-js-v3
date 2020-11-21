@@ -20,6 +20,17 @@ import {
 export type IssueCertificateCommandInput = IssueCertificateRequest;
 export type IssueCertificateCommandOutput = IssueCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Uses your private certificate authority
+ * 			(CA), or one that
+ * 			has been shared with you, to issue a client certificate. This action returns the Amazon
+ * 			Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the
+ * 				<a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and specifying the ARN. </p>
+ * 		       <note>
+ * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
+ * 				certificates that you issue by using ACM Private CA.</p>
+ * 		       </note>
+ */
 export class IssueCertificateCommand extends $Command<
   IssueCertificateCommandInput,
   IssueCertificateCommandOutput,
@@ -34,6 +45,9 @@ export class IssueCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

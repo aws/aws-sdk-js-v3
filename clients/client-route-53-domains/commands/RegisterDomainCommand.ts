@@ -20,6 +20,34 @@ import {
 export type RegisterDomainCommandInput = RegisterDomainRequest;
 export type RegisterDomainCommandOutput = RegisterDomainResponse & __MetadataBearer;
 
+/**
+ * <p>This operation registers a domain. Domains are registered either by Amazon Registrar (for .com, .net, and .org domains) or by
+ * 			our registrar associate, Gandi (for all other domains). For some top-level domains (TLDs), this operation requires extra parameters.</p>
+ * 		       <p>When you register a domain, Amazon Route 53 does the following:</p>
+ * 			      <ul>
+ *             <li>
+ *                <p>Creates a Route 53 hosted zone that has the same name as the domain. Route 53 assigns four name servers
+ * 					to your hosted zone and automatically updates your domain registration with the names of these name servers.</p>
+ *             </li>
+ *             <li>
+ *                <p>Enables autorenew, so your domain registration will renew automatically each year. We'll notify you
+ * 					in advance of the renewal date so you can choose whether to renew the registration.</p>
+ *             </li>
+ *             <li>
+ *                <p>Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar
+ * 					(for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don't enable privacy
+ * 					protection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts.</p>
+ *             </li>
+ *             <li>
+ *                <p>If registration is successful, returns an operation ID that you can use to track the progress and
+ * 					completion of the action. If the request is not completed successfully, the domain registrant is notified by email.</p>
+ *             </li>
+ *             <li>
+ *                <p>Charges your AWS account an amount based on the top-level domain. For more information, see
+ * 					<a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class RegisterDomainCommand extends $Command<
   RegisterDomainCommandInput,
   RegisterDomainCommandOutput,
@@ -34,6 +62,9 @@ export class RegisterDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

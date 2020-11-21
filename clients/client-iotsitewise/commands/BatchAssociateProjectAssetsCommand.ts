@@ -20,6 +20,9 @@ import {
 export type BatchAssociateProjectAssetsCommandInput = BatchAssociateProjectAssetsRequest;
 export type BatchAssociateProjectAssetsCommandOutput = BatchAssociateProjectAssetsResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.</p>
+ */
 export class BatchAssociateProjectAssetsCommand extends $Command<
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

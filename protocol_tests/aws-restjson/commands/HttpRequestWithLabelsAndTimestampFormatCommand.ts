@@ -20,6 +20,10 @@ import {
 export type HttpRequestWithLabelsAndTimestampFormatCommandInput = HttpRequestWithLabelsAndTimestampFormatInput;
 export type HttpRequestWithLabelsAndTimestampFormatCommandOutput = __MetadataBearer;
 
+/**
+ * The example tests how requests serialize different timestamp formats in the
+ * URI path.
+ */
 export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   HttpRequestWithLabelsAndTimestampFormatCommandInput,
   HttpRequestWithLabelsAndTimestampFormatCommandOutput,
@@ -34,6 +38,9 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

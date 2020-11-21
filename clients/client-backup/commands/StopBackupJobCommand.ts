@@ -20,6 +20,9 @@ import {
 export type StopBackupJobCommandInput = StopBackupJobInput;
 export type StopBackupJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
+ */
 export class StopBackupJobCommand extends $Command<
   StopBackupJobCommandInput,
   StopBackupJobCommandOutput,
@@ -34,6 +37,9 @@ export class StopBackupJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

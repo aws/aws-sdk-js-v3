@@ -28,6 +28,15 @@ export type StartReplicationTaskAssessmentRunCommandInput = StartReplicationTask
 export type StartReplicationTaskAssessmentRunCommandOutput = StartReplicationTaskAssessmentRunResponse &
   __MetadataBearer;
 
+/**
+ * <p>Starts a new premigration assessment run for one or more individual assessments
+ *          of a migration task.</p>
+ *          <p>The assessments that you can specify depend on the source and target database engine and
+ *          the migration type defined for the given task. To run this operation, your migration task
+ *          must already be created. After you run this operation, you can review the status of each
+ *          individual assessment. You can also run the migration task manually after the assessment
+ *          run and its individual assessments complete.</p>
+ */
 export class StartReplicationTaskAssessmentRunCommand extends $Command<
   StartReplicationTaskAssessmentRunCommandInput,
   StartReplicationTaskAssessmentRunCommandOutput,
@@ -42,6 +51,9 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

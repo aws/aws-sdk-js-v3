@@ -20,6 +20,12 @@ import {
 export type DeletePolicyCommandInput = DeletePolicyRequest;
 export type DeletePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified policy from your organization. Before you perform this
+ *             operation, you must first detach the policy from all organizational units (OUs), roots,
+ *             and accounts.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,
   DeletePolicyCommandOutput,
@@ -34,6 +40,9 @@ export class DeletePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

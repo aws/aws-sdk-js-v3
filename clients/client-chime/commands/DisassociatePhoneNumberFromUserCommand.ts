@@ -20,6 +20,10 @@ import {
 export type DisassociatePhoneNumberFromUserCommandInput = DisassociatePhoneNumberFromUserRequest;
 export type DisassociatePhoneNumberFromUserCommandOutput = DisassociatePhoneNumberFromUserResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
+ *       user.</p>
+ */
 export class DisassociatePhoneNumberFromUserCommand extends $Command<
   DisassociatePhoneNumberFromUserCommandInput,
   DisassociatePhoneNumberFromUserCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

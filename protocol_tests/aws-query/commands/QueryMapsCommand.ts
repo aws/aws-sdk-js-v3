@@ -17,6 +17,9 @@ import {
 export type QueryMapsCommandInput = QueryMapsInput;
 export type QueryMapsCommandOutput = __MetadataBearer;
 
+/**
+ * This test serializes simple and complex maps.
+ */
 export class QueryMapsCommand extends $Command<
   QueryMapsCommandInput,
   QueryMapsCommandOutput,
@@ -31,6 +34,9 @@ export class QueryMapsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

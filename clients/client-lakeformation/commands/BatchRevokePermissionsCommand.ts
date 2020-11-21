@@ -20,6 +20,9 @@ import {
 export type BatchRevokePermissionsCommandInput = BatchRevokePermissionsRequest;
 export type BatchRevokePermissionsCommandOutput = BatchRevokePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Batch operation to revoke permissions from the principal.</p>
+ */
 export class BatchRevokePermissionsCommand extends $Command<
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchRevokePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

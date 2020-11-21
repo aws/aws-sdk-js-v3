@@ -20,6 +20,12 @@ import {
 export type CreateDistributionCommandInput = CreateDistributionRequest;
 export type CreateDistributionCommandOutput = CreateDistributionResult & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
+ *          <p>A distribution is a globally distributed network of caching servers that improve the
+ *       performance of your website or web application hosted on a Lightsail instance. For more
+ *       information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
+ */
 export class CreateDistributionCommand extends $Command<
   CreateDistributionCommandInput,
   CreateDistributionCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

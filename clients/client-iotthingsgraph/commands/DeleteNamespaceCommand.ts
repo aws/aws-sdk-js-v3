@@ -20,6 +20,9 @@ import {
 export type DeleteNamespaceCommandInput = DeleteNamespaceRequest;
 export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>
+ */
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,
   DeleteNamespaceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

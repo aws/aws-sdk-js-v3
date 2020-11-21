@@ -4,6 +4,9 @@ import { ListSitesCommand, ListSitesCommandInput, ListSitesCommandOutput } from 
 import { OutpostsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: OutpostsClient,
   input: ListSitesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSitesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Outposts,
   input: ListSitesCommandInput,

@@ -24,6 +24,9 @@ import {
 export type DescribePackagesCommandInput = DescribePackagesRequest;
 export type DescribePackagesCommandOutput = DescribePackagesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>
+ */
 export class DescribePackagesCommand extends $Command<
   DescribePackagesCommandInput,
   DescribePackagesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribePackagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

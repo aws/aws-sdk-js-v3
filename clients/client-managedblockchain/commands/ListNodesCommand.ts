@@ -24,6 +24,9 @@ import {
 export type ListNodesCommandInput = ListNodesInput;
 export type ListNodesCommandOutput = ListNodesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the nodes within a network.</p>
+ */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,
   ListNodesCommandOutput,
@@ -38,6 +41,9 @@ export class ListNodesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

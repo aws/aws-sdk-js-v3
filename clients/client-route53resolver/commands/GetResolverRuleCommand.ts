@@ -20,6 +20,10 @@ import {
 export type GetResolverRuleCommandInput = GetResolverRuleRequest;
 export type GetResolverRuleCommandOutput = GetResolverRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
+ * 			outbound Resolver endpoint that the rule is associated with.</p>
+ */
 export class GetResolverRuleCommand extends $Command<
   GetResolverRuleCommandInput,
   GetResolverRuleCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

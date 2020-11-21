@@ -20,6 +20,11 @@ import {
 export type ListVolumeInitiatorsCommandInput = ListVolumeInitiatorsInput;
 export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to
+ *          determine whether a volume is being used or not. This operation is only supported in the
+ *          cached volume and stored volume gateway types.</p>
+ */
 export class ListVolumeInitiatorsCommand extends $Command<
   ListVolumeInitiatorsCommandInput,
   ListVolumeInitiatorsCommandOutput,
@@ -34,6 +39,9 @@ export class ListVolumeInitiatorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeInternetGatewaysCommandInput = DescribeInternetGatewaysRequest;
 export type DescribeInternetGatewaysCommandOutput = DescribeInternetGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your internet gateways.</p>
+ */
 export class DescribeInternetGatewaysCommand extends $Command<
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInternetGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

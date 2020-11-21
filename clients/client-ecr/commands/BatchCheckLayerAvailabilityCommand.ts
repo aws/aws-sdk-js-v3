@@ -20,6 +20,16 @@ import {
 export type BatchCheckLayerAvailabilityCommandInput = BatchCheckLayerAvailabilityRequest;
 export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse & __MetadataBearer;
 
+/**
+ * <p>Checks the availability of one or more image layers in a repository.</p>
+ *         <p>When an image is pushed to a repository, each image layer is checked to verify if it
+ *             has been uploaded before. If it has been uploaded, then the image layer is
+ *             skipped.</p>
+ *          <note>
+ *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
+ *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
+ *          </note>
+ */
 export class BatchCheckLayerAvailabilityCommand extends $Command<
   BatchCheckLayerAvailabilityCommandInput,
   BatchCheckLayerAvailabilityCommandOutput,
@@ -34,6 +44,9 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

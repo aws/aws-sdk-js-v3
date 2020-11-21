@@ -20,6 +20,12 @@ import {
 export type DescribeAccessPointsCommandInput = DescribeAccessPointsRequest;
 export type DescribeAccessPointsCommandOutput = DescribeAccessPointsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
+ *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
+ *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
+ *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+ */
 export class DescribeAccessPointsCommand extends $Command<
   DescribeAccessPointsCommandInput,
   DescribeAccessPointsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeAccessPointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

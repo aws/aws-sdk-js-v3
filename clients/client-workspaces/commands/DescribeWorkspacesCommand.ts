@@ -20,6 +20,11 @@ import {
 export type DescribeWorkspacesCommandInput = DescribeWorkspacesRequest;
 export type DescribeWorkspacesCommandOutput = DescribeWorkspacesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified WorkSpaces.</p>
+ *          <p>You can filter the results by using the bundle identifier, directory identifier, or
+ *          owner, but you can specify only one filter at a time.</p>
+ */
 export class DescribeWorkspacesCommand extends $Command<
   DescribeWorkspacesCommandInput,
   DescribeWorkspacesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeWorkspacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

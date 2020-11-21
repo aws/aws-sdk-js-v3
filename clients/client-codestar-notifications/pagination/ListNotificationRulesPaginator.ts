@@ -8,6 +8,9 @@ import {
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodestarNotificationsClient,
   input: ListNotificationRulesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNotificationRulesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodestarNotifications,
   input: ListNotificationRulesCommandInput,

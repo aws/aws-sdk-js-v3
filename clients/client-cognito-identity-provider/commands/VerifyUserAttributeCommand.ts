@@ -24,6 +24,9 @@ import {
 export type VerifyUserAttributeCommandInput = VerifyUserAttributeRequest;
 export type VerifyUserAttributeCommandOutput = VerifyUserAttributeResponse & __MetadataBearer;
 
+/**
+ * <p>Verifies the specified user attributes in the user pool.</p>
+ */
 export class VerifyUserAttributeCommand extends $Command<
   VerifyUserAttributeCommandInput,
   VerifyUserAttributeCommandOutput,
@@ -38,6 +41,9 @@ export class VerifyUserAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type UnpeerVpcCommandInput = UnpeerVpcRequest;
 export type UnpeerVpcCommandOutput = UnpeerVpcResult & __MetadataBearer;
 
+/**
+ * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>
+ */
 export class UnpeerVpcCommand extends $Command<
   UnpeerVpcCommandInput,
   UnpeerVpcCommandOutput,
@@ -31,6 +34,9 @@ export class UnpeerVpcCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

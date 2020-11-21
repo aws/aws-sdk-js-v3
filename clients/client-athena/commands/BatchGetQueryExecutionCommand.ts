@@ -20,6 +20,14 @@ import {
 export type BatchGetQueryExecutionCommandInput = BatchGetQueryExecutionInput;
 export type BatchGetQueryExecutionCommandOutput = BatchGetQueryExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the details of a single query execution or a list of up to 50 query
+ *             executions, which you provide as an array of query execution ID strings. Requires you to
+ *             have access to the workgroup in which the queries ran. To get a list of query execution
+ *             IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ
+ *             from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details
+ *             about named queries.</p>
+ */
 export class BatchGetQueryExecutionCommand extends $Command<
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
@@ -34,6 +42,9 @@ export class BatchGetQueryExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

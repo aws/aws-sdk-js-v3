@@ -20,6 +20,14 @@ import {
 export type GetInstancesHealthStatusCommandInput = GetInstancesHealthStatusRequest;
 export type GetInstancesHealthStatusCommandOutput = GetInstancesHealthStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or
+ *    more instances that are associated with a specified service.</p>
+ *          <note>
+ *             <p>There is a brief delay between when you register an instance and when the health status for the instance is
+ *     available. </p>
+ *          </note>
+ */
 export class GetInstancesHealthStatusCommand extends $Command<
   GetInstancesHealthStatusCommandInput,
   GetInstancesHealthStatusCommandOutput,
@@ -34,6 +42,9 @@ export class GetInstancesHealthStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

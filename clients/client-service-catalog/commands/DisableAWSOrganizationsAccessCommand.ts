@@ -20,6 +20,15 @@ import {
 export type DisableAWSOrganizationsAccessCommandInput = DisableAWSOrganizationsAccessInput;
 export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput & __MetadataBearer;
 
+/**
+ * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not
+ *          delete your current shares but it will prevent you from creating new shares throughout your
+ *          organization. Current shares will not be in sync with your organization structure if it
+ *          changes after calling this API. This API can only be called by the management  account in
+ *          the organization.</p>
+ *          <p>This API can't be invoked if there are active delegated administrators in the organization.</p>
+ *          <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p>
+ */
 export class DisableAWSOrganizationsAccessCommand extends $Command<
   DisableAWSOrganizationsAccessCommandInput,
   DisableAWSOrganizationsAccessCommandOutput,
@@ -34,6 +43,9 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

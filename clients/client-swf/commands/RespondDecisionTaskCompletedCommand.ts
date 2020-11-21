@@ -20,6 +20,28 @@ import {
 export type RespondDecisionTaskCompletedCommandInput = RespondDecisionTaskCompletedInput;
 export type RespondDecisionTaskCompletedCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
+ *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
+ *       specifies the list of decisions made while processing the task.</p>
+ *
+ *          <p>A <code>DecisionTaskCompleted</code> event is added to the workflow history. The
+ *         <code>executionContext</code> specified is attached to the event in the workflow execution
+ *       history.</p>
+ *
+ *          <p>
+ *             <b>Access Control</b>
+ *          </p>
+ *
+ *          <p>If an IAM policy grants permission to use <code>RespondDecisionTaskCompleted</code>, it
+ *       can express permissions for the list of decisions in the <code>decisions</code> parameter.
+ *       Each of the decisions has one or more parameters, much like a regular API call. To allow for
+ *       policies to be as readable as possible, you can express permissions on decisions as if they
+ *       were actual API calls, including applying conditions to some parameters. For more information,
+ *       see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+ *         IAM to Manage Access to Amazon SWF Workflows</a> in the
+ *       <i>Amazon SWF Developer Guide</i>.</p>
+ */
 export class RespondDecisionTaskCompletedCommand extends $Command<
   RespondDecisionTaskCompletedCommandInput,
   RespondDecisionTaskCompletedCommandOutput,
@@ -34,6 +56,9 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,

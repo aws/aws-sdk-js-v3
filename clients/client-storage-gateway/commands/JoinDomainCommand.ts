@@ -20,6 +20,10 @@ import {
 export type JoinDomainCommandInput = JoinDomainInput;
 export type JoinDomainCommandOutput = JoinDomainOutput & __MetadataBearer;
 
+/**
+ * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
+ *          file gateways that support the SMB file protocol.</p>
+ */
 export class JoinDomainCommand extends $Command<
   JoinDomainCommandInput,
   JoinDomainCommandOutput,
@@ -34,6 +38,9 @@ export class JoinDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

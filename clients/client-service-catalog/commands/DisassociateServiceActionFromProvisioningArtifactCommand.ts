@@ -24,6 +24,9 @@ export type DisassociateServiceActionFromProvisioningArtifactCommandInput = Disa
 export type DisassociateServiceActionFromProvisioningArtifactCommandOutput = DisassociateServiceActionFromProvisioningArtifactOutput &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
+ */
 export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   DisassociateServiceActionFromProvisioningArtifactCommandInput,
   DisassociateServiceActionFromProvisioningArtifactCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

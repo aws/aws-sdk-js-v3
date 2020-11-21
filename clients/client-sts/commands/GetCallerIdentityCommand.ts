@@ -20,6 +20,18 @@ import {
 export type GetCallerIdentityCommandInput = GetCallerIdentityRequest;
 export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Returns details about the IAM user or role whose credentials are used to call the
+ *          operation.</p>
+ *          <note>
+ *             <p>No permissions are required to perform this operation. If an administrator adds a
+ *             policy to your IAM user or role that explicitly denies access to the
+ *                <code>sts:GetCallerIdentity</code> action, you can still perform this operation.
+ *             Permissions are not required because the same information is returned when an IAM user
+ *             or role is denied access. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
+ *                <i>IAM User Guide</i>.</p>
+ *          </note>
+ */
 export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandInput,
   GetCallerIdentityCommandOutput,
@@ -34,6 +46,9 @@ export class GetCallerIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: STSClientResolvedConfig,

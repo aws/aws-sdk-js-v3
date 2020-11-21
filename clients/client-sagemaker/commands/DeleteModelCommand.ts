@@ -20,6 +20,12 @@ import {
 export type DeleteModelCommandInput = DeleteModelInput;
 export type DeleteModelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
+ *             was created in Amazon SageMaker when you called the <a>CreateModel</a> API. It does not
+ *             delete model artifacts, inference code, or the IAM role that you specified when
+ *             creating the model. </p>
+ */
 export class DeleteModelCommand extends $Command<
   DeleteModelCommandInput,
   DeleteModelCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

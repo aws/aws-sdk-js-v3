@@ -20,6 +20,10 @@ import {
 export type DescribeEndpointConfigCommandInput = DescribeEndpointConfigInput;
 export type DescribeEndpointConfigCommandOutput = DescribeEndpointConfigOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the description of an endpoint configuration created using the
+ *                 <code>CreateEndpointConfig</code> API.</p>
+ */
 export class DescribeEndpointConfigCommand extends $Command<
   DescribeEndpointConfigCommandInput,
   DescribeEndpointConfigCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEndpointConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type UpdateRulesOfIpGroupCommandInput = UpdateRulesOfIpGroupRequest;
 export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult & __MetadataBearer;
 
+/**
+ * <p>Replaces the current rules of the specified IP access control group with the specified
+ *          rules.</p>
+ */
 export class UpdateRulesOfIpGroupCommand extends $Command<
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

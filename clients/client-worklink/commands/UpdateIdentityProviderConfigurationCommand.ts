@@ -24,6 +24,9 @@ export type UpdateIdentityProviderConfigurationCommandInput = UpdateIdentityProv
 export type UpdateIdentityProviderConfigurationCommandOutput = UpdateIdentityProviderConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Updates the identity provider configuration for the fleet.</p>
+ */
 export class UpdateIdentityProviderConfigurationCommand extends $Command<
   UpdateIdentityProviderConfigurationCommandInput,
   UpdateIdentityProviderConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

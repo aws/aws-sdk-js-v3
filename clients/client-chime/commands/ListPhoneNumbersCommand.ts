@@ -20,6 +20,9 @@ import {
 export type ListPhoneNumbersCommandInput = ListPhoneNumbersRequest;
 export type ListPhoneNumbersCommandOutput = ListPhoneNumbersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
+ */
 export class ListPhoneNumbersCommand extends $Command<
   ListPhoneNumbersCommandInput,
   ListPhoneNumbersCommandOutput,
@@ -34,6 +37,9 @@ export class ListPhoneNumbersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

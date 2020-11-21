@@ -21,6 +21,10 @@ export type DisassociatePrincipalFromPortfolioCommandInput = DisassociatePrincip
 export type DisassociatePrincipalFromPortfolioCommandOutput = DisassociatePrincipalFromPortfolioOutput &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a previously associated principal ARN from a specified
+ *          portfolio.</p>
+ */
 export class DisassociatePrincipalFromPortfolioCommand extends $Command<
   DisassociatePrincipalFromPortfolioCommandInput,
   DisassociatePrincipalFromPortfolioCommandOutput,
@@ -35,6 +39,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

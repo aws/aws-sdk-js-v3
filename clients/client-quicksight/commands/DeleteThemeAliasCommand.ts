@@ -20,6 +20,11 @@ import {
 export type DeleteThemeAliasCommandInput = DeleteThemeAliasRequest;
 export type DeleteThemeAliasCommandOutput = DeleteThemeAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the version of the theme that the specified theme alias points to.
+ * 			If you provide a specific alias, you delete the version of the theme
+ * 			that the alias points to.</p>
+ */
 export class DeleteThemeAliasCommand extends $Command<
   DeleteThemeAliasCommandInput,
   DeleteThemeAliasCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteThemeAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

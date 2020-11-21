@@ -19,6 +19,10 @@ import {
 export type DeleteOrganizationCommandInput = {};
 export type DeleteOrganizationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the organization. You can delete an organization only by using credentials
+ *             from the management account. The organization must be empty of member accounts.</p>
+ */
 export class DeleteOrganizationCommand extends $Command<
   DeleteOrganizationCommandInput,
   DeleteOrganizationCommandOutput,
@@ -33,6 +37,9 @@ export class DeleteOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

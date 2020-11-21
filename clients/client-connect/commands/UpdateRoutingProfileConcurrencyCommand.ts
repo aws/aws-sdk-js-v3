@@ -20,6 +20,9 @@ import {
 export type UpdateRoutingProfileConcurrencyCommandInput = UpdateRoutingProfileConcurrencyRequest;
 export type UpdateRoutingProfileConcurrencyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
+ */
 export class UpdateRoutingProfileConcurrencyCommand extends $Command<
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

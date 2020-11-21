@@ -20,6 +20,10 @@ import {
 export type GetFlowTemplateRevisionsCommandInput = GetFlowTemplateRevisionsRequest;
 export type GetFlowTemplateRevisionsCommandOutput = GetFlowTemplateRevisionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
+ *       this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>
+ */
 export class GetFlowTemplateRevisionsCommand extends $Command<
   GetFlowTemplateRevisionsCommandInput,
   GetFlowTemplateRevisionsCommandOutput,
@@ -34,6 +38,9 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

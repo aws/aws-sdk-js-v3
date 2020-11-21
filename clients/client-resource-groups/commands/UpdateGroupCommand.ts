@@ -20,6 +20,10 @@ import {
 export type UpdateGroupCommandInput = UpdateGroupInput;
 export type UpdateGroupCommandOutput = UpdateGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the description for an existing group. You cannot update the name of a
+ *             resource group.</p>
+ */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,
   UpdateGroupCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

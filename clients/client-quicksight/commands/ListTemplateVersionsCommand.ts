@@ -20,6 +20,9 @@ import {
 export type ListTemplateVersionsCommandInput = ListTemplateVersionsRequest;
 export type ListTemplateVersionsCommandOutput = ListTemplateVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
+ */
 export class ListTemplateVersionsCommand extends $Command<
   ListTemplateVersionsCommandInput,
   ListTemplateVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTemplateVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type CloneReceiptRuleSetCommandInput = CloneReceiptRuleSetRequest;
 export type CloneReceiptRuleSetCommandOutput = CloneReceiptRuleSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
+ *             configurations are copied to the new receipt rule set and are completely independent of
+ *             the source rule set.</p>
+ *         <p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CloneReceiptRuleSetCommand extends $Command<
   CloneReceiptRuleSetCommandInput,
   CloneReceiptRuleSetCommandOutput,
@@ -34,6 +42,9 @@ export class CloneReceiptRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

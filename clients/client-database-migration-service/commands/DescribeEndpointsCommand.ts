@@ -24,6 +24,9 @@ import {
 export type DescribeEndpointsCommandInput = DescribeEndpointsMessage;
 export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the endpoints for your account in the current region.</p>
+ */
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

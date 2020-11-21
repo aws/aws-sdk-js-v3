@@ -8,6 +8,9 @@ import {
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ComprehendClient,
   input: ListSentimentDetectionJobsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSentimentDetectionJobsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Comprehend,
   input: ListSentimentDetectionJobsCommandInput,

@@ -20,6 +20,19 @@ import {
 export type CreateTrialCommandInput = CreateTrialRequest;
 export type CreateTrialCommandOutput = CreateTrialResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called
+ *         <i>trial components</i> that produce a machine learning model. A trial is part
+ *       of a single Amazon SageMaker <i>experiment</i>.</p>
+ *          <p>When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments, trials, and trial
+ *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
+ *       must use the logging APIs provided by the SDK.</p>
+ *          <p>You can add tags to a trial and then use the <a>Search</a> API to search for
+ *       the tags.</p>
+ *          <p>To get a list of all your trials, call the <a>ListTrials</a> API. To view a
+ *       trial's properties, call the <a>DescribeTrial</a> API. To create a trial component,
+ *       call the <a>CreateTrialComponent</a> API.</p>
+ */
 export class CreateTrialCommand extends $Command<
   CreateTrialCommandInput,
   CreateTrialCommandOutput,
@@ -34,6 +47,9 @@ export class CreateTrialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

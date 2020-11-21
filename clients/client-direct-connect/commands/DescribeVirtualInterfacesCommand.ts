@@ -20,6 +20,13 @@ import {
 export type DescribeVirtualInterfacesCommandInput = DescribeVirtualInterfacesRequest;
 export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces & __MetadataBearer;
 
+/**
+ * <p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer
+ *       than 15 minutes before you make the request are also returned. If you specify a
+ *       connection ID, only the virtual interfaces associated with the connection are returned.
+ *       If you specify a virtual interface ID, then only a single virtual interface is returned.</p>
+ *          <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>
+ */
 export class DescribeVirtualInterfacesCommand extends $Command<
   DescribeVirtualInterfacesCommandInput,
   DescribeVirtualInterfacesCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

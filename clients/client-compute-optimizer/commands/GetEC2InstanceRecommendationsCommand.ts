@@ -20,6 +20,13 @@ import {
 export type GetEC2InstanceRecommendationsCommandInput = GetEC2InstanceRecommendationsRequest;
 export type GetEC2InstanceRecommendationsCommandOutput = GetEC2InstanceRecommendationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns Amazon EC2 instance recommendations.</p>
+ *
+ *         <p>AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a
+ *             specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+ *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+ */
 export class GetEC2InstanceRecommendationsCommand extends $Command<
   GetEC2InstanceRecommendationsCommandInput,
   GetEC2InstanceRecommendationsCommandOutput,
@@ -34,6 +41,9 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

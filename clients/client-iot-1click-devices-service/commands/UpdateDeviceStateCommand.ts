@@ -24,6 +24,10 @@ import {
 export type UpdateDeviceStateCommandInput = UpdateDeviceStateRequest;
 export type UpdateDeviceStateCommandOutput = UpdateDeviceStateResponse & __MetadataBearer;
 
+/**
+ * <p>Using a Boolean value (true or false), this operation
+ *  enables or disables the device given a device ID.</p>
+ */
 export class UpdateDeviceStateCommand extends $Command<
   UpdateDeviceStateCommandInput,
   UpdateDeviceStateCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateDeviceStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

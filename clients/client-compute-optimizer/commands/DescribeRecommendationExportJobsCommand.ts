@@ -20,6 +20,14 @@ import {
 export type DescribeRecommendationExportJobsCommandInput = DescribeRecommendationExportJobsRequest;
 export type DescribeRecommendationExportJobsCommandOutput = DescribeRecommendationExportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes recommendation export jobs created in the last seven days.</p>
+ *
+ *         <p>Use the <code>ExportAutoScalingGroupRecommendations</code> or
+ *                 <code>ExportEC2InstanceRecommendations</code> actions to request an export of your
+ *             recommendations. Then use the <code>DescribeRecommendationExportJobs</code> action to
+ *             view your export jobs.</p>
+ */
 export class DescribeRecommendationExportJobsCommand extends $Command<
   DescribeRecommendationExportJobsCommandInput,
   DescribeRecommendationExportJobsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

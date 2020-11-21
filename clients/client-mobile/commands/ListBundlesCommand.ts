@@ -20,6 +20,11 @@ import {
 export type ListBundlesCommandInput = ListBundlesRequest;
 export type ListBundlesCommandOutput = ListBundlesResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             List all available bundles.
+ *         </p>
+ */
 export class ListBundlesCommand extends $Command<
   ListBundlesCommandInput,
   ListBundlesCommandOutput,
@@ -34,6 +39,9 @@ export class ListBundlesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

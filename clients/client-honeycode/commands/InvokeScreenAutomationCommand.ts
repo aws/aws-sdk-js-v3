@@ -20,6 +20,13 @@ import {
 export type InvokeScreenAutomationCommandInput = InvokeScreenAutomationRequest;
 export type InvokeScreenAutomationCommandOutput = InvokeScreenAutomationResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app.
+ *             The API allows setting local variables, which can then be used in the automation being invoked.
+ *             This allows automating the Honeycode app interactions to write, update or delete data in the workbook.
+ *         </p>
+ */
 export class InvokeScreenAutomationCommand extends $Command<
   InvokeScreenAutomationCommandInput,
   InvokeScreenAutomationCommandOutput,
@@ -34,6 +41,9 @@ export class InvokeScreenAutomationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HoneycodeClientResolvedConfig,

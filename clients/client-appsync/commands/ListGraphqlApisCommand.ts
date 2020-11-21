@@ -20,6 +20,9 @@ import {
 export type ListGraphqlApisCommandInput = ListGraphqlApisRequest;
 export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse & __MetadataBearer;
 
+/**
+ * <p>Lists your GraphQL APIs.</p>
+ */
 export class ListGraphqlApisCommand extends $Command<
   ListGraphqlApisCommandInput,
   ListGraphqlApisCommandOutput,
@@ -34,6 +37,9 @@ export class ListGraphqlApisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

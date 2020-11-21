@@ -20,6 +20,9 @@ import {
 export type CreateCampaignCommandInput = CreateCampaignRequest;
 export type CreateCampaignCommandOutput = CreateCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
+ */
 export class CreateCampaignCommand extends $Command<
   CreateCampaignCommandInput,
   CreateCampaignCommandOutput,
@@ -34,6 +37,9 @@ export class CreateCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

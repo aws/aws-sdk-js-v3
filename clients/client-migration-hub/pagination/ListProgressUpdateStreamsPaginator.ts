@@ -8,6 +8,9 @@ import {
 import { MigrationHubPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MigrationHubClient,
   input: ListProgressUpdateStreamsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProgressUpdateStreamsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MigrationHub,
   input: ListProgressUpdateStreamsCommandInput,

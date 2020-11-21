@@ -20,6 +20,9 @@ import {
 export type PutSuppressedDestinationCommandInput = PutSuppressedDestinationRequest;
 export type PutSuppressedDestinationCommandOutput = PutSuppressedDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds an email address to the suppression list for your account.</p>
+ */
 export class PutSuppressedDestinationCommand extends $Command<
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput,
@@ -34,6 +37,9 @@ export class PutSuppressedDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

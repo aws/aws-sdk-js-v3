@@ -20,6 +20,9 @@ import {
 export type UpdateTemplatePermissionsCommandInput = UpdateTemplatePermissionsRequest;
 export type UpdateTemplatePermissionsCommandOutput = UpdateTemplatePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the resource permissions for a template.</p>
+ */
 export class UpdateTemplatePermissionsCommand extends $Command<
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

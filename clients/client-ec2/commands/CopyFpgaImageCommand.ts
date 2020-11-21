@@ -17,6 +17,9 @@ import {
 export type CopyFpgaImageCommandInput = CopyFpgaImageRequest;
 export type CopyFpgaImageCommandOutput = CopyFpgaImageResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
+ */
 export class CopyFpgaImageCommand extends $Command<
   CopyFpgaImageCommandInput,
   CopyFpgaImageCommandOutput,
@@ -31,6 +34,9 @@ export class CopyFpgaImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

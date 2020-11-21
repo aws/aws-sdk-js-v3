@@ -24,6 +24,10 @@ export type PurchaseReservedCacheNodesOfferingCommandInput = PurchaseReservedCac
 export type PurchaseReservedCacheNodesOfferingCommandOutput = PurchaseReservedCacheNodesOfferingResult &
   __MetadataBearer;
 
+/**
+ * <p>Allows you to purchase a reserved
+ *             cache node offering.</p>
+ */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
@@ -38,6 +42,9 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

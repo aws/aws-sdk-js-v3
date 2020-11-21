@@ -20,6 +20,16 @@ import {
 export type ListObjectParentPathsCommandInput = ListObjectParentPathsRequest;
 export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all available parent paths for any object type such as node, leaf node,
+ *       policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
+ *          <p>Use this API to evaluate all parents for an object. The call returns all objects from
+ *       the root of the directory up to the requested object. The API returns the number of paths
+ *       based on user-defined <code>MaxResults</code>, in case there are multiple paths to the parent.
+ *       The order of the paths and nodes returned is consistent among multiple API calls unless the
+ *       objects are deleted or moved. Paths not leading to the directory root are ignored from the
+ *       target object.</p>
+ */
 export class ListObjectParentPathsCommand extends $Command<
   ListObjectParentPathsCommandInput,
   ListObjectParentPathsCommandOutput,
@@ -34,6 +44,9 @@ export class ListObjectParentPathsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

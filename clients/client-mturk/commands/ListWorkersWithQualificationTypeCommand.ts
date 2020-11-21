@@ -20,6 +20,12 @@ import {
 export type ListWorkersWithQualificationTypeCommandInput = ListWorkersWithQualificationTypeRequest;
 export type ListWorkersWithQualificationTypeCommandOutput = ListWorkersWithQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
+ *             that have been associated with a given Qualification type.
+ *         </p>
+ */
 export class ListWorkersWithQualificationTypeCommand extends $Command<
   ListWorkersWithQualificationTypeCommandInput,
   ListWorkersWithQualificationTypeCommandOutput,
@@ -34,6 +40,9 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

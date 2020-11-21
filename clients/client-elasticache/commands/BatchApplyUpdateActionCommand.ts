@@ -20,6 +20,9 @@ import {
 export type BatchApplyUpdateActionCommandInput = BatchApplyUpdateActionMessage;
 export type BatchApplyUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
 
+/**
+ * <p>Apply the service update. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service Updates</a>.</p>
+ */
 export class BatchApplyUpdateActionCommand extends $Command<
   BatchApplyUpdateActionCommandInput,
   BatchApplyUpdateActionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchApplyUpdateActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

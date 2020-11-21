@@ -20,6 +20,9 @@ import {
 export type GetBackupPlanFromTemplateCommandInput = GetBackupPlanFromTemplateInput;
 export type GetBackupPlanFromTemplateCommandOutput = GetBackupPlanFromTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
+ */
 export class GetBackupPlanFromTemplateCommand extends $Command<
   GetBackupPlanFromTemplateCommandInput,
   GetBackupPlanFromTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

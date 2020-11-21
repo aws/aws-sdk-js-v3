@@ -20,6 +20,15 @@ import {
 export type CreateLaunchConfigurationCommandInput = CreateLaunchConfigurationType;
 export type CreateLaunchConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a launch configuration.</p>
+ *         <p>If you exceed your maximum limit of launch configurations, the call fails. To query
+ *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
+ *             updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
+ *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
+ *                 configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class CreateLaunchConfigurationCommand extends $Command<
   CreateLaunchConfigurationCommandInput,
   CreateLaunchConfigurationCommandOutput,
@@ -34,6 +43,9 @@ export class CreateLaunchConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

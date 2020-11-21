@@ -28,6 +28,16 @@ export type DescribeElasticsearchInstanceTypeLimitsCommandInput = DescribeElasti
 export type DescribeElasticsearchInstanceTypeLimitsCommandOutput = DescribeElasticsearchInstanceTypeLimitsResponse &
   __MetadataBearer;
 
+/**
+ * <p>
+ *     Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
+ *     When modifying existing Domain, specify the
+ *     <code>
+ *       <a>DomainName</a>
+ *     </code>
+ *     to know what Limits are supported for modifying.
+ *   </p>
+ */
 export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
   DescribeElasticsearchInstanceTypeLimitsCommandInput,
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
@@ -42,6 +52,9 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

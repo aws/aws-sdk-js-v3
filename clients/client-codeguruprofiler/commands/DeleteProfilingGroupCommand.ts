@@ -20,6 +20,9 @@ import {
 export type DeleteProfilingGroupCommandInput = DeleteProfilingGroupRequest;
 export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a profiling group.</p>
+ */
 export class DeleteProfilingGroupCommand extends $Command<
   DeleteProfilingGroupCommandInput,
   DeleteProfilingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProfilingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

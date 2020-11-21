@@ -20,6 +20,9 @@ import {
 export type ListTypedLinkFacetAttributesCommandInput = ListTypedLinkFacetAttributesRequest;
 export type ListTypedLinkFacetAttributesCommandOutput = ListTypedLinkFacetAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class ListTypedLinkFacetAttributesCommand extends $Command<
   ListTypedLinkFacetAttributesCommandInput,
   ListTypedLinkFacetAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

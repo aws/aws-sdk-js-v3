@@ -20,6 +20,9 @@ import {
 export type GetAttendeeCommandInput = GetAttendeeRequest;
 export type GetAttendeeCommandOutput = GetAttendeeResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+ */
 export class GetAttendeeCommand extends $Command<
   GetAttendeeCommandInput,
   GetAttendeeCommandOutput,
@@ -34,6 +37,9 @@ export class GetAttendeeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

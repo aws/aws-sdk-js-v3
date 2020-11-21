@@ -20,6 +20,10 @@ import {
 export type StartAppReplicationCommandInput = StartAppReplicationRequest;
 export type StartAppReplicationCommandOutput = StartAppReplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Starts replicating the specified application by creating replication jobs for each server in the
+ *             application.</p>
+ */
 export class StartAppReplicationCommand extends $Command<
   StartAppReplicationCommandInput,
   StartAppReplicationCommandOutput,
@@ -34,6 +38,9 @@ export class StartAppReplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

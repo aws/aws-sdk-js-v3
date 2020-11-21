@@ -20,6 +20,12 @@ import {
 export type GetAttributeValuesCommandInput = GetAttributeValuesRequest;
 export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of attribute values. Attibutes are similar to the details
+ *           in a Price List API offer file. For a list of available attributes, see
+ *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
+ *          in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">AWS Billing and Cost Management User Guide</a>.</p>
+ */
 export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandInput,
   GetAttributeValuesCommandOutput,
@@ -34,6 +40,9 @@ export class GetAttributeValuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PricingClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeScalingParametersCommandInput = DescribeScalingParametersRequest;
 export type DescribeScalingParametersCommandOutput = DescribeScalingParametersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see   <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html" target="_blank">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeScalingParametersCommand extends $Command<
   DescribeScalingParametersCommandInput,
   DescribeScalingParametersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScalingParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

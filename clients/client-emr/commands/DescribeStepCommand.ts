@@ -20,6 +20,9 @@ import {
 export type DescribeStepCommandInput = DescribeStepInput;
 export type DescribeStepCommandOutput = DescribeStepOutput & __MetadataBearer;
 
+/**
+ * <p>Provides more detail about the cluster step.</p>
+ */
 export class DescribeStepCommand extends $Command<
   DescribeStepCommandInput,
   DescribeStepCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStepCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

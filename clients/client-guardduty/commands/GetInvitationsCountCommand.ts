@@ -20,6 +20,10 @@ import {
 export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
 export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
+ *       member account except the currently accepted invitation.</p>
+ */
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
@@ -34,6 +38,9 @@ export class GetInvitationsCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

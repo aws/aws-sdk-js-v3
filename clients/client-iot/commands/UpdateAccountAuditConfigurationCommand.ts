@@ -20,6 +20,11 @@ import {
 export type UpdateAccountAuditConfigurationCommandInput = UpdateAccountAuditConfigurationRequest;
 export type UpdateAccountAuditConfigurationCommandOutput = UpdateAccountAuditConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Configures or reconfigures the Device Defender audit settings for this account.
+ *           Settings include how audit notifications are sent and which audit checks are
+ *           enabled or disabled.</p>
+ */
 export class UpdateAccountAuditConfigurationCommand extends $Command<
   UpdateAccountAuditConfigurationCommandInput,
   UpdateAccountAuditConfigurationCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

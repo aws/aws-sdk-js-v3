@@ -24,6 +24,12 @@ export type PutServiceQuotaIncreaseRequestIntoTemplateCommandInput = PutServiceQ
 export type PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = PutServiceQuotaIncreaseRequestIntoTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Defines and adds a quota to the service quota template. To add a quota to the template,
+ *       you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>,
+ *       and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a> to see the list of quotas in the
+ *       template.</p>
+ */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
@@ -38,6 +44,9 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type SendTaskSuccessCommandInput = SendTaskSuccessInput;
 export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput & __MetadataBearer;
 
+/**
+ * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+ *       pattern to report that the task identified by the <code>taskToken</code> completed
+ *       successfully.</p>
+ */
 export class SendTaskSuccessCommand extends $Command<
   SendTaskSuccessCommandInput,
   SendTaskSuccessCommandOutput,
@@ -34,6 +39,9 @@ export class SendTaskSuccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

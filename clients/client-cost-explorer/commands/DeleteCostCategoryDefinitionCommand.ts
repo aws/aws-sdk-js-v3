@@ -20,6 +20,9 @@ import {
 export type DeleteCostCategoryDefinitionCommandInput = DeleteCostCategoryDefinitionRequest;
 export type DeleteCostCategoryDefinitionCommandOutput = DeleteCostCategoryDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>
+ */
 export class DeleteCostCategoryDefinitionCommand extends $Command<
   DeleteCostCategoryDefinitionCommandInput,
   DeleteCostCategoryDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

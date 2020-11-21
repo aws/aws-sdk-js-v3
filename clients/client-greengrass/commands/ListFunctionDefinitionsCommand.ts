@@ -20,6 +20,9 @@ import {
 export type ListFunctionDefinitionsCommandInput = ListFunctionDefinitionsRequest;
 export type ListFunctionDefinitionsCommandOutput = ListFunctionDefinitionsResponse & __MetadataBearer;
 
+/**
+ * Retrieves a list of Lambda function definitions.
+ */
 export class ListFunctionDefinitionsCommand extends $Command<
   ListFunctionDefinitionsCommandInput,
   ListFunctionDefinitionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFunctionDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

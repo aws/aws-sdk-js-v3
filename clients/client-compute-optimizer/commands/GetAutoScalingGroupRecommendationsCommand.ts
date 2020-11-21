@@ -24,6 +24,13 @@ export type GetAutoScalingGroupRecommendationsCommandInput = GetAutoScalingGroup
 export type GetAutoScalingGroupRecommendationsCommandOutput = GetAutoScalingGroupRecommendationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns Auto Scaling group recommendations.</p>
+ *
+ *         <p>AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that meet a specific set of
+ *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+ *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+ */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command<
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
@@ -38,6 +45,9 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

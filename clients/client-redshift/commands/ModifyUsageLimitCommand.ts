@@ -21,6 +21,10 @@ import {
 export type ModifyUsageLimitCommandInput = ModifyUsageLimitMessage;
 export type ModifyUsageLimitCommandOutput = UsageLimit & __MetadataBearer;
 
+/**
+ * <p>Modifies a usage limit in a cluster.
+ *             You can't modify the feature type or period of a usage limit.</p>
+ */
 export class ModifyUsageLimitCommand extends $Command<
   ModifyUsageLimitCommandInput,
   ModifyUsageLimitCommandOutput,
@@ -35,6 +39,9 @@ export class ModifyUsageLimitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

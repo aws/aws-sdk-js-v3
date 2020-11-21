@@ -8,6 +8,9 @@ import {
 import { SSMPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SSMClient,
   input: DescribeEffectivePatchesForPatchBaselineCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEffectivePatchesForPatchBaselineCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SSM,
   input: DescribeEffectivePatchesForPatchBaselineCommandInput,

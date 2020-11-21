@@ -20,6 +20,9 @@ import {
 export type AllQueryStringTypesCommandInput = AllQueryStringTypesInput;
 export type AllQueryStringTypesCommandOutput = __MetadataBearer;
 
+/**
+ * This example uses all query string types.
+ */
 export class AllQueryStringTypesCommand extends $Command<
   AllQueryStringTypesCommandInput,
   AllQueryStringTypesCommandOutput,
@@ -34,6 +37,9 @@ export class AllQueryStringTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

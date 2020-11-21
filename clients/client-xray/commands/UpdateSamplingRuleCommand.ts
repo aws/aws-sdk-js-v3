@@ -20,6 +20,9 @@ import {
 export type UpdateSamplingRuleCommandInput = UpdateSamplingRuleRequest;
 export type UpdateSamplingRuleCommandOutput = UpdateSamplingRuleResult & __MetadataBearer;
 
+/**
+ * <p>Modifies a sampling rule's configuration.</p>
+ */
 export class UpdateSamplingRuleCommand extends $Command<
   UpdateSamplingRuleCommandInput,
   UpdateSamplingRuleCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSamplingRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type DeleteInstanceCommandInput = DeleteInstanceRequest;
 export type DeleteInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
+ *         Instances</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

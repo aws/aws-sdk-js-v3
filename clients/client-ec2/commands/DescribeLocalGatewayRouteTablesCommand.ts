@@ -21,6 +21,10 @@ import {
 export type DescribeLocalGatewayRouteTablesCommandInput = DescribeLocalGatewayRouteTablesRequest;
 export type DescribeLocalGatewayRouteTablesCommandOutput = DescribeLocalGatewayRouteTablesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
+ *          Alternatively, you can filter the results.</p>
+ */
 export class DescribeLocalGatewayRouteTablesCommand extends $Command<
   DescribeLocalGatewayRouteTablesCommandInput,
   DescribeLocalGatewayRouteTablesCommandOutput,
@@ -35,6 +39,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -24,6 +24,9 @@ export type CreateProvisioningTemplateVersionCommandInput = CreateProvisioningTe
 export type CreateProvisioningTemplateVersionCommandOutput = CreateProvisioningTemplateVersionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates a new version of a fleet provisioning template.</p>
+ */
 export class CreateProvisioningTemplateVersionCommand extends $Command<
   CreateProvisioningTemplateVersionCommandInput,
   CreateProvisioningTemplateVersionCommandOutput,
@@ -38,6 +41,9 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,23 @@ import {
 export type UpdateFunctionConfigurationCommandInput = UpdateFunctionConfigurationRequest;
 export type UpdateFunctionConfigurationCommandOutput = FunctionConfiguration & __MetadataBearer;
 
+/**
+ * <p>Modify the version-specific settings of a Lambda function.</p>
+ *
+ *          <p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If
+ *       your function connects to a VPC, this process can take a minute. During this time, you can't modify the function,
+ *       but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and
+ *         <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a>
+ *       indicate when the update is complete and the function is processing events with the new configuration. For more
+ *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
+ *       States</a>.</p>
+ *
+ *          <p>These settings can vary between versions of a function and are locked when you publish a version. You can't
+ *       modify the configuration of a published version, only the unpublished version.</p>
+ *
+ *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
+ *       to an account or AWS service, use <a>AddPermission</a>.</p>
+ */
 export class UpdateFunctionConfigurationCommand extends $Command<
   UpdateFunctionConfigurationCommandInput,
   UpdateFunctionConfigurationCommandOutput,
@@ -34,6 +51,9 @@ export class UpdateFunctionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

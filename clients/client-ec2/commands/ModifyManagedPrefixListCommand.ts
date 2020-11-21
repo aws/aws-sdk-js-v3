@@ -20,6 +20,13 @@ import {
 export type ModifyManagedPrefixListCommandInput = ModifyManagedPrefixListRequest;
 export type ModifyManagedPrefixListCommandOutput = ModifyManagedPrefixListResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified managed prefix list.</p>
+ *         <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
+ *             Changing the name of the prefix list does not affect the version.</p>
+ *         <p>If you specify a current version number that does not match the true current version
+ *             number, the request fails.</p>
+ */
 export class ModifyManagedPrefixListCommand extends $Command<
   ModifyManagedPrefixListCommandInput,
   ModifyManagedPrefixListCommandOutput,
@@ -34,6 +41,9 @@ export class ModifyManagedPrefixListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

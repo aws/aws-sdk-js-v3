@@ -20,6 +20,9 @@ import {
 export type CreateProcessingJobCommandInput = CreateProcessingJobRequest;
 export type CreateProcessingJobCommandOutput = CreateProcessingJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a processing job.</p>
+ */
 export class CreateProcessingJobCommand extends $Command<
   CreateProcessingJobCommandInput,
   CreateProcessingJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateProcessingJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateReturnShippingLabelCommandInput = CreateReturnShippingLabelRequest;
 export type CreateReturnShippingLabelCommandOutput = CreateReturnShippingLabelResult & __MetadataBearer;
 
+/**
+ * <p>Creates a shipping label that will be used to return the Snow device to AWS.</p>
+ */
 export class CreateReturnShippingLabelCommand extends $Command<
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
@@ -34,6 +37,9 @@ export class CreateReturnShippingLabelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

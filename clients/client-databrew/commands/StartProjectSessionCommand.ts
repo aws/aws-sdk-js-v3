@@ -20,6 +20,10 @@ import {
 export type StartProjectSessionCommandInput = StartProjectSessionRequest;
 export type StartProjectSessionCommandOutput = StartProjectSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an interactive session, enabling you to manipulate an AWS Glue DataBrew
+ *             project.</p>
+ */
 export class StartProjectSessionCommand extends $Command<
   StartProjectSessionCommandInput,
   StartProjectSessionCommandOutput,
@@ -34,6 +38,9 @@ export class StartProjectSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

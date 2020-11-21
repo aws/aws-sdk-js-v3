@@ -20,6 +20,12 @@ import {
 export type ListDomainConfigurationsCommandInput = ListDomainConfigurationsRequest;
 export type ListDomainConfigurationsCommandOutput = ListDomainConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ */
 export class ListDomainConfigurationsCommand extends $Command<
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
@@ -34,6 +40,9 @@ export class ListDomainConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

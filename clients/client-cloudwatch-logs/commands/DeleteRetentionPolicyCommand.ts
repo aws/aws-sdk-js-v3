@@ -20,6 +20,10 @@ import {
 export type DeleteRetentionPolicyCommandInput = DeleteRetentionPolicyRequest;
 export type DeleteRetentionPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified retention policy.</p>
+ *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
+ */
 export class DeleteRetentionPolicyCommand extends $Command<
   DeleteRetentionPolicyCommandInput,
   DeleteRetentionPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteRetentionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

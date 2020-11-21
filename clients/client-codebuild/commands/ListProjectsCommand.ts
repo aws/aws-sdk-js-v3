@@ -20,6 +20,10 @@ import {
 export type ListProjectsCommandInput = ListProjectsInput;
 export type ListProjectsCommandOutput = ListProjectsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a list of build project names, with each build project name representing a single
+ *             build project.</p>
+ */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
@@ -34,6 +38,9 @@ export class ListProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

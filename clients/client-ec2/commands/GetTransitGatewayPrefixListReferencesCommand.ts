@@ -24,6 +24,9 @@ export type GetTransitGatewayPrefixListReferencesCommandInput = GetTransitGatewa
 export type GetTransitGatewayPrefixListReferencesCommandOutput = GetTransitGatewayPrefixListReferencesResult &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
+ */
 export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
   GetTransitGatewayPrefixListReferencesCommandInput,
   GetTransitGatewayPrefixListReferencesCommandOutput,
@@ -38,6 +41,9 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

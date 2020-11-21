@@ -20,6 +20,11 @@ import {
 export type StopCrawlerScheduleCommandInput = StopCrawlerScheduleRequest;
 export type StopCrawlerScheduleCommandOutput = StopCrawlerScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the schedule state of the specified crawler to
+ *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
+ *       already running.</p>
+ */
 export class StopCrawlerScheduleCommand extends $Command<
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
@@ -34,6 +39,9 @@ export class StopCrawlerScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

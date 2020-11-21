@@ -20,6 +20,11 @@ import {
 export type ListTaskDefinitionsCommandInput = ListTaskDefinitionsRequest;
 export type ListTaskDefinitionsCommandOutput = ListTaskDefinitionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of task definitions that are registered to your account. You can filter
+ * 			the results by family name with the <code>familyPrefix</code> parameter or by status
+ * 			with the <code>status</code> parameter.</p>
+ */
 export class ListTaskDefinitionsCommand extends $Command<
   ListTaskDefinitionsCommandInput,
   ListTaskDefinitionsCommandOutput,
@@ -34,6 +39,9 @@ export class ListTaskDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

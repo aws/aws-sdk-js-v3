@@ -20,6 +20,9 @@ import {
 export type DeleteSiteCommandInput = DeleteSiteInput;
 export type DeleteSiteCommandOutput = DeleteSiteOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the site.</p>
+ */
 export class DeleteSiteCommand extends $Command<
   DeleteSiteCommandInput,
   DeleteSiteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

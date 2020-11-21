@@ -24,6 +24,9 @@ export type DescribeTransitGatewayPeeringAttachmentsCommandInput = DescribeTrans
 export type DescribeTransitGatewayPeeringAttachmentsCommandOutput = DescribeTransitGatewayPeeringAttachmentsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes your transit gateway peering attachments.</p>
+ */
 export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
   DescribeTransitGatewayPeeringAttachmentsCommandInput,
   DescribeTransitGatewayPeeringAttachmentsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

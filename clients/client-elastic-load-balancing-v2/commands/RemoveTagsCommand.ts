@@ -21,6 +21,11 @@ import {
 export type RemoveTagsCommandInput = RemoveTagsInput;
 export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can
+ *       remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
+ *       Load Balancers, target groups, listeners, or rules.</p>
+ */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,
   RemoveTagsCommandOutput,
@@ -35,6 +40,9 @@ export class RemoveTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

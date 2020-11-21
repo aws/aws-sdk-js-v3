@@ -20,6 +20,9 @@ import {
 export type BatchDeleteRecipeVersionCommandInput = BatchDeleteRecipeVersionRequest;
 export type BatchDeleteRecipeVersionCommandOutput = BatchDeleteRecipeVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more versions of a recipe at a time.</p>
+ */
 export class BatchDeleteRecipeVersionCommand extends $Command<
   BatchDeleteRecipeVersionCommandInput,
   BatchDeleteRecipeVersionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

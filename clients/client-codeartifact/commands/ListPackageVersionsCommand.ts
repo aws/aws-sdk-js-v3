@@ -20,6 +20,15 @@ import {
 export type ListPackageVersionsCommandInput = ListPackageVersionsRequest;
 export type ListPackageVersionsCommandOutput = ListPackageVersionsResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Returns a list of
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
+ *                <code>PackageVersionSummary</code>
+ *             </a>
+ *         objects for package versions in a repository that match the request parameters.
+ *       </p>
+ */
 export class ListPackageVersionsCommand extends $Command<
   ListPackageVersionsCommandInput,
   ListPackageVersionsCommandOutput,
@@ -34,6 +43,9 @@ export class ListPackageVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StopProcessingJobCommandInput = StopProcessingJobRequest;
 export type StopProcessingJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a processing job.</p>
+ */
 export class StopProcessingJobCommand extends $Command<
   StopProcessingJobCommandInput,
   StopProcessingJobCommandOutput,
@@ -34,6 +37,9 @@ export class StopProcessingJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

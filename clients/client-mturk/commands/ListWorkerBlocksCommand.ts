@@ -20,6 +20,9 @@ import {
 export type ListWorkerBlocksCommandInput = ListWorkerBlocksRequest;
 export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse & __MetadataBearer;
 
+/**
+ * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
+ */
 export class ListWorkerBlocksCommand extends $Command<
   ListWorkerBlocksCommandInput,
   ListWorkerBlocksCommandOutput,
@@ -34,6 +37,9 @@ export class ListWorkerBlocksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

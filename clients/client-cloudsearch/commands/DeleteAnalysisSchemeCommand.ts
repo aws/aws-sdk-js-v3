@@ -20,6 +20,9 @@ import {
 export type DeleteAnalysisSchemeCommandInput = DeleteAnalysisSchemeRequest;
 export type DeleteAnalysisSchemeCommandOutput = DeleteAnalysisSchemeResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an analysis scheme. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+ */
 export class DeleteAnalysisSchemeCommand extends $Command<
   DeleteAnalysisSchemeCommandInput,
   DeleteAnalysisSchemeCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

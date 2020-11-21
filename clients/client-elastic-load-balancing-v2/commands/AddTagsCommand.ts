@@ -21,6 +21,13 @@ import {
 export type AddTagsCommandInput = AddTagsInput;
 export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
+ *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
+ *       listeners, and rules.</p>
+ *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with
+ *       the same key, <code>AddTags</code> updates its value.</p>
+ */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,
   AddTagsCommandOutput,
@@ -35,6 +42,9 @@ export class AddTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

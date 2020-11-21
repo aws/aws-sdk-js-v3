@@ -24,6 +24,10 @@ import {
 export type DescribeReplicationInstancesCommandInput = DescribeReplicationInstancesMessage;
 export type DescribeReplicationInstancesCommandOutput = DescribeReplicationInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about replication instances for your account in the current
+ *          region.</p>
+ */
 export class DescribeReplicationInstancesCommand extends $Command<
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeReplicationInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

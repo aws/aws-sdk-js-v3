@@ -20,6 +20,10 @@ import {
 export type UpdateContainerServiceCommandInput = UpdateContainerServiceRequest;
 export type UpdateContainerServiceCommandOutput = UpdateContainerServiceResult & __MetadataBearer;
 
+/**
+ * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,
+ *       scale, and public domain names.</p>
+ */
 export class UpdateContainerServiceCommand extends $Command<
   UpdateContainerServiceCommandInput,
   UpdateContainerServiceCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateContainerServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

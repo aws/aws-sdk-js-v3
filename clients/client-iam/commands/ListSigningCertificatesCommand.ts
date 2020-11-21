@@ -20,6 +20,18 @@ import {
 export type ListSigningCertificatesCommandInput = ListSigningCertificatesRequest;
 export type ListSigningCertificatesCommandOutput = ListSigningCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the signing certificates associated with the specified IAM
+ *          user. If none exists, the operation returns an empty list.</p>
+ *          <p>Although each user is limited to a small number of signing certificates, you can still
+ *          paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ *          <p>If the <code>UserName</code> field is not specified, the user name is determined
+ *          implicitly based on the AWS access key ID used to sign the request for this API. This
+ *          operation works for access keys under the AWS account. Consequently, you can use this
+ *          operation to manage AWS account root user credentials even if the AWS account has no
+ *          associated users.</p>
+ */
 export class ListSigningCertificatesCommand extends $Command<
   ListSigningCertificatesCommandInput,
   ListSigningCertificatesCommandOutput,
@@ -34,6 +46,9 @@ export class ListSigningCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

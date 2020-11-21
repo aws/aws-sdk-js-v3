@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceChannelCommandInput = DeleteVoiceChannelRequest;
 export type DeleteVoiceChannelCommandOutput = DeleteVoiceChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteVoiceChannelCommand extends $Command<
   DeleteVoiceChannelCommandInput,
   DeleteVoiceChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

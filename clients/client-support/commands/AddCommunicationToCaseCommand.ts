@@ -20,6 +20,28 @@ import {
 export type AddCommunicationToCaseCommandInput = AddCommunicationToCaseRequest;
 export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse & __MetadataBearer;
 
+/**
+ * <p>Adds additional customer communication to an AWS Support case. Use the <code>caseId</code>
+ *             parameter to identify the case to which to add communication. You can list a set of
+ *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
+ *             parameter. The <code>communicationBody</code> value contains the text of the
+ *             communication.</p>
+ *
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class AddCommunicationToCaseCommand extends $Command<
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput,
@@ -34,6 +56,9 @@ export class AddCommunicationToCaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,

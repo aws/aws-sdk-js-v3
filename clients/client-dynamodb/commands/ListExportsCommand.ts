@@ -20,6 +20,9 @@ import {
 export type ListExportsCommandInput = ListExportsInput;
 export type ListExportsCommandOutput = ListExportsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists completed exports within the past 90 days.</p>
+ */
 export class ListExportsCommand extends $Command<
   ListExportsCommandInput,
   ListExportsCommandOutput,
@@ -34,6 +37,9 @@ export class ListExportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

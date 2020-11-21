@@ -20,6 +20,12 @@ import {
 export type UpdateOrganizationalUnitCommandInput = UpdateOrganizationalUnitRequest;
 export type UpdateOrganizationalUnitCommandOutput = UpdateOrganizationalUnitResponse & __MetadataBearer;
 
+/**
+ * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
+ *             OUs and accounts remain in place, and any attached policies of the OU remain
+ *             attached.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class UpdateOrganizationalUnitCommand extends $Command<
   UpdateOrganizationalUnitCommandInput,
   UpdateOrganizationalUnitCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateOrganizationalUnitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { AppflowPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AppflowClient,
   input: DescribeConnectorProfilesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeConnectorProfilesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Appflow,
   input: DescribeConnectorProfilesCommandInput,

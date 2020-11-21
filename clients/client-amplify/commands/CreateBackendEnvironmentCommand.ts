@@ -20,6 +20,9 @@ import {
 export type CreateBackendEnvironmentCommandInput = CreateBackendEnvironmentRequest;
 export type CreateBackendEnvironmentCommandOutput = CreateBackendEnvironmentResult & __MetadataBearer;
 
+/**
+ * <p> Creates a new backend environment for an Amplify app. </p>
+ */
 export class CreateBackendEnvironmentCommand extends $Command<
   CreateBackendEnvironmentCommandInput,
   CreateBackendEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class CreateBackendEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

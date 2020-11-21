@@ -20,6 +20,12 @@ import {
 export type DeleteAccessPointCommandInput = DeleteAccessPointRequest;
 export type DeleteAccessPointCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified access point. After deletion is complete, new clients can no
+ *       longer connect to the access points. Clients connected to the access point at the time of
+ *       deletion will continue to function until they terminate their connection.</p>
+ *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteAccessPoint</code> action.</p>
+ */
 export class DeleteAccessPointCommand extends $Command<
   DeleteAccessPointCommandInput,
   DeleteAccessPointCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteAccessPointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

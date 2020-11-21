@@ -20,6 +20,9 @@ import {
 export type GetAccountCommandInput = GetAccountRequest;
 export type GetAccountCommandOutput = Account & __MetadataBearer;
 
+/**
+ * <p>Gets information about the current <a>Account</a> resource.</p>
+ */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,
   GetAccountCommandOutput,
@@ -34,6 +37,9 @@ export class GetAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

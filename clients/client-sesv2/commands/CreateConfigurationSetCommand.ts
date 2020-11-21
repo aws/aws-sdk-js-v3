@@ -20,6 +20,13 @@ import {
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
 export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Create a configuration set. <i>Configuration sets</i> are groups of
+ *             rules that you can apply to the emails that you send. You apply a configuration set to
+ *             an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
+ *             you apply a configuration set to an email, all of the rules in that configuration set
+ *             are applied to the email. </p>
+ */
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -34,6 +41,9 @@ export class CreateConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

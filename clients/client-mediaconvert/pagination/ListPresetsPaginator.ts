@@ -4,6 +4,9 @@ import { ListPresetsCommand, ListPresetsCommandInput, ListPresetsCommandOutput }
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MediaConvertClient,
   input: ListPresetsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPresetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MediaConvert,
   input: ListPresetsCommandInput,

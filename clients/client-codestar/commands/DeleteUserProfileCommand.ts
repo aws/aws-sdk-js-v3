@@ -20,6 +20,11 @@ import {
 export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
 export type DeleteUserProfileCommandOutput = DeleteUserProfileResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
+ *       that profile, such as display name and email address. It does not delete the history of that
+ *       user, for example the history of commits made by that user.</p>
+ */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,
   DeleteUserProfileCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

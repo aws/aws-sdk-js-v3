@@ -20,6 +20,9 @@ import {
 export type SearchAnalysesCommandInput = SearchAnalysesRequest;
 export type SearchAnalysesCommandOutput = SearchAnalysesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for analyses that belong to the user specified in the filter.</p>
+ */
 export class SearchAnalysesCommand extends $Command<
   SearchAnalysesCommandInput,
   SearchAnalysesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchAnalysesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

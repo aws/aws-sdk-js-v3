@@ -20,6 +20,9 @@ import {
 export type DeleteBuildBatchCommandInput = DeleteBuildBatchInput;
 export type DeleteBuildBatchCommandOutput = DeleteBuildBatchOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a batch build.</p>
+ */
 export class DeleteBuildBatchCommand extends $Command<
   DeleteBuildBatchCommandInput,
   DeleteBuildBatchCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBuildBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

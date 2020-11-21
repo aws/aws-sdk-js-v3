@@ -24,6 +24,12 @@ export type ListAssociationsForLicenseConfigurationCommandInput = ListAssociatio
 export type ListAssociationsForLicenseConfigurationCommandOutput = ListAssociationsForLicenseConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the resource associations for the specified license configuration.</p>
+ *          <p>Resource associations need not consume licenses from a license configuration.
+ *          For example, an AMI or a stopped instance might not consume a license (depending on
+ *          the license rules).</p>
+ */
 export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,
@@ -38,6 +44,9 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

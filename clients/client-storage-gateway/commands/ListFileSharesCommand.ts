@@ -20,6 +20,11 @@ import {
 export type ListFileSharesCommandInput = ListFileSharesInput;
 export type ListFileSharesCommandOutput = ListFileSharesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the file shares for a specific file gateway, or the list of file shares
+ *          that belong to the calling user account. This operation is only supported for file
+ *          gateways.</p>
+ */
 export class ListFileSharesCommand extends $Command<
   ListFileSharesCommandInput,
   ListFileSharesCommandOutput,
@@ -34,6 +39,9 @@ export class ListFileSharesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

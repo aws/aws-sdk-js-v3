@@ -20,6 +20,13 @@ import {
 export type AssociateFirewallPolicyCommandInput = AssociateFirewallPolicyRequest;
 export type AssociateFirewallPolicyCommandOutput = AssociateFirewallPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a <a>FirewallPolicy</a> to a <a>Firewall</a>. </p>
+ *          <p>A firewall policy defines how to monitor and manage your VPC network traffic, using a
+ *          collection of inspection rule groups and other settings. Each firewall requires one
+ *          firewall policy association, and you can use the same firewall policy for multiple
+ *          firewalls. </p>
+ */
 export class AssociateFirewallPolicyCommand extends $Command<
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
@@ -34,6 +41,9 @@ export class AssociateFirewallPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

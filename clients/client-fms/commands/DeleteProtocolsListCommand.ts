@@ -20,6 +20,9 @@ import {
 export type DeleteProtocolsListCommandInput = DeleteProtocolsListRequest;
 export type DeleteProtocolsListCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>
+ */
 export class DeleteProtocolsListCommand extends $Command<
   DeleteProtocolsListCommandInput,
   DeleteProtocolsListCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProtocolsListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

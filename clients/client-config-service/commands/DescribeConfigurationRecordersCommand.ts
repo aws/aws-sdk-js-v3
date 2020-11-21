@@ -20,6 +20,16 @@ import {
 export type DescribeConfigurationRecordersCommandInput = DescribeConfigurationRecordersRequest;
 export type DescribeConfigurationRecordersCommandOutput = DescribeConfigurationRecordersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details for the specified configuration recorders.
+ * 			If the configuration recorder is not specified, this action returns
+ * 			the details for all configuration recorders associated with the
+ * 			account.</p>
+ * 		       <note>
+ * 			         <p>Currently, you can specify only one configuration recorder
+ * 				per region in your account.</p>
+ * 		       </note>
+ */
 export class DescribeConfigurationRecordersCommand extends $Command<
   DescribeConfigurationRecordersCommandInput,
   DescribeConfigurationRecordersCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

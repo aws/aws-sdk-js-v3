@@ -20,6 +20,102 @@ import {
 export type UpdateThemePermissionsCommandInput = UpdateThemePermissionsRequest;
 export type UpdateThemePermissionsCommandOutput = UpdateThemePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
+ * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
+ * 		       <p>Theme permissions apply in groupings. Valid groupings include the following for the three
+ * 			levels of permissions, which are user, owner, or no permissions: </p>
+ * 			      <ul>
+ *             <li>
+ *                <p>User</p>
+ * 					          <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DescribeTheme"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DescribeThemeAlias"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:ListThemeAliases"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:ListThemeVersions"</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ * 				        </li>
+ *             <li>
+ *                <p>Owner</p>
+ * 					          <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DescribeTheme"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DescribeThemeAlias"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:ListThemeAliases"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:ListThemeVersions"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DeleteTheme"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:UpdateTheme"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:CreateThemeAlias"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DeleteThemeAlias"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:UpdateThemeAlias"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:UpdateThemePermissions"</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>"quicksight:DescribeThemePermissions"</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ * 				        </li>
+ *             <li>
+ *                <p>To specify no permissions, omit the permissions list.</p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateThemePermissionsCommand extends $Command<
   UpdateThemePermissionsCommandInput,
   UpdateThemePermissionsCommandOutput,
@@ -34,6 +130,9 @@ export class UpdateThemePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

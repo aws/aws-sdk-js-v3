@@ -20,6 +20,9 @@ import {
 export type ForgetSmartHomeAppliancesCommandInput = ForgetSmartHomeAppliancesRequest;
 export type ForgetSmartHomeAppliancesCommandOutput = ForgetSmartHomeAppliancesResponse & __MetadataBearer;
 
+/**
+ * <p>Forgets smart home appliances associated to a room.</p>
+ */
 export class ForgetSmartHomeAppliancesCommand extends $Command<
   ForgetSmartHomeAppliancesCommandInput,
   ForgetSmartHomeAppliancesCommandOutput,
@@ -34,6 +37,9 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

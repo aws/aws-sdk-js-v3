@@ -20,6 +20,9 @@ import {
 export type DescribeDRTAccessCommandInput = DescribeDRTAccessRequest;
 export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.</p>
+ */
 export class DescribeDRTAccessCommand extends $Command<
   DescribeDRTAccessCommandInput,
   DescribeDRTAccessCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDRTAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type SendAnnouncementCommandInput = SendAnnouncementRequest;
 export type SendAnnouncementCommandOutput = SendAnnouncementResponse & __MetadataBearer;
 
+/**
+ * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
+ *          are identified by a search or filter. </p>
+ */
 export class SendAnnouncementCommand extends $Command<
   SendAnnouncementCommandInput,
   SendAnnouncementCommandOutput,
@@ -34,6 +38,9 @@ export class SendAnnouncementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

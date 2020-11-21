@@ -20,6 +20,10 @@ import {
 export type GetAnomaliesCommandInput = GetAnomaliesRequest;
 export type GetAnomaliesCommandOutput = GetAnomaliesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all of the cost anomalies detected on your account, during the time period
+ *       specified by the <code>DateInterval</code> object. </p>
+ */
 export class GetAnomaliesCommand extends $Command<
   GetAnomaliesCommandInput,
   GetAnomaliesCommandOutput,
@@ -34,6 +38,9 @@ export class GetAnomaliesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

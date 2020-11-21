@@ -20,6 +20,12 @@ import {
 export type ListForecastExportJobsCommandInput = ListForecastExportJobsRequest;
 export type ListForecastExportJobsCommandOutput = ListForecastExportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
+ *       returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
+ *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
+ *       operation. You can filter the list using an array of <a>Filter</a> objects.</p>
+ */
 export class ListForecastExportJobsCommand extends $Command<
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput,
@@ -34,6 +40,9 @@ export class ListForecastExportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

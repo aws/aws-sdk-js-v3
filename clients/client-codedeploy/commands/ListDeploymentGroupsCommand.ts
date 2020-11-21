@@ -20,6 +20,10 @@ import {
 export type ListDeploymentGroupsCommandInput = ListDeploymentGroupsInput;
 export type ListDeploymentGroupsCommandOutput = ListDeploymentGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the deployment groups for an application registered with the IAM user or AWS
+ *             account.</p>
+ */
 export class ListDeploymentGroupsCommand extends $Command<
   ListDeploymentGroupsCommandInput,
   ListDeploymentGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDeploymentGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

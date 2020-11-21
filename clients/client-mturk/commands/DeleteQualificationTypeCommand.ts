@@ -20,6 +20,27 @@ import {
 export type DeleteQualificationTypeCommandInput = DeleteQualificationTypeRequest;
 export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>DeleteQualificationType</code>
+ *             deletes a Qualification type and deletes any HIT types that are
+ *             associated with the Qualification type.
+ *         </p>
+ *         <p>This operation does not revoke Qualifications already assigned
+ *             to Workers because the Qualifications might be needed for active HITs.
+ *             If there are any pending requests for the Qualification type, Amazon
+ *             Mechanical Turk rejects those requests. After you delete a
+ *             Qualification type, you can no longer use it to create HITs or HIT
+ *             types.</p>
+ *         <note>
+ *             <p>DeleteQualificationType must wait for all the HITs that use
+ *                 the deleted Qualification type to be deleted before completing. It
+ *                 may take up to 48 hours before DeleteQualificationType completes and
+ *                 the unique name of the Qualification type is available for reuse with
+ *                 CreateQualificationType.</p>
+ *         </note>
+ */
 export class DeleteQualificationTypeCommand extends $Command<
   DeleteQualificationTypeCommandInput,
   DeleteQualificationTypeCommandOutput,
@@ -34,6 +55,9 @@ export class DeleteQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

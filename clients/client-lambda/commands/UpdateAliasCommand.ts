@@ -20,6 +20,9 @@ import {
 export type UpdateAliasCommandInput = UpdateAliasRequest;
 export type UpdateAliasCommandOutput = AliasConfiguration & __MetadataBearer;
 
+/**
+ * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ */
 export class UpdateAliasCommand extends $Command<
   UpdateAliasCommandInput,
   UpdateAliasCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

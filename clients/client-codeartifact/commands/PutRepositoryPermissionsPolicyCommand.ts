@@ -20,6 +20,16 @@ import {
 export type PutRepositoryPermissionsPolicyCommandInput = PutRepositoryPermissionsPolicyRequest;
 export type PutRepositoryPermissionsPolicyCommandOutput = PutRepositoryPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Sets the resource policy on a repository that specifies permissions to access it.
+ *       </p>
+ *          <p>
+ *        When you call <code>PutRepositoryPermissionsPolicy</code>, the resource policy on the repository is ignored when evaluting permissions.
+ *        This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being
+ *        able to update the resource policy.
+ *      </p>
+ */
 export class PutRepositoryPermissionsPolicyCommand extends $Command<
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
@@ -34,6 +44,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

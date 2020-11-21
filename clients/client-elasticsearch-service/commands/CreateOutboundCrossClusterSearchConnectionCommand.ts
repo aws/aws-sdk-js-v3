@@ -28,6 +28,9 @@ export type CreateOutboundCrossClusterSearchConnectionCommandInput = CreateOutbo
 export type CreateOutboundCrossClusterSearchConnectionCommandOutput = CreateOutboundCrossClusterSearchConnectionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.</p>
+ */
 export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
   CreateOutboundCrossClusterSearchConnectionCommandInput,
   CreateOutboundCrossClusterSearchConnectionCommandOutput,
@@ -42,6 +45,9 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

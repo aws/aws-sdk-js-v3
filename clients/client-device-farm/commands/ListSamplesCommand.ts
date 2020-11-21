@@ -20,6 +20,9 @@ import {
 export type ListSamplesCommandInput = ListSamplesRequest;
 export type ListSamplesCommandOutput = ListSamplesResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
+ */
 export class ListSamplesCommand extends $Command<
   ListSamplesCommandInput,
   ListSamplesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSamplesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

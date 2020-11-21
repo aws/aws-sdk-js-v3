@@ -20,6 +20,9 @@ import {
 export type DeleteClusterCommandInput = DeleteClusterRequest;
 export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
+ */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

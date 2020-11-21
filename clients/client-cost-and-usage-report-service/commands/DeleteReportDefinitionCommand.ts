@@ -24,6 +24,9 @@ import {
 export type DeleteReportDefinitionCommandInput = DeleteReportDefinitionRequest;
 export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified report.</p>
+ */
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,
   DeleteReportDefinitionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteReportDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostAndUsageReportServiceClientResolvedConfig,

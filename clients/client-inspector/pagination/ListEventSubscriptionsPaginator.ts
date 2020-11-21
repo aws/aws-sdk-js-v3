@@ -8,6 +8,9 @@ import {
 import { InspectorPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: InspectorClient,
   input: ListEventSubscriptionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventSubscriptionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Inspector,
   input: ListEventSubscriptionsCommandInput,

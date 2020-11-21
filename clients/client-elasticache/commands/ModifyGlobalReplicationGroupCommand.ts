@@ -20,6 +20,9 @@ import {
 export type ModifyGlobalReplicationGroupCommandInput = ModifyGlobalReplicationGroupMessage;
 export type ModifyGlobalReplicationGroupCommandOutput = ModifyGlobalReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a Global Datastore.</p>
+ */
 export class ModifyGlobalReplicationGroupCommand extends $Command<
   ModifyGlobalReplicationGroupCommandInput,
   ModifyGlobalReplicationGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

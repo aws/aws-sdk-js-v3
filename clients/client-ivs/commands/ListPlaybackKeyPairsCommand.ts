@@ -20,6 +20,9 @@ import {
 export type ListPlaybackKeyPairsCommandInput = ListPlaybackKeyPairsRequest;
 export type ListPlaybackKeyPairsCommandOutput = ListPlaybackKeyPairsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets summary information about playback key pairs.</p>
+ */
 export class ListPlaybackKeyPairsCommand extends $Command<
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type ListDeadLetterSourceQueuesCommandInput = ListDeadLetterSourceQueuesRequest;
 export type ListDeadLetterSourceQueuesCommandOutput = ListDeadLetterSourceQueuesResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
+ *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports
+ *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
+ *           results to be returned in the response. If you do not set <code>MaxResults</code>,
+ *           the response includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there are additional results to
+ *           display, the response includes a value for <code>NextToken</code>. Use
+ *           <code>NextToken</code> as a parameter in your next request to
+ *           <code>ListDeadLetterSourceQueues</code> to receive the next page of results.   </p>
+ *
+ *          <p>For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using Amazon SQS Dead-Letter Queues</a>
+ *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ */
 export class ListDeadLetterSourceQueuesCommand extends $Command<
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
@@ -34,6 +47,9 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

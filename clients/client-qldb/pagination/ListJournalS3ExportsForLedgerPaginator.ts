@@ -8,6 +8,9 @@ import {
 import { QLDBPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: QLDBClient,
   input: ListJournalS3ExportsForLedgerCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJournalS3ExportsForLedgerCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: QLDB,
   input: ListJournalS3ExportsForLedgerCommandInput,

@@ -20,6 +20,13 @@ import {
 export type CreatePublicDnsNamespaceCommandInput = CreatePublicDnsNamespaceRequest;
 export type CreatePublicDnsNamespaceCommandOutput = CreatePublicDnsNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your
+ *    service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
+ *     <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the
+ *    current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+ *     <i>AWS Cloud Map Developer Guide</i>.</p>
+ */
 export class CreatePublicDnsNamespaceCommand extends $Command<
   CreatePublicDnsNamespaceCommandInput,
   CreatePublicDnsNamespaceCommandOutput,
@@ -34,6 +41,9 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

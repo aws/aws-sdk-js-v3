@@ -21,6 +21,10 @@ import {
 export type ModifyScheduledActionCommandInput = ModifyScheduledActionMessage;
 export type ModifyScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
 
+/**
+ * <p>Modifies a scheduled action.
+ *             </p>
+ */
 export class ModifyScheduledActionCommand extends $Command<
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
@@ -35,6 +39,9 @@ export class ModifyScheduledActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type UpdateFirewallDescriptionCommandInput = UpdateFirewallDescriptionRequest;
 export type UpdateFirewallDescriptionCommandOutput = UpdateFirewallDescriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the description for the specified firewall. Use the description to help you
+ *          identify the firewall when you're working with it. </p>
+ */
 export class UpdateFirewallDescriptionCommand extends $Command<
   UpdateFirewallDescriptionCommandInput,
   UpdateFirewallDescriptionCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateFirewallDescriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

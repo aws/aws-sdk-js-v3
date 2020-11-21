@@ -20,6 +20,10 @@ import {
 export type ReplaceNetworkAclEntryCommandInput = ReplaceNetworkAclEntryRequest;
 export type ReplaceNetworkAclEntryCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
+ * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class ReplaceNetworkAclEntryCommand extends $Command<
   ReplaceNetworkAclEntryCommandInput,
   ReplaceNetworkAclEntryCommandOutput,
@@ -34,6 +38,9 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

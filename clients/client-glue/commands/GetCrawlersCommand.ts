@@ -20,6 +20,10 @@ import {
 export type GetCrawlersCommandInput = GetCrawlersRequest;
 export type GetCrawlersCommandOutput = GetCrawlersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves metadata for all crawlers defined in the customer
+ *       account.</p>
+ */
 export class GetCrawlersCommand extends $Command<
   GetCrawlersCommandInput,
   GetCrawlersCommandOutput,
@@ -34,6 +38,9 @@ export class GetCrawlersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

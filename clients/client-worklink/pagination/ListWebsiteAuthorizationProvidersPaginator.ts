@@ -8,6 +8,9 @@ import {
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: WorkLinkClient,
   input: ListWebsiteAuthorizationProvidersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWebsiteAuthorizationProvidersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: WorkLink,
   input: ListWebsiteAuthorizationProvidersCommandInput,

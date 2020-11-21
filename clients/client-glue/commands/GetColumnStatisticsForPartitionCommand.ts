@@ -20,6 +20,11 @@ import {
 export type GetColumnStatisticsForPartitionCommandInput = GetColumnStatisticsForPartitionRequest;
 export type GetColumnStatisticsForPartitionCommandOutput = GetColumnStatisticsForPartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves partition statistics of columns.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
+ */
 export class GetColumnStatisticsForPartitionCommand extends $Command<
   GetColumnStatisticsForPartitionCommandInput,
   GetColumnStatisticsForPartitionCommandOutput,
@@ -34,6 +39,9 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

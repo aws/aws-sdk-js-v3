@@ -20,6 +20,9 @@ import {
 export type UpdateConnectionCommandInput = UpdateConnectionRequest;
 export type UpdateConnectionCommandOutput = UpdateConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a connection definition in the Data Catalog.</p>
+ */
 export class UpdateConnectionCommand extends $Command<
   UpdateConnectionCommandInput,
   UpdateConnectionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DescribeSpotPriceHistoryCommandInput = DescribeSpotPriceHistoryRequest;
 export type DescribeSpotPriceHistoryCommandOutput = DescribeSpotPriceHistoryResult & __MetadataBearer;
 
+/**
+ * <p>Describes the Spot price history. For more information, see
+ * 		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a>
+ *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ * 	        <p>When you specify a start and end time, this operation returns the prices of the instance types within the time range that you specified and the time when the price changed.
+ * 	        The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.</p>
+ */
 export class DescribeSpotPriceHistoryCommand extends $Command<
   DescribeSpotPriceHistoryCommandInput,
   DescribeSpotPriceHistoryCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

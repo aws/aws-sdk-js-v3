@@ -20,6 +20,83 @@ import {
 export type UpdateFleetCapacityCommandInput = UpdateFleetCapacityInput;
 export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput & __MetadataBearer;
 
+/**
+ * <p>Updates capacity settings for a fleet. Use this operation to specify the number of
+ *             EC2 instances (hosts) that you want this fleet to contain. Before calling this operation,
+ *             you may want to call <a>DescribeEC2InstanceLimits</a> to get the maximum
+ *             capacity based on the fleet's EC2 instance type.</p>
+ *         <p>Specify minimum and maximum number of instances. Amazon GameLift will not change fleet
+ *             capacity to values fall outside of this range. This is particularly important when using
+ *             auto-scaling (see <a>PutScalingPolicy</a>) to allow capacity to adjust based
+ *             on player demand while imposing limits on automatic adjustments.</p>
+ *         <p>To update fleet capacity, specify the fleet ID and the number of instances you want
+ *             the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the
+ *             fleet's active instance count matches the desired instance count. You can view a fleet's
+ *             current capacity information by calling <a>DescribeFleetCapacity</a>. If the
+ *             desired instance count is higher than the instance type's limit, the "Limit Exceeded"
+ *             exception occurs.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Update fleets:</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetAttributes</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetCapacity</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetPortSettings</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateRuntimeConfiguration</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateFleetCapacityCommand extends $Command<
   UpdateFleetCapacityCommandInput,
   UpdateFleetCapacityCommandOutput,
@@ -34,6 +111,9 @@ export class UpdateFleetCapacityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeJobExecutionCommandInput = DescribeJobExecutionRequest;
 export type DescribeJobExecutionCommandOutput = DescribeJobExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a job execution.</p>
+ */
 export class DescribeJobExecutionCommand extends $Command<
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeJobExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

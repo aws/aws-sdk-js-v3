@@ -20,6 +20,9 @@ import {
 export type UpdateReplicationJobCommandInput = UpdateReplicationJobRequest;
 export type UpdateReplicationJobCommandOutput = UpdateReplicationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified settings for the specified replication job.</p>
+ */
 export class UpdateReplicationJobCommand extends $Command<
   UpdateReplicationJobCommandInput,
   UpdateReplicationJobCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateReplicationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

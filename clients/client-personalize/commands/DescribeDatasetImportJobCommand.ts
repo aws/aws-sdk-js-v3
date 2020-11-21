@@ -20,6 +20,10 @@ import {
 export type DescribeDatasetImportJobCommandInput = DescribeDatasetImportJobRequest;
 export type DescribeDatasetImportJobCommandOutput = DescribeDatasetImportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
+ *       including the import job status.</p>
+ */
 export class DescribeDatasetImportJobCommand extends $Command<
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDatasetImportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

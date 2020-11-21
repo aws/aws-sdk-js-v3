@@ -20,6 +20,9 @@ import {
 export type BatchGetVariableCommandInput = BatchGetVariableRequest;
 export type BatchGetVariableCommandOutput = BatchGetVariableResult & __MetadataBearer;
 
+/**
+ * <p>Gets a batch of variables.</p>
+ */
 export class BatchGetVariableCommand extends $Command<
   BatchGetVariableCommandInput,
   BatchGetVariableCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetVariableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

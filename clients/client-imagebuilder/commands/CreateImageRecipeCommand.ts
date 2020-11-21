@@ -20,6 +20,10 @@ import {
 export type CreateImageRecipeCommandInput = CreateImageRecipeRequest;
 export type CreateImageRecipeCommandOutput = CreateImageRecipeResponse & __MetadataBearer;
 
+/**
+ * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
+ *       assessed. </p>
+ */
 export class CreateImageRecipeCommand extends $Command<
   CreateImageRecipeCommandInput,
   CreateImageRecipeCommandOutput,
@@ -34,6 +38,9 @@ export class CreateImageRecipeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

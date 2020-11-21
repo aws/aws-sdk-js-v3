@@ -20,6 +20,12 @@ import {
 export type CreateThemeCommandInput = CreateThemeRequest;
 export type CreateThemeCommandOutput = CreateThemeResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a theme.</p>
+ * 		       <p>A <i>theme</i> is set of configuration options for color and layout.
+ * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
+ * 			Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ */
 export class CreateThemeCommand extends $Command<
   CreateThemeCommandInput,
   CreateThemeCommandOutput,
@@ -34,6 +40,9 @@ export class CreateThemeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

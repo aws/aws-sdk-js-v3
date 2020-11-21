@@ -20,6 +20,10 @@ import {
 export type DeleteTransitGatewayRouteTableCommandInput = DeleteTransitGatewayRouteTableRequest;
 export type DeleteTransitGatewayRouteTableCommandOutput = DeleteTransitGatewayRouteTableResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any
+ *           transit gateway route tables before you can delete it.</p>
+ */
 export class DeleteTransitGatewayRouteTableCommand extends $Command<
   DeleteTransitGatewayRouteTableCommandInput,
   DeleteTransitGatewayRouteTableCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

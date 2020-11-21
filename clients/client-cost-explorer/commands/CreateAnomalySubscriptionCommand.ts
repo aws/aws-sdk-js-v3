@@ -20,6 +20,11 @@ import {
 export type CreateAnomalySubscriptionCommandInput = CreateAnomalySubscriptionRequest;
 export type CreateAnomalySubscriptionCommandOutput = CreateAnomalySubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
+ *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
+ *       threshold and a time frequency for receiving notifications. </p>
+ */
 export class CreateAnomalySubscriptionCommand extends $Command<
   CreateAnomalySubscriptionCommandInput,
   CreateAnomalySubscriptionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateAnomalySubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

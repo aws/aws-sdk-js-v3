@@ -20,6 +20,11 @@ import {
 export type ConfirmConnectionCommandInput = ConfirmConnectionRequest;
 export type ConfirmConnectionCommandOutput = ConfirmConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
+ *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
+ *       remains in this state until the owner confirms creation of the hosted connection.</p>
+ */
 export class ConfirmConnectionCommand extends $Command<
   ConfirmConnectionCommandInput,
   ConfirmConnectionCommandOutput,
@@ -34,6 +39,9 @@ export class ConfirmConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type DeleteLoadBalancerCommandInput = DeleteLoadBalancerRequest;
 export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the
+ *       load balancer is deleted, you will need to create a new load balancer, create a new
+ *       certificate, and verify domain ownership again.</p>
+ *          <p>The <code>delete load balancer</code> operation supports tag-based access control via
+ *       resource tags applied to the resource identified by <code>load balancer name</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,
   DeleteLoadBalancerCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

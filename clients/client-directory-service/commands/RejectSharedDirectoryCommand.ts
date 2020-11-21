@@ -20,6 +20,9 @@ import {
 export type RejectSharedDirectoryCommandInput = RejectSharedDirectoryRequest;
 export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
+ */
 export class RejectSharedDirectoryCommand extends $Command<
   RejectSharedDirectoryCommandInput,
   RejectSharedDirectoryCommandOutput,
@@ -34,6 +37,9 @@ export class RejectSharedDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

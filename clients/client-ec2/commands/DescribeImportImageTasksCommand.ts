@@ -20,6 +20,9 @@ import {
 export type DescribeImportImageTasksCommandInput = DescribeImportImageTasksRequest;
 export type DescribeImportImageTasksCommandOutput = DescribeImportImageTasksResult & __MetadataBearer;
 
+/**
+ * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
+ */
 export class DescribeImportImageTasksCommand extends $Command<
   DescribeImportImageTasksCommandInput,
   DescribeImportImageTasksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImportImageTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

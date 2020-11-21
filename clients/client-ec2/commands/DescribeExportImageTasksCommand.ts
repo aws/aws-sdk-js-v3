@@ -20,6 +20,9 @@ import {
 export type DescribeExportImageTasksCommandInput = DescribeExportImageTasksRequest;
 export type DescribeExportImageTasksCommandOutput = DescribeExportImageTasksResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified export image tasks or all of your export image tasks.</p>
+ */
 export class DescribeExportImageTasksCommand extends $Command<
   DescribeExportImageTasksCommandInput,
   DescribeExportImageTasksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExportImageTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

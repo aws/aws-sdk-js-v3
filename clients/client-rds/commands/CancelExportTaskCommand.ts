@@ -20,6 +20,11 @@ import {
 export type CancelExportTaskCommandInput = CancelExportTaskMessage;
 export type CancelExportTaskCommandOutput = ExportTask & __MetadataBearer;
 
+/**
+ * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+ *             Any data that has already been written to the S3 bucket isn't removed.
+ *         </p>
+ */
 export class CancelExportTaskCommand extends $Command<
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
@@ -34,6 +39,9 @@ export class CancelExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

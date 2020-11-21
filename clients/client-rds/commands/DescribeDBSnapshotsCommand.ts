@@ -20,6 +20,9 @@ import {
 export type DescribeDBSnapshotsCommandInput = DescribeDBSnapshotsMessage;
 export type DescribeDBSnapshotsCommandOutput = DBSnapshotMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about DB snapshots. This API action supports pagination.</p>
+ */
 export class DescribeDBSnapshotsCommand extends $Command<
   DescribeDBSnapshotsCommandInput,
   DescribeDBSnapshotsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDBSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

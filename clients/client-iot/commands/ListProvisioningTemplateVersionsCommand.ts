@@ -20,6 +20,9 @@ import {
 export type ListProvisioningTemplateVersionsCommandInput = ListProvisioningTemplateVersionsRequest;
 export type ListProvisioningTemplateVersionsCommandOutput = ListProvisioningTemplateVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>A list of fleet provisioning template versions.</p>
+ */
 export class ListProvisioningTemplateVersionsCommand extends $Command<
   ListProvisioningTemplateVersionsCommandInput,
   ListProvisioningTemplateVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

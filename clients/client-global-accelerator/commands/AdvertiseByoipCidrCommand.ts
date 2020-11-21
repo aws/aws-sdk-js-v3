@@ -24,6 +24,17 @@ import {
 export type AdvertiseByoipCidrCommandInput = AdvertiseByoipCidrRequest;
 export type AdvertiseByoipCidrCommandOutput = AdvertiseByoipCidrResponse & __MetadataBearer;
 
+/**
+ * <p>Advertises an IPv4 address range that is provisioned for use with your AWS resources
+ * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
+ * 			the specified addresses starts routing to AWS because of propagation delays. To
+ * 			see an AWS CLI example of advertising an address range, scroll down to
+ * 			<b>Example</b>.</p>
+ * 		       <p>To stop advertising the BYOIP address range, use <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">
+ * 			WithdrawByoipCidr</a>.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+ * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ */
 export class AdvertiseByoipCidrCommand extends $Command<
   AdvertiseByoipCidrCommandInput,
   AdvertiseByoipCidrCommandOutput,
@@ -38,6 +49,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

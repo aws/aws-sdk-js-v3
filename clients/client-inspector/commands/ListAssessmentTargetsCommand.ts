@@ -20,6 +20,11 @@ import {
 export type ListAssessmentTargetsCommandInput = ListAssessmentTargetsRequest;
 export type ListAssessmentTargetsCommandOutput = ListAssessmentTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the ARNs of the assessment targets within this AWS account. For more
+ *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
+ *             Targets</a>.</p>
+ */
 export class ListAssessmentTargetsCommand extends $Command<
   ListAssessmentTargetsCommandInput,
   ListAssessmentTargetsCommandOutput,
@@ -34,6 +39,9 @@ export class ListAssessmentTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

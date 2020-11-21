@@ -20,6 +20,10 @@ import {
 export type ListDocumentsCommandInput = ListDocumentsRequest;
 export type ListDocumentsCommandOutput = ListDocumentsResult & __MetadataBearer;
 
+/**
+ * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the
+ *    results of this request by using a filter.</p>
+ */
 export class ListDocumentsCommand extends $Command<
   ListDocumentsCommandInput,
   ListDocumentsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDocumentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

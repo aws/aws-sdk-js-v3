@@ -20,6 +20,15 @@ import {
 export type CreateFirewallCommandInput = CreateFirewallRequest;
 export type CreateFirewallCommandOutput = CreateFirewallResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>
+ *          <p>The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource. </p>
+ *          <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>
+ *          <p>To update the settings for a firewall, you use the operations that apply to the settings
+ *          themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>
+ *          <p>To manage a firewall's tags, use the standard AWS resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
+ *          <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>
+ */
 export class CreateFirewallCommand extends $Command<
   CreateFirewallCommandInput,
   CreateFirewallCommandOutput,
@@ -34,6 +43,9 @@ export class CreateFirewallCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

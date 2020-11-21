@@ -20,6 +20,54 @@ import {
 export type UpdateScriptCommandInput = UpdateScriptInput;
 export type UpdateScriptCommandOutput = UpdateScriptOutput & __MetadataBearer;
 
+/**
+ * <p>Updates Realtime script metadata and content.</p>
+ *         <p>To update script metadata, specify the script ID and provide updated name and/or
+ *             version values. </p>
+ *         <p>To update script content, provide an updated zip file by pointing to either a local
+ *             file or an Amazon S3 bucket location. You can use either method regardless of how the
+ *             original script was uploaded. Use the <i>Version</i> parameter to track
+ *             updates to the script.</p>
+ *         <p>If the call is successful, the updated metadata is stored in the script record and a
+ *             revised script is uploaded to the Amazon GameLift service. Once the script is updated and
+ *             acquired by a fleet instance, the new version is used for all new game sessions. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListScripts</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteScript</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateScriptCommand extends $Command<
   UpdateScriptCommandInput,
   UpdateScriptCommandOutput,
@@ -34,6 +82,9 @@ export class UpdateScriptCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type GetOfferingStatusCommandInput = GetOfferingStatusRequest;
 export type GetOfferingStatusCommandOutput = GetOfferingStatusResult & __MetadataBearer;
 
+/**
+ * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
+ *             indicates how many offerings are currently available and the offerings that will be available in the next
+ *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
+ *             operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ */
 export class GetOfferingStatusCommand extends $Command<
   GetOfferingStatusCommandInput,
   GetOfferingStatusCommandOutput,
@@ -34,6 +40,9 @@ export class GetOfferingStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListBuildsCommandInput = ListBuildsInput;
 export type ListBuildsCommandOutput = ListBuildsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
+ */
 export class ListBuildsCommand extends $Command<
   ListBuildsCommandInput,
   ListBuildsCommandOutput,
@@ -34,6 +37,9 @@ export class ListBuildsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

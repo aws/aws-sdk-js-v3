@@ -20,6 +20,9 @@ import {
 export type StartAutomationExecutionCommandInput = StartAutomationExecutionRequest;
 export type StartAutomationExecutionCommandOutput = StartAutomationExecutionResult & __MetadataBearer;
 
+/**
+ * <p>Initiates execution of an Automation document.</p>
+ */
 export class StartAutomationExecutionCommand extends $Command<
   StartAutomationExecutionCommandInput,
   StartAutomationExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StartAutomationExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

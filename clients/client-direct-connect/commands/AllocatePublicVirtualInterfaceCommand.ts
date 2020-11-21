@@ -20,6 +20,14 @@ import {
 export type AllocatePublicVirtualInterfaceCommandInput = AllocatePublicVirtualInterfaceRequest;
 export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
+/**
+ * <p>Provisions a public virtual interface to be owned by the specified AWS account.</p>
+ *          <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.</p>
+ *          <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>.
+ *       Until this step has been completed, the virtual interface is in the <code>confirming</code> state and is not available to handle traffic.</p>
+ *          <p>When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
+ *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
+ */
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandInput,
   AllocatePublicVirtualInterfaceCommandOutput,
@@ -34,6 +42,9 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

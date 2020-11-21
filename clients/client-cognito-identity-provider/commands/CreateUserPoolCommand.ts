@@ -25,6 +25,10 @@ import {
 export type CreateUserPoolCommandInput = CreateUserPoolRequest;
 export type CreateUserPoolCommandOutput = CreateUserPoolResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
+ *             pool.</p>
+ */
 export class CreateUserPoolCommand extends $Command<
   CreateUserPoolCommandInput,
   CreateUserPoolCommandOutput,
@@ -39,6 +43,9 @@ export class CreateUserPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

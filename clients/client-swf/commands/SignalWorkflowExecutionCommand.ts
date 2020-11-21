@@ -20,6 +20,47 @@ import {
 export type SignalWorkflowExecutionCommandInput = SignalWorkflowExecutionInput;
 export type SignalWorkflowExecutionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution
+ *       history and creates a decision task for the workflow execution identified by the given domain,
+ *       workflowId and runId. The event is recorded with the specified user defined signalName and
+ *       input (if provided).</p>
+ *
+ *          <note>
+ *             <p>If a runId isn't specified, then the <code>WorkflowExecutionSignaled</code> event is
+ *         recorded in the history of the current open workflow with the matching workflowId in the
+ *         domain.</p>
+ *          </note>
+ *
+ *          <note>
+ *             <p>If the specified workflow execution isn't open, this method fails with
+ *           <code>UnknownResource</code>.</p>
+ *          </note>
+ *
+ *          <p>
+ *             <b>Access Control</b>
+ *          </p>
+ *          <p>You can use IAM policies to control this action's access to Amazon SWF resources as
+ *       follows:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Use a <code>Resource</code> element with the domain name to limit the action to
+ *           only specified domains.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use an <code>Action</code> element to allow or deny permission to call this
+ *           action.</p>
+ *             </li>
+ *             <li>
+ *                <p>You cannot use an IAM policy to constrain this action's parameters.</p>
+ *             </li>
+ *          </ul>
+ *          <p>If the caller doesn't have sufficient permissions to invoke the action, or the
+ *       parameter values fall outside the specified constraints, the action fails. The associated
+ *       event attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
+ *       For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF
+ *         Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+ */
 export class SignalWorkflowExecutionCommand extends $Command<
   SignalWorkflowExecutionCommandInput,
   SignalWorkflowExecutionCommandOutput,
@@ -34,6 +75,9 @@ export class SignalWorkflowExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,

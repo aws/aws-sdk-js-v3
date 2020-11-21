@@ -20,6 +20,10 @@ import {
 export type GetFunctionConcurrencyCommandInput = GetFunctionConcurrencyRequest;
 export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse & __MetadataBearer;
 
+/**
+ * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
+ *       function, use <a>PutFunctionConcurrency</a>.</p>
+ */
 export class GetFunctionConcurrencyCommand extends $Command<
   GetFunctionConcurrencyCommandInput,
   GetFunctionConcurrencyCommandOutput,
@@ -34,6 +38,9 @@ export class GetFunctionConcurrencyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

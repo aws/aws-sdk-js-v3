@@ -4,6 +4,9 @@ import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput }
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GameLiftClient,
   input: ListAliasesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAliasesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GameLift,
   input: ListAliasesCommandInput,

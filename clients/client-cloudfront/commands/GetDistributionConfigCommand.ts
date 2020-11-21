@@ -20,6 +20,9 @@ import {
 export type GetDistributionConfigCommandInput = GetDistributionConfigRequest;
 export type GetDistributionConfigCommandOutput = GetDistributionConfigResult & __MetadataBearer;
 
+/**
+ * <p>Get the configuration information about a distribution. </p>
+ */
 export class GetDistributionConfigCommand extends $Command<
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetDistributionConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeStaleSecurityGroupsCommandInput = DescribeStaleSecurityGroupsRequest;
 export type DescribeStaleSecurityGroupsCommandOutput = DescribeStaleSecurityGroupsResult & __MetadataBearer;
 
+/**
+ * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ */
 export class DescribeStaleSecurityGroupsCommand extends $Command<
   DescribeStaleSecurityGroupsCommandInput,
   DescribeStaleSecurityGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

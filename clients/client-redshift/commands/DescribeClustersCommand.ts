@@ -20,6 +20,21 @@ import {
 export type DescribeClustersCommandInput = DescribeClustersMessage;
 export type DescribeClustersCommandOutput = ClustersMessage & __MetadataBearer;
 
+/**
+ * <p>Returns properties of provisioned clusters including general cluster properties,
+ *             cluster database properties, maintenance and backup properties, and security and access
+ *             properties. This operation supports pagination.
+ * For more information about managing clusters, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *             all clusters that match any combination of the specified keys and values. For example,
+ *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
+ *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
+ *             combination of those values are returned.</p>
+ *         <p>If both tag keys and values are omitted from the request, clusters are returned
+ *             regardless of whether they have tag keys or values associated with them.</p>
+ */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,
   DescribeClustersCommandOutput,
@@ -34,6 +49,9 @@ export class DescribeClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

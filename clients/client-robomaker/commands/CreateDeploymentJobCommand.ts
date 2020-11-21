@@ -20,6 +20,17 @@ import {
 export type CreateDeploymentJobCommandInput = CreateDeploymentJobRequest;
 export type CreateDeploymentJobCommandOutput = CreateDeploymentJobResponse & __MetadataBearer;
 
+/**
+ * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
+ *          <p>The robot application must have a numbered <code>applicationVersion</code>
+ *          for consistency reasons. To create a new version, use <code>CreateRobotApplicationVersion</code>
+ *          or see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating a Robot Application Version</a>.
+ *       </p>
+ *          <note>
+ *             <p>After 90 days, deployment jobs expire and will be deleted. They will no longer be accessible.
+ *          </p>
+ *          </note>
+ */
 export class CreateDeploymentJobCommand extends $Command<
   CreateDeploymentJobCommandInput,
   CreateDeploymentJobCommandOutput,
@@ -34,6 +45,9 @@ export class CreateDeploymentJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

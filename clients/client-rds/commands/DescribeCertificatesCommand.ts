@@ -20,6 +20,9 @@ import {
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
 export type DescribeCertificatesCommandOutput = CertificateMessage & __MetadataBearer;
 
+/**
+ * <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
+ */
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

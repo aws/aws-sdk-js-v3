@@ -20,6 +20,10 @@ import {
 export type UpdateImageCommandInput = UpdateImageRequest;
 export type UpdateImageCommandOutput = UpdateImageResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
+ *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
+ */
 export class UpdateImageCommand extends $Command<
   UpdateImageCommandInput,
   UpdateImageCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

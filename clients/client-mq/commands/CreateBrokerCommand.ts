@@ -20,6 +20,9 @@ import {
 export type CreateBrokerCommandInput = CreateBrokerRequest;
 export type CreateBrokerCommandOutput = CreateBrokerResponse & __MetadataBearer;
 
+/**
+ * Creates a broker. Note: This API is asynchronous.
+ */
 export class CreateBrokerCommand extends $Command<
   CreateBrokerCommandInput,
   CreateBrokerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateBrokerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

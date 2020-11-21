@@ -24,6 +24,10 @@ import {
 export type AddTagsCommandInput = AddTagsRequest;
 export type AddTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
+ *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
+ */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,
   AddTagsCommandOutput,
@@ -38,6 +42,9 @@ export class AddTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

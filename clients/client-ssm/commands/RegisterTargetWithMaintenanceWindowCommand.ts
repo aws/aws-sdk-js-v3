@@ -24,6 +24,9 @@ export type RegisterTargetWithMaintenanceWindowCommandInput = RegisterTargetWith
 export type RegisterTargetWithMaintenanceWindowCommandOutput = RegisterTargetWithMaintenanceWindowResult &
   __MetadataBearer;
 
+/**
+ * <p>Registers a target with a maintenance window.</p>
+ */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
   RegisterTargetWithMaintenanceWindowCommandInput,
   RegisterTargetWithMaintenanceWindowCommandOutput,
@@ -38,6 +41,9 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

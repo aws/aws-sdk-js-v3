@@ -28,6 +28,9 @@ export type DescribeReplicationInstanceTaskLogsCommandInput = DescribeReplicatio
 export type DescribeReplicationInstanceTaskLogsCommandOutput = DescribeReplicationInstanceTaskLogsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns information about the task logs for the specified task.</p>
+ */
 export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
   DescribeReplicationInstanceTaskLogsCommandInput,
   DescribeReplicationInstanceTaskLogsCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

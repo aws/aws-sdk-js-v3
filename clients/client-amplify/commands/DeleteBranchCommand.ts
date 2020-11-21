@@ -20,6 +20,9 @@ import {
 export type DeleteBranchCommandInput = DeleteBranchRequest;
 export type DeleteBranchCommandOutput = DeleteBranchResult & __MetadataBearer;
 
+/**
+ * <p> Deletes a branch for an Amplify app. </p>
+ */
 export class DeleteBranchCommand extends $Command<
   DeleteBranchCommandInput,
   DeleteBranchCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

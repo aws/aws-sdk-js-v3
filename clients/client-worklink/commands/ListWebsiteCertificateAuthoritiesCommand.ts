@@ -24,6 +24,10 @@ export type ListWebsiteCertificateAuthoritiesCommandInput = ListWebsiteCertifica
 export type ListWebsiteCertificateAuthoritiesCommandOutput = ListWebsiteCertificateAuthoritiesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of certificate authorities added for the current account and
+ *             Region.</p>
+ */
 export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
   ListWebsiteCertificateAuthoritiesCommandInput,
   ListWebsiteCertificateAuthoritiesCommandOutput,
@@ -38,6 +42,9 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

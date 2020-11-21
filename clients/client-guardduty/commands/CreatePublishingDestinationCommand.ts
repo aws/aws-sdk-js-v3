@@ -20,6 +20,10 @@ import {
 export type CreatePublishingDestinationCommandInput = CreatePublishingDestinationRequest;
 export type CreatePublishingDestinationCommandOutput = CreatePublishingDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a publishing destination to export findings to. The resource to export findings to
+ *       must exist before you use this operation.</p>
+ */
 export class CreatePublishingDestinationCommand extends $Command<
   CreatePublishingDestinationCommandInput,
   CreatePublishingDestinationCommandOutput,
@@ -34,6 +38,9 @@ export class CreatePublishingDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

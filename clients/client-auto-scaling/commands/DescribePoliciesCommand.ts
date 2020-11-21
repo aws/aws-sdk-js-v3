@@ -20,6 +20,9 @@ import {
 export type DescribePoliciesCommandInput = DescribePoliciesType;
 export type DescribePoliciesCommandOutput = PoliciesType & __MetadataBearer;
 
+/**
+ * <p>Describes the policies for the specified Auto Scaling group.</p>
+ */
 export class DescribePoliciesCommand extends $Command<
   DescribePoliciesCommandInput,
   DescribePoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

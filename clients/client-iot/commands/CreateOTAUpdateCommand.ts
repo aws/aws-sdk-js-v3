@@ -20,6 +20,9 @@ import {
 export type CreateOTAUpdateCommandInput = CreateOTAUpdateRequest;
 export type CreateOTAUpdateCommandOutput = CreateOTAUpdateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+ */
 export class CreateOTAUpdateCommand extends $Command<
   CreateOTAUpdateCommandInput,
   CreateOTAUpdateCommandOutput,
@@ -34,6 +37,9 @@ export class CreateOTAUpdateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

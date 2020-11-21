@@ -20,6 +20,12 @@ import {
 export type DeleteDatasetGroupCommandInput = DeleteDatasetGroupRequest;
 export type DeleteDatasetGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation.
+ *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
+ *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+ *          <p>This operation deletes only the dataset group, not the datasets in the group.</p>
+ */
 export class DeleteDatasetGroupCommand extends $Command<
   DeleteDatasetGroupCommandInput,
   DeleteDatasetGroupCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDatasetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

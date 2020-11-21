@@ -20,6 +20,9 @@ import {
 export type DeleteMaintenanceWindowCommandInput = DeleteMaintenanceWindowRequest;
 export type DeleteMaintenanceWindowCommandOutput = DeleteMaintenanceWindowResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a maintenance window.</p>
+ */
 export class DeleteMaintenanceWindowCommand extends $Command<
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

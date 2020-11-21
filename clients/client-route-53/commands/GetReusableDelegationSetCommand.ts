@@ -21,6 +21,10 @@ import {
 export type GetReusableDelegationSetCommandInput = GetReusableDelegationSetRequest;
 export type GetReusableDelegationSetCommandOutput = GetReusableDelegationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned
+ * 			to the delegation set.</p>
+ */
 export class GetReusableDelegationSetCommand extends $Command<
   GetReusableDelegationSetCommandInput,
   GetReusableDelegationSetCommandOutput,
@@ -35,6 +39,9 @@ export class GetReusableDelegationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

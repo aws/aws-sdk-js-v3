@@ -28,6 +28,11 @@ export type DescribeReplicationTaskIndividualAssessmentsCommandInput = DescribeR
 export type DescribeReplicationTaskIndividualAssessmentsCommandOutput = DescribeReplicationTaskIndividualAssessmentsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of individual assessments based on filter settings.</p>
+ *          <p>These filter settings can specify a combination of premigration assessment runs,
+ *          migration tasks, and assessment status values.</p>
+ */
 export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Command<
   DescribeReplicationTaskIndividualAssessmentsCommandInput,
   DescribeReplicationTaskIndividualAssessmentsCommandOutput,
@@ -42,6 +47,9 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

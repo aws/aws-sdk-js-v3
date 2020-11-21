@@ -20,6 +20,10 @@ import {
 export type DescribeSubscribedWorkteamCommandInput = DescribeSubscribedWorkteamRequest;
 export type DescribeSubscribedWorkteamCommandOutput = DescribeSubscribedWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a work team provided by a vendor. It returns details about the
+ *             subscription with a vendor in the AWS Marketplace.</p>
+ */
 export class DescribeSubscribedWorkteamCommand extends $Command<
   DescribeSubscribedWorkteamCommandInput,
   DescribeSubscribedWorkteamCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

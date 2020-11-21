@@ -20,6 +20,9 @@ import {
 export type DescribeRoleAliasCommandInput = DescribeRoleAliasRequest;
 export type DescribeRoleAliasCommandOutput = DescribeRoleAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a role alias.</p>
+ */
 export class DescribeRoleAliasCommand extends $Command<
   DescribeRoleAliasCommandInput,
   DescribeRoleAliasCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRoleAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

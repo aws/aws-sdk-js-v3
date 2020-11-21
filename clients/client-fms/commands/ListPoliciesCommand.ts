@@ -20,6 +20,9 @@ import {
 export type ListPoliciesCommandInput = ListPoliciesRequest;
 export type ListPoliciesCommandOutput = ListPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>PolicySummary</code> objects.</p>
+ */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

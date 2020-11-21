@@ -20,6 +20,9 @@ import {
 export type GetBulkDeploymentStatusCommandInput = GetBulkDeploymentStatusRequest;
 export type GetBulkDeploymentStatusCommandOutput = GetBulkDeploymentStatusResponse & __MetadataBearer;
 
+/**
+ * Returns the status of a bulk deployment.
+ */
 export class GetBulkDeploymentStatusCommand extends $Command<
   GetBulkDeploymentStatusCommandInput,
   GetBulkDeploymentStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

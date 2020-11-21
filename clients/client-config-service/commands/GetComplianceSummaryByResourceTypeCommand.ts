@@ -24,6 +24,12 @@ export type GetComplianceSummaryByResourceTypeCommandInput = GetComplianceSummar
 export type GetComplianceSummaryByResourceTypeCommandOutput = GetComplianceSummaryByResourceTypeResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the number of resources that are compliant and the
+ * 			number that are noncompliant. You can specify one or more resource
+ * 			types to get these numbers for each resource type. The maximum
+ * 			number returned is 100.</p>
+ */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command<
   GetComplianceSummaryByResourceTypeCommandInput,
   GetComplianceSummaryByResourceTypeCommandOutput,
@@ -38,6 +44,9 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

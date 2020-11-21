@@ -20,6 +20,9 @@ import {
 export type UpdateInputCommandInput = UpdateInputRequest;
 export type UpdateInputCommandOutput = UpdateInputResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an input.</p>
+ */
 export class UpdateInputCommand extends $Command<
   UpdateInputCommandInput,
   UpdateInputCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

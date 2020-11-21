@@ -20,6 +20,11 @@ import {
 export type AllocateTransitVirtualInterfaceCommandInput = AllocateTransitVirtualInterfaceRequest;
 export type AllocateTransitVirtualInterfaceCommandOutput = AllocateTransitVirtualInterfaceResult & __MetadataBearer;
 
+/**
+ * <p>Provisions a transit virtual interface to be owned by the specified AWS account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
+ *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified AWS account.</p>
+ *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
+ */
 export class AllocateTransitVirtualInterfaceCommand extends $Command<
   AllocateTransitVirtualInterfaceCommandInput,
   AllocateTransitVirtualInterfaceCommandOutput,
@@ -34,6 +39,9 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

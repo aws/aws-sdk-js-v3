@@ -20,6 +20,10 @@ import {
 export type SendAutomationSignalCommandInput = SendAutomationSignalRequest;
 export type SendAutomationSignalCommandOutput = SendAutomationSignalResult & __MetadataBearer;
 
+/**
+ * <p>Sends a signal to an Automation execution to change the current behavior or status of the
+ *    execution. </p>
+ */
 export class SendAutomationSignalCommand extends $Command<
   SendAutomationSignalCommandInput,
   SendAutomationSignalCommandOutput,
@@ -34,6 +38,9 @@ export class SendAutomationSignalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

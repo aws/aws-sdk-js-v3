@@ -20,6 +20,9 @@ import {
 export type UpdateMemberDetectorsCommandInput = UpdateMemberDetectorsRequest;
 export type UpdateMemberDetectorsCommandOutput = UpdateMemberDetectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Contains information on member accounts to be updated.</p>
+ */
 export class UpdateMemberDetectorsCommand extends $Command<
   UpdateMemberDetectorsCommandInput,
   UpdateMemberDetectorsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMemberDetectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type DeleteVaultAccessPolicyCommandInput = DeleteVaultAccessPolicyInput;
 export type DeleteVaultAccessPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation deletes the access policy associated with the specified vault. The
+ *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
+ *          completely remove the access policy, and you might still see the effect of the policy for a
+ *          short time after you send the delete request.</p>
+ *          <p>This operation is idempotent. You can invoke delete multiple times, even if there is
+ *          no policy associated with the vault. For more information about vault access policies, see
+ *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
+ */
 export class DeleteVaultAccessPolicyCommand extends $Command<
   DeleteVaultAccessPolicyCommandInput,
   DeleteVaultAccessPolicyCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

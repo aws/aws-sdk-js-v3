@@ -20,6 +20,9 @@ import {
 export type PostCommentForComparedCommitCommandInput = PostCommentForComparedCommitInput;
 export type PostCommentForComparedCommitCommandOutput = PostCommentForComparedCommitOutput & __MetadataBearer;
 
+/**
+ * <p>Posts a comment on the comparison between two commits.</p>
+ */
 export class PostCommentForComparedCommitCommand extends $Command<
   PostCommentForComparedCommitCommandInput,
   PostCommentForComparedCommitCommandOutput,
@@ -34,6 +37,9 @@ export class PostCommentForComparedCommitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

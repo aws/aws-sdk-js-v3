@@ -20,6 +20,17 @@ import {
 export type CreateSystemInstanceCommandInput = CreateSystemInstanceRequest;
 export type CreateSystemInstanceCommandOutput = CreateSystemInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a system instance. </p>
+ *          <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is
+ *             specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to
+ *             call <code>DeploySystemInstance</code> after running this action.</p>
+ *          <p>For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions
+ *          to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p>
+ *          <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role
+ *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
+ *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
+ */
 export class CreateSystemInstanceCommand extends $Command<
   CreateSystemInstanceCommandInput,
   CreateSystemInstanceCommandOutput,
@@ -34,6 +45,9 @@ export class CreateSystemInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

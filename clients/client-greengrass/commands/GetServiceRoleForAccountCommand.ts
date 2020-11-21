@@ -20,6 +20,9 @@ import {
 export type GetServiceRoleForAccountCommandInput = GetServiceRoleForAccountRequest;
 export type GetServiceRoleForAccountCommandOutput = GetServiceRoleForAccountResponse & __MetadataBearer;
 
+/**
+ * Retrieves the service role that is attached to your account.
+ */
 export class GetServiceRoleForAccountCommand extends $Command<
   GetServiceRoleForAccountCommandInput,
   GetServiceRoleForAccountCommandOutput,
@@ -34,6 +37,9 @@ export class GetServiceRoleForAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

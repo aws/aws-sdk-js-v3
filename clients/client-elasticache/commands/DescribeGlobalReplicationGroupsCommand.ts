@@ -20,6 +20,9 @@ import {
 export type DescribeGlobalReplicationGroupsCommandInput = DescribeGlobalReplicationGroupsMessage;
 export type DescribeGlobalReplicationGroupsCommandOutput = DescribeGlobalReplicationGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global Datastores. </p>
+ */
 export class DescribeGlobalReplicationGroupsCommand extends $Command<
   DescribeGlobalReplicationGroupsCommandInput,
   DescribeGlobalReplicationGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

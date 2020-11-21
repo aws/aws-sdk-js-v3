@@ -20,6 +20,64 @@ import {
 export type PutComplianceItemsCommandInput = PutComplianceItemsRequest;
 export type PutComplianceItemsCommandOutput = PutComplianceItemsResult & __MetadataBearer;
 
+/**
+ * <p>Registers a compliance type and other compliance details on a designated resource. This
+ *    action lets you register custom compliance details with a resource. This call overwrites existing
+ *    compliance information on the resource, so you must provide a full list of compliance items each
+ *    time that you send the request.</p>
+ *          <p>ComplianceType can be one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was
+ *      applied.</p>
+ *             </li>
+ *             <li>
+ *                <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to
+ *      the instance.</p>
+ *             </li>
+ *             <li>
+ *                <p>Id: The patch, association, or custom compliance ID.</p>
+ *             </li>
+ *             <li>
+ *                <p>Title: A title.</p>
+ *             </li>
+ *             <li>
+ *                <p>Status: The status of the compliance item. For example, <code>approved</code> for patches,
+ *      or <code>Failed</code> for associations.</p>
+ *             </li>
+ *             <li>
+ *                <p>Severity: A patch severity. For example, <code>critical</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.</p>
+ *             </li>
+ *             <li>
+ *                <p>DocumentVersion: An SSM document version number. For example, 4.</p>
+ *             </li>
+ *             <li>
+ *                <p>Classification: A patch classification. For example, <code>security updates</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>PatchBaselineId: A patch baseline ID.</p>
+ *             </li>
+ *             <li>
+ *                <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>PatchGroup: The name of a patch group.</p>
+ *             </li>
+ *             <li>
+ *                <p>InstalledTime: The time the association, patch, or custom compliance item was applied to
+ *      the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p>
+ *             </li>
+ *          </ul>
+ */
 export class PutComplianceItemsCommand extends $Command<
   PutComplianceItemsCommandInput,
   PutComplianceItemsCommandOutput,
@@ -34,6 +92,9 @@ export class PutComplianceItemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

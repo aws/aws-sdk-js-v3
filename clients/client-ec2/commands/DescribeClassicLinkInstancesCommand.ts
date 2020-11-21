@@ -20,6 +20,11 @@ import {
 export type DescribeClassicLinkInstancesCommandInput = DescribeClassicLinkInstancesRequest;
 export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your linked EC2-Classic instances. This request only returns
+ * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
+ * 			use this request to return information about other instances.</p>
+ */
 export class DescribeClassicLinkInstancesCommand extends $Command<
   DescribeClassicLinkInstancesCommandInput,
   DescribeClassicLinkInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

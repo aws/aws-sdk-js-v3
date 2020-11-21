@@ -20,6 +20,12 @@ import {
 export type BatchGetImageCommandInput = BatchGetImageRequest;
 export type BatchGetImageCommandOutput = BatchGetImageResponse & __MetadataBearer;
 
+/**
+ * <p>Gets detailed information for an image. Images are specified with either an
+ *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
+ *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
+ *             manifest.</p>
+ */
 export class BatchGetImageCommand extends $Command<
   BatchGetImageCommandInput,
   BatchGetImageCommandOutput,
@@ -34,6 +40,9 @@ export class BatchGetImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdatePublicKeyCommandInput = UpdatePublicKeyRequest;
 export type UpdatePublicKeyCommandOutput = UpdatePublicKeyResult & __MetadataBearer;
 
+/**
+ * <p>Update public key information. Note that the only value you can change is the comment.</p>
+ */
 export class UpdatePublicKeyCommand extends $Command<
   UpdatePublicKeyCommandInput,
   UpdatePublicKeyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

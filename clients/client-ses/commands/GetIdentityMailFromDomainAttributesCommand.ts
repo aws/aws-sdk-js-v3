@@ -24,6 +24,12 @@ export type GetIdentityMailFromDomainAttributesCommandInput = GetIdentityMailFro
 export type GetIdentityMailFromDomainAttributesCommandOutput = GetIdentityMailFromDomainAttributesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
+ *             domains).</p>
+ *         <p>This operation is throttled at one request per second and can only get custom MAIL
+ *             FROM attributes for up to 100 identities at a time.</p>
+ */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command<
   GetIdentityMailFromDomainAttributesCommandInput,
   GetIdentityMailFromDomainAttributesCommandOutput,
@@ -38,6 +44,9 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListIAMPolicyAssignmentsCommandInput = ListIAMPolicyAssignmentsRequest;
 export type ListIAMPolicyAssignmentsCommandOutput = ListIAMPolicyAssignmentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>
+ */
 export class ListIAMPolicyAssignmentsCommand extends $Command<
   ListIAMPolicyAssignmentsCommandInput,
   ListIAMPolicyAssignmentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

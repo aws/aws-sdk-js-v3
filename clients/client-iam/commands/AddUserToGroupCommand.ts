@@ -20,6 +20,9 @@ import {
 export type AddUserToGroupCommandInput = AddUserToGroupRequest;
 export type AddUserToGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds the specified user to the specified group.</p>
+ */
 export class AddUserToGroupCommand extends $Command<
   AddUserToGroupCommandInput,
   AddUserToGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AddUserToGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

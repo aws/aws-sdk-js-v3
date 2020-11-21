@@ -20,6 +20,9 @@ import {
 export type UpdateVirtualServiceCommandInput = UpdateVirtualServiceInput;
 export type UpdateVirtualServiceCommandOutput = UpdateVirtualServiceOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing virtual service in a specified service mesh.</p>
+ */
 export class UpdateVirtualServiceCommand extends $Command<
   UpdateVirtualServiceCommandInput,
   UpdateVirtualServiceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVirtualServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

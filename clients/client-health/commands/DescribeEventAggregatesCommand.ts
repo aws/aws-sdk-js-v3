@@ -20,6 +20,15 @@ import {
 export type DescribeEventAggregatesCommandInput = DescribeEventAggregatesRequest;
 export type DescribeEventAggregatesCommandOutput = DescribeEventAggregatesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the number of events of each event type (issue, scheduled change, and account
+ *          notification). If no filter is specified, the counts of all events in each category are
+ *          returned.</p>
+ *
+ *          <note>
+ *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *          </note>
+ */
 export class DescribeEventAggregatesCommand extends $Command<
   DescribeEventAggregatesCommandInput,
   DescribeEventAggregatesCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeEventAggregatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

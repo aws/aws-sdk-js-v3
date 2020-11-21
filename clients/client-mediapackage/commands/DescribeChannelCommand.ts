@@ -20,6 +20,9 @@ import {
 export type DescribeChannelCommandInput = DescribeChannelRequest;
 export type DescribeChannelCommandOutput = DescribeChannelResponse & __MetadataBearer;
 
+/**
+ * Gets details about a Channel.
+ */
 export class DescribeChannelCommand extends $Command<
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

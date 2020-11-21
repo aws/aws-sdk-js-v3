@@ -24,6 +24,9 @@ export type DescribeMaintenanceWindowExecutionTasksCommandInput = DescribeMainte
 export type DescribeMaintenanceWindowExecutionTasksCommandOutput = DescribeMaintenanceWindowExecutionTasksResult &
   __MetadataBearer;
 
+/**
+ * <p>For a given maintenance window execution, lists the tasks that were run.</p>
+ */
 export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
   DescribeMaintenanceWindowExecutionTasksCommandInput,
   DescribeMaintenanceWindowExecutionTasksCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

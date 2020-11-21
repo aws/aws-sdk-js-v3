@@ -20,6 +20,9 @@ import {
 export type AddFlowVpcInterfacesCommandInput = AddFlowVpcInterfacesRequest;
 export type AddFlowVpcInterfacesCommandOutput = AddFlowVpcInterfacesResponse & __MetadataBearer;
 
+/**
+ * Adds VPC interfaces to flow
+ */
 export class AddFlowVpcInterfacesCommand extends $Command<
   AddFlowVpcInterfacesCommandInput,
   AddFlowVpcInterfacesCommandOutput,
@@ -34,6 +37,9 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

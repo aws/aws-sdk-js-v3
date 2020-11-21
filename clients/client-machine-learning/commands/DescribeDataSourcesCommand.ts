@@ -20,6 +20,9 @@ import {
 export type DescribeDataSourcesCommandInput = DescribeDataSourcesInput;
 export type DescribeDataSourcesCommandOutput = DescribeDataSourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
+ */
 export class DescribeDataSourcesCommand extends $Command<
   DescribeDataSourcesCommandInput,
   DescribeDataSourcesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDataSourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

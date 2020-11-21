@@ -20,6 +20,14 @@ import {
 export type ModifyWorkspaceStateCommandInput = ModifyWorkspaceStateRequest;
 export type ModifyWorkspaceStateCommandOutput = ModifyWorkspaceStateResult & __MetadataBearer;
 
+/**
+ * <p>Sets the state of the specified WorkSpace.</p>
+ *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
+ *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
+ *          reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
+ *          stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code>
+ *          state.</p>
+ */
 export class ModifyWorkspaceStateCommand extends $Command<
   ModifyWorkspaceStateCommandInput,
   ModifyWorkspaceStateCommandOutput,
@@ -34,6 +42,9 @@ export class ModifyWorkspaceStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

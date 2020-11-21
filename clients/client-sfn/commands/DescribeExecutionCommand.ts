@@ -20,6 +20,13 @@ import {
 export type DescribeExecutionCommandInput = DescribeExecutionInput;
 export type DescribeExecutionCommandOutput = DescribeExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an execution.</p>
+ *          <note>
+ *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
+ *          </note>
+ *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ */
 export class DescribeExecutionCommand extends $Command<
   DescribeExecutionCommandInput,
   DescribeExecutionCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

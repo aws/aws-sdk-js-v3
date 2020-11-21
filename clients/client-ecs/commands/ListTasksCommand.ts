@@ -17,6 +17,14 @@ import {
 export type ListTasksCommandInput = ListTasksRequest;
 export type ListTasksCommandOutput = ListTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of tasks for a specified cluster. You can filter the results by family
+ * 			name, by a particular container instance, or by the desired status of the task with the
+ * 				<code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
+ * 			parameters.</p>
+ * 		       <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
+ * 			appear in the returned results for at least one hour. </p>
+ */
 export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +35,9 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetConferenceProviderCommandInput = GetConferenceProviderRequest;
 export type GetConferenceProviderCommandOutput = GetConferenceProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Gets details about a specific conference provider.</p>
+ */
 export class GetConferenceProviderCommand extends $Command<
   GetConferenceProviderCommandInput,
   GetConferenceProviderCommandOutput,
@@ -34,6 +37,9 @@ export class GetConferenceProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeNetworkInterfacesCommandInput = DescribeNetworkInterfacesRequest;
 export type DescribeNetworkInterfacesCommandOutput = DescribeNetworkInterfacesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your network interfaces.</p>
+ */
 export class DescribeNetworkInterfacesCommand extends $Command<
   DescribeNetworkInterfacesCommandInput,
   DescribeNetworkInterfacesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

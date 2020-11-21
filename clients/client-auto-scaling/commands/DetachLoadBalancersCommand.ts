@@ -20,6 +20,14 @@ import {
 export type DetachLoadBalancersCommandInput = DetachLoadBalancersType;
 export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType & __MetadataBearer;
 
+/**
+ * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
+ *         <p>This operation detaches only Classic Load Balancers. If you have Application Load
+ *             Balancers or Network Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
+ *         <p>When you detach a load balancer, it enters the <code>Removing</code> state while
+ *             deregistering the instances in the group. When all instances are deregistered, then you
+ *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+ */
 export class DetachLoadBalancersCommand extends $Command<
   DetachLoadBalancersCommandInput,
   DetachLoadBalancersCommandOutput,
@@ -34,6 +42,9 @@ export class DetachLoadBalancersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

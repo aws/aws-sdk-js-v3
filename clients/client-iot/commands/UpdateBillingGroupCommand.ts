@@ -20,6 +20,9 @@ import {
 export type UpdateBillingGroupCommandInput = UpdateBillingGroupRequest;
 export type UpdateBillingGroupCommandOutput = UpdateBillingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates information about the billing group.</p>
+ */
 export class UpdateBillingGroupCommand extends $Command<
   UpdateBillingGroupCommandInput,
   UpdateBillingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBillingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

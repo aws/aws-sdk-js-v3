@@ -24,6 +24,22 @@ import {
 export type GetSlotTypesCommandInput = GetSlotTypesRequest;
 export type GetSlotTypesCommandOutput = GetSlotTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns slot type information as follows: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If you specify the <code>nameContains</code> field, returns the
+ *             <code>$LATEST</code> version of all slot types that contain the specified
+ *           string.</p>
+ *             </li>
+ *             <li>
+ *                <p> If you don't specify the <code>nameContains</code> field, returns information
+ *           about the <code>$LATEST</code> version of all slot types. </p>
+ *             </li>
+ *          </ul>
+ *          <p> The operation requires permission for the <code>lex:GetSlotTypes</code> action.
+ *     </p>
+ */
 export class GetSlotTypesCommand extends $Command<
   GetSlotTypesCommandInput,
   GetSlotTypesCommandOutput,
@@ -38,6 +54,9 @@ export class GetSlotTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

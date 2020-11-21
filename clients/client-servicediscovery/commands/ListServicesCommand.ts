@@ -20,6 +20,9 @@ import {
 export type ListServicesCommandInput = ListServicesRequest;
 export type ListServicesCommandOutput = ListServicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists summary information for all the services that are associated with one or more specified namespaces.</p>
+ */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,
   ListServicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

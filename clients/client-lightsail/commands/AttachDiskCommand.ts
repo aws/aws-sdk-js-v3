@@ -20,6 +20,13 @@ import {
 export type AttachDiskCommandInput = AttachDiskRequest;
 export type AttachDiskCommandOutput = AttachDiskResult & __MetadataBearer;
 
+/**
+ * <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it
+ *       to the instance with the specified disk name.</p>
+ *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
+ *       applied to the resource identified by <code>disk name</code>. For more information, see the
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class AttachDiskCommand extends $Command<
   AttachDiskCommandInput,
   AttachDiskCommandOutput,
@@ -34,6 +41,9 @@ export class AttachDiskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

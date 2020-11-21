@@ -20,6 +20,10 @@ import {
 export type ExecutePolicyCommandInput = ExecutePolicyType;
 export type ExecutePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Executes the specified policy. This can be useful for testing the design of your
+ *             scaling policy.</p>
+ */
 export class ExecutePolicyCommand extends $Command<
   ExecutePolicyCommandInput,
   ExecutePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class ExecutePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

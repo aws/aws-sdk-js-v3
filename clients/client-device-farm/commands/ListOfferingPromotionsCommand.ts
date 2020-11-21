@@ -20,6 +20,11 @@ import {
 export type ListOfferingPromotionsCommandInput = ListOfferingPromotionsRequest;
 export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
+ *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
+ *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
+ */
 export class ListOfferingPromotionsCommand extends $Command<
   ListOfferingPromotionsCommandInput,
   ListOfferingPromotionsCommandOutput,
@@ -34,6 +39,9 @@ export class ListOfferingPromotionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

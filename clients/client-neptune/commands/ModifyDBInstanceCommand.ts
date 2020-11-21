@@ -20,6 +20,11 @@ import {
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
 export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Modifies settings for a DB instance. You can change one or more database configuration
+ *       parameters by specifying these parameters and the new values in the request. To learn what
+ *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
+ */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
   ModifyDBInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -24,6 +24,14 @@ import {
 export type GetPersonalizedRankingCommandInput = GetPersonalizedRankingRequest;
 export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse & __MetadataBearer;
 
+/**
+ * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
+ *       deemed the most likely item to be of interest to the user.</p>
+ *          <note>
+ *             <p>The solution backing the campaign must have been created using a recipe of type
+ *         PERSONALIZED_RANKING.</p>
+ *          </note>
+ */
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
@@ -38,6 +46,9 @@ export class GetPersonalizedRankingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeRuntimeClientResolvedConfig,

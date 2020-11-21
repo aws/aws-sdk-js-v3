@@ -20,6 +20,11 @@ import {
 export type SetSMBGuestPasswordCommandInput = SetSMBGuestPasswordInput;
 export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput & __MetadataBearer;
 
+/**
+ * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
+ *          user is the user when the authentication method for the file share is set to
+ *             <code>GuestAccess</code>.</p>
+ */
 export class SetSMBGuestPasswordCommand extends $Command<
   SetSMBGuestPasswordCommandInput,
   SetSMBGuestPasswordCommandOutput,
@@ -34,6 +39,9 @@ export class SetSMBGuestPasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListBackupJobsCommandInput = ListBackupJobsInput;
 export type ListBackupJobsCommandOutput = ListBackupJobsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing backup jobs for an authenticated account.</p>
+ */
 export class ListBackupJobsCommand extends $Command<
   ListBackupJobsCommandInput,
   ListBackupJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListBackupJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

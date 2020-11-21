@@ -20,6 +20,12 @@ import {
 export type CreateStreamKeyCommandInput = CreateStreamKeyRequest;
 export type CreateStreamKeyCommandOutput = CreateStreamKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>
+ *          <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use
+ *       CreateStreamKey on the same channel, it will fail because a stream key already exists and
+ *       there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
+ */
 export class CreateStreamKeyCommand extends $Command<
   CreateStreamKeyCommandInput,
   CreateStreamKeyCommandOutput,
@@ -34,6 +40,9 @@ export class CreateStreamKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

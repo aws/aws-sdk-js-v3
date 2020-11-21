@@ -20,6 +20,10 @@ import {
 export type DescribeWorkspaceImagesCommandInput = DescribeWorkspaceImagesRequest;
 export type DescribeWorkspaceImagesCommandOutput = DescribeWorkspaceImagesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified images, if the image identifiers
+ *          are provided. Otherwise, all images in the account are described. </p>
+ */
 export class DescribeWorkspaceImagesCommand extends $Command<
   DescribeWorkspaceImagesCommandInput,
   DescribeWorkspaceImagesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeWorkspaceImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

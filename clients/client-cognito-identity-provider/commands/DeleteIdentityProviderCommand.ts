@@ -25,6 +25,9 @@ import {
 export type DeleteIdentityProviderCommandInput = DeleteIdentityProviderRequest;
 export type DeleteIdentityProviderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an identity provider for a user pool.</p>
+ */
 export class DeleteIdentityProviderCommand extends $Command<
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
@@ -39,6 +42,9 @@ export class DeleteIdentityProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

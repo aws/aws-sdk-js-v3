@@ -20,6 +20,15 @@ import {
 export type PutContainerPolicyCommandInput = PutContainerPolicyInput;
 export type PutContainerPolicyCommandOutput = PutContainerPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an access policy for the specified container to restrict the users and
+ *          clients that can access it. For information about the data that is included in an access
+ *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
+ *             Access Management User Guide</a>.</p>
+ *          <p>For this release of the REST API, you can create only one policy for a container. If
+ *          you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing
+ *          policy. </p>
+ */
 export class PutContainerPolicyCommand extends $Command<
   PutContainerPolicyCommandInput,
   PutContainerPolicyCommandOutput,
@@ -34,6 +43,9 @@ export class PutContainerPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

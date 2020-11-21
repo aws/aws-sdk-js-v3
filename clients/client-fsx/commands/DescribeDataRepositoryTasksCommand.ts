@@ -20,6 +20,19 @@ import {
 export type DescribeDataRepositoryTasksCommandInput = DescribeDataRepositoryTasksRequest;
 export type DescribeDataRepositoryTasksCommandOutput = DescribeDataRepositoryTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the description of specific Amazon FSx for Lustre data repository tasks, if
+ *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
+ *             You can use filters to narrow the response to include just tasks for specific file systems,
+ *             or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned
+ *             by your AWS account in the AWS Region of the endpoint that you're calling.</p>
+ *
+ *         <p>When retrieving all tasks, you can paginate the response by using  the optional <code>MaxResults</code>
+ *             parameter to limit the number of tasks returned in a response. If more tasks remain, Amazon
+ *             FSx returns a <code>NextToken</code> value in the response. In this case, send a later
+ *             request with the <code>NextToken</code> request parameter set to the value of
+ *             <code>NextToken</code> from the last response.</p>
+ */
 export class DescribeDataRepositoryTasksCommand extends $Command<
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,

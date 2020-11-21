@@ -24,6 +24,9 @@ export type DecreaseNodeGroupsInGlobalReplicationGroupCommandInput = DecreaseNod
 export type DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput = DecreaseNodeGroupsInGlobalReplicationGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Decreases the number of node groups in a Global Datastore</p>
+ */
 export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DescribeHostedConnectionsCommandInput = DescribeHostedConnectionsRequest;
 export type DescribeHostedConnectionsCommandOutput = Connections & __MetadataBearer;
 
+/**
+ * <p>Lists the hosted connections that have been provisioned on the specified
+ *       interconnect or link aggregation group (LAG).</p>
+ *          <note>
+ *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class DescribeHostedConnectionsCommand extends $Command<
   DescribeHostedConnectionsCommandInput,
   DescribeHostedConnectionsCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeHostedConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

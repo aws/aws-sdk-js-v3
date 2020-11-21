@@ -20,6 +20,9 @@ import {
 export type ListSkillsCommandInput = ListSkillsRequest;
 export type ListSkillsCommandOutput = ListSkillsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all enabled skills in a specific skill group.</p>
+ */
 export class ListSkillsCommand extends $Command<
   ListSkillsCommandInput,
   ListSkillsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSkillsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

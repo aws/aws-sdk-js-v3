@@ -21,6 +21,12 @@ import {
 export type GetEbsEncryptionByDefaultCommandInput = GetEbsEncryptionByDefaultRequest;
 export type GetEbsEncryptionByDefaultCommandOutput = GetEbsEncryptionByDefaultResult & __MetadataBearer;
 
+/**
+ * <p>Describes whether EBS encryption by default is enabled for your account in the current
+ *       Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class GetEbsEncryptionByDefaultCommand extends $Command<
   GetEbsEncryptionByDefaultCommandInput,
   GetEbsEncryptionByDefaultCommandOutput,
@@ -35,6 +41,9 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

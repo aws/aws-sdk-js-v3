@@ -20,6 +20,11 @@ import {
 export type GetFunctionCommandInput = GetFunctionRequest;
 export type GetFunctionCommandOutput = GetFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the function or function version, with a link to download the deployment package
+ *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
+ *       returned.</p>
+ */
 export class GetFunctionCommand extends $Command<
   GetFunctionCommandInput,
   GetFunctionCommandOutput,
@@ -34,6 +39,9 @@ export class GetFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

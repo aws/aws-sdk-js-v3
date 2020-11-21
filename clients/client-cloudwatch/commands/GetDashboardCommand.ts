@@ -17,6 +17,12 @@ import {
 export type GetDashboardCommandInput = GetDashboardInput;
 export type GetDashboardCommandOutput = GetDashboardOutput & __MetadataBearer;
 
+/**
+ * <p>Displays the details of the dashboard that you specify.</p>
+ * 		       <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
+ * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
+ * 			the copy.</p>
+ */
 export class GetDashboardCommand extends $Command<
   GetDashboardCommandInput,
   GetDashboardCommandOutput,
@@ -31,6 +37,9 @@ export class GetDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

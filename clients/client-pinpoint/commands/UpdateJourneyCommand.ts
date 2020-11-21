@@ -20,6 +20,9 @@ import {
 export type UpdateJourneyCommandInput = UpdateJourneyRequest;
 export type UpdateJourneyCommandOutput = UpdateJourneyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the configuration and other settings for a journey.</p>
+ */
 export class UpdateJourneyCommand extends $Command<
   UpdateJourneyCommandInput,
   UpdateJourneyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJourneyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

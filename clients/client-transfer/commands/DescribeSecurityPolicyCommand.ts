@@ -20,6 +20,12 @@ import {
 export type DescribeSecurityPolicyCommandInput = DescribeSecurityPolicyRequest;
 export type DescribeSecurityPolicyCommandOutput = DescribeSecurityPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the security policy that is attached to your file transfer protocol-enabled
+ *       server. The response contains a description of the security policy's properties. For more
+ *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
+ *         policies</a>.</p>
+ */
 export class DescribeSecurityPolicyCommand extends $Command<
   DescribeSecurityPolicyCommandInput,
   DescribeSecurityPolicyCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeSecurityPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

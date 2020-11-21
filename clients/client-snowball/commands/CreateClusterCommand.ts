@@ -20,6 +20,10 @@ import {
 export type CreateClusterCommandInput = CreateClusterRequest;
 export type CreateClusterCommandOutput = CreateClusterResult & __MetadataBearer;
 
+/**
+ * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
+ *       cluster does not ship until these five node jobs have been created.</p>
+ */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -34,6 +38,9 @@ export class CreateClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

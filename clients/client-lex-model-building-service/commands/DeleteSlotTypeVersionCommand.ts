@@ -24,6 +24,12 @@ import {
 export type DeleteSlotTypeVersionCommandInput = DeleteSlotTypeVersionRequest;
 export type DeleteSlotTypeVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specific version of a slot type. To delete all versions of a slot type, use
+ *       the <a>DeleteSlotType</a> operation. </p>
+ *          <p>This operation requires permissions for the <code>lex:DeleteSlotTypeVersion</code>
+ *       action.</p>
+ */
 export class DeleteSlotTypeVersionCommand extends $Command<
   DeleteSlotTypeVersionCommandInput,
   DeleteSlotTypeVersionCommandOutput,
@@ -38,6 +44,9 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

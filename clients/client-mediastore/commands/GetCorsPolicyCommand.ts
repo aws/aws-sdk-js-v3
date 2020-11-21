@@ -20,6 +20,13 @@ import {
 export type GetCorsPolicyCommandInput = GetCorsPolicyInput;
 export type GetCorsPolicyCommandOutput = GetCorsPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
+ *          set for the container.</p>
+ *          <p>To use this operation, you must have permission to perform the
+ *             <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this
+ *          permission and can grant it to others.</p>
+ */
 export class GetCorsPolicyCommand extends $Command<
   GetCorsPolicyCommandInput,
   GetCorsPolicyCommandOutput,
@@ -34,6 +41,9 @@ export class GetCorsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

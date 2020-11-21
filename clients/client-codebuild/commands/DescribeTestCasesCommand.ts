@@ -20,6 +20,11 @@ import {
 export type DescribeTestCasesCommandInput = DescribeTestCasesInput;
 export type DescribeTestCasesCommandOutput = DescribeTestCasesOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns a list of details about test cases for a report.
+ *     </p>
+ */
 export class DescribeTestCasesCommand extends $Command<
   DescribeTestCasesCommandInput,
   DescribeTestCasesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeTestCasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetConnectorsCommandInput = GetConnectorsRequest;
 export type GetConnectorsCommandOutput = GetConnectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the connectors registered with the AWS SMS.</p>
+ */
 export class GetConnectorsCommand extends $Command<
   GetConnectorsCommandInput,
   GetConnectorsCommandOutput,
@@ -34,6 +37,9 @@ export class GetConnectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

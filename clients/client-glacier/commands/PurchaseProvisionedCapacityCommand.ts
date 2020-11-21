@@ -20,6 +20,9 @@ import {
 export type PurchaseProvisionedCapacityCommandInput = PurchaseProvisionedCapacityInput;
 export type PurchaseProvisionedCapacityCommandOutput = PurchaseProvisionedCapacityOutput & __MetadataBearer;
 
+/**
+ * <p>This operation purchases a provisioned capacity unit for an AWS account. </p>
+ */
 export class PurchaseProvisionedCapacityCommand extends $Command<
   PurchaseProvisionedCapacityCommandInput,
   PurchaseProvisionedCapacityCommandOutput,
@@ -34,6 +37,9 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

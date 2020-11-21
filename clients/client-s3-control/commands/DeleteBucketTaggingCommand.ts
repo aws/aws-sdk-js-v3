@@ -21,6 +21,35 @@ import {
 export type DeleteBucketTaggingCommandInput = DeleteBucketTaggingRequest;
 export type DeleteBucketTaggingCommandOutput = __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This operation deletes an Amazon S3 on Outposts bucket's tags. To delete an
+ *          S3 bucket tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>.
+ *       </p>
+ *          </note>
+ *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
+ *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *
+ *          <p>To use this operation, you must have permission to perform the <code>PutBucketTagging</code> action.
+ *          By default, the bucket owner has this permission and can grant this permission to others.
+ *       </p>
+ *
+ *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples">Examples</a> section.</p>
+ *
+ *          <p>The following actions are related to <code>DeleteBucketTagging</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html">GetBucketTagging</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html">PutBucketTagging</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteBucketTaggingCommand extends $Command<
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
@@ -35,6 +64,9 @@ export class DeleteBucketTaggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

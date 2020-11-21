@@ -20,6 +20,9 @@ import {
 export type CreateTagOptionCommandInput = CreateTagOptionInput;
 export type CreateTagOptionCommandOutput = CreateTagOptionOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a TagOption.</p>
+ */
 export class CreateTagOptionCommand extends $Command<
   CreateTagOptionCommandInput,
   CreateTagOptionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTagOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

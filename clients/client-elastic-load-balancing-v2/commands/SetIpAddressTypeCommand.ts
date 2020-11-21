@@ -24,6 +24,10 @@ import {
 export type SetIpAddressTypeCommandInput = SetIpAddressTypeInput;
 export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput & __MetadataBearer;
 
+/**
+ * <p>Sets the type of IP addresses used by the subnets of the specified Application Load
+ *       Balancer or Network Load Balancer.</p>
+ */
 export class SetIpAddressTypeCommand extends $Command<
   SetIpAddressTypeCommandInput,
   SetIpAddressTypeCommandOutput,
@@ -38,6 +42,9 @@ export class SetIpAddressTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListDeploymentConfigsCommandInput = ListDeploymentConfigsInput;
 export type ListDeploymentConfigsCommandOutput = ListDeploymentConfigsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the deployment configurations with the IAM user or AWS account.</p>
+ */
 export class ListDeploymentConfigsCommand extends $Command<
   ListDeploymentConfigsCommandInput,
   ListDeploymentConfigsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDeploymentConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

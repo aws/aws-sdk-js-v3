@@ -20,6 +20,12 @@ import {
 export type CreateTrafficMirrorFilterCommandInput = CreateTrafficMirrorFilterRequest;
 export type CreateTrafficMirrorFilterCommandOutput = CreateTrafficMirrorFilterResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Traffic Mirror filter.</p>
+ *          <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p>
+ *          <p>By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you
+ *          add define what traffic gets mirrored. You can also use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html">ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
+ */
 export class CreateTrafficMirrorFilterCommand extends $Command<
   CreateTrafficMirrorFilterCommandInput,
   CreateTrafficMirrorFilterCommandOutput,
@@ -34,6 +40,9 @@ export class CreateTrafficMirrorFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -24,6 +24,11 @@ import {
 export type UpdateComponentConfigurationCommandInput = UpdateComponentConfigurationRequest;
 export type UpdateComponentConfigurationCommandOutput = UpdateComponentConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the monitoring configurations for the component. The configuration input parameter
+ *          is an escaped JSON of the configuration and should match the schema of what is returned
+ *          by <code>DescribeComponentConfigurationRecommendation</code>. </p>
+ */
 export class UpdateComponentConfigurationCommand extends $Command<
   UpdateComponentConfigurationCommandInput,
   UpdateComponentConfigurationCommandOutput,
@@ -38,6 +43,9 @@ export class UpdateComponentConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

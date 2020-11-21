@@ -20,6 +20,10 @@ import {
 export type DeleteThingCommandInput = DeleteThingRequest;
 export type DeleteThingCommandOutput = DeleteThingResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
+ * 			successful or you specify a thing that doesn't exist.</p>
+ */
 export class DeleteThingCommand extends $Command<
   DeleteThingCommandInput,
   DeleteThingCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

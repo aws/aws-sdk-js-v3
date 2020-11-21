@@ -20,6 +20,9 @@ import {
 export type ListGitHubAccountTokenNamesCommandInput = ListGitHubAccountTokenNamesInput;
 export type ListGitHubAccountTokenNamesCommandOutput = ListGitHubAccountTokenNamesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the names of stored connections to GitHub accounts.</p>
+ */
 export class ListGitHubAccountTokenNamesCommand extends $Command<
   ListGitHubAccountTokenNamesCommandInput,
   ListGitHubAccountTokenNamesCommandOutput,
@@ -34,6 +37,9 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

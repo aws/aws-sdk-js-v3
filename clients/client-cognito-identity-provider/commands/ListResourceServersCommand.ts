@@ -25,6 +25,9 @@ import {
 export type ListResourceServersCommandInput = ListResourceServersRequest;
 export type ListResourceServersCommandOutput = ListResourceServersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the resource servers for a user pool.</p>
+ */
 export class ListResourceServersCommand extends $Command<
   ListResourceServersCommandInput,
   ListResourceServersCommandOutput,
@@ -39,6 +42,9 @@ export class ListResourceServersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

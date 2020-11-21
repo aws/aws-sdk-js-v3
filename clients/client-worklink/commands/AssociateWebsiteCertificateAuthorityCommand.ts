@@ -24,6 +24,10 @@ export type AssociateWebsiteCertificateAuthorityCommandInput = AssociateWebsiteC
 export type AssociateWebsiteCertificateAuthorityCommandOutput = AssociateWebsiteCertificateAuthorityResponse &
   __MetadataBearer;
 
+/**
+ * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
+ *             certificates used by associated websites within the company network.</p>
+ */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
   AssociateWebsiteCertificateAuthorityCommandInput,
   AssociateWebsiteCertificateAuthorityCommandOutput,
@@ -38,6 +42,9 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

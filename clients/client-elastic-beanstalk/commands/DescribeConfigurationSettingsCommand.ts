@@ -20,6 +20,23 @@ import {
 export type DescribeConfigurationSettingsCommandInput = DescribeConfigurationSettingsMessage;
 export type DescribeConfigurationSettingsCommandOutput = ConfigurationSettingsDescriptions & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the settings for the specified configuration set, that is,
+ *       either a configuration template or the configuration set associated with a running
+ *       environment.</p>
+ *          <p>When describing the settings for the configuration set associated with a running
+ *       environment, it is possible to receive two sets of setting descriptions. One is the deployed
+ *       configuration set, and the other is a draft configuration of an environment that is either in
+ *       the process of deployment or that failed to deploy.</p>
+ *          <p>Related Topics</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteEnvironmentConfiguration</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeConfigurationSettingsCommand extends $Command<
   DescribeConfigurationSettingsCommandInput,
   DescribeConfigurationSettingsCommandOutput,
@@ -34,6 +51,9 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

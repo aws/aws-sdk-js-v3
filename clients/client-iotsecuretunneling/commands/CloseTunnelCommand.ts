@@ -24,6 +24,11 @@ import {
 export type CloseTunnelCommandInput = CloseTunnelRequest;
 export type CloseTunnelCommandOutput = CloseTunnelResponse & __MetadataBearer;
 
+/**
+ * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
+ * 			request is received, we close the WebSocket connections between the client and proxy
+ * 			server so no data can be transmitted.</p>
+ */
 export class CloseTunnelCommand extends $Command<
   CloseTunnelCommandInput,
   CloseTunnelCommandOutput,
@@ -38,6 +43,9 @@ export class CloseTunnelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSecureTunnelingClientResolvedConfig,

@@ -4,6 +4,9 @@ import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } fr
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
   input: ListAssetsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTSiteWise,
   input: ListAssetsCommandInput,

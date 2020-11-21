@@ -20,6 +20,12 @@ import {
 export type CreateSpotDatafeedSubscriptionCommandInput = CreateSpotDatafeedSubscriptionRequest;
 export type CreateSpotDatafeedSubscriptionCommandOutput = CreateSpotDatafeedSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
+ * 				You can create one data feed per AWS account. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
+ *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
 export class CreateSpotDatafeedSubscriptionCommand extends $Command<
   CreateSpotDatafeedSubscriptionCommandInput,
   CreateSpotDatafeedSubscriptionCommandOutput,
@@ -34,6 +40,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

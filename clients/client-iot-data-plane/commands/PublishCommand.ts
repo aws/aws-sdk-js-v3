@@ -20,6 +20,11 @@ import {
 export type PublishCommandInput = PublishRequest;
 export type PublishCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Publishes state information.</p>
+ *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the
+ *        AWS IoT Developer Guide.</p>
+ */
 export class PublishCommand extends $Command<
   PublishCommandInput,
   PublishCommandOutput,
@@ -34,6 +39,9 @@ export class PublishCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTDataPlaneClientResolvedConfig,

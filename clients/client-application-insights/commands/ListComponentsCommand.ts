@@ -24,6 +24,9 @@ import {
 export type ListComponentsCommandInput = ListComponentsRequest;
 export type ListComponentsCommandOutput = ListComponentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
+ */
 export class ListComponentsCommand extends $Command<
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
@@ -38,6 +41,9 @@ export class ListComponentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

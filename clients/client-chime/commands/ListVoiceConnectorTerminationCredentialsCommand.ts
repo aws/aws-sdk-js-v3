@@ -24,6 +24,9 @@ export type ListVoiceConnectorTerminationCredentialsCommandInput = ListVoiceConn
 export type ListVoiceConnectorTerminationCredentialsCommandOutput = ListVoiceConnectorTerminationCredentialsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
+ */
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
@@ -38,6 +41,9 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

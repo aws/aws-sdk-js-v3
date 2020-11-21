@@ -20,6 +20,15 @@ import {
 export type UpdateTerminationProtectionCommandInput = UpdateTerminationProtectionInput;
 export type UpdateTerminationProtectionCommandOutput = UpdateTerminationProtectionOutput & __MetadataBearer;
 
+/**
+ * <p>Updates termination protection for the specified stack. If a user attempts to delete
+ *          a stack with termination protection enabled, the operation fails and the stack remains
+ *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
+ *             Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ *          <p> For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+ *             stacks</a>, termination protection is set on the root stack and cannot be changed
+ *          directly on the nested stack.</p>
+ */
 export class UpdateTerminationProtectionCommand extends $Command<
   UpdateTerminationProtectionCommandInput,
   UpdateTerminationProtectionCommandOutput,
@@ -34,6 +43,9 @@ export class UpdateTerminationProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

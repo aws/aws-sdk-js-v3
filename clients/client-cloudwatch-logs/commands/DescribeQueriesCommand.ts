@@ -20,6 +20,11 @@ import {
 export type DescribeQueriesCommandInput = DescribeQueriesRequest;
 export type DescribeQueriesCommandOutput = DescribeQueriesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have
+ *       been executed recently in this account. You can request all queries or limit it to queries of
+ *       a specific log group or queries with a certain status.</p>
+ */
 export class DescribeQueriesCommand extends $Command<
   DescribeQueriesCommandInput,
   DescribeQueriesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeQueriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

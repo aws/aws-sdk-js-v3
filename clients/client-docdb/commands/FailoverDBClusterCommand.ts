@@ -20,6 +20,15 @@ import {
 export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
 export type FailoverDBClusterCommandOutput = FailoverDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Forces a failover for a cluster.</p>
+ *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
+ *             in the cluster to be the primary instance (the cluster writer).</p>
+ *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,
+ *             if one exists. You can force a failover when you want to simulate a failure of a primary
+ *             instance for
+ *             testing.</p>
+ */
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,
   FailoverDBClusterCommandOutput,
@@ -34,6 +43,9 @@ export class FailoverDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

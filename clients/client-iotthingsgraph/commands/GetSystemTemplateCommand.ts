@@ -20,6 +20,9 @@ import {
 export type GetSystemTemplateCommandInput = GetSystemTemplateRequest;
 export type GetSystemTemplateCommandOutput = GetSystemTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a system.</p>
+ */
 export class GetSystemTemplateCommand extends $Command<
   GetSystemTemplateCommandInput,
   GetSystemTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetSystemTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

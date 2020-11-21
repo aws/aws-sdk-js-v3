@@ -20,6 +20,20 @@ import {
 export type DeleteAnalysisCommandInput = DeleteAnalysisRequest;
 export type DeleteAnalysisCommandOutput = DeleteAnalysisResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
+ *             which you can restore the analysis. If you don't specify a recovery window value, the
+ *             operation defaults to 30 days. QuickSight attaches a <code>DeletionTime</code> stamp to
+ *             the response that specifies the end of the recovery window. At the end of the recovery
+ *             window, QuickSight deletes the analysis permanently.</p>
+ *         <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
+ *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
+ *             the analysis. The analysis remains visible in the API until it's deleted, so you can
+ *             describe it but you can't make a template from it.</p>
+ *         <p>An analysis that's scheduled for deletion isn't accessible in the QuickSight console.
+ *             To access it in the console, restore it. Deleting an analysis doesn't delete the
+ *             dashboards that you publish from it.</p>
+ */
 export class DeleteAnalysisCommand extends $Command<
   DeleteAnalysisCommandInput,
   DeleteAnalysisCommandOutput,
@@ -34,6 +48,9 @@ export class DeleteAnalysisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

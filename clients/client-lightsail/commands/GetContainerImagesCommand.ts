@@ -20,6 +20,16 @@ import {
 export type GetContainerImagesCommandInput = GetContainerImagesRequest;
 export type GetContainerImagesCommandOutput = GetContainerImagesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the container images that are registered to your Amazon Lightsail container
+ *       service.</p>
+ *
+ *          <note>
+ *             <p>If you created a deployment on your Lightsail container service that uses container
+ *         images from a public registry like Docker Hub, those images are not returned as part of this
+ *         action. Those images are not registered to your Lightsail container service.</p>
+ *          </note>
+ */
 export class GetContainerImagesCommand extends $Command<
   GetContainerImagesCommandInput,
   GetContainerImagesCommandOutput,
@@ -34,6 +44,9 @@ export class GetContainerImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

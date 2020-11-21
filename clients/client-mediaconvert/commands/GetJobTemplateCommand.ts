@@ -20,6 +20,9 @@ import {
 export type GetJobTemplateCommandInput = GetJobTemplateRequest;
 export type GetJobTemplateCommandOutput = GetJobTemplateResponse & __MetadataBearer;
 
+/**
+ * Retrieve the JSON for a specific job template.
+ */
 export class GetJobTemplateCommand extends $Command<
   GetJobTemplateCommandInput,
   GetJobTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetJobTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListV2LoggingLevelsCommandInput = ListV2LoggingLevelsRequest;
 export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists logging levels.</p>
+ */
 export class ListV2LoggingLevelsCommand extends $Command<
   ListV2LoggingLevelsCommandInput,
   ListV2LoggingLevelsCommandOutput,
@@ -34,6 +37,9 @@ export class ListV2LoggingLevelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeTaskCommandInput = DescribeTaskRequest;
 export type DescribeTaskCommandOutput = DescribeTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about a task.</p>
+ */
 export class DescribeTaskCommand extends $Command<
   DescribeTaskCommandInput,
   DescribeTaskCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

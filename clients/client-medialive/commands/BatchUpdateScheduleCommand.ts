@@ -20,6 +20,9 @@ import {
 export type BatchUpdateScheduleCommandInput = BatchUpdateScheduleRequest;
 export type BatchUpdateScheduleCommandOutput = BatchUpdateScheduleResponse & __MetadataBearer;
 
+/**
+ * Update a channel schedule
+ */
 export class BatchUpdateScheduleCommand extends $Command<
   BatchUpdateScheduleCommandInput,
   BatchUpdateScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class BatchUpdateScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListCandidatesForAutoMLJobCommandInput = ListCandidatesForAutoMLJobRequest;
 export type ListCandidatesForAutoMLJobCommandOutput = ListCandidatesForAutoMLJobResponse & __MetadataBearer;
 
+/**
+ * <p>List the Candidates created for the job.</p>
+ */
 export class ListCandidatesForAutoMLJobCommand extends $Command<
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
@@ -34,6 +37,9 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

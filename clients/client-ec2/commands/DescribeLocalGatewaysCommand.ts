@@ -20,6 +20,10 @@ import {
 export type DescribeLocalGatewaysCommandInput = DescribeLocalGatewaysRequest;
 export type DescribeLocalGatewaysCommandOutput = DescribeLocalGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more local gateways. By default, all local gateways are described.
+ *         Alternatively, you can filter the results.</p>
+ */
 export class DescribeLocalGatewaysCommand extends $Command<
   DescribeLocalGatewaysCommandInput,
   DescribeLocalGatewaysCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeLocalGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

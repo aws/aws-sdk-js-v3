@@ -20,6 +20,9 @@ import {
 export type ListMeshesCommandInput = ListMeshesInput;
 export type ListMeshesCommandOutput = ListMeshesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing service meshes.</p>
+ */
 export class ListMeshesCommand extends $Command<
   ListMeshesCommandInput,
   ListMeshesCommandOutput,
@@ -34,6 +37,9 @@ export class ListMeshesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

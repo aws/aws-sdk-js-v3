@@ -20,6 +20,16 @@ import {
 export type DescribeTaskDefinitionCommandInput = DescribeTaskDefinitionRequest;
 export type DescribeTaskDefinitionCommandOutput = DescribeTaskDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a task definition. You can specify a <code>family</code> and
+ * 				<code>revision</code> to find information about a specific task definition, or you
+ * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
+ * 			family.</p>
+ * 		       <note>
+ * 			         <p>You can only describe <code>INACTIVE</code> task definitions while an active task
+ * 				or service references them.</p>
+ * 		       </note>
+ */
 export class DescribeTaskDefinitionCommand extends $Command<
   DescribeTaskDefinitionCommandInput,
   DescribeTaskDefinitionCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeTaskDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

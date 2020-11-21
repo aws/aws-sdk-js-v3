@@ -20,6 +20,11 @@ import {
 export type DeleteMeshCommandInput = DeleteMeshInput;
 export type DeleteMeshCommandOutput = DeleteMeshOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing service mesh.</p>
+ *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
+ *          nodes) in the service mesh before you can delete the mesh itself.</p>
+ */
 export class DeleteMeshCommand extends $Command<
   DeleteMeshCommandInput,
   DeleteMeshCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteMeshCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ActivateUserCommandInput = ActivateUserRequest;
 export type ActivateUserCommandOutput = ActivateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Activates the specified user. Only active users can access Amazon
+ *             WorkDocs.</p>
+ */
 export class ActivateUserCommand extends $Command<
   ActivateUserCommandInput,
   ActivateUserCommandOutput,
@@ -34,6 +38,9 @@ export class ActivateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

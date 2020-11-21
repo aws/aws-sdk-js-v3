@@ -20,6 +20,9 @@ import {
 export type GetDiskSnapshotCommandInput = GetDiskSnapshotRequest;
 export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific block storage disk snapshot.</p>
+ */
 export class GetDiskSnapshotCommand extends $Command<
   GetDiskSnapshotCommandInput,
   GetDiskSnapshotCommandOutput,
@@ -34,6 +37,9 @@ export class GetDiskSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

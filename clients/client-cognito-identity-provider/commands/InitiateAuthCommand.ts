@@ -24,6 +24,9 @@ import {
 export type InitiateAuthCommandInput = InitiateAuthRequest;
 export type InitiateAuthCommandOutput = InitiateAuthResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates the authentication flow.</p>
+ */
 export class InitiateAuthCommand extends $Command<
   InitiateAuthCommandInput,
   InitiateAuthCommandOutput,
@@ -38,6 +41,9 @@ export class InitiateAuthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

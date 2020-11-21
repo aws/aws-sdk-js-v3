@@ -20,6 +20,15 @@ import {
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
 export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
+ *       status to <code>DELETING</code> and begins the deletion process. </p>
+ *          <note>
+ *             <p>For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+ *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
+ *         API is called.</p>
+ *          </note>
+ */
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,
   DeleteStateMachineCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteStateMachineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

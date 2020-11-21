@@ -20,6 +20,15 @@ import {
 export type AssociateRouteTableCommandInput = AssociateRouteTableRequest;
 export type AssociateRouteTableCommandOutput = AssociateRouteTableResult & __MetadataBearer;
 
+/**
+ * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
+ *             attached to your VPC with a route table in your VPC. This association causes traffic
+ *             from the subnet or gateway to be routed according to the routes in the route table. The
+ *             action returns an association ID, which you need in order to disassociate the route
+ *             table later. A route table can be associated with multiple subnets.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+ *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class AssociateRouteTableCommand extends $Command<
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -34,6 +43,9 @@ export class AssociateRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

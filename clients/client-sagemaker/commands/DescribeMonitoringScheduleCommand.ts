@@ -20,6 +20,9 @@ import {
 export type DescribeMonitoringScheduleCommandInput = DescribeMonitoringScheduleRequest;
 export type DescribeMonitoringScheduleCommandOutput = DescribeMonitoringScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the schedule for a monitoring job.</p>
+ */
 export class DescribeMonitoringScheduleCommand extends $Command<
   DescribeMonitoringScheduleCommandInput,
   DescribeMonitoringScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

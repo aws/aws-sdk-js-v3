@@ -24,6 +24,10 @@ import {
 export type StartEntitiesDetectionV2JobCommandInput = StartEntitiesDetectionV2JobRequest;
 export type StartEntitiesDetectionV2JobCommandOutput = StartEntitiesDetectionV2JobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
+ *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
+ */
 export class StartEntitiesDetectionV2JobCommand extends $Command<
   StartEntitiesDetectionV2JobCommandInput,
   StartEntitiesDetectionV2JobCommandOutput,
@@ -38,6 +42,9 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

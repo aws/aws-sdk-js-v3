@@ -24,6 +24,9 @@ import {
 export type PutReportDefinitionCommandInput = PutReportDefinitionRequest;
 export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new report using the description that you provide.</p>
+ */
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
@@ -38,6 +41,9 @@ export class PutReportDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostAndUsageReportServiceClientResolvedConfig,

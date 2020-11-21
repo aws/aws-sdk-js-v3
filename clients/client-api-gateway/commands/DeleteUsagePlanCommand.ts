@@ -20,6 +20,9 @@ import {
 export type DeleteUsagePlanCommandInput = DeleteUsagePlanRequest;
 export type DeleteUsagePlanCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a usage plan of a given plan Id.</p>
+ */
 export class DeleteUsagePlanCommand extends $Command<
   DeleteUsagePlanCommandInput,
   DeleteUsagePlanCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUsagePlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

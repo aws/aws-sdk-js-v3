@@ -20,6 +20,9 @@ import {
 export type DeleteMailboxPermissionsCommandInput = DeleteMailboxPermissionsRequest;
 export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes permissions granted to a member (user or group).</p>
+ */
 export class DeleteMailboxPermissionsCommand extends $Command<
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

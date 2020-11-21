@@ -20,6 +20,9 @@ import {
 export type SendMessagesCommandInput = SendMessagesRequest;
 export type SendMessagesCommandOutput = SendMessagesResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and sends a direct message.</p>
+ */
 export class SendMessagesCommand extends $Command<
   SendMessagesCommandInput,
   SendMessagesCommandOutput,
@@ -34,6 +37,9 @@ export class SendMessagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type RecordHandlerProgressCommandInput = RecordHandlerProgressInput;
 export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput & __MetadataBearer;
 
+/**
+ * <p>Reports progress of a resource handler to CloudFormation.</p>
+ *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Do not use this API in your code.</p>
+ */
 export class RecordHandlerProgressCommand extends $Command<
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput,
@@ -34,6 +38,9 @@ export class RecordHandlerProgressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

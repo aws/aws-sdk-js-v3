@@ -20,6 +20,9 @@ import {
 export type GetCompatibleKafkaVersionsCommandInput = GetCompatibleKafkaVersionsRequest;
 export type GetCompatibleKafkaVersionsCommandOutput = GetCompatibleKafkaVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
+ */
 export class GetCompatibleKafkaVersionsCommand extends $Command<
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

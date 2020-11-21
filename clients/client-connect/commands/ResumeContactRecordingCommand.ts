@@ -20,6 +20,12 @@ import {
 export type ResumeContactRecordingCommandInput = ResumeContactRecordingRequest;
 export type ResumeContactRecordingCommandOutput = ResumeContactRecordingResponse & __MetadataBearer;
 
+/**
+ * <p>When a contact is being recorded, and the recording has been suspended using
+ *    SuspendContactRecording, this API resumes recording the call.</p>
+ *
+ *          <p>Only voice recordings are supported at this time.</p>
+ */
 export class ResumeContactRecordingCommand extends $Command<
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -34,6 +40,9 @@ export class ResumeContactRecordingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

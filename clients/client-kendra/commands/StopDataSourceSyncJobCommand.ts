@@ -20,6 +20,10 @@ import {
 export type StopDataSourceSyncJobCommandInput = StopDataSourceSyncJobRequest;
 export type StopDataSourceSyncJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a running synchronization job. You can't stop a scheduled synchronization
+ *       job.</p>
+ */
 export class StopDataSourceSyncJobCommand extends $Command<
   StopDataSourceSyncJobCommandInput,
   StopDataSourceSyncJobCommandOutput,
@@ -34,6 +38,9 @@ export class StopDataSourceSyncJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

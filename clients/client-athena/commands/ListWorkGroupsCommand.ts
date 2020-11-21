@@ -20,6 +20,9 @@ import {
 export type ListWorkGroupsCommandInput = ListWorkGroupsInput;
 export type ListWorkGroupsCommandOutput = ListWorkGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists available workgroups for the account.</p>
+ */
 export class ListWorkGroupsCommand extends $Command<
   ListWorkGroupsCommandInput,
   ListWorkGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListWorkGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

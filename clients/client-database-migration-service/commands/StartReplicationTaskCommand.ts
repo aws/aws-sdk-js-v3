@@ -24,6 +24,12 @@ import {
 export type StartReplicationTaskCommandInput = StartReplicationTaskMessage;
 export type StartReplicationTaskCommandOutput = StartReplicationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the replication task.</p>
+ *          <p>For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
+ *             <i>AWS Database Migration Service User Guide.</i>
+ *          </p>
+ */
 export class StartReplicationTaskCommand extends $Command<
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
@@ -38,6 +44,9 @@ export class StartReplicationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

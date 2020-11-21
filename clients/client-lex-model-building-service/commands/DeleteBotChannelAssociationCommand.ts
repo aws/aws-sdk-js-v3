@@ -24,6 +24,11 @@ import {
 export type DeleteBotChannelAssociationCommandInput = DeleteBotChannelAssociationRequest;
 export type DeleteBotChannelAssociationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the association between an Amazon Lex bot and a messaging platform.</p>
+ *          <p>This operation requires permission for the <code>lex:DeleteBotChannelAssociation</code>
+ *       action.</p>
+ */
 export class DeleteBotChannelAssociationCommand extends $Command<
   DeleteBotChannelAssociationCommandInput,
   DeleteBotChannelAssociationCommandOutput,
@@ -38,6 +43,9 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

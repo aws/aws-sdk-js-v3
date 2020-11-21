@@ -20,6 +20,9 @@ import {
 export type DeleteImageCommandInput = DeleteImageRequest;
 export type DeleteImageCommandOutput = DeleteImageResponse & __MetadataBearer;
 
+/**
+ * <p> Deletes an image. </p>
+ */
 export class DeleteImageCommand extends $Command<
   DeleteImageCommandInput,
   DeleteImageCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

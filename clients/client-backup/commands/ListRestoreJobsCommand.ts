@@ -20,6 +20,10 @@ import {
 export type ListRestoreJobsCommandInput = ListRestoreJobsInput;
 export type ListRestoreJobsCommandOutput = ListRestoreJobsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
+ *          metadata about the recovery process.</p>
+ */
 export class ListRestoreJobsCommand extends $Command<
   ListRestoreJobsCommandInput,
   ListRestoreJobsCommandOutput,
@@ -34,6 +38,9 @@ export class ListRestoreJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

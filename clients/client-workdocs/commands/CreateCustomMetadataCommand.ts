@@ -20,6 +20,10 @@ import {
 export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
 export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Adds one or more custom properties to the specified resource (a folder, document,
+ *             or version).</p>
+ */
 export class CreateCustomMetadataCommand extends $Command<
   CreateCustomMetadataCommandInput,
   CreateCustomMetadataCommandOutput,
@@ -34,6 +38,9 @@ export class CreateCustomMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

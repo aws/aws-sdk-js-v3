@@ -20,6 +20,11 @@ import {
 export type ListReportGroupsCommandInput = ListReportGroupsInput;
 export type ListReportGroupsCommandOutput = ListReportGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Gets a list ARNs for the report groups in the current AWS account.
+ *     </p>
+ */
 export class ListReportGroupsCommand extends $Command<
   ListReportGroupsCommandInput,
   ListReportGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class ListReportGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

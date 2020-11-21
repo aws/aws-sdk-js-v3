@@ -20,6 +20,9 @@ import {
 export type DescribeSavingsPlansOfferingsCommandInput = DescribeSavingsPlansOfferingsRequest;
 export type DescribeSavingsPlansOfferingsCommandOutput = DescribeSavingsPlansOfferingsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified Savings Plans offerings.</p>
+ */
 export class DescribeSavingsPlansOfferingsCommand extends $Command<
   DescribeSavingsPlansOfferingsCommandInput,
   DescribeSavingsPlansOfferingsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SavingsplansClientResolvedConfig,

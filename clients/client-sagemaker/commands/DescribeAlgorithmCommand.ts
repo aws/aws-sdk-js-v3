@@ -20,6 +20,9 @@ import {
 export type DescribeAlgorithmCommandInput = DescribeAlgorithmInput;
 export type DescribeAlgorithmCommandOutput = DescribeAlgorithmOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the specified algorithm that is in your account.</p>
+ */
 export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAlgorithmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

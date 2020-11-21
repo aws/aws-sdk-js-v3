@@ -24,6 +24,13 @@ export type DisassociateResolverEndpointIpAddressCommandInput = DisassociateReso
 export type DisassociateResolverEndpointIpAddressCommandOutput = DisassociateResolverEndpointIpAddressResponse &
   __MetadataBearer;
 
+/**
+ * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
+ * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
+ * 		       <p>To add an IP address to an endpoint, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
+ * 		</p>
+ */
 export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   DisassociateResolverEndpointIpAddressCommandInput,
   DisassociateResolverEndpointIpAddressCommandOutput,
@@ -38,6 +45,9 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

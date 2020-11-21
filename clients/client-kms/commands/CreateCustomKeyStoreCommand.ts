@@ -20,6 +20,24 @@ import {
 export type CreateCustomKeyStoreCommandInput = CreateCustomKeyStoreRequest;
 export type CreateCustomKeyStoreCommandOutput = CreateCustomKeyStoreResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">AWS CloudHSM cluster</a> that you own and
+ *     manage.</p>
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
+ * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
+ * single-tenant key store.</p>
+ *          <p>Before you create the custom key store, you must assemble
+ *       the required elements, including an AWS CloudHSM cluster that fulfills the requirements for a custom
+ *       key store. For details about the required elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a>
+ *       in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>When the operation completes successfully, it returns the ID of the new custom key store.
+ *       Before you can use your new custom key store, you need to use the <a>ConnectCustomKeyStore</a> operation to connect the new key store to its AWS CloudHSM
+ *       cluster. Even if you are not going to use your custom key store immediately, you might want to
+ *       connect it to verify that all settings are correct and then disconnect it until you are ready
+ *       to use it.</p>
+ *          <p>For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a Custom Key Store</a> in the
+ *       <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class CreateCustomKeyStoreCommand extends $Command<
   CreateCustomKeyStoreCommandInput,
   CreateCustomKeyStoreCommandOutput,
@@ -34,6 +52,9 @@ export class CreateCustomKeyStoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

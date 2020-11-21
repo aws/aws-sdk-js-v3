@@ -20,6 +20,12 @@ import {
 export type PutInsightSelectorsCommandInput = PutInsightSelectorsRequest;
 export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Lets you enable Insights event logging by specifying the Insights
+ *          selectors that you want to enable on an existing trail. You also use
+ *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
+ *          In this release, only <code>ApiCallRateInsight</code> is supported as an Insights selector.</p>
+ */
 export class PutInsightSelectorsCommand extends $Command<
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
@@ -34,6 +40,9 @@ export class PutInsightSelectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

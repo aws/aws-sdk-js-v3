@@ -20,6 +20,9 @@ import {
 export type ListGroundStationsCommandInput = ListGroundStationsRequest;
 export type ListGroundStationsCommandOutput = ListGroundStationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of ground stations. </p>
+ */
 export class ListGroundStationsCommand extends $Command<
   ListGroundStationsCommandInput,
   ListGroundStationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroundStationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

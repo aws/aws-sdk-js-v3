@@ -24,6 +24,9 @@ import {
 export type DeleteAttributeGroupCommandInput = DeleteAttributeGroupRequest;
 export type DeleteAttributeGroupCommandOutput = DeleteAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
+ */
 export class DeleteAttributeGroupCommand extends $Command<
   DeleteAttributeGroupCommandInput,
   DeleteAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

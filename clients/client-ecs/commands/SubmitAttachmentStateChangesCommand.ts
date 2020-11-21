@@ -20,6 +20,13 @@ import {
 export type SubmitAttachmentStateChangesCommandInput = SubmitAttachmentStateChangesRequest;
 export type SubmitAttachmentStateChangesCommandOutput = SubmitAttachmentStateChangesResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *          </note>
+ *          <p>Sent to
+ * 			acknowledge that an attachment changed states.</p>
+ */
 export class SubmitAttachmentStateChangesCommand extends $Command<
   SubmitAttachmentStateChangesCommandInput,
   SubmitAttachmentStateChangesCommandOutput,
@@ -34,6 +41,9 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

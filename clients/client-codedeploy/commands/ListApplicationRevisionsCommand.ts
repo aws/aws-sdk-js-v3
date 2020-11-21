@@ -20,6 +20,9 @@ import {
 export type ListApplicationRevisionsCommandInput = ListApplicationRevisionsInput;
 export type ListApplicationRevisionsCommandOutput = ListApplicationRevisionsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists information about revisions for an application.</p>
+ */
 export class ListApplicationRevisionsCommand extends $Command<
   ListApplicationRevisionsCommandInput,
   ListApplicationRevisionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListApplicationRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

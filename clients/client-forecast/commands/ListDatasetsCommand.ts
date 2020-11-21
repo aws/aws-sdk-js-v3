@@ -20,6 +20,11 @@ import {
 export type ListDatasetsCommandInput = ListDatasetsRequest;
 export type ListDatasetsCommandOutput = ListDatasetsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of datasets created using the <a>CreateDataset</a> operation.
+ *       For each dataset, a summary of its properties, including its Amazon Resource Name (ARN), is
+ *       returned. To retrieve the complete set of properties, use the ARN with the <a>DescribeDataset</a> operation.</p>
+ */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,
   ListDatasetsCommandOutput,
@@ -34,6 +39,9 @@ export class ListDatasetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

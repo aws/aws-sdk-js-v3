@@ -24,6 +24,9 @@ import {
 export type ListNetworksCommandInput = ListNetworksInput;
 export type ListNetworksCommandOutput = ListNetworksOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the networks in which the current AWS account has members.</p>
+ */
 export class ListNetworksCommand extends $Command<
   ListNetworksCommandInput,
   ListNetworksCommandOutput,
@@ -38,6 +41,9 @@ export class ListNetworksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

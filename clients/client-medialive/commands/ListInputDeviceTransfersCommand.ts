@@ -20,6 +20,9 @@ import {
 export type ListInputDeviceTransfersCommandInput = ListInputDeviceTransfersRequest;
 export type ListInputDeviceTransfersCommandOutput = ListInputDeviceTransfersResponse & __MetadataBearer;
 
+/**
+ * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
+ */
 export class ListInputDeviceTransfersCommand extends $Command<
   ListInputDeviceTransfersCommandInput,
   ListInputDeviceTransfersCommandOutput,
@@ -34,6 +37,9 @@ export class ListInputDeviceTransfersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

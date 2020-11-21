@@ -8,6 +8,9 @@ import {
 import { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MarketplaceCatalogClient,
   input: ListEntitiesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEntitiesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MarketplaceCatalog,
   input: ListEntitiesCommandInput,

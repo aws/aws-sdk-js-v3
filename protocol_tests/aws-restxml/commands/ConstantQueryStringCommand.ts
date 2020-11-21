@@ -20,6 +20,12 @@ import {
 export type ConstantQueryStringCommandInput = ConstantQueryStringInput;
 export type ConstantQueryStringCommandOutput = __MetadataBearer;
 
+/**
+ * This example uses a constant query string parameters and a label.
+ * This simply tests that labels and query string parameters are
+ * compatible. The fixed query string parameter named "hello" should
+ * in no way conflict with the label, `{hello}`.
+ */
 export class ConstantQueryStringCommand extends $Command<
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
@@ -34,6 +40,9 @@ export class ConstantQueryStringCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

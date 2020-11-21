@@ -20,6 +20,11 @@ import {
 export type CreateScheduledActionCommandInput = CreateScheduledActionMessage;
 export type CreateScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
 
+/**
+ * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
+ *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
+ *         </p>
+ */
 export class CreateScheduledActionCommand extends $Command<
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateScheduledActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

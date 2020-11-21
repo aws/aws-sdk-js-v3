@@ -20,6 +20,13 @@ import {
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
 export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
+ *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
+ *          <p>You can see a list of the event categories for a given source type (<code>SourceType</code>)
+ *           in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> in the <i>Amazon RDS User Guide</i>
+ *             or by using the <code>DescribeEventCategories</code> operation.</p>
+ */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
@@ -34,6 +41,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

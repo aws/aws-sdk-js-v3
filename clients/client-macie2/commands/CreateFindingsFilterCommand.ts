@@ -20,6 +20,9 @@ import {
 export type CreateFindingsFilterCommandInput = CreateFindingsFilterRequest;
 export type CreateFindingsFilterCommandOutput = CreateFindingsFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and defines the criteria and other settings for a findings filter.</p>
+ */
 export class CreateFindingsFilterCommand extends $Command<
   CreateFindingsFilterCommandInput,
   CreateFindingsFilterCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFindingsFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

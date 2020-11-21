@@ -20,6 +20,9 @@ import {
 export type GetDeliverabilityTestReportCommandInput = GetDeliverabilityTestReportRequest;
 export type GetDeliverabilityTestReportCommandOutput = GetDeliverabilityTestReportResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve the results of a predictive inbox placement test.</p>
+ */
 export class GetDeliverabilityTestReportCommand extends $Command<
   GetDeliverabilityTestReportCommandInput,
   GetDeliverabilityTestReportCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

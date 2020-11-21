@@ -20,6 +20,11 @@ import {
 export type UpdateBudgetActionCommandInput = UpdateBudgetActionRequest;
 export type UpdateBudgetActionCommandOutput = UpdateBudgetActionResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Updates a budget action.
+ *       </p>
+ */
 export class UpdateBudgetActionCommand extends $Command<
   UpdateBudgetActionCommandInput,
   UpdateBudgetActionCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateBudgetActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

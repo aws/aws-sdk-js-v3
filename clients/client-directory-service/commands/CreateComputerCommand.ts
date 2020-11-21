@@ -20,6 +20,9 @@ import {
 export type CreateComputerCommandInput = CreateComputerRequest;
 export type CreateComputerCommandOutput = CreateComputerResult & __MetadataBearer;
 
+/**
+ * <p>Creates a computer account in the specified directory, and joins the computer to the directory.</p>
+ */
 export class CreateComputerCommand extends $Command<
   CreateComputerCommandInput,
   CreateComputerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateComputerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

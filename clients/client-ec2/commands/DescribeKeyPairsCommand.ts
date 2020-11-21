@@ -20,6 +20,11 @@ import {
 export type DescribeKeyPairsCommandInput = DescribeKeyPairsRequest;
 export type DescribeKeyPairsCommandOutput = DescribeKeyPairsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified key pairs or all of your key pairs.</p>
+ *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>
+ * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeKeyPairsCommand extends $Command<
   DescribeKeyPairsCommandInput,
   DescribeKeyPairsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeKeyPairsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

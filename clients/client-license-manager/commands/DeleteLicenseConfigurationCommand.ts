@@ -20,6 +20,10 @@ import {
 export type DeleteLicenseConfigurationCommandInput = DeleteLicenseConfigurationRequest;
 export type DeleteLicenseConfigurationCommandOutput = DeleteLicenseConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified license configuration.</p>
+ *          <p>You cannot delete a license configuration that is in use.</p>
+ */
 export class DeleteLicenseConfigurationCommand extends $Command<
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type GetManagedScalingPolicyCommandInput = GetManagedScalingPolicyInput;
 export type GetManagedScalingPolicyCommandOutput = GetManagedScalingPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *          Fetches the attached managed scaling policy for an Amazon EMR cluster.
+ *       </p>
+ */
 export class GetManagedScalingPolicyCommand extends $Command<
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class GetManagedScalingPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

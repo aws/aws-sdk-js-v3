@@ -20,6 +20,9 @@ import {
 export type ImportKeyPairCommandInput = ImportKeyPairRequest;
 export type ImportKeyPairCommandOutput = ImportKeyPairResult & __MetadataBearer;
 
+/**
+ * <p>Imports a public SSH key from a specific key pair.</p>
+ */
 export class ImportKeyPairCommand extends $Command<
   ImportKeyPairCommandInput,
   ImportKeyPairCommandOutput,
@@ -34,6 +37,9 @@ export class ImportKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateAssetCommandInput = CreateAssetRequest;
 export type CreateAssetCommandOutput = CreateAssetResponse & __MetadataBearer;
 
+/**
+ * Creates a new MediaPackage VOD Asset resource.
+ */
 export class CreateAssetCommand extends $Command<
   CreateAssetCommandInput,
   CreateAssetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

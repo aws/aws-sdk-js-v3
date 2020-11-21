@@ -20,6 +20,22 @@ import {
 export type ListHandshakesForAccountCommandInput = ListHandshakesForAccountRequest;
 export type ListHandshakesForAccountCommandOutput = ListHandshakesForAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the current handshakes that are associated with the account of the requesting
+ *             user.</p>
+ *         <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
+ *                 <code>CANCELED</code> appear in the results of this API for only 30 days after
+ *             changing to that state. After that, they're deleted and no longer accessible.</p>
+ *         <note>
+ *             <p>Always check the <code>NextToken</code> response parameter
+ * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
+ * occasionally return an empty set of results even when there are more results available. The
+ * <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
+ *          <p>This operation can be called from any account in the organization.</p>
+ */
 export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandInput,
   ListHandshakesForAccountCommandOutput,
@@ -34,6 +50,9 @@ export class ListHandshakesForAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

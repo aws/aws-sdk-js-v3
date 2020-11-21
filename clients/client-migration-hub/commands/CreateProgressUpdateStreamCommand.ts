@@ -20,6 +20,13 @@ import {
 export type CreateProgressUpdateStreamCommandInput = CreateProgressUpdateStreamRequest;
 export type CreateProgressUpdateStreamCommandOutput = CreateProgressUpdateStreamResult & __MetadataBearer;
 
+/**
+ * <p>Creates a progress update stream which is an AWS resource used for access control as
+ *          well as a namespace for migration task names that is implicitly linked to your AWS account.
+ *          It must uniquely identify the migration tool as it is used for all updates made by the
+ *          tool; however, it does not need to be unique for each AWS account because it is scoped to
+ *          the AWS account.</p>
+ */
 export class CreateProgressUpdateStreamCommand extends $Command<
   CreateProgressUpdateStreamCommandInput,
   CreateProgressUpdateStreamCommandOutput,
@@ -34,6 +41,9 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

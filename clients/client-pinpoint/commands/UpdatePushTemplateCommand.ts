@@ -20,6 +20,9 @@ import {
 export type UpdatePushTemplateCommandInput = UpdatePushTemplateRequest;
 export type UpdatePushTemplateCommandOutput = UpdatePushTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
+ */
 export class UpdatePushTemplateCommand extends $Command<
   UpdatePushTemplateCommandInput,
   UpdatePushTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePushTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

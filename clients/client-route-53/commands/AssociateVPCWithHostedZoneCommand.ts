@@ -21,6 +21,19 @@ import {
 export type AssociateVPCWithHostedZoneCommandInput = AssociateVPCWithHostedZoneRequest;
 export type AssociateVPCWithHostedZoneCommandOutput = AssociateVPCWithHostedZoneResponse & __MetadataBearer;
 
+/**
+ * <p>Associates an Amazon VPC with a private hosted zone. </p>
+ * 		       <important>
+ *             <p>To perform the association, the VPC and the private hosted zone must already exist.
+ * 			You can't convert a public hosted zone into a private hosted zone.</p>
+ *          </important>
+ * 		       <note>
+ *             <p>If you want to associate a VPC that was created by using one AWS account with a private hosted zone that was created
+ * 			by using a different account, the AWS account that created the private hosted zone must first submit a
+ * 			<code>CreateVPCAssociationAuthorization</code> request. Then the account that created the VPC must submit an
+ * 			<code>AssociateVPCWithHostedZone</code> request.</p>
+ *          </note>
+ */
 export class AssociateVPCWithHostedZoneCommand extends $Command<
   AssociateVPCWithHostedZoneCommandInput,
   AssociateVPCWithHostedZoneCommandOutput,
@@ -35,6 +48,9 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

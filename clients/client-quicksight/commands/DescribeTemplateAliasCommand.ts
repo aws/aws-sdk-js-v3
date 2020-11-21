@@ -20,6 +20,9 @@ import {
 export type DescribeTemplateAliasCommandInput = DescribeTemplateAliasRequest;
 export type DescribeTemplateAliasCommandOutput = DescribeTemplateAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the template alias for a template.</p>
+ */
 export class DescribeTemplateAliasCommand extends $Command<
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTemplateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListTagsLogGroupCommandInput = ListTagsLogGroupRequest;
 export type ListTagsLogGroupCommandOutput = ListTagsLogGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags for the specified log group.</p>
+ */
 export class ListTagsLogGroupCommand extends $Command<
   ListTagsLogGroupCommandInput,
   ListTagsLogGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ListTagsLogGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

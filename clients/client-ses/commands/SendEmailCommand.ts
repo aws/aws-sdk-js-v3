@@ -17,6 +17,53 @@ import {
 export type SendEmailCommandInput = SendEmailRequest;
 export type SendEmailCommandOutput = SendEmailResponse & __MetadataBearer;
 
+/**
+ * <p>Composes an email message and immediately queues it for sending. In order to send
+ *             email using the <code>SendEmail</code> operation, your message must meet the following
+ *             requirements:</p>
+ *
+ *         <ul>
+ *             <li>
+ *                 <p>The message must be sent from a verified email address or domain. If you
+ *                     attempt to send email using a non-verified address or domain, the operation will
+ *                     result in an "Email address not verified" error. </p>
+ *             </li>
+ *             <li>
+ *                 <p>If your account is still in the Amazon SES sandbox, you may only send to verified
+ *                     addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+ *                     Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+ *                         Email Addresses and Domains</a> in the <i>Amazon SES Developer
+ *                         Guide.</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>The maximum message size is 10 MB.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The message must include at least one recipient email address. The recipient
+ *                     address can be a To: address, a CC: address, or a BCC: address. If a recipient
+ *                     email address is invalid (that is, it is not in the format
+ *                         <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire
+ *                     message will be rejected, even if the message contains other recipients that are
+ *                     valid.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The message may not include more than 50 recipients, across the To:, CC: and
+ *                     BCC: fields. If you need to send an email message to a larger audience, you can
+ *                     divide your recipient list into groups of 50 or fewer, and then call the
+ *                         <code>SendEmail</code> operation several times to send the message to each
+ *                     group.</p>
+ *             </li>
+ *          </ul>
+ *         <important>
+ *             <p>For every message that you send, the total number of recipients (including each
+ *                 recipient in the To:, CC: and BCC: fields) is counted against the maximum number of
+ *                 emails you can send in a 24-hour period (your <i>sending quota</i>).
+ *                 For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES
+ *                     Sending Limits</a> in the <i>Amazon SES Developer Guide.</i>
+ *             </p>
+ *         </important>
+ */
 export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailCommandOutput, SESClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +74,9 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

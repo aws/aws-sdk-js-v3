@@ -20,6 +20,10 @@ import {
 export type GetPhoneNumberCommandInput = GetPhoneNumberRequest;
 export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details for the specified phone number ID, such as associations,
+ *       capabilities, and product type.</p>
+ */
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,
   GetPhoneNumberCommandOutput,
@@ -34,6 +38,9 @@ export class GetPhoneNumberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

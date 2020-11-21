@@ -20,6 +20,12 @@ import {
 export type CreateFlowCommandInput = CreateFlowRequest;
 export type CreateFlowCommandOutput = CreateFlowResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Enables your application to create a new flow using Amazon AppFlow. You must create a connector profile before calling this API. Please note that the Request Syntax below shows syntax for multiple destinations, however, you can only transfer data to one item in this list at a time. Amazon AppFlow does not currently support flows to multiple destinations at once.
+ *
+ * </p>
+ */
 export class CreateFlowCommand extends $Command<
   CreateFlowCommandInput,
   CreateFlowCommandOutput,
@@ -34,6 +40,9 @@ export class CreateFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

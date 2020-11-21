@@ -20,6 +20,9 @@ import {
 export type GetDataCatalogEncryptionSettingsCommandInput = GetDataCatalogEncryptionSettingsRequest;
 export type GetDataCatalogEncryptionSettingsCommandOutput = GetDataCatalogEncryptionSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the security configuration for a specified catalog.</p>
+ */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

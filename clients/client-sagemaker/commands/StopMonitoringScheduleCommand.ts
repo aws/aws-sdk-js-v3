@@ -20,6 +20,9 @@ import {
 export type StopMonitoringScheduleCommandInput = StopMonitoringScheduleRequest;
 export type StopMonitoringScheduleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops a previously started monitoring schedule.</p>
+ */
 export class StopMonitoringScheduleCommand extends $Command<
   StopMonitoringScheduleCommandInput,
   StopMonitoringScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class StopMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type DescribeSnapshotScheduleCommandInput = DescribeSnapshotScheduleInput;
 export type DescribeSnapshotScheduleCommandOutput = DescribeSnapshotScheduleOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the snapshot schedule for the specified gateway volume. The snapshot schedule
+ *          information includes intervals at which snapshots are automatically initiated on the
+ *          volume. This operation is only supported in the cached volume and stored volume
+ *          types.</p>
+ */
 export class DescribeSnapshotScheduleCommand extends $Command<
   DescribeSnapshotScheduleCommandInput,
   DescribeSnapshotScheduleCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

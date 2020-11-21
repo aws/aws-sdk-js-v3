@@ -20,6 +20,9 @@ import {
 export type CreateInvitationsCommandInput = CreateInvitationsRequest;
 export type CreateInvitationsCommandOutput = CreateInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Sends an Amazon Macie membership invitation to one or more accounts.</p>
+ */
 export class CreateInvitationsCommand extends $Command<
   CreateInvitationsCommandInput,
   CreateInvitationsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

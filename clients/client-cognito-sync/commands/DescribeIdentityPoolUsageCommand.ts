@@ -20,6 +20,10 @@ import {
 export type DescribeIdentityPoolUsageCommandInput = DescribeIdentityPoolUsageRequest;
 export type DescribeIdentityPoolUsageCommandOutput = DescribeIdentityPoolUsageResponse & __MetadataBearer;
 
+/**
+ * <p>Gets usage details (for example, data storage) about a particular identity pool.</p>
+ *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class DescribeIdentityPoolUsageCommand extends $Command<
   DescribeIdentityPoolUsageCommandInput,
   DescribeIdentityPoolUsageCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

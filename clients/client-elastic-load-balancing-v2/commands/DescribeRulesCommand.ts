@@ -24,6 +24,10 @@ import {
 export type DescribeRulesCommandInput = DescribeRulesInput;
 export type DescribeRulesCommandOutput = DescribeRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified rules or the rules for the specified listener. You must specify
+ *       either a listener or one or more rules.</p>
+ */
 export class DescribeRulesCommand extends $Command<
   DescribeRulesCommandInput,
   DescribeRulesCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

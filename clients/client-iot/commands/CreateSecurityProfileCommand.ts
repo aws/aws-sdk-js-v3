@@ -20,6 +20,9 @@ import {
 export type CreateSecurityProfileCommandInput = CreateSecurityProfileRequest;
 export type CreateSecurityProfileCommandOutput = CreateSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Device Defender security profile.</p>
+ */
 export class CreateSecurityProfileCommand extends $Command<
   CreateSecurityProfileCommandInput,
   CreateSecurityProfileCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ModifyTargetGroupAttributesCommandInput = ModifyTargetGroupAttributesInput;
 export type ModifyTargetGroupAttributesCommandOutput = ModifyTargetGroupAttributesOutput & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified attributes of the specified target group.</p>
+ */
 export class ModifyTargetGroupAttributesCommand extends $Command<
   ModifyTargetGroupAttributesCommandInput,
   ModifyTargetGroupAttributesCommandOutput,
@@ -38,6 +41,9 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

@@ -24,6 +24,9 @@ export type ListResolverQueryLogConfigAssociationsCommandInput = ListResolverQue
 export type ListResolverQueryLogConfigAssociationsCommandOutput = ListResolverQueryLogConfigAssociationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
+ */
 export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
   ListResolverQueryLogConfigAssociationsCommandInput,
   ListResolverQueryLogConfigAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

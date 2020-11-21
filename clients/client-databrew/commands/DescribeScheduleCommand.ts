@@ -20,6 +20,10 @@ import {
 export type DescribeScheduleCommandInput = DescribeScheduleRequest;
 export type DescribeScheduleCommandOutput = DescribeScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the definition of a specific AWS Glue DataBrew schedule that is in the current
+ *             AWS account.</p>
+ */
 export class DescribeScheduleCommand extends $Command<
   DescribeScheduleCommandInput,
   DescribeScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

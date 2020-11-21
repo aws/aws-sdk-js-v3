@@ -20,6 +20,9 @@ import {
 export type DescribeExportCommandInput = DescribeExportInput;
 export type DescribeExportCommandOutput = DescribeExportOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing table export.</p>
+ */
 export class DescribeExportCommand extends $Command<
   DescribeExportCommandInput,
   DescribeExportCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

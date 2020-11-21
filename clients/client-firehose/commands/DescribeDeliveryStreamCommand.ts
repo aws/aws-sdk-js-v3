@@ -20,6 +20,15 @@ import {
 export type DescribeDeliveryStreamCommandInput = DescribeDeliveryStreamInput;
 export type DescribeDeliveryStreamCommandOutput = DescribeDeliveryStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified delivery stream and its status. For example, after your
+ *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
+ *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
+ *          <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status
+ *          doesn't change, and you can't invoke <a>CreateDeliveryStream</a> again on it.
+ *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
+ *          If the status is <code>DELETING_FAILED</code>, you can force deletion by invoking <a>DeleteDeliveryStream</a> again but with <a>DeleteDeliveryStreamInput$AllowForceDelete</a> set to true.</p>
+ */
 export class DescribeDeliveryStreamCommand extends $Command<
   DescribeDeliveryStreamCommandInput,
   DescribeDeliveryStreamCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeDeliveryStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,

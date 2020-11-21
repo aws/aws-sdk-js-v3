@@ -17,6 +17,12 @@ import {
 export type DescribeRegionsCommandInput = DescribeRegionsRequest;
 export type DescribeRegionsCommandOutput = DescribeRegionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
+ *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
+ *        Regions and Endpoints</a>.</p>
+ *          <p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing AWS Regions</a> in the <i>AWS General Reference</i>.</p>
+ */
 export class DescribeRegionsCommand extends $Command<
   DescribeRegionsCommandInput,
   DescribeRegionsCommandOutput,
@@ -31,6 +37,9 @@ export class DescribeRegionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateEndpointCommandInput = CreateEndpointRequest;
 export type CreateEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
+ *       custom model
+ *       </p>
+ */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
   CreateEndpointCommandOutput,
@@ -34,6 +39,9 @@ export class CreateEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

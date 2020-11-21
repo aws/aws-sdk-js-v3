@@ -24,6 +24,9 @@ import {
 export type StopEntitiesDetectionV2JobCommandInput = StopEntitiesDetectionV2JobRequest;
 export type StopEntitiesDetectionV2JobCommandOutput = StopEntitiesDetectionV2JobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a medical entities detection job in progress.</p>
+ */
 export class StopEntitiesDetectionV2JobCommand extends $Command<
   StopEntitiesDetectionV2JobCommandInput,
   StopEntitiesDetectionV2JobCommandOutput,
@@ -38,6 +41,9 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

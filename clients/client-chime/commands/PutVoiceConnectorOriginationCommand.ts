@@ -20,6 +20,12 @@ import {
 export type PutVoiceConnectorOriginationCommandInput = PutVoiceConnectorOriginationRequest;
 export type PutVoiceConnectorOriginationCommandOutput = PutVoiceConnectorOriginationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
+ *          <note>
+ *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off origination settings.</p>
+ *          </note>
+ */
 export class PutVoiceConnectorOriginationCommand extends $Command<
   PutVoiceConnectorOriginationCommandInput,
   PutVoiceConnectorOriginationCommandOutput,
@@ -34,6 +40,9 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

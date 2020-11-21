@@ -20,6 +20,10 @@ import {
 export type DeleteDBParameterGroupCommandInput = DeleteDBParameterGroupMessage;
 export type DeleteDBParameterGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
+ *       associated with any DB instances.</p>
+ */
 export class DeleteDBParameterGroupCommand extends $Command<
   DeleteDBParameterGroupCommandInput,
   DeleteDBParameterGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDBParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

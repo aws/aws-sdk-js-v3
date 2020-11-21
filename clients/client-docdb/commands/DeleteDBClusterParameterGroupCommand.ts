@@ -20,6 +20,10 @@ import {
 export type DeleteDBClusterParameterGroupCommandInput = DeleteDBClusterParameterGroupMessage;
 export type DeleteDBClusterParameterGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified cluster parameter group. The cluster parameter group to be
+ *             deleted can't be associated with any clusters.</p>
+ */
 export class DeleteDBClusterParameterGroupCommand extends $Command<
   DeleteDBClusterParameterGroupCommandInput,
   DeleteDBClusterParameterGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

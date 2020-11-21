@@ -20,6 +20,9 @@ import {
 export type BatchGetCustomDataIdentifiersCommandInput = BatchGetCustomDataIdentifiersRequest;
 export type BatchGetCustomDataIdentifiersCommandOutput = BatchGetCustomDataIdentifiersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about one or more custom data identifiers.</p>
+ */
 export class BatchGetCustomDataIdentifiersCommand extends $Command<
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

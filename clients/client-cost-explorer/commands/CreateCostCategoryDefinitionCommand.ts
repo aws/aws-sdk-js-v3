@@ -20,6 +20,9 @@ import {
 export type CreateCostCategoryDefinitionCommandInput = CreateCostCategoryDefinitionRequest;
 export type CreateCostCategoryDefinitionCommandOutput = CreateCostCategoryDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Cost Category with the requested name and rules.</p>
+ */
 export class CreateCostCategoryDefinitionCommand extends $Command<
   CreateCostCategoryDefinitionCommandInput,
   CreateCostCategoryDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateCostCategoryDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

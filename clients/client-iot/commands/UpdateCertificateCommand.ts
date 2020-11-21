@@ -20,6 +20,15 @@ import {
 export type UpdateCertificateCommandInput = UpdateCertificateRequest;
 export type UpdateCertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the status of the specified certificate. This operation is
+ *          idempotent.</p>
+ *          <p>Certificates must be in the ACTIVE state to authenticate devices that use
+ *          a certificate to connect to AWS IoT.</p>
+ *          <p>Within a few minutes of updating a certificate from the ACTIVE state to any other
+ *          state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot
+ *          use a certificate that is not in the ACTIVE state to reconnect.</p>
+ */
 export class UpdateCertificateCommand extends $Command<
   UpdateCertificateCommandInput,
   UpdateCertificateCommandOutput,
@@ -34,6 +43,9 @@ export class UpdateCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -24,6 +24,13 @@ export type GetSavingsPlansUtilizationDetailsCommandInput = GetSavingsPlansUtili
 export type GetSavingsPlansUtilizationDetailsCommandOutput = GetSavingsPlansUtilizationDetailsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves attribute data along with aggregate utilization and savings data for a given time period. This doesn't support granular or grouped data (daily/monthly) in response. You can't retrieve data by dates in a single response similar to <code>GetSavingsPlanUtilization</code>, but you have the option to make multiple calls to <code>GetSavingsPlanUtilizationDetails</code> by providing individual dates. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
+ * 	        <note>
+ *             <p>
+ *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.</p>
+ *          </note>
+ */
 export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
   GetSavingsPlansUtilizationDetailsCommandInput,
   GetSavingsPlansUtilizationDetailsCommandOutput,
@@ -38,6 +45,9 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

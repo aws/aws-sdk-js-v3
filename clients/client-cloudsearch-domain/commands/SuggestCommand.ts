@@ -24,6 +24,12 @@ import {
 export type SuggestCommandInput = SuggestRequest;
 export type SuggestCommandOutput = SuggestResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match.</p>
+ *       <p>For more information about configuring suggesters and retrieving suggestions, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ *
+ *       <p>The endpoint for submitting <code>Suggest</code> requests is domain-specific and requires the <code>--endpoint-url</code> option. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. The endpoints are also available on the domain dashboard in the Amazon CloudSearch console.</p>
+ */
 export class SuggestCommand extends $Command<
   SuggestCommandInput,
   SuggestCommandOutput,
@@ -38,6 +44,9 @@ export class SuggestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchDomainClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeAccountSettingsCommandInput = DescribeAccountSettingsRequest;
 export type DescribeAccountSettingsCommandOutput = DescribeAccountSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the settings that were used when your QuickSight subscription was first
+ *             created in this AWS account.</p>
+ */
 export class DescribeAccountSettingsCommand extends $Command<
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAccountSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

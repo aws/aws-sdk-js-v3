@@ -20,6 +20,10 @@ import {
 export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
 export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse & __MetadataBearer;
 
+/**
+ * <p>This operation adds or updates tags for a specified domain.</p>
+ * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ */
 export class UpdateTagsForDomainCommand extends $Command<
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateTagsForDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

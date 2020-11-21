@@ -24,6 +24,9 @@ import {
 export type DeleteConnectionCommandInput = DeleteConnectionRequest;
 export type DeleteConnectionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete the connection with the provided id.</p>
+ */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayManagementApiClientResolvedConfig,

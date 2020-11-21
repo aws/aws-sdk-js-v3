@@ -20,6 +20,18 @@ import {
 export type GetTestGridSessionCommandInput = GetTestGridSessionRequest;
 export type GetTestGridSessionCommandOutput = GetTestGridSessionResult & __MetadataBearer;
 
+/**
+ * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The session ARN (<a>GetTestGridSessionRequest$sessionArn</a>).</p>
+ *             </li>
+ *             <li>
+ *                <p>The project ARN and a session ID (<a>GetTestGridSessionRequest$projectArn</a> and <a>GetTestGridSessionRequest$sessionId</a>).</p>
+ *             </li>
+ *          </ul>
+ *          <p></p>
+ */
 export class GetTestGridSessionCommand extends $Command<
   GetTestGridSessionCommandInput,
   GetTestGridSessionCommandOutput,
@@ -34,6 +46,9 @@ export class GetTestGridSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

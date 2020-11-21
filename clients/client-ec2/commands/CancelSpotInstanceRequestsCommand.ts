@@ -20,6 +20,12 @@ import {
 export type CancelSpotInstanceRequestsCommandInput = CancelSpotInstanceRequestsRequest;
 export type CancelSpotInstanceRequestsCommandOutput = CancelSpotInstanceRequestsResult & __MetadataBearer;
 
+/**
+ * <p>Cancels one or more Spot Instance requests.</p>
+ *          <important>
+ *             <p>Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.</p>
+ *          </important>
+ */
 export class CancelSpotInstanceRequestsCommand extends $Command<
   CancelSpotInstanceRequestsCommandInput,
   CancelSpotInstanceRequestsCommandOutput,
@@ -34,6 +40,9 @@ export class CancelSpotInstanceRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

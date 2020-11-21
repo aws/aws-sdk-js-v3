@@ -20,6 +20,9 @@ import {
 export type UpdateApplicationSettingsCommandInput = UpdateApplicationSettingsRequest;
 export type UpdateApplicationSettingsCommandOutput = UpdateApplicationSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the settings for an application.</p>
+ */
 export class UpdateApplicationSettingsCommand extends $Command<
   UpdateApplicationSettingsCommandInput,
   UpdateApplicationSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApplicationSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type GetEnvironmentCommandInput = GetEnvironmentRequest;
 export type GetEnvironmentCommandOutput = Environment & __MetadataBearer;
 
+/**
+ * <p>Retrieve information about an environment. An environment is a logical deployment group
+ *          of AppConfig applications, such as applications in a <code>Production</code> environment or
+ *          in an <code>EU_Region</code> environment. Each configuration deployment targets an
+ *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is
+ *          triggered during a deployment, AppConfig roles back the configuration.</p>
+ */
 export class GetEnvironmentCommand extends $Command<
   GetEnvironmentCommandInput,
   GetEnvironmentCommandOutput,
@@ -34,6 +41,9 @@ export class GetEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

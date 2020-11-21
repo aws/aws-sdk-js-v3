@@ -20,6 +20,11 @@ import {
 export type DeleteIdentityCommandInput = DeleteIdentityRequest;
 export type DeleteIdentityCommandOutput = DeleteIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified identity (an email address or a domain) from the list of
+ *             verified identities.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class DeleteIdentityCommand extends $Command<
   DeleteIdentityCommandInput,
   DeleteIdentityCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

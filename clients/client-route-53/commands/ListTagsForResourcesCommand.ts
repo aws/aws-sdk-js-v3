@@ -20,6 +20,12 @@ import {
 export type ListTagsForResourcesCommandInput = ListTagsForResourcesRequest;
 export type ListTagsForResourcesCommandOutput = ListTagsForResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists tags for up to 10 health checks or hosted zones.</p>
+ * 		       <p>For information about using tags for cost allocation, see
+ * 			<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a>
+ * 			in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+ */
 export class ListTagsForResourcesCommand extends $Command<
   ListTagsForResourcesCommandInput,
   ListTagsForResourcesCommandOutput,
@@ -34,6 +40,9 @@ export class ListTagsForResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

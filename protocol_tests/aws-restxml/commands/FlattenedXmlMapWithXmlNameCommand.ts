@@ -20,6 +20,9 @@ import {
 export type FlattenedXmlMapWithXmlNameCommandInput = FlattenedXmlMapWithXmlNameInputOutput;
 export type FlattenedXmlMapWithXmlNameCommandOutput = FlattenedXmlMapWithXmlNameInputOutput & __MetadataBearer;
 
+/**
+ * Flattened maps with @xmlName
+ */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command<
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput,
@@ -34,6 +37,9 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

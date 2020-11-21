@@ -20,6 +20,9 @@ import {
 export type GetNamespaceCommandInput = GetNamespaceRequest;
 export type GetNamespaceCommandOutput = GetNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a namespace.</p>
+ */
 export class GetNamespaceCommand extends $Command<
   GetNamespaceCommandInput,
   GetNamespaceCommandOutput,
@@ -34,6 +37,9 @@ export class GetNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

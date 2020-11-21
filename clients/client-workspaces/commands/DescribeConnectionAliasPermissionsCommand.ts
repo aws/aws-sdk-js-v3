@@ -24,6 +24,11 @@ export type DescribeConnectionAliasPermissionsCommandInput = DescribeConnectionA
 export type DescribeConnectionAliasPermissionsCommandOutput = DescribeConnectionAliasPermissionsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the permissions that the owner of a connection alias has granted to another AWS account for
+ *          the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+ *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<
   DescribeConnectionAliasPermissionsCommandInput,
   DescribeConnectionAliasPermissionsCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

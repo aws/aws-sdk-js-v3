@@ -25,6 +25,15 @@ import {
 export type AdminUpdateUserAttributesCommandInput = AdminUpdateUserAttributesRequest;
 export type AdminUpdateUserAttributesCommandOutput = AdminUpdateUserAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified user's attributes, including developer attributes, as an
+ *             administrator. Works on any user.</p>
+ *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+ *             attribute name.</p>
+ *         <p>In addition to updating user attributes, this API can also be used to mark phone and
+ *             email as verified.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminUpdateUserAttributesCommand extends $Command<
   AdminUpdateUserAttributesCommandInput,
   AdminUpdateUserAttributesCommandOutput,
@@ -39,6 +48,9 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

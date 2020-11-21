@@ -24,6 +24,18 @@ export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigura
 export type CreateConfigurationSetEventDestinationCommandOutput = CreateConfigurationSetEventDestinationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Creates a configuration set event destination.</p>
+ *         <note>
+ *             <p>When you create or update an event destination, you must provide one, and only
+ *                 one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p>
+ *         </note>
+ *         <p>An event destination is the AWS service to which Amazon SES publishes the email sending
+ *             events associated with a configuration set. For information about using configuration
+ *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
   CreateConfigurationSetEventDestinationCommandInput,
   CreateConfigurationSetEventDestinationCommandOutput,
@@ -38,6 +50,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

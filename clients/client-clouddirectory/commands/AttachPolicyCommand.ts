@@ -20,6 +20,10 @@ import {
 export type AttachPolicyCommandInput = AttachPolicyRequest;
 export type AttachPolicyCommandOutput = AttachPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
+ *       policies.</p>
+ */
 export class AttachPolicyCommand extends $Command<
   AttachPolicyCommandInput,
   AttachPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class AttachPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

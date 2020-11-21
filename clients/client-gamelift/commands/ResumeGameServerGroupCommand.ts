@@ -20,6 +20,71 @@ import {
 export type ResumeGameServerGroupCommandInput = ResumeGameServerGroupInput;
 export type ResumeGameServerGroupCommandOutput = ResumeGameServerGroupOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *          </p>
+ *         <p>Reinstates activity on a game server group after it has been suspended. A game server
+ *             group might be suspended by the<a>SuspendGameServerGroup</a> operation, or it
+ *             might be suspended involuntarily due to a configuration problem. In the second case, you
+ *             can manually resume activity on the group once the configuration problem has been
+ *             resolved. Refer to the game server group status and status reason for more information
+ *             on why group activity is suspended.</p>
+ *         <p>To resume activity, specify a game server group ARN and the type of activity to be
+ *             resumed. If successful, a <a>GameServerGroup</a> object is returned showing
+ *             that the resumed activity is no longer listed in <code>SuspendedActions</code>. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGameServerGroups</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResumeGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SuspendGameServerGroup</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServerInstances</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ResumeGameServerGroupCommand extends $Command<
   ResumeGameServerGroupCommandInput,
   ResumeGameServerGroupCommandOutput,
@@ -34,6 +99,9 @@ export class ResumeGameServerGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ExportBundleCommandInput = ExportBundleRequest;
 export type ExportBundleCommandOutput = ExportBundleResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Generates customized software development kit (SDK) and or tool packages
+ *             used to integrate mobile web or mobile app clients with backend AWS resources.
+ *         </p>
+ */
 export class ExportBundleCommand extends $Command<
   ExportBundleCommandInput,
   ExportBundleCommandOutput,
@@ -34,6 +40,9 @@ export class ExportBundleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

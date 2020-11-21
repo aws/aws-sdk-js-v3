@@ -20,6 +20,9 @@ import {
 export type CreateDeploymentCommandInput = CreateDeploymentRequest;
 export type CreateDeploymentCommandOutput = Deployment & __MetadataBearer;
 
+/**
+ * <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>
+ */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,
   CreateDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

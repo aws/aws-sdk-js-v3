@@ -20,6 +20,9 @@ import {
 export type GetTopicRuleCommandInput = GetTopicRuleRequest;
 export type GetTopicRuleCommandOutput = GetTopicRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the rule.</p>
+ */
 export class GetTopicRuleCommand extends $Command<
   GetTopicRuleCommandInput,
   GetTopicRuleCommandOutput,
@@ -34,6 +37,9 @@ export class GetTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

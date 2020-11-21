@@ -20,6 +20,10 @@ import {
 export type CreateProductCommandInput = CreateProductInput;
 export type CreateProductCommandOutput = CreateProductOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a product.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class CreateProductCommand extends $Command<
   CreateProductCommandInput,
   CreateProductCommandOutput,
@@ -34,6 +38,9 @@ export class CreateProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

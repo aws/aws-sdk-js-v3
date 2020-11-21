@@ -20,6 +20,9 @@ import {
 export type DescribeAppImageConfigCommandInput = DescribeAppImageConfigRequest;
 export type DescribeAppImageConfigCommandOutput = DescribeAppImageConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an AppImageConfig.</p>
+ */
 export class DescribeAppImageConfigCommand extends $Command<
   DescribeAppImageConfigCommandInput,
   DescribeAppImageConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAppImageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

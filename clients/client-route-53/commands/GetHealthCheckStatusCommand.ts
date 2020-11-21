@@ -20,6 +20,9 @@ import {
 export type GetHealthCheckStatusCommandInput = GetHealthCheckStatusRequest;
 export type GetHealthCheckStatusCommandOutput = GetHealthCheckStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Gets status of a specified health check. </p>
+ */
 export class GetHealthCheckStatusCommand extends $Command<
   GetHealthCheckStatusCommandInput,
   GetHealthCheckStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetHealthCheckStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

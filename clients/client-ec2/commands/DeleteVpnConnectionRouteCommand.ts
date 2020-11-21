@@ -20,6 +20,9 @@ import {
 export type DeleteVpnConnectionRouteCommandInput = DeleteVpnConnectionRouteRequest;
 export type DeleteVpnConnectionRouteCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
+ */
 export class DeleteVpnConnectionRouteCommand extends $Command<
   DeleteVpnConnectionRouteCommandInput,
   DeleteVpnConnectionRouteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

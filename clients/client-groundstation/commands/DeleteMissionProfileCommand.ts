@@ -20,6 +20,9 @@ import {
 export type DeleteMissionProfileCommandInput = DeleteMissionProfileRequest;
 export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a mission profile.</p>
+ */
 export class DeleteMissionProfileCommand extends $Command<
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMissionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

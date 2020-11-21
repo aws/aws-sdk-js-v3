@@ -20,6 +20,18 @@ import {
 export type GetBlueprintsCommandInput = GetBlueprintsRequest;
 export type GetBlueprintsCommandOutput = GetBlueprintsResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list of available instance images, or <i>blueprints</i>. You can
+ *       use a blueprint to create a new instance already running a specific operating system, as well
+ *       as a preinstalled app or development stack. The software each instance is running depends on
+ *       the blueprint image you choose.</p>
+ *          <note>
+ *             <p>Use active blueprints when creating new instances. Inactive blueprints are listed to
+ *         support customers with existing instances and are not necessarily available to create new
+ *         instances. Blueprints are marked inactive when they become outdated due to operating system
+ *         updates or new application releases.</p>
+ *          </note>
+ */
 export class GetBlueprintsCommand extends $Command<
   GetBlueprintsCommandInput,
   GetBlueprintsCommandOutput,
@@ -34,6 +46,9 @@ export class GetBlueprintsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -25,6 +25,20 @@ import {
 export type SetUICustomizationCommandInput = SetUICustomizationRequest;
 export type SetUICustomizationCommandOutput = SetUICustomizationResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the UI customization information for a user pool's built-in app UI.</p>
+ *         <p>You can specify app UI customization settings for a single client (with a specific
+ *                 <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to
+ *                 <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will
+ *             be used for every client that has no UI customization set previously. If you specify UI
+ *             customization settings for a particular client, it will no longer fall back to the
+ *                 <code>ALL</code> configuration. </p>
+ *         <note>
+ *             <p>To use this API, your user pool must have a domain associated with it. Otherwise,
+ *                 there is no place to host the app's pages, and the service will throw an
+ *                 error.</p>
+ *         </note>
+ */
 export class SetUICustomizationCommand extends $Command<
   SetUICustomizationCommandInput,
   SetUICustomizationCommandOutput,
@@ -39,6 +53,9 @@ export class SetUICustomizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

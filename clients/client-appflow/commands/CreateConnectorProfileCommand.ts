@@ -20,6 +20,11 @@ import {
 export type CreateConnectorProfileCommandInput = CreateConnectorProfileRequest;
 export type CreateConnectorProfileCommandOutput = CreateConnectorProfileResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Creates a new connector profile associated with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel.
+ * </p>
+ */
 export class CreateConnectorProfileCommand extends $Command<
   CreateConnectorProfileCommandInput,
   CreateConnectorProfileCommandOutput,
@@ -34,6 +39,9 @@ export class CreateConnectorProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

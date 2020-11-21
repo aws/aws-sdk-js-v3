@@ -20,6 +20,9 @@ import {
 export type GetAppValidationConfigurationCommandInput = GetAppValidationConfigurationRequest;
 export type GetAppValidationConfigurationCommandOutput = GetAppValidationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a configuration for validating an application.</p>
+ */
 export class GetAppValidationConfigurationCommand extends $Command<
   GetAppValidationConfigurationCommandInput,
   GetAppValidationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetAppValidationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

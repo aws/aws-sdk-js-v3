@@ -20,6 +20,10 @@ import {
 export type PutResolverQueryLogConfigPolicyCommandInput = PutResolverQueryLogConfigPolicyRequest;
 export type PutResolverQueryLogConfigPolicyCommandOutput = PutResolverQueryLogConfigPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Specifies an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share,
+ * 			and the operations that you want the account to be able to perform on the configuration.</p>
+ */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command<
   PutResolverQueryLogConfigPolicyCommandInput,
   PutResolverQueryLogConfigPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

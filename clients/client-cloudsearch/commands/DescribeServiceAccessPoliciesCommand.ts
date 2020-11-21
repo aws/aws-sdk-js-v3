@@ -20,6 +20,10 @@ import {
 export type DescribeServiceAccessPoliciesCommandInput = DescribeServiceAccessPoliciesRequest;
 export type DescribeServiceAccessPoliciesCommandOutput = DescribeServiceAccessPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
+ *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeServiceAccessPoliciesCommand extends $Command<
   DescribeServiceAccessPoliciesCommandInput,
   DescribeServiceAccessPoliciesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

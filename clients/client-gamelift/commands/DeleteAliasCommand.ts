@@ -20,6 +20,43 @@ import {
 export type DeleteAliasCommandInput = DeleteAliasInput;
 export type DeleteAliasCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an alias. This operation removes all record of the alias. Game clients
+ *             attempting to access a server process using the deleted alias receive an error. To
+ *             delete an alias, specify the alias ID to be deleted.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListAliases</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResolveAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,
   DeleteAliasCommandOutput,
@@ -34,6 +71,9 @@ export class DeleteAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

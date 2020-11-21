@@ -20,6 +20,10 @@ import {
 export type SubmitJobCommandInput = SubmitJobRequest;
 export type SubmitJobCommandOutput = SubmitJobResponse & __MetadataBearer;
 
+/**
+ * <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override
+ *    parameters defined in the job definition.</p>
+ */
 export class SubmitJobCommand extends $Command<
   SubmitJobCommandInput,
   SubmitJobCommandOutput,
@@ -34,6 +38,9 @@ export class SubmitJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

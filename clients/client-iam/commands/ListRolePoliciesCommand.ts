@@ -20,6 +20,17 @@ import {
 export type ListRolePoliciesCommandInput = ListRolePoliciesRequest;
 export type ListRolePoliciesCommandOutput = ListRolePoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the names of the inline policies that are embedded in the specified IAM
+ *          role.</p>
+ *          <p>An IAM role can also have managed policies attached to it. To list the managed
+ *          policies that are attached to a role, use <a>ListAttachedRolePolicies</a>. For
+ *          more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
+ *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters. If there are no inline policies embedded with the specified role, the operation
+ *          returns an empty list.</p>
+ */
 export class ListRolePoliciesCommand extends $Command<
   ListRolePoliciesCommandInput,
   ListRolePoliciesCommandOutput,
@@ -34,6 +45,9 @@ export class ListRolePoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

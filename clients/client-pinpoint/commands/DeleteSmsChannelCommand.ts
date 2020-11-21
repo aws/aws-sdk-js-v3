@@ -20,6 +20,9 @@ import {
 export type DeleteSmsChannelCommandInput = DeleteSmsChannelRequest;
 export type DeleteSmsChannelCommandOutput = DeleteSmsChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteSmsChannelCommand extends $Command<
   DeleteSmsChannelCommandInput,
   DeleteSmsChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSmsChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

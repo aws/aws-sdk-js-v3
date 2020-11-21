@@ -20,6 +20,17 @@ import {
 export type PublishVersionCommandInput = PublishVersionRequest;
 export type PublishVersionCommandOutput = FunctionConfiguration & __MetadataBearer;
 
+/**
+ * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the
+ *       current code and configuration of a function. Use versions to create a snapshot of your function code and
+ *       configuration that doesn't change.</p>
+ *
+ *          <p>AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
+ *       version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the
+ *       function before publishing a version.</p>
+ *
+ *          <p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
+ */
 export class PublishVersionCommand extends $Command<
   PublishVersionCommandInput,
   PublishVersionCommandOutput,
@@ -34,6 +45,9 @@ export class PublishVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

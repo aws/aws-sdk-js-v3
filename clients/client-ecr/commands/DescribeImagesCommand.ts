@@ -20,6 +20,15 @@ import {
 export type DescribeImagesCommandInput = DescribeImagesRequest;
 export type DescribeImagesCommandOutput = DescribeImagesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about the images in a repository.</p>
+ *         <note>
+ *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
+ *                 before pushing them to a V2 Docker registry. The output of the <code>docker
+ *                     images</code> command shows the uncompressed image size, so it may return a
+ *                 larger image size than the image sizes returned by <a>DescribeImages</a>.</p>
+ *         </note>
+ */
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,
   DescribeImagesCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

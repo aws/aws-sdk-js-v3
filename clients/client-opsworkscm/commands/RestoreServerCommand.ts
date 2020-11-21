@@ -20,6 +20,23 @@ import {
 export type RestoreServerCommandInput = RestoreServerRequest;
 export type RestoreServerCommandOutput = RestoreServerResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Restores a backup to a server that is in a <code>CONNECTION_LOST</code>, <code>HEALTHY</code>, <code>RUNNING</code>, <code>UNHEALTHY</code>, or <code>TERMINATED</code> state.
+ *       When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains
+ *       the existing server endpoint, so configuration management of the server's client devices (nodes) should continue to work.
+ *     </p>
+ *          <p>Restoring from a backup is performed by creating a new EC2 instance. If restoration is successful, and the server is in a <code>HEALTHY</code> state,
+ *       AWS OpsWorks CM switches traffic over to the new instance. After restoration is finished, the old EC2 instance is maintained in a
+ *       <code>Running</code> or <code>Stopped</code> state, but is eventually terminated.</p>
+ *          <p>
+ *       This operation is asynchronous.
+ *     </p>
+ *          <p>
+ *       An <code>InvalidStateException</code> is thrown when the server is not in a valid state. A <code>ResourceNotFoundException</code> is thrown
+ *       when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class RestoreServerCommand extends $Command<
   RestoreServerCommandInput,
   RestoreServerCommandOutput,
@@ -34,6 +51,9 @@ export class RestoreServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

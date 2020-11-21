@@ -17,6 +17,17 @@ import {
 export type SendBounceCommandInput = SendBounceRequest;
 export type SendBounceCommandOutput = SendBounceResponse & __MetadataBearer;
 
+/**
+ * <p>Generates and sends a bounce message to the sender of an email you received through
+ *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
+ *         <note>
+ *             <p>You cannot use this API to send generic bounces for mail that was not received by
+ *                 Amazon SES.</p>
+ *         </note>
+ *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class SendBounceCommand extends $Command<
   SendBounceCommandInput,
   SendBounceCommandOutput,
@@ -31,6 +42,9 @@ export class SendBounceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

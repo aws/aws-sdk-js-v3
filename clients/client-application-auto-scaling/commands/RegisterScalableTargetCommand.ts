@@ -24,6 +24,23 @@ import {
 export type RegisterScalableTargetCommandInput = RegisterScalableTargetRequest;
 export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Registers or updates a scalable target. </p>
+ *          <p>A scalable target is a resource that Application Auto Scaling can scale out and scale in. Scalable
+ *          targets are uniquely identified by the combination of resource ID, scalable dimension, and
+ *          namespace. </p>
+ *          <p>When you register a new scalable target, you must specify values for minimum and maximum
+ *          capacity. Current capacity will be adjusted within the specified range when scaling starts.
+ *          Application Auto Scaling scaling policies will not scale capacity to values that are outside of this
+ *          range.</p>
+ *          <p>After you register a scalable target, you do not need to register it again to use other
+ *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
+ *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can
+ *          deregister it by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html">DeregisterScalableTarget</a>.</p>
+ *          <p>To update a scalable target, specify the parameters that you want to change. Include the
+ *          parameters that identify the scalable target: resource ID, scalable dimension, and
+ *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
+ */
 export class RegisterScalableTargetCommand extends $Command<
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,
@@ -38,6 +55,9 @@ export class RegisterScalableTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

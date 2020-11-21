@@ -20,6 +20,20 @@ import {
 export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
 export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult & __MetadataBearer;
 
+/**
+ * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
+ *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
+ *          <important>
+ *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
+ *          </important>
+ *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
+ *          <p>
+ *             <code>&AttributeName.1=first</code>
+ *          </p>
+ *          <p>
+ *             <code>&AttributeName.2=second</code>
+ *          </p>
+ */
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,
   DeleteMessageBatchCommandOutput,
@@ -34,6 +48,9 @@ export class DeleteMessageBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

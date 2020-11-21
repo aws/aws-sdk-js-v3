@@ -20,6 +20,18 @@ import {
 export type ListAssociatedAssetsCommandInput = ListAssociatedAssetsRequest;
 export type ListAssociatedAssetsCommandOutput = ListAssociatedAssetsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of associated assets.</p>
+ *          <p>You can use this operation to do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>List child assets associated to a parent asset by a hierarchy that you specify.</p>
+ *             </li>
+ *             <li>
+ *                <p>List an asset's parent asset.</p>
+ *             </li>
+ *          </ul>
+ */
 export class ListAssociatedAssetsCommand extends $Command<
   ListAssociatedAssetsCommandInput,
   ListAssociatedAssetsCommandOutput,
@@ -34,6 +46,9 @@ export class ListAssociatedAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

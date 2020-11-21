@@ -21,6 +21,9 @@ import {
 export type ResumeClusterCommandInput = ResumeClusterMessage;
 export type ResumeClusterCommandOutput = ResumeClusterResult & __MetadataBearer;
 
+/**
+ * <p>Resumes a paused cluster.</p>
+ */
 export class ResumeClusterCommand extends $Command<
   ResumeClusterCommandInput,
   ResumeClusterCommandOutput,
@@ -35,6 +38,9 @@ export class ResumeClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

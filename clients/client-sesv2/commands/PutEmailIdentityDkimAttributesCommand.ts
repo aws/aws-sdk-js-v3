@@ -20,6 +20,9 @@ import {
 export type PutEmailIdentityDkimAttributesCommandInput = PutEmailIdentityDkimAttributesRequest;
 export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Used to enable or disable DKIM authentication for an email identity.</p>
+ */
 export class PutEmailIdentityDkimAttributesCommand extends $Command<
   PutEmailIdentityDkimAttributesCommandInput,
   PutEmailIdentityDkimAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

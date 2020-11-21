@@ -8,6 +8,9 @@ import {
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CostExplorerClient,
   input: GetSavingsPlansUtilizationDetailsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CostExplorer,
   input: GetSavingsPlansUtilizationDetailsCommandInput,

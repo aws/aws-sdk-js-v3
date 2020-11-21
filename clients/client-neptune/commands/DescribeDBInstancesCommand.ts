@@ -20,6 +20,14 @@ import {
 export type DescribeDBInstancesCommandInput = DescribeDBInstancesMessage;
 export type DescribeDBInstancesCommandOutput = DBInstanceMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about provisioned instances, and supports pagination.</p>
+ *
+ *          <note>
+ *             <p>This operation can also return information for Amazon RDS instances
+ *     and Amazon DocDB instances.</p>
+ *          </note>
+ */
 export class DescribeDBInstancesCommand extends $Command<
   DescribeDBInstancesCommandInput,
   DescribeDBInstancesCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeDBInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

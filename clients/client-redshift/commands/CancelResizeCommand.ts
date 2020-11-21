@@ -17,6 +17,9 @@ import {
 export type CancelResizeCommandInput = CancelResizeMessage;
 export type CancelResizeCommandOutput = ResizeProgressMessage & __MetadataBearer;
 
+/**
+ * <p>Cancels a resize operation for a cluster.</p>
+ */
 export class CancelResizeCommand extends $Command<
   CancelResizeCommandInput,
   CancelResizeCommandOutput,
@@ -31,6 +34,9 @@ export class CancelResizeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

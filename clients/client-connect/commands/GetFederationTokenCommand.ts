@@ -20,6 +20,9 @@ import {
 export type GetFederationTokenCommandInput = GetFederationTokenRequest;
 export type GetFederationTokenCommandOutput = GetFederationTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a token for federation.</p>
+ */
 export class GetFederationTokenCommand extends $Command<
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
@@ -34,6 +37,9 @@ export class GetFederationTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

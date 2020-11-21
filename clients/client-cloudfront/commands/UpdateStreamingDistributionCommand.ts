@@ -20,6 +20,9 @@ import {
 export type UpdateStreamingDistributionCommandInput = UpdateStreamingDistributionRequest;
 export type UpdateStreamingDistributionCommandOutput = UpdateStreamingDistributionResult & __MetadataBearer;
 
+/**
+ * <p>Update a streaming distribution. </p>
+ */
 export class UpdateStreamingDistributionCommand extends $Command<
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateStreamingDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
