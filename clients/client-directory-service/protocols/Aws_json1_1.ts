@@ -3,6 +3,7 @@ import {
   AcceptSharedDirectoryCommandOutput,
 } from "../commands/AcceptSharedDirectoryCommand";
 import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "../commands/AddIpRoutesCommand";
+import { AddRegionCommandInput, AddRegionCommandOutput } from "../commands/AddRegionCommand";
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand";
 import {
   CancelSchemaExtensionCommandInput,
@@ -66,6 +67,7 @@ import {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
 } from "../commands/DescribeLDAPSSettingsCommand";
+import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "../commands/DescribeRegionsCommand";
 import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -104,6 +106,7 @@ import {
   RejectSharedDirectoryCommandOutput,
 } from "../commands/RejectSharedDirectoryCommand";
 import { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "../commands/RemoveIpRoutesCommand";
+import { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "../commands/RemoveRegionCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -136,6 +139,8 @@ import {
   AccessDeniedException,
   AddIpRoutesRequest,
   AddIpRoutesResult,
+  AddRegionRequest,
+  AddRegionResult,
   AddTagsToResourceRequest,
   AddTagsToResourceResult,
   Attribute,
@@ -195,12 +200,15 @@ import {
   DescribeEventTopicsResult,
   DescribeLDAPSSettingsRequest,
   DescribeLDAPSSettingsResult,
+  DescribeRegionsRequest,
+  DescribeRegionsResult,
   DescribeSharedDirectoriesRequest,
   DescribeSharedDirectoriesResult,
   DescribeSnapshotsRequest,
   DescribeSnapshotsResult,
   DescribeTrustsRequest,
   DescribeTrustsResult,
+  DirectoryAlreadyInRegionException,
   DirectoryAlreadySharedException,
   DirectoryConnectSettings,
   DirectoryConnectSettingsDescription,
@@ -259,6 +267,9 @@ import {
   OrganizationsException,
   OwnerDirectoryDescription,
   RadiusSettings,
+  RegionDescription,
+  RegionLimitExceededException,
+  RegionsInfo,
   RegisterCertificateRequest,
   RegisterCertificateResult,
   RegisterEventTopicRequest,
@@ -267,6 +278,8 @@ import {
   RejectSharedDirectoryResult,
   RemoveIpRoutesRequest,
   RemoveIpRoutesResult,
+  RemoveRegionRequest,
+  RemoveRegionResult,
   RemoveTagsFromResourceRequest,
   RemoveTagsFromResourceResult,
   ResetUserPasswordRequest,
@@ -337,6 +350,19 @@ export const serializeAws_json1_1AddIpRoutesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddIpRoutesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AddRegionCommand = async (
+  input: AddRegionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.AddRegion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AddRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -652,6 +678,19 @@ export const serializeAws_json1_1DescribeLDAPSSettingsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeRegionsCommand = async (
+  input: DescribeRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeRegions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeRegionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeSharedDirectoriesCommand = async (
   input: DescribeSharedDirectoriesCommandInput,
   context: __SerdeContext
@@ -909,6 +948,19 @@ export const serializeAws_json1_1RemoveIpRoutesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveIpRoutesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RemoveRegionCommand = async (
+  input: RemoveRegionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RemoveRegion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1224,6 +1276,133 @@ const deserializeAws_json1_1AddIpRoutesCommandError = async (
     case "com.amazonaws.directoryservice#ServiceException":
       response = {
         ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AddRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddRegionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AddRegionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AddRegionResult(data, context);
+  const response: AddRegionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AddRegionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddRegionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryAlreadyInRegionException":
+    case "com.amazonaws.directoryservice#DirectoryAlreadyInRegionException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryAlreadyInRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityDoesNotExistException":
+    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1EntityDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RegionLimitExceededException":
+    case "com.amazonaws.directoryservice#RegionLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RegionLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3373,6 +3552,109 @@ const deserializeAws_json1_1DescribeLDAPSSettingsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeRegionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRegionsResult(data, context);
+  const response: DescribeRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeRegionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRegionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.directoryservice#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.directoryservice#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeSharedDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5137,6 +5419,101 @@ const deserializeAws_json1_1RemoveIpRoutesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RemoveRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRegionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveRegionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveRegionResult(data, context);
+  const response: RemoveRegionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveRegionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRegionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.directoryservice#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.directoryservice#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.directoryservice#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6255,6 +6632,21 @@ const deserializeAws_json1_1ClientExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1DirectoryAlreadyInRegionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DirectoryAlreadyInRegionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DirectoryAlreadyInRegionException(body, context);
+  const contents: DirectoryAlreadyInRegionException = {
+    name: "DirectoryAlreadyInRegionException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6525,6 +6917,21 @@ const deserializeAws_json1_1OrganizationsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1RegionLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RegionLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1RegionLimitExceededException(body, context);
+  const contents: RegionLimitExceededException = {
+    name: "RegionLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ServiceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6630,6 +7037,16 @@ const serializeAws_json1_1AddIpRoutesRequest = (input: AddIpRoutesRequest, conte
     ...(input.IpRoutes !== undefined && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
     ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined && {
       UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
+    }),
+  };
+};
+
+const serializeAws_json1_1AddRegionRequest = (input: AddRegionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+    ...(input.VPCSettings !== undefined && {
+      VPCSettings: serializeAws_json1_1DirectoryVpcSettings(input.VPCSettings, context),
     }),
   };
 };
@@ -6908,6 +7325,14 @@ const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+  };
+};
+
 const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   input: DescribeSharedDirectoriesRequest,
   context: __SerdeContext
@@ -7154,6 +7579,12 @@ const serializeAws_json1_1RemoveIpRoutesRequest = (input: RemoveIpRoutesRequest,
   };
 };
 
+const serializeAws_json1_1RemoveRegionRequest = (input: RemoveRegionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+  };
+};
+
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   input: RemoveTagsFromResourceRequest,
   context: __SerdeContext
@@ -7330,6 +7761,14 @@ const deserializeAws_json1_1AccessDeniedException = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1AddIpRoutesResult = (output: any, context: __SerdeContext): AddIpRoutesResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1AdditionalRegions = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1AddRegionResult = (output: any, context: __SerdeContext): AddRegionResult => {
   return {} as any;
 };
 
@@ -7666,6 +8105,16 @@ const deserializeAws_json1_1DescribeLDAPSSettingsResult = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    RegionsDescription:
+      output.RegionsDescription !== undefined && output.RegionsDescription !== null
+        ? deserializeAws_json1_1RegionsDescription(output.RegionsDescription, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeSharedDirectoriesResult = (
   output: any,
   context: __SerdeContext
@@ -7699,6 +8148,16 @@ const deserializeAws_json1_1DescribeTrustsResult = (output: any, context: __Serd
       output.Trusts !== undefined && output.Trusts !== null
         ? deserializeAws_json1_1Trusts(output.Trusts, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DirectoryAlreadyInRegionException = (
+  output: any,
+  context: __SerdeContext
+): DirectoryAlreadyInRegionException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
 };
 
@@ -7770,6 +8229,10 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
         ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context)
         : undefined,
     RadiusStatus: output.RadiusStatus !== undefined && output.RadiusStatus !== null ? output.RadiusStatus : undefined,
+    RegionsInfo:
+      output.RegionsInfo !== undefined && output.RegionsInfo !== null
+        ? deserializeAws_json1_1RegionsInfo(output.RegionsInfo, context)
+        : undefined,
     ShareMethod: output.ShareMethod !== undefined && output.ShareMethod !== null ? output.ShareMethod : undefined,
     ShareNotes: output.ShareNotes !== undefined && output.ShareNotes !== null ? output.ShareNotes : undefined,
     ShareStatus: output.ShareStatus !== undefined && output.ShareStatus !== null ? output.ShareStatus : undefined,
@@ -7872,6 +8335,16 @@ const deserializeAws_json1_1DirectoryUnavailableException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DirectoryVpcSettings = (output: any, context: __SerdeContext): DirectoryVpcSettings => {
+  return {
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
+        : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
   } as any;
 };
 
@@ -8277,6 +8750,60 @@ const deserializeAws_json1_1RadiusSettings = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1RegionDescription = (output: any, context: __SerdeContext): RegionDescription => {
+  return {
+    DesiredNumberOfDomainControllers:
+      output.DesiredNumberOfDomainControllers !== undefined && output.DesiredNumberOfDomainControllers !== null
+        ? output.DesiredNumberOfDomainControllers
+        : undefined,
+    DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+        ? new Date(Math.round(output.LastUpdatedDateTime * 1000))
+        : undefined,
+    LaunchTime:
+      output.LaunchTime !== undefined && output.LaunchTime !== null
+        ? new Date(Math.round(output.LaunchTime * 1000))
+        : undefined,
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
+    RegionType: output.RegionType !== undefined && output.RegionType !== null ? output.RegionType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusLastUpdatedDateTime:
+      output.StatusLastUpdatedDateTime !== undefined && output.StatusLastUpdatedDateTime !== null
+        ? new Date(Math.round(output.StatusLastUpdatedDateTime * 1000))
+        : undefined,
+    VpcSettings:
+      output.VpcSettings !== undefined && output.VpcSettings !== null
+        ? deserializeAws_json1_1DirectoryVpcSettings(output.VpcSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegionLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): RegionLimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegionsDescription = (output: any, context: __SerdeContext): RegionDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1RegionDescription(entry, context));
+};
+
+const deserializeAws_json1_1RegionsInfo = (output: any, context: __SerdeContext): RegionsInfo => {
+  return {
+    AdditionalRegions:
+      output.AdditionalRegions !== undefined && output.AdditionalRegions !== null
+        ? deserializeAws_json1_1AdditionalRegions(output.AdditionalRegions, context)
+        : undefined,
+    PrimaryRegion:
+      output.PrimaryRegion !== undefined && output.PrimaryRegion !== null ? output.PrimaryRegion : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RegisterCertificateResult = (
   output: any,
   context: __SerdeContext
@@ -8307,6 +8834,10 @@ const deserializeAws_json1_1RejectSharedDirectoryResult = (
 };
 
 const deserializeAws_json1_1RemoveIpRoutesResult = (output: any, context: __SerdeContext): RemoveIpRoutesResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1RemoveRegionResult = (output: any, context: __SerdeContext): RemoveRegionResult => {
   return {} as any;
 };
 

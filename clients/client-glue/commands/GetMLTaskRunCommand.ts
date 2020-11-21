@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_0";
+import { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetMLTaskRunCommand,
   serializeAws_json1_1GetMLTaskRunCommand,

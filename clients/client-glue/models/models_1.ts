@@ -1,14 +1,15 @@
 import {
   Action,
-  CatalogEntry,
+  CodeGenNodeArg,
   Column,
   ColumnStatistics,
-  ConfusionMatrix,
+  Compatibility,
   ConnectionInput,
   ConnectionsList,
   CrawlerTargets,
   CsvHeaderOption,
   DataCatalogEncryptionSettings,
+  DataFormat,
   DatabaseInput,
   EncryptionConfiguration,
   ErrorDetail,
@@ -17,21 +18,24 @@ import {
   JobBookmarkEntry,
   JobCommand,
   Language,
-  Location,
-  MappingEntry,
   NotificationProperty,
   Partition,
   PartitionInput,
   Predicate,
   PrincipalType,
   RecrawlPolicy,
+  RegistryId,
+  RegistryStatus,
   ResourceShareType,
   ResourceUri,
   SchemaChangePolicy,
-  SortDirectionType,
+  SchemaId,
+  SchemaStatus,
+  SchemaVersionStatus,
   StorageDescriptor,
   TableIdentifier,
   TableInput,
+  TaskStatusType,
   TransformEncryption,
   TransformParameters,
   TransformType,
@@ -43,6 +47,560 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>The location of resources.</p>
+ */
+export interface Location {
+  /**
+   * <p>A JDBC location.</p>
+   */
+  Jdbc?: CodeGenNodeArg[];
+
+  /**
+   * <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
+   */
+  S3?: CodeGenNodeArg[];
+
+  /**
+   * <p>An Amazon DynamoDB table location.</p>
+   */
+  DynamoDB?: CodeGenNodeArg[];
+}
+
+export namespace Location {
+  export const filterSensitiveLog = (obj: Location): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a table definition in the AWS Glue Data Catalog.</p>
+ */
+export interface CatalogEntry {
+  /**
+   * <p>The database in which the table metadata resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table in question.</p>
+   */
+  TableName: string | undefined;
+}
+
+export namespace CatalogEntry {
+  export const filterSensitiveLog = (obj: CatalogEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMappingRequest {
+  /**
+   * <p>Specifies the source table.</p>
+   */
+  Source: CatalogEntry | undefined;
+
+  /**
+   * <p>A list of target tables.</p>
+   */
+  Sinks?: CatalogEntry[];
+
+  /**
+   * <p>Parameters for the mapping.</p>
+   */
+  Location?: Location;
+}
+
+export namespace GetMappingRequest {
+  export const filterSensitiveLog = (obj: GetMappingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a mapping.</p>
+ */
+export interface MappingEntry {
+  /**
+   * <p>The name of the source table.</p>
+   */
+  SourceTable?: string;
+
+  /**
+   * <p>The source path.</p>
+   */
+  SourcePath?: string;
+
+  /**
+   * <p>The source type.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The target table.</p>
+   */
+  TargetTable?: string;
+
+  /**
+   * <p>The target path.</p>
+   */
+  TargetPath?: string;
+
+  /**
+   * <p>The target type.</p>
+   */
+  TargetType?: string;
+}
+
+export namespace MappingEntry {
+  export const filterSensitiveLog = (obj: MappingEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMappingResponse {
+  /**
+   * <p>A list of mappings to the specified targets.</p>
+   */
+  Mapping: MappingEntry[] | undefined;
+}
+
+export namespace GetMappingResponse {
+  export const filterSensitiveLog = (obj: GetMappingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMLTaskRunRequest {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the task run.</p>
+   */
+  TaskRunId: string | undefined;
+}
+
+export namespace GetMLTaskRunRequest {
+  export const filterSensitiveLog = (obj: GetMLTaskRunRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration properties for an exporting labels task run.</p>
+ */
+export interface ExportLabelsTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
+   *       labels.</p>
+   */
+  OutputS3Path?: string;
+}
+
+export namespace ExportLabelsTaskRunProperties {
+  export const filterSensitiveLog = (obj: ExportLabelsTaskRunProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration properties for a Find Matches task run.</p>
+ */
+export interface FindMatchesTaskRunProperties {
+  /**
+   * <p>The job ID for the Find Matches task run.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The name assigned to the job for the Find Matches task run.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The job run ID for the Find Matches task run.</p>
+   */
+  JobRunId?: string;
+}
+
+export namespace FindMatchesTaskRunProperties {
+  export const filterSensitiveLog = (obj: FindMatchesTaskRunProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration properties for an importing labels task run.</p>
+ */
+export interface ImportLabelsTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
+   *       labels.</p>
+   */
+  InputS3Path?: string;
+
+  /**
+   * <p>Indicates whether to overwrite your existing labels.</p>
+   */
+  Replace?: boolean;
+}
+
+export namespace ImportLabelsTaskRunProperties {
+  export const filterSensitiveLog = (obj: ImportLabelsTaskRunProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies configuration properties for a labeling set generation task run.</p>
+ */
+export interface LabelingSetGenerationTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
+   *       set.</p>
+   */
+  OutputS3Path?: string;
+}
+
+export namespace LabelingSetGenerationTaskRunProperties {
+  export const filterSensitiveLog = (obj: LabelingSetGenerationTaskRunProperties): any => ({
+    ...obj,
+  });
+}
+
+export enum TaskType {
+  EVALUATION = "EVALUATION",
+  EXPORT_LABELS = "EXPORT_LABELS",
+  FIND_MATCHES = "FIND_MATCHES",
+  IMPORT_LABELS = "IMPORT_LABELS",
+  LABELING_SET_GENERATION = "LABELING_SET_GENERATION",
+}
+
+/**
+ * <p>The configuration properties for the task run.</p>
+ */
+export interface TaskRunProperties {
+  /**
+   * <p>The type of task run.</p>
+   */
+  TaskType?: TaskType | string;
+
+  /**
+   * <p>The configuration properties for an importing labels task run.</p>
+   */
+  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties;
+
+  /**
+   * <p>The configuration properties for an exporting labels task run.</p>
+   */
+  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties;
+
+  /**
+   * <p>The configuration properties for a labeling set generation task run.</p>
+   */
+  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties;
+
+  /**
+   * <p>The configuration properties for a find matches task run.</p>
+   */
+  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties;
+}
+
+export namespace TaskRunProperties {
+  export const filterSensitiveLog = (obj: TaskRunProperties): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMLTaskRunResponse {
+  /**
+   * <p>The unique identifier of the task run.</p>
+   */
+  TransformId?: string;
+
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   */
+  TaskRunId?: string;
+
+  /**
+   * <p>The status for this task run.</p>
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   * <p>The names of the log groups that are associated with the task run.</p>
+   */
+  LogGroupName?: string;
+
+  /**
+   * <p>The list of properties that are associated with the task run.</p>
+   */
+  Properties?: TaskRunProperties;
+
+  /**
+   * <p>The error strings that are associated with the task run.</p>
+   */
+  ErrorString?: string;
+
+  /**
+   * <p>The date and time when this task run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The date and time when this task run was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>The date and time when this task run was completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
+   */
+  ExecutionTime?: number;
+}
+
+export namespace GetMLTaskRunResponse {
+  export const filterSensitiveLog = (obj: GetMLTaskRunResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The criteria that are used to filter the task runs for the machine learning
+ *       transform.</p>
+ */
+export interface TaskRunFilterCriteria {
+  /**
+   * <p>The type of task run.</p>
+   */
+  TaskRunType?: TaskType | string;
+
+  /**
+   * <p>The current status of the task run.</p>
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   * <p>Filter on task runs started before this date.</p>
+   */
+  StartedBefore?: Date;
+
+  /**
+   * <p>Filter on task runs started after this date.</p>
+   */
+  StartedAfter?: Date;
+}
+
+export namespace TaskRunFilterCriteria {
+  export const filterSensitiveLog = (obj: TaskRunFilterCriteria): any => ({
+    ...obj,
+  });
+}
+
+export enum TaskRunSortColumnType {
+  STARTED = "STARTED",
+  STATUS = "STATUS",
+  TASK_RUN_TYPE = "TASK_RUN_TYPE",
+}
+
+export enum SortDirectionType {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>The sorting criteria that are used to sort the list of task runs for the machine learning
+ *       transform.</p>
+ */
+export interface TaskRunSortCriteria {
+  /**
+   * <p>The column to be used to sort the list of task runs for the machine learning
+   *       transform.</p>
+   */
+  Column: TaskRunSortColumnType | string | undefined;
+
+  /**
+   * <p>The sort direction to be used to sort the list of task runs for the machine learning
+   *       transform.</p>
+   */
+  SortDirection: SortDirectionType | string | undefined;
+}
+
+export namespace TaskRunSortCriteria {
+  export const filterSensitiveLog = (obj: TaskRunSortCriteria): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMLTaskRunsRequest {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>A token for pagination of the results. The default is empty.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
+   */
+  Filter?: TaskRunFilterCriteria;
+
+  /**
+   * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
+   */
+  Sort?: TaskRunSortCriteria;
+}
+
+export namespace GetMLTaskRunsRequest {
+  export const filterSensitiveLog = (obj: GetMLTaskRunsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The sampling parameters that are associated with the machine learning transform.</p>
+ */
+export interface TaskRun {
+  /**
+   * <p>The unique identifier for the transform.</p>
+   */
+  TransformId?: string;
+
+  /**
+   * <p>The unique identifier for this task run.</p>
+   */
+  TaskRunId?: string;
+
+  /**
+   * <p>The current status of the requested task run.</p>
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   * <p>The names of the log group for secure logging, associated with this task run.</p>
+   */
+  LogGroupName?: string;
+
+  /**
+   * <p>Specifies configuration properties associated with this task run.</p>
+   */
+  Properties?: TaskRunProperties;
+
+  /**
+   * <p>The list of error strings associated with this task run.</p>
+   */
+  ErrorString?: string;
+
+  /**
+   * <p>The date and time that this task run started.</p>
+   */
+  StartedOn?: Date;
+
+  /**
+   * <p>The last point in time that the requested task run was updated.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>The last point in time that the requested task run was completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
+   */
+  ExecutionTime?: number;
+}
+
+export namespace TaskRun {
+  export const filterSensitiveLog = (obj: TaskRun): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMLTaskRunsResponse {
+  /**
+   * <p>A list of task runs that are associated with the transform.</p>
+   */
+  TaskRuns?: TaskRun[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetMLTaskRunsResponse {
+  export const filterSensitiveLog = (obj: GetMLTaskRunsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMLTransformRequest {
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   */
+  TransformId: string | undefined;
+}
+
+export namespace GetMLTransformRequest {
+  export const filterSensitiveLog = (obj: GetMLTransformRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+ *
+ * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+ */
+export interface ConfusionMatrix {
+  /**
+   * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
+   */
+  NumTruePositives?: number;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
+   *       in the confusion matrix for your transform.</p>
+   */
+  NumFalsePositives?: number;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform correctly rejected, in the
+   *       confusion matrix for your transform.</p>
+   */
+  NumTrueNegatives?: number;
+
+  /**
+   * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
+   */
+  NumFalseNegatives?: number;
+}
+
+export namespace ConfusionMatrix {
+  export const filterSensitiveLog = (obj: ConfusionMatrix): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
@@ -60,18 +618,18 @@ export interface FindMatchesMetrics {
   AreaUnderPRCurve?: number;
 
   /**
+   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   */
+  Precision?: number;
+
+  /**
    * <p>The recall metric indicates that for an actual match, how often your transform predicts
    *       the match. Specifically, it measures how well the transform finds true positives from the
    *       total records in the source data.</p>
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
    */
   Recall?: number;
-
-  /**
-   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   */
-  Precision?: number;
 
   /**
    * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
@@ -97,14 +655,14 @@ export namespace FindMatchesMetrics {
  */
 export interface EvaluationMetrics {
   /**
-   * <p>The evaluation metrics for the find matches algorithm.</p>
-   */
-  FindMatchesMetrics?: FindMatchesMetrics;
-
-  /**
    * <p>The type of machine learning transform.</p>
    */
   TransformType: TransformType | string | undefined;
+
+  /**
+   * <p>The evaluation metrics for the find matches algorithm.</p>
+   */
+  FindMatchesMetrics?: FindMatchesMetrics;
 }
 
 export namespace EvaluationMetrics {
@@ -119,14 +677,14 @@ export namespace EvaluationMetrics {
  */
 export interface SchemaColumn {
   /**
-   * <p>The type of data in the column.</p>
-   */
-  DataType?: string;
-
-  /**
    * <p>The name of the column.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The type of data in the column.</p>
+   */
+  DataType?: string;
 }
 
 export namespace SchemaColumn {
@@ -143,50 +701,10 @@ export enum TransformStatusType {
 
 export interface GetMLTransformResponse {
   /**
-   * <p>The configuration parameters that are specific to the algorithm used.</p>
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
    */
-  Parameters?: TransformParameters;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   */
-  MaxRetries?: number;
-
-  /**
-   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   */
-  Status?: TransformStatusType | string;
-
-  /**
-   * <p>A list of AWS Glue table definitions used by the transform.</p>
-   */
-  InputRecordTables?: GlueTable[];
-
-  /**
-   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The latest evaluation metrics.</p>
-   */
-  EvaluationMetrics?: EvaluationMetrics;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
-   *       transform accepts. Has an upper bound of 100 columns.</p>
-   */
-  Schema?: SchemaColumn[];
+  TransformId?: string;
 
   /**
    * <p>The unique name given to the transform when it was created.</p>
@@ -194,9 +712,50 @@ export interface GetMLTransformResponse {
   Name?: string;
 
   /**
+   * <p>A description of the transform.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   */
+  Status?: TransformStatusType | string;
+
+  /**
+   * <p>The date and time when the transform was created.</p>
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time when the transform was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>A list of AWS Glue table definitions used by the transform.</p>
+   */
+  InputRecordTables?: GlueTable[];
+
+  /**
+   * <p>The configuration parameters that are specific to the algorithm used.</p>
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   * <p>The latest evaluation metrics.</p>
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
    * <p>The number of labels available for this transform.</p>
    */
   LabelCount?: number;
+
+  /**
+   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
+   *       transform accepts. Has an upper bound of 100 columns.</p>
+   */
+  Schema?: SchemaColumn[];
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
@@ -210,15 +769,14 @@ export interface GetMLTransformResponse {
   GlueVersion?: string;
 
   /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
+   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
-  TransformId?: string;
-
-  /**
-   * <p>The date and time when the transform was created.</p>
-   */
-  CreatedOn?: Date;
+  MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -237,19 +795,19 @@ export interface GetMLTransformResponse {
   WorkerType?: WorkerType | string;
 
   /**
-   * <p>The date and time when the transform was last modified.</p>
-   */
-  LastModifiedOn?: Date;
-
-  /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
    */
   NumberOfWorkers?: number;
 
   /**
-   * <p>A description of the transform.</p>
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    */
-  Description?: string;
+  Timeout?: number;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   */
+  MaxRetries?: number;
 
   /**
    * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
@@ -268,14 +826,9 @@ export namespace GetMLTransformResponse {
  */
 export interface TransformFilterCriteria {
   /**
-   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   * <p>A unique transform name that is used to filter the machine learning transforms.</p>
    */
-  GlueVersion?: string;
-
-  /**
-   * <p>The time and date after which the transforms were created.</p>
-   */
-  CreatedAfter?: Date;
+  Name?: string;
 
   /**
    * <p>The type of machine learning transform that is used to filter the machine learning
@@ -284,12 +837,14 @@ export interface TransformFilterCriteria {
   TransformType?: TransformType | string;
 
   /**
-   * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
-   *       object is an array of key-value pairs representing the schema this transform accepts, where
-   *         <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data
-   *       such as an integer or string. Has an upper bound of 100 columns.</p>
+   * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Schema?: SchemaColumn[];
+  Status?: TransformStatusType | string;
+
+  /**
+   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   */
+  GlueVersion?: string;
 
   /**
    * <p>The time and date before which the transforms were created.</p>
@@ -297,14 +852,14 @@ export interface TransformFilterCriteria {
   CreatedBefore?: Date;
 
   /**
+   * <p>The time and date after which the transforms were created.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
    * <p>Filter on transforms last modified before this date.</p>
    */
   LastModifiedBefore?: Date;
-
-  /**
-   * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   */
-  Status?: TransformStatusType | string;
 
   /**
    * <p>Filter on transforms last modified after this date.</p>
@@ -312,9 +867,12 @@ export interface TransformFilterCriteria {
   LastModifiedAfter?: Date;
 
   /**
-   * <p>A unique transform name that is used to filter the machine learning transforms.</p>
+   * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
+   *       object is an array of key-value pairs representing the schema this transform accepts, where
+   *         <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data
+   *       such as an integer or string. Has an upper bound of 100 columns.</p>
    */
-  Name?: string;
+  Schema?: SchemaColumn[];
 }
 
 export namespace TransformFilterCriteria {
@@ -336,16 +894,16 @@ export enum TransformSortColumnType {
  */
 export interface TransformSortCriteria {
   /**
-   * <p>The sort direction to be used in the sorting criteria that are associated with the machine
-   *       learning transform.</p>
-   */
-  SortDirection: SortDirectionType | string | undefined;
-
-  /**
    * <p>The column to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
   Column: TransformSortColumnType | string | undefined;
+
+  /**
+   * <p>The sort direction to be used in the sorting criteria that are associated with the machine
+   *       learning transform.</p>
+   */
+  SortDirection: SortDirectionType | string | undefined;
 }
 
 export namespace TransformSortCriteria {
@@ -356,16 +914,6 @@ export namespace TransformSortCriteria {
 
 export interface GetMLTransformsRequest {
   /**
-   * <p>The sorting criteria.</p>
-   */
-  Sort?: TransformSortCriteria;
-
-  /**
-   * <p>The filter transformation criteria.</p>
-   */
-  Filter?: TransformFilterCriteria;
-
-  /**
    * <p>A paginated token to offset the results.</p>
    */
   NextToken?: string;
@@ -374,6 +922,16 @@ export interface GetMLTransformsRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The filter transformation criteria.</p>
+   */
+  Filter?: TransformFilterCriteria;
+
+  /**
+   * <p>The sorting criteria.</p>
+   */
+  Sort?: TransformSortCriteria;
 }
 
 export namespace GetMLTransformsRequest {
@@ -387,14 +945,42 @@ export namespace GetMLTransformsRequest {
  */
 export interface MLTransform {
   /**
+   * <p>The unique transform ID that is generated for the machine learning transform. The ID is
+   *       guaranteed to be unique and does not change.</p>
+   */
+  TransformId?: string;
+
+  /**
+   * <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
+   *       and can be changed at any time.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A user-defined, long-form description text for the machine learning transform.
+   *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The current status of the machine learning transform.</p>
+   */
+  Status?: TransformStatusType | string;
+
+  /**
+   * <p>A timestamp. The time and date that this machine learning transform was created.</p>
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
   InputRecordTables?: GlueTable[];
-
-  /**
-   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-   */
-  TransformEncryption?: TransformEncryption;
 
   /**
    * <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
@@ -404,20 +990,14 @@ export interface MLTransform {
   Parameters?: TransformParameters;
 
   /**
-   * <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
+   * <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
    */
-  LastModifiedOn?: Date;
+  EvaluationMetrics?: EvaluationMetrics;
 
   /**
-   * <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
-   *       learning transform fails.</p>
+   * <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
    */
-  MaxRetries?: number;
-
-  /**
-   * <p>The current status of the machine learning transform.</p>
-   */
-  Status?: TransformStatusType | string;
+  LabelCount?: number;
 
   /**
    * <p>A map of key-value pairs representing the columns and data types that this transform can
@@ -426,21 +1006,51 @@ export interface MLTransform {
   Schema?: SchemaColumn[];
 
   /**
-   * <p>A timestamp. The time and date that this machine learning transform was created.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
+   *             </li>
+   *          </ul>
    */
-  CreatedOn?: Date;
+  Role?: string;
 
   /**
-   * <p>The unique transform ID that is generated for the machine learning transform. The ID is
-   *       guaranteed to be unique and does not change.</p>
+   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
    */
-  TransformId?: string;
+  GlueVersion?: string;
 
   /**
-   * <p>A user-defined, long-form description text for the machine learning transform.
-   *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
+   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="http://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   * 		       <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
-  Description?: string;
+  MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -477,20 +1087,6 @@ export interface MLTransform {
   WorkerType?: WorkerType | string;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
-   *             <li>
-   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
-   *             </li>
-   *          </ul>
-   */
-  Role?: string;
-
-  /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
    *
    * 	        <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
@@ -498,58 +1094,20 @@ export interface MLTransform {
   NumberOfWorkers?: number;
 
   /**
-   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="http://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   * 		       <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
    * <p>The timeout in minutes of the machine learning transform.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+   * <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
+   *       learning transform fails.</p>
    */
-  EvaluationMetrics?: EvaluationMetrics;
+  MaxRetries?: number;
 
   /**
-   * <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
-   *       and can be changed at any time.</p>
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
-   */
-  LabelCount?: number;
+  TransformEncryption?: TransformEncryption;
 }
 
 export namespace MLTransform {
@@ -560,14 +1118,14 @@ export namespace MLTransform {
 
 export interface GetMLTransformsResponse {
   /**
-   * <p>A pagination token, if more results are available.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of machine learning transforms.</p>
    */
   Transforms: MLTransform[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetMLTransformsResponse {
@@ -578,9 +1136,10 @@ export namespace GetMLTransformsResponse {
 
 export interface GetPartitionRequest {
   /**
-   * <p>The name of the partition's table.</p>
+   * <p>The ID of the Data Catalog where the partition in question resides. If none is provided,
+   *       the AWS account ID is used by default.</p>
    */
-  TableName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the catalog database where the partition resides.</p>
@@ -588,15 +1147,14 @@ export interface GetPartitionRequest {
   DatabaseName: string | undefined;
 
   /**
+   * <p>The name of the partition's table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
    * <p>The values that define the partition.</p>
    */
   PartitionValues: string[] | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog where the partition in question resides. If none is provided,
-   *       the AWS account ID is used by default.</p>
-   */
-  CatalogId?: string;
 }
 
 export namespace GetPartitionRequest {
@@ -639,14 +1197,9 @@ export namespace ConflictException {
 
 export interface GetPartitionIndexesRequest {
   /**
-   * <p>A continuation token, included if this is a continuation call.</p>
+   * <p>The catalog ID where the table resides.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>
-   */
-  TableName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>Specifies the name of a database from which you want to retrieve partition indexes.</p>
@@ -654,9 +1207,14 @@ export interface GetPartitionIndexesRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The catalog ID where the table resides.</p>
+   * <p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>
    */
-  CatalogId?: string;
+  TableName: string | undefined;
+
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetPartitionIndexesRequest {
@@ -674,14 +1232,14 @@ export enum PartitionIndexStatus {
  */
 export interface KeySchemaElement {
   /**
-   * <p>The type of a partition key.</p>
-   */
-  Type: string | undefined;
-
-  /**
    * <p>The name of a partition key.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The type of a partition key.</p>
+   */
+  Type: string | undefined;
 }
 
 export namespace KeySchemaElement {
@@ -695,9 +1253,9 @@ export namespace KeySchemaElement {
  */
 export interface PartitionIndexDescriptor {
   /**
-   * <p>The status of the partition index. </p>
+   * <p>The name of the partition index.</p>
    */
-  IndexStatus: PartitionIndexStatus | string | undefined;
+  IndexName: string | undefined;
 
   /**
    * <p>A list of one or more keys, as <code>KeySchemaElement</code> structures, for the partition index.</p>
@@ -705,9 +1263,9 @@ export interface PartitionIndexDescriptor {
   Keys: KeySchemaElement[] | undefined;
 
   /**
-   * <p>The name of the partition index.</p>
+   * <p>The status of the partition index. </p>
    */
-  IndexName: string | undefined;
+  IndexStatus: PartitionIndexStatus | string | undefined;
 }
 
 export namespace PartitionIndexDescriptor {
@@ -765,19 +1323,14 @@ export interface GetPartitionsRequest {
   CatalogId?: string;
 
   /**
-   * <p>The name of the partitions' table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The segment of the table's partitions to scan in this request.</p>
-   */
-  Segment?: Segment;
-
-  /**
    * <p>The name of the catalog database where the partitions reside.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
 
   /**
    * <p>An expression that filters the partitions to be returned.</p>
@@ -890,15 +1443,20 @@ export interface GetPartitionsRequest {
   Expression?: string;
 
   /**
-   * <p>The maximum number of partitions to return in a single response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A continuation token, if this is not the first call to retrieve
    *       these partitions.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The segment of the table's partitions to scan in this request.</p>
+   */
+  Segment?: Segment;
+
+  /**
+   * <p>The maximum number of partitions to return in a single response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetPartitionsRequest {
@@ -909,15 +1467,15 @@ export namespace GetPartitionsRequest {
 
 export interface GetPartitionsResponse {
   /**
+   * <p>A list of requested partitions.</p>
+   */
+  Partitions?: Partition[];
+
+  /**
    * <p>A continuation token, if the returned list of partitions does not include the last
    *       one.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of requested partitions.</p>
-   */
-  Partitions?: Partition[];
 }
 
 export namespace GetPartitionsResponse {
@@ -928,19 +1486,19 @@ export namespace GetPartitionsResponse {
 
 export interface GetPlanRequest {
   /**
-   * <p>The source table.</p>
-   */
-  Source: CatalogEntry | undefined;
-
-  /**
    * <p>The list of mappings from a source table to target tables.</p>
    */
   Mapping: MappingEntry[] | undefined;
 
   /**
-   * <p>The programming language of the code to perform the mapping.</p>
+   * <p>The source table.</p>
    */
-  Language?: Language | string;
+  Source: CatalogEntry | undefined;
+
+  /**
+   * <p>The target tables.</p>
+   */
+  Sinks?: CatalogEntry[];
 
   /**
    * <p>The parameters for the mapping.</p>
@@ -948,9 +1506,9 @@ export interface GetPlanRequest {
   Location?: Location;
 
   /**
-   * <p>The target tables.</p>
+   * <p>The programming language of the code to perform the mapping.</p>
    */
-  Sinks?: CatalogEntry[];
+  Language?: Language | string;
 
   /**
    * <p>A map to hold additional optional key-value parameters.</p>
@@ -978,18 +1536,69 @@ export namespace GetPlanRequest {
 
 export interface GetPlanResponse {
   /**
-   * <p>The Scala code to perform the mapping.</p>
-   */
-  ScalaCode?: string;
-
-  /**
    * <p>A Python script to perform the mapping.</p>
    */
   PythonScript?: string;
+
+  /**
+   * <p>The Scala code to perform the mapping.</p>
+   */
+  ScalaCode?: string;
 }
 
 export namespace GetPlanResponse {
   export const filterSensitiveLog = (obj: GetPlanResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   */
+  RegistryId: RegistryId | undefined;
+}
+
+export namespace GetRegistryInput {
+  export const filterSensitiveLog = (obj: GetRegistryInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRegistryResponse {
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the registry.</p>
+   */
+  Status?: RegistryStatus | string;
+
+  /**
+   * <p>The date and time the registry was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time the registry was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export namespace GetRegistryResponse {
+  export const filterSensitiveLog = (obj: GetRegistryResponse): any => ({
     ...obj,
   });
 }
@@ -1022,14 +1631,14 @@ export interface GluePolicy {
   PolicyInJson?: string;
 
   /**
-   * <p>The date and time at which the policy was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
    * <p>Contains the hash value associated with this policy.</p>
    */
   PolicyHash?: string;
+
+  /**
+   * <p>The date and time at which the policy was created.</p>
+   */
+  CreateTime?: Date;
 
   /**
    * <p>The date and time at which the policy was last updated.</p>
@@ -1045,14 +1654,14 @@ export namespace GluePolicy {
 
 export interface GetResourcePoliciesResponse {
   /**
-   * <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of the individual resource policies and the account-level resource policy.</p>
    */
   GetResourcePoliciesResponseList?: GluePolicy[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetResourcePoliciesResponse {
@@ -1078,11 +1687,6 @@ export namespace GetResourcePolicyRequest {
 
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The date and time at which the policy was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
    * <p>Contains the requested policy document, in JSON format.</p>
    */
   PolicyInJson?: string;
@@ -1093,6 +1697,11 @@ export interface GetResourcePolicyResponse {
   PolicyHash?: string;
 
   /**
+   * <p>The date and time at which the policy was created.</p>
+   */
+  CreateTime?: Date;
+
+  /**
    * <p>The date and time at which the policy was last updated.</p>
    */
   UpdateTime?: Date;
@@ -1100,6 +1709,297 @@ export interface GetResourcePolicyResponse {
 
 export namespace GetResourcePolicyResponse {
   export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+}
+
+export namespace GetSchemaInput {
+  export const filterSensitiveLog = (obj: GetSchemaInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaResponse {
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>A description of schema if specified when created</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently only <code>AVRO</code> is supported.</p>
+   */
+  DataFormat?: DataFormat | string;
+
+  /**
+   * <p>The compatibility mode of the schema.</p>
+   */
+  Compatibility?: Compatibility | string;
+
+  /**
+   * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
+   */
+  SchemaCheckpoint?: number;
+
+  /**
+   * <p>The latest version of the schema associated with the returned schema definition.</p>
+   */
+  LatestSchemaVersion?: number;
+
+  /**
+   * <p>The next version of the schema associated with the returned schema definition.</p>
+   */
+  NextSchemaVersion?: number;
+
+  /**
+   * <p>The status of the schema.</p>
+   */
+  SchemaStatus?: SchemaStatus | string;
+
+  /**
+   * <p>The date and time the schema was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time the schema was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export namespace GetSchemaResponse {
+  export const filterSensitiveLog = (obj: GetSchemaResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaByDefinitionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The definition of the schema for which schema details are required.</p>
+   */
+  SchemaDefinition: string | undefined;
+}
+
+export namespace GetSchemaByDefinitionInput {
+  export const filterSensitiveLog = (obj: GetSchemaByDefinitionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaByDefinitionResponse {
+  /**
+   * <p>The schema ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently only <code>AVRO</code> is supported.</p>
+   */
+  DataFormat?: DataFormat | string;
+
+  /**
+   * <p>The status of the schema version.</p>
+   */
+  Status?: SchemaVersionStatus | string;
+
+  /**
+   * <p>The date and time the schema was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export namespace GetSchemaByDefinitionResponse {
+  export const filterSensitiveLog = (obj: GetSchemaByDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SchemaVersionNumber {
+  LatestVersion?: boolean;
+  VersionNumber?: number;
+}
+
+export namespace SchemaVersionNumber {
+  export const filterSensitiveLog = (obj: SchemaVersionNumber): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+}
+
+export namespace GetSchemaVersionInput {
+  export const filterSensitiveLog = (obj: GetSchemaVersionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaVersionResponse {
+  /**
+   * <p>The <code>SchemaVersionId</code> of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The schema definition for the schema ID.</p>
+   */
+  SchemaDefinition?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently only <code>AVRO</code> is supported.</p>
+   */
+  DataFormat?: DataFormat | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version. </p>
+   */
+  Status?: SchemaVersionStatus | string;
+
+  /**
+   * <p>The date and time the schema version was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export namespace GetSchemaVersionResponse {
+  export const filterSensitiveLog = (obj: GetSchemaVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SchemaDiffType {
+  SYNTAX_DIFF = "SYNTAX_DIFF",
+}
+
+export interface GetSchemaVersionsDiffInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The first of the two schema versions to be compared.</p>
+   */
+  FirstSchemaVersionNumber: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The second of the two schema versions to be compared.</p>
+   */
+  SecondSchemaVersionNumber: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
+   */
+  SchemaDiffType: SchemaDiffType | string | undefined;
+}
+
+export namespace GetSchemaVersionsDiffInput {
+  export const filterSensitiveLog = (obj: GetSchemaVersionsDiffInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSchemaVersionsDiffResponse {
+  /**
+   * <p>The difference between schemas as a string in JsonPatch format.</p>
+   */
+  Diff?: string;
+}
+
+export namespace GetSchemaVersionsDiffResponse {
+  export const filterSensitiveLog = (obj: GetSchemaVersionsDiffResponse): any => ({
     ...obj,
   });
 }
@@ -1158,14 +2058,14 @@ export namespace GetSecurityConfigurationResponse {
 
 export interface GetSecurityConfigurationsRequest {
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetSecurityConfigurationsRequest {
@@ -1176,15 +2076,15 @@ export namespace GetSecurityConfigurationsRequest {
 
 export interface GetSecurityConfigurationsResponse {
   /**
+   * <p>A list of security configurations.</p>
+   */
+  SecurityConfigurations?: SecurityConfiguration[];
+
+  /**
    * <p>A continuation token, if there are more security
    *       configurations to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of security configurations.</p>
-   */
-  SecurityConfigurations?: SecurityConfiguration[];
 }
 
 export namespace GetSecurityConfigurationsResponse {
@@ -1195,10 +2095,10 @@ export namespace GetSecurityConfigurationsResponse {
 
 export interface GetTableRequest {
   /**
-   * <p>The name of the table for which to retrieve the definition. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
+   * <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
+   *       ID is used by default.</p>
    */
-  Name: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the database in the catalog in which the table resides.
@@ -1207,10 +2107,10 @@ export interface GetTableRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
-   *       ID is used by default.</p>
+   * <p>The name of the table for which to retrieve the definition. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
    */
-  CatalogId?: string;
+  Name: string | undefined;
 }
 
 export namespace GetTableRequest {
@@ -1224,19 +2124,42 @@ export namespace GetTableRequest {
  */
 export interface Table {
   /**
-   * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
+   * <p>The table name. For Hive compatibility, this must be entirely
+   *       lowercase.</p>
    */
-  TargetTable?: TableIdentifier;
+  Name: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog in which the table resides.</p>
+   * <p>The name of the database where the table metadata resides.
+   *       For Hive compatibility, this must be all lowercase.</p>
    */
-  CatalogId?: string;
+  DatabaseName?: string;
 
   /**
-   * <p>Indicates whether the table has been registered with AWS Lake Formation.</p>
+   * <p>A description of the table.</p>
    */
-  IsRegisteredWithLakeFormation?: boolean;
+  Description?: string;
+
+  /**
+   * <p>The owner of the table.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The time when the table definition was created in the Data Catalog.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The last time that the table was updated.</p>
+   */
+  UpdateTime?: Date;
+
+  /**
+   * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
+   *       be reliable.</p>
+   */
+  LastAccessTime?: Date;
 
   /**
    * <p>The last time that column statistics were computed for this table.</p>
@@ -1244,14 +2167,15 @@ export interface Table {
   LastAnalyzedTime?: Date;
 
   /**
-   * <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
+   * <p>The retention time for this table.</p>
    */
-  ViewExpandedText?: string;
+  Retention?: number;
 
   /**
-   * <p>The owner of the table.</p>
+   * <p>A storage descriptor containing information about the physical storage
+   *       of this table.</p>
    */
-  Owner?: string;
+  StorageDescriptor?: StorageDescriptor;
 
   /**
    * <p>A list of columns by which the table is partitioned. Only primitive
@@ -1266,57 +2190,14 @@ export interface Table {
   PartitionKeys?: Column[];
 
   /**
-   * <p>The last time that the table was updated.</p>
-   */
-  UpdateTime?: Date;
-
-  /**
    * <p>If the table is a view, the original text of the view; otherwise <code>null</code>.</p>
    */
   ViewOriginalText?: string;
 
   /**
-   * <p>The table name. For Hive compatibility, this must be entirely
-   *       lowercase.</p>
+   * <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>The person or entity who created the table.</p>
-   */
-  CreatedBy?: string;
-
-  /**
-   * <p>A storage descriptor containing information about the physical storage
-   *       of this table.</p>
-   */
-  StorageDescriptor?: StorageDescriptor;
-
-  /**
-   * <p>A description of the table.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
-   *       be reliable.</p>
-   */
-  LastAccessTime?: Date;
-
-  /**
-   * <p>The retention time for this table.</p>
-   */
-  Retention?: number;
-
-  /**
-   * <p>The time when the table definition was created in the Data Catalog.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>These key-value pairs define properties associated with the table.</p>
-   */
-  Parameters?: { [key: string]: string };
+  ViewExpandedText?: string;
 
   /**
    * <p>The type of this table (<code>EXTERNAL_TABLE</code>, <code>VIRTUAL_VIEW</code>, etc.).</p>
@@ -1324,10 +2205,29 @@ export interface Table {
   TableType?: string;
 
   /**
-   * <p>The name of the database where the table metadata resides.
-   *       For Hive compatibility, this must be all lowercase.</p>
+   * <p>These key-value pairs define properties associated with the table.</p>
    */
-  DatabaseName?: string;
+  Parameters?: { [key: string]: string };
+
+  /**
+   * <p>The person or entity who created the table.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>Indicates whether the table has been registered with AWS Lake Formation.</p>
+   */
+  IsRegisteredWithLakeFormation?: boolean;
+
+  /**
+   * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
+   */
+  TargetTable?: TableIdentifier;
+
+  /**
+   * <p>The ID of the Data Catalog in which the table resides.</p>
+   */
+  CatalogId?: string;
 }
 
 export namespace Table {
@@ -1351,21 +2251,22 @@ export namespace GetTableResponse {
 
 export interface GetTablesRequest {
   /**
-   * <p>A regular expression pattern. If present, only those tables
-   *       whose names match the pattern are returned.</p>
-   */
-  Expression?: string;
-
-  /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
    *       ID is used by default.</p>
    */
   CatalogId?: string;
 
   /**
-   * <p>The maximum number of tables to return in a single response.</p>
+   * <p>The database in the catalog whose tables to list. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
    */
-  MaxResults?: number;
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>A regular expression pattern. If present, only those tables
+   *       whose names match the pattern are returned.</p>
+   */
+  Expression?: string;
 
   /**
    * <p>A continuation token, included if this is a continuation call.</p>
@@ -1373,10 +2274,9 @@ export interface GetTablesRequest {
   NextToken?: string;
 
   /**
-   * <p>The database in the catalog whose tables to list. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
+   * <p>The maximum number of tables to return in a single response.</p>
    */
-  DatabaseName: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace GetTablesRequest {
@@ -1406,17 +2306,6 @@ export namespace GetTablesResponse {
 
 export interface GetTableVersionRequest {
   /**
-   * <p>The name of the table. For Hive compatibility,
-   *       this name is entirely lowercase.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
-   */
-  VersionId?: string;
-
-  /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
    *       ID is used by default.</p>
    */
@@ -1427,6 +2316,17 @@ export interface GetTableVersionRequest {
    *       compatibility, this name is entirely lowercase.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table. For Hive compatibility,
+   *       this name is entirely lowercase.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
+   */
+  VersionId?: string;
 }
 
 export namespace GetTableVersionRequest {
@@ -1471,15 +2371,10 @@ export namespace GetTableVersionResponse {
 
 export interface GetTableVersionsRequest {
   /**
-   * <p>A continuation token, if this is not the first call.</p>
+   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
+   *       ID is used by default.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>The name of the table. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  TableName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The database in the catalog in which the table resides. For Hive
@@ -1488,15 +2383,20 @@ export interface GetTableVersionsRequest {
   DatabaseName: string | undefined;
 
   /**
+   * <p>The name of the table. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is not the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of table versions to return in one response.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
 }
 
 export namespace GetTableVersionsRequest {
@@ -1579,6 +2479,11 @@ export namespace GetTriggerResponse {
 
 export interface GetTriggersRequest {
   /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The name of the job to retrieve triggers for. The trigger that can start this job is
    *       returned, and if there is no such trigger, all triggers are returned.</p>
    */
@@ -1588,11 +2493,6 @@ export interface GetTriggersRequest {
    * <p>The maximum size of the response.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetTriggersRequest {
@@ -1603,15 +2503,15 @@ export namespace GetTriggersRequest {
 
 export interface GetTriggersResponse {
   /**
+   * <p>A list of triggers for the specified job.</p>
+   */
+  Triggers?: Trigger[];
+
+  /**
    * <p>A continuation token, if not all the requested triggers
    *       have yet been returned.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of triggers for the specified job.</p>
-   */
-  Triggers?: Trigger[];
 }
 
 export namespace GetTriggersResponse {
@@ -1622,9 +2522,10 @@ export namespace GetTriggersResponse {
 
 export interface GetUserDefinedFunctionRequest {
   /**
-   * <p>The name of the function.</p>
+   * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
+   *       provided, the AWS account ID is used by default.</p>
    */
-  FunctionName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the catalog database where the function is located.</p>
@@ -1632,10 +2533,9 @@ export interface GetUserDefinedFunctionRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
-   *       provided, the AWS account ID is used by default.</p>
+   * <p>The name of the function.</p>
    */
-  CatalogId?: string;
+  FunctionName: string | undefined;
 }
 
 export namespace GetUserDefinedFunctionRequest {
@@ -1650,29 +2550,9 @@ export namespace GetUserDefinedFunctionRequest {
  */
 export interface UserDefinedFunction {
   /**
-   * <p>The resource URIs for the function.</p>
-   */
-  ResourceUris?: ResourceUri[];
-
-  /**
-   * <p>The owner of the function.</p>
-   */
-  OwnerName?: string;
-
-  /**
    * <p>The name of the function.</p>
    */
   FunctionName?: string;
-
-  /**
-   * <p>The ID of the Data Catalog in which the function resides.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The time at which the function was created.</p>
-   */
-  CreateTime?: Date;
 
   /**
    * <p>The name of the catalog database that contains the function.</p>
@@ -1685,9 +2565,29 @@ export interface UserDefinedFunction {
   ClassName?: string;
 
   /**
+   * <p>The owner of the function.</p>
+   */
+  OwnerName?: string;
+
+  /**
    * <p>The owner type.</p>
    */
   OwnerType?: PrincipalType | string;
+
+  /**
+   * <p>The time at which the function was created.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The resource URIs for the function.</p>
+   */
+  ResourceUris?: ResourceUri[];
+
+  /**
+   * <p>The ID of the Data Catalog in which the function resides.</p>
+   */
+  CatalogId?: string;
 }
 
 export namespace UserDefinedFunction {
@@ -1711,6 +2611,18 @@ export namespace GetUserDefinedFunctionResponse {
 
 export interface GetUserDefinedFunctionsRequest {
   /**
+   * <p>The ID of the Data Catalog where the functions to be retrieved are located. If none is
+   *       provided, the AWS account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the functions are located. If none is provided, functions from all the
+   *       databases across the catalog will be returned.</p>
+   */
+  DatabaseName?: string;
+
+  /**
    * <p>An optional function-name pattern string that filters the function
    *       definitions returned.</p>
    */
@@ -1725,18 +2637,6 @@ export interface GetUserDefinedFunctionsRequest {
    * <p>The maximum number of functions to return in one response.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The name of the catalog database where the functions are located. If none is provided, functions from all the
-   *       databases across the catalog will be returned.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>The ID of the Data Catalog where the functions to be retrieved are located. If none is
-   *       provided, the AWS account ID is used by default.</p>
-   */
-  CatalogId?: string;
 }
 
 export namespace GetUserDefinedFunctionsRequest {
@@ -1747,15 +2647,15 @@ export namespace GetUserDefinedFunctionsRequest {
 
 export interface GetUserDefinedFunctionsResponse {
   /**
+   * <p>A list of requested function definitions.</p>
+   */
+  UserDefinedFunctions?: UserDefinedFunction[];
+
+  /**
    * <p>A continuation token, if the list of functions returned does
    *       not include the last requested function.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of requested function definitions.</p>
-   */
-  UserDefinedFunctions?: UserDefinedFunction[];
 }
 
 export namespace GetUserDefinedFunctionsResponse {
@@ -1766,14 +2666,14 @@ export namespace GetUserDefinedFunctionsResponse {
 
 export interface GetWorkflowRequest {
   /**
-   * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-   */
-  IncludeGraph?: boolean;
-
-  /**
    * <p>The name of the workflow to retrieve.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+   */
+  IncludeGraph?: boolean;
 }
 
 export namespace GetWorkflowRequest {
@@ -1802,14 +2702,14 @@ export interface GetWorkflowRunRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether to include the workflow graph in response or not.</p>
-   */
-  IncludeGraph?: boolean;
-
-  /**
    * <p>The ID of the workflow run.</p>
    */
   RunId: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the workflow graph in response or not.</p>
+   */
+  IncludeGraph?: boolean;
 }
 
 export namespace GetWorkflowRunRequest {
@@ -1864,9 +2764,9 @@ export namespace GetWorkflowRunPropertiesResponse {
 
 export interface GetWorkflowRunsRequest {
   /**
-   * <p>The maximum size of the response.</p>
+   * <p>Name of the workflow whose metadata of runs should be returned.</p>
    */
-  NextToken?: string;
+  Name: string | undefined;
 
   /**
    * <p>Specifies whether to include the workflow graph in response or not.</p>
@@ -1874,14 +2774,14 @@ export interface GetWorkflowRunsRequest {
   IncludeGraph?: boolean;
 
   /**
+   * <p>The maximum size of the response.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of workflow runs to be included in the response.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>Name of the workflow whose metadata of runs should be returned.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace GetWorkflowRunsRequest {
@@ -1892,14 +2792,14 @@ export namespace GetWorkflowRunsRequest {
 
 export interface GetWorkflowRunsResponse {
   /**
-   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of workflow run metadata objects.</p>
    */
   Runs?: WorkflowRun[];
+
+  /**
+   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetWorkflowRunsResponse {
@@ -1931,9 +2831,9 @@ export namespace ImportCatalogToGlueResponse {
 
 export interface ListCrawlersRequest {
   /**
-   * <p>Specifies to return only these tagged resources.</p>
+   * <p>The maximum size of a list to return.</p>
    */
-  Tags?: { [key: string]: string };
+  MaxResults?: number;
 
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -1941,9 +2841,9 @@ export interface ListCrawlersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum size of a list to return.</p>
+   * <p>Specifies to return only these tagged resources.</p>
    */
-  MaxResults?: number;
+  Tags?: { [key: string]: string };
 }
 
 export namespace ListCrawlersRequest {
@@ -1954,15 +2854,15 @@ export namespace ListCrawlersRequest {
 
 export interface ListCrawlersResponse {
   /**
+   * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
+   */
+  CrawlerNames?: string[];
+
+  /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
-   */
-  CrawlerNames?: string[];
 }
 
 export namespace ListCrawlersResponse {
@@ -1973,14 +2873,14 @@ export namespace ListCrawlersResponse {
 
 export interface ListDevEndpointsRequest {
   /**
-   * <p>The maximum size of a list to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A continuation token, if this is a continuation request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
@@ -2016,11 +2916,6 @@ export namespace ListDevEndpointsResponse {
 
 export interface ListJobsRequest {
   /**
-   * <p>Specifies to return only these tagged resources.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>A continuation token, if this is a continuation request.</p>
    */
   NextToken?: string;
@@ -2029,6 +2924,11 @@ export interface ListJobsRequest {
    * <p>The maximum size of a list to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace ListJobsRequest {
@@ -2063,11 +2963,6 @@ export interface ListMLTransformsRequest {
   NextToken?: string;
 
   /**
-   * <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
-   */
-  Sort?: TransformSortCriteria;
-
-  /**
    * <p>The maximum size of a list to return.</p>
    */
   MaxResults?: number;
@@ -2076,6 +2971,11 @@ export interface ListMLTransformsRequest {
    * <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
    */
   Filter?: TransformFilterCriteria;
+
+  /**
+   * <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
+   */
+  Sort?: TransformSortCriteria;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
@@ -2109,17 +3009,256 @@ export namespace ListMLTransformsResponse {
   });
 }
 
-export interface ListTriggersRequest {
+export interface ListRegistriesInput {
   /**
-   * <p>Specifies to return only these tagged resources.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The maximum size of a list to return.</p>
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
    */
   MaxResults?: number;
 
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRegistriesInput {
+  export const filterSensitiveLog = (obj: ListRegistriesInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing the details for a registry.</p>
+ */
+export interface RegistryListItem {
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the registry.</p>
+   */
+  Status?: RegistryStatus | string;
+
+  /**
+   * <p>The data the registry was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date the registry was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export namespace RegistryListItem {
+  export const filterSensitiveLog = (obj: RegistryListItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRegistriesResponse {
+  /**
+   * <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
+   */
+  Registries?: RegistryListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRegistriesResponse {
+  export const filterSensitiveLog = (obj: ListRegistriesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSchemasInput {
+  /**
+   * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   */
+  RegistryId?: RegistryId;
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSchemasInput {
+  export const filterSensitiveLog = (obj: ListSchemasInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains minimal details for a schema.</p>
+ */
+export interface SchemaListItem {
+  /**
+   * <p>the name of the registry where the schema resides.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>A description for the schema.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the schema.</p>
+   */
+  SchemaStatus?: SchemaStatus | string;
+
+  /**
+   * <p>The date and time that a schema was created.</p>
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time that a schema was updated.</p>
+   */
+  UpdatedTime?: string;
+}
+
+export namespace SchemaListItem {
+  export const filterSensitiveLog = (obj: SchemaListItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSchemasResponse {
+  /**
+   * <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
+   */
+  Schemas?: SchemaListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSchemasResponse {
+  export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSchemaVersionsInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSchemaVersionsInput {
+  export const filterSensitiveLog = (obj: ListSchemaVersionsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object containing the details about a schema version.</p>
+ */
+export interface SchemaVersionListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The unique identifier of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version.</p>
+   */
+  Status?: SchemaVersionStatus | string;
+
+  /**
+   * <p>The date and time the schema version was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export namespace SchemaVersionListItem {
+  export const filterSensitiveLog = (obj: SchemaVersionListItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSchemaVersionsResponse {
+  /**
+   * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
+   */
+  Schemas?: SchemaVersionListItem[];
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSchemaVersionsResponse {
+  export const filterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTriggersRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
    */
@@ -2130,6 +3269,16 @@ export interface ListTriggersRequest {
    *       is returned. If there is no such trigger, all triggers are returned.</p>
    */
   DependentJobName?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies to return only these tagged resources.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace ListTriggersRequest {
@@ -2233,18 +3382,16 @@ export enum ExistCondition {
 
 export interface PutResourcePolicyRequest {
   /**
+   * <p>Contains the policy document to set, in JSON format.</p>
+   */
+  PolicyInJson: string | undefined;
+
+  /**
    * <p>The ARN of the AWS Glue resource for the resource policy to be set. For more
    *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>
    *          </p>
    */
   ResourceArn?: string;
-
-  /**
-   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
-   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
-   *       null value is used, the call will not depend on the existence of a policy.</p>
-   */
-  PolicyExistsCondition?: ExistCondition | string;
 
   /**
    * <p>The hash value returned when the previous policy was set using
@@ -2254,16 +3401,18 @@ export interface PutResourcePolicyRequest {
   PolicyHashCondition?: string;
 
   /**
+   * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
+   *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
+   *       null value is used, the call will not depend on the existence of a policy.</p>
+   */
+  PolicyExistsCondition?: ExistCondition | string;
+
+  /**
    * <p>Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.</p>
    *
    * 	        <p>The default value of <code>NO</code> indicates that resource-level policies cannot co-exist with an account-level policy. A value of <code>YES</code> means the use of both resource-level and account/catalog-level resource policies is allowed.</p>
    */
   EnableHybrid?: EnableHybridValues | string;
-
-  /**
-   * <p>Contains the policy document to set, in JSON format.</p>
-   */
-  PolicyInJson: string | undefined;
 }
 
 export namespace PutResourcePolicyRequest {
@@ -2287,16 +3436,113 @@ export namespace PutResourcePolicyResponse {
   });
 }
 
-export interface PutWorkflowRunPropertiesRequest {
+/**
+ * <p>A structure containing a key value pair for metadata.</p>
+ */
+export interface MetadataKeyValuePair {
   /**
-   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   * <p>A metadata key.</p>
    */
-  RunId: string | undefined;
+  MetadataKey?: string;
 
+  /**
+   * <p>A metadata key’s corresponding value.</p>
+   */
+  MetadataValue?: string;
+}
+
+export namespace MetadataKeyValuePair {
+  export const filterSensitiveLog = (obj: MetadataKeyValuePair): any => ({
+    ...obj,
+  });
+}
+
+export interface PutSchemaVersionMetadataInput {
+  /**
+   * <p>The unique ID for the schema.</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key's corresponding value.</p>
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+export namespace PutSchemaVersionMetadataInput {
+  export const filterSensitiveLog = (obj: PutSchemaVersionMetadataInput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name for the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name for the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataValue?: string;
+}
+
+export namespace PutSchemaVersionMetadataResponse {
+  export const filterSensitiveLog = (obj: PutSchemaVersionMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutWorkflowRunPropertiesRequest {
   /**
    * <p>Name of the workflow which was run.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   */
+  RunId: string | undefined;
 
   /**
    * <p>The properties to put for the specified run.</p>
@@ -2318,16 +3564,223 @@ export namespace PutWorkflowRunPropertiesResponse {
   });
 }
 
-export interface ResetJobBookmarkRequest {
+export interface QuerySchemaVersionMetadataInput {
   /**
-   * <p>The unique run identifier associated with this job run.</p>
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
    */
-  RunId?: string;
+  SchemaId?: SchemaId;
 
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
+   */
+  MetadataList?: MetadataKeyValuePair[];
+
+  /**
+   * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace QuerySchemaVersionMetadataInput {
+  export const filterSensitiveLog = (obj: QuerySchemaVersionMetadataInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing metadata information for a schema version.</p>
+ */
+export interface MetadataInfo {
+  /**
+   * <p>The metadata key’s corresponding value.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export namespace MetadataInfo {
+  export const filterSensitiveLog = (obj: MetadataInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface QuerySchemaVersionMetadataResponse {
+  /**
+   * <p>A map of a metadata key and associated values.</p>
+   */
+  MetadataInfoMap?: { [key: string]: MetadataInfo };
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace QuerySchemaVersionMetadataResponse {
+  export const filterSensitiveLog = (obj: QuerySchemaVersionMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
+   */
+  SchemaDefinition: string | undefined;
+}
+
+export namespace RegisterSchemaVersionInput {
+  export const filterSensitiveLog = (obj: RegisterSchemaVersionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterSchemaVersionResponse {
+  /**
+   * <p>The unique ID that represents the version of this schema.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version.</p>
+   */
+  Status?: SchemaVersionStatus | string;
+}
+
+export namespace RegisterSchemaVersionResponse {
+  export const filterSensitiveLog = (obj: RegisterSchemaVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+export namespace RemoveSchemaVersionMetadataInput {
+  export const filterSensitiveLog = (obj: RemoveSchemaVersionMetadataInput): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The version ID for the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataValue?: string;
+}
+
+export namespace RemoveSchemaVersionMetadataResponse {
+  export const filterSensitiveLog = (obj: RemoveSchemaVersionMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>
    */
   JobName: string | undefined;
+
+  /**
+   * <p>The unique run identifier associated with this job run.</p>
+   */
+  RunId?: string;
 }
 
 export namespace ResetJobBookmarkRequest {
@@ -2387,11 +3840,6 @@ export namespace IllegalWorkflowStateException {
 
 export interface ResumeWorkflowRunRequest {
   /**
-   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
-   */
-  NodeIds: string[] | undefined;
-
-  /**
    * <p>The name of the workflow to resume.</p>
    */
   Name: string | undefined;
@@ -2400,6 +3848,11 @@ export interface ResumeWorkflowRunRequest {
    * <p>The ID of the workflow run to resume.</p>
    */
   RunId: string | undefined;
+
+  /**
+   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
+   */
+  NodeIds: string[] | undefined;
 }
 
 export namespace ResumeWorkflowRunRequest {
@@ -2439,14 +3892,14 @@ export enum Comparator {
  */
 export interface PropertyPredicate {
   /**
-   * <p>The value of the property.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The key of the property.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The value of the property.</p>
+   */
+  Value?: string;
 
   /**
    * <p>The comparator used to compare this property to others.</p>
@@ -2470,14 +3923,14 @@ export enum Sort {
  */
 export interface SortCriterion {
   /**
-   * <p>An ascending or descending sort.</p>
-   */
-  Sort?: Sort | string;
-
-  /**
    * <p>The name of the field on which to sort.</p>
    */
   FieldName?: string;
+
+  /**
+   * <p>An ascending or descending sort.</p>
+   */
+  Sort?: Sort | string;
 }
 
 export namespace SortCriterion {
@@ -2495,6 +3948,34 @@ export interface SearchTablesRequest {
   CatalogId?: string;
 
   /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
+   *
+   * 	        <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
+   */
+  Filters?: PropertyPredicate[];
+
+  /**
+   * <p>A string used for a text search.</p>
+   * 	        <p>Specifying a value in quotes filters based on an exact match to the value.</p>
+   */
+  SearchText?: string;
+
+  /**
+   * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
+   */
+  SortCriteria?: SortCriterion[];
+
+  /**
+   * <p>The maximum number of tables to return in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
    *
    * 	        <ul>
@@ -2507,34 +3988,6 @@ export interface SearchTablesRequest {
    *          </ul>
    */
   ResourceShareType?: ResourceShareType | string;
-
-  /**
-   * <p>A string used for a text search.</p>
-   * 	        <p>Specifying a value in quotes filters based on an exact match to the value.</p>
-   */
-  SearchText?: string;
-
-  /**
-   * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
-   *
-   * 	        <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
-   */
-  Filters?: PropertyPredicate[];
-
-  /**
-   * <p>A continuation token, included if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of tables to return in a single response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
-   */
-  SortCriteria?: SortCriterion[];
 }
 
 export namespace SearchTablesRequest {
@@ -2545,14 +3998,14 @@ export namespace SearchTablesRequest {
 
 export interface SearchTablesResponse {
   /**
-   * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
-   */
-  TableList?: Table[];
-
-  /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
+   */
+  TableList?: Table[];
 }
 
 export namespace SearchTablesResponse {
@@ -2709,6 +4162,43 @@ export namespace StartImportLabelsTaskRunResponse {
 
 export interface StartJobRunRequest {
   /**
+   * <p>The name of the job definition to use.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The ID of a previous <code>JobRun</code> to retry.</p>
+   */
+  JobRunId?: string;
+
+  /**
+   * <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun.
+   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
+   *         pricing page</a>.</p>
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
+   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
+   */
+  Timeout?: number;
+
+  /**
    * <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
@@ -2731,6 +4221,17 @@ export interface StartJobRunRequest {
   MaxCapacity?: number;
 
   /**
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
+   *       run.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * <p>Specifies configuration properties of a job run notification.</p>
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
    *          <ul>
    *             <li>
@@ -2745,54 +4246,6 @@ export interface StartJobRunRequest {
    *          </ul>
    */
   WorkerType?: WorkerType | string;
-
-  /**
-   * <p>Specifies configuration properties of a job run notification.</p>
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
-   *       run.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   * <p>The name of the job definition to use.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The ID of a previous <code>JobRun</code> to retry.</p>
-   */
-  JobRunId?: string;
-
-  /**
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun.
-   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
-   *         pricing page</a>.</p>
-   */
-  AllocatedCapacity?: number;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
@@ -2867,15 +4320,15 @@ export namespace StartMLEvaluationTaskRunResponse {
 
 export interface StartMLLabelingSetGenerationTaskRunRequest {
   /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   */
+  TransformId: string | undefined;
+
+  /**
    * <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling
    *       set.</p>
    */
   OutputS3Path: string | undefined;
-
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   */
-  TransformId: string | undefined;
 }
 
 export namespace StartMLLabelingSetGenerationTaskRunRequest {
@@ -3073,14 +4526,14 @@ export namespace StopTriggerResponse {
 
 export interface StopWorkflowRunRequest {
   /**
-   * <p>The ID of the workflow run to stop.</p>
-   */
-  RunId: string | undefined;
-
-  /**
    * <p>The name of the workflow to stop.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run to stop.</p>
+   */
+  RunId: string | undefined;
 }
 
 export namespace StopWorkflowRunRequest {
@@ -3160,26 +4613,6 @@ export interface UpdateCsvClassifierRequest {
   Name: string | undefined;
 
   /**
-   * <p>Indicates whether the CSV file contains a header.</p>
-   */
-  ContainsHeader?: CsvHeaderOption | string;
-
-  /**
-   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   * <p>A list of strings representing column names.</p>
-   */
-  Header?: string[];
-
-  /**
-   * <p>Enables the processing of files that contain only one column.</p>
-   */
-  AllowSingleColumn?: boolean;
-
-  /**
    * <p>A custom symbol to denote what separates each column entry in the row.</p>
    */
   Delimiter?: string;
@@ -3189,6 +4622,26 @@ export interface UpdateCsvClassifierRequest {
    *       different from the column delimiter.</p>
    */
   QuoteSymbol?: string;
+
+  /**
+   * <p>Indicates whether the CSV file contains a header.</p>
+   */
+  ContainsHeader?: CsvHeaderOption | string;
+
+  /**
+   * <p>A list of strings representing column names.</p>
+   */
+  Header?: string[];
+
+  /**
+   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
+   */
+  DisableValueTrimming?: boolean;
+
+  /**
+   * <p>Enables the processing of files that contain only one column.</p>
+   */
+  AllowSingleColumn?: boolean;
 }
 
 export namespace UpdateCsvClassifierRequest {
@@ -3208,15 +4661,15 @@ export interface UpdateGrokClassifierRequest {
   Name: string | undefined;
 
   /**
-   * <p>The grok pattern used by this classifier.</p>
-   */
-  GrokPattern?: string;
-
-  /**
    * <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs,
    *       Amazon CloudWatch Logs, and so on.</p>
    */
   Classification?: string;
+
+  /**
+   * <p>The grok pattern used by this classifier.</p>
+   */
+  GrokPattern?: string;
 
   /**
    * <p>Optional custom grok patterns used by this classifier.</p>
@@ -3257,6 +4710,11 @@ export namespace UpdateJsonClassifierRequest {
  */
 export interface UpdateXMLClassifierRequest {
   /**
+   * <p>The name of the classifier.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>An identifier of the data format that the classifier matches.</p>
    */
   Classification?: string;
@@ -3269,11 +4727,6 @@ export interface UpdateXMLClassifierRequest {
    *         <code><row item_a="A" item_b="B" /></code> is not).</p>
    */
   RowTag?: string;
-
-  /**
-   * <p>The name of the classifier.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace UpdateXMLClassifierRequest {
@@ -3284,24 +4737,24 @@ export namespace UpdateXMLClassifierRequest {
 
 export interface UpdateClassifierRequest {
   /**
-   * <p>An <code>XMLClassifier</code> object with updated fields.</p>
-   */
-  XMLClassifier?: UpdateXMLClassifierRequest;
-
-  /**
    * <p>A <code>GrokClassifier</code> object with updated fields.</p>
    */
   GrokClassifier?: UpdateGrokClassifierRequest;
 
   /**
-   * <p>A <code>CsvClassifier</code> object with updated fields.</p>
+   * <p>An <code>XMLClassifier</code> object with updated fields.</p>
    */
-  CsvClassifier?: UpdateCsvClassifierRequest;
+  XMLClassifier?: UpdateXMLClassifierRequest;
 
   /**
    * <p>A <code>JsonClassifier</code> object with updated fields.</p>
    */
   JsonClassifier?: UpdateJsonClassifierRequest;
+
+  /**
+   * <p>A <code>CsvClassifier</code> object with updated fields.</p>
+   */
+  CsvClassifier?: UpdateCsvClassifierRequest;
 }
 
 export namespace UpdateClassifierRequest {
@@ -3338,19 +4791,10 @@ export namespace VersionMismatchException {
 
 export interface UpdateColumnStatisticsForPartitionRequest {
   /**
-   * <p>The name of the partitions' table.</p>
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the AWS account ID is used by default.</p>
    */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of the column statistics.</p>
-   */
-  ColumnStatisticsList: ColumnStatistics[] | undefined;
-
-  /**
-   * <p>A list of partition values identifying the partition.</p>
-   */
-  PartitionValues: string[] | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
@@ -3358,10 +4802,19 @@ export interface UpdateColumnStatisticsForPartitionRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the AWS account ID is used by default.</p>
+   * <p>The name of the partitions' table.</p>
    */
-  CatalogId?: string;
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of partition values identifying the partition.</p>
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * <p>A list of the column statistics.</p>
+   */
+  ColumnStatisticsList: ColumnStatistics[] | undefined;
 }
 
 export namespace UpdateColumnStatisticsForPartitionRequest {
@@ -3375,14 +4828,14 @@ export namespace UpdateColumnStatisticsForPartitionRequest {
  */
 export interface ColumnStatisticsError {
   /**
-   * <p>An error message with the reason for the failure of an operation.</p>
-   */
-  Error?: ErrorDetail;
-
-  /**
    * <p>The <code>ColumnStatistics</code> of the column.</p>
    */
   ColumnStatistics?: ColumnStatistics;
+
+  /**
+   * <p>An error message with the reason for the failure of an operation.</p>
+   */
+  Error?: ErrorDetail;
 }
 
 export namespace ColumnStatisticsError {
@@ -3406,25 +4859,25 @@ export namespace UpdateColumnStatisticsForPartitionResponse {
 
 export interface UpdateColumnStatisticsForTableRequest {
   /**
-   * <p>The name of the partitions' table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
    *       If none is supplied, the AWS account ID is used by default.</p>
    */
   CatalogId?: string;
 
   /**
-   * <p>A list of the column statistics.</p>
-   */
-  ColumnStatisticsList: ColumnStatistics[] | undefined;
-
-  /**
    * <p>The name of the catalog database where the partitions reside.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of the column statistics.</p>
+   */
+  ColumnStatisticsList: ColumnStatistics[] | undefined;
 }
 
 export namespace UpdateColumnStatisticsForTableRequest {
@@ -3448,10 +4901,10 @@ export namespace UpdateColumnStatisticsForTableResponse {
 
 export interface UpdateConnectionRequest {
   /**
-   * <p>A <code>ConnectionInput</code> object that redefines the connection
-   *       in question.</p>
+   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS
+   *       account ID is used by default.</p>
    */
-  ConnectionInput: ConnectionInput | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the connection definition to update.</p>
@@ -3459,10 +4912,10 @@ export interface UpdateConnectionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS
-   *       account ID is used by default.</p>
+   * <p>A <code>ConnectionInput</code> object that redefines the connection
+   *       in question.</p>
    */
-  CatalogId?: string;
+  ConnectionInput: ConnectionInput | undefined;
 }
 
 export namespace UpdateConnectionRequest {
@@ -3481,15 +4934,38 @@ export namespace UpdateConnectionResponse {
 
 export interface UpdateCrawlerRequest {
   /**
+   * <p>Name of the new crawler.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler
    *       to access customer resources.</p>
    */
   Role?: string;
 
   /**
-   * <p>The table prefix used for catalog tables that are created.</p>
+   * <p>The AWS Glue database where results are stored, such as:
+   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
    */
-  TablePrefix?: string;
+  DatabaseName?: string;
+
+  /**
+   * <p>A description of the new crawler.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of targets to crawl.</p>
+   */
+  Targets?: CrawlerTargets;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   */
+  Schedule?: string;
 
   /**
    * <p>A list of custom classifiers that the user
@@ -3500,38 +4976,19 @@ export interface UpdateCrawlerRequest {
   Classifiers?: string[];
 
   /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
+   * <p>The table prefix used for catalog tables that are created.</p>
    */
-  CrawlerSecurityConfiguration?: string;
-
-  /**
-   * <p>The AWS Glue database where results are stored, such as:
-   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>Name of the new crawler.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   */
-  Schedule?: string;
-
-  /**
-   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
-   */
-  RecrawlPolicy?: RecrawlPolicy;
+  TablePrefix?: string;
 
   /**
    * <p>The policy for the crawler's update and deletion behavior.</p>
    */
   SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
+   */
+  RecrawlPolicy?: RecrawlPolicy;
 
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
@@ -3541,14 +4998,10 @@ export interface UpdateCrawlerRequest {
   Configuration?: string;
 
   /**
-   * <p>A list of targets to crawl.</p>
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
    */
-  Targets?: CrawlerTargets;
-
-  /**
-   * <p>A description of the new crawler.</p>
-   */
-  Description?: string;
+  CrawlerSecurityConfiguration?: string;
 }
 
 export namespace UpdateCrawlerRequest {
@@ -3567,16 +5020,16 @@ export namespace UpdateCrawlerResponse {
 
 export interface UpdateCrawlerScheduleRequest {
   /**
+   * <p>The name of the crawler whose schedule to update.</p>
+   */
+  CrawlerName: string | undefined;
+
+  /**
    * <p>The updated <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
    *       something every day at 12:15 UTC, you would specify:
    *       <code>cron(15 12 * * ? *)</code>.</p>
    */
   Schedule?: string;
-
-  /**
-   * <p>The name of the crawler whose schedule to update.</p>
-   */
-  CrawlerName: string | undefined;
 }
 
 export namespace UpdateCrawlerScheduleRequest {
@@ -3595,10 +5048,10 @@ export namespace UpdateCrawlerScheduleResponse {
 
 export interface UpdateDatabaseRequest {
   /**
-   * <p>A <code>DatabaseInput</code> object specifying the new definition
-   *       of the metadata database in the catalog.</p>
+   * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
+   *       the AWS account ID is used by default.</p>
    */
-  DatabaseInput: DatabaseInput | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the database to update in the catalog. For Hive
@@ -3607,10 +5060,10 @@ export interface UpdateDatabaseRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
-   *       the AWS account ID is used by default.</p>
+   * <p>A <code>DatabaseInput</code> object specifying the new definition
+   *       of the metadata database in the catalog.</p>
    */
-  CatalogId?: string;
+  DatabaseInput: DatabaseInput | undefined;
 }
 
 export namespace UpdateDatabaseRequest {
@@ -3632,15 +5085,6 @@ export namespace UpdateDatabaseResponse {
  */
 export interface DevEndpointCustomLibraries {
   /**
-   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *          <note>
-   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
-   *          </note>
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
    * <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
    *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
    *       complete paths separated by a comma.</p>
@@ -3651,6 +5095,15 @@ export interface DevEndpointCustomLibraries {
    *          </note>
    */
   ExtraPythonLibsS3Path?: string;
+
+  /**
+   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *          <note>
+   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
+   *          </note>
+   */
+  ExtraJarsS3Path?: string;
 }
 
 export namespace DevEndpointCustomLibraries {
@@ -3660,6 +5113,44 @@ export namespace DevEndpointCustomLibraries {
 }
 
 export interface UpdateDevEndpointRequest {
+  /**
+   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
+   */
+  AddPublicKeys?: string[];
+
+  /**
+   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
+   */
+  DeletePublicKeys?: string[];
+
+  /**
+   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
+   */
+  CustomLibraries?: DevEndpointCustomLibraries;
+
+  /**
+   * <p>
+   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
+   *       needs to be updated, or <code>False</code> if otherwise.</p>
+   */
+  UpdateEtlLibraries?: boolean;
+
+  /**
+   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   */
+  DeleteArguments?: string[];
+
   /**
    * <p>The map of arguments to add the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
@@ -3686,44 +5177,6 @@ export interface UpdateDevEndpointRequest {
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   AddArguments?: { [key: string]: string };
-
-  /**
-   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
-   */
-  PublicKey?: string;
-
-  /**
-   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
-   */
-  CustomLibraries?: DevEndpointCustomLibraries;
-
-  /**
-   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
-   */
-  AddPublicKeys?: string[];
-
-  /**
-   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
-   */
-  DeletePublicKeys?: string[];
-
-  /**
-   * <p>
-   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
-   *       needs to be updated, or <code>False</code> if otherwise.</p>
-   */
-  UpdateEtlLibraries?: boolean;
-
-  /**
-   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   */
-  DeleteArguments?: string[];
 }
 
 export namespace UpdateDevEndpointRequest {
@@ -3746,25 +5199,20 @@ export namespace UpdateDevEndpointResponse {
  */
 export interface JobUpdate {
   /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
+   * <p>Description of the job being defined.</p>
    */
-  WorkerType?: WorkerType | string;
+  Description?: string;
 
   /**
-   * <p>Specifies the configuration properties of a job notification.</p>
+   * <p>This field is reserved for future use.</p>
    */
-  NotificationProperty?: NotificationProperty;
+  LogUri?: string;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
+   *       (required).</p>
+   */
+  Role?: string;
 
   /**
    * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
@@ -3773,11 +5221,51 @@ export interface JobUpdate {
   ExecutionProperty?: ExecutionProperty;
 
   /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   * <p>The <code>JobCommand</code> that executes this job (required).</p>
    */
-  NumberOfWorkers?: number;
+  Command?: JobCommand;
+
+  /**
+   * <p>The default arguments for this job.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   */
+  DefaultArguments?: { [key: string]: string };
+
+  /**
+   * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
+   */
+  NonOverridableArguments?: { [key: string]: string };
+
+  /**
+   * <p>The connections used for this job.</p>
+   */
+  Connections?: ConnectionsList;
+
+  /**
+   * <p>The maximum number of times to retry this job if it fails.</p>
+   */
+  MaxRetries?: number;
+
+  /**
+   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can
+   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
+   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
+   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *       page</a>.</p>
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   * <p>The job timeout in minutes.  This is the maximum time that a job run
+   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
+   *       status. The default is 2,880 minutes (48 hours).</p>
+   */
+  Timeout?: number;
 
   /**
    * <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
@@ -3803,41 +5291,27 @@ export interface JobUpdate {
   MaxCapacity?: number;
 
   /**
-   * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
+   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   */
+  WorkerType?: WorkerType | string;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    */
-  GlueVersion?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
-   *       (required).</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>The default arguments for this job.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   */
-  DefaultArguments?: { [key: string]: string };
-
-  /**
-   * <p>Description of the job being defined.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Non-overridable arguments for this job, specified as name-value pairs.</p>
-   */
-  NonOverridableArguments?: { [key: string]: string };
-
-  /**
-   * <p>The maximum number of times to retry this job if it fails.</p>
-   */
-  MaxRetries?: number;
+  NumberOfWorkers?: number;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
@@ -3846,37 +5320,16 @@ export interface JobUpdate {
   SecurityConfiguration?: string;
 
   /**
-   * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   * <p>Specifies the configuration properties of a job notification.</p>
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
    *
-   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can
-   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *       page</a>.</p>
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
    */
-  AllocatedCapacity?: number;
-
-  /**
-   * <p>This field is reserved for future use.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The <code>JobCommand</code> that executes this job (required).</p>
-   */
-  Command?: JobCommand;
-
-  /**
-   * <p>The connections used for this job.</p>
-   */
-  Connections?: ConnectionsList;
+  GlueVersion?: string;
 }
 
 export namespace JobUpdate {
@@ -3887,14 +5340,14 @@ export namespace JobUpdate {
 
 export interface UpdateJobRequest {
   /**
-   * <p>Specifies the values with which to update the job definition.</p>
-   */
-  JobUpdate: JobUpdate | undefined;
-
-  /**
    * <p>The name of the job definition to update.</p>
    */
   JobName: string | undefined;
+
+  /**
+   * <p>Specifies the values with which to update the job definition.</p>
+   */
+  JobUpdate: JobUpdate | undefined;
 }
 
 export namespace UpdateJobRequest {
@@ -3918,9 +5371,25 @@ export namespace UpdateJobResponse {
 
 export interface UpdateMLTransformRequest {
   /**
-   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   * <p>A unique identifier that was generated when the transform was created.</p>
    */
-  GlueVersion?: string;
+  TransformId: string | undefined;
+
+  /**
+   * <p>The unique name that you gave the transform when you created it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the transform. The default is an empty string.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
+   *       Conditionally dependent on the transform type.</p>
+   */
+  Parameters?: TransformParameters;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
@@ -3929,19 +5398,9 @@ export interface UpdateMLTransformRequest {
   Role?: string;
 
   /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
    */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>A description of the transform. The default is an empty string.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
+  GlueVersion?: string;
 
   /**
    * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -3970,25 +5429,19 @@ export interface UpdateMLTransformRequest {
   WorkerType?: WorkerType | string;
 
   /**
-   * <p>The unique name that you gave the transform when you created it.</p>
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
    */
-  Name?: string;
+  NumberOfWorkers?: number;
 
   /**
-   * <p>A unique identifier that was generated when the transform was created.</p>
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    */
-  TransformId: string | undefined;
+  Timeout?: number;
 
   /**
    * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
    */
   MaxRetries?: number;
-
-  /**
-   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
-   *       Conditionally dependent on the transform type.</p>
-   */
-  Parameters?: TransformParameters;
 }
 
 export namespace UpdateMLTransformRequest {
@@ -4012,23 +5465,6 @@ export namespace UpdateMLTransformResponse {
 
 export interface UpdatePartitionRequest {
   /**
-   * <p>The name of the table in which the partition to be updated is located.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The new partition object to update the partition to.</p>
-   *
-   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
-   */
-  PartitionInput: PartitionInput | undefined;
-
-  /**
-   * <p>List of partition key values that define the partition to update.</p>
-   */
-  PartitionValueList: string[] | undefined;
-
-  /**
    * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
    *       the AWS account ID is used by default.</p>
    */
@@ -4039,6 +5475,23 @@ export interface UpdatePartitionRequest {
    *       resides.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table in which the partition to be updated is located.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>List of partition key values that define the partition to update.</p>
+   */
+  PartitionValueList: string[] | undefined;
+
+  /**
+   * <p>The new partition object to update the partition to.</p>
+   *
+   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+   */
+  PartitionInput: PartitionInput | undefined;
 }
 
 export namespace UpdatePartitionRequest {
@@ -4051,6 +5504,101 @@ export interface UpdatePartitionResponse {}
 
 export namespace UpdatePartitionResponse {
   export const filterSensitiveLog = (obj: UpdatePartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   */
+  RegistryId: RegistryId | undefined;
+
+  /**
+   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
+   */
+  Description: string | undefined;
+}
+
+export namespace UpdateRegistryInput {
+  export const filterSensitiveLog = (obj: UpdateRegistryInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRegistryResponse {
+  /**
+   * <p>The name of the updated registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
+   */
+  RegistryArn?: string;
+}
+
+export namespace UpdateRegistryResponse {
+  export const filterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSchemaInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The new compatibility setting for the schema.</p>
+   */
+  Compatibility?: Compatibility | string;
+
+  /**
+   * <p>The new description for the schema.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateSchemaInput {
+  export const filterSensitiveLog = (obj: UpdateSchemaInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateSchemaResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name of the registry that contains the schema.</p>
+   */
+  RegistryName?: string;
+}
+
+export namespace UpdateSchemaResponse {
+  export const filterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
     ...obj,
   });
 }
@@ -4069,17 +5617,17 @@ export interface UpdateTableRequest {
   DatabaseName: string | undefined;
 
   /**
+   * <p>An updated <code>TableInput</code> object to define the metadata table
+   *       in the catalog.</p>
+   */
+  TableInput: TableInput | undefined;
+
+  /**
    * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
    *       before updating it. However, if <code>skipArchive</code> is set to true,
    *         <code>UpdateTable</code> does not create the archived version.</p>
    */
   SkipArchive?: boolean;
-
-  /**
-   * <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   */
-  TableInput: TableInput | undefined;
 }
 
 export namespace UpdateTableRequest {
@@ -4102,6 +5650,16 @@ export namespace UpdateTableResponse {
  */
 export interface TriggerUpdate {
   /**
+   * <p>Reserved for future use.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of this trigger.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
    *       Schedules for Jobs and Crawlers</a>. For example, to run
    *       something every day at 12:15 UTC, you would specify:
@@ -4110,19 +5668,9 @@ export interface TriggerUpdate {
   Schedule?: string;
 
   /**
-   * <p>Reserved for future use.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The actions initiated by this trigger.</p>
    */
   Actions?: Action[];
-
-  /**
-   * <p>A description of this trigger.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The predicate of this trigger, which defines when it will fire.</p>
@@ -4138,14 +5686,14 @@ export namespace TriggerUpdate {
 
 export interface UpdateTriggerRequest {
   /**
-   * <p>The new values with which to update the trigger.</p>
-   */
-  TriggerUpdate: TriggerUpdate | undefined;
-
-  /**
    * <p>The name of the trigger to update.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The new values with which to update the trigger.</p>
+   */
+  TriggerUpdate: TriggerUpdate | undefined;
 }
 
 export namespace UpdateTriggerRequest {
@@ -4169,9 +5717,10 @@ export namespace UpdateTriggerResponse {
 
 export interface UpdateUserDefinedFunctionRequest {
   /**
-   * <p>The name of the function.</p>
+   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
+   *       provided, the AWS account ID is used by default.</p>
    */
-  FunctionName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the catalog database where the function to be updated is
@@ -4180,10 +5729,9 @@ export interface UpdateUserDefinedFunctionRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
-   *       provided, the AWS account ID is used by default.</p>
+   * <p>The name of the function.</p>
    */
-  CatalogId?: string;
+  FunctionName: string | undefined;
 
   /**
    * <p>A <code>FunctionInput</code> object that redefines the function in the Data
@@ -4208,24 +5756,24 @@ export namespace UpdateUserDefinedFunctionResponse {
 
 export interface UpdateWorkflowRequest {
   /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   */
-  DefaultRunProperties?: { [key: string]: string };
-
-  /**
    * <p>Name of the workflow to be updated.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   */
-  MaxConcurrentRuns?: number;
-
-  /**
    * <p>The description of the workflow.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   */
+  DefaultRunProperties?: { [key: string]: string };
+
+  /**
+   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+   */
+  MaxConcurrentRuns?: number;
 }
 
 export namespace UpdateWorkflowRequest {

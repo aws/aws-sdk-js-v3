@@ -13,6 +13,8 @@ export * from "./pagination/DescribeClustersPaginator";
 export * from "./commands/InitializeClusterCommand";
 export * from "./commands/ListTagsCommand";
 export * from "./pagination/ListTagsPaginator";
+export * from "./commands/ModifyBackupAttributesCommand";
+export * from "./commands/ModifyClusterCommand";
 export * from "./commands/RestoreBackupCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";

@@ -35,6 +35,11 @@ import {
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  CreateApplicationPresignedUrlCommand,
+  CreateApplicationPresignedUrlCommandInput,
+  CreateApplicationPresignedUrlCommandOutput,
+} from "./commands/CreateApplicationPresignedUrlCommand";
+import {
   CreateApplicationSnapshotCommand,
   CreateApplicationSnapshotCommandInput,
   CreateApplicationSnapshotCommandOutput,
@@ -392,6 +397,50 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates and returns a URL that you can use to connect to
+   *             an application's extension. Currently, the only
+   *             available extension is the Apache Flink dashboard.</p>
+   *         <p>The IAM role or user used to call this API defines the permissions to access the extension.
+   *             Once the presigned URL is created, no additional permission is required to access this URL. IAM
+   *             authorization policies for this API are also enforced for every HTTP request that attempts to
+   *             connect to the extension.
+   *         </p>
+   *         <note>
+   *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
+   *             to be valid.
+   *             If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>
+   *          </note>
+   */
+  public createApplicationPresignedUrl(
+    args: CreateApplicationPresignedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationPresignedUrlCommandOutput>;
+  public createApplicationPresignedUrl(
+    args: CreateApplicationPresignedUrlCommandInput,
+    cb: (err: any, data?: CreateApplicationPresignedUrlCommandOutput) => void
+  ): void;
+  public createApplicationPresignedUrl(
+    args: CreateApplicationPresignedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationPresignedUrlCommandOutput) => void
+  ): void;
+  public createApplicationPresignedUrl(
+    args: CreateApplicationPresignedUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationPresignedUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreateApplicationPresignedUrlCommandOutput) => void
+  ): Promise<CreateApplicationPresignedUrlCommandOutput> | void {
+    const command = new CreateApplicationPresignedUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -906,9 +955,12 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
 
   /**
    * <p>Stops the application from processing data. You can stop
-   *       an application only if it is in the running state.
-   *       You can use the <a>DescribeApplication</a> operation to find the application state.
+   *       an application only if it is in the running status, unless you set the <code>Force</code>
+   *         parameter to <code>true</code>.</p>
+   *          <p>You can use the <a>DescribeApplication</a> operation to find the application status.
    *        </p>
+   *          <p>Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code> is set
+   *           to <code>true</code>.</p>
    */
   public stopApplication(
     args: StopApplicationCommandInput,

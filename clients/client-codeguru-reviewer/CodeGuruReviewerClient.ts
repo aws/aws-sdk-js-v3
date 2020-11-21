@@ -30,9 +30,15 @@ import {
   ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutRecommendationFeedbackCommandInput,
   PutRecommendationFeedbackCommandOutput,
 } from "./commands/PutRecommendationFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,7 +99,10 @@ export type ServiceInputTypes =
   | ListRecommendationFeedbackCommandInput
   | ListRecommendationsCommandInput
   | ListRepositoryAssociationsCommandInput
-  | PutRecommendationFeedbackCommandInput;
+  | ListTagsForResourceCommandInput
+  | PutRecommendationFeedbackCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateRepositoryCommandOutput
@@ -106,7 +115,10 @@ export type ServiceOutputTypes =
   | ListRecommendationFeedbackCommandOutput
   | ListRecommendationsCommandOutput
   | ListRepositoryAssociationsCommandOutput
-  | PutRecommendationFeedbackCommandOutput;
+  | ListTagsForResourceCommandOutput
+  | PutRecommendationFeedbackCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -230,6 +242,13 @@ export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration
  *             <i>
  *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
  *          </p>
+ *
+ *          <p>
+ *          To improve the security of your CodeGuru Reviewer API calls, you can establish a private connection between your VPC and CodeGuru Reviewer by
+ *          creating an <i>interface VPC endpoint</i>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html">CodeGuru Reviewer and interface
+ *             VPC endpoints (AWS PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.
+ *       </p>
  */
 export class CodeGuruReviewerClient extends __Client<
   __HttpHandlerOptions,

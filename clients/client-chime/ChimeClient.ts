@@ -34,8 +34,27 @@ import {
 } from "./commands/BatchUpdatePhoneNumberCommand";
 import { BatchUpdateUserCommandInput, BatchUpdateUserCommandOutput } from "./commands/BatchUpdateUserCommand";
 import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand";
+import {
+  CreateAppInstanceAdminCommandInput,
+  CreateAppInstanceAdminCommandOutput,
+} from "./commands/CreateAppInstanceAdminCommand";
+import { CreateAppInstanceCommandInput, CreateAppInstanceCommandOutput } from "./commands/CreateAppInstanceCommand";
+import {
+  CreateAppInstanceUserCommandInput,
+  CreateAppInstanceUserCommandOutput,
+} from "./commands/CreateAppInstanceUserCommand";
 import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./commands/CreateAttendeeCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import { CreateChannelBanCommandInput, CreateChannelBanCommandOutput } from "./commands/CreateChannelBanCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import {
+  CreateChannelMembershipCommandInput,
+  CreateChannelMembershipCommandOutput,
+} from "./commands/CreateChannelMembershipCommand";
+import {
+  CreateChannelModeratorCommandInput,
+  CreateChannelModeratorCommandOutput,
+} from "./commands/CreateChannelModeratorCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
   CreateMeetingDialOutCommandInput,
@@ -74,7 +93,34 @@ import {
   CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
 import { DeleteAccountCommandInput, DeleteAccountCommandOutput } from "./commands/DeleteAccountCommand";
+import {
+  DeleteAppInstanceAdminCommandInput,
+  DeleteAppInstanceAdminCommandOutput,
+} from "./commands/DeleteAppInstanceAdminCommand";
+import { DeleteAppInstanceCommandInput, DeleteAppInstanceCommandOutput } from "./commands/DeleteAppInstanceCommand";
+import {
+  DeleteAppInstanceStreamingConfigurationsCommandInput,
+  DeleteAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/DeleteAppInstanceStreamingConfigurationsCommand";
+import {
+  DeleteAppInstanceUserCommandInput,
+  DeleteAppInstanceUserCommandOutput,
+} from "./commands/DeleteAppInstanceUserCommand";
 import { DeleteAttendeeCommandInput, DeleteAttendeeCommandOutput } from "./commands/DeleteAttendeeCommand";
+import { DeleteChannelBanCommandInput, DeleteChannelBanCommandOutput } from "./commands/DeleteChannelBanCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import {
+  DeleteChannelMembershipCommandInput,
+  DeleteChannelMembershipCommandOutput,
+} from "./commands/DeleteChannelMembershipCommand";
+import {
+  DeleteChannelMessageCommandInput,
+  DeleteChannelMessageCommandOutput,
+} from "./commands/DeleteChannelMessageCommand";
+import {
+  DeleteChannelModeratorCommandInput,
+  DeleteChannelModeratorCommandOutput,
+} from "./commands/DeleteChannelModeratorCommand";
 import {
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
@@ -125,6 +171,36 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
+  DescribeAppInstanceAdminCommandInput,
+  DescribeAppInstanceAdminCommandOutput,
+} from "./commands/DescribeAppInstanceAdminCommand";
+import {
+  DescribeAppInstanceCommandInput,
+  DescribeAppInstanceCommandOutput,
+} from "./commands/DescribeAppInstanceCommand";
+import {
+  DescribeAppInstanceUserCommandInput,
+  DescribeAppInstanceUserCommandOutput,
+} from "./commands/DescribeAppInstanceUserCommand";
+import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "./commands/DescribeChannelBanCommand";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import {
+  DescribeChannelMembershipCommandInput,
+  DescribeChannelMembershipCommandOutput,
+} from "./commands/DescribeChannelMembershipCommand";
+import {
+  DescribeChannelMembershipForAppInstanceUserCommandInput,
+  DescribeChannelMembershipForAppInstanceUserCommandOutput,
+} from "./commands/DescribeChannelMembershipForAppInstanceUserCommand";
+import {
+  DescribeChannelModeratedByAppInstanceUserCommandInput,
+  DescribeChannelModeratedByAppInstanceUserCommandOutput,
+} from "./commands/DescribeChannelModeratedByAppInstanceUserCommand";
+import {
+  DescribeChannelModeratorCommandInput,
+  DescribeChannelModeratorCommandOutput,
+} from "./commands/DescribeChannelModeratorCommand";
+import {
   DisassociatePhoneNumberFromUserCommandInput,
   DisassociatePhoneNumberFromUserCommandOutput,
 } from "./commands/DisassociatePhoneNumberFromUserCommand";
@@ -142,14 +218,27 @@ import {
 } from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand";
 import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
+import {
+  GetAppInstanceRetentionSettingsCommandInput,
+  GetAppInstanceRetentionSettingsCommandOutput,
+} from "./commands/GetAppInstanceRetentionSettingsCommand";
+import {
+  GetAppInstanceStreamingConfigurationsCommandInput,
+  GetAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/GetAppInstanceStreamingConfigurationsCommand";
 import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand";
 import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import { GetChannelMessageCommandInput, GetChannelMessageCommandOutput } from "./commands/GetChannelMessageCommand";
 import {
   GetEventsConfigurationCommandInput,
   GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand";
 import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
+import {
+  GetMessagingSessionEndpointCommandInput,
+  GetMessagingSessionEndpointCommandOutput,
+} from "./commands/GetMessagingSessionEndpointCommand";
 import { GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput } from "./commands/GetPhoneNumberCommand";
 import {
   GetPhoneNumberOrderCommandInput,
@@ -211,9 +300,40 @@ import {
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
 import { InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
+import {
+  ListAppInstanceAdminsCommandInput,
+  ListAppInstanceAdminsCommandOutput,
+} from "./commands/ListAppInstanceAdminsCommand";
+import {
+  ListAppInstanceUsersCommandInput,
+  ListAppInstanceUsersCommandOutput,
+} from "./commands/ListAppInstanceUsersCommand";
+import { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
 import { ListAttendeeTagsCommandInput, ListAttendeeTagsCommandOutput } from "./commands/ListAttendeeTagsCommand";
 import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "./commands/ListAttendeesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
+import {
+  ListChannelMembershipsCommandInput,
+  ListChannelMembershipsCommandOutput,
+} from "./commands/ListChannelMembershipsCommand";
+import {
+  ListChannelMembershipsForAppInstanceUserCommandInput,
+  ListChannelMembershipsForAppInstanceUserCommandOutput,
+} from "./commands/ListChannelMembershipsForAppInstanceUserCommand";
+import {
+  ListChannelMessagesCommandInput,
+  ListChannelMessagesCommandOutput,
+} from "./commands/ListChannelMessagesCommand";
+import {
+  ListChannelModeratorsCommandInput,
+  ListChannelModeratorsCommandOutput,
+} from "./commands/ListChannelModeratorsCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import {
+  ListChannelsModeratedByAppInstanceUserCommandInput,
+  ListChannelsModeratedByAppInstanceUserCommandOutput,
+} from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "./commands/ListMeetingTagsCommand";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand";
 import {
@@ -250,6 +370,14 @@ import {
   ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand";
 import { LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand";
+import {
+  PutAppInstanceRetentionSettingsCommandInput,
+  PutAppInstanceRetentionSettingsCommandOutput,
+} from "./commands/PutAppInstanceRetentionSettingsCommand";
+import {
+  PutAppInstanceStreamingConfigurationsCommandInput,
+  PutAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/PutAppInstanceStreamingConfigurationsCommand";
 import {
   PutEventsConfigurationCommandInput,
   PutEventsConfigurationCommandOutput,
@@ -291,6 +419,10 @@ import {
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
+  RedactChannelMessageCommandInput,
+  RedactChannelMessageCommandOutput,
+} from "./commands/RedactChannelMessageCommand";
+import {
   RedactConversationMessageCommandInput,
   RedactConversationMessageCommandOutput,
 } from "./commands/RedactConversationMessageCommand";
@@ -305,6 +437,7 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "./commands/SendChannelMessageCommand";
 import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
 import { TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -316,7 +449,21 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import { UpdateAppInstanceCommandInput, UpdateAppInstanceCommandOutput } from "./commands/UpdateAppInstanceCommand";
+import {
+  UpdateAppInstanceUserCommandInput,
+  UpdateAppInstanceUserCommandOutput,
+} from "./commands/UpdateAppInstanceUserCommand";
 import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import {
+  UpdateChannelMessageCommandInput,
+  UpdateChannelMessageCommandOutput,
+} from "./commands/UpdateChannelMessageCommand";
+import {
+  UpdateChannelReadMarkerCommandInput,
+  UpdateChannelReadMarkerCommandOutput,
+} from "./commands/UpdateChannelReadMarkerCommand";
 import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -409,8 +556,15 @@ export type ServiceInputTypes =
   | BatchUpdatePhoneNumberCommandInput
   | BatchUpdateUserCommandInput
   | CreateAccountCommandInput
+  | CreateAppInstanceAdminCommandInput
+  | CreateAppInstanceCommandInput
+  | CreateAppInstanceUserCommandInput
   | CreateAttendeeCommandInput
   | CreateBotCommandInput
+  | CreateChannelBanCommandInput
+  | CreateChannelCommandInput
+  | CreateChannelMembershipCommandInput
+  | CreateChannelModeratorCommandInput
   | CreateMeetingCommandInput
   | CreateMeetingDialOutCommandInput
   | CreateMeetingWithAttendeesCommandInput
@@ -425,7 +579,16 @@ export type ServiceInputTypes =
   | CreateVoiceConnectorCommandInput
   | CreateVoiceConnectorGroupCommandInput
   | DeleteAccountCommandInput
+  | DeleteAppInstanceAdminCommandInput
+  | DeleteAppInstanceCommandInput
+  | DeleteAppInstanceStreamingConfigurationsCommandInput
+  | DeleteAppInstanceUserCommandInput
   | DeleteAttendeeCommandInput
+  | DeleteChannelBanCommandInput
+  | DeleteChannelCommandInput
+  | DeleteChannelMembershipCommandInput
+  | DeleteChannelMessageCommandInput
+  | DeleteChannelModeratorCommandInput
   | DeleteEventsConfigurationCommandInput
   | DeleteMeetingCommandInput
   | DeletePhoneNumberCommandInput
@@ -442,17 +605,30 @@ export type ServiceInputTypes =
   | DeleteVoiceConnectorStreamingConfigurationCommandInput
   | DeleteVoiceConnectorTerminationCommandInput
   | DeleteVoiceConnectorTerminationCredentialsCommandInput
+  | DescribeAppInstanceAdminCommandInput
+  | DescribeAppInstanceCommandInput
+  | DescribeAppInstanceUserCommandInput
+  | DescribeChannelBanCommandInput
+  | DescribeChannelCommandInput
+  | DescribeChannelMembershipCommandInput
+  | DescribeChannelMembershipForAppInstanceUserCommandInput
+  | DescribeChannelModeratedByAppInstanceUserCommandInput
+  | DescribeChannelModeratorCommandInput
   | DisassociatePhoneNumberFromUserCommandInput
   | DisassociatePhoneNumbersFromVoiceConnectorCommandInput
   | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
   | DisassociateSigninDelegateGroupsFromAccountCommandInput
   | GetAccountCommandInput
   | GetAccountSettingsCommandInput
+  | GetAppInstanceRetentionSettingsCommandInput
+  | GetAppInstanceStreamingConfigurationsCommandInput
   | GetAttendeeCommandInput
   | GetBotCommandInput
+  | GetChannelMessageCommandInput
   | GetEventsConfigurationCommandInput
   | GetGlobalSettingsCommandInput
   | GetMeetingCommandInput
+  | GetMessagingSessionEndpointCommandInput
   | GetPhoneNumberCommandInput
   | GetPhoneNumberOrderCommandInput
   | GetPhoneNumberSettingsCommandInput
@@ -475,9 +651,19 @@ export type ServiceInputTypes =
   | GetVoiceConnectorTerminationHealthCommandInput
   | InviteUsersCommandInput
   | ListAccountsCommandInput
+  | ListAppInstanceAdminsCommandInput
+  | ListAppInstanceUsersCommandInput
+  | ListAppInstancesCommandInput
   | ListAttendeeTagsCommandInput
   | ListAttendeesCommandInput
   | ListBotsCommandInput
+  | ListChannelBansCommandInput
+  | ListChannelMembershipsCommandInput
+  | ListChannelMembershipsForAppInstanceUserCommandInput
+  | ListChannelMessagesCommandInput
+  | ListChannelModeratorsCommandInput
+  | ListChannelsCommandInput
+  | ListChannelsModeratedByAppInstanceUserCommandInput
   | ListMeetingTagsCommandInput
   | ListMeetingsCommandInput
   | ListPhoneNumberOrdersCommandInput
@@ -493,6 +679,8 @@ export type ServiceInputTypes =
   | ListVoiceConnectorTerminationCredentialsCommandInput
   | ListVoiceConnectorsCommandInput
   | LogoutUserCommandInput
+  | PutAppInstanceRetentionSettingsCommandInput
+  | PutAppInstanceStreamingConfigurationsCommandInput
   | PutEventsConfigurationCommandInput
   | PutRetentionSettingsCommandInput
   | PutSipMediaApplicationLoggingConfigurationCommandInput
@@ -503,12 +691,14 @@ export type ServiceInputTypes =
   | PutVoiceConnectorStreamingConfigurationCommandInput
   | PutVoiceConnectorTerminationCommandInput
   | PutVoiceConnectorTerminationCredentialsCommandInput
+  | RedactChannelMessageCommandInput
   | RedactConversationMessageCommandInput
   | RedactRoomMessageCommandInput
   | RegenerateSecurityTokenCommandInput
   | ResetPersonalPINCommandInput
   | RestorePhoneNumberCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SendChannelMessageCommandInput
   | TagAttendeeCommandInput
   | TagMeetingCommandInput
   | TagResourceCommandInput
@@ -517,7 +707,12 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccountCommandInput
   | UpdateAccountSettingsCommandInput
+  | UpdateAppInstanceCommandInput
+  | UpdateAppInstanceUserCommandInput
   | UpdateBotCommandInput
+  | UpdateChannelCommandInput
+  | UpdateChannelMessageCommandInput
+  | UpdateChannelReadMarkerCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberSettingsCommandInput
@@ -544,8 +739,15 @@ export type ServiceOutputTypes =
   | BatchUpdatePhoneNumberCommandOutput
   | BatchUpdateUserCommandOutput
   | CreateAccountCommandOutput
+  | CreateAppInstanceAdminCommandOutput
+  | CreateAppInstanceCommandOutput
+  | CreateAppInstanceUserCommandOutput
   | CreateAttendeeCommandOutput
   | CreateBotCommandOutput
+  | CreateChannelBanCommandOutput
+  | CreateChannelCommandOutput
+  | CreateChannelMembershipCommandOutput
+  | CreateChannelModeratorCommandOutput
   | CreateMeetingCommandOutput
   | CreateMeetingDialOutCommandOutput
   | CreateMeetingWithAttendeesCommandOutput
@@ -560,7 +762,16 @@ export type ServiceOutputTypes =
   | CreateVoiceConnectorCommandOutput
   | CreateVoiceConnectorGroupCommandOutput
   | DeleteAccountCommandOutput
+  | DeleteAppInstanceAdminCommandOutput
+  | DeleteAppInstanceCommandOutput
+  | DeleteAppInstanceStreamingConfigurationsCommandOutput
+  | DeleteAppInstanceUserCommandOutput
   | DeleteAttendeeCommandOutput
+  | DeleteChannelBanCommandOutput
+  | DeleteChannelCommandOutput
+  | DeleteChannelMembershipCommandOutput
+  | DeleteChannelMessageCommandOutput
+  | DeleteChannelModeratorCommandOutput
   | DeleteEventsConfigurationCommandOutput
   | DeleteMeetingCommandOutput
   | DeletePhoneNumberCommandOutput
@@ -577,17 +788,30 @@ export type ServiceOutputTypes =
   | DeleteVoiceConnectorStreamingConfigurationCommandOutput
   | DeleteVoiceConnectorTerminationCommandOutput
   | DeleteVoiceConnectorTerminationCredentialsCommandOutput
+  | DescribeAppInstanceAdminCommandOutput
+  | DescribeAppInstanceCommandOutput
+  | DescribeAppInstanceUserCommandOutput
+  | DescribeChannelBanCommandOutput
+  | DescribeChannelCommandOutput
+  | DescribeChannelMembershipCommandOutput
+  | DescribeChannelMembershipForAppInstanceUserCommandOutput
+  | DescribeChannelModeratedByAppInstanceUserCommandOutput
+  | DescribeChannelModeratorCommandOutput
   | DisassociatePhoneNumberFromUserCommandOutput
   | DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
   | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
   | DisassociateSigninDelegateGroupsFromAccountCommandOutput
   | GetAccountCommandOutput
   | GetAccountSettingsCommandOutput
+  | GetAppInstanceRetentionSettingsCommandOutput
+  | GetAppInstanceStreamingConfigurationsCommandOutput
   | GetAttendeeCommandOutput
   | GetBotCommandOutput
+  | GetChannelMessageCommandOutput
   | GetEventsConfigurationCommandOutput
   | GetGlobalSettingsCommandOutput
   | GetMeetingCommandOutput
+  | GetMessagingSessionEndpointCommandOutput
   | GetPhoneNumberCommandOutput
   | GetPhoneNumberOrderCommandOutput
   | GetPhoneNumberSettingsCommandOutput
@@ -610,9 +834,19 @@ export type ServiceOutputTypes =
   | GetVoiceConnectorTerminationHealthCommandOutput
   | InviteUsersCommandOutput
   | ListAccountsCommandOutput
+  | ListAppInstanceAdminsCommandOutput
+  | ListAppInstanceUsersCommandOutput
+  | ListAppInstancesCommandOutput
   | ListAttendeeTagsCommandOutput
   | ListAttendeesCommandOutput
   | ListBotsCommandOutput
+  | ListChannelBansCommandOutput
+  | ListChannelMembershipsCommandOutput
+  | ListChannelMembershipsForAppInstanceUserCommandOutput
+  | ListChannelMessagesCommandOutput
+  | ListChannelModeratorsCommandOutput
+  | ListChannelsCommandOutput
+  | ListChannelsModeratedByAppInstanceUserCommandOutput
   | ListMeetingTagsCommandOutput
   | ListMeetingsCommandOutput
   | ListPhoneNumberOrdersCommandOutput
@@ -628,6 +862,8 @@ export type ServiceOutputTypes =
   | ListVoiceConnectorTerminationCredentialsCommandOutput
   | ListVoiceConnectorsCommandOutput
   | LogoutUserCommandOutput
+  | PutAppInstanceRetentionSettingsCommandOutput
+  | PutAppInstanceStreamingConfigurationsCommandOutput
   | PutEventsConfigurationCommandOutput
   | PutRetentionSettingsCommandOutput
   | PutSipMediaApplicationLoggingConfigurationCommandOutput
@@ -638,12 +874,14 @@ export type ServiceOutputTypes =
   | PutVoiceConnectorStreamingConfigurationCommandOutput
   | PutVoiceConnectorTerminationCommandOutput
   | PutVoiceConnectorTerminationCredentialsCommandOutput
+  | RedactChannelMessageCommandOutput
   | RedactConversationMessageCommandOutput
   | RedactRoomMessageCommandOutput
   | RegenerateSecurityTokenCommandOutput
   | ResetPersonalPINCommandOutput
   | RestorePhoneNumberCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SendChannelMessageCommandOutput
   | TagAttendeeCommandOutput
   | TagMeetingCommandOutput
   | TagResourceCommandOutput
@@ -652,7 +890,12 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccountCommandOutput
   | UpdateAccountSettingsCommandOutput
+  | UpdateAppInstanceCommandOutput
+  | UpdateAppInstanceUserCommandOutput
   | UpdateBotCommandOutput
+  | UpdateChannelCommandOutput
+  | UpdateChannelMessageCommandOutput
+  | UpdateChannelReadMarkerCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberSettingsCommandOutput
@@ -802,8 +1045,10 @@ export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
  *               Interface</a> in the <i>AWS Command Line Interface User Guide</i>.
  *             For a list of available Amazon Chime commands, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
  *               <i>AWS CLI Command Reference</i>.</p>
+ *
+ *
  *             </dd>
- *             <dt>Using REST API</dt>
+ *             <dt>Using REST</dt>
  *             <dd>
  *                <p>If you use REST to make API calls, you must authenticate your request by providing
  *             a signature. Amazon Chime supports Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature

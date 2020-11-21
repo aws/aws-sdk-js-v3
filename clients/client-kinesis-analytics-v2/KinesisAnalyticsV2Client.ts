@@ -24,6 +24,10 @@ import {
 } from "./commands/AddApplicationVpcConfigurationCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
+  CreateApplicationPresignedUrlCommandInput,
+  CreateApplicationPresignedUrlCommandOutput,
+} from "./commands/CreateApplicationPresignedUrlCommand";
+import {
   CreateApplicationSnapshotCommandInput,
   CreateApplicationSnapshotCommandOutput,
 } from "./commands/CreateApplicationSnapshotCommand";
@@ -135,6 +139,7 @@ export type ServiceInputTypes =
   | AddApplicationReferenceDataSourceCommandInput
   | AddApplicationVpcConfigurationCommandInput
   | CreateApplicationCommandInput
+  | CreateApplicationPresignedUrlCommandInput
   | CreateApplicationSnapshotCommandInput
   | DeleteApplicationCloudWatchLoggingOptionCommandInput
   | DeleteApplicationCommandInput
@@ -163,6 +168,7 @@ export type ServiceOutputTypes =
   | AddApplicationReferenceDataSourceCommandOutput
   | AddApplicationVpcConfigurationCommandOutput
   | CreateApplicationCommandOutput
+  | CreateApplicationPresignedUrlCommandOutput
   | CreateApplicationSnapshotCommandOutput
   | DeleteApplicationCloudWatchLoggingOptionCommandOutput
   | DeleteApplicationCommandOutput

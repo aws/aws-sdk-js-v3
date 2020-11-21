@@ -3790,28 +3790,71 @@ export namespace AnalyticsAndOperator {
  *          one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided,
  *          all objects will be considered in any analysis.</p>
  */
-export interface AnalyticsFilter {
+export type AnalyticsFilter =
+  | AnalyticsFilter.AndMember
+  | AnalyticsFilter.PrefixMember
+  | AnalyticsFilter.TagMember
+  | AnalyticsFilter.$UnknownMember;
+
+export namespace AnalyticsFilter {
   /**
    * <p>The prefix to use when evaluating an analytics filter.</p>
    */
-  Prefix?: string;
+  export interface PrefixMember {
+    Prefix: string;
+    Tag?: never;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The tag to use when evaluating an analytics filter.</p>
    */
-  Tag?: Tag;
+  export interface TagMember {
+    Prefix?: never;
+    Tag: Tag;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A conjunction (logical AND) of predicates, which is used in evaluating an analytics
    *          filter. The operator must have at least two predicates.</p>
    */
-  And?: AnalyticsAndOperator;
-}
+  export interface AndMember {
+    Prefix?: never;
+    Tag?: never;
+    And: AnalyticsAndOperator;
+    $unknown?: never;
+  }
 
-export namespace AnalyticsFilter {
-  export const filterSensitiveLog = (obj: AnalyticsFilter): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    Prefix?: never;
+    Tag?: never;
+    And?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Prefix: (value: string) => T;
+    Tag: (value: Tag) => T;
+    And: (value: AnalyticsAndOperator) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnalyticsFilter, visitor: Visitor<T>): T => {
+    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
+    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.And !== undefined) return visitor.And(value.And);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AnalyticsFilter): any => {
+    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.And !== undefined) return { And: AnalyticsAndOperator.filterSensitiveLog(obj.And) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export type AnalyticsS3ExportFileFormat = "CSV";
@@ -3938,6 +3981,7 @@ export interface AnalyticsConfiguration {
 export namespace AnalyticsConfiguration {
   export const filterSensitiveLog = (obj: AnalyticsConfiguration): any => ({
     ...obj,
+    ...(obj.Filter && { Filter: AnalyticsFilter.filterSensitiveLog(obj.Filter) }),
   });
 }
 
@@ -3951,6 +3995,9 @@ export interface GetBucketAnalyticsConfigurationOutput {
 export namespace GetBucketAnalyticsConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketAnalyticsConfigurationOutput): any => ({
     ...obj,
+    ...(obj.AnalyticsConfiguration && {
+      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(obj.AnalyticsConfiguration),
+    }),
   });
 }
 
@@ -4244,9 +4291,10 @@ export type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCE
  */
 export interface Tiering {
   /**
-   * <p>The number of days that you want your archived data to be accessible. The minimum number
-   *          of days specified in the restore request must be at least 90 days. If a smaller value is
-   *          specifed it will be ignored. </p>
+   * <p>The number of consecutive days of no access after which an object will be eligible to be
+   *          transitioned to the corresponding tier. The minimum number of days specified for
+   *          Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least
+   *          180 days. The maximum can be up to 2 years (730 days).</p>
    */
   Days: number | undefined;
 
@@ -4652,29 +4700,72 @@ export namespace LifecycleRuleAndOperator {
  *             <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
  *             <code>And</code> specified.</p>
  */
-export interface LifecycleRuleFilter {
+export type LifecycleRuleFilter =
+  | LifecycleRuleFilter.AndMember
+  | LifecycleRuleFilter.PrefixMember
+  | LifecycleRuleFilter.TagMember
+  | LifecycleRuleFilter.$UnknownMember;
+
+export namespace LifecycleRuleFilter {
   /**
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
    */
-  Prefix?: string;
+  export interface PrefixMember {
+    Prefix: string;
+    Tag?: never;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>This tag must exist in the object's tag set in order for the rule to apply.</p>
    */
-  Tag?: Tag;
+  export interface TagMember {
+    Prefix?: never;
+    Tag: Tag;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more
    *          predicates. The Lifecycle Rule will apply to any object matching all of the predicates
    *          configured inside the And operator.</p>
    */
-  And?: LifecycleRuleAndOperator;
-}
+  export interface AndMember {
+    Prefix?: never;
+    Tag?: never;
+    And: LifecycleRuleAndOperator;
+    $unknown?: never;
+  }
 
-export namespace LifecycleRuleFilter {
-  export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    Prefix?: never;
+    Tag?: never;
+    And?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Prefix: (value: string) => T;
+    Tag: (value: Tag) => T;
+    And: (value: LifecycleRuleAndOperator) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: LifecycleRuleFilter, visitor: Visitor<T>): T => {
+    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
+    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.And !== undefined) return visitor.And(value.And);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => {
+    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.And !== undefined) return { And: LifecycleRuleAndOperator.filterSensitiveLog(obj.And) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -4832,6 +4923,7 @@ export interface LifecycleRule {
 export namespace LifecycleRule {
   export const filterSensitiveLog = (obj: LifecycleRule): any => ({
     ...obj,
+    ...(obj.Filter && { Filter: LifecycleRuleFilter.filterSensitiveLog(obj.Filter) }),
   });
 }
 
@@ -4845,6 +4937,7 @@ export interface GetBucketLifecycleConfigurationOutput {
 export namespace GetBucketLifecycleConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationOutput): any => ({
     ...obj,
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRule.filterSensitiveLog(item)) }),
   });
 }
 
@@ -5018,29 +5111,72 @@ export namespace MetricsAndOperator {
  *          objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction
  *          (MetricsAndOperator).</p>
  */
-export interface MetricsFilter {
+export type MetricsFilter =
+  | MetricsFilter.AndMember
+  | MetricsFilter.PrefixMember
+  | MetricsFilter.TagMember
+  | MetricsFilter.$UnknownMember;
+
+export namespace MetricsFilter {
   /**
    * <p>The prefix used when evaluating a metrics filter.</p>
    */
-  Prefix?: string;
+  export interface PrefixMember {
+    Prefix: string;
+    Tag?: never;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The tag used when evaluating a metrics filter.</p>
    */
-  Tag?: Tag;
+  export interface TagMember {
+    Prefix?: never;
+    Tag: Tag;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
    *          The operator must have at least two predicates, and an object must match all of the
    *          predicates in order for the filter to apply.</p>
    */
-  And?: MetricsAndOperator;
-}
+  export interface AndMember {
+    Prefix?: never;
+    Tag?: never;
+    And: MetricsAndOperator;
+    $unknown?: never;
+  }
 
-export namespace MetricsFilter {
-  export const filterSensitiveLog = (obj: MetricsFilter): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    Prefix?: never;
+    Tag?: never;
+    And?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Prefix: (value: string) => T;
+    Tag: (value: Tag) => T;
+    And: (value: MetricsAndOperator) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MetricsFilter, visitor: Visitor<T>): T => {
+    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
+    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.And !== undefined) return visitor.And(value.And);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: MetricsFilter): any => {
+    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.And !== undefined) return { And: MetricsAndOperator.filterSensitiveLog(obj.And) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -5068,6 +5204,7 @@ export interface MetricsConfiguration {
 export namespace MetricsConfiguration {
   export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
     ...obj,
+    ...(obj.Filter && { Filter: MetricsFilter.filterSensitiveLog(obj.Filter) }),
   });
 }
 
@@ -5081,6 +5218,9 @@ export interface GetBucketMetricsConfigurationOutput {
 export namespace GetBucketMetricsConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketMetricsConfigurationOutput): any => ({
     ...obj,
+    ...(obj.MetricsConfiguration && {
+      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(obj.MetricsConfiguration),
+    }),
   });
 }
 
@@ -5748,18 +5888,34 @@ export namespace ReplicationRuleAndOperator {
  *             <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or
  *          an <code>And</code> child element.</p>
  */
-export interface ReplicationRuleFilter {
+export type ReplicationRuleFilter =
+  | ReplicationRuleFilter.AndMember
+  | ReplicationRuleFilter.PrefixMember
+  | ReplicationRuleFilter.TagMember
+  | ReplicationRuleFilter.$UnknownMember;
+
+export namespace ReplicationRuleFilter {
   /**
    * <p>An object key name prefix that identifies the subset of objects to which the rule
    *          applies.</p>
    */
-  Prefix?: string;
+  export interface PrefixMember {
+    Prefix: string;
+    Tag?: never;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A container for specifying a tag key and value. </p>
    *          <p>The rule applies only to objects that have the tag in their tag set.</p>
    */
-  Tag?: Tag;
+  export interface TagMember {
+    Prefix?: never;
+    Tag: Tag;
+    And?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A container for specifying rule filters. The filters determine the subset of objects to
@@ -5776,13 +5932,40 @@ export interface ReplicationRuleFilter {
    *             </li>
    *          </ul>
    */
-  And?: ReplicationRuleAndOperator;
-}
+  export interface AndMember {
+    Prefix?: never;
+    Tag?: never;
+    And: ReplicationRuleAndOperator;
+    $unknown?: never;
+  }
 
-export namespace ReplicationRuleFilter {
-  export const filterSensitiveLog = (obj: ReplicationRuleFilter): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    Prefix?: never;
+    Tag?: never;
+    And?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Prefix: (value: string) => T;
+    Tag: (value: Tag) => T;
+    And: (value: ReplicationRuleAndOperator) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReplicationRuleFilter, visitor: Visitor<T>): T => {
+    if (value.Prefix !== undefined) return visitor.Prefix(value.Prefix);
+    if (value.Tag !== undefined) return visitor.Tag(value.Tag);
+    if (value.And !== undefined) return visitor.And(value.And);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ReplicationRuleFilter): any => {
+    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
+    if (obj.And !== undefined) return { And: ReplicationRuleAndOperator.filterSensitiveLog(obj.And) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
@@ -5916,6 +6099,7 @@ export interface ReplicationRule {
 export namespace ReplicationRule {
   export const filterSensitiveLog = (obj: ReplicationRule): any => ({
     ...obj,
+    ...(obj.Filter && { Filter: ReplicationRuleFilter.filterSensitiveLog(obj.Filter) }),
   });
 }
 
@@ -5941,6 +6125,7 @@ export interface ReplicationConfiguration {
 export namespace ReplicationConfiguration {
   export const filterSensitiveLog = (obj: ReplicationConfiguration): any => ({
     ...obj,
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => ReplicationRule.filterSensitiveLog(item)) }),
   });
 }
 
@@ -5955,6 +6140,9 @@ export interface GetBucketReplicationOutput {
 export namespace GetBucketReplicationOutput {
   export const filterSensitiveLog = (obj: GetBucketReplicationOutput): any => ({
     ...obj,
+    ...(obj.ReplicationConfiguration && {
+      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(obj.ReplicationConfiguration),
+    }),
   });
 }
 
@@ -7534,6 +7722,11 @@ export interface ListBucketAnalyticsConfigurationsOutput {
 export namespace ListBucketAnalyticsConfigurationsOutput {
   export const filterSensitiveLog = (obj: ListBucketAnalyticsConfigurationsOutput): any => ({
     ...obj,
+    ...(obj.AnalyticsConfigurationList && {
+      AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map((item) =>
+        AnalyticsConfiguration.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
@@ -7707,6 +7900,11 @@ export interface ListBucketMetricsConfigurationsOutput {
 export namespace ListBucketMetricsConfigurationsOutput {
   export const filterSensitiveLog = (obj: ListBucketMetricsConfigurationsOutput): any => ({
     ...obj,
+    ...(obj.MetricsConfigurationList && {
+      MetricsConfigurationList: obj.MetricsConfigurationList.map((item) =>
+        MetricsConfiguration.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
@@ -8879,6 +9077,7 @@ export interface PutBucketAclRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.</a>
    *          </p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -8945,6 +9144,9 @@ export interface PutBucketAnalyticsConfigurationRequest {
 export namespace PutBucketAnalyticsConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketAnalyticsConfigurationRequest): any => ({
     ...obj,
+    ...(obj.AnalyticsConfiguration && {
+      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(obj.AnalyticsConfiguration),
+    }),
   });
 }
 
@@ -8987,6 +9189,7 @@ export interface PutBucketCorsRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.</a>
    *          </p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9012,8 +9215,8 @@ export interface PutBucketEncryptionRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This
-   *          parameter is auto-populated when using the command from the CLI.</p>
+   * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9108,6 +9311,7 @@ export interface BucketLifecycleConfiguration {
 export namespace BucketLifecycleConfiguration {
   export const filterSensitiveLog = (obj: BucketLifecycleConfiguration): any => ({
     ...obj,
+    ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRule.filterSensitiveLog(item)) }),
   });
 }
 
@@ -9131,6 +9335,9 @@ export interface PutBucketLifecycleConfigurationRequest {
 export namespace PutBucketLifecycleConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketLifecycleConfigurationRequest): any => ({
     ...obj,
+    ...(obj.LifecycleConfiguration && {
+      LifecycleConfiguration: BucketLifecycleConfiguration.filterSensitiveLog(obj.LifecycleConfiguration),
+    }),
   });
 }
 
@@ -9165,6 +9372,7 @@ export interface PutBucketLoggingRequest {
 
   /**
    * <p>The MD5 hash of the <code>PutBucketLogging</code> request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9205,6 +9413,9 @@ export interface PutBucketMetricsConfigurationRequest {
 export namespace PutBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketMetricsConfigurationRequest): any => ({
     ...obj,
+    ...(obj.MetricsConfiguration && {
+      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(obj.MetricsConfiguration),
+    }),
   });
 }
 
@@ -9240,6 +9451,7 @@ export interface PutBucketOwnershipControlsRequest {
 
   /**
    * <p>The MD5 hash of the <code>OwnershipControls</code> request body. </p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9269,6 +9481,7 @@ export interface PutBucketPolicyRequest {
 
   /**
    * <p>The MD5 hash of the request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9305,6 +9518,7 @@ export interface PutBucketReplicationRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9328,6 +9542,9 @@ export interface PutBucketReplicationRequest {
 export namespace PutBucketReplicationRequest {
   export const filterSensitiveLog = (obj: PutBucketReplicationRequest): any => ({
     ...obj,
+    ...(obj.ReplicationConfiguration && {
+      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(obj.ReplicationConfiguration),
+    }),
   });
 }
 
@@ -9358,6 +9575,7 @@ export interface PutBucketRequestPaymentRequest {
    *          message integrity check to verify that the request body was not corrupted in transit. For
    *          more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864</a>.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9404,6 +9622,7 @@ export interface PutBucketTaggingRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9461,6 +9680,7 @@ export interface PutBucketVersioningRequest {
    *          message integrity check to verify that the request body was not corrupted in transit. For
    *          more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864</a>.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9531,6 +9751,7 @@ export interface PutBucketWebsiteRequest {
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message
    *          integrity check to verify that the request body was not corrupted in transit. For more
    *          information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -9890,6 +10111,7 @@ export interface PutObjectAclRequest {
    *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
    *          1864.></a>
    *          </p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10004,6 +10226,7 @@ export interface PutObjectLegalHoldRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10059,6 +10282,7 @@ export interface PutObjectLockConfigurationRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10128,6 +10352,7 @@ export interface PutObjectRetentionRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10176,6 +10401,7 @@ export interface PutObjectTaggingRequest {
 
   /**
    * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 
@@ -10205,6 +10431,7 @@ export interface PutPublicAccessBlockRequest {
 
   /**
    * <p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>
+   *          <p>For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.</p>
    */
   ContentMD5?: string;
 

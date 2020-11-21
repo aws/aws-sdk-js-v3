@@ -70,6 +70,11 @@ import {
   CancelMLTaskRunCommandOutput,
 } from "./commands/CancelMLTaskRunCommand";
 import {
+  CheckSchemaVersionValidityCommand,
+  CheckSchemaVersionValidityCommandInput,
+  CheckSchemaVersionValidityCommandOutput,
+} from "./commands/CheckSchemaVersionValidityCommand";
+import {
   CreateClassifierCommand,
   CreateClassifierCommandInput,
   CreateClassifierCommandOutput,
@@ -105,6 +110,16 @@ import {
   CreatePartitionCommandInput,
   CreatePartitionCommandOutput,
 } from "./commands/CreatePartitionCommand";
+import {
+  CreateRegistryCommand,
+  CreateRegistryCommandInput,
+  CreateRegistryCommandOutput,
+} from "./commands/CreateRegistryCommand";
+import {
+  CreateSchemaCommand,
+  CreateSchemaCommandInput,
+  CreateSchemaCommandOutput,
+} from "./commands/CreateSchemaCommand";
 import {
   CreateScriptCommand,
   CreateScriptCommandInput,
@@ -178,10 +193,25 @@ import {
   DeletePartitionCommandOutput,
 } from "./commands/DeletePartitionCommand";
 import {
+  DeleteRegistryCommand,
+  DeleteRegistryCommandInput,
+  DeleteRegistryCommandOutput,
+} from "./commands/DeleteRegistryCommand";
+import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteSchemaCommand,
+  DeleteSchemaCommandInput,
+  DeleteSchemaCommandOutput,
+} from "./commands/DeleteSchemaCommand";
+import {
+  DeleteSchemaVersionsCommand,
+  DeleteSchemaVersionsCommandInput,
+  DeleteSchemaVersionsCommandOutput,
+} from "./commands/DeleteSchemaVersionsCommand";
 import {
   DeleteSecurityConfigurationCommand,
   DeleteSecurityConfigurationCommandInput,
@@ -322,6 +352,7 @@ import {
   GetPartitionsCommandOutput,
 } from "./commands/GetPartitionsCommand";
 import { GetPlanCommand, GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
+import { GetRegistryCommand, GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
 import {
   GetResourcePoliciesCommand,
   GetResourcePoliciesCommandInput,
@@ -332,6 +363,22 @@ import {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import {
+  GetSchemaByDefinitionCommand,
+  GetSchemaByDefinitionCommandInput,
+  GetSchemaByDefinitionCommandOutput,
+} from "./commands/GetSchemaByDefinitionCommand";
+import { GetSchemaCommand, GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import {
+  GetSchemaVersionCommand,
+  GetSchemaVersionCommandInput,
+  GetSchemaVersionCommandOutput,
+} from "./commands/GetSchemaVersionCommand";
+import {
+  GetSchemaVersionsDiffCommand,
+  GetSchemaVersionsDiffCommandInput,
+  GetSchemaVersionsDiffCommandOutput,
+} from "./commands/GetSchemaVersionsDiffCommand";
 import {
   GetSecurityConfigurationCommand,
   GetSecurityConfigurationCommandInput,
@@ -405,6 +452,17 @@ import {
   ListMLTransformsCommandOutput,
 } from "./commands/ListMLTransformsCommand";
 import {
+  ListRegistriesCommand,
+  ListRegistriesCommandInput,
+  ListRegistriesCommandOutput,
+} from "./commands/ListRegistriesCommand";
+import {
+  ListSchemaVersionsCommand,
+  ListSchemaVersionsCommandInput,
+  ListSchemaVersionsCommandOutput,
+} from "./commands/ListSchemaVersionsCommand";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
+import {
   ListTriggersCommand,
   ListTriggersCommandInput,
   ListTriggersCommandOutput,
@@ -425,10 +483,30 @@ import {
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  PutSchemaVersionMetadataCommand,
+  PutSchemaVersionMetadataCommandInput,
+  PutSchemaVersionMetadataCommandOutput,
+} from "./commands/PutSchemaVersionMetadataCommand";
+import {
   PutWorkflowRunPropertiesCommand,
   PutWorkflowRunPropertiesCommandInput,
   PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand";
+import {
+  QuerySchemaVersionMetadataCommand,
+  QuerySchemaVersionMetadataCommandInput,
+  QuerySchemaVersionMetadataCommandOutput,
+} from "./commands/QuerySchemaVersionMetadataCommand";
+import {
+  RegisterSchemaVersionCommand,
+  RegisterSchemaVersionCommandInput,
+  RegisterSchemaVersionCommandOutput,
+} from "./commands/RegisterSchemaVersionCommand";
+import {
+  RemoveSchemaVersionMetadataCommand,
+  RemoveSchemaVersionMetadataCommandInput,
+  RemoveSchemaVersionMetadataCommandOutput,
+} from "./commands/RemoveSchemaVersionMetadataCommand";
 import {
   ResetJobBookmarkCommand,
   ResetJobBookmarkCommandInput,
@@ -554,6 +632,16 @@ import {
   UpdatePartitionCommandInput,
   UpdatePartitionCommandOutput,
 } from "./commands/UpdatePartitionCommand";
+import {
+  UpdateRegistryCommand,
+  UpdateRegistryCommandInput,
+  UpdateRegistryCommandOutput,
+} from "./commands/UpdateRegistryCommand";
+import {
+  UpdateSchemaCommand,
+  UpdateSchemaCommandInput,
+  UpdateSchemaCommandOutput,
+} from "./commands/UpdateSchemaCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTriggerCommand,
@@ -1040,6 +1128,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
+   */
+  public checkSchemaVersionValidity(
+    args: CheckSchemaVersionValidityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckSchemaVersionValidityCommandOutput>;
+  public checkSchemaVersionValidity(
+    args: CheckSchemaVersionValidityCommandInput,
+    cb: (err: any, data?: CheckSchemaVersionValidityCommandOutput) => void
+  ): void;
+  public checkSchemaVersionValidity(
+    args: CheckSchemaVersionValidityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckSchemaVersionValidityCommandOutput) => void
+  ): void;
+  public checkSchemaVersionValidity(
+    args: CheckSchemaVersionValidityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckSchemaVersionValidityCommandOutput) => void),
+    cb?: (err: any, data?: CheckSchemaVersionValidityCommandOutput) => void
+  ): Promise<CheckSchemaVersionValidityCommandOutput> | void {
+    const command = new CheckSchemaVersionValidityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
    *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
    *       depending on which field of the request is present.</p>
@@ -1295,6 +1415,69 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CreatePartitionCommandOutput) => void
   ): Promise<CreatePartitionCommandOutput> | void {
     const command = new CreatePartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
+   */
+  public createRegistry(
+    args: CreateRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistryCommandOutput>;
+  public createRegistry(
+    args: CreateRegistryCommandInput,
+    cb: (err: any, data?: CreateRegistryCommandOutput) => void
+  ): void;
+  public createRegistry(
+    args: CreateRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistryCommandOutput) => void
+  ): void;
+  public createRegistry(
+    args: CreateRegistryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegistryCommandOutput) => void),
+    cb?: (err: any, data?: CreateRegistryCommandOutput) => void
+  ): Promise<CreateRegistryCommandOutput> | void {
+    const command = new CreateRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p>
+   *          <p>When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode "DISABLED" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the <code>RegisterSchemaVersion</code> API is used.</p>
+   *          <p>When this API is called without a <code>RegistryId</code>, this will create an entry for a "default-registry" in the registry database tables, if it is not already present.</p>
+   */
+  public createSchema(
+    args: CreateSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSchemaCommandOutput>;
+  public createSchema(args: CreateSchemaCommandInput, cb: (err: any, data?: CreateSchemaCommandOutput) => void): void;
+  public createSchema(
+    args: CreateSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): void;
+  public createSchema(
+    args: CreateSchemaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    cb?: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): Promise<CreateSchemaCommandOutput> | void {
+    const command = new CreateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1826,6 +2009,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will disable all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
+   */
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistryCommandOutput>;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegistryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): Promise<DeleteRegistryCommandOutput> | void {
+    const command = new DeleteRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a specified policy.</p>
    */
   public deleteResourcePolicy(
@@ -1847,6 +2062,70 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the entire schema set, including the schema set and all of its versions. To get the status of the delete operation, you can call <code>GetSchema</code> API after the asynchronous call. Deleting a registry will disable all online operations for the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code> APIs.</p>
+   */
+  public deleteSchema(
+    args: DeleteSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSchemaCommandOutput>;
+  public deleteSchema(args: DeleteSchemaCommandInput, cb: (err: any, data?: DeleteSchemaCommandOutput) => void): void;
+  public deleteSchema(
+    args: DeleteSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSchemaCommandOutput) => void
+  ): void;
+  public deleteSchema(
+    args: DeleteSchemaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
+  ): Promise<DeleteSchemaCommandOutput> | void {
+    const command = new DeleteSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove versions from the specified schema. A version number or range may be supplied. If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned.  Calling the <code>GetSchemaVersions</code> API after this call will list the status of the deleted versions.</p>
+   *          <p>When the range of version numbers contain check pointed version, the API will return a 409 conflict and will not proceed with the deletion. You have to remove the checkpoint first using the <code>DeleteSchemaCheckpoint</code> API before using this API.</p>
+   *          <p>You cannot use the <code>DeleteSchemaVersions</code> API to delete the first schema version in the schema set. The first schema version can only be deleted by the <code>DeleteSchema</code> API. This operation will also delete the attached <code>SchemaVersionMetadata</code> under the schema versions. Hard deletes will be enforced on the database.</p>
+   *          <p>If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned.</p>
+   */
+  public deleteSchemaVersions(
+    args: DeleteSchemaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSchemaVersionsCommandOutput>;
+  public deleteSchemaVersions(
+    args: DeleteSchemaVersionsCommandInput,
+    cb: (err: any, data?: DeleteSchemaVersionsCommandOutput) => void
+  ): void;
+  public deleteSchemaVersions(
+    args: DeleteSchemaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSchemaVersionsCommandOutput) => void
+  ): void;
+  public deleteSchemaVersions(
+    args: DeleteSchemaVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSchemaVersionsCommandOutput) => void
+  ): Promise<DeleteSchemaVersionsCommandOutput> | void {
+    const command = new DeleteSchemaVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2985,6 +3264,32 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Describes the specified registry in detail.</p>
+   */
+  public getRegistry(args: GetRegistryCommandInput, options?: __HttpHandlerOptions): Promise<GetRegistryCommandOutput>;
+  public getRegistry(args: GetRegistryCommandInput, cb: (err: any, data?: GetRegistryCommandOutput) => void): void;
+  public getRegistry(
+    args: GetRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegistryCommandOutput) => void
+  ): void;
+  public getRegistry(
+    args: GetRegistryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegistryCommandOutput) => void),
+    cb?: (err: any, data?: GetRegistryCommandOutput) => void
+  ): Promise<GetRegistryCommandOutput> | void {
+    const command = new GetRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the security configurations for the resource policies set on individual resources, and also the account-level policy.</p>
    *
    * 	        <p>This operation also returns the Data Catalog resource policy. However, if you enabled metadata encryption in Data Catalog settings, and you do not have permission on the AWS KMS key, the operation can't return the Data Catalog resource policy.</p>
@@ -3040,6 +3345,129 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): Promise<GetResourcePolicyCommandOutput> | void {
     const command = new GetResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified schema in detail.</p>
+   */
+  public getSchema(args: GetSchemaCommandInput, options?: __HttpHandlerOptions): Promise<GetSchemaCommandOutput>;
+  public getSchema(args: GetSchemaCommandInput, cb: (err: any, data?: GetSchemaCommandOutput) => void): void;
+  public getSchema(
+    args: GetSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSchemaCommandOutput) => void
+  ): void;
+  public getSchema(
+    args: GetSchemaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaCommandOutput) => void),
+    cb?: (err: any, data?: GetSchemaCommandOutput) => void
+  ): Promise<GetSchemaCommandOutput> | void {
+    const command = new GetSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a schema by the <code>SchemaDefinition</code>. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the <code>SchemaName</code> or ARN (or the default registry, if none is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in <code>Deleted</code> statuses will not be included in the results.</p>
+   */
+  public getSchemaByDefinition(
+    args: GetSchemaByDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSchemaByDefinitionCommandOutput>;
+  public getSchemaByDefinition(
+    args: GetSchemaByDefinitionCommandInput,
+    cb: (err: any, data?: GetSchemaByDefinitionCommandOutput) => void
+  ): void;
+  public getSchemaByDefinition(
+    args: GetSchemaByDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSchemaByDefinitionCommandOutput) => void
+  ): void;
+  public getSchemaByDefinition(
+    args: GetSchemaByDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaByDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: GetSchemaByDefinitionCommandOutput) => void
+  ): Promise<GetSchemaByDefinitionCommandOutput> | void {
+    const command = new GetSchemaByDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the specified schema by its unique ID assigned when a version of the schema is created or registered. Schema versions in Deleted status will not be included in the results.</p>
+   */
+  public getSchemaVersion(
+    args: GetSchemaVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSchemaVersionCommandOutput>;
+  public getSchemaVersion(
+    args: GetSchemaVersionCommandInput,
+    cb: (err: any, data?: GetSchemaVersionCommandOutput) => void
+  ): void;
+  public getSchemaVersion(
+    args: GetSchemaVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSchemaVersionCommandOutput) => void
+  ): void;
+  public getSchemaVersion(
+    args: GetSchemaVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetSchemaVersionCommandOutput) => void
+  ): Promise<GetSchemaVersionCommandOutput> | void {
+    const command = new GetSchemaVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
+   *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
+   */
+  public getSchemaVersionsDiff(
+    args: GetSchemaVersionsDiffCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSchemaVersionsDiffCommandOutput>;
+  public getSchemaVersionsDiff(
+    args: GetSchemaVersionsDiffCommandInput,
+    cb: (err: any, data?: GetSchemaVersionsDiffCommandOutput) => void
+  ): void;
+  public getSchemaVersionsDiff(
+    args: GetSchemaVersionsDiffCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSchemaVersionsDiffCommandOutput) => void
+  ): void;
+  public getSchemaVersionsDiff(
+    args: GetSchemaVersionsDiffCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaVersionsDiffCommandOutput) => void),
+    cb?: (err: any, data?: GetSchemaVersionsDiffCommandOutput) => void
+  ): Promise<GetSchemaVersionsDiffCommandOutput> | void {
+    const command = new GetSchemaVersionsDiffCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3669,6 +4097,97 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
+   */
+  public listRegistries(
+    args: ListRegistriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegistriesCommandOutput>;
+  public listRegistries(
+    args: ListRegistriesCommandInput,
+    cb: (err: any, data?: ListRegistriesCommandOutput) => void
+  ): void;
+  public listRegistries(
+    args: ListRegistriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegistriesCommandOutput) => void
+  ): void;
+  public listRegistries(
+    args: ListRegistriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegistriesCommandOutput) => void),
+    cb?: (err: any, data?: ListRegistriesCommandOutput) => void
+  ): Promise<ListRegistriesCommandOutput> | void {
+    const command = new ListRegistriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
+   *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
+   */
+  public listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
+  public listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
+  public listSchemas(
+    args: ListSchemasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSchemasCommandOutput) => void
+  ): void;
+  public listSchemas(
+    args: ListSchemasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemasCommandOutput) => void),
+    cb?: (err: any, data?: ListSchemasCommandOutput) => void
+  ): Promise<ListSchemasCommandOutput> | void {
+    const command = new ListSchemasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of schema versions that you have created, with minimal information. Schema versions in Deleted status will not be included in the results. Empty results will be returned if there are no schema versions available.</p>
+   */
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemaVersionsCommandOutput>;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): Promise<ListSchemaVersionsCommandOutput> | void {
+    const command = new ListSchemaVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
@@ -3799,6 +4318,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
+   */
+  public putSchemaVersionMetadata(
+    args: PutSchemaVersionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSchemaVersionMetadataCommandOutput>;
+  public putSchemaVersionMetadata(
+    args: PutSchemaVersionMetadataCommandInput,
+    cb: (err: any, data?: PutSchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public putSchemaVersionMetadata(
+    args: PutSchemaVersionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public putSchemaVersionMetadata(
+    args: PutSchemaVersionMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSchemaVersionMetadataCommandOutput) => void),
+    cb?: (err: any, data?: PutSchemaVersionMetadataCommandOutput) => void
+  ): Promise<PutSchemaVersionMetadataCommandOutput> | void {
+    const command = new PutSchemaVersionMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
    */
   public putWorkflowRunProperties(
@@ -3820,6 +4371,104 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: PutWorkflowRunPropertiesCommandOutput) => void
   ): Promise<PutWorkflowRunPropertiesCommandOutput> | void {
     const command = new PutWorkflowRunPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Queries for the schema version metadata information. </p>
+   */
+  public querySchemaVersionMetadata(
+    args: QuerySchemaVersionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QuerySchemaVersionMetadataCommandOutput>;
+  public querySchemaVersionMetadata(
+    args: QuerySchemaVersionMetadataCommandInput,
+    cb: (err: any, data?: QuerySchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public querySchemaVersionMetadata(
+    args: QuerySchemaVersionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QuerySchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public querySchemaVersionMetadata(
+    args: QuerySchemaVersionMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QuerySchemaVersionMetadataCommandOutput) => void),
+    cb?: (err: any, data?: QuerySchemaVersionMetadataCommandOutput) => void
+  ): Promise<QuerySchemaVersionMetadataCommandOutput> | void {
+    const command = new QuerySchemaVersionMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.</p>
+   *          <p>If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the <code>GetSchemaVersion</code> API with the <code>SchemaVersionId</code> to check compatibility modes.</p>
+   * 	        <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
+   */
+  public registerSchemaVersion(
+    args: RegisterSchemaVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterSchemaVersionCommandOutput>;
+  public registerSchemaVersion(
+    args: RegisterSchemaVersionCommandInput,
+    cb: (err: any, data?: RegisterSchemaVersionCommandOutput) => void
+  ): void;
+  public registerSchemaVersion(
+    args: RegisterSchemaVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterSchemaVersionCommandOutput) => void
+  ): void;
+  public registerSchemaVersion(
+    args: RegisterSchemaVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterSchemaVersionCommandOutput) => void),
+    cb?: (err: any, data?: RegisterSchemaVersionCommandOutput) => void
+  ): Promise<RegisterSchemaVersionCommandOutput> | void {
+    const command = new RegisterSchemaVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
+   */
+  public removeSchemaVersionMetadata(
+    args: RemoveSchemaVersionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveSchemaVersionMetadataCommandOutput>;
+  public removeSchemaVersionMetadata(
+    args: RemoveSchemaVersionMetadataCommandInput,
+    cb: (err: any, data?: RemoveSchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public removeSchemaVersionMetadata(
+    args: RemoveSchemaVersionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveSchemaVersionMetadataCommandOutput) => void
+  ): void;
+  public removeSchemaVersionMetadata(
+    args: RemoveSchemaVersionMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveSchemaVersionMetadataCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSchemaVersionMetadataCommandOutput) => void
+  ): Promise<RemoveSchemaVersionMetadataCommandOutput> | void {
+    const command = new RemoveSchemaVersionMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4784,6 +5433,70 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: UpdatePartitionCommandOutput) => void
   ): Promise<UpdatePartitionCommandOutput> | void {
     const command = new UpdatePartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing registry which is used to hold a collection of schemas. The updated properties relate to the registry, and do not modify any of the schemas within the registry. </p>
+   */
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegistryCommandOutput>;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegistryCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): Promise<UpdateRegistryCommandOutput> | void {
+    const command = new UpdateRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
+   * 	        <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
+   *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
+   * 	        <p>This update will happen only if the schema is in the AVAILABLE state.</p>
+   */
+  public updateSchema(
+    args: UpdateSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSchemaCommandOutput>;
+  public updateSchema(args: UpdateSchemaCommandInput, cb: (err: any, data?: UpdateSchemaCommandOutput) => void): void;
+  public updateSchema(
+    args: UpdateSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSchemaCommandOutput) => void
+  ): void;
+  public updateSchema(
+    args: UpdateSchemaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSchemaCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
+  ): Promise<UpdateSchemaCommandOutput> | void {
+    const command = new UpdateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

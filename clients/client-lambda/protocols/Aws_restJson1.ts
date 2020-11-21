@@ -2355,6 +2355,8 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     ParallelizationFactor: undefined,
     Queues: undefined,
     SourceAccessConfigurations: undefined,
+    StartingPosition: undefined,
+    StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
@@ -2402,6 +2404,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
       data.SourceAccessConfigurations,
       context
     );
+  }
+  if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+    contents.StartingPosition = data.StartingPosition;
+  }
+  if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -2783,6 +2791,8 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     ParallelizationFactor: undefined,
     Queues: undefined,
     SourceAccessConfigurations: undefined,
+    StartingPosition: undefined,
+    StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
@@ -2830,6 +2840,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
       data.SourceAccessConfigurations,
       context
     );
+  }
+  if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+    contents.StartingPosition = data.StartingPosition;
+  }
+  if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -3486,6 +3502,8 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     ParallelizationFactor: undefined,
     Queues: undefined,
     SourceAccessConfigurations: undefined,
+    StartingPosition: undefined,
+    StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
@@ -3533,6 +3551,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
       data.SourceAccessConfigurations,
       context
     );
+  }
+  if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+    contents.StartingPosition = data.StartingPosition;
+  }
+  if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -6726,6 +6750,8 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ParallelizationFactor: undefined,
     Queues: undefined,
     SourceAccessConfigurations: undefined,
+    StartingPosition: undefined,
+    StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
@@ -6773,6 +6799,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
       data.SourceAccessConfigurations,
       context
     );
+  }
+  if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+    contents.StartingPosition = data.StartingPosition;
+  }
+  if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+    contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -8380,6 +8412,12 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     SourceAccessConfigurations:
       output.SourceAccessConfigurations !== undefined && output.SourceAccessConfigurations !== null
         ? deserializeAws_restJson1SourceAccessConfigurations(output.SourceAccessConfigurations, context)
+        : undefined,
+    StartingPosition:
+      output.StartingPosition !== undefined && output.StartingPosition !== null ? output.StartingPosition : undefined,
+    StartingPositionTimestamp:
+      output.StartingPositionTimestamp !== undefined && output.StartingPositionTimestamp !== null
+        ? new Date(Math.round(output.StartingPositionTimestamp * 1000))
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateTransitionReason:

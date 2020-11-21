@@ -757,6 +757,18 @@ export interface EventSourceMappingConfiguration {
   UUID?: string;
 
   /**
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
+   *       sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+   */
+  StartingPosition?: EventSourcePosition | string;
+
+  /**
+   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
+   *       reading.</p>
+   */
+  StartingPositionTimestamp?: Date;
+
+  /**
    * <p>The maximum number of items to retrieve in a single batch.</p>
    */
   BatchSize?: number;

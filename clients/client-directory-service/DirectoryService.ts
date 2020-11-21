@@ -5,6 +5,7 @@ import {
   AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand";
 import { AddIpRoutesCommand, AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
+import { AddRegionCommand, AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
@@ -114,6 +115,11 @@ import {
   DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
 import {
+  DescribeRegionsCommand,
+  DescribeRegionsCommandInput,
+  DescribeRegionsCommandOutput,
+} from "./commands/DescribeRegionsCommand";
+import {
   DescribeSharedDirectoriesCommand,
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -201,6 +207,11 @@ import {
   RemoveIpRoutesCommandInput,
   RemoveIpRoutesCommandOutput,
 } from "./commands/RemoveIpRoutesCommand";
+import {
+  RemoveRegionCommand,
+  RemoveRegionCommandInput,
+  RemoveRegionCommandOutput,
+} from "./commands/RemoveRegionCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
@@ -319,6 +330,32 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
+   * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
+   */
+  public addRegion(args: AddRegionCommandInput, options?: __HttpHandlerOptions): Promise<AddRegionCommandOutput>;
+  public addRegion(args: AddRegionCommandInput, cb: (err: any, data?: AddRegionCommandOutput) => void): void;
+  public addRegion(
+    args: AddRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddRegionCommandOutput) => void
+  ): void;
+  public addRegion(
+    args: AddRegionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddRegionCommandOutput) => void),
+    cb?: (err: any, data?: AddRegionCommandOutput) => void
+  ): Promise<AddRegionCommandOutput> | void {
+    const command = new AddRegionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.</p>
    */
   public addTagsToResource(
@@ -384,7 +421,10 @@ export class DirectoryService extends DirectoryServiceClient {
 
   /**
    * <p>Creates an AD Connector to connect to an on-premises directory.</p>
-   *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+   *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
+   *       have been explicitly granted through a policy. For details about what permissions are required
+   *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
+   *       Reference</a>.</p>
    */
   public connectDirectory(
     args: ConnectDirectoryCommandInput,
@@ -447,7 +487,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Creates a computer account in the specified directory, and joins the computer to the directory.</p>
+   * <p>Creates an Active Directory computer object in the specified directory.</p>
    */
   public createComputer(
     args: CreateComputerCommandInput,
@@ -511,8 +551,12 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>AWS Directory Service Admin Guide</i>.</p>
-   *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+   * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>AWS Directory Service Admin
+   *         Guide</i>.</p>
+   *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
+   *       have been explicitly granted through a policy. For details about what permissions are required
+   *       to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
+   *       Reference</a>.</p>
    */
   public createDirectory(
     args: CreateDirectoryCommandInput,
@@ -544,8 +588,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Creates a subscription to forward real-time Directory Service domain controller
-   *       security logs to the specified Amazon CloudWatch log group in your AWS account.</p>
+   * <p>Creates a subscription to forward real-time Directory Service domain controller security
+   *       logs to the specified Amazon CloudWatch log group in your AWS account.</p>
    */
   public createLogSubscription(
     args: CreateLogSubscriptionCommandInput,
@@ -705,7 +749,10 @@ export class DirectoryService extends DirectoryServiceClient {
 
   /**
    * <p>Deletes an AWS Directory Service directory.</p>
-   *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+   *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
+   *       have been explicitly granted through a policy. For details about what permissions are required
+   *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
+   *       Reference</a>.</p>
    */
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
@@ -892,7 +939,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Displays information about the certificate registered for a secured LDAP connection.</p>
+   * <p>Displays information about the certificate registered for a secured LDAP
+   *       connection.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -959,14 +1007,15 @@ export class DirectoryService extends DirectoryServiceClient {
   /**
    * <p>Obtains information about the directories that belong to this account.</p>
    *          <p>You can retrieve information about specific directories by passing the directory
-   *          identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong to
-   *          the current account are returned.</p>
+   *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
+   *       to the current account are returned.</p>
    *          <p>This operation supports pagination with the use of the <code>NextToken</code> request and
-   *          response parameters. If more results are available, the
-   *             <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in the
-   *          next call to <a>DescribeDirectories</a> to retrieve the next set of items.</p>
+   *       response parameters. If more results are available, the
+   *         <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in
+   *       the next call to <a>DescribeDirectories</a> to retrieve the next set of
+   *       items.</p>
    *          <p>You can also specify a maximum number of return results with the <code>Limit</code>
-   *          parameter.</p>
+   *       parameter.</p>
    */
   public describeDirectories(
     args: DescribeDirectoriesCommandInput,
@@ -1084,6 +1133,38 @@ export class DirectoryService extends DirectoryServiceClient {
     cb?: (err: any, data?: DescribeLDAPSSettingsCommandOutput) => void
   ): Promise<DescribeLDAPSSettingsCommandOutput> | void {
     const command = new DescribeLDAPSSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides information about the Regions that are configured for multi-Region replication.</p>
+   */
+  public describeRegions(
+    args: DescribeRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegionsCommandOutput>;
+  public describeRegions(
+    args: DescribeRegionsCommandInput,
+    cb: (err: any, data?: DescribeRegionsCommandOutput) => void
+  ): void;
+  public describeRegions(
+    args: DescribeRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegionsCommandOutput) => void
+  ): void;
+  public describeRegions(
+    args: DescribeRegionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRegionsCommandOutput) => void
+  ): Promise<DescribeRegionsCommandOutput> | void {
+    const command = new DescribeRegionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1430,7 +1511,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>For the specified directory, lists all the certificates registered for a secured LDAP connection.</p>
+   * <p>For the specified directory, lists all the certificates registered for a secured LDAP
+   *       connection.</p>
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -1715,6 +1797,35 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
+   * <p>Stops all replication and removes the domain controllers from the specified Region. You cannot remove the primary Region with this operation. Instead, use the <code>DeleteDirectory</code> API.</p>
+   */
+  public removeRegion(
+    args: RemoveRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveRegionCommandOutput>;
+  public removeRegion(args: RemoveRegionCommandInput, cb: (err: any, data?: RemoveRegionCommandOutput) => void): void;
+  public removeRegion(
+    args: RemoveRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveRegionCommandOutput) => void
+  ): void;
+  public removeRegion(
+    args: RemoveRegionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveRegionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveRegionCommandOutput) => void
+  ): Promise<RemoveRegionCommandOutput> | void {
+    const command = new RemoveRegionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes tags from a directory.</p>
    */
   public removeTagsFromResource(
@@ -1747,18 +1858,20 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   * <p>Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory.</p>
-   *          <p>You can reset the password for any user in your directory with the following exceptions:</p>
+   * <p>Resets the password for any user in your AWS Managed Microsoft AD or Simple AD
+   *       directory.</p>
+   *          <p>You can reset the password for any user in your directory with the following
+   *       exceptions:</p>
    *          <ul>
    *             <li>
-   *                <p>For Simple AD, you cannot reset the password for any user that is a member of either the
-   *             <b>Domain Admins</b> or <b>Enterprise
+   *                <p>For Simple AD, you cannot reset the password for any user that is a member of either
+   *           the <b>Domain Admins</b> or <b>Enterprise
    *             Admins</b> group except for the administrator user.</p>
    *             </li>
    *             <li>
-   *                <p>For AWS Managed Microsoft AD, you can only reset the password for a user that is in an OU
-   *           based off of the NetBIOS name that you typed when you created your directory. For example,
-   *           you cannot reset the password for a user in the <b>AWS
+   *                <p>For AWS Managed Microsoft AD, you can only reset the password for a user that is in an
+   *           OU based off of the NetBIOS name that you typed when you created your directory. For
+   *           example, you cannot reset the password for a user in the <b>AWS
    *             Reserved</b> OU. For more information about the OU structure for an AWS Managed
    *           Microsoft AD directory, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html">What Gets Created</a> in the <i>AWS Directory Service Administration
    *             Guide</i>.</p>

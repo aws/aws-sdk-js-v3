@@ -4936,6 +4936,10 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationMetadata => {
   return {
+    AdditionalMetadata:
+      output.AdditionalMetadata !== undefined && output.AdditionalMetadata !== null
+        ? output.AdditionalMetadata
+        : undefined,
     GenerationTimestamp:
       output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
         ? output.GenerationTimestamp

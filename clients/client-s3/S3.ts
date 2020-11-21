@@ -1787,8 +1787,6 @@ export class S3 extends S3Client {
    *             ability to perform this action.</p>
    *          </important>
    *
-   *
-   *
    *          <p>For more information about bucket policies, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and
    *             UserPolicies</a>. </p>
    *          <p>The following operations are related to <code>DeleteBucketPolicy</code>
@@ -3422,12 +3420,13 @@ export class S3 extends S3Client {
    *          BitTorrent. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon S3
    *             Torrent</a>. For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
    *
-   *          <p>If the object you are retrieving is stored in the S3 Glacier, S3 Glacier Deep Archive,
-   *          S3 Intelligent-Tiering Archive, or S3 Intelligent-Tiering Deep Archive storage classes, before you can retrieve
-   *          the object you must first restore a copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this
-   *          operation returns an <code>InvalidObjectStateError</code> error. For information about
-   *          restoring archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
-   *             Archived Objects</a>.</p>
+   *          <p>If the object you are retrieving is stored in the S3 Glacier or
+   *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
+   *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
+   *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an
+   *             <code>InvalidObjectStateError</code> error. For information about restoring archived
+   *          objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
+   *             Objects</a>.</p>
    *
    *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
    *          be sent for GET requests if your object uses server-side encryption with CMKs stored in AWS
@@ -5531,6 +5530,7 @@ export class S3 extends S3Client {
    *          </note>
    *
    *
+   *
    *          <p>
    *             <b>Rules</b>
    *          </p>
@@ -6069,12 +6069,8 @@ export class S3 extends S3Client {
    *             <code>DeleteMarkerReplication</code>, <code>Status</code>, and
    *          <code>Priority</code>.</p>
    *          <note>
-   *             <p>The latest version of the replication configuration XML is V2. XML V2 replication
-   *             configurations are those that contain the <code>Filter</code> element for rules, and
-   *             rules that specify S3 Replication Time Control (S3 RTC). In XML V2 replication configurations, Amazon S3 doesn't
-   *             replicate delete markers. Therefore, you must set the
-   *                <code>DeleteMarkerReplication</code> element to <code>Disabled</code>. For backward
-   *             compatibility, Amazon S3 continues to support the XML V1 replication configuration.</p>
+   *             <p>If you are using an earlier version of the replication configuration, Amazon S3 handles
+   *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
    *          </note>
    *          <p>For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using Versioning</a>.</p>
    *
@@ -7313,16 +7309,17 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>Restoring Archives</b>
+   *             <b>Restoring objects</b>
    *          </p>
-   *          <p>Objects that you archive to the S3 Glacier,
-   *          S3 Glacier Deep Archive, S3 Intelligent-Tiering Archive, or S3 Intelligent-Tiering Deep Archive storage
-   *          classes are not accessible in real time. For objects in Archive Access tier or
-   *          Deep Archive Access tier you must first initiate a restore request, and then wait until the object
-   *          is moved into the Frequent Access tier. For objects in S3 Glacier or
-   *          S3 Glacier Deep Archive you must first initiate a restore request, and then wait
-   *          until a temporary copy of the object is available. To access an archived object, you must
-   *          restore the object for the duration (number of days) that you specify.</p>
+   *          <p>Objects that you archive to the S3 Glacier or
+   *          S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
+   *          S3 Intelligent-Tiering Deep Archive tiers are not accessible in real time. For objects in
+   *          Archive Access or Deep Archive Access tiers you must first initiate a restore request, and
+   *          then wait until the object is moved into the Frequent Access tier. For objects in
+   *          S3 Glacier or S3 Glacier Deep Archive storage classes you must
+   *          first initiate a restore request, and then wait until a temporary copy of the object is
+   *          available. To access an archived object, you must restore the object for the duration
+   *          (number of days) that you specify.</p>
    *          <p>To restore a specific object version, you can provide a version ID. If you don't provide
    *          a version ID, Amazon S3 restores the current version.</p>
    *          <p>When restoring an archived object (or using a select request), you can specify one of
@@ -7334,14 +7331,14 @@ export class S3 extends S3Client {
    *                   <b>
    *                      <code>Expedited</code>
    *                   </b> - Expedited retrievals
-   *                allow you to quickly access your data stored in the S3 Glacier or
-   *                S3 Intelligent-Tiering Archive storage class when occasional urgent requests for a subset of
-   *                archives are required. For all but the largest archived objects (250 MB+), data
-   *                accessed using Expedited retrievals is typically made available within 1–5 minutes.
-   *                Provisioned capacity ensures that retrieval capacity for Expedited retrievals is
-   *                available when you need it. Expedited retrievals and provisioned capacity are not
-   *                available for objects stored in the S3 Glacier Deep Archive or
-   *                S3 Intelligent-Tiering Deep Archive storage class.</p>
+   *                allow you to quickly access your data stored in the S3 Glacier
+   *                storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests for a
+   *                subset of archives are required. For all but the largest archived objects (250 MB+),
+   *                data accessed using Expedited retrievals is typically made available within 1–5
+   *                minutes. Provisioned capacity ensures that retrieval capacity for Expedited
+   *                retrievals is available when you need it. Expedited retrievals and provisioned
+   *                capacity are not available for objects stored in the S3 Glacier Deep Archive
+   *                storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7351,10 +7348,10 @@ export class S3 extends S3Client {
    *                you to access any of your archived objects within several hours. This is the default
    *                option for retrieval requests that do not specify the retrieval option. Standard
    *                retrievals typically finish within 3–5 hours for objects stored in the
-   *                S3 Glacier or S3 Intelligent-Tiering Archive storage class. They typically
-   *                finish within 12 hours for objects stored in the S3 Glacier Deep Archive or
-   *                S3 Intelligent-Tiering Deep Archive storage class. Standard retrievals are free for objects stored
-   *                in S3 Intelligent-Tiering.</p>
+   *                S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
+   *                typically finish within 12 hours for objects stored in the
+   *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+   *                Standard retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7363,10 +7360,10 @@ export class S3 extends S3Client {
    *                   </b> - Bulk retrievals are the
    *                lowest-cost retrieval option in S3 Glacier, enabling you to retrieve large amounts,
    *                even petabytes, of data inexpensively. Bulk retrievals typically finish within 5–12
-   *                hours for objects stored in the S3 Glacier or S3 Intelligent-Tiering Archive
-   *                storage class. They typically finish within 48 hours for objects stored in the
-   *                S3 Glacier Deep Archive or S3 Intelligent-Tiering Deep Archive storage class. Bulk
-   *                retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+   *                hours for objects stored in the S3 Glacier storage class or
+   *                S3 Intelligent-Tiering Archive tier. They typically finish within 48 hours for objects stored
+   *                in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+   *                Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about archive retrieval options and provisioned capacity for

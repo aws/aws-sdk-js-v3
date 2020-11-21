@@ -185,6 +185,7 @@ import {
   IpCountry,
   IpGeoLocation,
   IpOwner,
+  JobDetails,
   JobScheduleFrequency,
   JobScopeTerm,
   JobScopingBlock,
@@ -7689,6 +7690,10 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
       output.classifiableSizeInBytes !== undefined && output.classifiableSizeInBytes !== null
         ? output.classifiableSizeInBytes
         : undefined,
+    jobDetails:
+      output.jobDetails !== undefined && output.jobDetails !== null
+        ? deserializeAws_restJson1JobDetails(output.jobDetails, context)
+        : undefined,
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null ? new Date(output.lastUpdated) : undefined,
     objectCount: output.objectCount !== undefined && output.objectCount !== null ? output.objectCount : undefined,
@@ -8122,6 +8127,20 @@ const deserializeAws_restJson1IpOwner = (output: any, context: __SerdeContext): 
     asnOrg: output.asnOrg !== undefined && output.asnOrg !== null ? output.asnOrg : undefined,
     isp: output.isp !== undefined && output.isp !== null ? output.isp : undefined,
     org: output.org !== undefined && output.org !== null ? output.org : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
+  return {
+    isDefinedInJob:
+      output.isDefinedInJob !== undefined && output.isDefinedInJob !== null ? output.isDefinedInJob : undefined,
+    isMonitoredByJob:
+      output.isMonitoredByJob !== undefined && output.isMonitoredByJob !== null ? output.isMonitoredByJob : undefined,
+    lastJobId: output.lastJobId !== undefined && output.lastJobId !== null ? output.lastJobId : undefined,
+    lastJobRunTime:
+      output.lastJobRunTime !== undefined && output.lastJobRunTime !== null
+        ? new Date(output.lastJobRunTime)
+        : undefined,
   } as any;
 };
 

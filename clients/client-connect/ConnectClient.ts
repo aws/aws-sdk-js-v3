@@ -1,8 +1,26 @@
 import {
+  AssociateApprovedOriginCommandInput,
+  AssociateApprovedOriginCommandOutput,
+} from "./commands/AssociateApprovedOriginCommand";
+import {
+  AssociateInstanceStorageConfigCommandInput,
+  AssociateInstanceStorageConfigCommandOutput,
+} from "./commands/AssociateInstanceStorageConfigCommand";
+import {
+  AssociateLambdaFunctionCommandInput,
+  AssociateLambdaFunctionCommandOutput,
+} from "./commands/AssociateLambdaFunctionCommand";
+import { AssociateLexBotCommandInput, AssociateLexBotCommandOutput } from "./commands/AssociateLexBotCommand";
+import {
   AssociateRoutingProfileQueuesCommandInput,
   AssociateRoutingProfileQueuesCommandOutput,
 } from "./commands/AssociateRoutingProfileQueuesCommand";
+import {
+  AssociateSecurityKeyCommandInput,
+  AssociateSecurityKeyCommandOutput,
+} from "./commands/AssociateSecurityKeyCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
@@ -12,6 +30,7 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserHierarchyGroupCommandInput,
@@ -21,6 +40,15 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeInstanceAttributeCommandInput,
+  DescribeInstanceAttributeCommandOutput,
+} from "./commands/DescribeInstanceAttributeCommand";
+import { DescribeInstanceCommandInput, DescribeInstanceCommandOutput } from "./commands/DescribeInstanceCommand";
+import {
+  DescribeInstanceStorageConfigCommandInput,
+  DescribeInstanceStorageConfigCommandOutput,
+} from "./commands/DescribeInstanceStorageConfigCommand";
 import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
@@ -35,9 +63,26 @@ import {
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
 import {
+  DisassociateApprovedOriginCommandInput,
+  DisassociateApprovedOriginCommandOutput,
+} from "./commands/DisassociateApprovedOriginCommand";
+import {
+  DisassociateInstanceStorageConfigCommandInput,
+  DisassociateInstanceStorageConfigCommandOutput,
+} from "./commands/DisassociateInstanceStorageConfigCommand";
+import {
+  DisassociateLambdaFunctionCommandInput,
+  DisassociateLambdaFunctionCommandOutput,
+} from "./commands/DisassociateLambdaFunctionCommand";
+import { DisassociateLexBotCommandInput, DisassociateLexBotCommandOutput } from "./commands/DisassociateLexBotCommand";
+import {
   DisassociateRoutingProfileQueuesCommandInput,
   DisassociateRoutingProfileQueuesCommandOutput,
 } from "./commands/DisassociateRoutingProfileQueuesCommand";
+import {
+  DisassociateSecurityKeyCommandInput,
+  DisassociateSecurityKeyCommandOutput,
+} from "./commands/DisassociateSecurityKeyCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -48,11 +93,29 @@ import {
 } from "./commands/GetCurrentMetricDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import {
+  ListApprovedOriginsCommandInput,
+  ListApprovedOriginsCommandOutput,
+} from "./commands/ListApprovedOriginsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
+import {
+  ListInstanceAttributesCommandInput,
+  ListInstanceAttributesCommandOutput,
+} from "./commands/ListInstanceAttributesCommand";
+import {
+  ListInstanceStorageConfigsCommandInput,
+  ListInstanceStorageConfigsCommandOutput,
+} from "./commands/ListInstanceStorageConfigsCommand";
+import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import {
+  ListLambdaFunctionsCommandInput,
+  ListLambdaFunctionsCommandOutput,
+} from "./commands/ListLambdaFunctionsCommand";
+import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
@@ -64,6 +127,7 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
+import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "./commands/ListSecurityKeysCommand";
 import {
   ListSecurityProfilesCommandInput,
   ListSecurityProfilesCommandOutput,
@@ -113,6 +177,14 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateInstanceAttributeCommandInput,
+  UpdateInstanceAttributeCommandOutput,
+} from "./commands/UpdateInstanceAttributeCommand";
+import {
+  UpdateInstanceStorageConfigCommandInput,
+  UpdateInstanceStorageConfigCommandOutput,
+} from "./commands/UpdateInstanceStorageConfigCommand";
 import {
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
@@ -207,30 +279,52 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AssociateApprovedOriginCommandInput
+  | AssociateInstanceStorageConfigCommandInput
+  | AssociateLambdaFunctionCommandInput
+  | AssociateLexBotCommandInput
   | AssociateRoutingProfileQueuesCommandInput
+  | AssociateSecurityKeyCommandInput
   | CreateContactFlowCommandInput
+  | CreateInstanceCommandInput
   | CreateRoutingProfileCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
+  | DeleteInstanceCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
   | DescribeContactFlowCommandInput
+  | DescribeInstanceAttributeCommandInput
+  | DescribeInstanceCommandInput
+  | DescribeInstanceStorageConfigCommandInput
   | DescribeRoutingProfileCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
+  | DisassociateApprovedOriginCommandInput
+  | DisassociateInstanceStorageConfigCommandInput
+  | DisassociateLambdaFunctionCommandInput
+  | DisassociateLexBotCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
+  | DisassociateSecurityKeyCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
+  | ListApprovedOriginsCommandInput
   | ListContactFlowsCommandInput
   | ListHoursOfOperationsCommandInput
+  | ListInstanceAttributesCommandInput
+  | ListInstanceStorageConfigsCommandInput
+  | ListInstancesCommandInput
+  | ListLambdaFunctionsCommandInput
+  | ListLexBotsCommandInput
   | ListPhoneNumbersCommandInput
   | ListPromptsCommandInput
   | ListQueuesCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
+  | ListSecurityKeysCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListUserHierarchyGroupsCommandInput
@@ -247,6 +341,8 @@ export type ServiceInputTypes =
   | UpdateContactAttributesCommandInput
   | UpdateContactFlowContentCommandInput
   | UpdateContactFlowNameCommandInput
+  | UpdateInstanceAttributeCommandInput
+  | UpdateInstanceStorageConfigCommandInput
   | UpdateRoutingProfileConcurrencyCommandInput
   | UpdateRoutingProfileDefaultOutboundQueueCommandInput
   | UpdateRoutingProfileNameCommandInput
@@ -260,30 +356,52 @@ export type ServiceInputTypes =
   | UpdateUserSecurityProfilesCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateApprovedOriginCommandOutput
+  | AssociateInstanceStorageConfigCommandOutput
+  | AssociateLambdaFunctionCommandOutput
+  | AssociateLexBotCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
+  | AssociateSecurityKeyCommandOutput
   | CreateContactFlowCommandOutput
+  | CreateInstanceCommandOutput
   | CreateRoutingProfileCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
+  | DeleteInstanceCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
   | DescribeContactFlowCommandOutput
+  | DescribeInstanceAttributeCommandOutput
+  | DescribeInstanceCommandOutput
+  | DescribeInstanceStorageConfigCommandOutput
   | DescribeRoutingProfileCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
+  | DisassociateApprovedOriginCommandOutput
+  | DisassociateInstanceStorageConfigCommandOutput
+  | DisassociateLambdaFunctionCommandOutput
+  | DisassociateLexBotCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
+  | DisassociateSecurityKeyCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
+  | ListApprovedOriginsCommandOutput
   | ListContactFlowsCommandOutput
   | ListHoursOfOperationsCommandOutput
+  | ListInstanceAttributesCommandOutput
+  | ListInstanceStorageConfigsCommandOutput
+  | ListInstancesCommandOutput
+  | ListLambdaFunctionsCommandOutput
+  | ListLexBotsCommandOutput
   | ListPhoneNumbersCommandOutput
   | ListPromptsCommandOutput
   | ListQueuesCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
+  | ListSecurityKeysCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUserHierarchyGroupsCommandOutput
@@ -300,6 +418,8 @@ export type ServiceOutputTypes =
   | UpdateContactAttributesCommandOutput
   | UpdateContactFlowContentCommandOutput
   | UpdateContactFlowNameCommandOutput
+  | UpdateInstanceAttributeCommandOutput
+  | UpdateInstanceStorageConfigCommandOutput
   | UpdateRoutingProfileConcurrencyCommandOutput
   | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
   | UpdateRoutingProfileNameCommandOutput

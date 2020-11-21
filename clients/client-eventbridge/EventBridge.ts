@@ -251,7 +251,7 @@ export class EventBridge extends EventBridgeClient {
   /**
    * <p>Creates an archive of events with the specified settings. When you create an archive,
    *             incoming events might not immediately start being sent to the archive. Allow a short
-   *             period of time for changes to take effect.</p>
+   *             period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.</p>
    */
   public createArchive(
     args: CreateArchiveCommandInput,
@@ -1391,12 +1391,13 @@ export class EventBridge extends EventBridgeClient {
    *             goes to by using the <code>KinesisParameters</code> argument. To invoke a command on
    *             multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code>
    *             field.</p>
+   *
    *         <p>To be able to make API calls against the resources that you own, Amazon EventBridge
-   *             (CloudWatch Events) needs the appropriate permissions. For AWS Lambda and Amazon SNS
-   *             resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis
-   *             data streams, AWS Step Functions state machines and API Gateway REST APIs, EventBridge
-   *             relies on IAM roles that you specify in the <code>RoleARN</code> argument in
-   *                 <code>PutTargets</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication and Access Control</a> in the <i>Amazon EventBridge User
+   *             (CloudWatch Events) needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
+   *             EventBridge relies on resource-based policies. For EC2 instances, Kinesis data
+   *             streams, AWS Step Functions state machines and API Gateway REST APIs, EventBridge relies on IAM roles
+   *             that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For more information,
+   *             see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication and Access Control</a> in the <i>Amazon EventBridge User
    *                 Guide</i>.</p>
    *
    *         <p>If another AWS account is in the same region and has granted you permission (using
@@ -1406,8 +1407,8 @@ export class EventBridge extends EventBridgeClient {
    *             run <code>PutTargets</code>. If your account sends events to another account, your
    *             account is charged for each sent event. Each event sent to another account is charged as
    *             a custom event. The account receiving the event is not charged. For more information,
-   *             see <a href="https://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge
-   *                 (CloudWatch Events) Pricing</a>.</p>
+   *             see <a href="https://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge (CloudWatch Events)
+   *                 Pricing</a>.</p>
    *
    *         <note>
    *             <p>

@@ -10135,18 +10135,26 @@ const serializeAws_restXmlAnalyticsExportDestination = (
 
 const serializeAws_restXmlAnalyticsFilter = (input: AnalyticsFilter, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("AnalyticsFilter");
-  if (input.Prefix !== undefined) {
-    const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tag !== undefined) {
-    const node = serializeAws_restXmlTag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
-  }
-  if (input.And !== undefined) {
-    const node = serializeAws_restXmlAnalyticsAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
+  AnalyticsFilter.visit(input, {
+    Prefix: (value) => {
+      const node = new __XmlNode("Prefix").addChildNode(new __XmlText(value)).withName("Prefix");
+      bodyNode.addChildNode(node);
+    },
+    Tag: (value) => {
+      const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    And: (value) => {
+      const node = serializeAws_restXmlAnalyticsAndOperator(value, context).withName("And");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+    },
+  });
   return bodyNode;
 };
 
@@ -10997,18 +11005,26 @@ const serializeAws_restXmlLifecycleRuleAndOperator = (
 
 const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LifecycleRuleFilter");
-  if (input.Prefix !== undefined) {
-    const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tag !== undefined) {
-    const node = serializeAws_restXmlTag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
-  }
-  if (input.And !== undefined) {
-    const node = serializeAws_restXmlLifecycleRuleAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
+  LifecycleRuleFilter.visit(input, {
+    Prefix: (value) => {
+      const node = new __XmlNode("Prefix").addChildNode(new __XmlText(value)).withName("Prefix");
+      bodyNode.addChildNode(node);
+    },
+    Tag: (value) => {
+      const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    And: (value) => {
+      const node = serializeAws_restXmlLifecycleRuleAndOperator(value, context).withName("And");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+    },
+  });
   return bodyNode;
 };
 
@@ -11097,18 +11113,26 @@ const serializeAws_restXmlMetricsConfiguration = (input: MetricsConfiguration, c
 
 const serializeAws_restXmlMetricsFilter = (input: MetricsFilter, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("MetricsFilter");
-  if (input.Prefix !== undefined) {
-    const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tag !== undefined) {
-    const node = serializeAws_restXmlTag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
-  }
-  if (input.And !== undefined) {
-    const node = serializeAws_restXmlMetricsAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
+  MetricsFilter.visit(input, {
+    Prefix: (value) => {
+      const node = new __XmlNode("Prefix").addChildNode(new __XmlText(value)).withName("Prefix");
+      bodyNode.addChildNode(node);
+    },
+    Tag: (value) => {
+      const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    And: (value) => {
+      const node = serializeAws_restXmlMetricsAndOperator(value, context).withName("And");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+    },
+  });
   return bodyNode;
 };
 
@@ -11531,18 +11555,26 @@ const serializeAws_restXmlReplicationRuleAndOperator = (
 
 const serializeAws_restXmlReplicationRuleFilter = (input: ReplicationRuleFilter, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ReplicationRuleFilter");
-  if (input.Prefix !== undefined) {
-    const node = new __XmlNode("Prefix").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tag !== undefined) {
-    const node = serializeAws_restXmlTag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
-  }
-  if (input.And !== undefined) {
-    const node = serializeAws_restXmlReplicationRuleAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
+  ReplicationRuleFilter.visit(input, {
+    Prefix: (value) => {
+      const node = new __XmlNode("Prefix").addChildNode(new __XmlText(value)).withName("Prefix");
+      bodyNode.addChildNode(node);
+    },
+    Tag: (value) => {
+      const node = serializeAws_restXmlTag(value, context).withName("Tag");
+      bodyNode.addChildNode(node);
+    },
+    And: (value) => {
+      const node = serializeAws_restXmlReplicationRuleAndOperator(value, context).withName("And");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+    },
+  });
   return bodyNode;
 };
 
@@ -12155,21 +12187,22 @@ const deserializeAws_restXmlAnalyticsExportDestination = (
 };
 
 const deserializeAws_restXmlAnalyticsFilter = (output: any, context: __SerdeContext): AnalyticsFilter => {
-  let contents: any = {
-    Prefix: undefined,
-    Tag: undefined,
-    And: undefined,
-  };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    return {
+      Prefix: output["Prefix"],
+    };
   }
   if (output["Tag"] !== undefined) {
-    contents.Tag = deserializeAws_restXmlTag(output["Tag"], context);
+    return {
+      Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
   }
   if (output["And"] !== undefined) {
-    contents.And = deserializeAws_restXmlAnalyticsAndOperator(output["And"], context);
+    return {
+      And: deserializeAws_restXmlAnalyticsAndOperator(output["And"], context),
+    };
   }
-  return contents;
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restXmlAnalyticsS3BucketDestination = (
@@ -12945,21 +12978,22 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
 };
 
 const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
-  let contents: any = {
-    Prefix: undefined,
-    Tag: undefined,
-    And: undefined,
-  };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    return {
+      Prefix: output["Prefix"],
+    };
   }
   if (output["Tag"] !== undefined) {
-    contents.Tag = deserializeAws_restXmlTag(output["Tag"], context);
+    return {
+      Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
   }
   if (output["And"] !== undefined) {
-    contents.And = deserializeAws_restXmlLifecycleRuleAndOperator(output["And"], context);
+    return {
+      And: deserializeAws_restXmlLifecycleRuleAndOperator(output["And"], context),
+    };
   }
-  return contents;
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restXmlLifecycleRules = (output: any, context: __SerdeContext): LifecycleRule[] => {
@@ -13043,21 +13077,22 @@ const deserializeAws_restXmlMetricsConfigurationList = (
 };
 
 const deserializeAws_restXmlMetricsFilter = (output: any, context: __SerdeContext): MetricsFilter => {
-  let contents: any = {
-    Prefix: undefined,
-    Tag: undefined,
-    And: undefined,
-  };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    return {
+      Prefix: output["Prefix"],
+    };
   }
   if (output["Tag"] !== undefined) {
-    contents.Tag = deserializeAws_restXmlTag(output["Tag"], context);
+    return {
+      Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
   }
   if (output["And"] !== undefined) {
-    contents.And = deserializeAws_restXmlMetricsAndOperator(output["And"], context);
+    return {
+      And: deserializeAws_restXmlMetricsAndOperator(output["And"], context),
+    };
   }
-  return contents;
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeContext): MultipartUpload => {
@@ -13537,21 +13572,22 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
 };
 
 const deserializeAws_restXmlReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
-  let contents: any = {
-    Prefix: undefined,
-    Tag: undefined,
-    And: undefined,
-  };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    return {
+      Prefix: output["Prefix"],
+    };
   }
   if (output["Tag"] !== undefined) {
-    contents.Tag = deserializeAws_restXmlTag(output["Tag"], context);
+    return {
+      Tag: deserializeAws_restXmlTag(output["Tag"], context),
+    };
   }
   if (output["And"] !== undefined) {
-    contents.And = deserializeAws_restXmlReplicationRuleAndOperator(output["And"], context);
+    return {
+      And: deserializeAws_restXmlReplicationRuleAndOperator(output["And"], context),
+    };
   }
-  return contents;
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restXmlReplicationRules = (output: any, context: __SerdeContext): ReplicationRule[] => {

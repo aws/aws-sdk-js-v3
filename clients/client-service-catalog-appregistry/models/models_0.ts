@@ -195,7 +195,11 @@ export interface AssociateResourceRequest {
    */
   application: string | undefined;
 
+  /**
+   * <p>The type of resource of which the application will be associated.</p>
+   */
   resourceType: ResourceType | string | undefined;
+
   /**
    * <p>The name or ID of the resource of which the application will be associated.</p>
    */
@@ -252,7 +256,7 @@ export interface AttributeGroup {
   id?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
+   * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
@@ -298,7 +302,7 @@ export interface AttributeGroupSummary {
   id?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
+   * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
@@ -346,7 +350,10 @@ export interface CreateApplicationRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the clientToken, the same response is returned for each repeated request.</p>
+   * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
+   *       completed successfully using the same client token and the same parameters, the retry succeeds
+   *       without performing any further actions. If you retry a successful request using the same
+   *       client token, but one or more of the parameters are different, the retry fails.</p>
    */
   clientToken?: string;
 }
@@ -359,7 +366,7 @@ export namespace CreateApplicationRequest {
 
 export interface CreateApplicationResponse {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>Information about the application.</p>
    */
   application?: Application;
 }
@@ -392,8 +399,10 @@ export interface CreateAttributeGroupRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the
-   *        clientToken, the same response is returned for each repeated request.</p>
+   * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
+   *       completed successfully using the same client token and the same parameters, the retry succeeds
+   *       without performing any further actions. If you retry a successful request using the same
+   *       client token, but one or more of the parameters are different, the retry fails.</p>
    */
   clientToken?: string;
 }
@@ -406,7 +415,7 @@ export namespace CreateAttributeGroupRequest {
 
 export interface CreateAttributeGroupResponse {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>Information about the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
 }
@@ -432,7 +441,7 @@ export namespace DeleteApplicationRequest {
 
 export interface DeleteApplicationResponse {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>Information about the deleted application.</p>
    */
   application?: ApplicationSummary;
 }
@@ -458,7 +467,7 @@ export namespace DeleteAttributeGroupRequest {
 
 export interface DeleteAttributeGroupResponse {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>Information about the deleted attribute group.</p>
    */
   attributeGroup?: AttributeGroupSummary;
 }
@@ -489,12 +498,12 @@ export namespace DisassociateAttributeGroupRequest {
 
 export interface DisassociateAttributeGroupResponse {
   /**
-   * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
+   * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) of the attribute group that contains the application's new attributes.</p>
+   * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
    */
   attributeGroupArn?: string;
 }
@@ -512,12 +521,12 @@ export interface DisassociateResourceRequest {
   application: string | undefined;
 
   /**
-   * <p>The type of the resource that's being disassociated.</p>
+   * <p>The type of the resource that is being disassociated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
-   * <p>The name or ID of the resource of which the application will be associated.</p>
+   * <p>The name or ID of the resource.</p>
    */
   resource: string | undefined;
 }
@@ -530,7 +539,7 @@ export namespace DisassociateResourceRequest {
 
 export interface DisassociateResourceResponse {
   /**
-   * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
+   * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
@@ -596,7 +605,7 @@ export interface GetApplicationResponse {
   associatedResourceCount?: number;
 
   /**
-   * <p>Key-value pairs you can use to associate with the application.</p>
+   * <p>Key-value pairs associated with the application.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -622,12 +631,12 @@ export namespace GetAttributeGroupRequest {
 
 export interface GetAttributeGroupResponse {
   /**
-   * <p>The identifier of the application.</p>
+   * <p>The identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
+   * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
@@ -657,7 +666,7 @@ export interface GetAttributeGroupResponse {
   lastUpdateTime?: Date;
 
   /**
-   * <p>Key-value pairs you can use to associate with the attribute group.</p>
+   * <p>Key-value pairs associated with the attribute group.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -688,7 +697,7 @@ export namespace ListApplicationsRequest {
 
 export interface ListApplicationsResponse {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>This list of applications.</p>
    */
   applications?: ApplicationSummary[];
 
@@ -778,7 +787,7 @@ export interface ResourceInfo {
   name?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
+   * <p>The Amazon resource name (ARN) that specifies the resource across services.</p>
    */
   arn?: string;
 }
@@ -791,7 +800,7 @@ export namespace ResourceInfo {
 
 export interface ListAssociatedResourcesResponse {
   /**
-   * <p>The name or ID of the resource of which the application will be associated.</p>
+   * <p>Information about the resources.</p>
    */
   resources?: ResourceInfo[];
 
@@ -827,7 +836,7 @@ export namespace ListAttributeGroupsRequest {
 
 export interface ListAttributeGroupsResponse {
   /**
-   * <p>A list of attribute group IDs.</p>
+   * <p>This list of attribute groups.</p>
    */
   attributeGroups?: AttributeGroupSummary[];
 
@@ -845,18 +854,17 @@ export namespace ListAttributeGroupsResponse {
 
 export interface UpdateApplicationRequest {
   /**
-   * <p>The name or ID of the application. The name must be unique in the region in which you are
-   *        updating the attribute group.</p>
+   * <p>The name or ID of the application that will be updated.</p>
    */
   application: string | undefined;
 
   /**
-   * <p>The anme of the application. The name must be unique in the region in which you are creating the application.</p>
+   * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
    */
   name?: string;
 
   /**
-   * <p>The description of the application.</p>
+   * <p>The new description of the application.</p>
    */
   description?: string;
 }
@@ -869,7 +877,7 @@ export namespace UpdateApplicationRequest {
 
 export interface UpdateApplicationResponse {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>The updated information of the application.</p>
    */
   application?: Application;
 }
@@ -911,7 +919,7 @@ export namespace UpdateAttributeGroupRequest {
 
 export interface UpdateAttributeGroupResponse {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>The updated information of the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
 }

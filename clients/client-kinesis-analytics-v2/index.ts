@@ -7,6 +7,7 @@ export * from "./commands/AddApplicationOutputCommand";
 export * from "./commands/AddApplicationReferenceDataSourceCommand";
 export * from "./commands/AddApplicationVpcConfigurationCommand";
 export * from "./commands/CreateApplicationCommand";
+export * from "./commands/CreateApplicationPresignedUrlCommand";
 export * from "./commands/CreateApplicationSnapshotCommand";
 export * from "./commands/DeleteApplicationCommand";
 export * from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";

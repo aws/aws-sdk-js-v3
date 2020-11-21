@@ -1,14 +1,44 @@
 import { ConnectClient } from "./ConnectClient";
 import {
+  AssociateApprovedOriginCommand,
+  AssociateApprovedOriginCommandInput,
+  AssociateApprovedOriginCommandOutput,
+} from "./commands/AssociateApprovedOriginCommand";
+import {
+  AssociateInstanceStorageConfigCommand,
+  AssociateInstanceStorageConfigCommandInput,
+  AssociateInstanceStorageConfigCommandOutput,
+} from "./commands/AssociateInstanceStorageConfigCommand";
+import {
+  AssociateLambdaFunctionCommand,
+  AssociateLambdaFunctionCommandInput,
+  AssociateLambdaFunctionCommandOutput,
+} from "./commands/AssociateLambdaFunctionCommand";
+import {
+  AssociateLexBotCommand,
+  AssociateLexBotCommandInput,
+  AssociateLexBotCommandOutput,
+} from "./commands/AssociateLexBotCommand";
+import {
   AssociateRoutingProfileQueuesCommand,
   AssociateRoutingProfileQueuesCommandInput,
   AssociateRoutingProfileQueuesCommandOutput,
 } from "./commands/AssociateRoutingProfileQueuesCommand";
 import {
+  AssociateSecurityKeyCommand,
+  AssociateSecurityKeyCommandInput,
+  AssociateSecurityKeyCommandOutput,
+} from "./commands/AssociateSecurityKeyCommand";
+import {
   CreateContactFlowCommand,
   CreateContactFlowCommandInput,
   CreateContactFlowCommandOutput,
 } from "./commands/CreateContactFlowCommand";
+import {
+  CreateInstanceCommand,
+  CreateInstanceCommandInput,
+  CreateInstanceCommandOutput,
+} from "./commands/CreateInstanceCommand";
 import {
   CreateRoutingProfileCommand,
   CreateRoutingProfileCommandInput,
@@ -20,6 +50,11 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import {
+  DeleteInstanceCommand,
+  DeleteInstanceCommandInput,
+  DeleteInstanceCommandOutput,
+} from "./commands/DeleteInstanceCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserHierarchyGroupCommand,
@@ -31,6 +66,21 @@ import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeInstanceAttributeCommand,
+  DescribeInstanceAttributeCommandInput,
+  DescribeInstanceAttributeCommandOutput,
+} from "./commands/DescribeInstanceAttributeCommand";
+import {
+  DescribeInstanceCommand,
+  DescribeInstanceCommandInput,
+  DescribeInstanceCommandOutput,
+} from "./commands/DescribeInstanceCommand";
+import {
+  DescribeInstanceStorageConfigCommand,
+  DescribeInstanceStorageConfigCommandInput,
+  DescribeInstanceStorageConfigCommandOutput,
+} from "./commands/DescribeInstanceStorageConfigCommand";
 import {
   DescribeRoutingProfileCommand,
   DescribeRoutingProfileCommandInput,
@@ -52,10 +102,35 @@ import {
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
 import {
+  DisassociateApprovedOriginCommand,
+  DisassociateApprovedOriginCommandInput,
+  DisassociateApprovedOriginCommandOutput,
+} from "./commands/DisassociateApprovedOriginCommand";
+import {
+  DisassociateInstanceStorageConfigCommand,
+  DisassociateInstanceStorageConfigCommandInput,
+  DisassociateInstanceStorageConfigCommandOutput,
+} from "./commands/DisassociateInstanceStorageConfigCommand";
+import {
+  DisassociateLambdaFunctionCommand,
+  DisassociateLambdaFunctionCommandInput,
+  DisassociateLambdaFunctionCommandOutput,
+} from "./commands/DisassociateLambdaFunctionCommand";
+import {
+  DisassociateLexBotCommand,
+  DisassociateLexBotCommandInput,
+  DisassociateLexBotCommandOutput,
+} from "./commands/DisassociateLexBotCommand";
+import {
   DisassociateRoutingProfileQueuesCommand,
   DisassociateRoutingProfileQueuesCommandInput,
   DisassociateRoutingProfileQueuesCommandOutput,
 } from "./commands/DisassociateRoutingProfileQueuesCommand";
+import {
+  DisassociateSecurityKeyCommand,
+  DisassociateSecurityKeyCommandInput,
+  DisassociateSecurityKeyCommandOutput,
+} from "./commands/DisassociateSecurityKeyCommand";
 import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
@@ -77,6 +152,11 @@ import {
   GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
+  ListApprovedOriginsCommand,
+  ListApprovedOriginsCommandInput,
+  ListApprovedOriginsCommandOutput,
+} from "./commands/ListApprovedOriginsCommand";
+import {
   ListContactFlowsCommand,
   ListContactFlowsCommandInput,
   ListContactFlowsCommandOutput,
@@ -86,6 +166,27 @@ import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
+import {
+  ListInstanceAttributesCommand,
+  ListInstanceAttributesCommandInput,
+  ListInstanceAttributesCommandOutput,
+} from "./commands/ListInstanceAttributesCommand";
+import {
+  ListInstanceStorageConfigsCommand,
+  ListInstanceStorageConfigsCommandInput,
+  ListInstanceStorageConfigsCommandOutput,
+} from "./commands/ListInstanceStorageConfigsCommand";
+import {
+  ListInstancesCommand,
+  ListInstancesCommandInput,
+  ListInstancesCommandOutput,
+} from "./commands/ListInstancesCommand";
+import {
+  ListLambdaFunctionsCommand,
+  ListLambdaFunctionsCommandInput,
+  ListLambdaFunctionsCommandOutput,
+} from "./commands/ListLambdaFunctionsCommand";
+import { ListLexBotsCommand, ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
 import {
   ListPhoneNumbersCommand,
   ListPhoneNumbersCommandInput,
@@ -103,6 +204,11 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
+import {
+  ListSecurityKeysCommand,
+  ListSecurityKeysCommandInput,
+  ListSecurityKeysCommandOutput,
+} from "./commands/ListSecurityKeysCommand";
 import {
   ListSecurityProfilesCommand,
   ListSecurityProfilesCommandInput,
@@ -171,6 +277,16 @@ import {
   UpdateContactFlowNameCommandInput,
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateInstanceAttributeCommand,
+  UpdateInstanceAttributeCommandInput,
+  UpdateInstanceAttributeCommandOutput,
+} from "./commands/UpdateInstanceAttributeCommand";
+import {
+  UpdateInstanceStorageConfigCommand,
+  UpdateInstanceStorageConfigCommandInput,
+  UpdateInstanceStorageConfigCommandOutput,
+} from "./commands/UpdateInstanceStorageConfigCommand";
 import {
   UpdateRoutingProfileConcurrencyCommand,
   UpdateRoutingProfileConcurrencyCommandInput,
@@ -247,6 +363,140 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Connect extends ConnectClient {
   /**
+   * <p>Associates an approved origin to an Amazon Connect instance.</p>
+   */
+  public associateApprovedOrigin(
+    args: AssociateApprovedOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApprovedOriginCommandOutput>;
+  public associateApprovedOrigin(
+    args: AssociateApprovedOriginCommandInput,
+    cb: (err: any, data?: AssociateApprovedOriginCommandOutput) => void
+  ): void;
+  public associateApprovedOrigin(
+    args: AssociateApprovedOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApprovedOriginCommandOutput) => void
+  ): void;
+  public associateApprovedOrigin(
+    args: AssociateApprovedOriginCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApprovedOriginCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApprovedOriginCommandOutput) => void
+  ): Promise<AssociateApprovedOriginCommandOutput> | void {
+    const command = new AssociateApprovedOriginCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a storage resource type for the first time. You can only associate one type of
+   *      storage configuration in a single call. This means, for example, that you can't define an
+   *      instance with multiple S3 buckets for storing chat transcripts.</p>
+   *
+   *          <p>This API does not create a resource that doesn't exist. It only associates it to the
+   *      instance. Ensure that the resource being specified in the storage configuration, like an Amazon
+   *      S3 bucket, exists when being used for association.</p>
+   */
+  public associateInstanceStorageConfig(
+    args: AssociateInstanceStorageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateInstanceStorageConfigCommandOutput>;
+  public associateInstanceStorageConfig(
+    args: AssociateInstanceStorageConfigCommandInput,
+    cb: (err: any, data?: AssociateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public associateInstanceStorageConfig(
+    args: AssociateInstanceStorageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public associateInstanceStorageConfig(
+    args: AssociateInstanceStorageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateInstanceStorageConfigCommandOutput) => void),
+    cb?: (err: any, data?: AssociateInstanceStorageConfigCommandOutput) => void
+  ): Promise<AssociateInstanceStorageConfigCommandOutput> | void {
+    const command = new AssociateInstanceStorageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+   */
+  public associateLambdaFunction(
+    args: AssociateLambdaFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateLambdaFunctionCommandOutput>;
+  public associateLambdaFunction(
+    args: AssociateLambdaFunctionCommandInput,
+    cb: (err: any, data?: AssociateLambdaFunctionCommandOutput) => void
+  ): void;
+  public associateLambdaFunction(
+    args: AssociateLambdaFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateLambdaFunctionCommandOutput) => void
+  ): void;
+  public associateLambdaFunction(
+    args: AssociateLambdaFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateLambdaFunctionCommandOutput) => void),
+    cb?: (err: any, data?: AssociateLambdaFunctionCommandOutput) => void
+  ): Promise<AssociateLambdaFunctionCommandOutput> | void {
+    const command = new AssociateLambdaFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   */
+  public associateLexBot(
+    args: AssociateLexBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateLexBotCommandOutput>;
+  public associateLexBot(
+    args: AssociateLexBotCommandInput,
+    cb: (err: any, data?: AssociateLexBotCommandOutput) => void
+  ): void;
+  public associateLexBot(
+    args: AssociateLexBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateLexBotCommandOutput) => void
+  ): void;
+  public associateLexBot(
+    args: AssociateLexBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateLexBotCommandOutput) => void),
+    cb?: (err: any, data?: AssociateLexBotCommandOutput) => void
+  ): Promise<AssociateLexBotCommandOutput> | void {
+    const command = new AssociateLexBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Associates a set of queues with a routing profile.</p>
    */
   public associateRoutingProfileQueues(
@@ -268,6 +518,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void
   ): Promise<AssociateRoutingProfileQueuesCommandOutput> | void {
     const command = new AssociateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a security key to the instance.</p>
+   */
+  public associateSecurityKey(
+    args: AssociateSecurityKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSecurityKeyCommandOutput>;
+  public associateSecurityKey(
+    args: AssociateSecurityKeyCommandInput,
+    cb: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
+  ): void;
+  public associateSecurityKey(
+    args: AssociateSecurityKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
+  ): void;
+  public associateSecurityKey(
+    args: AssociateSecurityKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSecurityKeyCommandOutput) => void),
+    cb?: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
+  ): Promise<AssociateSecurityKeyCommandOutput> | void {
+    const command = new AssociateSecurityKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -302,6 +584,40 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateContactFlowCommandOutput) => void
   ): Promise<CreateContactFlowCommandOutput> | void {
     const command = new CreateContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
+   *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
+   *    Contact Lens for Amazon Connect. </p>
+   */
+  public createInstance(
+    args: CreateInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceCommandOutput>;
+  public createInstance(
+    args: CreateInstanceCommandInput,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
+  public createInstance(
+    args: CreateInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): void;
+  public createInstance(
+    args: CreateInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceCommandOutput) => void),
+    cb?: (err: any, data?: CreateInstanceCommandOutput) => void
+  ): Promise<CreateInstanceCommandOutput> | void {
+    const command = new CreateInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -405,6 +721,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Deletes the Amazon Connect instance.</p>
+   */
+  public deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceCommandOutput>;
+  public deleteInstance(
+    args: DeleteInstanceCommandInput,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): void;
+  public deleteInstance(
+    args: DeleteInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): void;
+  public deleteInstance(
+    args: DeleteInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): Promise<DeleteInstanceCommandOutput> | void {
+    const command = new DeleteInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *          <p>For information about what happens to a user's data when their account is deleted, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
@@ -490,6 +838,107 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DescribeContactFlowCommandOutput) => void
   ): Promise<DescribeContactFlowCommandOutput> | void {
     const command = new DescribeContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the current state of the specified instance identifier. It tracks the instance while it is
+   *    being created and returns an error status if applicable. </p>
+   *          <p>If an instance is not created
+   *    successfully, the instance status reason field returns details relevant to the reason. The instance
+   *    in a failed state is returned only for 24 hours after
+   *    the CreateInstance API was invoked.</p>
+   */
+  public describeInstance(
+    args: DescribeInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceCommandOutput>;
+  public describeInstance(
+    args: DescribeInstanceCommandInput,
+    cb: (err: any, data?: DescribeInstanceCommandOutput) => void
+  ): void;
+  public describeInstance(
+    args: DescribeInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceCommandOutput) => void
+  ): void;
+  public describeInstance(
+    args: DescribeInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceCommandOutput) => void
+  ): Promise<DescribeInstanceCommandOutput> | void {
+    const command = new DescribeInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified instance attribute.</p>
+   */
+  public describeInstanceAttribute(
+    args: DescribeInstanceAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceAttributeCommandOutput>;
+  public describeInstanceAttribute(
+    args: DescribeInstanceAttributeCommandInput,
+    cb: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
+  ): void;
+  public describeInstanceAttribute(
+    args: DescribeInstanceAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
+  ): void;
+  public describeInstanceAttribute(
+    args: DescribeInstanceAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceAttributeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
+  ): Promise<DescribeInstanceAttributeCommandOutput> | void {
+    const command = new DescribeInstanceAttributeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>
+   */
+  public describeInstanceStorageConfig(
+    args: DescribeInstanceStorageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceStorageConfigCommandOutput>;
+  public describeInstanceStorageConfig(
+    args: DescribeInstanceStorageConfigCommandInput,
+    cb: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public describeInstanceStorageConfig(
+    args: DescribeInstanceStorageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public describeInstanceStorageConfig(
+    args: DescribeInstanceStorageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
+  ): Promise<DescribeInstanceStorageConfigCommandOutput> | void {
+    const command = new DescribeInstanceStorageConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -628,6 +1077,135 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Revokes access to integrated applications from Amazon Connect.</p>
+   */
+  public disassociateApprovedOrigin(
+    args: DisassociateApprovedOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApprovedOriginCommandOutput>;
+  public disassociateApprovedOrigin(
+    args: DisassociateApprovedOriginCommandInput,
+    cb: (err: any, data?: DisassociateApprovedOriginCommandOutput) => void
+  ): void;
+  public disassociateApprovedOrigin(
+    args: DisassociateApprovedOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApprovedOriginCommandOutput) => void
+  ): void;
+  public disassociateApprovedOrigin(
+    args: DisassociateApprovedOriginCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateApprovedOriginCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApprovedOriginCommandOutput) => void
+  ): Promise<DisassociateApprovedOriginCommandOutput> | void {
+    const command = new DisassociateApprovedOriginCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the storage type configurations for the specified resource type and association ID.</p>
+   */
+  public disassociateInstanceStorageConfig(
+    args: DisassociateInstanceStorageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateInstanceStorageConfigCommandOutput>;
+  public disassociateInstanceStorageConfig(
+    args: DisassociateInstanceStorageConfigCommandInput,
+    cb: (err: any, data?: DisassociateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public disassociateInstanceStorageConfig(
+    args: DisassociateInstanceStorageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public disassociateInstanceStorageConfig(
+    args: DisassociateInstanceStorageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateInstanceStorageConfigCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateInstanceStorageConfigCommandOutput) => void
+  ): Promise<DisassociateInstanceStorageConfigCommandOutput> | void {
+    const command = new DisassociateInstanceStorageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove the Lambda function from the drop-down options available in the relevant contact flow
+   *    blocks.</p>
+   */
+  public disassociateLambdaFunction(
+    args: DisassociateLambdaFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateLambdaFunctionCommandOutput>;
+  public disassociateLambdaFunction(
+    args: DisassociateLambdaFunctionCommandInput,
+    cb: (err: any, data?: DisassociateLambdaFunctionCommandOutput) => void
+  ): void;
+  public disassociateLambdaFunction(
+    args: DisassociateLambdaFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateLambdaFunctionCommandOutput) => void
+  ): void;
+  public disassociateLambdaFunction(
+    args: DisassociateLambdaFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateLambdaFunctionCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateLambdaFunctionCommandOutput) => void
+  ): Promise<DisassociateLambdaFunctionCommandOutput> | void {
+    const command = new DisassociateLambdaFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   */
+  public disassociateLexBot(
+    args: DisassociateLexBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateLexBotCommandOutput>;
+  public disassociateLexBot(
+    args: DisassociateLexBotCommandInput,
+    cb: (err: any, data?: DisassociateLexBotCommandOutput) => void
+  ): void;
+  public disassociateLexBot(
+    args: DisassociateLexBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateLexBotCommandOutput) => void
+  ): void;
+  public disassociateLexBot(
+    args: DisassociateLexBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateLexBotCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateLexBotCommandOutput) => void
+  ): Promise<DisassociateLexBotCommandOutput> | void {
+    const command = new DisassociateLexBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a set of queues from a routing profile.</p>
    */
   public disassociateRoutingProfileQueues(
@@ -649,6 +1227,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void
   ): Promise<DisassociateRoutingProfileQueuesCommandOutput> | void {
     const command = new DisassociateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified security key.</p>
+   */
+  public disassociateSecurityKey(
+    args: DisassociateSecurityKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSecurityKeyCommandOutput>;
+  public disassociateSecurityKey(
+    args: DisassociateSecurityKeyCommandInput,
+    cb: (err: any, data?: DisassociateSecurityKeyCommandOutput) => void
+  ): void;
+  public disassociateSecurityKey(
+    args: DisassociateSecurityKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSecurityKeyCommandOutput) => void
+  ): void;
+  public disassociateSecurityKey(
+    args: DisassociateSecurityKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSecurityKeyCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateSecurityKeyCommandOutput) => void
+  ): Promise<DisassociateSecurityKeyCommandOutput> | void {
+    const command = new DisassociateSecurityKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -792,6 +1402,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Returns a paginated list of all approved origins associated with the instance.</p>
+   */
+  public listApprovedOrigins(
+    args: ListApprovedOriginsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApprovedOriginsCommandOutput>;
+  public listApprovedOrigins(
+    args: ListApprovedOriginsCommandInput,
+    cb: (err: any, data?: ListApprovedOriginsCommandOutput) => void
+  ): void;
+  public listApprovedOrigins(
+    args: ListApprovedOriginsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApprovedOriginsCommandOutput) => void
+  ): void;
+  public listApprovedOrigins(
+    args: ListApprovedOriginsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApprovedOriginsCommandOutput) => void),
+    cb?: (err: any, data?: ListApprovedOriginsCommandOutput) => void
+  ): Promise<ListApprovedOriginsCommandOutput> | void {
+    const command = new ListApprovedOriginsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
    *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -851,6 +1493,163 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
   ): Promise<ListHoursOfOperationsCommandOutput> | void {
     const command = new ListHoursOfOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of all attribute types for the given instance.</p>
+   */
+  public listInstanceAttributes(
+    args: ListInstanceAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstanceAttributesCommandOutput>;
+  public listInstanceAttributes(
+    args: ListInstanceAttributesCommandInput,
+    cb: (err: any, data?: ListInstanceAttributesCommandOutput) => void
+  ): void;
+  public listInstanceAttributes(
+    args: ListInstanceAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInstanceAttributesCommandOutput) => void
+  ): void;
+  public listInstanceAttributes(
+    args: ListInstanceAttributesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceAttributesCommandOutput) => void),
+    cb?: (err: any, data?: ListInstanceAttributesCommandOutput) => void
+  ): Promise<ListInstanceAttributesCommandOutput> | void {
+    const command = new ListInstanceAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Return a list of instances which are in active state, creation-in-progress state, and failed
+   *    state. Instances that aren't successfully created (they are in a failed state) are returned only
+   *    for 24 hours after the CreateInstance API was invoked.</p>
+   */
+  public listInstances(
+    args: ListInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstancesCommandOutput>;
+  public listInstances(
+    args: ListInstancesCommandInput,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
+  ): void;
+  public listInstances(
+    args: ListInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInstancesCommandOutput) => void
+  ): void;
+  public listInstances(
+    args: ListInstancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstancesCommandOutput) => void),
+    cb?: (err: any, data?: ListInstancesCommandOutput) => void
+  ): Promise<ListInstancesCommandOutput> | void {
+    const command = new ListInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of storage configs for the identified instance and resource
+   *    type.</p>
+   */
+  public listInstanceStorageConfigs(
+    args: ListInstanceStorageConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInstanceStorageConfigsCommandOutput>;
+  public listInstanceStorageConfigs(
+    args: ListInstanceStorageConfigsCommandInput,
+    cb: (err: any, data?: ListInstanceStorageConfigsCommandOutput) => void
+  ): void;
+  public listInstanceStorageConfigs(
+    args: ListInstanceStorageConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInstanceStorageConfigsCommandOutput) => void
+  ): void;
+  public listInstanceStorageConfigs(
+    args: ListInstanceStorageConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceStorageConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListInstanceStorageConfigsCommandOutput) => void
+  ): Promise<ListInstanceStorageConfigsCommandOutput> | void {
+    const command = new ListInstanceStorageConfigsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options in the relevant contact flow blocks.</p>
+   */
+  public listLambdaFunctions(
+    args: ListLambdaFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLambdaFunctionsCommandOutput>;
+  public listLambdaFunctions(
+    args: ListLambdaFunctionsCommandInput,
+    cb: (err: any, data?: ListLambdaFunctionsCommandOutput) => void
+  ): void;
+  public listLambdaFunctions(
+    args: ListLambdaFunctionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLambdaFunctionsCommandOutput) => void
+  ): void;
+  public listLambdaFunctions(
+    args: ListLambdaFunctionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLambdaFunctionsCommandOutput) => void),
+    cb?: (err: any, data?: ListLambdaFunctionsCommandOutput) => void
+  ): Promise<ListLambdaFunctionsCommandOutput> | void {
+    const command = new ListLambdaFunctionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+   */
+  public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
+  public listLexBots(args: ListLexBotsCommandInput, cb: (err: any, data?: ListLexBotsCommandOutput) => void): void;
+  public listLexBots(
+    args: ListLexBotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLexBotsCommandOutput) => void
+  ): void;
+  public listLexBots(
+    args: ListLexBotsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLexBotsCommandOutput) => void),
+    cb?: (err: any, data?: ListLexBotsCommandOutput) => void
+  ): Promise<ListLexBotsCommandOutput> | void {
+    const command = new ListLexBotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1007,6 +1806,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListRoutingProfilesCommandOutput) => void
   ): Promise<ListRoutingProfilesCommandOutput> | void {
     const command = new ListRoutingProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of all security keys associated with the instance.</p>
+   */
+  public listSecurityKeys(
+    args: ListSecurityKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityKeysCommandOutput>;
+  public listSecurityKeys(
+    args: ListSecurityKeysCommandInput,
+    cb: (err: any, data?: ListSecurityKeysCommandOutput) => void
+  ): void;
+  public listSecurityKeys(
+    args: ListSecurityKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityKeysCommandOutput) => void
+  ): void;
+  public listSecurityKeys(
+    args: ListSecurityKeysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityKeysCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityKeysCommandOutput) => void
+  ): Promise<ListSecurityKeysCommandOutput> | void {
+    const command = new ListSecurityKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1586,6 +2417,70 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
   ): Promise<UpdateContactFlowNameCommandOutput> | void {
     const command = new UpdateContactFlowNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the value for the specified attribute type.</p>
+   */
+  public updateInstanceAttribute(
+    args: UpdateInstanceAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceAttributeCommandOutput>;
+  public updateInstanceAttribute(
+    args: UpdateInstanceAttributeCommandInput,
+    cb: (err: any, data?: UpdateInstanceAttributeCommandOutput) => void
+  ): void;
+  public updateInstanceAttribute(
+    args: UpdateInstanceAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceAttributeCommandOutput) => void
+  ): void;
+  public updateInstanceAttribute(
+    args: UpdateInstanceAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceAttributeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceAttributeCommandOutput) => void
+  ): Promise<UpdateInstanceAttributeCommandOutput> | void {
+    const command = new UpdateInstanceAttributeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+   */
+  public updateInstanceStorageConfig(
+    args: UpdateInstanceStorageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceStorageConfigCommandOutput>;
+  public updateInstanceStorageConfig(
+    args: UpdateInstanceStorageConfigCommandInput,
+    cb: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public updateInstanceStorageConfig(
+    args: UpdateInstanceStorageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
+  ): void;
+  public updateInstanceStorageConfig(
+    args: UpdateInstanceStorageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
+  ): Promise<UpdateInstanceStorageConfigCommandOutput> | void {
+    const command = new UpdateInstanceStorageConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

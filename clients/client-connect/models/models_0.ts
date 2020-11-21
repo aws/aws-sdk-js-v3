@@ -1,6 +1,404 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export interface AssociateApprovedOriginRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The domain to add to your allow list.</p>
+   */
+  Origin: string | undefined;
+}
+
+export namespace AssociateApprovedOriginRequest {
+  export const filterSensitiveLog = (obj: AssociateApprovedOriginRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Request processing failed due to an error or failure with the service.</p>
+ */
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
+  name: "InternalServiceException";
+  $fault: "server";
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One or more of the specified parameters are not valid.</p>
+ */
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterException";
+  $fault: "client";
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request is not valid.</p>
+ */
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource already has that name.</p>
+ */
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
+  name: "ResourceConflictException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceConflictException {
+  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified resource was not found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The service quota has been exceeded.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The throttling limit has been exceeded.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceStorageResourceType {
+  AGENT_EVENTS = "AGENT_EVENTS",
+  CALL_RECORDINGS = "CALL_RECORDINGS",
+  CHAT_TRANSCRIPTS = "CHAT_TRANSCRIPTS",
+  CONTACT_TRACE_RECORDS = "CONTACT_TRACE_RECORDS",
+  MEDIA_STREAMS = "MEDIA_STREAMS",
+  SCHEDULED_REPORTS = "SCHEDULED_REPORTS",
+}
+
+/**
+ * <p>Configuration information of a Kinesis Firehose delivery stream.</p>
+ */
+export interface KinesisFirehoseConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
+   */
+  FirehoseArn: string | undefined;
+}
+
+export namespace KinesisFirehoseConfig {
+  export const filterSensitiveLog = (obj: KinesisFirehoseConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of a Kinesis data stream.</p>
+ */
+export interface KinesisStreamConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data stream.</p>
+   */
+  StreamArn: string | undefined;
+}
+
+export namespace KinesisStreamConfig {
+  export const filterSensitiveLog = (obj: KinesisStreamConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum EncryptionType {
+  KMS = "KMS",
+}
+
+/**
+ * <p>The encryption configuration.</p>
+ */
+export interface EncryptionConfig {
+  /**
+   * <p>The type of encryption.</p>
+   */
+  EncryptionType: EncryptionType | string | undefined;
+
+  /**
+   * <p>The identifier of the encryption key.</p>
+   */
+  KeyId: string | undefined;
+}
+
+export namespace EncryptionConfig {
+  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of a Kinesis video stream.</p>
+ */
+export interface KinesisVideoStreamConfig {
+  /**
+   * <p>The prefix of the video stream.</p>
+   */
+  Prefix: string | undefined;
+
+  /**
+   * <p>The number of hours data is retained in the stream. Kinesis Video Streams retains the data
+   *    in a data store that is associated with the stream.</p>
+   *
+   *          <p>The default value is 0, indicating that the stream does not persist data.</p>
+   */
+  RetentionPeriodHours: number | undefined;
+
+  /**
+   * <p>The encryption configuration.</p>
+   */
+  EncryptionConfig: EncryptionConfig | undefined;
+}
+
+export namespace KinesisVideoStreamConfig {
+  export const filterSensitiveLog = (obj: KinesisVideoStreamConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the S3 storage type.</p>
+ */
+export interface S3Config {
+  /**
+   * <p>The S3 bucket name.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The S3 bucket prefix.</p>
+   */
+  BucketPrefix: string | undefined;
+
+  /**
+   * <p>The S3 encryption configuration.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+}
+
+export namespace S3Config {
+  export const filterSensitiveLog = (obj: S3Config): any => ({
+    ...obj,
+  });
+}
+
+export enum StorageType {
+  KINESIS_FIREHOSE = "KINESIS_FIREHOSE",
+  KINESIS_STREAM = "KINESIS_STREAM",
+  KINESIS_VIDEO_STREAM = "KINESIS_VIDEO_STREAM",
+  S3 = "S3",
+}
+
+/**
+ * <p>The storage configuration for the instance.</p>
+ */
+export interface InstanceStorageConfig {
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageType: StorageType | string | undefined;
+
+  /**
+   * <p>The S3 configuration.</p>
+   */
+  S3Config?: S3Config;
+
+  /**
+   * <p>The configuration of the Kinesis video stream.</p>
+   */
+  KinesisVideoStreamConfig?: KinesisVideoStreamConfig;
+
+  /**
+   * <p>The configuration of the Kinesis data stream.</p>
+   */
+  KinesisStreamConfig?: KinesisStreamConfig;
+
+  /**
+   * <p>The configuration of the Kinesis Firehose delivery stream.</p>
+   */
+  KinesisFirehoseConfig?: KinesisFirehoseConfig;
+}
+
+export namespace InstanceStorageConfig {
+  export const filterSensitiveLog = (obj: InstanceStorageConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateInstanceStorageConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageConfig: InstanceStorageConfig | undefined;
+}
+
+export namespace AssociateInstanceStorageConfigRequest {
+  export const filterSensitiveLog = (obj: AssociateInstanceStorageConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateInstanceStorageConfigResponse {
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId?: string;
+}
+
+export namespace AssociateInstanceStorageConfigResponse {
+  export const filterSensitiveLog = (obj: AssociateInstanceStorageConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateLambdaFunctionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is
+   *    140.</p>
+   */
+  FunctionArn: string | undefined;
+}
+
+export namespace AssociateLambdaFunctionRequest {
+  export const filterSensitiveLog = (obj: AssociateLambdaFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of an Amazon Lex bot.</p>
+ */
+export interface LexBot {
+  /**
+   * <p>The name of the Amazon Lex bot.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Region the Amazon Lex bot was created in.</p>
+   */
+  LexRegion?: string;
+}
+
+export namespace LexBot {
+  export const filterSensitiveLog = (obj: LexBot): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateLexBotRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Lex box to associate with the instance.</p>
+   */
+  LexBot: LexBot | undefined;
+}
+
+export namespace AssociateLexBotRequest {
+  export const filterSensitiveLog = (obj: AssociateLexBotRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum Channel {
   CHAT = "CHAT",
   VOICE = "VOICE",
@@ -80,89 +478,33 @@ export namespace AssociateRoutingProfileQueuesRequest {
   });
 }
 
-/**
- * <p>Request processing failed due to an error or failure with the service.</p>
- */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export interface AssociateSecurityKeyRequest {
   /**
-   * <p>The message.</p>
+   * <p>The identifier of the Amazon Connect instance.</p>
    */
-  Message?: string;
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A valid security key in PEM format.</p>
+   */
+  Key: string | undefined;
 }
 
-export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+export namespace AssociateSecurityKeyRequest {
+  export const filterSensitiveLog = (obj: AssociateSecurityKeyRequest): any => ({
     ...obj,
   });
 }
 
-/**
- * <p>One or more of the specified parameters are not valid.</p>
- */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export interface AssociateSecurityKeyResponse {
   /**
-   * <p>The message.</p>
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
-  Message?: string;
+  AssociationId?: string;
 }
 
-export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request is not valid.</p>
- */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified resource was not found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The throttling limit has been exceeded.</p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+export namespace AssociateSecurityKeyResponse {
+  export const filterSensitiveLog = (obj: AssociateSecurityKeyResponse): any => ({
     ...obj,
   });
 }
@@ -301,6 +643,69 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+export enum DirectoryType {
+  CONNECT_MANAGED = "CONNECT_MANAGED",
+  EXISTING_DIRECTORY = "EXISTING_DIRECTORY",
+  SAML = "SAML",
+}
+
+export interface CreateInstanceRequest {
+  /**
+   * <p>The idempotency token.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The type of identity management for your Amazon Connect users.</p>
+   */
+  IdentityManagementType: DirectoryType | string | undefined;
+
+  /**
+   * <p>The name for your instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>The identifier for the directory.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>Whether your contact center handles incoming contacts.</p>
+   */
+  InboundCallsEnabled: boolean | undefined;
+
+  /**
+   * <p>Whether your contact center allows outbound calls.</p>
+   */
+  OutboundCallsEnabled: boolean | undefined;
+}
+
+export namespace CreateInstanceRequest {
+  export const filterSensitiveLog = (obj: CreateInstanceRequest): any => ({
+    ...obj,
+    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateInstanceResponse {
+  /**
+   * <p>The identifier for the instance.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
+   */
+  Arn?: string;
+}
+
+export namespace CreateInstanceResponse {
+  export const filterSensitiveLog = (obj: CreateInstanceResponse): any => ({
     ...obj,
   });
 }
@@ -581,6 +986,19 @@ export namespace CreateUserHierarchyGroupResponse {
   });
 }
 
+export interface DeleteInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace DeleteInstanceRequest {
+  export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteUserRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -740,6 +1158,215 @@ export interface DescribeContactFlowResponse {
 
 export namespace DescribeContactFlowResponse {
   export const filterSensitiveLog = (obj: DescribeContactFlowResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace DescribeInstanceRequest {
+  export const filterSensitiveLog = (obj: DescribeInstanceRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceStatus {
+  ACTIVE = "ACTIVE",
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+}
+
+/**
+ * <p>Relevant details why the instance was not successfully created.</p>
+ */
+export interface InstanceStatusReason {
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export namespace InstanceStatusReason {
+  export const filterSensitiveLog = (obj: InstanceStatusReason): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon Connect instance.</p>
+ */
+export interface Instance {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identity management type.</p>
+   */
+  IdentityManagementType?: DirectoryType | string;
+
+  /**
+   * <p>The alias of instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>When the instance was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The service role of the instance.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>The state of the instance.</p>
+   */
+  InstanceStatus?: InstanceStatus | string;
+
+  /**
+   * <p>Relevant details why the instance was not successfully created. </p>
+   */
+  StatusReason?: InstanceStatusReason;
+
+  /**
+   * <p>Whether inbound calls are enabled.</p>
+   */
+  InboundCallsEnabled?: boolean;
+
+  /**
+   * <p>Whether outbound calls are enabled.</p>
+   */
+  OutboundCallsEnabled?: boolean;
+}
+
+export namespace Instance {
+  export const filterSensitiveLog = (obj: Instance): any => ({
+    ...obj,
+    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+  });
+}
+
+export interface DescribeInstanceResponse {
+  /**
+   * <p>The name of the instance.</p>
+   */
+  Instance?: Instance;
+}
+
+export namespace DescribeInstanceResponse {
+  export const filterSensitiveLog = (obj: DescribeInstanceResponse): any => ({
+    ...obj,
+    ...(obj.Instance && { Instance: Instance.filterSensitiveLog(obj.Instance) }),
+  });
+}
+
+export enum InstanceAttributeType {
+  AUTO_RESOLVE_BEST_VOICES = "AUTO_RESOLVE_BEST_VOICES",
+  CONTACTFLOW_LOGS = "CONTACTFLOW_LOGS",
+  CONTACT_LENS = "CONTACT_LENS",
+  EARLY_MEDIA = "EARLY_MEDIA",
+  INBOUND_CALLS = "INBOUND_CALLS",
+  OUTBOUND_CALLS = "OUTBOUND_CALLS",
+  USE_CUSTOM_TTS_VOICES = "USE_CUSTOM_TTS_VOICES",
+}
+
+export interface DescribeInstanceAttributeRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of attribute.</p>
+   */
+  AttributeType: InstanceAttributeType | string | undefined;
+}
+
+export namespace DescribeInstanceAttributeRequest {
+  export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A toggle for an individual feature at the instance level.</p>
+ */
+export interface Attribute {
+  /**
+   * <p>The type of attribute.</p>
+   */
+  AttributeType?: InstanceAttributeType | string;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  Value?: string;
+}
+
+export namespace Attribute {
+  export const filterSensitiveLog = (obj: Attribute): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceAttributeResponse {
+  /**
+   * <p>The type of attribute.</p>
+   */
+  Attribute?: Attribute;
+}
+
+export namespace DescribeInstanceAttributeResponse {
+  export const filterSensitiveLog = (obj: DescribeInstanceAttributeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceStorageConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+}
+
+export namespace DescribeInstanceStorageConfigRequest {
+  export const filterSensitiveLog = (obj: DescribeInstanceStorageConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceStorageConfigResponse {
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageConfig?: InstanceStorageConfig;
+}
+
+export namespace DescribeInstanceStorageConfigResponse {
+  export const filterSensitiveLog = (obj: DescribeInstanceStorageConfigResponse): any => ({
     ...obj,
   });
 }
@@ -1135,6 +1762,88 @@ export namespace DescribeUserHierarchyStructureResponse {
   });
 }
 
+export interface DisassociateApprovedOriginRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The domain URL of the integrated application.</p>
+   */
+  Origin: string | undefined;
+}
+
+export namespace DisassociateApprovedOriginRequest {
+  export const filterSensitiveLog = (obj: DisassociateApprovedOriginRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateInstanceStorageConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+}
+
+export namespace DisassociateInstanceStorageConfigRequest {
+  export const filterSensitiveLog = (obj: DisassociateInstanceStorageConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateLambdaFunctionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance..</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>
+   */
+  FunctionArn: string | undefined;
+}
+
+export namespace DisassociateLambdaFunctionRequest {
+  export const filterSensitiveLog = (obj: DisassociateLambdaFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateLexBotRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Lex bot. Maximum character limit of 50.</p>
+   */
+  BotName: string | undefined;
+
+  /**
+   * <p>The Region in which the Amazon Lex bot has been created.</p>
+   */
+  LexRegion: string | undefined;
+}
+
+export namespace DisassociateLexBotRequest {
+  export const filterSensitiveLog = (obj: DisassociateLexBotRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1154,6 +1863,24 @@ export interface DisassociateRoutingProfileQueuesRequest {
 
 export namespace DisassociateRoutingProfileQueuesRequest {
   export const filterSensitiveLog = (obj: DisassociateRoutingProfileQueuesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateSecurityKeyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace DisassociateSecurityKeyRequest {
+  export const filterSensitiveLog = (obj: DisassociateSecurityKeyRequest): any => ({
     ...obj,
   });
 }
@@ -1932,6 +2659,48 @@ export namespace GetMetricDataResponse {
   });
 }
 
+export interface ListApprovedOriginsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListApprovedOriginsRequest {
+  export const filterSensitiveLog = (obj: ListApprovedOriginsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListApprovedOriginsResponse {
+  /**
+   * <p>The approved origins.</p>
+   */
+  Origins?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListApprovedOriginsResponse {
+  export const filterSensitiveLog = (obj: ListApprovedOriginsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListContactFlowsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -2076,6 +2845,276 @@ export interface ListHoursOfOperationsResponse {
 
 export namespace ListHoursOfOperationsResponse {
   export const filterSensitiveLog = (obj: ListHoursOfOperationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInstanceAttributesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListInstanceAttributesRequest {
+  export const filterSensitiveLog = (obj: ListInstanceAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInstanceAttributesResponse {
+  /**
+   * <p>The attribute types.</p>
+   */
+  Attributes?: Attribute[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInstanceAttributesResponse {
+  export const filterSensitiveLog = (obj: ListInstanceAttributesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInstancesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListInstancesRequest {
+  export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the instance.</p>
+ */
+export interface InstanceSummary {
+  /**
+   * <p>The identifier of the instance.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identity management type of the instance.</p>
+   */
+  IdentityManagementType?: DirectoryType | string;
+
+  /**
+   * <p>The alias of the instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>When the instance was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The service role of the instance.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>The state of the instance.</p>
+   */
+  InstanceStatus?: InstanceStatus | string;
+
+  /**
+   * <p>Whether inbound calls are enabled.</p>
+   */
+  InboundCallsEnabled?: boolean;
+
+  /**
+   * <p>Whether outbound calls are enabled.</p>
+   */
+  OutboundCallsEnabled?: boolean;
+}
+
+export namespace InstanceSummary {
+  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
+    ...obj,
+    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListInstancesResponse {
+  /**
+   * <p>Information about the instances.</p>
+   */
+  InstanceSummaryList?: InstanceSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInstancesResponse {
+  export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
+    ...obj,
+    ...(obj.InstanceSummaryList && {
+      InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummary.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListInstanceStorageConfigsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListInstanceStorageConfigsRequest {
+  export const filterSensitiveLog = (obj: ListInstanceStorageConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInstanceStorageConfigsResponse {
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageConfigs?: InstanceStorageConfig[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListInstanceStorageConfigsResponse {
+  export const filterSensitiveLog = (obj: ListInstanceStorageConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLambdaFunctionsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLambdaFunctionsRequest {
+  export const filterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLambdaFunctionsResponse {
+  /**
+   * <p>The Lambdafunction ARNs associated with the specified instance.</p>
+   */
+  LambdaFunctions?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLambdaFunctionsResponse {
+  export const filterSensitiveLog = (obj: ListLambdaFunctionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLexBotsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLexBotsRequest {
+  export const filterSensitiveLog = (obj: ListLexBotsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLexBotsResponse {
+  /**
+   * <p>The the names and regions of the Amazon Lex bots associated with the specified instance.</p>
+   */
+  LexBots?: LexBot[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLexBotsResponse {
+  export const filterSensitiveLog = (obj: ListLexBotsResponse): any => ({
     ...obj,
   });
 }
@@ -2719,6 +3758,74 @@ export interface ListRoutingProfilesResponse {
 
 export namespace ListRoutingProfilesResponse {
   export const filterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityKeysRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSecurityKeysRequest {
+  export const filterSensitiveLog = (obj: ListSecurityKeysRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of the security key.</p>
+ */
+export interface SecurityKey {
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The key of the security key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>When the security key was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace SecurityKey {
+  export const filterSensitiveLog = (obj: SecurityKey): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityKeysResponse {
+  /**
+   * <p>The security keys.</p>
+   */
+  SecurityKeys?: SecurityKey[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityKeysResponse {
+  export const filterSensitiveLog = (obj: ListSecurityKeysResponse): any => ({
     ...obj,
   });
 }
@@ -3461,6 +4568,57 @@ export interface UpdateContactFlowNameRequest {
 
 export namespace UpdateContactFlowNameRequest {
   export const filterSensitiveLog = (obj: UpdateContactFlowNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateInstanceAttributeRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of attribute.</p>
+   */
+  AttributeType: InstanceAttributeType | string | undefined;
+
+  /**
+   * <p>The value for the attribute. Maximum character limit is 100. </p>
+   */
+  Value: string | undefined;
+}
+
+export namespace UpdateInstanceAttributeRequest {
+  export const filterSensitiveLog = (obj: UpdateInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateInstanceStorageConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+
+  /**
+   * <p>The storage configuration for the instance.</p>
+   */
+  StorageConfig: InstanceStorageConfig | undefined;
+}
+
+export namespace UpdateInstanceStorageConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateInstanceStorageConfigRequest): any => ({
     ...obj,
   });
 }

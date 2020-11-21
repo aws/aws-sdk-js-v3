@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListSipRulesRequest, ListSipRulesResponse } from "../models/models_0";
+import { ListSipRulesRequest, ListSipRulesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListSipRulesCommand,
   serializeAws_restJson1ListSipRulesCommand,

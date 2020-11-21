@@ -3,6 +3,7 @@ import {
   AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand";
 import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
+import { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   CancelSchemaExtensionCommandInput,
@@ -66,6 +67,7 @@ import {
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand";
+import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand";
 import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput,
@@ -104,6 +106,7 @@ import {
   RejectSharedDirectoryCommandOutput,
 } from "./commands/RejectSharedDirectoryCommand";
 import { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "./commands/RemoveIpRoutesCommand";
+import { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -182,6 +185,7 @@ import {
 export type ServiceInputTypes =
   | AcceptSharedDirectoryCommandInput
   | AddIpRoutesCommandInput
+  | AddRegionCommandInput
   | AddTagsToResourceCommandInput
   | CancelSchemaExtensionCommandInput
   | ConnectDirectoryCommandInput
@@ -206,6 +210,7 @@ export type ServiceInputTypes =
   | DescribeDomainControllersCommandInput
   | DescribeEventTopicsCommandInput
   | DescribeLDAPSSettingsCommandInput
+  | DescribeRegionsCommandInput
   | DescribeSharedDirectoriesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeTrustsCommandInput
@@ -226,6 +231,7 @@ export type ServiceInputTypes =
   | RegisterEventTopicCommandInput
   | RejectSharedDirectoryCommandInput
   | RemoveIpRoutesCommandInput
+  | RemoveRegionCommandInput
   | RemoveTagsFromResourceCommandInput
   | ResetUserPasswordCommandInput
   | RestoreFromSnapshotCommandInput
@@ -241,6 +247,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptSharedDirectoryCommandOutput
   | AddIpRoutesCommandOutput
+  | AddRegionCommandOutput
   | AddTagsToResourceCommandOutput
   | CancelSchemaExtensionCommandOutput
   | ConnectDirectoryCommandOutput
@@ -265,6 +272,7 @@ export type ServiceOutputTypes =
   | DescribeDomainControllersCommandOutput
   | DescribeEventTopicsCommandOutput
   | DescribeLDAPSSettingsCommandOutput
+  | DescribeRegionsCommandOutput
   | DescribeSharedDirectoriesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeTrustsCommandOutput
@@ -285,6 +293,7 @@ export type ServiceOutputTypes =
   | RegisterEventTopicCommandOutput
   | RejectSharedDirectoryCommandOutput
   | RemoveIpRoutesCommandOutput
+  | RemoveRegionCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | ResetUserPasswordCommandOutput
   | RestoreFromSnapshotCommandOutput
