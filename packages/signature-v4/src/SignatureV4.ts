@@ -120,6 +120,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
       signingDate = new Date(),
       expiresIn = 3600,
       unsignableHeaders,
+      unhoistableHeaders,
       signableHeaders,
       signingRegion,
       signingService,
@@ -135,7 +136,7 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     }
 
     const scope = createScope(shortDate, region, signingService ?? this.service);
-    const request = moveHeadersToQuery(prepareRequest(originalRequest));
+    const request = moveHeadersToQuery(prepareRequest(originalRequest), { unhoistableHeaders });
 
     if (credentials.sessionToken) {
       request.query[TOKEN_QUERY_PARAM] = credentials.sessionToken;

@@ -52,6 +52,17 @@ export interface RequestPresigningArguments extends RequestSigningArguments {
    * The number of seconds before the presigned URL expires
    */
   expiresIn?: number;
+
+  /**
+   * A set of strings whose representing headers that should not be hoisted
+   * to presigned request's query string. If not supplied, the presigner
+   * moves all the AWS-specific headers (starting with `x-amz-`) to the request
+   * query string. If supplied, these headers remain in the presigned request's
+   * header.
+   * All headers in the provided request will have their names converted to
+   * lower case and then checked for existence in the unhoistableHeaders set.
+   */
+  unhoistableHeaders?: Set<string>;
 }
 
 export interface EventSigningArguments extends SigningArguments {
