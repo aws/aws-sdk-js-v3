@@ -18,6 +18,24 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface ModifyClusterMessage {
   /**
+   * <p>The unique identifier of the cluster to be modified.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The new cluster type.</p>
+   *         <p>When you submit your cluster resize request, your existing cluster goes into a
+   *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
+   *             requirements, there will be outage for a period while the old cluster is deleted and
+   *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
+   *         <p>Valid Values: <code> multi-node | single-node </code>
+   *         </p>
+   */
+  ClusterType?: string;
+
+  /**
    * <p>The new node type of the cluster. If you specify a new node type, you must also
    *             specify the number of nodes parameter.</p>
    *         <p>
@@ -34,12 +52,42 @@ export interface ModifyClusterMessage {
   NodeType?: string;
 
   /**
-   * <p>If <code>true</code>, major version upgrades will be applied automatically to the
-   *             cluster during the maintenance window. </p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
+   *             must also specify the node type parameter.</p>
+   *         <p>
+   * For more information about resizing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *
+   *         <p>Valid Values: Integer greater than <code>0</code>.</p>
    */
-  AllowVersionUpgrade?: boolean;
+  NumberOfNodes?: number;
+
+  /**
+   * <p>A list of cluster security groups to be authorized on this cluster. This change is
+   *             asynchronously applied as soon as possible.</p>
+   *         <p>Security groups currently associated with the cluster, and not in the list of
+   *             groups to apply, will be revoked from the cluster.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterSecurityGroups?: string[];
+
+  /**
+   * <p>A list of virtual private cloud (VPC) security groups to be associated with the
+   *             cluster. This change is asynchronously applied as soon as possible.</p>
+   */
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The new password for the cluster master user. This change is asynchronously applied
@@ -75,6 +123,27 @@ export interface ModifyClusterMessage {
   MasterUserPassword?: string;
 
   /**
+   * <p>The name of the cluster parameter group to apply to this cluster. This change is
+   *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
+   *         <p>Default: Uses existing setting.</p>
+   *         <p>Constraints: The cluster parameter group must be in the same parameter group family
+   *             that matches the cluster version.</p>
+   */
+  ClusterParameterGroupName?: string;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *         <p>If you decrease the automated snapshot retention period from its current value,
+   *             existing automated snapshots that fall outside of the new retention period will be
+   *             immediately deleted.</p>
+   *         <p>Default: Uses existing setting.</p>
+   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
    * <p>The default for number of days that a newly created manual snapshot is retained. If
    *             the value is -1, the manual snapshot is retained indefinitely. This value doesn't
    *             retroactively change the retention periods of existing manual snapshots.</p>
@@ -82,16 +151,6 @@ export interface ModifyClusterMessage {
    *         <p>The default value is -1.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The name for the maintenance track that you want to assign for the cluster. This name
-   *             change is asynchronous. The new track name stays in the
-   *                 <code>PendingModifiedValues</code> for the cluster until the next maintenance
-   *             window. When the maintenance track changes, the cluster is switched to the latest
-   *             cluster release available for the maintenance track. At this point, the maintenance
-   *             track name is applied.</p>
-   */
-  MaintenanceTrackName?: string;
 
   /**
    * <p>The weekly time range (in UTC) during which system maintenance can occur, if
@@ -109,31 +168,26 @@ export interface ModifyClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
-   *             must also specify the node type parameter.</p>
-   *         <p>
-   * For more information about resizing clusters, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
+   * <p>The new version number of the Amazon Redshift engine to upgrade to.</p>
+   *         <p>For major version upgrades, if a non-default cluster parameter group is currently
+   *             in use, a new cluster parameter group in the cluster parameter group family for the new
+   *             version must be specified. The new cluster parameter group can be the default for that
+   *             cluster parameter group family.
+   * For more information about parameters and parameter groups, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *         <p>Valid Values: Integer greater than <code>0</code>.</p>
+   *         <p>Example: <code>1.0</code>
+   *         </p>
    */
-  NumberOfNodes?: number;
+  ClusterVersion?: string;
 
   /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
-   *             clusters in VPCs can be set to be publicly available.</p>
+   * <p>If <code>true</code>, major version upgrades will be applied automatically to the
+   *             cluster during the maintenance window. </p>
+   *         <p>Default: <code>false</code>
+   *         </p>
    */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Indicates whether the cluster is encrypted. If the value is encrypted (true) and you
-   *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
-   *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
-   *             we encrypt with the default key. </p>
-   *             <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
-   */
-  Encrypted?: boolean;
+  AllowVersionUpgrade?: boolean;
 
   /**
    * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
@@ -142,13 +196,10 @@ export interface ModifyClusterMessage {
   HsmClientCertificateIdentifier?: string;
 
   /**
-   * <p>The Elastic IP (EIP) address for the cluster.</p>
-   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
-   *             through an Internet gateway. For more information about provisioning clusters in
-   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
-   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
    */
-  ElasticIp?: string;
+  HsmConfigurationIdentifier?: string;
 
   /**
    * <p>The new identifier for the cluster.</p>
@@ -177,16 +228,19 @@ export interface ModifyClusterMessage {
   NewClusterIdentifier?: string;
 
   /**
-   * <p>The number of days that automated snapshots are retained. If the value is 0,
-   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
-   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>If you decrease the automated snapshot retention period from its current value,
-   *             existing automated snapshots that fall outside of the new retention period will be
-   *             immediately deleted.</p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
+   *             clusters in VPCs can be set to be publicly available.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The Elastic IP (EIP) address for the cluster.</p>
+   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
+   *             through an Internet gateway. For more information about provisioning clusters in
+   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
+   */
+  ElasticIp?: string;
 
   /**
    * <p>An option that specifies whether to create the cluster with enhanced VPC routing
@@ -199,83 +253,29 @@ export interface ModifyClusterMessage {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>A list of cluster security groups to be authorized on this cluster. This change is
-   *             asynchronously applied as soon as possible.</p>
-   *         <p>Security groups currently associated with the cluster, and not in the list of
-   *             groups to apply, will be revoked from the cluster.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
+   * <p>The name for the maintenance track that you want to assign for the cluster. This name
+   *             change is asynchronous. The new track name stays in the
+   *                 <code>PendingModifiedValues</code> for the cluster until the next maintenance
+   *             window. When the maintenance track changes, the cluster is switched to the latest
+   *             cluster release available for the maintenance track. At this point, the maintenance
+   *             track name is applied.</p>
    */
-  ClusterSecurityGroups?: string[];
+  MaintenanceTrackName?: string;
 
   /**
-   * <p>The new cluster type.</p>
-   *         <p>When you submit your cluster resize request, your existing cluster goes into a
-   *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
-   *             requirements, there will be outage for a period while the old cluster is deleted and
-   *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
-   *         <p>Valid Values: <code> multi-node | single-node </code>
-   *         </p>
+   * <p>Indicates whether the cluster is encrypted. If the value is encrypted (true) and you
+   *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
+   *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
+   *             we encrypt with the default key. </p>
+   *             <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
    */
-  ClusterType?: string;
-
-  /**
-   * <p>The unique identifier of the cluster to be modified.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the cluster parameter group to apply to this cluster. This change is
-   *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints: The cluster parameter group must be in the same parameter group family
-   *             that matches the cluster version.</p>
-   */
-  ClusterParameterGroupName?: string;
-
-  /**
-   * <p>Specifies the name of the HSM configuration that contains the information the
-   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
-   */
-  HsmConfigurationIdentifier?: string;
+  Encrypted?: boolean;
 
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use
    *             to encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
-
-  /**
-   * <p>The new version number of the Amazon Redshift engine to upgrade to.</p>
-   *         <p>For major version upgrades, if a non-default cluster parameter group is currently
-   *             in use, a new cluster parameter group in the cluster parameter group family for the new
-   *             version must be specified. The new cluster parameter group can be the default for that
-   *             cluster parameter group family.
-   * For more information about parameters and parameter groups, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
-   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *         <p>Example: <code>1.0</code>
-   *         </p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>A list of virtual private cloud (VPC) security groups to be associated with the
-   *             cluster. This change is asynchronously applied as soon as possible.</p>
-   */
-  VpcSecurityGroupIds?: string[];
 }
 
 export namespace ModifyClusterMessage {
@@ -330,17 +330,17 @@ export namespace UnsupportedOptionFault {
 
 export interface ModifyClusterDbRevisionMessage {
   /**
-   * <p>The identifier of the database revision. You can retrieve this value from the
-   *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
-   */
-  RevisionTarget: string | undefined;
-
-  /**
    * <p>The unique identifier of a cluster whose database revision you want to modify. </p>
    *         <p>Example: <code>examplecluster</code>
    *         </p>
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the database revision. You can retrieve this value from the
+   *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
+   */
+  RevisionTarget: string | undefined;
 }
 
 export namespace ModifyClusterDbRevisionMessage {
@@ -373,17 +373,17 @@ export interface ModifyClusterIamRolesMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. You can
-   *             disassociate up to 10 IAM roles from a single cluster in a single request.</p>
-   */
-  RemoveIamRoles?: string[];
-
-  /**
    * <p>Zero or more IAM roles to associate with the cluster. The roles must be in their
    *             Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single
    *             cluster in a single request.</p>
    */
   AddIamRoles?: string[];
+
+  /**
+   * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. You can
+   *             disassociate up to 10 IAM roles from a single cluster in a single request.</p>
+   */
+  RemoveIamRoles?: string[];
 }
 
 export namespace ModifyClusterIamRolesMessage {
@@ -407,25 +407,24 @@ export namespace ModifyClusterIamRolesResult {
 
 export interface ModifyClusterMaintenanceMessage {
   /**
+   * <p>A unique identifier for the cluster.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
    * <p>A boolean indicating whether to enable the deferred maintenance window. </p>
    */
   DeferMaintenance?: boolean;
 
   /**
+   * <p>A unique identifier for the deferred maintenance window.</p>
+   */
+  DeferMaintenanceIdentifier?: string;
+
+  /**
    * <p>A timestamp indicating the start time for the deferred maintenance window.</p>
    */
   DeferMaintenanceStartTime?: Date;
-
-  /**
-   * <p>An integer indicating the duration of the maintenance window in days. If you specify a
-   *             duration, you can't specify an end time. The duration must be 45 days or less.</p>
-   */
-  DeferMaintenanceDuration?: number;
-
-  /**
-   * <p>A unique identifier for the cluster.</p>
-   */
-  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A timestamp indicating end time for the deferred maintenance window. If you specify an
@@ -434,9 +433,10 @@ export interface ModifyClusterMaintenanceMessage {
   DeferMaintenanceEndTime?: Date;
 
   /**
-   * <p>A unique identifier for the deferred maintenance window.</p>
+   * <p>An integer indicating the duration of the maintenance window in days. If you specify a
+   *             duration, you can't specify an end time. The duration must be 45 days or less.</p>
    */
-  DeferMaintenanceIdentifier?: string;
+  DeferMaintenanceDuration?: number;
 }
 
 export namespace ModifyClusterMaintenanceMessage {
@@ -463,6 +463,11 @@ export namespace ModifyClusterMaintenanceResult {
  */
 export interface ModifyClusterParameterGroupMessage {
   /**
+   * <p>The name of the parameter group to be modified.</p>
+   */
+  ParameterGroupName: string | undefined;
+
+  /**
    * <p>An array of parameters to be modified. A maximum of 20 parameters can be modified
    *             in a single request.</p>
    *         <p>For each parameter to be modified, you must supply at least the parameter name and
@@ -471,11 +476,6 @@ export interface ModifyClusterParameterGroupMessage {
    *             pairs in the wlm_json_configuration parameter.</p>
    */
   Parameters: Parameter[] | undefined;
-
-  /**
-   * <p>The name of the parameter group to be modified.</p>
-   */
-  ParameterGroupName: string | undefined;
 }
 
 export namespace ModifyClusterParameterGroupMessage {
@@ -485,6 +485,11 @@ export namespace ModifyClusterParameterGroupMessage {
 }
 
 export interface ModifyClusterSnapshotMessage {
+  /**
+   * <p>The identifier of the snapshot whose setting you want to modify.</p>
+   */
+  SnapshotIdentifier: string | undefined;
+
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely.</p>
@@ -499,11 +504,6 @@ export interface ModifyClusterSnapshotMessage {
    *             passed.</p>
    */
   Force?: boolean;
-
-  /**
-   * <p>The identifier of the snapshot whose setting you want to modify.</p>
-   */
-  SnapshotIdentifier: string | undefined;
 }
 
 export namespace ModifyClusterSnapshotMessage {
@@ -527,10 +527,10 @@ export namespace ModifyClusterSnapshotResult {
 
 export interface ModifyClusterSnapshotScheduleMessage {
   /**
-   * <p>A boolean to indicate whether to remove the assoiciation between the cluster and the
-   *             schedule.</p>
+   * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
+   *         </p>
    */
-  DisassociateSchedule?: boolean;
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A unique alphanumeric identifier for the schedule that you want to associate with the
@@ -539,10 +539,10 @@ export interface ModifyClusterSnapshotScheduleMessage {
   ScheduleIdentifier?: string;
 
   /**
-   * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
-   *         </p>
+   * <p>A boolean to indicate whether to remove the assoiciation between the cluster and the
+   *             schedule.</p>
    */
-  ClusterIdentifier: string | undefined;
+  DisassociateSchedule?: boolean;
 }
 
 export namespace ModifyClusterSnapshotScheduleMessage {
@@ -556,12 +556,6 @@ export namespace ModifyClusterSnapshotScheduleMessage {
  */
 export interface ModifyClusterSubnetGroupMessage {
   /**
-   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
-   *             request.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
    * <p>The name of the subnet group to be modified.</p>
    */
   ClusterSubnetGroupName: string | undefined;
@@ -570,6 +564,12 @@ export interface ModifyClusterSubnetGroupMessage {
    * <p>A text description of the subnet group to be modified.</p>
    */
   Description?: string;
+
+  /**
+   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
+   *             request.</p>
+   */
+  SubnetIds: string[] | undefined;
 }
 
 export namespace ModifyClusterSubnetGroupMessage {
@@ -611,34 +611,9 @@ export namespace SubnetAlreadyInUse {
  */
 export interface ModifyEventSubscriptionMessage {
   /**
-   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
-   *             must be of the same type as was specified in the source type parameter. The event
-   *             subscription will return only events generated by the specified objects. If not
-   *             specified, then events are returned for all objects within the source type
-   *             specified.</p>
-   *         <p>Example: my-cluster-1, my-cluster-2</p>
-   *         <p>Example: my-snapshot-20131010</p>
-   */
-  SourceIds?: string[];
-
-  /**
    * <p>The name of the modified Amazon Redshift event notification subscription.</p>
    */
   SubscriptionName: string | undefined;
-
-  /**
-   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
-   *             subscription.</p>
-   *         <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
-   *             subscription.</p>
-   *         <p>Values: configuration, management, monitoring, security</p>
-   */
-  EventCategories?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic to be used by the event
@@ -654,6 +629,31 @@ export interface ModifyEventSubscriptionMessage {
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
+   *             must be of the same type as was specified in the source type parameter. The event
+   *             subscription will return only events generated by the specified objects. If not
+   *             specified, then events are returned for all objects within the source type
+   *             specified.</p>
+   *         <p>Example: my-cluster-1, my-cluster-2</p>
+   *         <p>Example: my-snapshot-20131010</p>
+   */
+  SourceIds?: string[];
+
+  /**
+   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
+   *             subscription.</p>
+   *         <p>Values: configuration, management, monitoring, security</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
+   *             subscription.</p>
+   *         <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
 
   /**
    * <p>A Boolean value indicating if the subscription is enabled. <code>true</code>
@@ -683,6 +683,11 @@ export namespace ModifyEventSubscriptionResult {
 
 export interface ModifyScheduledActionMessage {
   /**
+   * <p>The name of the scheduled action to modify. </p>
+   */
+  ScheduledActionName: string | undefined;
+
+  /**
    * <p>A modified JSON format of the scheduled action.
    *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
@@ -693,6 +698,12 @@ export interface ModifyScheduledActionMessage {
    *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
    */
   Schedule?: string;
+
+  /**
+   * <p>A different IAM role to assume to run the target action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   */
+  IamRole?: string;
 
   /**
    * <p>A modified description of the scheduled action. </p>
@@ -712,17 +723,6 @@ export interface ModifyScheduledActionMessage {
   EndTime?: Date;
 
   /**
-   * <p>The name of the scheduled action to modify. </p>
-   */
-  ScheduledActionName: string | undefined;
-
-  /**
-   * <p>A different IAM role to assume to run the target action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
-   */
-  IamRole?: string;
-
-  /**
    * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
    */
   Enable?: boolean;
@@ -738,6 +738,15 @@ export namespace ModifyScheduledActionMessage {
  * <p></p>
  */
 export interface ModifySnapshotCopyRetentionPeriodMessage {
+  /**
+   * <p>The unique identifier of the cluster for which you want to change the retention
+   *             period for either automated or manual snapshots that are copied to a destination AWS
+   *             Region.</p>
+   *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
+   *             snapshot copy enabled.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
   /**
    * <p>The number of days to retain automated snapshots in the destination AWS Region
    *             after they are copied from the source AWS Region.</p>
@@ -761,15 +770,6 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
    *             snapshots instead of automated snapshots.</p>
    */
   Manual?: boolean;
-
-  /**
-   * <p>The unique identifier of the cluster for which you want to change the retention
-   *             period for either automated or manual snapshots that are copied to a destination AWS
-   *             Region.</p>
-   *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
-   *             snapshot copy enabled.</p>
-   */
-  ClusterIdentifier: string | undefined;
 }
 
 export namespace ModifySnapshotCopyRetentionPeriodMessage {
@@ -809,15 +809,15 @@ export namespace SnapshotCopyDisabledFault {
 
 export interface ModifySnapshotScheduleMessage {
   /**
+   * <p>A unique alphanumeric identifier of the schedule to modify.</p>
+   */
+  ScheduleIdentifier: string | undefined;
+
+  /**
    * <p>An updated list of schedule definitions. A schedule definition is made up of schedule
    *             expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
    */
   ScheduleDefinitions: string[] | undefined;
-
-  /**
-   * <p>A unique alphanumeric identifier of the schedule to modify.</p>
-   */
-  ScheduleIdentifier: string | undefined;
 }
 
 export namespace ModifySnapshotScheduleMessage {
@@ -843,12 +843,6 @@ export namespace SnapshotScheduleUpdateInProgressFault {
 
 export interface ModifyUsageLimitMessage {
   /**
-   * <p>The new action that Amazon Redshift takes when the limit is reached.
-   *             For more information about this parameter, see <a>UsageLimit</a>. </p>
-   */
-  BreachAction?: UsageLimitBreachAction | string;
-
-  /**
    * <p>The identifier of the usage limit to modify.</p>
    */
   UsageLimitId: string | undefined;
@@ -858,6 +852,12 @@ export interface ModifyUsageLimitMessage {
    *             For more information about this parameter, see <a>UsageLimit</a>. </p>
    */
   Amount?: number;
+
+  /**
+   * <p>The new action that Amazon Redshift takes when the limit is reached.
+   *             For more information about this parameter, see <a>UsageLimit</a>. </p>
+   */
+  BreachAction?: UsageLimitBreachAction | string;
 }
 
 export namespace ModifyUsageLimitMessage {
@@ -884,16 +884,16 @@ export namespace PauseClusterResult {
  */
 export interface PurchaseReservedNodeOfferingMessage {
   /**
+   * <p>The unique identifier of the reserved node offering you want to purchase.</p>
+   */
+  ReservedNodeOfferingId: string | undefined;
+
+  /**
    * <p>The number of reserved nodes that you want to purchase.</p>
    *         <p>Default: <code>1</code>
    *         </p>
    */
   NodeCount?: number;
-
-  /**
-   * <p>The unique identifier of the reserved node offering you want to purchase.</p>
-   */
-  ReservedNodeOfferingId: string | undefined;
 }
 
 export namespace PurchaseReservedNodeOfferingMessage {
@@ -1013,116 +1013,6 @@ export namespace ResizeClusterResult {
  */
 export interface RestoreFromClusterSnapshotMessage {
   /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
-
-  /**
-   * <p>The number of days that automated snapshots are retained. If the value is 0,
-   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
-   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>Default: The value selected for the cluster from which the snapshot was
-   *             taken.</p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
-   */
-  AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The port number on which the cluster accepts connections.</p>
-   *         <p>Default: The same port as the original cluster.</p>
-   *         <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
-   *             case sensitive.</p>
-   *         <p>Example: <code>my-snapshot-id</code>
-   *         </p>
-   */
-  SnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>The number of nodes specified when provisioning the restored cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The elastic IP (EIP) address for the cluster.</p>
-   */
-  ElasticIp?: string;
-
-  /**
-   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
-   *             window to the Amazon Redshift engine that is running on the cluster. </p>
-   *         <p>Default: <code>true</code>
-   *         </p>
-   */
-  AllowVersionUpgrade?: boolean;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
-   *             snapshot is retained indefinitely. This setting doesn't change the retention period
-   *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The name of the subnet group where you want to cluster restored.</p>
-   *         <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
-   *             provide subnet group name where you want the cluster restored.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
-   *             occur.</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p> Default: The value selected for the cluster from which the snapshot was taken. For
-   *             more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>A list of security groups to be associated with this cluster.</p>
-   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
-   *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
-   */
-  ClusterSecurityGroups?: string[];
-
-  /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
-   *         <p>Default: A random, system-chosen Availability Zone.</p>
-   *         <p>Example: <code>us-east-2a</code>
-   *         </p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
-   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
-   *             request.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
-   */
-  IamRoles?: string[];
-
-  /**
    * <p>The identifier of the cluster that will be created from restoring the
    *             snapshot.</p>
    *          <p>Constraints:</p>
@@ -1147,6 +1037,79 @@ export interface RestoreFromClusterSnapshotMessage {
   ClusterIdentifier: string | undefined;
 
   /**
+   * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
+   *             case sensitive.</p>
+   *         <p>Example: <code>my-snapshot-id</code>
+   *         </p>
+   */
+  SnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the cluster the source snapshot was created from. This parameter is
+   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             specifies anything other than * for the cluster name.</p>
+   */
+  SnapshotClusterIdentifier?: string;
+
+  /**
+   * <p>The port number on which the cluster accepts connections.</p>
+   *         <p>Default: The same port as the original cluster.</p>
+   *         <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
+   *         <p>Default: A random, system-chosen Availability Zone.</p>
+   *         <p>Example: <code>us-east-2a</code>
+   *         </p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
+   *             window to the Amazon Redshift engine that is running on the cluster. </p>
+   *         <p>Default: <code>true</code>
+   *         </p>
+   */
+  AllowVersionUpgrade?: boolean;
+
+  /**
+   * <p>The name of the subnet group where you want to cluster restored.</p>
+   *         <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
+   *             provide subnet group name where you want the cluster restored.</p>
+   */
+  ClusterSubnetGroupName?: string;
+
+  /**
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>The AWS customer account used to create or copy the snapshot. Required if you are
+   *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
+   */
+  OwnerAccount?: string;
+
+  /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
+   * <p>The elastic IP (EIP) address for the cluster.</p>
+   */
+  ElasticIp?: string;
+
+  /**
    * <p>The name of the parameter group to be associated with this cluster.</p>
    *         <p>Default: The default Amazon Redshift cluster parameter group. For information about the
    *             default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working with Amazon
@@ -1167,48 +1130,55 @@ export interface RestoreFromClusterSnapshotMessage {
   ClusterParameterGroupName?: string;
 
   /**
-   * <p>The name of the cluster the source snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
-   *             specifies anything other than * for the cluster name.</p>
+   * <p>A list of security groups to be associated with this cluster.</p>
+   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
+   *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
    */
-  SnapshotClusterIdentifier?: string;
+  ClusterSecurityGroups?: string[];
+
+  /**
+   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
+   *             cluster.</p>
+   *         <p>Default: The default VPC security group is associated with the cluster.</p>
+   *         <p>VPC security groups only apply to clusters in VPCs.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
+   *             occur.</p>
+   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *         </p>
+   *         <p> Default: The value selected for the cluster from which the snapshot was taken. For
+   *             more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p>
+   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *         <p>Constraints: Minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *         <p>Default: The value selected for the cluster from which the snapshot was
+   *             taken.</p>
+   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
+   *             snapshot is retained indefinitely. This setting doesn't change the retention period
+   *             of existing snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
    *             use to encrypt data in the cluster that you restore from a shared snapshot.</p>
    */
   KmsKeyId?: string;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>The AWS customer account used to create or copy the snapshot. Required if you are
-   *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>The name of the maintenance track for the restored cluster. When you take a snapshot,
-   *             the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
-   *             snapshot might be on a different track than the cluster that was the source for the
-   *             snapshot. For example, suppose that you take a snapshot of a cluster that is on the
-   *             current track and then change the cluster to be on the trailing track. In this case, the
-   *             snapshot and the source cluster are on different tracks.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>A unique identifier for the snapshot schedule.</p>
-   */
-  SnapshotScheduleIdentifier?: string;
 
   /**
    * <p>The node type that the restored cluster will be provisioned with.</p>
@@ -1226,18 +1196,48 @@ export interface RestoreFromClusterSnapshotMessage {
   NodeType?: string;
 
   /**
-   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
-   *             cluster.</p>
-   *         <p>Default: The default VPC security group is associated with the cluster.</p>
-   *         <p>VPC security groups only apply to clusters in VPCs.</p>
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
    */
-  VpcSecurityGroupIds?: string[];
+  EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>Specifies the name of the HSM configuration that contains the information the
-   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   * <p>Reserved.</p>
    */
-  HsmConfigurationIdentifier?: string;
+  AdditionalInfo?: string;
+
+  /**
+   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
+   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
+   *             request.</p>
+   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+   */
+  IamRoles?: string[];
+
+  /**
+   * <p>The name of the maintenance track for the restored cluster. When you take a snapshot,
+   *             the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
+   *             snapshot might be on a different track than the cluster that was the source for the
+   *             snapshot. For example, suppose that you take a snapshot of a cluster that is on the
+   *             current track and then change the cluster to be on the trailing track. In this case, the
+   *             snapshot and the source cluster are on different tracks.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>A unique identifier for the snapshot schedule.</p>
+   */
+  SnapshotScheduleIdentifier?: string;
+
+  /**
+   * <p>The number of nodes specified when provisioning the restored cluster.</p>
+   */
+  NumberOfNodes?: number;
 }
 
 export namespace RestoreFromClusterSnapshotMessage {
@@ -1264,9 +1264,16 @@ export namespace RestoreFromClusterSnapshotResult {
  */
 export interface RestoreTableFromClusterSnapshotMessage {
   /**
-   * <p>The name of the schema to restore the table to.</p>
+   * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
    */
-  TargetSchemaName?: string;
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the snapshot to restore the table from. This snapshot must have
+   *             been created from the Amazon Redshift cluster specified by the
+   *                 <code>ClusterIdentifier</code> parameter.</p>
+   */
+  SnapshotIdentifier: string | undefined;
 
   /**
    * <p>The name of the source database that contains the table to restore from.</p>
@@ -1281,31 +1288,24 @@ export interface RestoreTableFromClusterSnapshotMessage {
   SourceSchemaName?: string;
 
   /**
-   * <p>The name of the database to restore the table to.</p>
-   */
-  TargetDatabaseName?: string;
-
-  /**
    * <p>The name of the source table to restore from.</p>
    */
   SourceTableName: string | undefined;
 
   /**
+   * <p>The name of the database to restore the table to.</p>
+   */
+  TargetDatabaseName?: string;
+
+  /**
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  TargetSchemaName?: string;
+
+  /**
    * <p>The name of the table to create as a result of the current request.</p>
    */
   NewTableName: string | undefined;
-
-  /**
-   * <p>The identifier of the snapshot to restore the table from. This snapshot must have
-   *             been created from the Amazon Redshift cluster specified by the
-   *                 <code>ClusterIdentifier</code> parameter.</p>
-   */
-  SnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
-   */
-  ClusterIdentifier: string | undefined;
 }
 
 export namespace RestoreTableFromClusterSnapshotMessage {
@@ -1346,15 +1346,9 @@ export namespace ResumeClusterResult {
  */
 export interface RevokeClusterSecurityGroupIngressMessage {
   /**
-   * <p>The AWS account number of the owner of the security group specified in the
-   *                 <code>EC2SecurityGroupName</code> parameter. The AWS access key ID is not an
-   *             acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
-   *                 <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
-   *             cannot be provided. </p>
-   *         <p>Example: <code>111122223333</code>
-   *         </p>
+   * <p>The name of the security Group from which to revoke the ingress rule.</p>
    */
-  EC2SecurityGroupOwnerId?: string;
+  ClusterSecurityGroupName: string | undefined;
 
   /**
    * <p>The IP range for which to revoke access. This range must be a valid Classless
@@ -1372,9 +1366,15 @@ export interface RevokeClusterSecurityGroupIngressMessage {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The name of the security Group from which to revoke the ingress rule.</p>
+   * <p>The AWS account number of the owner of the security group specified in the
+   *                 <code>EC2SecurityGroupName</code> parameter. The AWS access key ID is not an
+   *             acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
+   *                 <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
+   *             cannot be provided. </p>
+   *         <p>Example: <code>111122223333</code>
+   *         </p>
    */
-  ClusterSecurityGroupName: string | undefined;
+  EC2SecurityGroupOwnerId?: string;
 }
 
 export namespace RevokeClusterSecurityGroupIngressMessage {
@@ -1401,6 +1401,11 @@ export namespace RevokeClusterSecurityGroupIngressResult {
  */
 export interface RevokeSnapshotAccessMessage {
   /**
+   * <p>The identifier of the snapshot that the account can no longer access.</p>
+   */
+  SnapshotIdentifier: string | undefined;
+
+  /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
    *             required if your IAM user has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
@@ -1412,11 +1417,6 @@ export interface RevokeSnapshotAccessMessage {
    *             snapshot.</p>
    */
   AccountWithRestoreAccess: string | undefined;
-
-  /**
-   * <p>The identifier of the snapshot that the account can no longer access.</p>
-   */
-  SnapshotIdentifier: string | undefined;
 }
 
 export namespace RevokeSnapshotAccessMessage {

@@ -8,11 +8,17 @@ import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "../co
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "../commands/DescribeClustersCommand";
 import { InitializeClusterCommandInput, InitializeClusterCommandOutput } from "../commands/InitializeClusterCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
+import {
+  ModifyBackupAttributesCommandInput,
+  ModifyBackupAttributesCommandOutput,
+} from "../commands/ModifyBackupAttributesCommand";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "../commands/ModifyClusterCommand";
 import { RestoreBackupCommandInput, RestoreBackupCommandOutput } from "../commands/RestoreBackupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   Backup,
+  BackupRetentionPolicy,
   Certificates,
   CloudHsmAccessDeniedException,
   CloudHsmInternalFailureException,
@@ -43,6 +49,10 @@ import {
   InitializeClusterResponse,
   ListTagsRequest,
   ListTagsResponse,
+  ModifyBackupAttributesRequest,
+  ModifyBackupAttributesResponse,
+  ModifyClusterRequest,
+  ModifyClusterResponse,
   RestoreBackupRequest,
   RestoreBackupResponse,
   Tag,
@@ -188,6 +198,32 @@ export const serializeAws_json1_1ListTagsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ModifyBackupAttributesCommand = async (
+  input: ModifyBackupAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.ModifyBackupAttributes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ModifyBackupAttributesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ModifyClusterCommand = async (
+  input: ModifyClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.ModifyCluster",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ModifyClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1140,6 +1176,180 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ModifyBackupAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyBackupAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ModifyBackupAttributesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ModifyBackupAttributesResponse(data, context);
+  const response: ModifyBackupAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ModifyBackupAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyBackupAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ModifyClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ModifyClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ModifyClusterResponse(data, context);
+  const response: ModifyClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ModifyClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "CloudHsmAccessDeniedException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmInternalFailureException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmInvalidRequestException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmResourceNotFoundException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CloudHsmServiceException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
+      response = {
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RestoreBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1507,6 +1717,13 @@ const deserializeAws_json1_1CloudHsmTagExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1BackupRetentionPolicy = (input: BackupRetentionPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
 const serializeAws_json1_1CopyBackupToRegionRequest = (
   input: CopyBackupToRegionRequest,
   context: __SerdeContext
@@ -1520,6 +1737,9 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
 
 const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
   return {
+    ...(input.BackupRetentionPolicy !== undefined && {
+      BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
+    }),
     ...(input.HsmType !== undefined && { HsmType: input.HsmType }),
     ...(input.SourceBackupId !== undefined && { SourceBackupId: input.SourceBackupId }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
@@ -1602,6 +1822,25 @@ const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __
   };
 };
 
+const serializeAws_json1_1ModifyBackupAttributesRequest = (
+  input: ModifyBackupAttributesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
+    ...(input.NeverExpires !== undefined && { NeverExpires: input.NeverExpires }),
+  };
+};
+
+const serializeAws_json1_1ModifyClusterRequest = (input: ModifyClusterRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BackupRetentionPolicy !== undefined && {
+      BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
+    }),
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+  };
+};
+
 const serializeAws_json1_1RestoreBackupRequest = (input: RestoreBackupRequest, context: __SerdeContext): any => {
   return {
     ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
@@ -1662,6 +1901,7 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
       output.DeleteTimestamp !== undefined && output.DeleteTimestamp !== null
         ? new Date(Math.round(output.DeleteTimestamp * 1000))
         : undefined,
+    NeverExpires: output.NeverExpires !== undefined && output.NeverExpires !== null ? output.NeverExpires : undefined,
     SourceBackup: output.SourceBackup !== undefined && output.SourceBackup !== null ? output.SourceBackup : undefined,
     SourceCluster:
       output.SourceCluster !== undefined && output.SourceCluster !== null ? output.SourceCluster : undefined,
@@ -1670,6 +1910,13 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BackupRetentionPolicy = (output: any, context: __SerdeContext): BackupRetentionPolicy => {
+  return {
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
@@ -1751,6 +1998,10 @@ const deserializeAws_json1_1CloudHsmTagException = (output: any, context: __Serd
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
     BackupPolicy: output.BackupPolicy !== undefined && output.BackupPolicy !== null ? output.BackupPolicy : undefined,
+    BackupRetentionPolicy:
+      output.BackupRetentionPolicy !== undefined && output.BackupRetentionPolicy !== null
+        ? deserializeAws_json1_1BackupRetentionPolicy(output.BackupRetentionPolicy, context)
+        : undefined,
     Certificates:
       output.Certificates !== undefined && output.Certificates !== null
         ? deserializeAws_json1_1Certificates(output.Certificates, context)
@@ -1924,6 +2175,27 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModifyBackupAttributesResponse = (
+  output: any,
+  context: __SerdeContext
+): ModifyBackupAttributesResponse => {
+  return {
+    Backup:
+      output.Backup !== undefined && output.Backup !== null
+        ? deserializeAws_json1_1Backup(output.Backup, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModifyClusterResponse = (output: any, context: __SerdeContext): ModifyClusterResponse => {
+  return {
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
         : undefined,
   } as any;
 };

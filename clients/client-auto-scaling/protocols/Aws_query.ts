@@ -5863,6 +5863,13 @@ const serializeAws_queryLaunchTemplateOverrides = (input: LaunchTemplateOverride
   if (input.WeightedCapacity !== undefined) {
     entries["WeightedCapacity"] = input.WeightedCapacity;
   }
+  if (input.LaunchTemplateSpecification !== undefined) {
+    const memberEntries = serializeAws_queryLaunchTemplateSpecification(input.LaunchTemplateSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LaunchTemplateSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -7852,12 +7859,19 @@ const deserializeAws_queryLaunchTemplateOverrides = (output: any, context: __Ser
   let contents: any = {
     InstanceType: undefined,
     WeightedCapacity: undefined,
+    LaunchTemplateSpecification: undefined,
   };
   if (output["InstanceType"] !== undefined) {
     contents.InstanceType = output["InstanceType"];
   }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
+  }
+  if (output["LaunchTemplateSpecification"] !== undefined) {
+    contents.LaunchTemplateSpecification = deserializeAws_queryLaunchTemplateSpecification(
+      output["LaunchTemplateSpecification"],
+      context
+    );
   }
   return contents;
 };

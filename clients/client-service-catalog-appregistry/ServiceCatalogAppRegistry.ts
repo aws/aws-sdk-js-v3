@@ -86,7 +86,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   /**
-   * <p>Associates an attribute group with an application to augment the application's metadata with the group's attributes. This way applications can be described with user-defined details which are machine-readable (e.g. for third-party integrations).</p>
+   * <p>Associates an attribute group with an application to augment the application's metadata
+   *       with the group's attributes. This feature enables applications to be described with
+   *       user-defined details that are machine-readable, such as third-party integrations.</p>
    */
   public associateAttributeGroup(
     args: AssociateAttributeGroupCommandInput,
@@ -182,7 +184,10 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Creates a new attribute group as a container for user-defined attributes. This approach enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.</p>
+   * <p>Creates a new attribute group as a container for user-defined attributes. This feature
+   *       enables users to have full control over their cloud application's metadata in a rich
+   *       machine-readable format to facilitate integration with automated workflows and third-party
+   *       tools.</p>
    */
   public createAttributeGroup(
     args: CreateAttributeGroupCommandInput,
@@ -214,7 +219,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Delete an application, specified either by its application ID or name.</p>
+   * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -278,7 +283,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts AssociateAttributeGroup.</p>
+   * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
    */
   public disassociateAttributeGroup(
     args: DisassociateAttributeGroupCommandInput,
@@ -342,7 +347,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a ResourceNotFoundException is thrown, avoiding the ABA addressing problem.</p>
+   * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown, avoiding the ABA addressing problem.</p>
    */
   public getApplication(
     args: GetApplicationCommandInput,
@@ -374,7 +379,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
-   * <p>Retrieves an attribute group, either by its name or its ID.</p>
+   * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
    */
   public getAttributeGroup(
     args: GetAttributeGroupCommandInput,

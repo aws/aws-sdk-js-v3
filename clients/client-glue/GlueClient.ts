@@ -30,6 +30,10 @@ import {
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
+import {
+  CheckSchemaVersionValidityCommandInput,
+  CheckSchemaVersionValidityCommandOutput,
+} from "./commands/CheckSchemaVersionValidityCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
@@ -38,6 +42,8 @@ import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from ".
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
 import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand";
+import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand";
 import {
   CreateSecurityConfigurationCommandInput,
@@ -66,10 +72,16 @@ import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from ".
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
 import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand";
+import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
+import {
+  DeleteSchemaVersionsCommandInput,
+  DeleteSchemaVersionsCommandOutput,
+} from "./commands/DeleteSchemaVersionsCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
@@ -127,11 +139,22 @@ import {
 } from "./commands/GetPartitionIndexesCommand";
 import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand";
 import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
+import { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
 import {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "./commands/GetResourcePoliciesCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
+import {
+  GetSchemaByDefinitionCommandInput,
+  GetSchemaByDefinitionCommandOutput,
+} from "./commands/GetSchemaByDefinitionCommand";
+import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "./commands/GetSchemaVersionCommand";
+import {
+  GetSchemaVersionsDiffCommandInput,
+  GetSchemaVersionsDiffCommandOutput,
+} from "./commands/GetSchemaVersionsDiffCommand";
 import {
   GetSecurityConfigurationCommandInput,
   GetSecurityConfigurationCommandOutput,
@@ -170,6 +193,9 @@ import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
+import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
+import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -178,9 +204,25 @@ import {
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
+  PutSchemaVersionMetadataCommandInput,
+  PutSchemaVersionMetadataCommandOutput,
+} from "./commands/PutSchemaVersionMetadataCommand";
+import {
   PutWorkflowRunPropertiesCommandInput,
   PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand";
+import {
+  QuerySchemaVersionMetadataCommandInput,
+  QuerySchemaVersionMetadataCommandOutput,
+} from "./commands/QuerySchemaVersionMetadataCommand";
+import {
+  RegisterSchemaVersionCommandInput,
+  RegisterSchemaVersionCommandOutput,
+} from "./commands/RegisterSchemaVersionCommand";
+import {
+  RemoveSchemaVersionMetadataCommandInput,
+  RemoveSchemaVersionMetadataCommandOutput,
+} from "./commands/RemoveSchemaVersionMetadataCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
@@ -237,6 +279,8 @@ import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from ".
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "./commands/UpdateMLTransformCommand";
 import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand";
+import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
+import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import {
@@ -308,6 +352,7 @@ export type ServiceInputTypes =
   | BatchStopJobRunCommandInput
   | BatchUpdatePartitionCommandInput
   | CancelMLTaskRunCommandInput
+  | CheckSchemaVersionValidityCommandInput
   | CreateClassifierCommandInput
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
@@ -316,6 +361,8 @@ export type ServiceInputTypes =
   | CreateJobCommandInput
   | CreateMLTransformCommandInput
   | CreatePartitionCommandInput
+  | CreateRegistryCommandInput
+  | CreateSchemaCommandInput
   | CreateScriptCommandInput
   | CreateSecurityConfigurationCommandInput
   | CreateTableCommandInput
@@ -332,7 +379,10 @@ export type ServiceInputTypes =
   | DeleteJobCommandInput
   | DeleteMLTransformCommandInput
   | DeletePartitionCommandInput
+  | DeleteRegistryCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeleteSchemaCommandInput
+  | DeleteSchemaVersionsCommandInput
   | DeleteSecurityConfigurationCommandInput
   | DeleteTableCommandInput
   | DeleteTableVersionCommandInput
@@ -369,8 +419,13 @@ export type ServiceInputTypes =
   | GetPartitionIndexesCommandInput
   | GetPartitionsCommandInput
   | GetPlanCommandInput
+  | GetRegistryCommandInput
   | GetResourcePoliciesCommandInput
   | GetResourcePolicyCommandInput
+  | GetSchemaByDefinitionCommandInput
+  | GetSchemaCommandInput
+  | GetSchemaVersionCommandInput
+  | GetSchemaVersionsDiffCommandInput
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
   | GetTableCommandInput
@@ -391,11 +446,18 @@ export type ServiceInputTypes =
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
+  | ListRegistriesCommandInput
+  | ListSchemaVersionsCommandInput
+  | ListSchemasCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutResourcePolicyCommandInput
+  | PutSchemaVersionMetadataCommandInput
   | PutWorkflowRunPropertiesCommandInput
+  | QuerySchemaVersionMetadataCommandInput
+  | RegisterSchemaVersionCommandInput
+  | RemoveSchemaVersionMetadataCommandInput
   | ResetJobBookmarkCommandInput
   | ResumeWorkflowRunCommandInput
   | SearchTablesCommandInput
@@ -425,6 +487,8 @@ export type ServiceInputTypes =
   | UpdateJobCommandInput
   | UpdateMLTransformCommandInput
   | UpdatePartitionCommandInput
+  | UpdateRegistryCommandInput
+  | UpdateSchemaCommandInput
   | UpdateTableCommandInput
   | UpdateTriggerCommandInput
   | UpdateUserDefinedFunctionCommandInput
@@ -445,6 +509,7 @@ export type ServiceOutputTypes =
   | BatchStopJobRunCommandOutput
   | BatchUpdatePartitionCommandOutput
   | CancelMLTaskRunCommandOutput
+  | CheckSchemaVersionValidityCommandOutput
   | CreateClassifierCommandOutput
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
@@ -453,6 +518,8 @@ export type ServiceOutputTypes =
   | CreateJobCommandOutput
   | CreateMLTransformCommandOutput
   | CreatePartitionCommandOutput
+  | CreateRegistryCommandOutput
+  | CreateSchemaCommandOutput
   | CreateScriptCommandOutput
   | CreateSecurityConfigurationCommandOutput
   | CreateTableCommandOutput
@@ -469,7 +536,10 @@ export type ServiceOutputTypes =
   | DeleteJobCommandOutput
   | DeleteMLTransformCommandOutput
   | DeletePartitionCommandOutput
+  | DeleteRegistryCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeleteSchemaCommandOutput
+  | DeleteSchemaVersionsCommandOutput
   | DeleteSecurityConfigurationCommandOutput
   | DeleteTableCommandOutput
   | DeleteTableVersionCommandOutput
@@ -506,8 +576,13 @@ export type ServiceOutputTypes =
   | GetPartitionIndexesCommandOutput
   | GetPartitionsCommandOutput
   | GetPlanCommandOutput
+  | GetRegistryCommandOutput
   | GetResourcePoliciesCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetSchemaByDefinitionCommandOutput
+  | GetSchemaCommandOutput
+  | GetSchemaVersionCommandOutput
+  | GetSchemaVersionsDiffCommandOutput
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
   | GetTableCommandOutput
@@ -528,11 +603,18 @@ export type ServiceOutputTypes =
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
+  | ListRegistriesCommandOutput
+  | ListSchemaVersionsCommandOutput
+  | ListSchemasCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutResourcePolicyCommandOutput
+  | PutSchemaVersionMetadataCommandOutput
   | PutWorkflowRunPropertiesCommandOutput
+  | QuerySchemaVersionMetadataCommandOutput
+  | RegisterSchemaVersionCommandOutput
+  | RemoveSchemaVersionMetadataCommandOutput
   | ResetJobBookmarkCommandOutput
   | ResumeWorkflowRunCommandOutput
   | SearchTablesCommandOutput
@@ -562,6 +644,8 @@ export type ServiceOutputTypes =
   | UpdateJobCommandOutput
   | UpdateMLTransformCommandOutput
   | UpdatePartitionCommandOutput
+  | UpdateRegistryCommandOutput
+  | UpdateSchemaCommandOutput
   | UpdateTableCommandOutput
   | UpdateTriggerCommandOutput
   | UpdateUserDefinedFunctionCommandOutput

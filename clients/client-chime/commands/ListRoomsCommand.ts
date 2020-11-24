@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListRoomsRequest, ListRoomsResponse } from "../models/models_0";
+import { ListRoomsRequest, ListRoomsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListRoomsCommand,
   serializeAws_restJson1ListRoomsCommand,

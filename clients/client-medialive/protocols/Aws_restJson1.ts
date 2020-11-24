@@ -4789,6 +4789,7 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
     Arn: undefined,
     ConnectionState: undefined,
     DeviceSettingsSyncState: undefined,
+    DeviceUpdateStatus: undefined,
     HdDeviceSettings: undefined,
     Id: undefined,
     MacAddress: undefined,
@@ -4806,6 +4807,9 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
   }
   if (data.deviceSettingsSyncState !== undefined && data.deviceSettingsSyncState !== null) {
     contents.DeviceSettingsSyncState = data.deviceSettingsSyncState;
+  }
+  if (data.deviceUpdateStatus !== undefined && data.deviceUpdateStatus !== null) {
+    contents.DeviceUpdateStatus = data.deviceUpdateStatus;
   }
   if (data.hdDeviceSettings !== undefined && data.hdDeviceSettings !== null) {
     contents.HdDeviceSettings = deserializeAws_restJson1InputDeviceHdSettings(data.hdDeviceSettings, context);
@@ -8159,6 +8163,7 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
     Arn: undefined,
     ConnectionState: undefined,
     DeviceSettingsSyncState: undefined,
+    DeviceUpdateStatus: undefined,
     HdDeviceSettings: undefined,
     Id: undefined,
     MacAddress: undefined,
@@ -8176,6 +8181,9 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
   }
   if (data.deviceSettingsSyncState !== undefined && data.deviceSettingsSyncState !== null) {
     contents.DeviceSettingsSyncState = data.deviceSettingsSyncState;
+  }
+  if (data.deviceUpdateStatus !== undefined && data.deviceUpdateStatus !== null) {
+    contents.DeviceUpdateStatus = data.deviceUpdateStatus;
   }
   if (data.hdDeviceSettings !== undefined && data.hdDeviceSettings !== null) {
     contents.HdDeviceSettings = deserializeAws_restJson1InputDeviceHdSettings(data.hdDeviceSettings, context);
@@ -13136,6 +13144,10 @@ const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __Serd
     DeviceSettingsSyncState:
       output.deviceSettingsSyncState !== undefined && output.deviceSettingsSyncState !== null
         ? output.deviceSettingsSyncState
+        : undefined,
+    DeviceUpdateStatus:
+      output.deviceUpdateStatus !== undefined && output.deviceUpdateStatus !== null
+        ? output.deviceUpdateStatus
         : undefined,
     HdDeviceSettings:
       output.hdDeviceSettings !== undefined && output.hdDeviceSettings !== null

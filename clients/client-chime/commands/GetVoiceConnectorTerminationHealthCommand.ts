@@ -2,7 +2,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   GetVoiceConnectorTerminationHealthRequest,
   GetVoiceConnectorTerminationHealthResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,
   serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,

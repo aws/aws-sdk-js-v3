@@ -60,11 +60,46 @@ import {
   CreateAccountCommandOutput,
 } from "./commands/CreateAccountCommand";
 import {
+  CreateAppInstanceAdminCommand,
+  CreateAppInstanceAdminCommandInput,
+  CreateAppInstanceAdminCommandOutput,
+} from "./commands/CreateAppInstanceAdminCommand";
+import {
+  CreateAppInstanceCommand,
+  CreateAppInstanceCommandInput,
+  CreateAppInstanceCommandOutput,
+} from "./commands/CreateAppInstanceCommand";
+import {
+  CreateAppInstanceUserCommand,
+  CreateAppInstanceUserCommandInput,
+  CreateAppInstanceUserCommandOutput,
+} from "./commands/CreateAppInstanceUserCommand";
+import {
   CreateAttendeeCommand,
   CreateAttendeeCommandInput,
   CreateAttendeeCommandOutput,
 } from "./commands/CreateAttendeeCommand";
 import { CreateBotCommand, CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
+import {
+  CreateChannelBanCommand,
+  CreateChannelBanCommandInput,
+  CreateChannelBanCommandOutput,
+} from "./commands/CreateChannelBanCommand";
+import {
+  CreateChannelCommand,
+  CreateChannelCommandInput,
+  CreateChannelCommandOutput,
+} from "./commands/CreateChannelCommand";
+import {
+  CreateChannelMembershipCommand,
+  CreateChannelMembershipCommandInput,
+  CreateChannelMembershipCommandOutput,
+} from "./commands/CreateChannelMembershipCommand";
+import {
+  CreateChannelModeratorCommand,
+  CreateChannelModeratorCommandInput,
+  CreateChannelModeratorCommandOutput,
+} from "./commands/CreateChannelModeratorCommand";
 import {
   CreateMeetingCommand,
   CreateMeetingCommandInput,
@@ -128,10 +163,55 @@ import {
   DeleteAccountCommandOutput,
 } from "./commands/DeleteAccountCommand";
 import {
+  DeleteAppInstanceAdminCommand,
+  DeleteAppInstanceAdminCommandInput,
+  DeleteAppInstanceAdminCommandOutput,
+} from "./commands/DeleteAppInstanceAdminCommand";
+import {
+  DeleteAppInstanceCommand,
+  DeleteAppInstanceCommandInput,
+  DeleteAppInstanceCommandOutput,
+} from "./commands/DeleteAppInstanceCommand";
+import {
+  DeleteAppInstanceStreamingConfigurationsCommand,
+  DeleteAppInstanceStreamingConfigurationsCommandInput,
+  DeleteAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/DeleteAppInstanceStreamingConfigurationsCommand";
+import {
+  DeleteAppInstanceUserCommand,
+  DeleteAppInstanceUserCommandInput,
+  DeleteAppInstanceUserCommandOutput,
+} from "./commands/DeleteAppInstanceUserCommand";
+import {
   DeleteAttendeeCommand,
   DeleteAttendeeCommandInput,
   DeleteAttendeeCommandOutput,
 } from "./commands/DeleteAttendeeCommand";
+import {
+  DeleteChannelBanCommand,
+  DeleteChannelBanCommandInput,
+  DeleteChannelBanCommandOutput,
+} from "./commands/DeleteChannelBanCommand";
+import {
+  DeleteChannelCommand,
+  DeleteChannelCommandInput,
+  DeleteChannelCommandOutput,
+} from "./commands/DeleteChannelCommand";
+import {
+  DeleteChannelMembershipCommand,
+  DeleteChannelMembershipCommandInput,
+  DeleteChannelMembershipCommandOutput,
+} from "./commands/DeleteChannelMembershipCommand";
+import {
+  DeleteChannelMessageCommand,
+  DeleteChannelMessageCommandInput,
+  DeleteChannelMessageCommandOutput,
+} from "./commands/DeleteChannelMessageCommand";
+import {
+  DeleteChannelModeratorCommand,
+  DeleteChannelModeratorCommandInput,
+  DeleteChannelModeratorCommandOutput,
+} from "./commands/DeleteChannelModeratorCommand";
 import {
   DeleteEventsConfigurationCommand,
   DeleteEventsConfigurationCommandInput,
@@ -209,6 +289,51 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
+  DescribeAppInstanceAdminCommand,
+  DescribeAppInstanceAdminCommandInput,
+  DescribeAppInstanceAdminCommandOutput,
+} from "./commands/DescribeAppInstanceAdminCommand";
+import {
+  DescribeAppInstanceCommand,
+  DescribeAppInstanceCommandInput,
+  DescribeAppInstanceCommandOutput,
+} from "./commands/DescribeAppInstanceCommand";
+import {
+  DescribeAppInstanceUserCommand,
+  DescribeAppInstanceUserCommandInput,
+  DescribeAppInstanceUserCommandOutput,
+} from "./commands/DescribeAppInstanceUserCommand";
+import {
+  DescribeChannelBanCommand,
+  DescribeChannelBanCommandInput,
+  DescribeChannelBanCommandOutput,
+} from "./commands/DescribeChannelBanCommand";
+import {
+  DescribeChannelCommand,
+  DescribeChannelCommandInput,
+  DescribeChannelCommandOutput,
+} from "./commands/DescribeChannelCommand";
+import {
+  DescribeChannelMembershipCommand,
+  DescribeChannelMembershipCommandInput,
+  DescribeChannelMembershipCommandOutput,
+} from "./commands/DescribeChannelMembershipCommand";
+import {
+  DescribeChannelMembershipForAppInstanceUserCommand,
+  DescribeChannelMembershipForAppInstanceUserCommandInput,
+  DescribeChannelMembershipForAppInstanceUserCommandOutput,
+} from "./commands/DescribeChannelMembershipForAppInstanceUserCommand";
+import {
+  DescribeChannelModeratedByAppInstanceUserCommand,
+  DescribeChannelModeratedByAppInstanceUserCommandInput,
+  DescribeChannelModeratedByAppInstanceUserCommandOutput,
+} from "./commands/DescribeChannelModeratedByAppInstanceUserCommand";
+import {
+  DescribeChannelModeratorCommand,
+  DescribeChannelModeratorCommandInput,
+  DescribeChannelModeratorCommandOutput,
+} from "./commands/DescribeChannelModeratorCommand";
+import {
   DisassociatePhoneNumberFromUserCommand,
   DisassociatePhoneNumberFromUserCommandInput,
   DisassociatePhoneNumberFromUserCommandOutput,
@@ -234,8 +359,23 @@ import {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
+import {
+  GetAppInstanceRetentionSettingsCommand,
+  GetAppInstanceRetentionSettingsCommandInput,
+  GetAppInstanceRetentionSettingsCommandOutput,
+} from "./commands/GetAppInstanceRetentionSettingsCommand";
+import {
+  GetAppInstanceStreamingConfigurationsCommand,
+  GetAppInstanceStreamingConfigurationsCommandInput,
+  GetAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/GetAppInstanceStreamingConfigurationsCommand";
 import { GetAttendeeCommand, GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand";
 import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import {
+  GetChannelMessageCommand,
+  GetChannelMessageCommandInput,
+  GetChannelMessageCommandOutput,
+} from "./commands/GetChannelMessageCommand";
 import {
   GetEventsConfigurationCommand,
   GetEventsConfigurationCommandInput,
@@ -247,6 +387,11 @@ import {
   GetGlobalSettingsCommandOutput,
 } from "./commands/GetGlobalSettingsCommand";
 import { GetMeetingCommand, GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
+import {
+  GetMessagingSessionEndpointCommand,
+  GetMessagingSessionEndpointCommandInput,
+  GetMessagingSessionEndpointCommandOutput,
+} from "./commands/GetMessagingSessionEndpointCommand";
 import {
   GetPhoneNumberCommand,
   GetPhoneNumberCommandInput,
@@ -342,6 +487,21 @@ import {
   ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import {
+  ListAppInstanceAdminsCommand,
+  ListAppInstanceAdminsCommandInput,
+  ListAppInstanceAdminsCommandOutput,
+} from "./commands/ListAppInstanceAdminsCommand";
+import {
+  ListAppInstanceUsersCommand,
+  ListAppInstanceUsersCommandInput,
+  ListAppInstanceUsersCommandOutput,
+} from "./commands/ListAppInstanceUsersCommand";
+import {
+  ListAppInstancesCommand,
+  ListAppInstancesCommandInput,
+  ListAppInstancesCommandOutput,
+} from "./commands/ListAppInstancesCommand";
+import {
   ListAttendeeTagsCommand,
   ListAttendeeTagsCommandInput,
   ListAttendeeTagsCommandOutput,
@@ -352,6 +512,41 @@ import {
   ListAttendeesCommandOutput,
 } from "./commands/ListAttendeesCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListChannelBansCommand,
+  ListChannelBansCommandInput,
+  ListChannelBansCommandOutput,
+} from "./commands/ListChannelBansCommand";
+import {
+  ListChannelMembershipsCommand,
+  ListChannelMembershipsCommandInput,
+  ListChannelMembershipsCommandOutput,
+} from "./commands/ListChannelMembershipsCommand";
+import {
+  ListChannelMembershipsForAppInstanceUserCommand,
+  ListChannelMembershipsForAppInstanceUserCommandInput,
+  ListChannelMembershipsForAppInstanceUserCommandOutput,
+} from "./commands/ListChannelMembershipsForAppInstanceUserCommand";
+import {
+  ListChannelMessagesCommand,
+  ListChannelMessagesCommandInput,
+  ListChannelMessagesCommandOutput,
+} from "./commands/ListChannelMessagesCommand";
+import {
+  ListChannelModeratorsCommand,
+  ListChannelModeratorsCommandInput,
+  ListChannelModeratorsCommandOutput,
+} from "./commands/ListChannelModeratorsCommand";
+import {
+  ListChannelsCommand,
+  ListChannelsCommandInput,
+  ListChannelsCommandOutput,
+} from "./commands/ListChannelsCommand";
+import {
+  ListChannelsModeratedByAppInstanceUserCommand,
+  ListChannelsModeratedByAppInstanceUserCommandInput,
+  ListChannelsModeratedByAppInstanceUserCommandOutput,
+} from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
   ListMeetingTagsCommand,
   ListMeetingTagsCommandInput,
@@ -416,6 +611,16 @@ import {
 } from "./commands/ListVoiceConnectorsCommand";
 import { LogoutUserCommand, LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand";
 import {
+  PutAppInstanceRetentionSettingsCommand,
+  PutAppInstanceRetentionSettingsCommandInput,
+  PutAppInstanceRetentionSettingsCommandOutput,
+} from "./commands/PutAppInstanceRetentionSettingsCommand";
+import {
+  PutAppInstanceStreamingConfigurationsCommand,
+  PutAppInstanceStreamingConfigurationsCommandInput,
+  PutAppInstanceStreamingConfigurationsCommandOutput,
+} from "./commands/PutAppInstanceStreamingConfigurationsCommand";
+import {
   PutEventsConfigurationCommand,
   PutEventsConfigurationCommandInput,
   PutEventsConfigurationCommandOutput,
@@ -466,6 +671,11 @@ import {
   PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand";
 import {
+  RedactChannelMessageCommand,
+  RedactChannelMessageCommandInput,
+  RedactChannelMessageCommandOutput,
+} from "./commands/RedactChannelMessageCommand";
+import {
   RedactConversationMessageCommand,
   RedactConversationMessageCommandInput,
   RedactConversationMessageCommandOutput,
@@ -495,6 +705,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SendChannelMessageCommand,
+  SendChannelMessageCommandInput,
+  SendChannelMessageCommandOutput,
+} from "./commands/SendChannelMessageCommand";
 import { TagAttendeeCommand, TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
 import { TagMeetingCommand, TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -523,7 +738,32 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateAppInstanceCommand,
+  UpdateAppInstanceCommandInput,
+  UpdateAppInstanceCommandOutput,
+} from "./commands/UpdateAppInstanceCommand";
+import {
+  UpdateAppInstanceUserCommand,
+  UpdateAppInstanceUserCommandInput,
+  UpdateAppInstanceUserCommandOutput,
+} from "./commands/UpdateAppInstanceUserCommand";
 import { UpdateBotCommand, UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
+import {
+  UpdateChannelCommand,
+  UpdateChannelCommandInput,
+  UpdateChannelCommandOutput,
+} from "./commands/UpdateChannelCommand";
+import {
+  UpdateChannelMessageCommand,
+  UpdateChannelMessageCommandInput,
+  UpdateChannelMessageCommandOutput,
+} from "./commands/UpdateChannelMessageCommand";
+import {
+  UpdateChannelReadMarkerCommand,
+  UpdateChannelReadMarkerCommandInput,
+  UpdateChannelReadMarkerCommandOutput,
+} from "./commands/UpdateChannelReadMarkerCommand";
 import {
   UpdateGlobalSettingsCommand,
   UpdateGlobalSettingsCommandInput,
@@ -602,8 +842,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *               Interface</a> in the <i>AWS Command Line Interface User Guide</i>.
  *             For a list of available Amazon Chime commands, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/chime/index.html">Amazon Chime commands</a> in the
  *               <i>AWS CLI Command Reference</i>.</p>
+ *
+ *
  *             </dd>
- *             <dt>Using REST API</dt>
+ *             <dt>Using REST</dt>
  *             <dd>
  *                <p>If you use REST to make API calls, you must authenticate your request by providing
  *             a signature. Amazon Chime supports Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
@@ -1042,6 +1284,115 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Creates an Amazon Chime Messaging SDK <code>AppInstance</code> under an AWS Account. Only Messaging SDK customers use this API.
+   *            <code>CreateAppInstance</code> supports <code>idempotency</code> behavior as described in the AWS API Standard.</p>
+   */
+  public createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceCommandOutput>;
+  public createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
+  ): void;
+  public createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
+  ): void;
+  public createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppInstanceCommandOutput) => void
+  ): Promise<CreateAppInstanceCommandOutput> | void {
+    const command = new CreateAppInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ChannelModerator</code> actions across all channels in the app instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteChannelMessage</code> actions.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
+   */
+  public createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceAdminCommandOutput>;
+  public createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
+  ): void;
+  public createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
+  ): void;
+  public createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceAdminCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
+  ): Promise<CreateAppInstanceAdminCommandOutput> | void {
+    const command = new CreateAppInstanceAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
+   *            <code>Name</code> for that user.</p>
+   */
+  public createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceUserCommandOutput>;
+  public createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
+  ): void;
+  public createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
+  ): void;
+  public createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
+  ): Promise<CreateAppInstanceUserCommandOutput> | void {
+    const command = new CreateAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public createAttendee(
@@ -1089,6 +1440,184 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: CreateBotCommandOutput) => void
   ): Promise<CreateBotCommandOutput> | void {
     const command = new CreateBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a channel to which you can add users and send messages.</p>
+   *          <p>
+   *             <b>Restriction</b>: You can't change a channel's privacy.</p>
+   */
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelCommandOutput) => void
+  ): Promise<CreateChannelCommandOutput> | void {
+    const command = new CreateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel.
+   *            To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>.
+   *            Bans are cleaned up when you delete users or channels.
+   *        </p>
+   *          <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p>
+   */
+  public createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelBanCommandOutput>;
+  public createChannelBan(
+    args: CreateChannelBanCommandInput,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+  public createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+  public createChannelBan(
+    args: CreateChannelBanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelBanCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): Promise<CreateChannelBanCommandOutput> | void {
+    const command = new CreateChannelBanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header.
+   *            A channel member can:</p>
+   *          <ul>
+   *             <li>
+   *                <p>List messages</p>
+   *             </li>
+   *             <li>
+   *                <p>Send messages</p>
+   *             </li>
+   *             <li>
+   *                <p>Receive messages</p>
+   *             </li>
+   *             <li>
+   *                <p>Edit their own messages</p>
+   *             </li>
+   *             <li>
+   *                <p>Leave the channel</p>
+   *             </li>
+   *          </ul>
+   *          <p>Privacy settings impact this action as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p>
+   *             </li>
+   *             <li>
+   *                <p>Private Channels: You must be a member to list or send messages.</p>
+   *             </li>
+   *          </ul>
+   */
+  public createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelMembershipCommandOutput>;
+  public createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+  public createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+  public createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelMembershipCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): Promise<CreateChannelMembershipCommandOutput> | void {
+    const command = new CreateChannelMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Add and remove other members of the channel.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add and remove other moderators of the channel.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add and remove user bans for the channel.</p>
+   *             </li>
+   *             <li>
+   *                <p>Redact messages in the channel.</p>
+   *             </li>
+   *             <li>
+   *                <p>List messages in the channel.</p>
+   *             </li>
+   *          </ul>
+   */
+  public createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelModeratorCommandOutput>;
+  public createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+  public createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+  public createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelModeratorCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): Promise<CreateChannelModeratorCommandOutput> | void {
+    const command = new CreateChannelModeratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1564,6 +2093,136 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
+   */
+  public deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceCommandOutput>;
+  public deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
+  ): void;
+  public deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
+  ): void;
+  public deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInstanceCommandOutput) => void
+  ): Promise<DeleteAppInstanceCommandOutput> | void {
+    const command = new DeleteAppInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
+   */
+  public deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceAdminCommandOutput>;
+  public deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
+  ): void;
+  public deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
+  ): void;
+  public deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceAdminCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
+  ): Promise<DeleteAppInstanceAdminCommandOutput> | void {
+    const command = new DeleteAppInstanceAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the streaming configurations of an app instance.</p>
+   */
+  public deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput>;
+  public deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput> | void {
+    const command = new DeleteAppInstanceStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an <code>AppInstanceUser</code>.</p>
+   */
+  public deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceUserCommandOutput>;
+  public deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
+  ): void;
+  public deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
+  ): void;
+  public deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
+  ): Promise<DeleteAppInstanceUserCommandOutput> | void {
+    const command = new DeleteAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public deleteAttendee(
@@ -1585,6 +2244,167 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: DeleteAttendeeCommandOutput) => void
   ): Promise<DeleteAttendeeCommandOutput> | void {
     const command = new DeleteAttendeeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Immediately makes a channel and its memberships inaccessible and marks them for deletion. This is an irreversible process.</p>
+   */
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  public deleteChannel(
+    args: DeleteChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): Promise<DeleteChannelCommandOutput> | void {
+    const command = new DeleteChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a user from a channel's ban list.</p>
+   */
+  public deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelBanCommandOutput>;
+  public deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+  public deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+  public deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelBanCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): Promise<DeleteChannelBanCommandOutput> | void {
+    const command = new DeleteChannelBanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a member from a channel.</p>
+   */
+  public deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMembershipCommandOutput>;
+  public deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+  public deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+  public deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMembershipCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): Promise<DeleteChannelMembershipCommandOutput> | void {
+    const command = new DeleteChannelMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A
+   *            background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p>
+   */
+  public deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMessageCommandOutput>;
+  public deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+  public deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+  public deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMessageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): Promise<DeleteChannelMessageCommandOutput> | void {
+    const command = new DeleteChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a channel moderator.</p>
+   */
+  public deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelModeratorCommandOutput>;
+  public deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+  public deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+  public deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelModeratorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): Promise<DeleteChannelModeratorCommandOutput> | void {
+    const command = new DeleteChannelModeratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2119,6 +2939,298 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Returns the full details of an <code>AppInstance</code>.</p>
+   */
+  public describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceCommandOutput>;
+  public describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
+  ): void;
+  public describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
+  ): void;
+  public describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppInstanceCommandOutput) => void
+  ): Promise<DescribeAppInstanceCommandOutput> | void {
+    const command = new DescribeAppInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
+   */
+  public describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceAdminCommandOutput>;
+  public describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
+  ): void;
+  public describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
+  ): void;
+  public describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceAdminCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
+  ): Promise<DescribeAppInstanceAdminCommandOutput> | void {
+    const command = new DescribeAppInstanceAdminCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
+   */
+  public describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceUserCommandOutput>;
+  public describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
+  ): Promise<DescribeAppInstanceUserCommandOutput> | void {
+    const command = new DescribeAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of a channel in an Amazon Chime app instance.</p>
+   */
+  public describeChannel(
+    args: DescribeChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelCommandOutput>;
+  public describeChannel(
+    args: DescribeChannelCommandInput,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+  public describeChannel(
+    args: DescribeChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+  public describeChannel(
+    args: DescribeChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): Promise<DescribeChannelCommandOutput> | void {
+    const command = new DescribeChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of a channel ban.</p>
+   */
+  public describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelBanCommandOutput>;
+  public describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+  public describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+  public describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelBanCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): Promise<DescribeChannelBanCommandOutput> | void {
+    const command = new DescribeChannelBanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of a user's channel membership.</p>
+   */
+  public describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipCommandOutput>;
+  public describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+  public describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+  public describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelMembershipCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): Promise<DescribeChannelMembershipCommandOutput> | void {
+    const command = new DescribeChannelMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details of a channel based on the membership of the <code>AppInstanceUser</code> specified.</p>
+   */
+  public describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
+  public describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> | void {
+    const command = new DescribeChannelMembershipForAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p>
+   */
+  public describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
+  public describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  public describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> | void {
+    const command = new DescribeChannelModeratedByAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of a single ChannelModerator.</p>
+   */
+  public describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratorCommandOutput>;
+  public describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+  public describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+  public describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelModeratorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): Promise<DescribeChannelModeratorCommandOutput> | void {
+    const command = new DescribeChannelModeratorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
    *       user.</p>
    */
@@ -2316,6 +3428,72 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Gets the retention settings for an app instance.</p>
+   */
+  public getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppInstanceRetentionSettingsCommandOutput>;
+  public getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  public getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  public getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
+  ): Promise<GetAppInstanceRetentionSettingsCommandOutput> | void {
+    const command = new GetAppInstanceRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the streaming settings for an app instance.</p>
+   */
+  public getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput>;
+  public getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput> | void {
+    const command = new GetAppInstanceStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public getAttendee(args: GetAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<GetAttendeeCommandOutput>;
@@ -2357,6 +3535,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: GetBotCommandOutput) => void
   ): Promise<GetBotCommandOutput> | void {
     const command = new GetBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the full details of a channel message.</p>
+   */
+  public getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMessageCommandOutput>;
+  public getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+  public getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+  public getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMessageCommandOutput) => void),
+    cb?: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): Promise<GetChannelMessageCommandOutput> | void {
+    const command = new GetChannelMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2448,6 +3658,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: GetMeetingCommandOutput) => void
   ): Promise<GetMeetingCommandOutput> | void {
     const command = new GetMeetingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The endpoint for the messaging session.</p>
+   */
+  public getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessagingSessionEndpointCommandOutput>;
+  public getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+  public getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+  public getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMessagingSessionEndpointCommandOutput) => void),
+    cb?: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): Promise<GetMessagingSessionEndpointCommandOutput> | void {
+    const command = new GetMessagingSessionEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2902,8 +4144,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice
-   *       Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
-   *       Logs.</p>
+   *       Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.</p>
    */
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
@@ -3161,6 +4402,102 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Returns a list of the administrators in the app instance.</p>
+   */
+  public listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceAdminsCommandOutput>;
+  public listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
+  ): void;
+  public listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
+  ): void;
+  public listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceAdminsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
+  ): Promise<ListAppInstanceAdminsCommandOutput> | void {
+    const command = new ListAppInstanceAdminsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all Amazon Chime app instances created under a single AWS account.</p>
+   */
+  public listAppInstances(
+    args: ListAppInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstancesCommandOutput>;
+  public listAppInstances(
+    args: ListAppInstancesCommandInput,
+    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
+  ): void;
+  public listAppInstances(
+    args: ListAppInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
+  ): void;
+  public listAppInstances(
+    args: ListAppInstancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstancesCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInstancesCommandOutput) => void
+  ): Promise<ListAppInstancesCommandOutput> | void {
+    const command = new ListAppInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all <code>AppInstanceUsers</code> created under a single app instance.</p>
+   */
+  public listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceUsersCommandOutput>;
+  public listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
+  ): void;
+  public listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
+  ): void;
+  public listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceUsersCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
+  ): Promise<ListAppInstanceUsersCommandOutput> | void {
+    const command = new ListAppInstanceUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public listAttendees(
@@ -3240,6 +4577,249 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: ListBotsCommandOutput) => void
   ): Promise<ListBotsCommandOutput> | void {
     const command = new ListBotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the users banned from a particular channel.</p>
+   */
+  public listChannelBans(
+    args: ListChannelBansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelBansCommandOutput>;
+  public listChannelBans(
+    args: ListChannelBansCommandInput,
+    cb: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): void;
+  public listChannelBans(
+    args: ListChannelBansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): void;
+  public listChannelBans(
+    args: ListChannelBansCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelBansCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): Promise<ListChannelBansCommandOutput> | void {
+    const command = new ListChannelBansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all channel memberships in a channel.</p>
+   */
+  public listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsCommandOutput>;
+  public listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+  public listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+  public listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMembershipsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): Promise<ListChannelMembershipsCommandOutput> | void {
+    const command = new ListChannelMembershipsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an <code>AppInstanceAdmin</code> can call the
+   *            API with a user ARN that is not their own.</p>
+   */
+  public listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
+  public listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+  public listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+  public listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> | void {
+    const command = new ListChannelMembershipsForAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
+   *            Sorted in descending order by default, based on the creation timestamp.</p>
+   *          <note>
+   *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
+   *            Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p>
+   *          </note>
+   */
+  public listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMessagesCommandOutput>;
+  public listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+  public listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+  public listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMessagesCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): Promise<ListChannelMessagesCommandOutput> | void {
+    const command = new ListChannelMessagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the moderators for a channel.</p>
+   */
+  public listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelModeratorsCommandOutput>;
+  public listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+  public listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+  public listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelModeratorsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): Promise<ListChannelModeratorsCommandOutput> | void {
+    const command = new ListChannelModeratorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p>
+   *          <p class="title">
+   *             <b>Functionality & restrictions</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account</p>
+   *             </li>
+   *             <li>
+   *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the private channels in an
+   *                account.</p>
+   *             </li>
+   *          </ul>
+   */
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsCommandOutput) => void
+  ): Promise<ListChannelsCommandOutput> | void {
+    const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A list of the channels moderated by an app instance user.</p>
+   */
+  public listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
+  public listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  public listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  public listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
+    const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3711,6 +5291,72 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Sets the amount of time in days that a given app instance retains data.</p>
+   */
+  public putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppInstanceRetentionSettingsCommandOutput>;
+  public putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  public putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  public putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
+  ): Promise<PutAppInstanceRetentionSettingsCommandOutput> | void {
+    const command = new PutAppInstanceRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The data streaming configurations of an app instance.</p>
+   */
+  public putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput>;
+  public putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput> | void {
+    const command = new PutAppInstanceStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon Chime.
    *       Choose either an HTTPS endpoint or a Lambda function ARN. For more information, see <a>Bot</a>.</p>
    */
@@ -4051,6 +5697,39 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state
+   *            shows as redacted.</p>
+   */
+  public redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactChannelMessageCommandOutput>;
+  public redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+  public redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+  public redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactChannelMessageCommandOutput) => void),
+    cb?: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): Promise<RedactChannelMessageCommandOutput> | void {
+    const command = new RedactChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Redacts the specified message from the specified Amazon Chime conversation.</p>
    */
   public redactConversationMessage(
@@ -4083,7 +5762,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Redacts the specified message from the specified Amazon Chime chat room.</p>
+   * <p>Redacts the specified message from the specified Amazon Chime channel.</p>
    */
   public redactRoomMessage(
     args: RedactRoomMessageCommandInput,
@@ -4234,6 +5913,44 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
     const command = new SearchAvailablePhoneNumbersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sends a message to a particular channel that the member is a part of.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30
+   *            bytes of data and no metadata.</p>
+   *          </note>
+   */
+  public sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendChannelMessageCommandOutput>;
+  public sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+  public sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+  public sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendChannelMessageCommandOutput) => void),
+    cb?: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): Promise<SendChannelMessageCommandOutput> | void {
+    const command = new SendChannelMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4485,6 +6202,70 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Updates <code>AppInstance</code> metadata.</p>
+   */
+  public updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceCommandOutput>;
+  public updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
+  ): void;
+  public updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
+  ): void;
+  public updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppInstanceCommandOutput) => void
+  ): Promise<UpdateAppInstanceCommandOutput> | void {
+    const command = new UpdateAppInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the details for an <code>AppInstanceUser</code>. You can update names and metadata.</p>
+   */
+  public updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceUserCommandOutput>;
+  public updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
+  ): void;
+  public updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
+  ): void;
+  public updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceUserCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
+  ): Promise<UpdateAppInstanceUserCommandOutput> | void {
+    const command = new UpdateAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
    */
   public updateBot(args: UpdateBotCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBotCommandOutput>;
@@ -4500,6 +6281,104 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: UpdateBotCommandOutput) => void
   ): Promise<UpdateBotCommandOutput> | void {
     const command = new UpdateBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update a channel's attributes.</p>
+   *          <p>
+   *             <b>Restriction</b>: You can't change a channel's privacy.</p>
+   */
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): Promise<UpdateChannelCommandOutput> | void {
+    const command = new UpdateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the content of a message.</p>
+   */
+  public updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelMessageCommandOutput>;
+  public updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+  public updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+  public updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelMessageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): Promise<UpdateChannelMessageCommandOutput> | void {
+    const command = new UpdateChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the timestamp to the point when a user last read messages in a channel.</p>
+   */
+  public updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelReadMarkerCommandOutput>;
+  public updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+  public updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+  public updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelReadMarkerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): Promise<UpdateChannelReadMarkerCommandOutput> | void {
+    const command = new UpdateChannelReadMarkerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

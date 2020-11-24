@@ -8,6 +8,11 @@ import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./com
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
 import { InitializeClusterCommandInput, InitializeClusterCommandOutput } from "./commands/InitializeClusterCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import {
+  ModifyBackupAttributesCommandInput,
+  ModifyBackupAttributesCommandOutput,
+} from "./commands/ModifyBackupAttributesCommand";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import { RestoreBackupCommandInput, RestoreBackupCommandOutput } from "./commands/RestoreBackupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -71,6 +76,8 @@ export type ServiceInputTypes =
   | DescribeClustersCommandInput
   | InitializeClusterCommandInput
   | ListTagsCommandInput
+  | ModifyBackupAttributesCommandInput
+  | ModifyClusterCommandInput
   | RestoreBackupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
@@ -86,6 +93,8 @@ export type ServiceOutputTypes =
   | DescribeClustersCommandOutput
   | InitializeClusterCommandOutput
   | ListTagsCommandOutput
+  | ModifyBackupAttributesCommandOutput
+  | ModifyClusterCommandOutput
   | RestoreBackupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;

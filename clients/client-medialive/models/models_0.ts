@@ -2604,6 +2604,11 @@ export enum DeviceSettingsSyncState {
   SYNCING = "SYNCING",
 }
 
+export enum DeviceUpdateStatus {
+  NOT_UP_TO_DATE = "NOT_UP_TO_DATE",
+  UP_TO_DATE = "UP_TO_DATE",
+}
+
 export enum InputDeviceActiveInput {
   HDMI = "HDMI",
   SDI = "SDI",
@@ -2739,6 +2744,11 @@ export interface InputDeviceSummary {
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
   DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+
+  /**
+   * The status of software on the input device.
+   */
+  DeviceUpdateStatus?: DeviceUpdateStatus | string;
 
   /**
    * Settings that describe an input device that is type HD.
@@ -5358,11 +5368,4 @@ export namespace PipelinePauseStateSettings {
   export const filterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
     ...obj,
   });
-}
-
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
 }

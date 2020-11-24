@@ -2858,6 +2858,14 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationDisabledException":
+    case "com.amazonaws.cloudwatchevents#OperationDisabledException":
+      response = {
+        ...(await deserializeAws_json1_1OperationDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "PolicyLengthExceededException":
     case "com.amazonaws.cloudwatchevents#PolicyLengthExceededException":
       response = {
@@ -3112,6 +3120,14 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
     case "com.amazonaws.cloudwatchevents#InternalException":
       response = {
         ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationDisabledException":
+    case "com.amazonaws.cloudwatchevents#OperationDisabledException":
+      response = {
+        ...(await deserializeAws_json1_1OperationDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4199,6 +4215,7 @@ const serializeAws_json1_1PutPermissionRequest = (input: PutPermissionRequest, c
     ...(input.Action !== undefined && { Action: input.Action }),
     ...(input.Condition !== undefined && { Condition: serializeAws_json1_1Condition(input.Condition, context) }),
     ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
+    ...(input.Policy !== undefined && { Policy: input.Policy }),
     ...(input.Principal !== undefined && { Principal: input.Principal }),
     ...(input.StatementId !== undefined && { StatementId: input.StatementId }),
   };
@@ -4252,6 +4269,7 @@ const serializeAws_json1_1RedshiftDataParameters = (input: RedshiftDataParameter
 const serializeAws_json1_1RemovePermissionRequest = (input: RemovePermissionRequest, context: __SerdeContext): any => {
   return {
     ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
+    ...(input.RemoveAllPermissions !== undefined && { RemoveAllPermissions: input.RemoveAllPermissions }),
     ...(input.StatementId !== undefined && { StatementId: input.StatementId }),
   };
 };
@@ -4658,6 +4676,7 @@ const deserializeAws_json1_1DescribeReplayResponse = (output: any, context: __Se
 const deserializeAws_json1_1DescribeRuleResponse = (output: any, context: __SerdeContext): DescribeRuleResponse => {
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     EventBusName: output.EventBusName !== undefined && output.EventBusName !== null ? output.EventBusName : undefined,
     EventPattern: output.EventPattern !== undefined && output.EventPattern !== null ? output.EventPattern : undefined,

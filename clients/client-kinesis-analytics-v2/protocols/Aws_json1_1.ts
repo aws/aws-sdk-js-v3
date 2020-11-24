@@ -24,6 +24,10 @@ import {
 } from "../commands/AddApplicationVpcConfigurationCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
+  CreateApplicationPresignedUrlCommandInput,
+  CreateApplicationPresignedUrlCommandOutput,
+} from "../commands/CreateApplicationPresignedUrlCommand";
+import {
   CreateApplicationSnapshotCommandInput,
   CreateApplicationSnapshotCommandOutput,
 } from "../commands/CreateApplicationSnapshotCommand";
@@ -115,6 +119,8 @@ import {
   CodeContentUpdate,
   CodeValidationException,
   ConcurrentModificationException,
+  CreateApplicationPresignedUrlRequest,
+  CreateApplicationPresignedUrlResponse,
   CreateApplicationRequest,
   CreateApplicationResponse,
   CreateApplicationSnapshotRequest,
@@ -338,6 +344,19 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateApplicationPresignedUrlCommand = async (
+  input: CreateApplicationPresignedUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.CreateApplicationPresignedUrl",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationPresignedUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1208,6 +1227,77 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
       response = {
         ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateApplicationPresignedUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationPresignedUrlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateApplicationPresignedUrlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateApplicationPresignedUrlResponse(data, context);
+  const response: CreateApplicationPresignedUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateApplicationPresignedUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationPresignedUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3331,6 +3421,19 @@ const serializeAws_json1_1CodeContentUpdate = (input: CodeContentUpdate, context
   };
 };
 
+const serializeAws_json1_1CreateApplicationPresignedUrlRequest = (
+  input: CreateApplicationPresignedUrlRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationName !== undefined && { ApplicationName: input.ApplicationName }),
+    ...(input.SessionExpirationDurationInSeconds !== undefined && {
+      SessionExpirationDurationInSeconds: input.SessionExpirationDurationInSeconds,
+    }),
+    ...(input.UrlType !== undefined && { UrlType: input.UrlType }),
+  };
+};
+
 const serializeAws_json1_1CreateApplicationRequest = (
   input: CreateApplicationRequest,
   context: __SerdeContext
@@ -4599,6 +4702,16 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateApplicationPresignedUrlResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateApplicationPresignedUrlResponse => {
+  return {
+    AuthorizedUrl:
+      output.AuthorizedUrl !== undefined && output.AuthorizedUrl !== null ? output.AuthorizedUrl : undefined,
   } as any;
 };
 

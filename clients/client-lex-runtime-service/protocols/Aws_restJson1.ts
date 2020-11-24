@@ -4,6 +4,8 @@ import { PostContentCommandInput, PostContentCommandOutput } from "../commands/P
 import { PostTextCommandInput, PostTextCommandOutput } from "../commands/PostTextCommand";
 import { PutSessionCommandInput, PutSessionCommandOutput } from "../commands/PutSessionCommand";
 import {
+  ActiveContext,
+  ActiveContextTimeToLive,
   BadGatewayException,
   BadRequestException,
   Button,
@@ -45,6 +47,15 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
+  }
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
     if (labelValue.length <= 0) {
@@ -62,15 +73,6 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -93,6 +95,15 @@ export const serializeAws_restJson1GetSessionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
+  }
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
     if (labelValue.length <= 0) {
@@ -110,15 +121,6 @@ export const serializeAws_restJson1GetSessionCommand = async (
     resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {
     ...(input.checkpointLabelFilter !== undefined && { checkpointLabelFilter: input.checkpointLabelFilter }),
@@ -144,25 +146,19 @@ export const serializeAws_restJson1PostContentCommand = async (
   const headers: any = {
     "Content-Type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.requestAttributes) && {
-      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(input.requestAttributes!),
-    }),
     ...(isSerializableHeaderValue(input.sessionAttributes) && {
       "x-amz-lex-session-attributes": __LazyJsonString.fromObject(input.sessionAttributes!),
     }),
+    ...(isSerializableHeaderValue(input.requestAttributes) && {
+      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(input.requestAttributes!),
+    }),
     ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
     ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.activeContexts) && {
+      "x-amz-lex-active-contexts": __LazyJsonString.fromObject(input.activeContexts!),
+    }),
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -171,6 +167,15 @@ export const serializeAws_restJson1PostContentCommand = async (
     resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
+  }
+  if (input.botAlias !== undefined) {
+    const labelValue: string = input.botAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botAlias.");
   }
   if (input.userId !== undefined) {
     const labelValue: string = input.userId;
@@ -205,14 +210,14 @@ export const serializeAws_restJson1PostTextCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
-  if (input.userId !== undefined) {
-    const labelValue: string = input.userId;
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: userId.");
+      throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: userId.");
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -223,17 +228,20 @@ export const serializeAws_restJson1PostTextCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
+  if (input.userId !== undefined) {
+    const labelValue: string = input.userId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
+      throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: botName.");
+    throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.activeContexts !== undefined && {
+      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
+    }),
     ...(input.inputText !== undefined && { inputText: input.inputText }),
     ...(input.requestAttributes !== undefined && {
       requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
@@ -263,14 +271,14 @@ export const serializeAws_restJson1PutSessionCommand = async (
     ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
-  if (input.userId !== undefined) {
-    const labelValue: string = input.userId;
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: userId.");
+      throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: userId.");
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -281,17 +289,20 @@ export const serializeAws_restJson1PutSessionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
+  if (input.userId !== undefined) {
+    const labelValue: string = input.userId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
+      throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: botName.");
+    throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.activeContexts !== undefined && {
+      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
+    }),
     ...(input.dialogAction !== undefined && {
       dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
     }),
@@ -422,12 +433,16 @@ export const deserializeAws_restJson1GetSessionCommand = async (
   }
   const contents: GetSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    activeContexts: undefined,
     dialogAction: undefined,
     recentIntentSummaryView: undefined,
     sessionAttributes: undefined,
     sessionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.activeContexts !== undefined && data.activeContexts !== null) {
+    contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
+  }
   if (data.dialogAction !== undefined && data.dialogAction !== null) {
     contents.dialogAction = deserializeAws_restJson1DialogAction(data.dialogAction, context);
   }
@@ -513,6 +528,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
   }
   const contents: PostContentCommandOutput = {
     $metadata: deserializeMetadata(output),
+    activeContexts: undefined,
     alternativeIntents: undefined,
     audioStream: undefined,
     botVersion: undefined,
@@ -529,47 +545,50 @@ export const deserializeAws_restJson1PostContentCommand = async (
     slotToElicit: undefined,
     slots: undefined,
   };
-  if (output.headers["x-amz-lex-alternative-intents"] !== undefined) {
-    contents.alternativeIntents = new __LazyJsonString(output.headers["x-amz-lex-alternative-intents"]);
-  }
-  if (output.headers["x-amz-lex-message-format"] !== undefined) {
-    contents.messageFormat = output.headers["x-amz-lex-message-format"];
-  }
   if (output.headers["content-type"] !== undefined) {
     contents.contentType = output.headers["content-type"];
-  }
-  if (output.headers["x-amz-lex-message"] !== undefined) {
-    contents.message = output.headers["x-amz-lex-message"];
-  }
-  if (output.headers["x-amz-lex-bot-version"] !== undefined) {
-    contents.botVersion = output.headers["x-amz-lex-bot-version"];
-  }
-  if (output.headers["x-amz-lex-sentiment"] !== undefined) {
-    contents.sentimentResponse = output.headers["x-amz-lex-sentiment"];
-  }
-  if (output.headers["x-amz-lex-slots"] !== undefined) {
-    contents.slots = new __LazyJsonString(output.headers["x-amz-lex-slots"]);
-  }
-  if (output.headers["x-amz-lex-input-transcript"] !== undefined) {
-    contents.inputTranscript = output.headers["x-amz-lex-input-transcript"];
-  }
-  if (output.headers["x-amz-lex-slot-to-elicit"] !== undefined) {
-    contents.slotToElicit = output.headers["x-amz-lex-slot-to-elicit"];
-  }
-  if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
-    contents.sessionAttributes = new __LazyJsonString(output.headers["x-amz-lex-session-attributes"]);
-  }
-  if (output.headers["x-amz-lex-session-id"] !== undefined) {
-    contents.sessionId = output.headers["x-amz-lex-session-id"];
-  }
-  if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
-    contents.dialogState = output.headers["x-amz-lex-dialog-state"];
   }
   if (output.headers["x-amz-lex-intent-name"] !== undefined) {
     contents.intentName = output.headers["x-amz-lex-intent-name"];
   }
   if (output.headers["x-amz-lex-nlu-intent-confidence"] !== undefined) {
     contents.nluIntentConfidence = new __LazyJsonString(output.headers["x-amz-lex-nlu-intent-confidence"]);
+  }
+  if (output.headers["x-amz-lex-alternative-intents"] !== undefined) {
+    contents.alternativeIntents = new __LazyJsonString(output.headers["x-amz-lex-alternative-intents"]);
+  }
+  if (output.headers["x-amz-lex-slots"] !== undefined) {
+    contents.slots = new __LazyJsonString(output.headers["x-amz-lex-slots"]);
+  }
+  if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
+    contents.sessionAttributes = new __LazyJsonString(output.headers["x-amz-lex-session-attributes"]);
+  }
+  if (output.headers["x-amz-lex-sentiment"] !== undefined) {
+    contents.sentimentResponse = output.headers["x-amz-lex-sentiment"];
+  }
+  if (output.headers["x-amz-lex-message"] !== undefined) {
+    contents.message = output.headers["x-amz-lex-message"];
+  }
+  if (output.headers["x-amz-lex-message-format"] !== undefined) {
+    contents.messageFormat = output.headers["x-amz-lex-message-format"];
+  }
+  if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
+    contents.dialogState = output.headers["x-amz-lex-dialog-state"];
+  }
+  if (output.headers["x-amz-lex-slot-to-elicit"] !== undefined) {
+    contents.slotToElicit = output.headers["x-amz-lex-slot-to-elicit"];
+  }
+  if (output.headers["x-amz-lex-input-transcript"] !== undefined) {
+    contents.inputTranscript = output.headers["x-amz-lex-input-transcript"];
+  }
+  if (output.headers["x-amz-lex-bot-version"] !== undefined) {
+    contents.botVersion = output.headers["x-amz-lex-bot-version"];
+  }
+  if (output.headers["x-amz-lex-session-id"] !== undefined) {
+    contents.sessionId = output.headers["x-amz-lex-session-id"];
+  }
+  if (output.headers["x-amz-lex-active-contexts"] !== undefined) {
+    contents.activeContexts = new __LazyJsonString(output.headers["x-amz-lex-active-contexts"]);
   }
   const data: any = output.body;
   contents.audioStream = data;
@@ -702,6 +721,7 @@ export const deserializeAws_restJson1PostTextCommand = async (
   }
   const contents: PostTextCommandOutput = {
     $metadata: deserializeMetadata(output),
+    activeContexts: undefined,
     alternativeIntents: undefined,
     botVersion: undefined,
     dialogState: undefined,
@@ -717,6 +737,9 @@ export const deserializeAws_restJson1PostTextCommand = async (
     slots: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.activeContexts !== undefined && data.activeContexts !== null) {
+    contents.activeContexts = deserializeAws_restJson1ActiveContextsList(data.activeContexts, context);
+  }
   if (data.alternativeIntents !== undefined && data.alternativeIntents !== null) {
     contents.alternativeIntents = deserializeAws_restJson1IntentList(data.alternativeIntents, context);
   }
@@ -861,6 +884,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   }
   const contents: PutSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    activeContexts: undefined,
     audioStream: undefined,
     contentType: undefined,
     dialogState: undefined,
@@ -878,26 +902,29 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   if (output.headers["x-amz-lex-intent-name"] !== undefined) {
     contents.intentName = output.headers["x-amz-lex-intent-name"];
   }
-  if (output.headers["x-amz-lex-message-format"] !== undefined) {
-    contents.messageFormat = output.headers["x-amz-lex-message-format"];
+  if (output.headers["x-amz-lex-slots"] !== undefined) {
+    contents.slots = new __LazyJsonString(output.headers["x-amz-lex-slots"]);
   }
   if (output.headers["x-amz-lex-session-attributes"] !== undefined) {
     contents.sessionAttributes = new __LazyJsonString(output.headers["x-amz-lex-session-attributes"]);
   }
-  if (output.headers["x-amz-lex-session-id"] !== undefined) {
-    contents.sessionId = output.headers["x-amz-lex-session-id"];
+  if (output.headers["x-amz-lex-message"] !== undefined) {
+    contents.message = output.headers["x-amz-lex-message"];
+  }
+  if (output.headers["x-amz-lex-message-format"] !== undefined) {
+    contents.messageFormat = output.headers["x-amz-lex-message-format"];
+  }
+  if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
+    contents.dialogState = output.headers["x-amz-lex-dialog-state"];
   }
   if (output.headers["x-amz-lex-slot-to-elicit"] !== undefined) {
     contents.slotToElicit = output.headers["x-amz-lex-slot-to-elicit"];
   }
-  if (output.headers["x-amz-lex-slots"] !== undefined) {
-    contents.slots = new __LazyJsonString(output.headers["x-amz-lex-slots"]);
+  if (output.headers["x-amz-lex-session-id"] !== undefined) {
+    contents.sessionId = output.headers["x-amz-lex-session-id"];
   }
-  if (output.headers["x-amz-lex-message"] !== undefined) {
-    contents.message = output.headers["x-amz-lex-message"];
-  }
-  if (output.headers["x-amz-lex-dialog-state"] !== undefined) {
-    contents.dialogState = output.headers["x-amz-lex-dialog-state"];
+  if (output.headers["x-amz-lex-active-contexts"] !== undefined) {
+    contents.activeContexts = new __LazyJsonString(output.headers["x-amz-lex-active-contexts"]);
   }
   const data: any = output.body;
   contents.audioStream = data;
@@ -1188,6 +1215,45 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1ActiveContextParametersMap(input.parameters, context),
+    }),
+    ...(input.timeToLive !== undefined && {
+      timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ActiveContextParametersMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const serializeAws_restJson1ActiveContextsList = (input: ActiveContext[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1ActiveContext(entry, context));
+};
+
+const serializeAws_restJson1ActiveContextTimeToLive = (
+  input: ActiveContextTimeToLive,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.timeToLiveInSeconds !== undefined && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
+    ...(input.turnsToLive !== undefined && { turnsToLive: input.turnsToLive }),
+  };
+};
+
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
     ...(input.fulfillmentState !== undefined && { fulfillmentState: input.fulfillmentState }),
@@ -1224,6 +1290,50 @@ const serializeAws_restJson1StringMap = (input: { [key: string]: string }, conte
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1ActiveContextParametersMap(output.parameters, context)
+        : undefined,
+    timeToLive:
+      output.timeToLive !== undefined && output.timeToLive !== null
+        ? deserializeAws_restJson1ActiveContextTimeToLive(output.timeToLive, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ActiveContextParametersMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const deserializeAws_restJson1ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ActiveContext(entry, context));
+};
+
+const deserializeAws_restJson1ActiveContextTimeToLive = (
+  output: any,
+  context: __SerdeContext
+): ActiveContextTimeToLive => {
+  return {
+    timeToLiveInSeconds:
+      output.timeToLiveInSeconds !== undefined && output.timeToLiveInSeconds !== null
+        ? output.timeToLiveInSeconds
+        : undefined,
+    turnsToLive: output.turnsToLive !== undefined && output.turnsToLive !== null ? output.turnsToLive : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {

@@ -30,6 +30,10 @@ import {
   BatchUpdatePartitionCommandOutput,
 } from "../commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "../commands/CancelMLTaskRunCommand";
+import {
+  CheckSchemaVersionValidityCommandInput,
+  CheckSchemaVersionValidityCommandOutput,
+} from "../commands/CheckSchemaVersionValidityCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "../commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "../commands/CreateCrawlerCommand";
@@ -38,6 +42,8 @@ import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from ".
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "../commands/CreateMLTransformCommand";
 import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "../commands/CreatePartitionCommand";
+import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "../commands/CreateRegistryCommand";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand";
 import { CreateScriptCommandInput, CreateScriptCommandOutput } from "../commands/CreateScriptCommand";
 import {
   CreateSecurityConfigurationCommandInput,
@@ -66,10 +72,16 @@ import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from ".
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "../commands/DeleteMLTransformCommand";
 import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "../commands/DeletePartitionCommand";
+import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "../commands/DeleteRegistryCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand";
+import {
+  DeleteSchemaVersionsCommandInput,
+  DeleteSchemaVersionsCommandOutput,
+} from "../commands/DeleteSchemaVersionsCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
@@ -127,11 +139,22 @@ import {
 } from "../commands/GetPartitionIndexesCommand";
 import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "../commands/GetPartitionsCommand";
 import { GetPlanCommandInput, GetPlanCommandOutput } from "../commands/GetPlanCommand";
+import { GetRegistryCommandInput, GetRegistryCommandOutput } from "../commands/GetRegistryCommand";
 import {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "../commands/GetResourcePoliciesCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
+import {
+  GetSchemaByDefinitionCommandInput,
+  GetSchemaByDefinitionCommandOutput,
+} from "../commands/GetSchemaByDefinitionCommand";
+import { GetSchemaCommandInput, GetSchemaCommandOutput } from "../commands/GetSchemaCommand";
+import { GetSchemaVersionCommandInput, GetSchemaVersionCommandOutput } from "../commands/GetSchemaVersionCommand";
+import {
+  GetSchemaVersionsDiffCommandInput,
+  GetSchemaVersionsDiffCommandOutput,
+} from "../commands/GetSchemaVersionsDiffCommand";
 import {
   GetSecurityConfigurationCommandInput,
   GetSecurityConfigurationCommandOutput,
@@ -170,6 +193,9 @@ import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "../commands
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "../commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "../commands/ListMLTransformsCommand";
+import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "../commands/ListRegistriesCommand";
+import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "../commands/ListSchemaVersionsCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "../commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
@@ -178,9 +204,25 @@ import {
 } from "../commands/PutDataCatalogEncryptionSettingsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
+  PutSchemaVersionMetadataCommandInput,
+  PutSchemaVersionMetadataCommandOutput,
+} from "../commands/PutSchemaVersionMetadataCommand";
+import {
   PutWorkflowRunPropertiesCommandInput,
   PutWorkflowRunPropertiesCommandOutput,
 } from "../commands/PutWorkflowRunPropertiesCommand";
+import {
+  QuerySchemaVersionMetadataCommandInput,
+  QuerySchemaVersionMetadataCommandOutput,
+} from "../commands/QuerySchemaVersionMetadataCommand";
+import {
+  RegisterSchemaVersionCommandInput,
+  RegisterSchemaVersionCommandOutput,
+} from "../commands/RegisterSchemaVersionCommand";
+import {
+  RemoveSchemaVersionMetadataCommandInput,
+  RemoveSchemaVersionMetadataCommandOutput,
+} from "../commands/RemoveSchemaVersionMetadataCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "../commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "../commands/ResumeWorkflowRunCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "../commands/SearchTablesCommand";
@@ -237,6 +279,8 @@ import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from ".
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "../commands/UpdateMLTransformCommand";
 import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "../commands/UpdatePartitionCommand";
+import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "../commands/UpdateRegistryCommand";
+import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "../commands/UpdateSchemaCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "../commands/UpdateTriggerCommand";
 import {
@@ -282,9 +326,10 @@ import {
   BooleanColumnStatisticsData,
   CancelMLTaskRunRequest,
   CancelMLTaskRunResponse,
-  CatalogEntry,
   CatalogImportStatus,
   CatalogTarget,
+  CheckSchemaVersionValidityInput,
+  CheckSchemaVersionValidityResponse,
   Classifier,
   CloudWatchEncryption,
   CodeGenEdge,
@@ -297,7 +342,6 @@ import {
   ConcurrentModificationException,
   Condition,
   ConditionCheckFailureException,
-  ConfusionMatrix,
   Connection,
   ConnectionInput,
   ConnectionPasswordEncryption,
@@ -328,6 +372,10 @@ import {
   CreateMLTransformResponse,
   CreatePartitionRequest,
   CreatePartitionResponse,
+  CreateRegistryInput,
+  CreateRegistryResponse,
+  CreateSchemaInput,
+  CreateSchemaResponse,
   CreateScriptRequest,
   CreateScriptResponse,
   CreateSecurityConfigurationRequest,
@@ -370,8 +418,14 @@ import {
   DeleteMLTransformResponse,
   DeletePartitionRequest,
   DeletePartitionResponse,
+  DeleteRegistryInput,
+  DeleteRegistryResponse,
   DeleteResourcePolicyRequest,
   DeleteResourcePolicyResponse,
+  DeleteSchemaInput,
+  DeleteSchemaResponse,
+  DeleteSchemaVersionsInput,
+  DeleteSchemaVersionsResponse,
   DeleteSecurityConfigurationRequest,
   DeleteSecurityConfigurationResponse,
   DeleteTableRequest,
@@ -392,10 +446,9 @@ import {
   EncryptionConfiguration,
   EntityNotFoundException,
   ErrorDetail,
+  ErrorDetails,
   ExecutionProperty,
-  ExportLabelsTaskRunProperties,
   FindMatchesParameters,
-  FindMatchesTaskRunProperties,
   GetCatalogImportStatusRequest,
   GetCatalogImportStatusResponse,
   GetClassifierRequest,
@@ -439,18 +492,10 @@ import {
   GetJobRunsResponse,
   GetJobsRequest,
   GetJobsResponse,
-  GetMLTaskRunRequest,
-  GetMLTaskRunResponse,
-  GetMLTaskRunsRequest,
-  GetMLTaskRunsResponse,
-  GetMLTransformRequest,
-  GetMappingRequest,
-  GetMappingResponse,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
   IdempotentParameterMismatchException,
-  ImportLabelsTaskRunProperties,
   InternalServiceException,
   InvalidInputException,
   JdbcTarget,
@@ -461,12 +506,9 @@ import {
   JobNodeDetails,
   JobRun,
   JsonClassifier,
-  LabelingSetGenerationTaskRunProperties,
   LastCrawlInfo,
-  Location,
   LongColumnStatisticsData,
   MLUserDataEncryption,
-  MappingEntry,
   MongoDBTarget,
   Node,
   NotificationProperty,
@@ -483,6 +525,7 @@ import {
   Predicate,
   PrincipalPermissions,
   RecrawlPolicy,
+  RegistryId,
   ResourceNumberLimitExceededException,
   ResourceUri,
   S3Encryption,
@@ -490,6 +533,9 @@ import {
   Schedule,
   SchedulerTransitioningException,
   SchemaChangePolicy,
+  SchemaId,
+  SchemaReference,
+  SchemaVersionErrorItem,
   SerDeInfo,
   SkewedInfo,
   StorageDescriptor,
@@ -498,10 +544,6 @@ import {
   TableIdentifier,
   TableInput,
   TableVersionError,
-  TaskRun,
-  TaskRunFilterCriteria,
-  TaskRunProperties,
-  TaskRunSortCriteria,
   TransformEncryption,
   TransformParameters,
   Trigger,
@@ -515,17 +557,28 @@ import {
   XMLClassifier,
 } from "../models/models_0";
 import {
+  CatalogEntry,
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConflictException,
+  ConfusionMatrix,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   DevEndpointCustomLibraries,
   EvaluationMetrics,
+  ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
+  FindMatchesTaskRunProperties,
+  GetMLTaskRunRequest,
+  GetMLTaskRunResponse,
+  GetMLTaskRunsRequest,
+  GetMLTaskRunsResponse,
+  GetMLTransformRequest,
   GetMLTransformResponse,
   GetMLTransformsRequest,
   GetMLTransformsResponse,
+  GetMappingRequest,
+  GetMappingResponse,
   GetPartitionIndexesRequest,
   GetPartitionIndexesResponse,
   GetPartitionRequest,
@@ -534,10 +587,20 @@ import {
   GetPartitionsResponse,
   GetPlanRequest,
   GetPlanResponse,
+  GetRegistryInput,
+  GetRegistryResponse,
   GetResourcePoliciesRequest,
   GetResourcePoliciesResponse,
   GetResourcePolicyRequest,
   GetResourcePolicyResponse,
+  GetSchemaByDefinitionInput,
+  GetSchemaByDefinitionResponse,
+  GetSchemaInput,
+  GetSchemaResponse,
+  GetSchemaVersionInput,
+  GetSchemaVersionResponse,
+  GetSchemaVersionsDiffInput,
+  GetSchemaVersionsDiffResponse,
   GetSecurityConfigurationRequest,
   GetSecurityConfigurationResponse,
   GetSecurityConfigurationsRequest,
@@ -572,8 +635,10 @@ import {
   IllegalWorkflowStateException,
   ImportCatalogToGlueRequest,
   ImportCatalogToGlueResponse,
+  ImportLabelsTaskRunProperties,
   JobUpdate,
   KeySchemaElement,
+  LabelingSetGenerationTaskRunProperties,
   ListCrawlersRequest,
   ListCrawlersResponse,
   ListDevEndpointsRequest,
@@ -582,12 +647,22 @@ import {
   ListJobsResponse,
   ListMLTransformsRequest,
   ListMLTransformsResponse,
+  ListRegistriesInput,
+  ListRegistriesResponse,
+  ListSchemaVersionsInput,
+  ListSchemaVersionsResponse,
+  ListSchemasInput,
+  ListSchemasResponse,
   ListTriggersRequest,
   ListTriggersResponse,
   ListWorkflowsRequest,
   ListWorkflowsResponse,
+  Location,
   MLTransform,
   MLTransformNotReadyException,
+  MappingEntry,
+  MetadataInfo,
+  MetadataKeyValuePair,
   NoScheduleException,
   PartitionIndexDescriptor,
   PropertyPredicate,
@@ -595,8 +670,17 @@ import {
   PutDataCatalogEncryptionSettingsResponse,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
+  PutSchemaVersionMetadataInput,
+  PutSchemaVersionMetadataResponse,
   PutWorkflowRunPropertiesRequest,
   PutWorkflowRunPropertiesResponse,
+  QuerySchemaVersionMetadataInput,
+  QuerySchemaVersionMetadataResponse,
+  RegisterSchemaVersionInput,
+  RegisterSchemaVersionResponse,
+  RegistryListItem,
+  RemoveSchemaVersionMetadataInput,
+  RemoveSchemaVersionMetadataResponse,
   ResetJobBookmarkRequest,
   ResetJobBookmarkResponse,
   ResumeWorkflowRunRequest,
@@ -604,6 +688,9 @@ import {
   SchedulerNotRunningException,
   SchedulerRunningException,
   SchemaColumn,
+  SchemaListItem,
+  SchemaVersionListItem,
+  SchemaVersionNumber,
   SearchTablesRequest,
   SearchTablesResponse,
   SecurityConfiguration,
@@ -639,6 +726,10 @@ import {
   TableVersion,
   TagResourceRequest,
   TagResourceResponse,
+  TaskRun,
+  TaskRunFilterCriteria,
+  TaskRunProperties,
+  TaskRunSortCriteria,
   TransformFilterCriteria,
   TransformSortCriteria,
   TriggerUpdate,
@@ -669,6 +760,10 @@ import {
   UpdateMLTransformResponse,
   UpdatePartitionRequest,
   UpdatePartitionResponse,
+  UpdateRegistryInput,
+  UpdateRegistryResponse,
+  UpdateSchemaInput,
+  UpdateSchemaResponse,
   UpdateTableRequest,
   UpdateTableResponse,
   UpdateTriggerRequest,
@@ -873,6 +968,19 @@ export const serializeAws_json1_1CancelMLTaskRunCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CheckSchemaVersionValidityCommand = async (
+  input: CheckSchemaVersionValidityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.CheckSchemaVersionValidity",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CheckSchemaVersionValidityInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateClassifierCommand = async (
   input: CreateClassifierCommandInput,
   context: __SerdeContext
@@ -974,6 +1082,32 @@ export const serializeAws_json1_1CreatePartitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePartitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateRegistryCommand = async (
+  input: CreateRegistryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.CreateRegistry",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateRegistryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateSchemaCommand = async (
+  input: CreateSchemaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.CreateSchema",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1185,6 +1319,19 @@ export const serializeAws_json1_1DeletePartitionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteRegistryCommand = async (
+  input: DeleteRegistryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.DeleteRegistry",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteRegistryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
@@ -1195,6 +1342,32 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSchemaCommand = async (
+  input: DeleteSchemaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.DeleteSchema",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSchemaInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSchemaVersionsCommand = async (
+  input: DeleteSchemaVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.DeleteSchemaVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSchemaVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1666,6 +1839,19 @@ export const serializeAws_json1_1GetPlanCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetRegistryCommand = async (
+  input: GetRegistryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetRegistry",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetRegistryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
@@ -1689,6 +1875,58 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetSchemaCommand = async (
+  input: GetSchemaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetSchema",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSchemaInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetSchemaByDefinitionCommand = async (
+  input: GetSchemaByDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetSchemaByDefinition",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSchemaByDefinitionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetSchemaVersionCommand = async (
+  input: GetSchemaVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetSchemaVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSchemaVersionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetSchemaVersionsDiffCommand = async (
+  input: GetSchemaVersionsDiffCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetSchemaVersionsDiff",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSchemaVersionsDiffInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1952,6 +2190,45 @@ export const serializeAws_json1_1ListMLTransformsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListRegistriesCommand = async (
+  input: ListRegistriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.ListRegistries",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListRegistriesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSchemasCommand = async (
+  input: ListSchemasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.ListSchemas",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSchemasInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSchemaVersionsCommand = async (
+  input: ListSchemaVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.ListSchemaVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSchemaVersionsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTriggersCommand = async (
   input: ListTriggersCommandInput,
   context: __SerdeContext
@@ -2004,6 +2281,19 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutSchemaVersionMetadataCommand = async (
+  input: PutSchemaVersionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.PutSchemaVersionMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutSchemaVersionMetadataInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
   input: PutWorkflowRunPropertiesCommandInput,
   context: __SerdeContext
@@ -2014,6 +2304,45 @@ export const serializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1QuerySchemaVersionMetadataCommand = async (
+  input: QuerySchemaVersionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.QuerySchemaVersionMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1QuerySchemaVersionMetadataInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RegisterSchemaVersionCommand = async (
+  input: RegisterSchemaVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.RegisterSchemaVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterSchemaVersionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RemoveSchemaVersionMetadataCommand = async (
+  input: RemoveSchemaVersionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.RemoveSchemaVersionMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveSchemaVersionMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2391,6 +2720,32 @@ export const serializeAws_json1_1UpdatePartitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePartitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateRegistryCommand = async (
+  input: UpdateRegistryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.UpdateRegistry",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateRegistryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSchemaCommand = async (
+  input: UpdateSchemaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.UpdateSchema",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3528,6 +3883,77 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CheckSchemaVersionValidityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckSchemaVersionValidityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CheckSchemaVersionValidityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CheckSchemaVersionValidityResponse(data, context);
+  const response: CheckSchemaVersionValidityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CheckSchemaVersionValidityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckSchemaVersionValidityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4251,6 +4677,188 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateRegistryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateRegistryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateRegistryResponse(data, context);
+  const response: CreateRegistryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateRegistryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRegistryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateSchemaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSchemaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateSchemaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateSchemaResponse(data, context);
+  const response: CreateSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateSchemaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSchemaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5616,6 +6224,85 @@ const deserializeAws_json1_1DeletePartitionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteRegistryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteRegistryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteRegistryResponse(data, context);
+  const response: DeleteRegistryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteRegistryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRegistryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5682,6 +6369,164 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteSchemaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchemaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSchemaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteSchemaResponse(data, context);
+  const response: DeleteSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSchemaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchemaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteSchemaVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchemaVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSchemaVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteSchemaVersionsResponse(data, context);
+  const response: DeleteSchemaVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSchemaVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchemaVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8459,6 +9304,85 @@ const deserializeAws_json1_1GetPlanCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetRegistryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRegistryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetRegistryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetRegistryResponse(data, context);
+  const response: GetRegistryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetRegistryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRegistryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetResourcePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8596,6 +9520,322 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     case "com.amazonaws.glue#OperationTimeoutException":
       response = {
         ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetSchemaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetSchemaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSchemaResponse(data, context);
+  const response: GetSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSchemaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetSchemaByDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaByDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetSchemaByDefinitionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSchemaByDefinitionResponse(data, context);
+  const response: GetSchemaByDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSchemaByDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaByDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetSchemaVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetSchemaVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSchemaVersionResponse(data, context);
+  const response: GetSchemaVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSchemaVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetSchemaVersionsDiffCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaVersionsDiffCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetSchemaVersionsDiffCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSchemaVersionsDiffResponse(data, context);
+  const response: GetSchemaVersionsDiffCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSchemaVersionsDiffCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSchemaVersionsDiffCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10205,6 +11445,235 @@ const deserializeAws_json1_1ListMLTransformsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListRegistriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegistriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListRegistriesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListRegistriesResponse(data, context);
+  const response: ListRegistriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListRegistriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegistriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListSchemasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchemasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSchemasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSchemasResponse(data, context);
+  const response: ListSchemasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSchemasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchemasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListSchemaVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchemaVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSchemaVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSchemaVersionsResponse(data, context);
+  const response: ListSchemaVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSchemaVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchemaVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10513,6 +11982,93 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutSchemaVersionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutSchemaVersionMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutSchemaVersionMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutSchemaVersionMetadataResponse(data, context);
+  const response: PutSchemaVersionMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutSchemaVersionMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutSchemaVersionMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10595,6 +12151,243 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1QuerySchemaVersionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QuerySchemaVersionMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1QuerySchemaVersionMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1QuerySchemaVersionMetadataResponse(data, context);
+  const response: QuerySchemaVersionMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1QuerySchemaVersionMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QuerySchemaVersionMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1RegisterSchemaVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterSchemaVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RegisterSchemaVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RegisterSchemaVersionResponse(data, context);
+  const response: RegisterSchemaVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterSchemaVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterSchemaVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1RemoveSchemaVersionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSchemaVersionMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveSchemaVersionMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveSchemaVersionMetadataResponse(data, context);
+  const response: RemoveSchemaVersionMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveSchemaVersionMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSchemaVersionMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13083,6 +14876,180 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateRegistryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRegistryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateRegistryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateRegistryResponse(data, context);
+  const response: UpdateRegistryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateRegistryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRegistryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateSchemaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchemaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSchemaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSchemaResponse(data, context);
+  const response: UpdateSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSchemaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchemaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14084,6 +16051,16 @@ const serializeAws_json1_1CatalogTargetList = (input: CatalogTarget[], context: 
   return input.map((entry) => serializeAws_json1_1CatalogTarget(entry, context));
 };
 
+const serializeAws_json1_1CheckSchemaVersionValidityInput = (
+  input: CheckSchemaVersionValidityInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataFormat !== undefined && { DataFormat: input.DataFormat }),
+    ...(input.SchemaDefinition !== undefined && { SchemaDefinition: input.SchemaDefinition }),
+  };
+};
+
 const serializeAws_json1_1ClassifierNameList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -14477,6 +16454,26 @@ const serializeAws_json1_1CreatePartitionRequest = (input: CreatePartitionReques
   };
 };
 
+const serializeAws_json1_1CreateRegistryInput = (input: CreateRegistryInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.RegistryName !== undefined && { RegistryName: input.RegistryName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateSchemaInput = (input: CreateSchemaInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Compatibility !== undefined && { Compatibility: input.Compatibility }),
+    ...(input.DataFormat !== undefined && { DataFormat: input.DataFormat }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.RegistryId !== undefined && { RegistryId: serializeAws_json1_1RegistryId(input.RegistryId, context) }),
+    ...(input.SchemaDefinition !== undefined && { SchemaDefinition: input.SchemaDefinition }),
+    ...(input.SchemaName !== undefined && { SchemaName: input.SchemaName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateScriptRequest = (input: CreateScriptRequest, context: __SerdeContext): any => {
   return {
     ...(input.DagEdges !== undefined && { DagEdges: serializeAws_json1_1DagEdges(input.DagEdges, context) }),
@@ -14747,6 +16744,12 @@ const serializeAws_json1_1DeletePartitionRequest = (input: DeletePartitionReques
   };
 };
 
+const serializeAws_json1_1DeleteRegistryInput = (input: DeleteRegistryInput, context: __SerdeContext): any => {
+  return {
+    ...(input.RegistryId !== undefined && { RegistryId: serializeAws_json1_1RegistryId(input.RegistryId, context) }),
+  };
+};
+
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
   input: DeleteResourcePolicyRequest,
   context: __SerdeContext
@@ -14754,6 +16757,22 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   return {
     ...(input.PolicyHashCondition !== undefined && { PolicyHashCondition: input.PolicyHashCondition }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteSchemaInput = (input: DeleteSchemaInput, context: __SerdeContext): any => {
+  return {
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+  };
+};
+
+const serializeAws_json1_1DeleteSchemaVersionsInput = (
+  input: DeleteSchemaVersionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.Versions !== undefined && { Versions: input.Versions }),
   };
 };
 
@@ -15171,6 +17190,12 @@ const serializeAws_json1_1GetPlanRequest = (input: GetPlanRequest, context: __Se
   };
 };
 
+const serializeAws_json1_1GetRegistryInput = (input: GetRegistryInput, context: __SerdeContext): any => {
+  return {
+    ...(input.RegistryId !== undefined && { RegistryId: serializeAws_json1_1RegistryId(input.RegistryId, context) }),
+  };
+};
+
 const serializeAws_json1_1GetResourcePoliciesRequest = (
   input: GetResourcePoliciesRequest,
   context: __SerdeContext
@@ -15187,6 +17212,48 @@ const serializeAws_json1_1GetResourcePolicyRequest = (
 ): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_1GetSchemaByDefinitionInput = (
+  input: GetSchemaByDefinitionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SchemaDefinition !== undefined && { SchemaDefinition: input.SchemaDefinition }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+  };
+};
+
+const serializeAws_json1_1GetSchemaInput = (input: GetSchemaInput, context: __SerdeContext): any => {
+  return {
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+  };
+};
+
+const serializeAws_json1_1GetSchemaVersionInput = (input: GetSchemaVersionInput, context: __SerdeContext): any => {
+  return {
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.SchemaVersionNumber !== undefined && {
+      SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1GetSchemaVersionsDiffInput = (
+  input: GetSchemaVersionsDiffInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FirstSchemaVersionNumber !== undefined && {
+      FirstSchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.FirstSchemaVersionNumber, context),
+    }),
+    ...(input.SchemaDiffType !== undefined && { SchemaDiffType: input.SchemaDiffType }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SecondSchemaVersionNumber !== undefined && {
+      SecondSchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SecondSchemaVersionNumber, context),
+    }),
   };
 };
 
@@ -15449,6 +17516,29 @@ const serializeAws_json1_1ListMLTransformsRequest = (input: ListMLTransformsRequ
   };
 };
 
+const serializeAws_json1_1ListRegistriesInput = (input: ListRegistriesInput, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListSchemasInput = (input: ListSchemasInput, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.RegistryId !== undefined && { RegistryId: serializeAws_json1_1RegistryId(input.RegistryId, context) }),
+  };
+};
+
+const serializeAws_json1_1ListSchemaVersionsInput = (input: ListSchemaVersionsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+  };
+};
+
 const serializeAws_json1_1ListTriggersRequest = (input: ListTriggersRequest, context: __SerdeContext): any => {
   return {
     ...(input.DependentJobName !== undefined && { DependentJobName: input.DependentJobName }),
@@ -15522,6 +17612,17 @@ const serializeAws_json1_1MapValue = (input: { [key: string]: string }, context:
 
 const serializeAws_json1_1MatchCriteria = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1MetadataKeyValuePair = (input: MetadataKeyValuePair, context: __SerdeContext): any => {
+  return {
+    ...(input.MetadataKey !== undefined && { MetadataKey: input.MetadataKey }),
+    ...(input.MetadataValue !== undefined && { MetadataValue: input.MetadataValue }),
+  };
+};
+
+const serializeAws_json1_1MetadataList = (input: MetadataKeyValuePair[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1MetadataKeyValuePair(entry, context));
 };
 
 const serializeAws_json1_1MLUserDataEncryption = (input: MLUserDataEncryption, context: __SerdeContext): any => {
@@ -15700,6 +17801,22 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   };
 };
 
+const serializeAws_json1_1PutSchemaVersionMetadataInput = (
+  input: PutSchemaVersionMetadataInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MetadataKeyValue !== undefined && {
+      MetadataKeyValue: serializeAws_json1_1MetadataKeyValuePair(input.MetadataKeyValue, context),
+    }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.SchemaVersionNumber !== undefined && {
+      SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1PutWorkflowRunPropertiesRequest = (
   input: PutWorkflowRunPropertiesRequest,
   context: __SerdeContext
@@ -15713,9 +17830,60 @@ const serializeAws_json1_1PutWorkflowRunPropertiesRequest = (
   };
 };
 
+const serializeAws_json1_1QuerySchemaVersionMetadataInput = (
+  input: QuerySchemaVersionMetadataInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MetadataList !== undefined && {
+      MetadataList: serializeAws_json1_1MetadataList(input.MetadataList, context),
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.SchemaVersionNumber !== undefined && {
+      SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1RecrawlPolicy = (input: RecrawlPolicy, context: __SerdeContext): any => {
   return {
     ...(input.RecrawlBehavior !== undefined && { RecrawlBehavior: input.RecrawlBehavior }),
+  };
+};
+
+const serializeAws_json1_1RegisterSchemaVersionInput = (
+  input: RegisterSchemaVersionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SchemaDefinition !== undefined && { SchemaDefinition: input.SchemaDefinition }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+  };
+};
+
+const serializeAws_json1_1RegistryId = (input: RegistryId, context: __SerdeContext): any => {
+  return {
+    ...(input.RegistryArn !== undefined && { RegistryArn: input.RegistryArn }),
+    ...(input.RegistryName !== undefined && { RegistryName: input.RegistryName }),
+  };
+};
+
+const serializeAws_json1_1RemoveSchemaVersionMetadataInput = (
+  input: RemoveSchemaVersionMetadataInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MetadataKeyValue !== undefined && {
+      MetadataKeyValue: serializeAws_json1_1MetadataKeyValuePair(input.MetadataKeyValue, context),
+    }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.SchemaVersionNumber !== undefined && {
+      SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+    }),
   };
 };
 
@@ -15782,6 +17950,29 @@ const serializeAws_json1_1SchemaColumn = (input: SchemaColumn, context: __SerdeC
   return {
     ...(input.DataType !== undefined && { DataType: input.DataType }),
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1SchemaId = (input: SchemaId, context: __SerdeContext): any => {
+  return {
+    ...(input.RegistryName !== undefined && { RegistryName: input.RegistryName }),
+    ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn }),
+    ...(input.SchemaName !== undefined && { SchemaName: input.SchemaName }),
+  };
+};
+
+const serializeAws_json1_1SchemaReference = (input: SchemaReference, context: __SerdeContext): any => {
+  return {
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionId !== undefined && { SchemaVersionId: input.SchemaVersionId }),
+    ...(input.SchemaVersionNumber !== undefined && { SchemaVersionNumber: input.SchemaVersionNumber }),
+  };
+};
+
+const serializeAws_json1_1SchemaVersionNumber = (input: SchemaVersionNumber, context: __SerdeContext): any => {
+  return {
+    ...(input.LatestVersion !== undefined && { LatestVersion: input.LatestVersion }),
+    ...(input.VersionNumber !== undefined && { VersionNumber: input.VersionNumber }),
   };
 };
 
@@ -15973,6 +18164,9 @@ const serializeAws_json1_1StorageDescriptor = (input: StorageDescriptor, context
     ...(input.NumberOfBuckets !== undefined && { NumberOfBuckets: input.NumberOfBuckets }),
     ...(input.OutputFormat !== undefined && { OutputFormat: input.OutputFormat }),
     ...(input.Parameters !== undefined && { Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context) }),
+    ...(input.SchemaReference !== undefined && {
+      SchemaReference: serializeAws_json1_1SchemaReference(input.SchemaReference, context),
+    }),
     ...(input.SerdeInfo !== undefined && { SerdeInfo: serializeAws_json1_1SerDeInfo(input.SerdeInfo, context) }),
     ...(input.SkewedInfo !== undefined && { SkewedInfo: serializeAws_json1_1SkewedInfo(input.SkewedInfo, context) }),
     ...(input.SortColumns !== undefined && { SortColumns: serializeAws_json1_1OrderList(input.SortColumns, context) }),
@@ -16348,6 +18542,24 @@ const serializeAws_json1_1UpdatePartitionRequest = (input: UpdatePartitionReques
       PartitionValueList: serializeAws_json1_1BoundedPartitionValueList(input.PartitionValueList, context),
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_1UpdateRegistryInput = (input: UpdateRegistryInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.RegistryId !== undefined && { RegistryId: serializeAws_json1_1RegistryId(input.RegistryId, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateSchemaInput = (input: UpdateSchemaInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Compatibility !== undefined && { Compatibility: input.Compatibility }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.SchemaId !== undefined && { SchemaId: serializeAws_json1_1SchemaId(input.SchemaId, context) }),
+    ...(input.SchemaVersionNumber !== undefined && {
+      SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+    }),
   };
 };
 
@@ -16795,6 +19007,16 @@ const deserializeAws_json1_1CatalogTarget = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1CatalogTargetList = (output: any, context: __SerdeContext): CatalogTarget[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1CatalogTarget(entry, context));
+};
+
+const deserializeAws_json1_1CheckSchemaVersionValidityResponse = (
+  output: any,
+  context: __SerdeContext
+): CheckSchemaVersionValidityResponse => {
+  return {
+    Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
+    Valid: output.Valid !== undefined && output.Valid !== null ? output.Valid : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Classifier = (output: any, context: __SerdeContext): Classifier => {
@@ -17378,6 +19600,52 @@ const deserializeAws_json1_1CreatePartitionResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1CreateRegistryResponse = (output: any, context: __SerdeContext): CreateRegistryResponse => {
+  return {
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagsMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateSchemaResponse = (output: any, context: __SerdeContext): CreateSchemaResponse => {
+  return {
+    Compatibility:
+      output.Compatibility !== undefined && output.Compatibility !== null ? output.Compatibility : undefined,
+    DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LatestSchemaVersion:
+      output.LatestSchemaVersion !== undefined && output.LatestSchemaVersion !== null
+        ? output.LatestSchemaVersion
+        : undefined,
+    NextSchemaVersion:
+      output.NextSchemaVersion !== undefined && output.NextSchemaVersion !== null
+        ? output.NextSchemaVersion
+        : undefined,
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaCheckpoint:
+      output.SchemaCheckpoint !== undefined && output.SchemaCheckpoint !== null ? output.SchemaCheckpoint : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaStatus: output.SchemaStatus !== undefined && output.SchemaStatus !== null ? output.SchemaStatus : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    SchemaVersionStatus:
+      output.SchemaVersionStatus !== undefined && output.SchemaVersionStatus !== null
+        ? output.SchemaVersionStatus
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagsMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateScriptResponse = (output: any, context: __SerdeContext): CreateScriptResponse => {
   return {
     PythonScript: output.PythonScript !== undefined && output.PythonScript !== null ? output.PythonScript : undefined,
@@ -17644,11 +19912,39 @@ const deserializeAws_json1_1DeletePartitionResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteRegistryResponse = (output: any, context: __SerdeContext): DeleteRegistryResponse => {
+  return {
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResourcePolicyResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteSchemaResponse = (output: any, context: __SerdeContext): DeleteSchemaResponse => {
+  return {
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteSchemaVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteSchemaVersionsResponse => {
+  return {
+    SchemaVersionErrors:
+      output.SchemaVersionErrors !== undefined && output.SchemaVersionErrors !== null
+        ? deserializeAws_json1_1SchemaVersionErrorList(output.SchemaVersionErrors, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSecurityConfigurationResponse = (
@@ -17856,6 +20152,13 @@ const deserializeAws_json1_1ErrorByName = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
+  return {
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
@@ -18319,6 +20622,17 @@ const deserializeAws_json1_1GetPlanResponse = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1GetRegistryResponse = (output: any, context: __SerdeContext): GetRegistryResponse => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UpdatedTime: output.UpdatedTime !== undefined && output.UpdatedTime !== null ? output.UpdatedTime : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetResourcePoliciesResponse = (
   output: any,
   context: __SerdeContext
@@ -18351,6 +20665,73 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
       output.UpdateTime !== undefined && output.UpdateTime !== null
         ? new Date(Math.round(output.UpdateTime * 1000))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetSchemaByDefinitionResponse = (
+  output: any,
+  context: __SerdeContext
+): GetSchemaByDefinitionResponse => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetSchemaResponse = (output: any, context: __SerdeContext): GetSchemaResponse => {
+  return {
+    Compatibility:
+      output.Compatibility !== undefined && output.Compatibility !== null ? output.Compatibility : undefined,
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LatestSchemaVersion:
+      output.LatestSchemaVersion !== undefined && output.LatestSchemaVersion !== null
+        ? output.LatestSchemaVersion
+        : undefined,
+    NextSchemaVersion:
+      output.NextSchemaVersion !== undefined && output.NextSchemaVersion !== null
+        ? output.NextSchemaVersion
+        : undefined,
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaCheckpoint:
+      output.SchemaCheckpoint !== undefined && output.SchemaCheckpoint !== null ? output.SchemaCheckpoint : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaStatus: output.SchemaStatus !== undefined && output.SchemaStatus !== null ? output.SchemaStatus : undefined,
+    UpdatedTime: output.UpdatedTime !== undefined && output.UpdatedTime !== null ? output.UpdatedTime : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetSchemaVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): GetSchemaVersionResponse => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaDefinition:
+      output.SchemaDefinition !== undefined && output.SchemaDefinition !== null ? output.SchemaDefinition : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetSchemaVersionsDiffResponse = (
+  output: any,
+  context: __SerdeContext
+): GetSchemaVersionsDiffResponse => {
+  return {
+    Diff: output.Diff !== undefined && output.Diff !== null ? output.Diff : undefined,
   } as any;
 };
 
@@ -18908,6 +21289,39 @@ const deserializeAws_json1_1ListMLTransformsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListRegistriesResponse = (output: any, context: __SerdeContext): ListRegistriesResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Registries:
+      output.Registries !== undefined && output.Registries !== null
+        ? deserializeAws_json1_1RegistryListDefinition(output.Registries, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Schemas:
+      output.Schemas !== undefined && output.Schemas !== null
+        ? deserializeAws_json1_1SchemaListDefinition(output.Schemas, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListSchemaVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSchemaVersionsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Schemas:
+      output.Schemas !== undefined && output.Schemas !== null
+        ? deserializeAws_json1_1SchemaVersionList(output.Schemas, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTriggersResponse = (output: any, context: __SerdeContext): ListTriggersResponse => {
   return {
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -18981,6 +21395,27 @@ const deserializeAws_json1_1MapValue = (output: any, context: __SerdeContext): {
 
 const deserializeAws_json1_1MatchCriteria = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1MetadataInfo = (output: any, context: __SerdeContext): MetadataInfo => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    MetadataValue:
+      output.MetadataValue !== undefined && output.MetadataValue !== null ? output.MetadataValue : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MetadataInfoMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: MetadataInfo } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MetadataInfo }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1MetadataInfo(value, context),
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MLTransform = (output: any, context: __SerdeContext): MLTransform => {
@@ -19307,6 +21742,26 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1PutSchemaVersionMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): PutSchemaVersionMetadataResponse => {
+  return {
+    LatestVersion:
+      output.LatestVersion !== undefined && output.LatestVersion !== null ? output.LatestVersion : undefined,
+    MetadataKey: output.MetadataKey !== undefined && output.MetadataKey !== null ? output.MetadataKey : undefined,
+    MetadataValue:
+      output.MetadataValue !== undefined && output.MetadataValue !== null ? output.MetadataValue : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PutWorkflowRunPropertiesResponse = (
   output: any,
   context: __SerdeContext
@@ -19314,10 +21769,73 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1QuerySchemaVersionMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): QuerySchemaVersionMetadataResponse => {
+  return {
+    MetadataInfoMap:
+      output.MetadataInfoMap !== undefined && output.MetadataInfoMap !== null
+        ? deserializeAws_json1_1MetadataInfoMap(output.MetadataInfoMap, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RecrawlPolicy = (output: any, context: __SerdeContext): RecrawlPolicy => {
   return {
     RecrawlBehavior:
       output.RecrawlBehavior !== undefined && output.RecrawlBehavior !== null ? output.RecrawlBehavior : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegisterSchemaVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): RegisterSchemaVersionResponse => {
+  return {
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegistryListDefinition = (output: any, context: __SerdeContext): RegistryListItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1RegistryListItem(entry, context));
+};
+
+const deserializeAws_json1_1RegistryListItem = (output: any, context: __SerdeContext): RegistryListItem => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UpdatedTime: output.UpdatedTime !== undefined && output.UpdatedTime !== null ? output.UpdatedTime : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RemoveSchemaVersionMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): RemoveSchemaVersionMetadataResponse => {
+  return {
+    LatestVersion:
+      output.LatestVersion !== undefined && output.LatestVersion !== null ? output.LatestVersion : undefined,
+    MetadataKey: output.MetadataKey !== undefined && output.MetadataKey !== null ? output.MetadataKey : undefined,
+    MetadataValue:
+      output.MetadataValue !== undefined && output.MetadataValue !== null ? output.MetadataValue : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
   } as any;
 };
 
@@ -19444,6 +21962,79 @@ const deserializeAws_json1_1SchemaColumn = (output: any, context: __SerdeContext
   return {
     DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaId = (output: any, context: __SerdeContext): SchemaId => {
+  return {
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaListDefinition = (output: any, context: __SerdeContext): SchemaListItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaListItem(entry, context));
+};
+
+const deserializeAws_json1_1SchemaListItem = (output: any, context: __SerdeContext): SchemaListItem => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaStatus: output.SchemaStatus !== undefined && output.SchemaStatus !== null ? output.SchemaStatus : undefined,
+    UpdatedTime: output.UpdatedTime !== undefined && output.UpdatedTime !== null ? output.UpdatedTime : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaReference = (output: any, context: __SerdeContext): SchemaReference => {
+  return {
+    SchemaId:
+      output.SchemaId !== undefined && output.SchemaId !== null
+        ? deserializeAws_json1_1SchemaId(output.SchemaId, context)
+        : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    SchemaVersionNumber:
+      output.SchemaVersionNumber !== undefined && output.SchemaVersionNumber !== null
+        ? output.SchemaVersionNumber
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaVersionErrorItem = (output: any, context: __SerdeContext): SchemaVersionErrorItem => {
+  return {
+    ErrorDetails:
+      output.ErrorDetails !== undefined && output.ErrorDetails !== null
+        ? deserializeAws_json1_1ErrorDetails(output.ErrorDetails, context)
+        : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SchemaVersionErrorList = (
+  output: any,
+  context: __SerdeContext
+): SchemaVersionErrorItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaVersionErrorItem(entry, context));
+};
+
+const deserializeAws_json1_1SchemaVersionList = (output: any, context: __SerdeContext): SchemaVersionListItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaVersionListItem(entry, context));
+};
+
+const deserializeAws_json1_1SchemaVersionListItem = (output: any, context: __SerdeContext): SchemaVersionListItem => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaVersionId:
+      output.SchemaVersionId !== undefined && output.SchemaVersionId !== null ? output.SchemaVersionId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    VersionNumber:
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined,
   } as any;
 };
 
@@ -19624,6 +22215,10 @@ const deserializeAws_json1_1StorageDescriptor = (output: any, context: __SerdeCo
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
+        : undefined,
+    SchemaReference:
+      output.SchemaReference !== undefined && output.SchemaReference !== null
+        ? deserializeAws_json1_1SchemaReference(output.SchemaReference, context)
         : undefined,
     SerdeInfo:
       output.SerdeInfo !== undefined && output.SerdeInfo !== null
@@ -19999,6 +22594,21 @@ const deserializeAws_json1_1UpdatePartitionResponse = (
   context: __SerdeContext
 ): UpdatePartitionResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateRegistryResponse = (output: any, context: __SerdeContext): UpdateRegistryResponse => {
+  return {
+    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSchemaResponse = (output: any, context: __SerdeContext): UpdateSchemaResponse => {
+  return {
+    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
+    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTableResponse = (output: any, context: __SerdeContext): UpdateTableResponse => {

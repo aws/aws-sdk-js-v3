@@ -4537,6 +4537,13 @@
             "smithy.api#jsonName": "deviceSettingsSyncState"
           }
         },
+        "DeviceUpdateStatus": {
+          "target": "com.amazonaws.medialive#DeviceUpdateStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of software on the input device.",
+            "smithy.api#jsonName": "deviceUpdateStatus"
+          }
+        },
         "HdDeviceSettings": {
           "target": "com.amazonaws.medialive#InputDeviceHdSettings",
           "traits": {
@@ -5612,6 +5619,22 @@
           {
             "value": "SYNCING",
             "name": "SYNCING"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.medialive#DeviceUpdateStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "The status of software on the input device.",
+        "smithy.api#enum": [
+          {
+            "value": "UP_TO_DATE",
+            "name": "UP_TO_DATE"
+          },
+          {
+            "value": "NOT_UP_TO_DATE",
+            "name": "NOT_UP_TO_DATE"
           }
         ]
       }
@@ -10198,6 +10221,13 @@
           "traits": {
             "smithy.api#documentation": "The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.",
             "smithy.api#jsonName": "deviceSettingsSyncState"
+          }
+        },
+        "DeviceUpdateStatus": {
+          "target": "com.amazonaws.medialive#DeviceUpdateStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of software on the input device.",
+            "smithy.api#jsonName": "deviceUpdateStatus"
           }
         },
         "HdDeviceSettings": {
@@ -18047,6 +18077,13 @@
           "traits": {
             "smithy.api#documentation": "The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.",
             "smithy.api#jsonName": "deviceSettingsSyncState"
+          }
+        },
+        "DeviceUpdateStatus": {
+          "target": "com.amazonaws.medialive#DeviceUpdateStatus",
+          "traits": {
+            "smithy.api#documentation": "The status of software on the input device.",
+            "smithy.api#jsonName": "deviceUpdateStatus"
           }
         },
         "HdDeviceSettings": {

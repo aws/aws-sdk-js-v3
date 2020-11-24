@@ -1,6 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMLTransformRequest } from "../models/models_0";
-import { GetMLTransformResponse } from "../models/models_1";
+import { GetMLTransformRequest, GetMLTransformResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetMLTransformCommand,
   serializeAws_json1_1GetMLTransformCommand,

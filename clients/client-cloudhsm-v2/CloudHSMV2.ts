@@ -38,6 +38,16 @@ import {
 } from "./commands/InitializeClusterCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
+  ModifyBackupAttributesCommand,
+  ModifyBackupAttributesCommandInput,
+  ModifyBackupAttributesCommandOutput,
+} from "./commands/ModifyBackupAttributesCommand";
+import {
+  ModifyClusterCommand,
+  ModifyClusterCommandInput,
+  ModifyClusterCommandOutput,
+} from "./commands/ModifyClusterCommand";
+import {
   RestoreBackupCommand,
   RestoreBackupCommandInput,
   RestoreBackupCommandOutput,
@@ -368,6 +378,70 @@ export class CloudHSMV2 extends CloudHSMV2Client {
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies attributes for AWS CloudHSM backup.</p>
+   */
+  public modifyBackupAttributes(
+    args: ModifyBackupAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyBackupAttributesCommandOutput>;
+  public modifyBackupAttributes(
+    args: ModifyBackupAttributesCommandInput,
+    cb: (err: any, data?: ModifyBackupAttributesCommandOutput) => void
+  ): void;
+  public modifyBackupAttributes(
+    args: ModifyBackupAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyBackupAttributesCommandOutput) => void
+  ): void;
+  public modifyBackupAttributes(
+    args: ModifyBackupAttributesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyBackupAttributesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyBackupAttributesCommandOutput) => void
+  ): Promise<ModifyBackupAttributesCommandOutput> | void {
+    const command = new ModifyBackupAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies AWS CloudHSM cluster.</p>
+   */
+  public modifyCluster(
+    args: ModifyClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyClusterCommandOutput>;
+  public modifyCluster(
+    args: ModifyClusterCommandInput,
+    cb: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): void;
+  public modifyCluster(
+    args: ModifyClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): void;
+  public modifyCluster(
+    args: ModifyClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterCommandOutput) => void),
+    cb?: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): Promise<ModifyClusterCommandOutput> | void {
+    const command = new ModifyClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

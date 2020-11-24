@@ -50,10 +50,21 @@ import {
   ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutRecommendationFeedbackCommand,
   PutRecommendationFeedbackCommandInput,
   PutRecommendationFeedbackCommandOutput,
 } from "./commands/PutRecommendationFeedbackCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -66,6 +77,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <i>
  *                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html">Amazon CodeGuru Reviewer User Guide</a>.</i>
  *          </p>
+ *
+ *          <p>
+ *          To improve the security of your CodeGuru Reviewer API calls, you can establish a private connection between your VPC and CodeGuru Reviewer by
+ *          creating an <i>interface VPC endpoint</i>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html">CodeGuru Reviewer and interface
+ *             VPC endpoints (AWS PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.
+ *       </p>
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient {
   /**
@@ -126,7 +144,11 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
 
   /**
    * <p>
-   *          Use to create a code review for a repository analysis.
+   *          Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">
+   *                <code>CodeReviewType</code>
+   *             </a>
+   *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
+   *          <code>PullRequest</code> code reviews are automatically triggered by a pull request so cannot be created using this method.
    *       </p>
    */
   public createCodeReview(
@@ -449,6 +471,38 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * <p>Returns the list of tags associated with an associated repository resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *          Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
    *       </p>
@@ -472,6 +526,64 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
     cb?: (err: any, data?: PutRecommendationFeedbackCommandOutput) => void
   ): Promise<PutRecommendationFeedbackCommandOutput> | void {
     const command = new PutRecommendationFeedbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds one or more tags to an associated repository.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a tag from an associated repository.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
