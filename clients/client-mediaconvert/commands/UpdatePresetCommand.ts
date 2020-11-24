@@ -20,6 +20,9 @@ import {
 export type UpdatePresetCommandInput = UpdatePresetRequest;
 export type UpdatePresetCommandOutput = UpdatePresetResponse & __MetadataBearer;
 
+/**
+ * Modify one of your existing presets.
+ */
 export class UpdatePresetCommand extends $Command<
   UpdatePresetCommandInput,
   UpdatePresetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

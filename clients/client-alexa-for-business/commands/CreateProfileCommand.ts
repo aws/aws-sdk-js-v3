@@ -20,6 +20,9 @@ import {
 export type CreateProfileCommandInput = CreateProfileRequest;
 export type CreateProfileCommandOutput = CreateProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new room profile with the specified details.</p>
+ */
 export class CreateProfileCommand extends $Command<
   CreateProfileCommandInput,
   CreateProfileCommandOutput,
@@ -34,6 +37,9 @@ export class CreateProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type AssociateSkillGroupWithRoomCommandInput = AssociateSkillGroupWithRoomRequest;
 export type AssociateSkillGroupWithRoomCommandOutput = AssociateSkillGroupWithRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a skill group with a given room. This enables all skills in the associated
+ *          skill group on all devices in the room.</p>
+ */
 export class AssociateSkillGroupWithRoomCommand extends $Command<
   AssociateSkillGroupWithRoomCommandInput,
   AssociateSkillGroupWithRoomCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

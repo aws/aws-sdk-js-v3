@@ -20,6 +20,9 @@ import {
 export type DescribeWorkspaceSnapshotsCommandInput = DescribeWorkspaceSnapshotsRequest;
 export type DescribeWorkspaceSnapshotsCommandOutput = DescribeWorkspaceSnapshotsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the snapshots for the specified WorkSpace.</p>
+ */
 export class DescribeWorkspaceSnapshotsCommand extends $Command<
   DescribeWorkspaceSnapshotsCommandInput,
   DescribeWorkspaceSnapshotsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

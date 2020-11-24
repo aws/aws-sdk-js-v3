@@ -20,6 +20,9 @@ import {
 export type DetachFromIndexCommandInput = DetachFromIndexRequest;
 export type DetachFromIndexCommandOutput = DetachFromIndexResponse & __MetadataBearer;
 
+/**
+ * <p>Detaches the specified object from the specified index.</p>
+ */
 export class DetachFromIndexCommand extends $Command<
   DetachFromIndexCommandInput,
   DetachFromIndexCommandOutput,
@@ -34,6 +37,9 @@ export class DetachFromIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

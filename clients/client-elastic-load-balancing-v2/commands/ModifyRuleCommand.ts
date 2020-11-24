@@ -21,6 +21,13 @@ import {
 export type ModifyRuleCommandInput = ModifyRuleInput;
 export type ModifyRuleCommandOutput = ModifyRuleOutput & __MetadataBearer;
 
+/**
+ * <p>Replaces the specified properties of the specified rule. Any properties that you do not
+ *       specify are unchanged.</p>
+ *          <p>To add an item to a list, remove an item from a list, or update an item in a list,
+ *       you must provide the entire list. For example, to add an action, specify a list with the
+ *       current actions plus the new action.</p>
+ */
 export class ModifyRuleCommand extends $Command<
   ModifyRuleCommandInput,
   ModifyRuleCommandOutput,
@@ -35,6 +42,9 @@ export class ModifyRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

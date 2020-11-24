@@ -20,6 +20,9 @@ import {
 export type EnableUserCommandInput = EnableUserRequest;
 export type EnableUserCommandOutput = EnableUserResult & __MetadataBearer;
 
+/**
+ * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
+ */
 export class EnableUserCommand extends $Command<
   EnableUserCommandInput,
   EnableUserCommandOutput,
@@ -34,6 +37,9 @@ export class EnableUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

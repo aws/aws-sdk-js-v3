@@ -20,6 +20,10 @@ import {
 export type DeleteTagsForDomainCommandInput = DeleteTagsForDomainRequest;
 export type DeleteTagsForDomainCommandOutput = DeleteTagsForDomainResponse & __MetadataBearer;
 
+/**
+ * <p>This operation deletes the specified tags for a domain.</p>
+ * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ */
 export class DeleteTagsForDomainCommand extends $Command<
   DeleteTagsForDomainCommandInput,
   DeleteTagsForDomainCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTagsForDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

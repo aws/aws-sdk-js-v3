@@ -25,6 +25,10 @@ import {
 export type GetCSVHeaderCommandInput = GetCSVHeaderRequest;
 export type GetCSVHeaderCommandOutput = GetCSVHeaderResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the header information for the .csv file to be used as input for the user import
+ *             job.</p>
+ */
 export class GetCSVHeaderCommand extends $Command<
   GetCSVHeaderCommandInput,
   GetCSVHeaderCommandOutput,
@@ -39,6 +43,9 @@ export class GetCSVHeaderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

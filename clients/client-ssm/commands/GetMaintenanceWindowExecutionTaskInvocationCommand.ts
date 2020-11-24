@@ -24,6 +24,9 @@ export type GetMaintenanceWindowExecutionTaskInvocationCommandInput = GetMainten
 export type GetMaintenanceWindowExecutionTaskInvocationCommandOutput = GetMaintenanceWindowExecutionTaskInvocationResult &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a specific task running on a specific target.</p>
+ */
 export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command<
   GetMaintenanceWindowExecutionTaskInvocationCommandInput,
   GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
@@ -38,6 +41,9 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

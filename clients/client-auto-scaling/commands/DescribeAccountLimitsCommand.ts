@@ -20,6 +20,11 @@ import {
 export type DescribeAccountLimitsCommandInput = {};
 export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.</p>
+ *         <p>For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
+ *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

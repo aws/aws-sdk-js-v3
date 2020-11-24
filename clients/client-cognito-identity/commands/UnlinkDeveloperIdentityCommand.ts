@@ -21,6 +21,13 @@ import {
 export type UnlinkDeveloperIdentityCommandInput = UnlinkDeveloperIdentityInput;
 export type UnlinkDeveloperIdentityCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked
+ *          developer users will be considered new identities next time they are seen. If, for a given
+ *          Cognito identity, you remove all federated identities as well as the developer user
+ *          identifier, the Cognito identity becomes inaccessible.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class UnlinkDeveloperIdentityCommand extends $Command<
   UnlinkDeveloperIdentityCommandInput,
   UnlinkDeveloperIdentityCommandOutput,
@@ -35,6 +42,9 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

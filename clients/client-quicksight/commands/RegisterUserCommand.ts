@@ -20,6 +20,10 @@ import {
 export type RegisterUserCommandInput = RegisterUserRequest;
 export type RegisterUserCommandOutput = RegisterUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
+ * 			and Access Management (IAM) identity or role specified in the request. </p>
+ */
 export class RegisterUserCommand extends $Command<
   RegisterUserCommandInput,
   RegisterUserCommandOutput,
@@ -34,6 +38,9 @@ export class RegisterUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

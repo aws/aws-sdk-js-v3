@@ -20,6 +20,9 @@ import {
 export type ResetAuthorizersCacheCommandInput = ResetAuthorizersCacheRequest;
 export type ResetAuthorizersCacheCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
+ */
 export class ResetAuthorizersCacheCommand extends $Command<
   ResetAuthorizersCacheCommandInput,
   ResetAuthorizersCacheCommandOutput,
@@ -34,6 +37,9 @@ export class ResetAuthorizersCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type CancelHandshakeCommandInput = CancelHandshakeRequest;
 export type CancelHandshakeCommandOutput = CancelHandshakeResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
+ *                 <code>CANCELED</code>.</p>
+ *         <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
+ *             can no longer respond to that handshake.</p>
+ *         <p>After you cancel a handshake, it continues to appear in the results of relevant APIs
+ *             for only 30 days. After that, it's deleted.</p>
+ */
 export class CancelHandshakeCommand extends $Command<
   CancelHandshakeCommandInput,
   CancelHandshakeCommandOutput,
@@ -34,6 +42,9 @@ export class CancelHandshakeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

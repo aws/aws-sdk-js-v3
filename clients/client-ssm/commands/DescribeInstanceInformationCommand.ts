@@ -20,6 +20,18 @@ import {
 export type DescribeInstanceInformationCommandInput = DescribeInstanceInformationRequest;
 export type DescribeInstanceInformationCommandOutput = DescribeInstanceInformationResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your instances, including information about the operating system
+ *    platform, the version of SSM Agent installed on the instance, instance status, and so on.</p>
+ *          <p>If you specify one or more instance IDs, it returns information for those instances. If you
+ *    do not specify instance IDs, it returns information for all your instances. If you specify an
+ *    instance ID that is not valid or an instance that you do not own, you receive an error.</p>
+ *          <note>
+ *             <p>The IamRole field for this API action is the Amazon Identity and Access Management (IAM)
+ *     role assigned to on-premises instances. This call does not return the IAM role for EC2
+ *     instances.</p>
+ *          </note>
+ */
 export class DescribeInstanceInformationCommand extends $Command<
   DescribeInstanceInformationCommandInput,
   DescribeInstanceInformationCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeInstanceInformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

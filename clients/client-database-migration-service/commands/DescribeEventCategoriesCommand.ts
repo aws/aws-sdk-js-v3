@@ -24,6 +24,13 @@ import {
 export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
 export type DescribeEventCategoriesCommandOutput = DescribeEventCategoriesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists categories for all event source types, or, if specified, for a specified source
+ *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
+ *             and Notifications</a> in the <i>AWS Database Migration Service User
+ *             Guide.</i>
+ *          </p>
+ */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

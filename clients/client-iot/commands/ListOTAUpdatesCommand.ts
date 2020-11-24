@@ -20,6 +20,9 @@ import {
 export type ListOTAUpdatesCommandInput = ListOTAUpdatesRequest;
 export type ListOTAUpdatesCommandOutput = ListOTAUpdatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists OTA updates.</p>
+ */
 export class ListOTAUpdatesCommand extends $Command<
   ListOTAUpdatesCommandInput,
   ListOTAUpdatesCommandOutput,
@@ -34,6 +37,9 @@ export class ListOTAUpdatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

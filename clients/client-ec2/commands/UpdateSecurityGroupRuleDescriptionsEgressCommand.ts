@@ -24,6 +24,14 @@ export type UpdateSecurityGroupRuleDescriptionsEgressCommandInput = UpdateSecuri
 export type UpdateSecurityGroupRuleDescriptionsEgressCommandOutput = UpdateSecurityGroupRuleDescriptionsEgressResult &
   __MetadataBearer;
 
+/**
+ * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You
+ * 			can replace an existing description, or add a description to a rule that did not have one
+ * 			previously.</p>
+ * 		       <p>You specify the description as part of the IP permissions structure. You can remove a
+ * 			description for a security group rule by omitting the description parameter in the
+ * 			request.</p>
+ */
 export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
@@ -38,6 +46,9 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

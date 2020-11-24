@@ -20,6 +20,9 @@ import {
 export type SearchQuantumTasksCommandInput = SearchQuantumTasksRequest;
 export type SearchQuantumTasksCommandOutput = SearchQuantumTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for tasks that match the specified filter values.</p>
+ */
 export class SearchQuantumTasksCommand extends $Command<
   SearchQuantumTasksCommandInput,
   SearchQuantumTasksCommandOutput,
@@ -34,6 +37,9 @@ export class SearchQuantumTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BraketClientResolvedConfig,

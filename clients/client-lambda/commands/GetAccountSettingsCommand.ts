@@ -20,6 +20,9 @@ import {
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
 export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
+ */
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetAccountSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

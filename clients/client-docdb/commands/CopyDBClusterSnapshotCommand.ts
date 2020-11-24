@@ -20,6 +20,20 @@ import {
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
 export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Copies a snapshot of a cluster.</p>
+ *
+ *         <p>To copy a cluster snapshot from a shared manual cluster snapshot,
+ *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
+ *             Resource Name (ARN) of the shared cluster snapshot. You can only
+ *             copy a shared DB cluster snapshot, whether encrypted or not, in the
+ *             same AWS Region.</p>
+ *
+ *         <p>To cancel the copy operation after it is in progress, delete the
+ *             target cluster snapshot identified by
+ *             <code>TargetDBClusterSnapshotIdentifier</code> while that cluster
+ *             snapshot is in the <i>copying</i> status.</p>
+ */
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,
   CopyDBClusterSnapshotCommandOutput,
@@ -34,6 +48,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

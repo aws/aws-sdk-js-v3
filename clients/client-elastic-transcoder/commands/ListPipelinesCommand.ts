@@ -24,6 +24,9 @@ import {
 export type ListPipelinesCommandInput = ListPipelinesRequest;
 export type ListPipelinesCommandOutput = ListPipelinesResponse & __MetadataBearer;
 
+/**
+ * <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
+ */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
@@ -38,6 +41,9 @@ export class ListPipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

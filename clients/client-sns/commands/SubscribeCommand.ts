@@ -17,6 +17,14 @@ import {
 export type SubscribeCommandInput = SubscribeInput;
 export type SubscribeCommandOutput = SubscribeResponse & __MetadataBearer;
 
+/**
+ * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
+ *             if the endpoint and the topic are not in the same AWS account, the endpoint owner must
+ *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
+ *          <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response.
+ *       Confirmation tokens are valid for three days.</p>
+ *         <p>This action is throttled at 100 transactions per second (TPS).</p>
+ */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +35,9 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

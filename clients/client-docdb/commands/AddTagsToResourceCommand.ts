@@ -20,6 +20,12 @@ import {
 export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
 export type AddTagsToResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
+ *             with cost allocation reporting to track costs that are associated
+ *             with Amazon DocumentDB resources. or in a <code>Condition</code> statement in
+ *             an AWS Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
+ */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -34,6 +40,9 @@ export class AddTagsToResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

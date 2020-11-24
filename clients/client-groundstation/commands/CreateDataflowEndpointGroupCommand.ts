@@ -20,6 +20,13 @@ import {
 export type CreateDataflowEndpointGroupCommandInput = CreateDataflowEndpointGroupRequest;
 export type CreateDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>
+ *          <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code>
+ *          to specify which endpoints to use during a contact.</p>
+ *          <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code>
+ *          must match a <code>DataflowEndpoint</code> in the same group.</p>
+ */
 export class CreateDataflowEndpointGroupCommand extends $Command<
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
@@ -34,6 +41,9 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateInsightCommandInput = UpdateInsightRequest;
 export type UpdateInsightCommandOutput = UpdateInsightResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
+ */
 export class UpdateInsightCommand extends $Command<
   UpdateInsightCommandInput,
   UpdateInsightCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInsightCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

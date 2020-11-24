@@ -24,6 +24,16 @@ import {
 export type DescribeLoadBalancerPolicyTypesCommandInput = DescribeLoadBalancerPolicyTypesInput;
 export type DescribeLoadBalancerPolicyTypesCommandOutput = DescribeLoadBalancerPolicyTypesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
+ *          <p>The description of each type indicates how it can be used. For example,
+ *            some policies can be used only with layer 7 listeners,
+ *            some policies can be used only with layer 4 listeners,
+ *            and some policies can be used only with your EC2 instances.</p>
+ *          <p>You can use <a>CreateLoadBalancerPolicy</a> to create a policy configuration for any of these policy types.
+ *            Then, depending on the policy type, use either <a>SetLoadBalancerPoliciesOfListener</a> or
+ *            <a>SetLoadBalancerPoliciesForBackendServer</a> to set the policy.</p>
+ */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
   DescribeLoadBalancerPolicyTypesCommandInput,
   DescribeLoadBalancerPolicyTypesCommandOutput,
@@ -38,6 +48,9 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeVpcClassicLinkCommandInput = DescribeVpcClassicLinkRequest;
 export type DescribeVpcClassicLinkCommandOutput = DescribeVpcClassicLinkResult & __MetadataBearer;
 
+/**
+ * <p>Describes the ClassicLink status of one or more VPCs.</p>
+ */
 export class DescribeVpcClassicLinkCommand extends $Command<
   DescribeVpcClassicLinkCommandInput,
   DescribeVpcClassicLinkCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
 export type RemoveTagsFromResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes metadata tags from an Amazon RDS resource.</p>
+ *          <p>For an overview on tagging an Amazon RDS resource,
+ *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
+ *           in the <i>Amazon RDS User Guide.</i>
+ *          </p>
+ */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -34,6 +41,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateSmsTemplateCommandInput = UpdateSmsTemplateRequest;
 export type UpdateSmsTemplateCommandOutput = UpdateSmsTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
+ */
 export class UpdateSmsTemplateCommand extends $Command<
   UpdateSmsTemplateCommandInput,
   UpdateSmsTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSmsTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

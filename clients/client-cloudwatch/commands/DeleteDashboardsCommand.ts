@@ -20,6 +20,11 @@ import {
 export type DeleteDashboardsCommandInput = DeleteDashboardsInput;
 export type DeleteDashboardsCommandOutput = DeleteDashboardsOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes all dashboards that you specify. You
+ * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
+ * 			deleted.</p>
+ */
 export class DeleteDashboardsCommand extends $Command<
   DeleteDashboardsCommandInput,
   DeleteDashboardsCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDashboardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

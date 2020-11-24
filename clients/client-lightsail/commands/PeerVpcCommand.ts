@@ -17,6 +17,9 @@ import {
 export type PeerVpcCommandInput = PeerVpcRequest;
 export type PeerVpcCommandOutput = PeerVpcResult & __MetadataBearer;
 
+/**
+ * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
+ */
 export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommandOutput, LightsailClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

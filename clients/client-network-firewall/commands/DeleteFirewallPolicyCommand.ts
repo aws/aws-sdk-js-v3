@@ -20,6 +20,9 @@ import {
 export type DeleteFirewallPolicyCommandInput = DeleteFirewallPolicyRequest;
 export type DeleteFirewallPolicyCommandOutput = DeleteFirewallPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified <a>FirewallPolicy</a>. </p>
+ */
 export class DeleteFirewallPolicyCommand extends $Command<
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFirewallPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

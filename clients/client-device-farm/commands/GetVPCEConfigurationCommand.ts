@@ -20,6 +20,10 @@ import {
 export type GetVPCEConfigurationCommandInput = GetVPCEConfigurationRequest;
 export type GetVPCEConfigurationCommandOutput = GetVPCEConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the configuration settings for your Amazon Virtual Private
+ *             Cloud (VPC) endpoint.</p>
+ */
 export class GetVPCEConfigurationCommand extends $Command<
   GetVPCEConfigurationCommandInput,
   GetVPCEConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class GetVPCEConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

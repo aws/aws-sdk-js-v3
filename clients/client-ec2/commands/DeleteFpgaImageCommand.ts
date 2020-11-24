@@ -17,6 +17,9 @@ import {
 export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
 export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Amazon FPGA Image (AFI).</p>
+ */
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,
   DeleteFpgaImageCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteFpgaImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

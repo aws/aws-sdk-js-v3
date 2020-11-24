@@ -20,6 +20,10 @@ import {
 export type GetEffectivePoliciesCommandInput = GetEffectivePoliciesRequest;
 export type GetEffectivePoliciesCommandOutput = GetEffectivePoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the policies that have an effect on the authorization behavior of the
+ *          specified device when it connects to the AWS IoT device gateway.</p>
+ */
 export class GetEffectivePoliciesCommand extends $Command<
   GetEffectivePoliciesCommandInput,
   GetEffectivePoliciesCommandOutput,
@@ -34,6 +38,9 @@ export class GetEffectivePoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

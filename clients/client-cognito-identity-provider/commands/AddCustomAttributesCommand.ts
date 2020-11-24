@@ -25,6 +25,9 @@ import {
 export type AddCustomAttributesCommandInput = AddCustomAttributesRequest;
 export type AddCustomAttributesCommandOutput = AddCustomAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Adds additional user attributes to the user pool schema.</p>
+ */
 export class AddCustomAttributesCommand extends $Command<
   AddCustomAttributesCommandInput,
   AddCustomAttributesCommandOutput,
@@ -39,6 +42,9 @@ export class AddCustomAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

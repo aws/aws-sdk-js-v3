@@ -20,6 +20,9 @@ import {
 export type UpdateMeshCommandInput = UpdateMeshInput;
 export type UpdateMeshCommandOutput = UpdateMeshOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing service mesh.</p>
+ */
 export class UpdateMeshCommand extends $Command<
   UpdateMeshCommandInput,
   UpdateMeshCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMeshCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

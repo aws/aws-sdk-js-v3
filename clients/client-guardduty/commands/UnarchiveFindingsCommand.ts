@@ -20,6 +20,9 @@ import {
 export type UnarchiveFindingsCommandInput = UnarchiveFindingsRequest;
 export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
+ */
 export class UnarchiveFindingsCommand extends $Command<
   UnarchiveFindingsCommandInput,
   UnarchiveFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class UnarchiveFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

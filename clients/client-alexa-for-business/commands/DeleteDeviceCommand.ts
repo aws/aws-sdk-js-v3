@@ -20,6 +20,9 @@ import {
 export type DeleteDeviceCommandInput = DeleteDeviceRequest;
 export type DeleteDeviceCommandOutput = DeleteDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a device from Alexa For Business.</p>
+ */
 export class DeleteDeviceCommand extends $Command<
   DeleteDeviceCommandInput,
   DeleteDeviceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

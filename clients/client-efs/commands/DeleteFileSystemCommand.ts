@@ -20,6 +20,23 @@ import {
 export type DeleteFileSystemCommandInput = DeleteFileSystemRequest;
 export type DeleteFileSystemCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
+ *       file system no longer exists and you can't access any contents of the deleted file
+ *       system.</p>
+ *          <p> You can't delete a file system that is in use. That is, if the file system has
+ *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
+ *
+ *          <note>
+ *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
+ *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
+ *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
+ *         error.</p>
+ *          </note>
+ *
+ *          <p>This operation requires permissions for the
+ *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
+ */
 export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandInput,
   DeleteFileSystemCommandOutput,
@@ -34,6 +51,9 @@ export class DeleteFileSystemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

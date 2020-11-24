@@ -24,6 +24,9 @@ export type DeregisterTaskFromMaintenanceWindowCommandInput = DeregisterTaskFrom
 export type DeregisterTaskFromMaintenanceWindowCommandOutput = DeregisterTaskFromMaintenanceWindowResult &
   __MetadataBearer;
 
+/**
+ * <p>Removes a task from a maintenance window.</p>
+ */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
   DeregisterTaskFromMaintenanceWindowCommandInput,
   DeregisterTaskFromMaintenanceWindowCommandOutput,
@@ -38,6 +41,9 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

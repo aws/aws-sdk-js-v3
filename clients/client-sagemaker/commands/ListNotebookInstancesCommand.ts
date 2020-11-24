@@ -20,6 +20,10 @@ import {
 export type ListNotebookInstancesCommandInput = ListNotebookInstancesInput;
 export type ListNotebookInstancesCommandOutput = ListNotebookInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS
+ *             Region. </p>
+ */
 export class ListNotebookInstancesCommand extends $Command<
   ListNotebookInstancesCommandInput,
   ListNotebookInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class ListNotebookInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

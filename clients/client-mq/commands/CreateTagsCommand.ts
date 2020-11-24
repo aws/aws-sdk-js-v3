@@ -20,6 +20,9 @@ import {
 export type CreateTagsCommandInput = CreateTagsRequest;
 export type CreateTagsCommandOutput = __MetadataBearer;
 
+/**
+ * Add a tag to a resource.
+ */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,
   CreateTagsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

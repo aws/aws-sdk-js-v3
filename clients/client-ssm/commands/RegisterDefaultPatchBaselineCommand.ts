@@ -20,6 +20,13 @@ import {
 export type RegisterDefaultPatchBaselineCommandInput = RegisterDefaultPatchBaselineRequest;
 export type RegisterDefaultPatchBaselineCommandOutput = RegisterDefaultPatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Defines the default patch baseline for the relevant operating system.</p>
+ *          <p>To reset the AWS predefined patch baseline as the default, specify the full patch baseline
+ *    ARN as the baseline ID value. For example, for CentOS, specify
+ *     <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed</code> instead of
+ *     <code>pb-0574b43a65ea646ed</code>.</p>
+ */
 export class RegisterDefaultPatchBaselineCommand extends $Command<
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput,
@@ -34,6 +41,9 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

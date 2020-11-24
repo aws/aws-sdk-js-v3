@@ -20,6 +20,9 @@ import {
 export type GetSupportedResourceTypesCommandInput = {};
 export type GetSupportedResourceTypesCommandOutput = GetSupportedResourceTypesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the AWS resource types supported by AWS Backup.</p>
+ */
 export class GetSupportedResourceTypesCommand extends $Command<
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
@@ -34,6 +37,9 @@ export class GetSupportedResourceTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

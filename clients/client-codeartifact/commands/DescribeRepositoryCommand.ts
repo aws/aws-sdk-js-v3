@@ -20,6 +20,12 @@ import {
 export type DescribeRepositoryCommandInput = DescribeRepositoryRequest;
 export type DescribeRepositoryCommandOutput = DescribeRepositoryResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns a <code>RepositoryDescription</code> object that contains detailed information
+ *         about the requested repository.
+ *        </p>
+ */
 export class DescribeRepositoryCommand extends $Command<
   DescribeRepositoryCommandInput,
   DescribeRepositoryCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

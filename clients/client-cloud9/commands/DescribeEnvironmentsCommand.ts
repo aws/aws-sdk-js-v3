@@ -20,6 +20,9 @@ import {
 export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsRequest;
 export type DescribeEnvironmentsCommandOutput = DescribeEnvironmentsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about AWS Cloud9 development environments.</p>
+ */
 export class DescribeEnvironmentsCommand extends $Command<
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

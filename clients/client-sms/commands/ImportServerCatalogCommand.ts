@@ -20,6 +20,12 @@ import {
 export type ImportServerCatalogCommandInput = ImportServerCatalogRequest;
 export type ImportServerCatalogCommandOutput = ImportServerCatalogResponse & __MetadataBearer;
 
+/**
+ * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
+ *             monitoring all servers to import.</p>
+ *         <p>This call returns immediately, but might take additional time to retrieve all the
+ *             servers.</p>
+ */
 export class ImportServerCatalogCommand extends $Command<
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput,
@@ -34,6 +40,9 @@ export class ImportServerCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

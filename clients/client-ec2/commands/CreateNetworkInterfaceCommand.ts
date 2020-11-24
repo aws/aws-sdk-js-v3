@@ -20,6 +20,11 @@ import {
 export type CreateNetworkInterfaceCommandInput = CreateNetworkInterfaceRequest;
 export type CreateNetworkInterfaceCommandOutput = CreateNetworkInterfaceResult & __MetadataBearer;
 
+/**
+ * <p>Creates a network interface in the specified subnet.</p>
+ *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a>
+ *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateNetworkInterfaceCommand extends $Command<
   CreateNetworkInterfaceCommandInput,
   CreateNetworkInterfaceCommandOutput,
@@ -34,6 +39,9 @@ export class CreateNetworkInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

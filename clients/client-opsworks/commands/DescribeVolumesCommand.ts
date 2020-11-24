@@ -20,6 +20,17 @@ import {
 export type DescribeVolumesCommandInput = DescribeVolumesRequest;
 export type DescribeVolumesCommandOutput = DescribeVolumesResult & __MetadataBearer;
 
+/**
+ * <p>Describes an instance's Amazon EBS volumes.</p>
+ *          <note>
+ *             <p>This call accepts only one resource-identifying parameter.</p>
+ *          </note>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+ *       Manage permissions level for the stack, or an attached policy that explicitly grants
+ *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,
   DescribeVolumesCommandOutput,
@@ -34,6 +45,9 @@ export class DescribeVolumesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

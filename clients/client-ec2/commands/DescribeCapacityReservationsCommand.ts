@@ -20,6 +20,10 @@ import {
 export type DescribeCapacityReservationsCommandInput = DescribeCapacityReservationsRequest;
 export type DescribeCapacityReservationsCommandOutput = DescribeCapacityReservationsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS
+ * 			Region that you're currently using.</p>
+ */
 export class DescribeCapacityReservationsCommand extends $Command<
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeCapacityReservationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

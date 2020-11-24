@@ -20,6 +20,9 @@ import {
 export type ListOfferingsCommandInput = ListOfferingsRequest;
 export type ListOfferingsCommandOutput = ListOfferingsResponse & __MetadataBearer;
 
+/**
+ * List offerings available for purchase.
+ */
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

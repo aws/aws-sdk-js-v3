@@ -26,6 +26,25 @@ import {
 export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
 export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription
+ *       results are streamed to your application.</p>
+ *          <p>The following are encoded as HTTP2 headers:</p>
+ *          <ul>
+ *             <li>
+ *                <p>x-amzn-transcribe-language-code</p>
+ *             </li>
+ *             <li>
+ *                <p>x-amzn-transcribe-media-encoding</p>
+ *             </li>
+ *             <li>
+ *                <p>x-amzn-transcribe-sample-rate</p>
+ *             </li>
+ *             <li>
+ *                <p>x-amzn-transcribe-session-id</p>
+ *             </li>
+ *          </ul>
+ */
 export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
@@ -40,6 +59,9 @@ export class StartStreamTranscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingClientResolvedConfig,

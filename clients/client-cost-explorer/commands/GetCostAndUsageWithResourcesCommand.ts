@@ -20,6 +20,17 @@ import {
 export type GetCostAndUsageWithResourcesCommandInput = GetCostAndUsageWithResourcesRequest;
 export type GetCostAndUsageWithResourcesCommandOutput = GetCostAndUsageWithResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves cost and usage metrics with resources for your account. You can specify which cost and
+ * 	    usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that
+ * 	    you want the request to return. You can also filter and group your data by various dimensions,
+ * 	    such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
+ * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Master account in an organization in AWS
+ * 	    Organizations have access to all member accounts. This API is currently available for the Amazon Elastic Compute Cloud – Compute service only.</p>
+ * 	        <note>
+ *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost Explorer</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+ *          </note>
+ */
 export class GetCostAndUsageWithResourcesCommand extends $Command<
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
@@ -34,6 +45,9 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

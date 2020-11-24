@@ -20,6 +20,13 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = EventDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns list of event descriptions matching criteria up to the last 6 weeks.</p>
+ *          <note>
+ *             <p>This action returns the most recent 1,000 events from the specified
+ *           <code>NextToken</code>.</p>
+ *          </note>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

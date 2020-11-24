@@ -24,6 +24,9 @@ import {
 export type DissociatePackageCommandInput = DissociatePackageRequest;
 export type DissociatePackageCommandOutput = DissociatePackageResponse & __MetadataBearer;
 
+/**
+ * <p>Dissociates a package from the Amazon ES domain.</p>
+ */
 export class DissociatePackageCommand extends $Command<
   DissociatePackageCommandInput,
   DissociatePackageCommandOutput,
@@ -38,6 +41,9 @@ export class DissociatePackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListDocumentClassifiersCommandInput = ListDocumentClassifiersRequest;
 export type ListDocumentClassifiersCommandOutput = ListDocumentClassifiersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the document classifiers that you have created.</p>
+ */
 export class ListDocumentClassifiersCommand extends $Command<
   ListDocumentClassifiersCommandInput,
   ListDocumentClassifiersCommandOutput,
@@ -34,6 +37,9 @@ export class ListDocumentClassifiersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

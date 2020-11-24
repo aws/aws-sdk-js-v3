@@ -20,6 +20,10 @@ import {
 export type DescribeSourceRegionsCommandInput = DescribeSourceRegionsMessage;
 export type DescribeSourceRegionsCommandOutput = SourceRegionMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the source AWS Regions where the current AWS Region can create a
+ *             read replica or copy a DB snapshot from. This API action supports pagination.</p>
+ */
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,
   DescribeSourceRegionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSourceRegionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

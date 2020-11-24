@@ -20,6 +20,9 @@ import {
 export type CreateDimensionCommandInput = CreateDimensionRequest;
 export type CreateDimensionCommandOutput = CreateDimensionResponse & __MetadataBearer;
 
+/**
+ * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ */
 export class CreateDimensionCommand extends $Command<
   CreateDimensionCommandInput,
   CreateDimensionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDimensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

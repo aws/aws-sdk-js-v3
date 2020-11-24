@@ -20,6 +20,9 @@ import {
 export type ListPrincipalsForPortfolioCommandInput = ListPrincipalsForPortfolioInput;
 export type ListPrincipalsForPortfolioCommandOutput = ListPrincipalsForPortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all principal ARNs associated with the specified portfolio.</p>
+ */
 export class ListPrincipalsForPortfolioCommand extends $Command<
   ListPrincipalsForPortfolioCommandInput,
   ListPrincipalsForPortfolioCommandOutput,
@@ -34,6 +37,9 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

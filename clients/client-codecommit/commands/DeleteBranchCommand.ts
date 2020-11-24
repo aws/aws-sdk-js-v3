@@ -20,6 +20,9 @@ import {
 export type DeleteBranchCommandInput = DeleteBranchInput;
 export type DeleteBranchCommandOutput = DeleteBranchOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>
+ */
 export class DeleteBranchCommand extends $Command<
   DeleteBranchCommandInput,
   DeleteBranchCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

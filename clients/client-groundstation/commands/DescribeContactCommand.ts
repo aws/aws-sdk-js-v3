@@ -20,6 +20,9 @@ import {
 export type DescribeContactCommandInput = DescribeContactRequest;
 export type DescribeContactCommandOutput = DescribeContactResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an existing contact.</p>
+ */
 export class DescribeContactCommand extends $Command<
   DescribeContactCommandInput,
   DescribeContactCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

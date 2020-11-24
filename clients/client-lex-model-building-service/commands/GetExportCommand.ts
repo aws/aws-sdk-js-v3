@@ -24,6 +24,9 @@ import {
 export type GetExportCommandInput = GetExportRequest;
 export type GetExportCommandOutput = GetExportResponse & __MetadataBearer;
 
+/**
+ * <p>Exports the contents of a Amazon Lex resource in a specified format. </p>
+ */
 export class GetExportCommand extends $Command<
   GetExportCommandInput,
   GetExportCommandOutput,
@@ -38,6 +41,9 @@ export class GetExportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

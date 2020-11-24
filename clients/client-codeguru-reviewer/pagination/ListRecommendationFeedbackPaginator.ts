@@ -8,6 +8,9 @@ import {
 import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeGuruReviewerClient,
   input: ListRecommendationFeedbackCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRecommendationFeedbackCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeGuruReviewer,
   input: ListRecommendationFeedbackCommandInput,

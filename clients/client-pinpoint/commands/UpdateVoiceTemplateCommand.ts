@@ -20,6 +20,9 @@ import {
 export type UpdateVoiceTemplateCommandInput = UpdateVoiceTemplateRequest;
 export type UpdateVoiceTemplateCommandOutput = UpdateVoiceTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing message template for messages that are sent through the voice channel.</p>
+ */
 export class UpdateVoiceTemplateCommand extends $Command<
   UpdateVoiceTemplateCommandInput,
   UpdateVoiceTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVoiceTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

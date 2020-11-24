@@ -8,6 +8,9 @@ import {
 import { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ServiceDiscoveryClient,
   input: ListServicesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServicesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ServiceDiscovery,
   input: ListServicesCommandInput,

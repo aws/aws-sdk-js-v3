@@ -20,6 +20,9 @@ import {
 export type UpdateRuleVersionCommandInput = UpdateRuleVersionRequest;
 export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult & __MetadataBearer;
 
+/**
+ * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>
+ */
 export class UpdateRuleVersionCommand extends $Command<
   UpdateRuleVersionCommandInput,
   UpdateRuleVersionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRuleVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

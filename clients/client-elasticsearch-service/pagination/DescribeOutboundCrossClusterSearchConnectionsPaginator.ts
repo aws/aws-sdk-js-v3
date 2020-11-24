@@ -8,6 +8,9 @@ import {
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeOutboundCrossClusterSearchConnectionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElasticsearchService,
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,

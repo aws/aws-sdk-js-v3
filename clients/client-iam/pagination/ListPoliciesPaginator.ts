@@ -8,6 +8,9 @@ import {
 import { IAMPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IAMClient,
   input: ListPoliciesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPoliciesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IAM,
   input: ListPoliciesCommandInput,

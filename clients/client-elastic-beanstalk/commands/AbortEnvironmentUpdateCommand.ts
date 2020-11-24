@@ -20,6 +20,10 @@ import {
 export type AbortEnvironmentUpdateCommandInput = AbortEnvironmentUpdateMessage;
 export type AbortEnvironmentUpdateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Cancels in-progress environment configuration update or application version
+ *       deployment.</p>
+ */
 export class AbortEnvironmentUpdateCommand extends $Command<
   AbortEnvironmentUpdateCommandInput,
   AbortEnvironmentUpdateCommandOutput,
@@ -34,6 +38,9 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

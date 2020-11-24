@@ -20,6 +20,9 @@ import {
 export type ListImportJobsCommandInput = ListImportJobsRequest;
 export type ListImportJobsCommandOutput = ListImportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the import jobs.</p>
+ */
 export class ListImportJobsCommand extends $Command<
   ListImportJobsCommandInput,
   ListImportJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListImportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

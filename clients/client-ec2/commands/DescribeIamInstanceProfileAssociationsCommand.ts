@@ -24,6 +24,9 @@ export type DescribeIamInstanceProfileAssociationsCommandInput = DescribeIamInst
 export type DescribeIamInstanceProfileAssociationsCommandOutput = DescribeIamInstanceProfileAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes your IAM instance profile associations.</p>
+ */
 export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
   DescribeIamInstanceProfileAssociationsCommandInput,
   DescribeIamInstanceProfileAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

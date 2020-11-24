@@ -20,6 +20,9 @@ import {
 export type GetSubscriptionDefinitionVersionCommandInput = GetSubscriptionDefinitionVersionRequest;
 export type GetSubscriptionDefinitionVersionCommandOutput = GetSubscriptionDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a subscription definition version.
+ */
 export class GetSubscriptionDefinitionVersionCommand extends $Command<
   GetSubscriptionDefinitionVersionCommandInput,
   GetSubscriptionDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

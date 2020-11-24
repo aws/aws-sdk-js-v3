@@ -20,6 +20,10 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
+ *          identified by an Amazon Resource Name (ARN)</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +38,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

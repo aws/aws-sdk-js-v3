@@ -24,6 +24,16 @@ import {
 export type ProvisionByoipCidrCommandInput = ProvisionByoipCidrRequest;
 export type ProvisionByoipCidrCommandOutput = ProvisionByoipCidrResponse & __MetadataBearer;
 
+/**
+ * <p>Provisions an IP address range to use with your AWS resources through bring your own IP
+ * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
+ * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
+ * 			AdvertiseByoipCidr</a>.</p>
+ * 		       <p>To see an AWS CLI example of provisioning an address range for BYOIP, scroll down to
+ * 			<b>Example</b>.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+ * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ */
 export class ProvisionByoipCidrCommand extends $Command<
   ProvisionByoipCidrCommandInput,
   ProvisionByoipCidrCommandOutput,
@@ -38,6 +48,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

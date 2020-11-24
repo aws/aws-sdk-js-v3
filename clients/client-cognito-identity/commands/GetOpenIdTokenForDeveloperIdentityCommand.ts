@@ -25,6 +25,21 @@ export type GetOpenIdTokenForDeveloperIdentityCommandInput = GetOpenIdTokenForDe
 export type GetOpenIdTokenForDeveloperIdentityCommandOutput = GetOpenIdTokenForDeveloperIdentityResponse &
   __MetadataBearer;
 
+/**
+ * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
+ *          token for a user authenticated by your backend authentication process. Supplying multiple
+ *          logins will create an implicit linked account. You can only specify one developer provider
+ *          as part of the <code>Logins</code> map, which is linked to the identity pool. The developer
+ *          provider is the "domain" by which Cognito will refer to your users.</p>
+ *          <p>You can use <code>GetOpenIdTokenForDeveloperIdentity</code> to create a new identity
+ *          and to link new logins (that is, user credentials issued by a public provider or developer
+ *          provider) to an existing identity. When you want to create a new identity, the
+ *             <code>IdentityId</code> should be null. When you want to associate a new login with an
+ *          existing authenticated/unauthenticated identity, you can do so by providing the existing
+ *             <code>IdentityId</code>. This API will create the identity in the specified
+ *             <code>IdentityPoolId</code>.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
   GetOpenIdTokenForDeveloperIdentityCommandInput,
   GetOpenIdTokenForDeveloperIdentityCommandOutput,
@@ -39,6 +54,9 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

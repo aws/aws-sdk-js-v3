@@ -20,6 +20,9 @@ import {
 export type DeleteIntegrationResponseCommandInput = DeleteIntegrationResponseRequest;
 export type DeleteIntegrationResponseCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Represents a delete integration response.</p>
+ */
 export class DeleteIntegrationResponseCommand extends $Command<
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteIntegrationResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

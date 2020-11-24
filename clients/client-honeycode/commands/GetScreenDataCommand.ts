@@ -20,6 +20,13 @@ import {
 export type GetScreenDataCommandInput = GetScreenDataRequest;
 export type GetScreenDataCommandOutput = GetScreenDataResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
+ *             The API allows setting local variables in the screen to filter, sort or otherwise affect what will be
+ *             displayed on the screen.
+ *         </p>
+ */
 export class GetScreenDataCommand extends $Command<
   GetScreenDataCommandInput,
   GetScreenDataCommandOutput,
@@ -34,6 +41,9 @@ export class GetScreenDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HoneycodeClientResolvedConfig,

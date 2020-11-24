@@ -20,6 +20,9 @@ import {
 export type DescribeCodeCoveragesCommandInput = DescribeCodeCoveragesInput;
 export type DescribeCodeCoveragesCommandOutput = DescribeCodeCoveragesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves one or more code coverage reports.</p>
+ */
 export class DescribeCodeCoveragesCommand extends $Command<
   DescribeCodeCoveragesCommandInput,
   DescribeCodeCoveragesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCodeCoveragesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

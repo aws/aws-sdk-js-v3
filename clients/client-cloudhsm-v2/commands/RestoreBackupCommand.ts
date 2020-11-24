@@ -20,6 +20,11 @@ import {
 export type RestoreBackupCommandInput = RestoreBackupRequest;
 export type RestoreBackupCommandOutput = RestoreBackupResponse & __MetadataBearer;
 
+/**
+ * <p>Restores a specified AWS CloudHSM backup that is in the
+ *                 <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see
+ *                 <a>DeleteBackup</a>.</p>
+ */
 export class RestoreBackupCommand extends $Command<
   RestoreBackupCommandInput,
   RestoreBackupCommandOutput,
@@ -34,6 +39,9 @@ export class RestoreBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

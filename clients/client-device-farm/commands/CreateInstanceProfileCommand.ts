@@ -20,6 +20,10 @@ import {
 export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
 export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult & __MetadataBearer;
 
+/**
+ * <p>Creates a profile that can be applied to one or more private fleet device
+ *             instances.</p>
+ */
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
@@ -34,6 +38,9 @@ export class CreateInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

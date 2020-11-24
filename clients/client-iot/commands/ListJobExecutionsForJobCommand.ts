@@ -20,6 +20,9 @@ import {
 export type ListJobExecutionsForJobCommandInput = ListJobExecutionsForJobRequest;
 export type ListJobExecutionsForJobCommandOutput = ListJobExecutionsForJobResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the job executions for a job.</p>
+ */
 export class ListJobExecutionsForJobCommand extends $Command<
   ListJobExecutionsForJobCommandInput,
   ListJobExecutionsForJobCommandOutput,
@@ -34,6 +37,9 @@ export class ListJobExecutionsForJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

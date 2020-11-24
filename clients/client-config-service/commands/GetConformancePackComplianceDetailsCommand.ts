@@ -24,6 +24,9 @@ export type GetConformancePackComplianceDetailsCommandInput = GetConformancePack
 export type GetConformancePackComplianceDetailsCommandOutput = GetConformancePackComplianceDetailsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
+ */
 export class GetConformancePackComplianceDetailsCommand extends $Command<
   GetConformancePackComplianceDetailsCommandInput,
   GetConformancePackComplianceDetailsCommandOutput,
@@ -38,6 +41,9 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

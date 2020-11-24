@@ -20,6 +20,11 @@ import {
 export type UpdateClusterCommandInput = UpdateClusterRequest;
 export type UpdateClusterCommandOutput = UpdateClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
+ *             more cluster configuration parameters by specifying the parameters and the new
+ *             values.</p>
+ */
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

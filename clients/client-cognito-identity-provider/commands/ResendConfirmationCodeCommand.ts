@@ -24,6 +24,10 @@ import {
 export type ResendConfirmationCodeCommandInput = ResendConfirmationCodeRequest;
 export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse & __MetadataBearer;
 
+/**
+ * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
+ *             user pool.</p>
+ */
 export class ResendConfirmationCodeCommand extends $Command<
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
@@ -38,6 +42,9 @@ export class ResendConfirmationCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

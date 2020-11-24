@@ -20,6 +20,10 @@ import {
 export type DetectEntitiesCommandInput = DetectEntitiesRequest;
 export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects text for named entities, and returns information about them. For more
+ *       information, about named entities, see <a>how-entities</a>. </p>
+ */
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,
   DetectEntitiesCommandOutput,
@@ -34,6 +38,9 @@ export class DetectEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

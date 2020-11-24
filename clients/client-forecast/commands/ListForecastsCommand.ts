@@ -20,6 +20,13 @@ import {
 export type ListForecastsCommandInput = ListForecastsRequest;
 export type ListForecastsCommandOutput = ListForecastsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
+ *       For each forecast, this operation returns a summary of its properties, including its Amazon
+ *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
+ *         <a>DescribeForecast</a> operation. You can filter the list using an array of
+ *         <a>Filter</a> objects.</p>
+ */
 export class ListForecastsCommand extends $Command<
   ListForecastsCommandInput,
   ListForecastsCommandOutput,
@@ -34,6 +41,9 @@ export class ListForecastsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

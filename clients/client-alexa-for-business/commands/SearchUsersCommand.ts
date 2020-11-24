@@ -20,6 +20,10 @@ import {
 export type SearchUsersCommandInput = SearchUsersRequest;
 export type SearchUsersCommandOutput = SearchUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Searches users and lists the ones that meet a set of filter and sort
+ *          criteria.</p>
+ */
 export class SearchUsersCommand extends $Command<
   SearchUsersCommandInput,
   SearchUsersCommandOutput,
@@ -34,6 +38,9 @@ export class SearchUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

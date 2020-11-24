@@ -20,6 +20,9 @@ import {
 export type DeleteUploadCommandInput = DeleteUploadRequest;
 export type DeleteUploadCommandOutput = DeleteUploadResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an upload given the upload ARN.</p>
+ */
 export class DeleteUploadCommand extends $Command<
   DeleteUploadCommandInput,
   DeleteUploadCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

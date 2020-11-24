@@ -20,6 +20,11 @@ import {
 export type DescribeDatabaseCommandInput = DescribeDatabaseRequest;
 export type DescribeDatabaseCommandOutput = DescribeDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the database, including the database name, time that the database was created,
+ *          and the total number of tables found within the database.
+ *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.</p>
+ */
 export class DescribeDatabaseCommand extends $Command<
   DescribeDatabaseCommandInput,
   DescribeDatabaseCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

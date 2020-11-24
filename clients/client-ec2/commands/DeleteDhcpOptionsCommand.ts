@@ -20,6 +20,9 @@ import {
 export type DeleteDhcpOptionsCommandInput = DeleteDhcpOptionsRequest;
 export type DeleteDhcpOptionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>
+ */
 export class DeleteDhcpOptionsCommand extends $Command<
   DeleteDhcpOptionsCommandInput,
   DeleteDhcpOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDhcpOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetModelTemplateCommandInput = GetModelTemplateRequest;
 export type GetModelTemplateCommandOutput = GetModelTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a model template.</p>
+ */
 export class GetModelTemplateCommand extends $Command<
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetModelTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

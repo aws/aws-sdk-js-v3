@@ -20,6 +20,9 @@ import {
 export type ListFieldLevelEncryptionProfilesCommandInput = ListFieldLevelEncryptionProfilesRequest;
 export type ListFieldLevelEncryptionProfilesCommandOutput = ListFieldLevelEncryptionProfilesResult & __MetadataBearer;
 
+/**
+ * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
+ */
 export class ListFieldLevelEncryptionProfilesCommand extends $Command<
   ListFieldLevelEncryptionProfilesCommandInput,
   ListFieldLevelEncryptionProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type BatchReadCommandInput = BatchReadRequest;
 export type BatchReadCommandOutput = BatchReadResponse & __MetadataBearer;
 
+/**
+ * <p>Performs all the read operations in a batch. </p>
+ */
 export class BatchReadCommand extends $Command<
   BatchReadCommandInput,
   BatchReadCommandOutput,
@@ -34,6 +37,9 @@ export class BatchReadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

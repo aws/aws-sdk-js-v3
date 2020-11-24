@@ -20,6 +20,11 @@ import {
 export type GetLayerVersionCommandInput = GetLayerVersionRequest;
 export type GetLayerVersionCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>, with a link to download the layer archive
+ *         that's valid for 10 minutes.</p>
+ */
 export class GetLayerVersionCommand extends $Command<
   GetLayerVersionCommandInput,
   GetLayerVersionCommandOutput,
@@ -34,6 +39,9 @@ export class GetLayerVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

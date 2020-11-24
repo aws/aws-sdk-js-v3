@@ -20,6 +20,16 @@ import {
 export type StartContactRecordingCommandInput = StartContactRecordingRequest;
 export type StartContactRecordingCommandOutput = StartContactRecordingResponse & __MetadataBearer;
 
+/**
+ * <p>This API starts recording the contact when the agent joins the call. StartContactRecording
+ *    is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing
+ *    call, you can't use StartContactRecording to restart it. For scenarios where the recording has
+ *    started and you want to suspend and resume it, such as when collecting sensitive information (for
+ *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
+ *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
+ *    behavior</a> block.</p>
+ *          <p>Only voice recordings are supported at this time.</p>
+ */
 export class StartContactRecordingCommand extends $Command<
   StartContactRecordingCommandInput,
   StartContactRecordingCommandOutput,
@@ -34,6 +44,9 @@ export class StartContactRecordingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

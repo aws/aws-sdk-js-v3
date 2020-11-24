@@ -24,6 +24,16 @@ export type DescribeConfigurationRecorderStatusCommandInput = DescribeConfigurat
 export type DescribeConfigurationRecorderStatusCommandOutput = DescribeConfigurationRecorderStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the current status of the specified configuration
+ * 			recorder. If a configuration recorder is not specified, this action
+ * 			returns the status of all configuration recorders associated with
+ * 			the account.</p>
+ * 		       <note>
+ * 			         <p>Currently, you can specify only one configuration recorder
+ * 				per region in your account.</p>
+ * 		       </note>
+ */
 export class DescribeConfigurationRecorderStatusCommand extends $Command<
   DescribeConfigurationRecorderStatusCommandInput,
   DescribeConfigurationRecorderStatusCommandOutput,
@@ -38,6 +48,9 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

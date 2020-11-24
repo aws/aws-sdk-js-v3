@@ -20,6 +20,9 @@ import {
 export type UpdatePackagingGroupCommandInput = UpdatePackagingGroupRequest;
 export type UpdatePackagingGroupCommandOutput = UpdatePackagingGroupResponse & __MetadataBearer;
 
+/**
+ * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
+ */
 export class UpdatePackagingGroupCommand extends $Command<
   UpdatePackagingGroupCommandInput,
   UpdatePackagingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePackagingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

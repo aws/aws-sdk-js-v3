@@ -20,6 +20,13 @@ import {
 export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
 export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult & __MetadataBearer;
 
+/**
+ * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
+ *             time before <code>LatestRestorableTime</code> for up to
+ *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
+ *             source cluster with the same configuration as the original cluster, except that
+ *             the new cluster is created with the default security group. </p>
+ */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,
   RestoreDBClusterToPointInTimeCommandOutput,
@@ -34,6 +41,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

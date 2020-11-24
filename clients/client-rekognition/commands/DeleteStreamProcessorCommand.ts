@@ -20,6 +20,10 @@ import {
 export type DeleteStreamProcessorCommandInput = DeleteStreamProcessorRequest;
 export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
+ *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
+ */
 export class DeleteStreamProcessorCommand extends $Command<
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteStreamProcessorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

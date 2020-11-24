@@ -20,6 +20,9 @@ import {
 export type UpdateApplicationCommandInput = UpdateApplicationInput;
 export type UpdateApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the name of an application.</p>
+ */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

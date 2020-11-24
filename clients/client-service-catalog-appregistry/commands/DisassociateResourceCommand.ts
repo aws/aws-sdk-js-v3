@@ -24,6 +24,9 @@ import {
 export type DisassociateResourceCommandInput = DisassociateResourceRequest;
 export type DisassociateResourceCommandOutput = DisassociateResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.</p>
+ */
 export class DisassociateResourceCommand extends $Command<
   DisassociateResourceCommandInput,
   DisassociateResourceCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

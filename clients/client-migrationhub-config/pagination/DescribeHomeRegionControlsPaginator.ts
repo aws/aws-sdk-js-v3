@@ -8,6 +8,9 @@ import {
 import { MigrationHubConfigPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MigrationHubConfigClient,
   input: DescribeHomeRegionControlsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeHomeRegionControlsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MigrationHubConfig,
   input: DescribeHomeRegionControlsCommandInput,

@@ -20,6 +20,9 @@ import {
 export type ListDatasetsCommandInput = ListDatasetsRequest;
 export type ListDatasetsCommandOutput = ListDatasetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the AWS Glue DataBrew datasets for the current AWS account.</p>
+ */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,
   ListDatasetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDatasetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

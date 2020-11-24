@@ -20,6 +20,10 @@ import {
 export type AssociateMemberAccountCommandInput = AssociateMemberAccountRequest;
 export type AssociateMemberAccountCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates a specified AWS account with Amazon Macie Classic as a member
+ *       account.</p>
+ */
 export class AssociateMemberAccountCommand extends $Command<
   AssociateMemberAccountCommandInput,
   AssociateMemberAccountCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateMemberAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

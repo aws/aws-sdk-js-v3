@@ -20,6 +20,9 @@ import {
 export type RevokePermissionsCommandInput = RevokePermissionsRequest;
 export type RevokePermissionsCommandOutput = RevokePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
+ */
 export class RevokePermissionsCommand extends $Command<
   RevokePermissionsCommandInput,
   RevokePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class RevokePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

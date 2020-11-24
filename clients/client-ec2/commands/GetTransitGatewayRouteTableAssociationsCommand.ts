@@ -24,6 +24,9 @@ export type GetTransitGatewayRouteTableAssociationsCommandInput = GetTransitGate
 export type GetTransitGatewayRouteTableAssociationsCommandOutput = GetTransitGatewayRouteTableAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about the associations for the specified transit gateway route table.</p>
+ */
 export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
   GetTransitGatewayRouteTableAssociationsCommandInput,
   GetTransitGatewayRouteTableAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

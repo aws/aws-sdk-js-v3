@@ -20,6 +20,9 @@ import {
 export type DeleteCustomMetadataCommandInput = DeleteCustomMetadataRequest;
 export type DeleteCustomMetadataCommandOutput = DeleteCustomMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes custom metadata from the specified resource.</p>
+ */
 export class DeleteCustomMetadataCommand extends $Command<
   DeleteCustomMetadataCommandInput,
   DeleteCustomMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCustomMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type AssociateResolverQueryLogConfigCommandInput = AssociateResolverQueryLogConfigRequest;
 export type AssociateResolverQueryLogConfigCommandOutput = AssociateResolverQueryLogConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
+ * 			that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code>
+ * 			request for each VPC.</p>
+ *
+ * 		       <note>
+ *             <p>The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.</p>
+ *          </note>
+ *
+ * 		       <p>To remove a VPC from a query logging configuration, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html">DisassociateResolverQueryLogConfig</a>.
+ * 			</p>
+ */
 export class AssociateResolverQueryLogConfigCommand extends $Command<
   AssociateResolverQueryLogConfigCommandInput,
   AssociateResolverQueryLogConfigCommandOutput,
@@ -34,6 +47,9 @@ export class AssociateResolverQueryLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

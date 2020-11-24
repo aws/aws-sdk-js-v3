@@ -20,6 +20,15 @@ import {
 export type DeleteUserCommandInput = DeleteUserRequest;
 export type DeleteUserCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
+ *
+ *          <p>No response returns from this operation.</p>
+ *
+ *          <note>
+ *             <p>When you delete a user from a server, the user's information is lost.</p>
+ *          </note>
+ */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,
   DeleteUserCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

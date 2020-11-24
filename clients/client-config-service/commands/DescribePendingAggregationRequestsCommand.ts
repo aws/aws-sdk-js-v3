@@ -24,6 +24,9 @@ export type DescribePendingAggregationRequestsCommandInput = DescribePendingAggr
 export type DescribePendingAggregationRequestsCommandOutput = DescribePendingAggregationRequestsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of all pending aggregation requests.</p>
+ */
 export class DescribePendingAggregationRequestsCommand extends $Command<
   DescribePendingAggregationRequestsCommandInput,
   DescribePendingAggregationRequestsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

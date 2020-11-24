@@ -20,6 +20,9 @@ import {
 export type CreateImageBuilderStreamingURLCommandInput = CreateImageBuilderStreamingURLRequest;
 export type CreateImageBuilderStreamingURLCommandOutput = CreateImageBuilderStreamingURLResult & __MetadataBearer;
 
+/**
+ * <p>Creates a URL to start an image builder streaming session.</p>
+ */
 export class CreateImageBuilderStreamingURLCommand extends $Command<
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
@@ -34,6 +37,9 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type InitiateJobCommandInput = InitiateJobInput;
 export type InitiateJobCommandOutput = InitiateJobOutput & __MetadataBearer;
 
+/**
+ * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
+ *          or a vault retrieval. For more information about using this operation,
+ *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
+ *             a Job</a>.
+ *       </p>
+ */
 export class InitiateJobCommand extends $Command<
   InitiateJobCommandInput,
   InitiateJobCommandOutput,
@@ -34,6 +41,9 @@ export class InitiateJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

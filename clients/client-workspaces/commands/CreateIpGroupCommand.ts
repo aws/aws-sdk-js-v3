@@ -20,6 +20,18 @@ import {
 export type CreateIpGroupCommandInput = CreateIpGroupRequest;
 export type CreateIpGroupCommandOutput = CreateIpGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates an IP access control group.</p>
+ *          <p>An IP access control group provides you with the ability to control the IP addresses
+ *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
+ *          ranges, add rules to your IP access control group and then associate the group with your
+ *          directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p>
+ *
+ *          <p>There is a default IP access control group associated with your directory. If you don't
+ *          associate an IP access control group with your directory, the default group is used. The
+ *          default group includes a default rule that allows users to access their WorkSpaces from
+ *          anywhere. You cannot modify the default IP access control group for your directory.</p>
+ */
 export class CreateIpGroupCommand extends $Command<
   CreateIpGroupCommandInput,
   CreateIpGroupCommandOutput,
@@ -34,6 +46,9 @@ export class CreateIpGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

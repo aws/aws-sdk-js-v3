@@ -20,6 +20,10 @@ import {
 export type ListTablesCommandInput = ListTablesRequest;
 export type ListTablesCommandOutput = ListTablesResponse & __MetadataBearer;
 
+/**
+ * <p>A list of tables, along with the name, status and retention properties of each table.
+ *       </p>
+ */
 export class ListTablesCommand extends $Command<
   ListTablesCommandInput,
   ListTablesCommandOutput,
@@ -34,6 +38,9 @@ export class ListTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

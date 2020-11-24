@@ -20,6 +20,9 @@ import {
 export type CancelDeploymentJobCommandInput = CancelDeploymentJobRequest;
 export type CancelDeploymentJobCommandOutput = CancelDeploymentJobResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified deployment job.</p>
+ */
 export class CancelDeploymentJobCommand extends $Command<
   CancelDeploymentJobCommandInput,
   CancelDeploymentJobCommandOutput,
@@ -34,6 +37,9 @@ export class CancelDeploymentJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

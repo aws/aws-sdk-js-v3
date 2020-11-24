@@ -20,6 +20,12 @@ import {
 export type DeleteSubscriberCommandInput = DeleteSubscriberRequest;
 export type DeleteSubscriberCommandOutput = DeleteSubscriberResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a subscriber.</p>
+ * 		       <important>
+ * 			         <p>Deleting the last subscriber to a notification also deletes the notification.</p>
+ * 		       </important>
+ */
 export class DeleteSubscriberCommand extends $Command<
   DeleteSubscriberCommandInput,
   DeleteSubscriberCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteSubscriberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

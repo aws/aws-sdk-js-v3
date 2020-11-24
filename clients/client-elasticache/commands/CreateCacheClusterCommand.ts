@@ -20,6 +20,12 @@ import {
 export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
 export type CreateCacheClusterCommandOutput = CreateCacheClusterResult & __MetadataBearer;
 
+/**
+ * <p>Creates a cluster. All nodes in the
+ *             cluster run the same protocol-compliant cache engine software, either Memcached
+ *             or Redis.</p>
+ *         <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
+ */
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,
   CreateCacheClusterCommandOutput,
@@ -34,6 +40,9 @@ export class CreateCacheClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

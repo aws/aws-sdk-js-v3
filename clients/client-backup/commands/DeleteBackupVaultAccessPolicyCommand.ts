@@ -20,6 +20,9 @@ import {
 export type DeleteBackupVaultAccessPolicyCommandInput = DeleteBackupVaultAccessPolicyInput;
 export type DeleteBackupVaultAccessPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the policy document that manages permissions on a backup vault.</p>
+ */
 export class DeleteBackupVaultAccessPolicyCommand extends $Command<
   DeleteBackupVaultAccessPolicyCommandInput,
   DeleteBackupVaultAccessPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

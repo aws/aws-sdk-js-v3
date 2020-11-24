@@ -20,6 +20,11 @@ import {
 export type RenewOfferingCommandInput = RenewOfferingRequest;
 export type RenewOfferingCommandOutput = RenewOfferingResult & __MetadataBearer;
 
+/**
+ * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
+ *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
+ *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ */
 export class RenewOfferingCommand extends $Command<
   RenewOfferingCommandInput,
   RenewOfferingCommandOutput,
@@ -34,6 +39,9 @@ export class RenewOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

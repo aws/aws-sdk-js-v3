@@ -20,6 +20,9 @@ import {
 export type JsonBlobsCommandInput = JsonBlobsInputOutput;
 export type JsonBlobsCommandOutput = JsonBlobsInputOutput & __MetadataBearer;
 
+/**
+ * Blobs are base64 encoded
+ */
 export class JsonBlobsCommand extends $Command<
   JsonBlobsCommandInput,
   JsonBlobsCommandOutput,
@@ -34,6 +37,9 @@ export class JsonBlobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

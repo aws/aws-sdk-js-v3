@@ -21,6 +21,9 @@ import {
 export type UpdateHostedZoneCommentCommandInput = UpdateHostedZoneCommentRequest;
 export type UpdateHostedZoneCommentCommandOutput = UpdateHostedZoneCommentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the comment for a specified hosted zone.</p>
+ */
 export class UpdateHostedZoneCommentCommand extends $Command<
   UpdateHostedZoneCommentCommandInput,
   UpdateHostedZoneCommentCommandOutput,
@@ -35,6 +38,9 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

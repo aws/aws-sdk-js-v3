@@ -20,6 +20,9 @@ import {
 export type GetReplicationJobsCommandInput = GetReplicationJobsRequest;
 export type GetReplicationJobsCommandOutput = GetReplicationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified replication job or all of your replication jobs.</p>
+ */
 export class GetReplicationJobsCommand extends $Command<
   GetReplicationJobsCommandInput,
   GetReplicationJobsCommandOutput,
@@ -34,6 +37,9 @@ export class GetReplicationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

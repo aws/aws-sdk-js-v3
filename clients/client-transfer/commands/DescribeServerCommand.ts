@@ -20,6 +20,14 @@ import {
 export type DescribeServerCommandInput = DescribeServerRequest;
 export type DescribeServerCommandOutput = DescribeServerResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a file transfer protocol-enabled server that you specify by passing the
+ *         <code>ServerId</code> parameter.</p>
+ *
+ *          <p>The response contains a description of a server's properties. When you set
+ *         <code>EndpointType</code> to VPC, the response will contain the
+ *       <code>EndpointDetails</code>.</p>
+ */
 export class DescribeServerCommand extends $Command<
   DescribeServerCommandInput,
   DescribeServerCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

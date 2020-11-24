@@ -20,6 +20,12 @@ import {
 export type DescribeBudgetCommandInput = DescribeBudgetRequest;
 export type DescribeBudgetCommandOutput = DescribeBudgetResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a budget.</p>
+ * 		       <important>
+ * 			         <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a> section. </p>
+ * 		       </important>
+ */
 export class DescribeBudgetCommand extends $Command<
   DescribeBudgetCommandInput,
   DescribeBudgetCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeBudgetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

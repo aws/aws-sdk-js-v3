@@ -17,6 +17,9 @@ import {
 export type GetCommitCommandInput = GetCommitInput;
 export type GetCommitCommandOutput = GetCommitOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a commit, including commit message and committer information.</p>
+ */
 export class GetCommitCommand extends $Command<
   GetCommitCommandInput,
   GetCommitCommandOutput,
@@ -31,6 +34,9 @@ export class GetCommitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

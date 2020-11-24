@@ -20,6 +20,15 @@ import {
 export type ListAttributesCommandInput = ListAttributesRequest;
 export type ListAttributesCommandOutput = ListAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
+ * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
+ * 			of attribute objects, one for each attribute on each resource. You can filter the list
+ * 			of results to a single attribute name to only return results that have that name. You
+ * 			can also filter the results by attribute name and value, for example, to see which
+ * 			container instances in a cluster are running a Linux AMI
+ * 			(<code>ecs.os-type=linux</code>). </p>
+ */
 export class ListAttributesCommand extends $Command<
   ListAttributesCommandInput,
   ListAttributesCommandOutput,
@@ -34,6 +43,9 @@ export class ListAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

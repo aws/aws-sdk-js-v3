@@ -24,6 +24,9 @@ import {
 export type DescribeProjectCommandInput = DescribeProjectRequest;
 export type DescribeProjectCommandOutput = DescribeProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an object describing a project.</p>
+ */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,
   DescribeProjectCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

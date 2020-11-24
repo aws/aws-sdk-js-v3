@@ -20,6 +20,9 @@ import {
 export type CreateProxySessionCommandInput = CreateProxySessionRequest;
 export type CreateProxySessionCommandOutput = CreateProxySessionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
+ */
 export class CreateProxySessionCommand extends $Command<
   CreateProxySessionCommandInput,
   CreateProxySessionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateProxySessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

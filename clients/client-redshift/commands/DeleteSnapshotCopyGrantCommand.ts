@@ -20,6 +20,9 @@ import {
 export type DeleteSnapshotCopyGrantCommandInput = DeleteSnapshotCopyGrantMessage;
 export type DeleteSnapshotCopyGrantCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified snapshot copy grant.</p>
+ */
 export class DeleteSnapshotCopyGrantCommand extends $Command<
   DeleteSnapshotCopyGrantCommandInput,
   DeleteSnapshotCopyGrantCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

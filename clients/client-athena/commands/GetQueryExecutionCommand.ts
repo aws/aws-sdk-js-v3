@@ -20,6 +20,11 @@ import {
 export type GetQueryExecutionCommandInput = GetQueryExecutionInput;
 export type GetQueryExecutionCommandOutput = GetQueryExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a single execution of a query if you have access to the
+ *             workgroup in which the query ran. Each time a query executes, information about the
+ *             query execution is saved with a unique ID.</p>
+ */
 export class GetQueryExecutionCommand extends $Command<
   GetQueryExecutionCommandInput,
   GetQueryExecutionCommandOutput,
@@ -34,6 +39,9 @@ export class GetQueryExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

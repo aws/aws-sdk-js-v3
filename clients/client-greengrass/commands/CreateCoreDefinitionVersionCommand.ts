@@ -20,6 +20,9 @@ import {
 export type CreateCoreDefinitionVersionCommandInput = CreateCoreDefinitionVersionRequest;
 export type CreateCoreDefinitionVersionCommandOutput = CreateCoreDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
+ */
 export class CreateCoreDefinitionVersionCommand extends $Command<
   CreateCoreDefinitionVersionCommandInput,
   CreateCoreDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

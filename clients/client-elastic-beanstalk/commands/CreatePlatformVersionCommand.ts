@@ -20,6 +20,9 @@ import {
 export type CreatePlatformVersionCommandInput = CreatePlatformVersionRequest;
 export type CreatePlatformVersionCommandOutput = CreatePlatformVersionResult & __MetadataBearer;
 
+/**
+ * <p>Create a new version of your custom platform.</p>
+ */
 export class CreatePlatformVersionCommand extends $Command<
   CreatePlatformVersionCommandInput,
   CreatePlatformVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePlatformVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

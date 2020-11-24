@@ -20,6 +20,9 @@ import {
 export type GetPublicKeyConfigCommandInput = GetPublicKeyConfigRequest;
 export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult & __MetadataBearer;
 
+/**
+ * <p>Gets a public key configuration.</p>
+ */
 export class GetPublicKeyConfigCommand extends $Command<
   GetPublicKeyConfigCommandInput,
   GetPublicKeyConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetPublicKeyConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

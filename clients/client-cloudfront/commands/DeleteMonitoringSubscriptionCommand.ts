@@ -20,6 +20,9 @@ import {
 export type DeleteMonitoringSubscriptionCommandInput = DeleteMonitoringSubscriptionRequest;
 export type DeleteMonitoringSubscriptionCommandOutput = DeleteMonitoringSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
+ */
 export class DeleteMonitoringSubscriptionCommand extends $Command<
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

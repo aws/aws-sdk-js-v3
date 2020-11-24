@@ -20,6 +20,12 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationRequest;
 export type CreateApplicationCommandOutput = Application & __MetadataBearer;
 
+/**
+ * <p>An application in AppConfig is a logical unit of code that provides capabilities for your
+ *          customers. For example, an application can be a microservice that runs on Amazon EC2 instances,
+ *          a mobile application installed by your users, a serverless application using Amazon API
+ *          Gateway and AWS Lambda, or any system you run on behalf of others.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -34,6 +40,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

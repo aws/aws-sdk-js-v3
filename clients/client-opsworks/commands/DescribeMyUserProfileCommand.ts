@@ -20,6 +20,14 @@ import {
 export type DescribeMyUserProfileCommandInput = {};
 export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult & __MetadataBearer;
 
+/**
+ * <p>Describes a user's SSH information.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
+ *       enabled or an attached policy that explicitly grants permissions. For more information about user
+ *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeMyUserProfileCommand extends $Command<
   DescribeMyUserProfileCommandInput,
   DescribeMyUserProfileCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeMyUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type AttachPrincipalPolicyCommandInput = AttachPrincipalPolicyRequest;
 export type AttachPrincipalPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Attaches the specified policy to the specified principal (certificate or other
+ *          credential).</p>
+ *          <p>
+ *             <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+ */
 export class AttachPrincipalPolicyCommand extends $Command<
   AttachPrincipalPolicyCommandInput,
   AttachPrincipalPolicyCommandOutput,
@@ -34,6 +40,9 @@ export class AttachPrincipalPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

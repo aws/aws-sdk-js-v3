@@ -20,6 +20,23 @@ import {
 export type SetQueueAttributesCommandInput = SetQueueAttributesRequest;
 export type SetQueueAttributesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
+ *       Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
+ *               </li>
+ *                <li>
+ *                   <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ *               </li>
+ *                <li>
+ *                   <p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p>
+ *               </li>
+ *             </ul>
+ *          </note>
+ */
 export class SetQueueAttributesCommand extends $Command<
   SetQueueAttributesCommandInput,
   SetQueueAttributesCommandOutput,
@@ -34,6 +51,9 @@ export class SetQueueAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

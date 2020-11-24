@@ -21,6 +21,9 @@ import {
 export type ListHostsCommandInput = ListHostsInput;
 export type ListHostsCommandOutput = ListHostsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the hosts associated with your account.</p>
+ */
 export class ListHostsCommand extends $Command<
   ListHostsCommandInput,
   ListHostsCommandOutput,
@@ -35,6 +38,9 @@ export class ListHostsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

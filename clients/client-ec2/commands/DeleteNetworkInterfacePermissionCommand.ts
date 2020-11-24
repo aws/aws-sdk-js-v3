@@ -20,6 +20,12 @@ import {
 export type DeleteNetworkInterfacePermissionCommandInput = DeleteNetworkInterfacePermissionRequest;
 export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a permission for a network interface. By default, you cannot delete the
+ * 			permission if the account for which you're removing the permission has attached the
+ * 			network interface to an instance. However, you can force delete the permission,
+ * 			regardless of any attachment.</p>
+ */
 export class DeleteNetworkInterfacePermissionCommand extends $Command<
   DeleteNetworkInterfacePermissionCommandInput,
   DeleteNetworkInterfacePermissionCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

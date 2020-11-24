@@ -20,6 +20,9 @@ import {
 export type ListThingRegistrationTaskReportsCommandInput = ListThingRegistrationTaskReportsRequest;
 export type ListThingRegistrationTaskReportsCommandOutput = ListThingRegistrationTaskReportsResponse & __MetadataBearer;
 
+/**
+ * <p>Information about the thing registration tasks.</p>
+ */
 export class ListThingRegistrationTaskReportsCommand extends $Command<
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
@@ -34,6 +37,9 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

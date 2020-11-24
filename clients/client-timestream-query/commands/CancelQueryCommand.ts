@@ -20,6 +20,13 @@ import {
 export type CancelQueryCommandInput = CancelQueryRequest;
 export type CancelQueryCommandOutput = CancelQueryResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *         Cancels a query that has been issued. Cancellation is guaranteed only if the query has not
+ *         completed execution before the cancellation request was issued. Because cancellation is an idempotent operation,
+ *         subsequent cancellation requests will return a <code>CancellationMessage</code>, indicating that the query has already been canceled.
+ *     </p>
+ */
 export class CancelQueryCommand extends $Command<
   CancelQueryCommandInput,
   CancelQueryCommandOutput,
@@ -34,6 +41,9 @@ export class CancelQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamQueryClientResolvedConfig,

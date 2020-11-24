@@ -20,6 +20,9 @@ import {
 export type MergeBranchesByFastForwardCommandInput = MergeBranchesByFastForwardInput;
 export type MergeBranchesByFastForwardCommandOutput = MergeBranchesByFastForwardOutput & __MetadataBearer;
 
+/**
+ * <p>Merges two branches using the fast-forward merge strategy.</p>
+ */
 export class MergeBranchesByFastForwardCommand extends $Command<
   MergeBranchesByFastForwardCommandInput,
   MergeBranchesByFastForwardCommandOutput,
@@ -34,6 +37,9 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

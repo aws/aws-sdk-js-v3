@@ -20,6 +20,10 @@ import {
 export type DeleteDataSourceCommandInput = DeleteDataSourceRequest;
 export type DeleteDataSourceCommandOutput = DeleteDataSourceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the data source permanently. This operation breaks
+ * 			all the datasets that reference the deleted data source.</p>
+ */
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

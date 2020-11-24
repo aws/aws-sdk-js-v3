@@ -20,6 +20,9 @@ import {
 export type UpdateSubscriberCommandInput = UpdateSubscriberRequest;
 export type UpdateSubscriberCommandOutput = UpdateSubscriberResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a subscriber.</p>
+ */
 export class UpdateSubscriberCommand extends $Command<
   UpdateSubscriberCommandInput,
   UpdateSubscriberCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSubscriberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

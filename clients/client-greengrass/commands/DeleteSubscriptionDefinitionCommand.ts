@@ -20,6 +20,9 @@ import {
 export type DeleteSubscriptionDefinitionCommandInput = DeleteSubscriptionDefinitionRequest;
 export type DeleteSubscriptionDefinitionCommandOutput = DeleteSubscriptionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Deletes a subscription definition.
+ */
 export class DeleteSubscriptionDefinitionCommand extends $Command<
   DeleteSubscriptionDefinitionCommandInput,
   DeleteSubscriptionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

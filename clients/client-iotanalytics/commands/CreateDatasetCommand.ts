@@ -20,6 +20,13 @@ import {
 export type CreateDatasetCommandInput = CreateDatasetRequest;
 export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a dataset. A dataset stores data retrieved from a data store by applying a
+ *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
+ *       containerized application). This operation creates the skeleton of a dataset. The dataset can
+ *       be populated manually by calling <code>CreateDatasetContent</code> or automatically according
+ *       to a trigger you specify.</p>
+ */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
@@ -34,6 +41,9 @@ export class CreateDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

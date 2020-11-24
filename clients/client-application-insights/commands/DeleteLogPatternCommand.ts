@@ -24,6 +24,9 @@ import {
 export type DeleteLogPatternCommandInput = DeleteLogPatternRequest;
 export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
+ */
 export class DeleteLogPatternCommand extends $Command<
   DeleteLogPatternCommandInput,
   DeleteLogPatternCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteLogPatternCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

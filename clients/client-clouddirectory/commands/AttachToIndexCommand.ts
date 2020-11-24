@@ -20,6 +20,9 @@ import {
 export type AttachToIndexCommandInput = AttachToIndexRequest;
 export type AttachToIndexCommandOutput = AttachToIndexResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches the specified object to the specified index.</p>
+ */
 export class AttachToIndexCommand extends $Command<
   AttachToIndexCommandInput,
   AttachToIndexCommandOutput,
@@ -34,6 +37,9 @@ export class AttachToIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

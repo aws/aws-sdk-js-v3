@@ -20,6 +20,10 @@ import {
 export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
 export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the DDoS Response Team's (DRT) access to your AWS account.</p>
+ * 	        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>
+ */
 export class DisassociateDRTRoleCommand extends $Command<
   DisassociateDRTRoleCommandInput,
   DisassociateDRTRoleCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateDRTRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

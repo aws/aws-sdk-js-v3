@@ -20,6 +20,10 @@ import {
 export type DescribeStandardsCommandInput = DescribeStandardsRequest;
 export type DescribeStandardsCommandOutput = DescribeStandardsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the available standards in Security Hub.</p>
+ *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
+ */
 export class DescribeStandardsCommand extends $Command<
   DescribeStandardsCommandInput,
   DescribeStandardsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeStandardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

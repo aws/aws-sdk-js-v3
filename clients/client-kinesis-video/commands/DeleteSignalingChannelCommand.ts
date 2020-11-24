@@ -20,6 +20,11 @@ import {
 export type DeleteSignalingChannelCommandInput = DeleteSignalingChannelInput;
 export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
+ *             asynchronous operation. If you don't specify the channel's current version, the most
+ *             recent version is deleted.</p>
+ */
 export class DeleteSignalingChannelCommand extends $Command<
   DeleteSignalingChannelCommandInput,
   DeleteSignalingChannelCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteSignalingChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

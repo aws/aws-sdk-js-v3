@@ -20,6 +20,10 @@ import {
 export type DescribeLocationObjectStorageCommandInput = DescribeLocationObjectStorageRequest;
 export type DescribeLocationObjectStorageCommandOutput = DescribeLocationObjectStorageResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about a self-managed object storage server location. For more information
+ *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
+ */
 export class DescribeLocationObjectStorageCommand extends $Command<
   DescribeLocationObjectStorageCommandInput,
   DescribeLocationObjectStorageCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

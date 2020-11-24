@@ -4,6 +4,9 @@ import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput }
 import { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTSecureTunnelingClient,
   input: ListTunnelsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTunnelsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTSecureTunneling,
   input: ListTunnelsCommandInput,

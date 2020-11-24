@@ -20,6 +20,9 @@ import {
 export type GetDatabaseCommandInput = GetDatabaseInput;
 export type GetDatabaseCommandOutput = GetDatabaseOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a database object for the specfied database and data catalog.</p>
+ */
 export class GetDatabaseCommand extends $Command<
   GetDatabaseCommandInput,
   GetDatabaseCommandOutput,
@@ -34,6 +37,9 @@ export class GetDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

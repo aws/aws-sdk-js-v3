@@ -20,6 +20,31 @@ import {
 export type GetDashboardEmbedUrlCommandInput = GetDashboardEmbedUrlRequest;
 export type GetDashboardEmbedUrlCommandOutput = GetDashboardEmbedUrlResponse & __MetadataBearer;
 
+/**
+ * <p>Generates a session URL and authorization code that you can use to embed an Amazon
+ *             QuickSight read-only dashboard in your web server code. Before you use this command,
+ *             make sure that you have configured the dashboards and permissions. </p>
+ *         <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
+ *             from the user's browser. The following rules apply to the combination of URL and
+ *             authorization code:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>They must be used together.</p>
+ *             </li>
+ *             <li>
+ *                 <p>They can be used one time only.</p>
+ *             </li>
+ *             <li>
+ *                 <p>They are valid for 5 minutes after you run this command.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The resulting user session is valid for 10 hours.</p>
+ *             </li>
+ *          </ul>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight</a> in the <i>Amazon QuickSight User
+ *             Guide</i>
+ *          .</p>
+ */
 export class GetDashboardEmbedUrlCommand extends $Command<
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
@@ -34,6 +59,9 @@ export class GetDashboardEmbedUrlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

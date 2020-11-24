@@ -20,6 +20,10 @@ import {
 export type StartDeploymentCommandInput = StartDeploymentRequest;
 export type StartDeploymentCommandOutput = StartDeploymentResult & __MetadataBearer;
 
+/**
+ * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
+ *             connected to a repository. </p>
+ */
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,
   StartDeploymentCommandOutput,
@@ -34,6 +38,9 @@ export class StartDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

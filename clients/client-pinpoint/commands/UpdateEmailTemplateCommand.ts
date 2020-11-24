@@ -20,6 +20,9 @@ import {
 export type UpdateEmailTemplateCommandInput = UpdateEmailTemplateRequest;
 export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing message template for messages that are sent through the email channel.</p>
+ */
 export class UpdateEmailTemplateCommand extends $Command<
   UpdateEmailTemplateCommandInput,
   UpdateEmailTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

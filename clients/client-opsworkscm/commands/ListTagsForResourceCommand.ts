@@ -20,6 +20,10 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate or
+ *       AWS OpsWorks for Puppet Enterprise servers or backups.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

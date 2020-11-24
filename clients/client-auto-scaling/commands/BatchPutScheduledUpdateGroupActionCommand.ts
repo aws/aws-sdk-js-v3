@@ -21,6 +21,11 @@ export type BatchPutScheduledUpdateGroupActionCommandInput = BatchPutScheduledUp
 export type BatchPutScheduledUpdateGroupActionCommandOutput = BatchPutScheduledUpdateGroupActionAnswer &
   __MetadataBearer;
 
+/**
+ * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you
+ *             leave a parameter unspecified when updating a scheduled scaling action, the
+ *             corresponding value remains unchanged.</p>
+ */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
   BatchPutScheduledUpdateGroupActionCommandInput,
   BatchPutScheduledUpdateGroupActionCommandOutput,
@@ -35,6 +40,9 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

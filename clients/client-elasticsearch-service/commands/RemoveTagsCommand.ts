@@ -24,6 +24,9 @@ import {
 export type RemoveTagsCommandInput = RemoveTagsRequest;
 export type RemoveTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
+ */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,
   RemoveTagsCommandOutput,
@@ -38,6 +41,9 @@ export class RemoveTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

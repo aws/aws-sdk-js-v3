@@ -20,6 +20,11 @@ import {
 export type DeregisterResourceCommandInput = DeregisterResourceRequest;
 export type DeregisterResourceCommandOutput = DeregisterResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters the resource as managed by the Data Catalog.</p>
+ *
+ *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
+ */
 export class DeregisterResourceCommand extends $Command<
   DeregisterResourceCommandInput,
   DeregisterResourceCommandOutput,
@@ -34,6 +39,9 @@ export class DeregisterResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

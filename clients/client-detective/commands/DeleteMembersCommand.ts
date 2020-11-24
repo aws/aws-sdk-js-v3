@@ -20,6 +20,13 @@ import {
 export type DeleteMembersCommandInput = DeleteMembersRequest;
 export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more member accounts from the master account behavior graph. This
+ *          operation can only be called by a Detective master account. That account cannot use
+ *             <code>DeleteMembers</code> to delete their own account from the behavior graph. To
+ *          disable a behavior graph, the master account uses the <code>DeleteGraph</code> API
+ *          method.</p>
+ */
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,
   DeleteMembersCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

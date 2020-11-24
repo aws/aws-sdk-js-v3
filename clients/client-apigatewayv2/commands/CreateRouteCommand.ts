@@ -20,6 +20,9 @@ import {
 export type CreateRouteCommandInput = CreateRouteRequest;
 export type CreateRouteCommandOutput = CreateRouteResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Route for an API.</p>
+ */
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,
   CreateRouteCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

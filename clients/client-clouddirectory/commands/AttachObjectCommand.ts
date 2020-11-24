@@ -20,6 +20,19 @@ import {
 export type AttachObjectCommandInput = AttachObjectRequest;
 export type AttachObjectCommandOutput = AttachObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches an existing object to another object. An object can be accessed in two
+ *       ways:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Using the path</p>
+ *             </li>
+ *             <li>
+ *                <p>Using <code>ObjectIdentifier</code>
+ *                </p>
+ *             </li>
+ *          </ol>
+ */
 export class AttachObjectCommand extends $Command<
   AttachObjectCommandInput,
   AttachObjectCommandOutput,
@@ -34,6 +47,9 @@ export class AttachObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

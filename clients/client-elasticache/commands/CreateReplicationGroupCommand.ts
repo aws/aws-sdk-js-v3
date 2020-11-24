@@ -20,6 +20,27 @@ import {
 export type CreateReplicationGroupCommandInput = CreateReplicationGroupMessage;
 export type CreateReplicationGroupCommandOutput = CreateReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
+ *         <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global Datastore.</p>
+ *         <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
+ *             where one of the clusters is a read/write primary and the others are read-only replicas.
+ *             Writes to the primary are asynchronously propagated to the replicas.</p>
+ *         <p>A Redis (cluster mode enabled) replication group is a collection of 1 to 90 node groups (shards).
+ *             Each node group (shard) has one read/write primary node and up to 5 read-only replica nodes.
+ *             Writes to the primary are asynchronously propagated to the replicas.
+ *             Redis (cluster mode enabled) replication groups partition the data across node groups (shards).</p>
+ *         <p>When a Redis (cluster mode disabled) replication group has been successfully created,
+ *             you can add one or more read replicas to it, up to a total of 5 read replicas.
+ *             If you need to increase or decrease the number of node groups (console: shards),
+ *             you can avail yourself of ElastiCache for Redis' scaling. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.</p>
+ *
+ *
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class CreateReplicationGroupCommand extends $Command<
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
@@ -34,6 +55,9 @@ export class CreateReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

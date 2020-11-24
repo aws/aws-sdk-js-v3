@@ -20,6 +20,9 @@ import {
 export type HttpPrefixHeadersCommandInput = HttpPrefixHeadersInputOutput;
 export type HttpPrefixHeadersCommandOutput = HttpPrefixHeadersInputOutput & __MetadataBearer;
 
+/**
+ * This examples adds headers to the input of a request and response by prefix.
+ */
 export class HttpPrefixHeadersCommand extends $Command<
   HttpPrefixHeadersCommandInput,
   HttpPrefixHeadersCommandOutput,
@@ -34,6 +37,9 @@ export class HttpPrefixHeadersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type RevokeSnapshotAccessCommandInput = RevokeSnapshotAccessMessage;
 export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult & __MetadataBearer;
 
+/**
+ * <p>Removes the ability of the specified AWS customer account to restore the specified
+ *             snapshot. If the account is currently restoring the snapshot, the restore will run to
+ *             completion.</p>
+ *         <p>
+ * For more information about working with snapshots, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandInput,
   RevokeSnapshotAccessCommandOutput,
@@ -34,6 +43,9 @@ export class RevokeSnapshotAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

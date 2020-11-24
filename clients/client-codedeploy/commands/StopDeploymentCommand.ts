@@ -20,6 +20,9 @@ import {
 export type StopDeploymentCommandInput = StopDeploymentInput;
 export type StopDeploymentCommandOutput = StopDeploymentOutput & __MetadataBearer;
 
+/**
+ * <p>Attempts to stop an ongoing deployment.</p>
+ */
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,
   StopDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class StopDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

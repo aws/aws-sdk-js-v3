@@ -20,6 +20,9 @@ import {
 export type DescribeParametersCommandInput = DescribeParametersRequest;
 export type DescribeParametersCommandOutput = DescribeParametersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the detailed parameter list for a particular parameter group.</p>
+ */
 export class DescribeParametersCommand extends $Command<
   DescribeParametersCommandInput,
   DescribeParametersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

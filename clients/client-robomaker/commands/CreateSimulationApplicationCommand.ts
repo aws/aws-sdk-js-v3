@@ -20,6 +20,9 @@ import {
 export type CreateSimulationApplicationCommandInput = CreateSimulationApplicationRequest;
 export type CreateSimulationApplicationCommandOutput = CreateSimulationApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a simulation application.</p>
+ */
 export class CreateSimulationApplicationCommand extends $Command<
   CreateSimulationApplicationCommandInput,
   CreateSimulationApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSimulationApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

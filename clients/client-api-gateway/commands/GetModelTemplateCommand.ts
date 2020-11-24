@@ -20,6 +20,9 @@ import {
 export type GetModelTemplateCommandInput = GetModelTemplateRequest;
 export type GetModelTemplateCommandOutput = Template & __MetadataBearer;
 
+/**
+ * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
+ */
 export class GetModelTemplateCommand extends $Command<
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetModelTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

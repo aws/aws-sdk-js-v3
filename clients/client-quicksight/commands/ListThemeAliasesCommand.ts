@@ -20,6 +20,9 @@ import {
 export type ListThemeAliasesCommandInput = ListThemeAliasesRequest;
 export type ListThemeAliasesCommandOutput = ListThemeAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the aliases of a theme.</p>
+ */
 export class ListThemeAliasesCommand extends $Command<
   ListThemeAliasesCommandInput,
   ListThemeAliasesCommandOutput,
@@ -34,6 +37,9 @@ export class ListThemeAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

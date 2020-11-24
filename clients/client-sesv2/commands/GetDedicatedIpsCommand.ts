@@ -20,6 +20,10 @@ import {
 export type GetDedicatedIpsCommandInput = GetDedicatedIpsRequest;
 export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse & __MetadataBearer;
 
+/**
+ * <p>List the dedicated IP addresses that are associated with your AWS
+ *             account.</p>
+ */
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,
   GetDedicatedIpsCommandOutput,
@@ -34,6 +38,9 @@ export class GetDedicatedIpsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

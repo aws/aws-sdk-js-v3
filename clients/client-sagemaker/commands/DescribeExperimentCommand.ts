@@ -20,6 +20,9 @@ import {
 export type DescribeExperimentCommandInput = DescribeExperimentRequest;
 export type DescribeExperimentCommandOutput = DescribeExperimentResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a list of an experiment's properties.</p>
+ */
 export class DescribeExperimentCommand extends $Command<
   DescribeExperimentCommandInput,
   DescribeExperimentCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExperimentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

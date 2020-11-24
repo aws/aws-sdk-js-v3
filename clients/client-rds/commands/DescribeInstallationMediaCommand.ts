@@ -20,6 +20,10 @@ import {
 export type DescribeInstallationMediaCommandInput = DescribeInstallationMediaMessage;
 export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage & __MetadataBearer;
 
+/**
+ * <p>Describes the available installation media for a DB engine that requires an
+ *           on-premises customer provided license, such as Microsoft SQL Server.</p>
+ */
 export class DescribeInstallationMediaCommand extends $Command<
   DescribeInstallationMediaCommandInput,
   DescribeInstallationMediaCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeInstallationMediaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

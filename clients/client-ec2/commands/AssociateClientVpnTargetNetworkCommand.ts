@@ -20,6 +20,10 @@ import {
 export type AssociateClientVpnTargetNetworkCommandInput = AssociateClientVpnTargetNetworkRequest;
 export type AssociateClientVpnTargetNetworkCommandOutput = AssociateClientVpnTargetNetworkResult & __MetadataBearer;
 
+/**
+ * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
+ * 	        <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
+ */
 export class AssociateClientVpnTargetNetworkCommand extends $Command<
   AssociateClientVpnTargetNetworkCommandInput,
   AssociateClientVpnTargetNetworkCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

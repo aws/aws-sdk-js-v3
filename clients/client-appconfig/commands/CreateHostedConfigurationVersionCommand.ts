@@ -20,6 +20,9 @@ import {
 export type CreateHostedConfigurationVersionCommandInput = CreateHostedConfigurationVersionRequest;
 export type CreateHostedConfigurationVersionCommandOutput = HostedConfigurationVersion & __MetadataBearer;
 
+/**
+ * <p>Create a new configuration in the AppConfig configuration store.</p>
+ */
 export class CreateHostedConfigurationVersionCommand extends $Command<
   CreateHostedConfigurationVersionCommandInput,
   CreateHostedConfigurationVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

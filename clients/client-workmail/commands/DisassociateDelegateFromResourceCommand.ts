@@ -20,6 +20,9 @@ import {
 export type DisassociateDelegateFromResourceCommandInput = DisassociateDelegateFromResourceRequest;
 export type DisassociateDelegateFromResourceCommandOutput = DisassociateDelegateFromResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a member from the resource's set of delegates.</p>
+ */
 export class DisassociateDelegateFromResourceCommand extends $Command<
   DisassociateDelegateFromResourceCommandInput,
   DisassociateDelegateFromResourceCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

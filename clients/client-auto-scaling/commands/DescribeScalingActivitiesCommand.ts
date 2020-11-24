@@ -20,6 +20,9 @@ import {
 export type DescribeScalingActivitiesCommandInput = DescribeScalingActivitiesType;
 export type DescribeScalingActivitiesCommandOutput = ActivitiesType & __MetadataBearer;
 
+/**
+ * <p>Describes one or more scaling activities for the specified Auto Scaling group.</p>
+ */
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,
   DescribeScalingActivitiesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScalingActivitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

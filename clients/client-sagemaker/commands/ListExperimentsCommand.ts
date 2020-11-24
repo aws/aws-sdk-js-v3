@@ -20,6 +20,11 @@ import {
 export type ListExperimentsCommandInput = ListExperimentsRequest;
 export type ListExperimentsCommandOutput = ListExperimentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the experiments in your account. The list can be filtered to show only
+ *       experiments that were created in a specific time range. The list can be sorted by experiment
+ *       name or creation time.</p>
+ */
 export class ListExperimentsCommand extends $Command<
   ListExperimentsCommandInput,
   ListExperimentsCommandOutput,
@@ -34,6 +39,9 @@ export class ListExperimentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

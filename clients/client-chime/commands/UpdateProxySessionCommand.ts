@@ -20,6 +20,9 @@ import {
 export type UpdateProxySessionCommandInput = UpdateProxySessionRequest;
 export type UpdateProxySessionCommandOutput = UpdateProxySessionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
+ */
 export class UpdateProxySessionCommand extends $Command<
   UpdateProxySessionCommandInput,
   UpdateProxySessionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProxySessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

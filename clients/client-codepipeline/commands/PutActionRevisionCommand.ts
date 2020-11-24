@@ -20,6 +20,9 @@ import {
 export type PutActionRevisionCommandInput = PutActionRevisionInput;
 export type PutActionRevisionCommandOutput = PutActionRevisionOutput & __MetadataBearer;
 
+/**
+ * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
+ */
 export class PutActionRevisionCommand extends $Command<
   PutActionRevisionCommandInput,
   PutActionRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class PutActionRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

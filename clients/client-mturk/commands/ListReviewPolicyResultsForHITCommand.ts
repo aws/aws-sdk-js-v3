@@ -20,6 +20,15 @@ import {
 export type ListReviewPolicyResultsForHITCommandInput = ListReviewPolicyResultsForHITRequest;
 export type ListReviewPolicyResultsForHITCommandOutput = ListReviewPolicyResultsForHITResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
+ *             and the actions taken in the course of executing your Review Policies for a given HIT.
+ *             For information about how to specify Review Policies when you call CreateHIT,
+ *             see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both
+ *             Assignment-level and HIT-level review results.
+ *         </p>
+ */
 export class ListReviewPolicyResultsForHITCommand extends $Command<
   ListReviewPolicyResultsForHITCommandInput,
   ListReviewPolicyResultsForHITCommandOutput,
@@ -34,6 +43,9 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

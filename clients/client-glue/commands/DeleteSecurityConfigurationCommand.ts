@@ -20,6 +20,9 @@ import {
 export type DeleteSecurityConfigurationCommandInput = DeleteSecurityConfigurationRequest;
 export type DeleteSecurityConfigurationCommandOutput = DeleteSecurityConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified security configuration.</p>
+ */
 export class DeleteSecurityConfigurationCommand extends $Command<
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type BatchGetRepositoriesCommandInput = BatchGetRepositoriesInput;
 export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more repositories.</p>
+ *         <note>
+ *             <p>The description field for a repository accepts all HTML characters and all valid
+ *                 Unicode characters. Applications that do not HTML-encode the description and display
+ *                 it in a webpage can expose users to potentially malicious code. Make sure that you
+ *                 HTML-encode the description field in any application that uses this API to display
+ *                 the repository description on a webpage.</p>
+ *          </note>
+ */
 export class BatchGetRepositoriesCommand extends $Command<
   BatchGetRepositoriesCommandInput,
   BatchGetRepositoriesCommandOutput,
@@ -34,6 +44,9 @@ export class BatchGetRepositoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StopJobCommandInput = StopJobRequest;
 export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
 
+/**
+ * <p> Stops a job that is in progress for a branch of an Amplify app. </p>
+ */
 export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

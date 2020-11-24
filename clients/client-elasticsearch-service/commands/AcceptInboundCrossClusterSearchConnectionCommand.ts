@@ -28,6 +28,9 @@ export type AcceptInboundCrossClusterSearchConnectionCommandInput = AcceptInboun
 export type AcceptInboundCrossClusterSearchConnectionCommandOutput = AcceptInboundCrossClusterSearchConnectionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.</p>
+ */
 export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
   AcceptInboundCrossClusterSearchConnectionCommandInput,
   AcceptInboundCrossClusterSearchConnectionCommandOutput,
@@ -42,6 +45,9 @@ export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

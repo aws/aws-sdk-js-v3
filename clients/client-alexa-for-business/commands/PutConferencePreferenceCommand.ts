@@ -20,6 +20,10 @@ import {
 export type PutConferencePreferenceCommandInput = PutConferencePreferenceRequest;
 export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the conference preferences on a specific conference provider at the account
+ *          level.</p>
+ */
 export class PutConferencePreferenceCommand extends $Command<
   PutConferencePreferenceCommandInput,
   PutConferencePreferenceCommandOutput,
@@ -34,6 +38,9 @@ export class PutConferencePreferenceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

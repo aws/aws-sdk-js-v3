@@ -20,6 +20,10 @@ import {
 export type DeleteTaskSetCommandInput = DeleteTaskSetRequest;
 export type DeleteTaskSetCommandOutput = DeleteTaskSetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified task set within a service. This is used when a service uses the
+ * 				<code>EXTERNAL</code> deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class DeleteTaskSetCommand extends $Command<
   DeleteTaskSetCommandInput,
   DeleteTaskSetCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTaskSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

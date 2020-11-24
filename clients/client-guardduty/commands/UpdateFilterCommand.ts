@@ -20,6 +20,9 @@ import {
 export type UpdateFilterCommandInput = UpdateFilterRequest;
 export type UpdateFilterCommandOutput = UpdateFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the filter specified by the filter name.</p>
+ */
 export class UpdateFilterCommand extends $Command<
   UpdateFilterCommandInput,
   UpdateFilterCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

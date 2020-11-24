@@ -20,6 +20,9 @@ import {
 export type DescribeBackupVaultCommandInput = DescribeBackupVaultInput;
 export type DescribeBackupVaultCommandOutput = DescribeBackupVaultOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about a backup vault specified by its name.</p>
+ */
 export class DescribeBackupVaultCommand extends $Command<
   DescribeBackupVaultCommandInput,
   DescribeBackupVaultCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBackupVaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

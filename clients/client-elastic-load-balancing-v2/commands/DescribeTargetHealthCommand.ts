@@ -24,6 +24,9 @@ import {
 export type DescribeTargetHealthCommandInput = DescribeTargetHealthInput;
 export type DescribeTargetHealthCommandOutput = DescribeTargetHealthOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the health of the specified targets or all of your targets.</p>
+ */
 export class DescribeTargetHealthCommand extends $Command<
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeTargetHealthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

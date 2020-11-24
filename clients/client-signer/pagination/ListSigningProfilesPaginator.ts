@@ -8,6 +8,9 @@ import {
 import { SignerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SignerClient,
   input: ListSigningProfilesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSigningProfilesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Signer,
   input: ListSigningProfilesCommandInput,

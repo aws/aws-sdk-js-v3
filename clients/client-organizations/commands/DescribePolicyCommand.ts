@@ -20,6 +20,11 @@ import {
 export type DescribePolicyCommandInput = DescribePolicyRequest;
 export type DescribePolicyCommandOutput = DescribePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a policy.</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class DescribePolicyCommand extends $Command<
   DescribePolicyCommandInput,
   DescribePolicyCommandOutput,
@@ -34,6 +39,9 @@ export class DescribePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

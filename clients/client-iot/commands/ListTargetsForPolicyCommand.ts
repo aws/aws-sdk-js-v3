@@ -20,6 +20,9 @@ import {
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
 export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>List targets for the specified policy.</p>
+ */
 export class ListTargetsForPolicyCommand extends $Command<
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

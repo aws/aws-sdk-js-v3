@@ -20,6 +20,9 @@ import {
 export type DetachNetworkInterfaceCommandInput = DetachNetworkInterfaceRequest;
 export type DetachNetworkInterfaceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Detaches a network interface from an instance.</p>
+ */
 export class DetachNetworkInterfaceCommand extends $Command<
   DetachNetworkInterfaceCommandInput,
   DetachNetworkInterfaceCommandOutput,
@@ -34,6 +37,9 @@ export class DetachNetworkInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

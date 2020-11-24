@@ -20,6 +20,16 @@ import {
 export type DeleteBackupCommandInput = DeleteBackupRequest;
 export type DeleteBackupCommandOutput = DeleteBackupResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
+ *     </p>
+ *          <p>
+ *       An <code>InvalidStateException</code> is thrown when a backup deletion is already in progress.
+ *       A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
+ *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
+ *     </p>
+ */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

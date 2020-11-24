@@ -20,6 +20,13 @@ import {
 export type DeleteClusterParameterGroupCommandInput = DeleteClusterParameterGroupMessage;
 export type DeleteClusterParameterGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified Amazon Redshift parameter group.</p>
+ *         <note>
+ *             <p>You cannot delete a parameter group if it is associated with a
+ *                 cluster.</p>
+ *         </note>
+ */
 export class DeleteClusterParameterGroupCommand extends $Command<
   DeleteClusterParameterGroupCommandInput,
   DeleteClusterParameterGroupCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

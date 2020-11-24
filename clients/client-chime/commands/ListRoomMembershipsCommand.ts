@@ -20,6 +20,10 @@ import {
 export type ListRoomMembershipsCommandInput = ListRoomMembershipsRequest;
 export type ListRoomMembershipsCommandOutput = ListRoomMembershipsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account, such as the members' IDs, email
+ *       addresses, and names.</p>
+ */
 export class ListRoomMembershipsCommand extends $Command<
   ListRoomMembershipsCommandInput,
   ListRoomMembershipsCommandOutput,
@@ -34,6 +38,9 @@ export class ListRoomMembershipsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetUsageStatisticsCommandInput = GetUsageStatisticsRequest;
 export type GetUsageStatisticsCommandOutput = GetUsageStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
+ */
 export class GetUsageStatisticsCommand extends $Command<
   GetUsageStatisticsCommandInput,
   GetUsageStatisticsCommandOutput,
@@ -34,6 +37,9 @@ export class GetUsageStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

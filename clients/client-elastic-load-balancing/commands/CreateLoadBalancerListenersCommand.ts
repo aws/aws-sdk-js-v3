@@ -24,6 +24,11 @@ import {
 export type CreateLoadBalancerListenersCommandInput = CreateLoadBalancerListenerInput;
 export type CreateLoadBalancerListenersCommandOutput = CreateLoadBalancerListenerOutput & __MetadataBearer;
 
+/**
+ * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class CreateLoadBalancerListenersCommand extends $Command<
   CreateLoadBalancerListenersCommandInput,
   CreateLoadBalancerListenersCommandOutput,
@@ -38,6 +43,9 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

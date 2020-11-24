@@ -20,6 +20,9 @@ import {
 export type GetSmsChannelCommandInput = GetSmsChannelRequest;
 export type GetSmsChannelCommandOutput = GetSmsChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
+ */
 export class GetSmsChannelCommand extends $Command<
   GetSmsChannelCommandInput,
   GetSmsChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetSmsChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

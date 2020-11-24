@@ -20,6 +20,9 @@ import {
 export type DescribeFastSnapshotRestoresCommandInput = DescribeFastSnapshotRestoresRequest;
 export type DescribeFastSnapshotRestoresCommandOutput = DescribeFastSnapshotRestoresResult & __MetadataBearer;
 
+/**
+ * <p>Describes the state of fast snapshot restores for your snapshots.</p>
+ */
 export class DescribeFastSnapshotRestoresCommand extends $Command<
   DescribeFastSnapshotRestoresCommandInput,
   DescribeFastSnapshotRestoresCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

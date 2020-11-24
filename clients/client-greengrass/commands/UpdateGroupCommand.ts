@@ -20,6 +20,9 @@ import {
 export type UpdateGroupCommandInput = UpdateGroupRequest;
 export type UpdateGroupCommandOutput = UpdateGroupResponse & __MetadataBearer;
 
+/**
+ * Updates a group.
+ */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,
   UpdateGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

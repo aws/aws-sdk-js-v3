@@ -8,6 +8,9 @@ import {
 import { SupportPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SupportClient,
   input: DescribeCasesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeCasesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Support,
   input: DescribeCasesCommandInput,

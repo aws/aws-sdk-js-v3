@@ -20,6 +20,10 @@ import {
 export type UpdateAccessPolicyCommandInput = UpdateAccessPolicyRequest;
 export type UpdateAccessPolicyCommandOutput = UpdateAccessPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor
+ *       portal or project resource.</p>
+ */
 export class UpdateAccessPolicyCommand extends $Command<
   UpdateAccessPolicyCommandInput,
   UpdateAccessPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateAccessPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

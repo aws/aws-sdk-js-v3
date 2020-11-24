@@ -24,6 +24,12 @@ export type DescribeConfigRuleEvaluationStatusCommandInput = DescribeConfigRuleE
 export type DescribeConfigRuleEvaluationStatusCommandOutput = DescribeConfigRuleEvaluationStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns status information for each of your AWS managed Config
+ * 			rules. The status includes information such as the last time AWS
+ * 			Config invoked the rule, the last time AWS Config failed to invoke
+ * 			the rule, and the related error for the last failure.</p>
+ */
 export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
   DescribeConfigRuleEvaluationStatusCommandInput,
   DescribeConfigRuleEvaluationStatusCommandOutput,
@@ -38,6 +44,9 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDomainMetadataCommandInput = UpdateDomainMetadataRequest;
 export type UpdateDomainMetadataCommandOutput = UpdateDomainMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Updates domain metadata, such as DisplayName.</p>
+ */
 export class UpdateDomainMetadataCommand extends $Command<
   UpdateDomainMetadataCommandInput,
   UpdateDomainMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDomainMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

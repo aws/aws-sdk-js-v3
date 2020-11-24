@@ -20,6 +20,9 @@ import {
 export type GetTrailStatusCommandInput = GetTrailStatusRequest;
 export type GetTrailStatusCommandOutput = GetTrailStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. This operation returns trail status from a single region. To return trail status from all regions, you must call the operation on each region.</p>
+ */
 export class GetTrailStatusCommand extends $Command<
   GetTrailStatusCommandInput,
   GetTrailStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetTrailStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

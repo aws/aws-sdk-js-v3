@@ -20,6 +20,13 @@ import {
 export type ReplaceNetworkAclAssociationCommandInput = ReplaceNetworkAclAssociationRequest;
 export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult & __MetadataBearer;
 
+/**
+ * <p>Changes which network ACL a subnet is associated with. By default when you create a
+ * 			subnet, it's automatically associated with the default network ACL. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
+ * 			ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *         <p>This is an idempotent operation.</p>
+ */
 export class ReplaceNetworkAclAssociationCommand extends $Command<
   ReplaceNetworkAclAssociationCommandInput,
   ReplaceNetworkAclAssociationCommandOutput,
@@ -34,6 +41,9 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

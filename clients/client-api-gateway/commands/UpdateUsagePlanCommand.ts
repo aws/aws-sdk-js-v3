@@ -20,6 +20,9 @@ import {
 export type UpdateUsagePlanCommandInput = UpdateUsagePlanRequest;
 export type UpdateUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
 
+/**
+ * <p>Updates a usage plan of a given plan Id.</p>
+ */
 export class UpdateUsagePlanCommand extends $Command<
   UpdateUsagePlanCommandInput,
   UpdateUsagePlanCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUsagePlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DeleteBandwidthRateLimitCommandInput = DeleteBandwidthRateLimitInput;
 export type DeleteBandwidthRateLimitCommandOutput = DeleteBandwidthRateLimitOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
+ *          download bandwidth rate limit, or you can delete both. If you delete only one of the
+ *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
+ *          Amazon Resource Name (ARN) of the gateway in your request. This operation is supported for
+ *          the stored volume, cached volume and tape gateway types.</p>
+ */
 export class DeleteBandwidthRateLimitCommand extends $Command<
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

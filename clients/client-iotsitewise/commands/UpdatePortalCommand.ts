@@ -20,6 +20,9 @@ import {
 export type UpdatePortalCommandInput = UpdatePortalRequest;
 export type UpdatePortalCommandOutput = UpdatePortalResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an AWS IoT SiteWise Monitor portal.</p>
+ */
 export class UpdatePortalCommand extends $Command<
   UpdatePortalCommandInput,
   UpdatePortalCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePortalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

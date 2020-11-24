@@ -20,6 +20,9 @@ import {
 export type DescribeFeatureTransformationCommandInput = DescribeFeatureTransformationRequest;
 export type DescribeFeatureTransformationCommandOutput = DescribeFeatureTransformationResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the given feature transformation.</p>
+ */
 export class DescribeFeatureTransformationCommand extends $Command<
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFeatureTransformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

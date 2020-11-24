@@ -20,6 +20,9 @@ import {
 export type GetInsightResultsCommandInput = GetInsightResultsRequest;
 export type GetInsightResultsCommandOutput = GetInsightResultsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>
+ */
 export class GetInsightResultsCommand extends $Command<
   GetInsightResultsCommandInput,
   GetInsightResultsCommandOutput,
@@ -34,6 +37,9 @@ export class GetInsightResultsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

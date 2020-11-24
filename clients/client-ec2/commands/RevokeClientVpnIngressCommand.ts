@@ -20,6 +20,9 @@ import {
 export type RevokeClientVpnIngressCommandInput = RevokeClientVpnIngressRequest;
 export type RevokeClientVpnIngressCommandOutput = RevokeClientVpnIngressResult & __MetadataBearer;
 
+/**
+ * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
+ */
 export class RevokeClientVpnIngressCommand extends $Command<
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -34,6 +37,9 @@ export class RevokeClientVpnIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

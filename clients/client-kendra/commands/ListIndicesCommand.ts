@@ -20,6 +20,9 @@ import {
 export type ListIndicesCommandInput = ListIndicesRequest;
 export type ListIndicesCommandOutput = ListIndicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Amazon Kendra indexes that you have created.</p>
+ */
 export class ListIndicesCommand extends $Command<
   ListIndicesCommandInput,
   ListIndicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListIndicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

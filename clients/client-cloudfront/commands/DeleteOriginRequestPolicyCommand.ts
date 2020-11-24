@@ -20,6 +20,15 @@ import {
 export type DeleteOriginRequestPolicyCommandInput = DeleteOriginRequestPolicyRequest;
 export type DeleteOriginRequestPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an origin request policy.</p>
+ * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
+ * 			update your distributions to remove the origin request policy from all cache behaviors,
+ * 			then delete the origin request policy.</p>
+ * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
+ * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+ * 			<code>GetOriginRequestPolicy</code>.</p>
+ */
 export class DeleteOriginRequestPolicyCommand extends $Command<
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListAttachedPoliciesCommandInput = ListAttachedPoliciesRequest;
 export type ListAttachedPoliciesCommandOutput = ListAttachedPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the policies attached to the specified thing group.</p>
+ */
 export class ListAttachedPoliciesCommand extends $Command<
   ListAttachedPoliciesCommandInput,
   ListAttachedPoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAttachedPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

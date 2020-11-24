@@ -20,6 +20,9 @@ import {
 export type GetInsightSummariesCommandInput = GetInsightSummariesRequest;
 export type GetInsightSummariesCommandOutput = GetInsightSummariesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
+ */
 export class GetInsightSummariesCommand extends $Command<
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
@@ -34,6 +37,9 @@ export class GetInsightSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
 export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates the specified stateless or stateful rule group, which includes the rules for
+ *          network traffic inspection, a capacity setting, and tags. </p>
+ *          <p>You provide your rule group specification in your request using either
+ *             <code>RuleGroup</code> or <code>Rules</code>.</p>
+ */
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
   CreateRuleGroupCommandOutput,
@@ -34,6 +40,9 @@ export class CreateRuleGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

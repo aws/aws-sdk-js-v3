@@ -8,6 +8,9 @@ import {
 import { IoTAnalyticsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTAnalyticsClient,
   input: ListChannelsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChannelsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTAnalytics,
   input: ListChannelsCommandInput,

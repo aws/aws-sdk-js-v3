@@ -20,6 +20,11 @@ import {
 export type ListHoursOfOperationsCommandInput = ListHoursOfOperationsRequest;
 export type ListHoursOfOperationsCommandOutput = ListHoursOfOperationsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
+ *     Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class ListHoursOfOperationsCommand extends $Command<
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -34,6 +39,9 @@ export class ListHoursOfOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

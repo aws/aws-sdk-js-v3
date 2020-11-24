@@ -20,6 +20,10 @@ import {
 export type DeleteProjectCommandInput = DeleteProjectRequest;
 export type DeleteProjectCommandOutput = DeleteProjectResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
+ *         <p> Deleting this resource does not stop an in-progress run.</p>
+ */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

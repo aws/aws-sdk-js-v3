@@ -20,6 +20,9 @@ import {
 export type DescribeOptionGroupOptionsCommandInput = DescribeOptionGroupOptionsMessage;
 export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Describes all available options.</p>
+ */
 export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

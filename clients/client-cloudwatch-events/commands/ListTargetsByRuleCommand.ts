@@ -20,6 +20,9 @@ import {
 export type ListTargetsByRuleCommandInput = ListTargetsByRuleRequest;
 export type ListTargetsByRuleCommandOutput = ListTargetsByRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the targets assigned to the specified rule.</p>
+ */
 export class ListTargetsByRuleCommand extends $Command<
   ListTargetsByRuleCommandInput,
   ListTargetsByRuleCommandOutput,
@@ -34,6 +37,9 @@ export class ListTargetsByRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

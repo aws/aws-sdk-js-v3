@@ -24,6 +24,13 @@ import {
 export type GetHomeRegionCommandInput = GetHomeRegionRequest;
 export type GetHomeRegionCommandOutput = GetHomeRegionResult & __MetadataBearer;
 
+/**
+ * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
+ *       services to determine the regional endpoint for calling AWS Application Discovery Service and
+ *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any
+ *       other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's
+ *       Migration Hub home region.</p>
+ */
 export class GetHomeRegionCommand extends $Command<
   GetHomeRegionCommandInput,
   GetHomeRegionCommandOutput,
@@ -38,6 +45,9 @@ export class GetHomeRegionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,

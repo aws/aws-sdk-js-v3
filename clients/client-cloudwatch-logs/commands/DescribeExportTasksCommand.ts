@@ -20,6 +20,10 @@ import {
 export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
 export type DescribeExportTasksCommandOutput = DescribeExportTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the specified export tasks. You can list all your export tasks or filter
+ *       the results based on task ID or task status.</p>
+ */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeExportTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

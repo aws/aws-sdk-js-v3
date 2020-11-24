@@ -20,6 +20,9 @@ import {
 export type DescribeEvaluationsCommandInput = DescribeEvaluationsInput;
 export type DescribeEvaluationsCommandOutput = DescribeEvaluationsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
+ */
 export class DescribeEvaluationsCommand extends $Command<
   DescribeEvaluationsCommandInput,
   DescribeEvaluationsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEvaluationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

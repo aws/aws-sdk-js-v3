@@ -24,6 +24,10 @@ import {
 export type StartReplicationTaskAssessmentCommandInput = StartReplicationTaskAssessmentMessage;
 export type StartReplicationTaskAssessmentCommandOutput = StartReplicationTaskAssessmentResponse & __MetadataBearer;
 
+/**
+ * <p> Starts the replication task assessment for unsupported data types in the source
+ *          database. </p>
+ */
 export class StartReplicationTaskAssessmentCommand extends $Command<
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
@@ -38,6 +42,9 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

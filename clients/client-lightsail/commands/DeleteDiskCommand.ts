@@ -20,6 +20,16 @@ import {
 export type DeleteDiskCommandInput = DeleteDiskRequest;
 export type DeleteDiskCommandOutput = DeleteDiskResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
+ *       state (not attached to a Lightsail instance).</p>
+ *          <note>
+ *             <p>The disk may remain in the <code>deleting</code> state for several minutes.</p>
+ *          </note>
+ *          <p>The <code>delete disk</code> operation supports tag-based access control via resource tags
+ *       applied to the resource identified by <code>disk name</code>. For more information, see the
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteDiskCommand extends $Command<
   DeleteDiskCommandInput,
   DeleteDiskCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteDiskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

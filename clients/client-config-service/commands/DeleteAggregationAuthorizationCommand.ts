@@ -20,6 +20,10 @@ import {
 export type DeleteAggregationAuthorizationCommandInput = DeleteAggregationAuthorizationRequest;
 export type DeleteAggregationAuthorizationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the authorization granted to the specified
+ * 			configuration aggregator account in a specified region.</p>
+ */
 export class DeleteAggregationAuthorizationCommand extends $Command<
   DeleteAggregationAuthorizationCommandInput,
   DeleteAggregationAuthorizationCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

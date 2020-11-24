@@ -24,6 +24,10 @@ export type PutConfigurationSetReputationOptionsCommandInput = PutConfigurationS
 export type PutConfigurationSetReputationOptionsCommandOutput = PutConfigurationSetReputationOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Enable or disable collection of reputation metrics for emails that you send using a
+ *             particular configuration set in a specific AWS Region.</p>
+ */
 export class PutConfigurationSetReputationOptionsCommand extends $Command<
   PutConfigurationSetReputationOptionsCommandInput,
   PutConfigurationSetReputationOptionsCommandOutput,
@@ -38,6 +42,9 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListAuditTasksCommandInput = ListAuditTasksRequest;
 export type ListAuditTasksCommandOutput = ListAuditTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Device Defender audits that have been performed during a given
+ *           time period.</p>
+ */
 export class ListAuditTasksCommand extends $Command<
   ListAuditTasksCommandInput,
   ListAuditTasksCommandOutput,
@@ -34,6 +38,9 @@ export class ListAuditTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

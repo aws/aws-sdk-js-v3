@@ -20,6 +20,9 @@ import {
 export type ListBrokersCommandInput = ListBrokersRequest;
 export type ListBrokersCommandOutput = ListBrokersResponse & __MetadataBearer;
 
+/**
+ * Returns a list of all brokers.
+ */
 export class ListBrokersCommand extends $Command<
   ListBrokersCommandInput,
   ListBrokersCommandOutput,
@@ -34,6 +37,9 @@ export class ListBrokersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListScramSecretsCommandInput = ListScramSecretsRequest;
 export type ListScramSecretsCommandOutput = ListScramSecretsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
+ */
 export class ListScramSecretsCommand extends $Command<
   ListScramSecretsCommandInput,
   ListScramSecretsCommandOutput,
@@ -34,6 +37,9 @@ export class ListScramSecretsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

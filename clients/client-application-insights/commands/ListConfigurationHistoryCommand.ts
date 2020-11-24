@@ -24,6 +24,22 @@ import {
 export type ListConfigurationHistoryCommandInput = ListConfigurationHistoryRequest;
 export type ListConfigurationHistoryCommandOutput = ListConfigurationHistoryResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:
+ *       </p>
+ *          <ul>
+ *             <li>
+ *                <p>INFO: creating a new alarm or updating an alarm threshold.</p>
+ *             </li>
+ *             <li>
+ *                <p>WARN: alarm not created due to insufficient data points used to predict thresholds.</p>
+ *             </li>
+ *             <li>
+ *                <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListConfigurationHistoryCommand extends $Command<
   ListConfigurationHistoryCommandInput,
   ListConfigurationHistoryCommandOutput,
@@ -38,6 +54,9 @@ export class ListConfigurationHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

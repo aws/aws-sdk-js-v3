@@ -20,6 +20,12 @@ import {
 export type DescribeGlobalTableSettingsCommandInput = DescribeGlobalTableSettingsInput;
 export type DescribeGlobalTableSettingsCommandOutput = DescribeGlobalTableSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>Describes Region-specific settings for a global table.</p>
+ *           <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+ *          </note>
+ */
 export class DescribeGlobalTableSettingsCommand extends $Command<
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

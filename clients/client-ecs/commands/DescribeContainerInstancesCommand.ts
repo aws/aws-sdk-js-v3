@@ -20,6 +20,10 @@ import {
 export type DescribeContainerInstancesCommandInput = DescribeContainerInstancesRequest;
 export type DescribeContainerInstancesCommandOutput = DescribeContainerInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes Amazon Elastic Container Service container instances. Returns metadata about registered and
+ * 			remaining resources on each container instance requested.</p>
+ */
 export class DescribeContainerInstancesCommand extends $Command<
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeContainerInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

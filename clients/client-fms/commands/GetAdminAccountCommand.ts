@@ -20,6 +20,10 @@ import {
 export type GetAdminAccountCommandInput = GetAdminAccountRequest;
 export type GetAdminAccountCommandOutput = GetAdminAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager
+ *       as the AWS Firewall Manager administrator.</p>
+ */
 export class GetAdminAccountCommand extends $Command<
   GetAdminAccountCommandInput,
   GetAdminAccountCommandOutput,
@@ -34,6 +38,9 @@ export class GetAdminAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

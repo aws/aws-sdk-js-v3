@@ -20,6 +20,11 @@ import {
 export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
 export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
+ *          of resources have been deleted. Deleting a backup plan deletes the current version of a
+ *          backup plan. Previous versions, if any, will still exist.</p>
+ */
 export class DeleteBackupPlanCommand extends $Command<
   DeleteBackupPlanCommandInput,
   DeleteBackupPlanCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteBackupPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

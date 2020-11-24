@@ -20,6 +20,16 @@ import {
 export type ActivateGatewayCommandInput = ActivateGatewayInput;
 export type ActivateGatewayCommandOutput = ActivateGatewayOutput & __MetadataBearer;
 
+/**
+ * <p>Activates the gateway you previously deployed on your host. In the activation process,
+ *          you specify information such as the AWS Region that you want to use for storing snapshots
+ *          or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an
+ *          activation key, and a name for your gateway. The activation process also associates your
+ *          gateway with your account. For more information, see <a>UpdateGatewayInformation</a>.</p>
+ *          <note>
+ *             <p>You must turn on the gateway VM before you can activate your gateway.</p>
+ *          </note>
+ */
 export class ActivateGatewayCommand extends $Command<
   ActivateGatewayCommandInput,
   ActivateGatewayCommandOutput,
@@ -34,6 +44,9 @@ export class ActivateGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

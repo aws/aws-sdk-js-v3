@@ -20,6 +20,9 @@ import {
 export type DescribeScheduledAuditCommandInput = DescribeScheduledAuditRequest;
 export type DescribeScheduledAuditCommandOutput = DescribeScheduledAuditResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a scheduled audit.</p>
+ */
 export class DescribeScheduledAuditCommand extends $Command<
   DescribeScheduledAuditCommandInput,
   DescribeScheduledAuditCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScheduledAuditCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

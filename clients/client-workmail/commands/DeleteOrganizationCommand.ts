@@ -20,6 +20,9 @@ import {
 export type DeleteOrganizationCommandInput = DeleteOrganizationRequest;
 export type DeleteOrganizationCommandOutput = DeleteOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon WorkMail organization and all underlying AWS resources managed by Amazon WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ */
 export class DeleteOrganizationCommand extends $Command<
   DeleteOrganizationCommandInput,
   DeleteOrganizationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

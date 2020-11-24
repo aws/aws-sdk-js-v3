@@ -20,6 +20,9 @@ import {
 export type DisassociateMemberFromGroupCommandInput = DisassociateMemberFromGroupRequest;
 export type DisassociateMemberFromGroupCommandOutput = DisassociateMemberFromGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a member from a group.</p>
+ */
 export class DisassociateMemberFromGroupCommand extends $Command<
   DisassociateMemberFromGroupCommandInput,
   DisassociateMemberFromGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateMemberFromGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

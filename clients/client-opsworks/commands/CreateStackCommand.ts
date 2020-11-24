@@ -20,6 +20,14 @@ import {
 export type CreateStackCommandInput = CreateStackRequest;
 export type CreateStackCommandOutput = CreateStackResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
+ *         Stack</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
+ *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,
   CreateStackCommandOutput,
@@ -34,6 +42,9 @@ export class CreateStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

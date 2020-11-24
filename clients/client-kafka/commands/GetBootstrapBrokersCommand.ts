@@ -20,6 +20,9 @@ import {
 export type GetBootstrapBrokersCommandInput = GetBootstrapBrokersRequest;
 export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse & __MetadataBearer;
 
+/**
+ * <p>A list of brokers that a client application can use to bootstrap.</p>
+ */
 export class GetBootstrapBrokersCommand extends $Command<
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
@@ -34,6 +37,9 @@ export class GetBootstrapBrokersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

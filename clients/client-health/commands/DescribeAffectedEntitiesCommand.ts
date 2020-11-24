@@ -20,6 +20,19 @@ import {
 export type DescribeAffectedEntitiesCommandInput = DescribeAffectedEntitiesRequest;
 export type DescribeAffectedEntitiesCommandOutput = DescribeAffectedEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of entities that have been affected by the specified events, based on the
+ *          specified filter criteria. Entities can refer to individual customer resources, groups of
+ *          customer resources, or any other construct, depending on the AWS service. Events that have
+ *          impact beyond that of the affected entities, or where the extent of impact is unknown,
+ *          include at least one entity indicating this.</p>
+ *          <p>At least one event ARN is required. Results are sorted by the
+ *             <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>
+ *
+ *          <note>
+ *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *          </note>
+ */
 export class DescribeAffectedEntitiesCommand extends $Command<
   DescribeAffectedEntitiesCommandInput,
   DescribeAffectedEntitiesCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

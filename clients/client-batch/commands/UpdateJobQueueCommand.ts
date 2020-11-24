@@ -20,6 +20,9 @@ import {
 export type UpdateJobQueueCommandInput = UpdateJobQueueRequest;
 export type UpdateJobQueueCommandOutput = UpdateJobQueueResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a job queue.</p>
+ */
 export class UpdateJobQueueCommand extends $Command<
   UpdateJobQueueCommandInput,
   UpdateJobQueueCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJobQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

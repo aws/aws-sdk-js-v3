@@ -20,6 +20,9 @@ import {
 export type DeregisterOnPremisesInstanceCommandInput = DeregisterOnPremisesInstanceInput;
 export type DeregisterOnPremisesInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deregisters an on-premises instance.</p>
+ */
 export class DeregisterOnPremisesInstanceCommand extends $Command<
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

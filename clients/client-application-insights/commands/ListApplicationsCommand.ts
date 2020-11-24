@@ -24,6 +24,9 @@ import {
 export type ListApplicationsCommandInput = ListApplicationsRequest;
 export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IDs of the applications that you are monitoring. </p>
+ */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -38,6 +41,9 @@ export class ListApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

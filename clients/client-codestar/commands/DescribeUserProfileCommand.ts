@@ -20,6 +20,9 @@ import {
 export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
 export type DescribeUserProfileCommandOutput = DescribeUserProfileResult & __MetadataBearer;
 
+/**
+ * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
+ */
 export class DescribeUserProfileCommand extends $Command<
   DescribeUserProfileCommandInput,
   DescribeUserProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

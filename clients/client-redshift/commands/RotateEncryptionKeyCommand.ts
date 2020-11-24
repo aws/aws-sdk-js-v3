@@ -20,6 +20,9 @@ import {
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
 export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult & __MetadataBearer;
 
+/**
+ * <p>Rotates the encryption keys for a cluster.</p>
+ */
 export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandInput,
   RotateEncryptionKeyCommandOutput,
@@ -34,6 +37,9 @@ export class RotateEncryptionKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

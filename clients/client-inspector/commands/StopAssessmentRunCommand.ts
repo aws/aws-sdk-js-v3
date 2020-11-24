@@ -20,6 +20,10 @@ import {
 export type StopAssessmentRunCommandInput = StopAssessmentRunRequest;
 export type StopAssessmentRunCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Stops the assessment run that is specified by the ARN of the assessment
+ *          run.</p>
+ */
 export class StopAssessmentRunCommand extends $Command<
   StopAssessmentRunCommandInput,
   StopAssessmentRunCommandOutput,
@@ -34,6 +38,9 @@ export class StopAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateAssetCommandInput = CreateAssetRequest;
 export type CreateAssetCommandOutput = CreateAssetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class CreateAssetCommand extends $Command<
   CreateAssetCommandInput,
   CreateAssetCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

@@ -24,6 +24,9 @@ export type PutVoiceConnectorEmergencyCallingConfigurationCommandInput = PutVoic
 export type PutVoiceConnectorEmergencyCallingConfigurationCommandOutput = PutVoiceConnectorEmergencyCallingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.</p>
+ */
 export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

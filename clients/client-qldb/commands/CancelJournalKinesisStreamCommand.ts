@@ -20,6 +20,13 @@ import {
 export type CancelJournalKinesisStreamCommandInput = CancelJournalKinesisStreamRequest;
 export type CancelJournalKinesisStreamCommandOutput = CancelJournalKinesisStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
+ *          status must be <code>ACTIVE</code>.</p>
+ *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
+ *          subject to a 7-day retention period, so they are automatically deleted after this limit
+ *          expires.</p>
+ */
 export class CancelJournalKinesisStreamCommand extends $Command<
   CancelJournalKinesisStreamCommandInput,
   CancelJournalKinesisStreamCommandOutput,
@@ -34,6 +41,9 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

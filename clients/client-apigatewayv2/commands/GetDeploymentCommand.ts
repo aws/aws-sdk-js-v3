@@ -20,6 +20,9 @@ import {
 export type GetDeploymentCommandInput = GetDeploymentRequest;
 export type GetDeploymentCommandOutput = GetDeploymentResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a Deployment.</p>
+ */
 export class GetDeploymentCommand extends $Command<
   GetDeploymentCommandInput,
   GetDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

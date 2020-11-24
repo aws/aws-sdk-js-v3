@@ -20,6 +20,11 @@ import {
 export type CreateRecipeJobCommandInput = CreateRecipeJobRequest;
 export type CreateRecipeJobCommandOutput = CreateRecipeJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new job for an existing AWS Glue DataBrew recipe in the current AWS account.
+ *             You can create a standalone job using either a project, or a combination of a recipe and
+ *             a dataset.</p>
+ */
 export class CreateRecipeJobCommand extends $Command<
   CreateRecipeJobCommandInput,
   CreateRecipeJobCommandOutput,
@@ -34,6 +39,9 @@ export class CreateRecipeJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

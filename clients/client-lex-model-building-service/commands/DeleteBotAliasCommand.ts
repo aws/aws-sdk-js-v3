@@ -24,6 +24,15 @@ import {
 export type DeleteBotAliasCommandInput = DeleteBotAliasRequest;
 export type DeleteBotAliasCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an alias for the specified bot. </p>
+ *          <p>You can't delete an alias that is used in the association between a bot and a messaging
+ *       channel. If an alias is used in a channel association, the <code>DeleteBot</code> operation
+ *       returns a <code>ResourceInUseException</code> exception that includes a reference to the
+ *       channel association that refers to the bot. You can remove the reference to the alias by
+ *       deleting the channel association. If you get the same exception again, delete the referring
+ *       association until the <code>DeleteBotAlias</code> operation is successful.</p>
+ */
 export class DeleteBotAliasCommand extends $Command<
   DeleteBotAliasCommandInput,
   DeleteBotAliasCommandOutput,
@@ -38,6 +47,9 @@ export class DeleteBotAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

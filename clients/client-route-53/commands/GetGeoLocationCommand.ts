@@ -20,6 +20,28 @@ import {
 export type GetGeoLocationCommandInput = GetGeoLocationRequest;
 export type GetGeoLocationCommandOutput = GetGeoLocationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation
+ * 			resource record sets.</p>
+ *
+ * 		       <p>Use the following syntax to determine whether a continent is supported for geolocation:</p>
+ * 		       <p>
+ *             <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a continent</i>
+ *             </code>
+ *          </p>
+ *
+ * 		       <p>Use the following syntax to determine whether a country is supported for geolocation:</p>
+ * 		       <p>
+ *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>
+ *             </code>
+ *          </p>
+ *
+ * 		       <p>Use the following syntax to determine whether a subdivision of a country is supported for geolocation:</p>
+ * 		       <p>
+ *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&subdivisioncode=<i>subdivision code</i>
+ *             </code>
+ *          </p>
+ */
 export class GetGeoLocationCommand extends $Command<
   GetGeoLocationCommandInput,
   GetGeoLocationCommandOutput,
@@ -34,6 +56,9 @@ export class GetGeoLocationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteScheduleCommandInput = DeleteScheduleRequest;
 export type DeleteScheduleCommandOutput = DeleteScheduleResponse & __MetadataBearer;
 
+/**
+ * Delete all schedule actions on a channel.
+ */
 export class DeleteScheduleCommand extends $Command<
   DeleteScheduleCommandInput,
   DeleteScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

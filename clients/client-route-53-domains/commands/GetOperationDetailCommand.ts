@@ -20,6 +20,9 @@ import {
 export type GetOperationDetailCommandInput = GetOperationDetailRequest;
 export type GetOperationDetailCommandOutput = GetOperationDetailResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns the current status of an operation that is not completed.</p>
+ */
 export class GetOperationDetailCommand extends $Command<
   GetOperationDetailCommandInput,
   GetOperationDetailCommandOutput,
@@ -34,6 +37,9 @@ export class GetOperationDetailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

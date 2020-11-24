@@ -20,6 +20,10 @@ import {
 export type CreateCacheSubnetGroupCommandInput = CreateCacheSubnetGroupMessage;
 export type CreateCacheSubnetGroupCommandOutput = CreateCacheSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new cache subnet group.</p>
+ *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+ */
 export class CreateCacheSubnetGroupCommand extends $Command<
   CreateCacheSubnetGroupCommandInput,
   CreateCacheSubnetGroupCommandOutput,
@@ -34,6 +38,9 @@ export class CreateCacheSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

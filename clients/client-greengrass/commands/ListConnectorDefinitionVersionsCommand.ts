@@ -20,6 +20,9 @@ import {
 export type ListConnectorDefinitionVersionsCommandInput = ListConnectorDefinitionVersionsRequest;
 export type ListConnectorDefinitionVersionsCommandOutput = ListConnectorDefinitionVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
+ */
 export class ListConnectorDefinitionVersionsCommand extends $Command<
   ListConnectorDefinitionVersionsCommandInput,
   ListConnectorDefinitionVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,96 @@ import {
 export type CreateSecretCommandInput = CreateSecretRequest;
 export type CreateSecretCommandOutput = CreateSecretResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new secret. A secret in Secrets Manager consists of both the protected secret data and the
+ *       important information needed to manage the secret.</p>
+ *          <p>Secrets Manager stores the encrypted secret data in one of a collection of "versions"
+ *       associated with the secret. Each version contains a copy of the encrypted secret data. Each
+ *       version is associated with one or more "staging labels" that identify where the version is in
+ *       the rotation cycle. The <code>SecretVersionsToStages</code> field of the secret contains the
+ *       mapping of staging labels to the active versions of the secret. Versions without a staging
+ *       label are considered deprecated and not included in the list.</p>
+ *          <p>You provide the secret data to be encrypted by putting text in either the
+ *         <code>SecretString</code> parameter or binary data in the <code>SecretBinary</code>
+ *       parameter, but not both. If you include <code>SecretString</code> or <code>SecretBinary</code>
+ *       then Secrets Manager also creates an initial secret version and automatically attaches the staging
+ *       label <code>AWSCURRENT</code> to the new version.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
+ *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
+ *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
+ *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
+ *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
+ *           users and roles in the same AWS account automatically have access to use the default CMK.
+ *           Note that if an Secrets Manager API call results in AWS creating the account's
+ *           AWS-managed CMK, it can result in a one-time significant delay in returning the
+ *           result.</p>
+ *                </li>
+ *                <li>
+ *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
+ *           requires encryption or decryption of the secret value then you must create and use a custom
+ *           AWS KMS CMK because you can't access the default CMK for the account using credentials
+ *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
+ *           secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an
+ *           API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
+ *           using credentials from a different account then the AWS KMS key policy must grant cross-account
+ *           access to that other account's user or role for both the kms:GenerateDataKey and
+ *           kms:Decrypt operations.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ *          <p> </p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:CreateSecret</p>
+ *             </li>
+ *             <li>
+ *                <p>kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
+ *           the secret. You do not need this permission to use the account default AWS managed CMK
+ *           for Secrets Manager.</p>
+ *             </li>
+ *             <li>
+ *                <p>kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the
+ *           secret. You do not need this permission to use the account default AWS managed CMK for
+ *           Secrets Manager.</p>
+ *             </li>
+ *             <li>
+ *                <p>secretsmanager:TagResource - needed only if you include the <code>Tags</code>
+ *           parameter. </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To modify an existing secret, use <a>UpdateSecret</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To create a new version of a secret, use <a>PutSecretValue</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve the encrypted secure string and secure binary values, use <a>GetSecretValue</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve all other details for a secret, use <a>DescribeSecret</a>. This
+ *           does not include the encrypted secure string and secure binary values.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve the list of secret versions associated with the current secret, use <a>DescribeSecret</a> and examine the <code>SecretVersionsToStages</code> response
+ *           value.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateSecretCommand extends $Command<
   CreateSecretCommandInput,
   CreateSecretCommandOutput,
@@ -34,6 +124,9 @@ export class CreateSecretCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteResolverCommandInput = DeleteResolverRequest;
 export type DeleteResolverCommandOutput = DeleteResolverResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a <code>Resolver</code> object.</p>
+ */
 export class DeleteResolverCommand extends $Command<
   DeleteResolverCommandInput,
   DeleteResolverCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResolverCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

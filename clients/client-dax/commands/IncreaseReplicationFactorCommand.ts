@@ -20,6 +20,9 @@ import {
 export type IncreaseReplicationFactorCommandInput = IncreaseReplicationFactorRequest;
 export type IncreaseReplicationFactorCommandOutput = IncreaseReplicationFactorResponse & __MetadataBearer;
 
+/**
+ * <p>Adds one or more nodes to a DAX cluster.</p>
+ */
 export class IncreaseReplicationFactorCommand extends $Command<
   IncreaseReplicationFactorCommandInput,
   IncreaseReplicationFactorCommandOutput,
@@ -34,6 +37,9 @@ export class IncreaseReplicationFactorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

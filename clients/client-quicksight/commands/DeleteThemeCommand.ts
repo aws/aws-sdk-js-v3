@@ -20,6 +20,9 @@ import {
 export type DeleteThemeCommandInput = DeleteThemeRequest;
 export type DeleteThemeCommandOutput = DeleteThemeResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a theme.</p>
+ */
 export class DeleteThemeCommand extends $Command<
   DeleteThemeCommandInput,
   DeleteThemeCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteThemeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

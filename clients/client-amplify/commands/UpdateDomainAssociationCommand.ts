@@ -20,6 +20,9 @@ import {
 export type UpdateDomainAssociationCommandInput = UpdateDomainAssociationRequest;
 export type UpdateDomainAssociationCommandOutput = UpdateDomainAssociationResult & __MetadataBearer;
 
+/**
+ * <p> Creates a new domain association for an Amplify app.</p>
+ */
 export class UpdateDomainAssociationCommand extends $Command<
   UpdateDomainAssociationCommandInput,
   UpdateDomainAssociationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDomainAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

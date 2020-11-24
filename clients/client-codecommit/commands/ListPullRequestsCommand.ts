@@ -20,6 +20,10 @@ import {
 export type ListPullRequestsCommandInput = ListPullRequestsInput;
 export type ListPullRequestsCommandOutput = ListPullRequestsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request
+ *         status or pull request author ARN.</p>
+ */
 export class ListPullRequestsCommand extends $Command<
   ListPullRequestsCommandInput,
   ListPullRequestsCommandOutput,
@@ -34,6 +38,9 @@ export class ListPullRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

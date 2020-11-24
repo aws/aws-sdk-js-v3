@@ -20,6 +20,9 @@ import {
 export type DescribeTrialCommandInput = DescribeTrialRequest;
 export type DescribeTrialCommandOutput = DescribeTrialResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a list of a trial's properties.</p>
+ */
 export class DescribeTrialCommand extends $Command<
   DescribeTrialCommandInput,
   DescribeTrialCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTrialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

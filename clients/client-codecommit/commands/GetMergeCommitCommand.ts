@@ -20,6 +20,9 @@ import {
 export type GetMergeCommitCommandInput = GetMergeCommitInput;
 export type GetMergeCommitCommandOutput = GetMergeCommitOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specified merge commit.</p>
+ */
 export class GetMergeCommitCommand extends $Command<
   GetMergeCommitCommandInput,
   GetMergeCommitCommandOutput,
@@ -34,6 +37,9 @@ export class GetMergeCommitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

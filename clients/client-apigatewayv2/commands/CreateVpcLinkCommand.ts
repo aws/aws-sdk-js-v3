@@ -20,6 +20,9 @@ import {
 export type CreateVpcLinkCommandInput = CreateVpcLinkRequest;
 export type CreateVpcLinkCommandOutput = CreateVpcLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a VPC link.</p>
+ */
 export class CreateVpcLinkCommand extends $Command<
   CreateVpcLinkCommandInput,
   CreateVpcLinkCommandOutput,
@@ -34,6 +37,9 @@ export class CreateVpcLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

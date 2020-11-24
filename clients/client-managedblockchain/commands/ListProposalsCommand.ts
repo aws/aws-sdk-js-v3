@@ -24,6 +24,9 @@ import {
 export type ListProposalsCommandInput = ListProposalsInput;
 export type ListProposalsCommandOutput = ListProposalsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a listing of proposals for the network.</p>
+ */
 export class ListProposalsCommand extends $Command<
   ListProposalsCommandInput,
   ListProposalsCommandOutput,
@@ -38,6 +41,9 @@ export class ListProposalsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

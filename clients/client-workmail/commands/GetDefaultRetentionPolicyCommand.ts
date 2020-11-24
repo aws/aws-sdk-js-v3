@@ -20,6 +20,9 @@ import {
 export type GetDefaultRetentionPolicyCommandInput = GetDefaultRetentionPolicyRequest;
 export type GetDefaultRetentionPolicyCommandOutput = GetDefaultRetentionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the default retention policy details for the specified organization.</p>
+ */
 export class GetDefaultRetentionPolicyCommand extends $Command<
   GetDefaultRetentionPolicyCommandInput,
   GetDefaultRetentionPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

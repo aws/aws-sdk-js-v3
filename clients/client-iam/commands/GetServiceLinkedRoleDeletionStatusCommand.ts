@@ -24,6 +24,13 @@ export type GetServiceLinkedRoleDeletionStatusCommandInput = GetServiceLinkedRol
 export type GetServiceLinkedRoleDeletionStatusCommandOutput = GetServiceLinkedRoleDeletionStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the status of your service-linked role deletion. After you use the <a>DeleteServiceLinkedRole</a> API operation to submit a service-linked role for
+ *          deletion, you can use the <code>DeletionTaskId</code> parameter in
+ *             <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion. If
+ *          the deletion fails, this operation returns the reason that it failed, if that information
+ *          is returned by the service.</p>
+ */
 export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput,
@@ -38,6 +45,9 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

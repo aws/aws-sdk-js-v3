@@ -24,6 +24,9 @@ import {
 export type ImportCertificateCommandInput = ImportCertificateMessage;
 export type ImportCertificateCommandOutput = ImportCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Uploads the specified certificate.</p>
+ */
 export class ImportCertificateCommand extends $Command<
   ImportCertificateCommandInput,
   ImportCertificateCommandOutput,
@@ -38,6 +41,9 @@ export class ImportCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

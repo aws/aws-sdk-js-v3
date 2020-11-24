@@ -8,6 +8,9 @@ import {
 import { EBSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: EBSClient,
   input: ListChangedBlocksCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChangedBlocksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: EBS,
   input: ListChangedBlocksCommandInput,

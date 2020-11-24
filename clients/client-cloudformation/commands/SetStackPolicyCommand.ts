@@ -20,6 +20,9 @@ import {
 export type SetStackPolicyCommandInput = SetStackPolicyInput;
 export type SetStackPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets a stack policy for a specified stack.</p>
+ */
 export class SetStackPolicyCommand extends $Command<
   SetStackPolicyCommandInput,
   SetStackPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class SetStackPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

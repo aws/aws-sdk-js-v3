@@ -24,6 +24,12 @@ export type DescribeConformancePackComplianceCommandInput = DescribeConformanceP
 export type DescribeConformancePackComplianceCommandOutput = DescribeConformancePackComplianceResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns compliance details for each rule in that conformance pack.</p>
+ * 		       <note>
+ *             <p>You must provide exact rule names.</p>
+ *          </note>
+ */
 export class DescribeConformancePackComplianceCommand extends $Command<
   DescribeConformancePackComplianceCommandInput,
   DescribeConformancePackComplianceCommandOutput,
@@ -38,6 +44,9 @@ export class DescribeConformancePackComplianceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

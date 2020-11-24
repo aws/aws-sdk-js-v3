@@ -20,6 +20,9 @@ import {
 export type CreateDatabaseCommandInput = CreateDatabaseRequest;
 export type CreateDatabaseCommandOutput = CreateDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new database in a Data Catalog.</p>
+ */
 export class CreateDatabaseCommand extends $Command<
   CreateDatabaseCommandInput,
   CreateDatabaseCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GenerateChangeSetCommandInput = GenerateChangeSetRequest;
 export type GenerateChangeSetCommandOutput = GenerateChangeSetResponse & __MetadataBearer;
 
+/**
+ * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
+ *             object in the customer’s Amazon S3 bucket.</p>
+ */
 export class GenerateChangeSetCommand extends $Command<
   GenerateChangeSetCommandInput,
   GenerateChangeSetCommandOutput,
@@ -34,6 +38,9 @@ export class GenerateChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

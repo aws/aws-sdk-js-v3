@@ -20,6 +20,9 @@ import {
 export type UpdateAppImageConfigCommandInput = UpdateAppImageConfigRequest;
 export type UpdateAppImageConfigCommandOutput = UpdateAppImageConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the properties of an AppImageConfig.</p>
+ */
 export class UpdateAppImageConfigCommand extends $Command<
   UpdateAppImageConfigCommandInput,
   UpdateAppImageConfigCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAppImageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

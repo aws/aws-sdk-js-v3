@@ -20,6 +20,11 @@ import {
 export type DeleteDomainPermissionsPolicyCommandInput = DeleteDomainPermissionsPolicyRequest;
 export type DeleteDomainPermissionsPolicyCommandOutput = DeleteDomainPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Deletes the resource policy set on a domain.
+ *       </p>
+ */
 export class DeleteDomainPermissionsPolicyCommand extends $Command<
   DeleteDomainPermissionsPolicyCommandInput,
   DeleteDomainPermissionsPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

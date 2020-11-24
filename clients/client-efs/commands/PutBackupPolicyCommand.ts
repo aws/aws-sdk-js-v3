@@ -20,6 +20,9 @@ import {
 export type PutBackupPolicyCommandInput = PutBackupPolicyRequest;
 export type PutBackupPolicyCommandOutput = BackupPolicyDescription & __MetadataBearer;
 
+/**
+ * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
+ */
 export class PutBackupPolicyCommand extends $Command<
   PutBackupPolicyCommandInput,
   PutBackupPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class PutBackupPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

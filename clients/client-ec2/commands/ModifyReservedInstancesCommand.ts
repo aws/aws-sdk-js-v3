@@ -20,6 +20,14 @@ import {
 export type ModifyReservedInstancesCommandInput = ModifyReservedInstancesRequest;
 export type ModifyReservedInstancesCommandOutput = ModifyReservedInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the Availability Zone, instance count, instance type, or network platform
+ *             (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
+ *             modified must be identical, except for Availability Zone, network platform, and instance
+ *             type.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
+ * 				Instances</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ */
 export class ModifyReservedInstancesCommand extends $Command<
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
@@ -34,6 +42,9 @@ export class ModifyReservedInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

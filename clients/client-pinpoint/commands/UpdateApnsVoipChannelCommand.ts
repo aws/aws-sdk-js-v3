@@ -20,6 +20,9 @@ import {
 export type UpdateApnsVoipChannelCommandInput = UpdateApnsVoipChannelRequest;
 export type UpdateApnsVoipChannelCommandOutput = UpdateApnsVoipChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
+ */
 export class UpdateApnsVoipChannelCommand extends $Command<
   UpdateApnsVoipChannelCommandInput,
   UpdateApnsVoipChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

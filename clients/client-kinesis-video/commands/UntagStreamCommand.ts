@@ -20,6 +20,13 @@ import {
 export type UntagStreamCommandInput = UntagStreamInput;
 export type UntagStreamCommandOutput = UntagStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
+ *             keys; don't specify the value. If you specify a tag key that does not exist, it's
+ *             ignored.</p>
+ *         <p>In the request, you must provide the <code>StreamName</code> or
+ *                 <code>StreamARN</code>.</p>
+ */
 export class UntagStreamCommand extends $Command<
   UntagStreamCommandInput,
   UntagStreamCommandOutput,
@@ -34,6 +41,9 @@ export class UntagStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

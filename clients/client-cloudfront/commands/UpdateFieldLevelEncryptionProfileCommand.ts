@@ -20,6 +20,9 @@ import {
 export type UpdateFieldLevelEncryptionProfileCommandInput = UpdateFieldLevelEncryptionProfileRequest;
 export type UpdateFieldLevelEncryptionProfileCommandOutput = UpdateFieldLevelEncryptionProfileResult & __MetadataBearer;
 
+/**
+ * <p>Update a field-level encryption profile. </p>
+ */
 export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListTrainingJobsCommandInput = ListTrainingJobsRequest;
 export type ListTrainingJobsCommandOutput = ListTrainingJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists training jobs.</p>
+ */
 export class ListTrainingJobsCommand extends $Command<
   ListTrainingJobsCommandInput,
   ListTrainingJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTrainingJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

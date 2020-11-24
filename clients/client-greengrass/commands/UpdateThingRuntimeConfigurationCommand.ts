@@ -20,6 +20,9 @@ import {
 export type UpdateThingRuntimeConfigurationCommandInput = UpdateThingRuntimeConfigurationRequest;
 export type UpdateThingRuntimeConfigurationCommandOutput = UpdateThingRuntimeConfigurationResponse & __MetadataBearer;
 
+/**
+ * Updates the runtime configuration of a thing.
+ */
 export class UpdateThingRuntimeConfigurationCommand extends $Command<
   UpdateThingRuntimeConfigurationCommandInput,
   UpdateThingRuntimeConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

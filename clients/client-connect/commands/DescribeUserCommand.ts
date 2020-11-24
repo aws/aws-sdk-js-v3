@@ -20,6 +20,11 @@ import {
 export type DescribeUserCommandInput = DescribeUserRequest;
 export type DescribeUserCommandOutput = DescribeUserResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
+ *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
+ *    note the IDs provided in the output.</p>
+ */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,
   DescribeUserCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

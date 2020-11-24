@@ -20,6 +20,11 @@ import {
 export type DeleteEntityTypeCommandInput = DeleteEntityTypeRequest;
 export type DeleteEntityTypeCommandOutput = DeleteEntityTypeResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an entity type.</p>
+ * 	        <p>You cannot delete an entity type that is included in an event type.</p>
+ * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteEntityTypeCommand extends $Command<
   DeleteEntityTypeCommandInput,
   DeleteEntityTypeCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteEntityTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

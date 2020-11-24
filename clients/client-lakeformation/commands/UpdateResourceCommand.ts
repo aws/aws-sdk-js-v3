@@ -20,6 +20,9 @@ import {
 export type UpdateResourceCommandInput = UpdateResourceRequest;
 export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
+ */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

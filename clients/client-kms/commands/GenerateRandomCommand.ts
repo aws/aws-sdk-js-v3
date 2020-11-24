@@ -20,6 +20,14 @@ import {
 export type GenerateRandomCommandInput = GenerateRandomRequest;
 export type GenerateRandomCommandOutput = GenerateRandomResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a random byte string that is cryptographically secure.</p>
+ *          <p>By default, the random byte string is generated in AWS KMS. To generate the byte string in
+ *       the AWS CloudHSM cluster that is associated with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, specify the custom key store
+ *       ID.</p>
+ *          <p>For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS Key Management Service
+ *         Cryptographic Details</a> whitepaper.</p>
+ */
 export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandInput,
   GenerateRandomCommandOutput,
@@ -34,6 +42,9 @@ export class GenerateRandomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateRecommenderConfigurationCommandInput = CreateRecommenderConfigurationRequest;
 export type CreateRecommenderConfigurationCommandOutput = CreateRecommenderConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
+ */
 export class CreateRecommenderConfigurationCommand extends $Command<
   CreateRecommenderConfigurationCommandInput,
   CreateRecommenderConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

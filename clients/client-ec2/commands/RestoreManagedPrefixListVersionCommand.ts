@@ -20,6 +20,9 @@ import {
 export type RestoreManagedPrefixListVersionCommandInput = RestoreManagedPrefixListVersionRequest;
 export type RestoreManagedPrefixListVersionCommandOutput = RestoreManagedPrefixListVersionResult & __MetadataBearer;
 
+/**
+ * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
+ */
 export class RestoreManagedPrefixListVersionCommand extends $Command<
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
@@ -34,6 +37,9 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

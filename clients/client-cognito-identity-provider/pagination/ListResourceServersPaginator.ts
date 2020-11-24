@@ -8,6 +8,9 @@ import {
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CognitoIdentityProviderClient,
   input: ListResourceServersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourceServersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CognitoIdentityProvider,
   input: ListResourceServersCommandInput,

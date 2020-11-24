@@ -20,6 +20,33 @@ import {
 export type GetChangeTokenStatusCommandInput = GetChangeTokenStatusRequest;
 export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
+ * 			one of the following values:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>
+ *                   <code>PROVISIONED</code>: You requested the change token by calling <code>GetChangeToken</code>, but you haven't used it yet
+ * 				in a call to create, update, or delete an AWS WAF object.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PENDING</code>: AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>INSYNC</code>: Propagation is complete.</p>
+ *             </li>
+ *          </ul>
+ */
 export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandInput,
   GetChangeTokenStatusCommandOutput,
@@ -34,6 +61,9 @@ export class GetChangeTokenStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,

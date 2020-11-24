@@ -20,6 +20,12 @@ import {
 export type DeleteFileSystemPolicyCommandInput = DeleteFileSystemPolicyRequest;
 export type DeleteFileSystemPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
+ *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
+ *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
+ *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystemPolicy</code> action.</p>
+ */
 export class DeleteFileSystemPolicyCommand extends $Command<
   DeleteFileSystemPolicyCommandInput,
   DeleteFileSystemPolicyCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

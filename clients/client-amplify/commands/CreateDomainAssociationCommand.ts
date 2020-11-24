@@ -20,6 +20,10 @@ import {
 export type CreateDomainAssociationCommandInput = CreateDomainAssociationRequest;
 export type CreateDomainAssociationCommandOutput = CreateDomainAssociationResult & __MetadataBearer;
 
+/**
+ * <p> Creates a new domain association for an Amplify app. This action associates a custom
+ *             domain with the Amplify app </p>
+ */
 export class CreateDomainAssociationCommand extends $Command<
   CreateDomainAssociationCommandInput,
   CreateDomainAssociationCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDomainAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

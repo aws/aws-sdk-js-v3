@@ -20,6 +20,47 @@ import {
 export type DeleteVpcPeeringConnectionCommandInput = DeleteVpcPeeringConnectionInput;
 export type DeleteVpcPeeringConnectionCommandOutput = DeleteVpcPeeringConnectionOutput & __MetadataBearer;
 
+/**
+ * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
+ *             authorization for the VPC peering connection that you want to delete. You can check for
+ *             an authorization by calling <a>DescribeVpcPeeringAuthorizations</a> or
+ *             request a new one using <a>CreateVpcPeeringAuthorization</a>. </p>
+ *         <p>Once a valid authorization exists, call this operation from the AWS account that is
+ *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection
+ *             ID and fleet ID. If successful, the connection is removed. </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringAuthorizations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringConnections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteVpcPeeringConnectionCommand extends $Command<
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
@@ -34,6 +75,9 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

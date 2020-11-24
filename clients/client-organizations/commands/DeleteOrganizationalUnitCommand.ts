@@ -20,6 +20,11 @@ import {
 export type DeleteOrganizationalUnitCommandInput = DeleteOrganizationalUnitRequest;
 export type DeleteOrganizationalUnitCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
+ *             all accounts and child OUs from the OU that you want to delete.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class DeleteOrganizationalUnitCommand extends $Command<
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteOrganizationalUnitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

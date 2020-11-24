@@ -20,6 +20,9 @@ import {
 export type DescribeWorldTemplateCommandInput = DescribeWorldTemplateRequest;
 export type DescribeWorldTemplateCommandOutput = DescribeWorldTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a world template.</p>
+ */
 export class DescribeWorldTemplateCommand extends $Command<
   DescribeWorldTemplateCommandInput,
   DescribeWorldTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeWorldTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

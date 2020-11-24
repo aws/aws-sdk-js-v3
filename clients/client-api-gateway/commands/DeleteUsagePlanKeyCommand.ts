@@ -20,6 +20,9 @@ import {
 export type DeleteUsagePlanKeyCommandInput = DeleteUsagePlanKeyRequest;
 export type DeleteUsagePlanKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a usage plan key  and remove the underlying API key from the associated usage plan.</p>
+ */
 export class DeleteUsagePlanKeyCommand extends $Command<
   DeleteUsagePlanKeyCommandInput,
   DeleteUsagePlanKeyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUsagePlanKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

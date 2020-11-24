@@ -20,6 +20,11 @@ import {
 export type DescribeAcceleratorsCommandInput = DescribeAcceleratorsRequest;
 export type DescribeAcceleratorsCommandOutput = DescribeAcceleratorsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             Describes information over a provided set of accelerators belonging to an account.
+ *         </p>
+ */
 export class DescribeAcceleratorsCommand extends $Command<
   DescribeAcceleratorsCommandInput,
   DescribeAcceleratorsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAcceleratorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticInferenceClientResolvedConfig,

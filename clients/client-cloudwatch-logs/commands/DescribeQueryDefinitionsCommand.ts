@@ -20,6 +20,11 @@ import {
 export type DescribeQueryDefinitionsCommandInput = DescribeQueryDefinitionsRequest;
 export type DescribeQueryDefinitionsCommandOutput = DescribeQueryDefinitionsResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
+ *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
+ *       query definitions that have names that start with a certain string.</p>
+ */
 export class DescribeQueryDefinitionsCommand extends $Command<
   DescribeQueryDefinitionsCommandInput,
   DescribeQueryDefinitionsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

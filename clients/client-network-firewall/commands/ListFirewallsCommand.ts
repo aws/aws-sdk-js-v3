@@ -20,6 +20,12 @@ import {
 export type ListFirewallsCommandInput = ListFirewallsRequest;
 export type ListFirewallsCommandOutput = ListFirewallsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the metadata for the firewalls that you have defined. If you provide VPC
+ *          identifiers in your request, this returns only the firewalls for those VPCs.</p>
+ *          <p>Depending on your setting for max results and the number of firewalls, a single call
+ *          might not return the full list. </p>
+ */
 export class ListFirewallsCommand extends $Command<
   ListFirewallsCommandInput,
   ListFirewallsCommandOutput,
@@ -34,6 +40,9 @@ export class ListFirewallsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

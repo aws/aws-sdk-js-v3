@@ -17,6 +17,10 @@ import {
 export type PutEventsCommandInput = PutEventsRequest;
 export type PutEventsCommandOutput = PutEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Sends custom events to Amazon EventBridge so that they can be matched to
+ *             rules.</p>
+ */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,
   PutEventsCommandOutput,
@@ -31,6 +35,9 @@ export class PutEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

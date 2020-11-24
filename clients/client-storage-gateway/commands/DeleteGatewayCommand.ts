@@ -20,6 +20,26 @@ import {
 export type DeleteGatewayCommandInput = DeleteGatewayInput;
 export type DeleteGatewayCommandOutput = DeleteGatewayOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
+ *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
+ *          not delete the gateway virtual machine (VM) from your host computer.</p>
+ *
+ *          <p>After you delete a gateway, you cannot reactivate it. Completed snapshots of the gateway
+ *          volumes are not deleted upon deleting the gateway, however, pending snapshots will not
+ *          complete. After you delete a gateway, your next step is to remove it from your
+ *          environment.</p>
+ *
+ *          <important>
+ *             <p>You no longer pay software charges after the gateway is deleted; however, your
+ *             existing Amazon EBS snapshots persist and you will continue to be billed for these
+ *             snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your
+ *             Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you
+ *             can delete your snapshots using the Amazon EC2 console. For more information, see the
+ *                <a href="http://aws.amazon.com/storagegateway">AWS Storage Gateway detail
+ *             page</a>.</p>
+ *          </important>
+ */
 export class DeleteGatewayCommand extends $Command<
   DeleteGatewayCommandInput,
   DeleteGatewayCommandOutput,
@@ -34,6 +54,9 @@ export class DeleteGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

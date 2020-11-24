@@ -20,6 +20,9 @@ import {
 export type BatchGetWorkflowsCommandInput = BatchGetWorkflowsRequest;
 export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
+ */
 export class BatchGetWorkflowsCommand extends $Command<
   BatchGetWorkflowsCommandInput,
   BatchGetWorkflowsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetWorkflowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

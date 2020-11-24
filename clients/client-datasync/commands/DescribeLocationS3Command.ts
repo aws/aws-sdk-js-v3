@@ -20,6 +20,9 @@ import {
 export type DescribeLocationS3CommandInput = DescribeLocationS3Request;
 export type DescribeLocationS3CommandOutput = DescribeLocationS3Response & __MetadataBearer;
 
+/**
+ * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
+ */
 export class DescribeLocationS3Command extends $Command<
   DescribeLocationS3CommandInput,
   DescribeLocationS3CommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLocationS3Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

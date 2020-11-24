@@ -20,6 +20,9 @@ import {
 export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
 export type DeleteDBClusterEndpointCommandOutput = DeleteDBClusterEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
+ */
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,
   DeleteDBClusterEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

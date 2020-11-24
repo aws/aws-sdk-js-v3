@@ -20,6 +20,9 @@ import {
 export type ListProjectAssetsCommandInput = ListProjectAssetsRequest;
 export type ListProjectAssetsCommandOutput = ListProjectAssetsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of assets associated with an AWS IoT SiteWise Monitor project.</p>
+ */
 export class ListProjectAssetsCommand extends $Command<
   ListProjectAssetsCommandInput,
   ListProjectAssetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProjectAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

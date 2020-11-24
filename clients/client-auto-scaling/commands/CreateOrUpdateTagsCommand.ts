@@ -20,6 +20,13 @@ import {
 export type CreateOrUpdateTagsCommandInput = CreateOrUpdateTagsType;
 export type CreateOrUpdateTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates or updates tags for the specified Auto Scaling group.</p>
+ *         <p>When you specify a tag with a key that already exists, the operation overwrites the
+ *             previous tag definition, and you do not get an error message.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and
+ *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class CreateOrUpdateTagsCommand extends $Command<
   CreateOrUpdateTagsCommandInput,
   CreateOrUpdateTagsCommandOutput,
@@ -34,6 +41,9 @@ export class CreateOrUpdateTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

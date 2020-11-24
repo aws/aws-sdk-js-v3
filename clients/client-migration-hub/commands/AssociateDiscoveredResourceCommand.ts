@@ -20,6 +20,10 @@ import {
 export type AssociateDiscoveredResourceCommandInput = AssociateDiscoveredResourceRequest;
 export type AssociateDiscoveredResourceCommandOutput = AssociateDiscoveredResourceResult & __MetadataBearer;
 
+/**
+ * <p>Associates a discovered resource ID from Application Discovery Service with a migration
+ *          task.</p>
+ */
 export class AssociateDiscoveredResourceCommand extends $Command<
   AssociateDiscoveredResourceCommandInput,
   AssociateDiscoveredResourceCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

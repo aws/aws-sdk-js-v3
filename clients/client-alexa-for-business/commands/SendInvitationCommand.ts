@@ -20,6 +20,10 @@ import {
 export type SendInvitationCommandInput = SendInvitationRequest;
 export type SendInvitationCommandOutput = SendInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
+ *          days or until you call this operation again, whichever comes first. </p>
+ */
 export class SendInvitationCommand extends $Command<
   SendInvitationCommandInput,
   SendInvitationCommandOutput,
@@ -34,6 +38,9 @@ export class SendInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

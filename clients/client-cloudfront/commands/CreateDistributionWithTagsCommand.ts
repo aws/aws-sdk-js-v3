@@ -20,6 +20,9 @@ import {
 export type CreateDistributionWithTagsCommandInput = CreateDistributionWithTagsRequest;
 export type CreateDistributionWithTagsCommandOutput = CreateDistributionWithTagsResult & __MetadataBearer;
 
+/**
+ * <p>Create a new distribution with tags.</p>
+ */
 export class CreateDistributionWithTagsCommand extends $Command<
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDistributionWithTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

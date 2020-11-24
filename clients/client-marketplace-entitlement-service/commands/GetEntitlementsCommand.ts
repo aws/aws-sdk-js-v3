@@ -24,6 +24,10 @@ import {
 export type GetEntitlementsCommandInput = GetEntitlementsRequest;
 export type GetEntitlementsCommandOutput = GetEntitlementsResult & __MetadataBearer;
 
+/**
+ * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
+ *       filtered based on customer identifier or product dimensions.</p>
+ */
 export class GetEntitlementsCommand extends $Command<
   GetEntitlementsCommandInput,
   GetEntitlementsCommandOutput,
@@ -38,6 +42,9 @@ export class GetEntitlementsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceEntitlementServiceClientResolvedConfig,

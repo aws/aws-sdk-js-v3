@@ -8,6 +8,9 @@ import {
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DataExchangeClient,
   input: ListDataSetsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataSetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DataExchange,
   input: ListDataSetsCommandInput,

@@ -20,6 +20,9 @@ import {
 export type SearchLocalGatewayRoutesCommandInput = SearchLocalGatewayRoutesRequest;
 export type SearchLocalGatewayRoutesCommandOutput = SearchLocalGatewayRoutesResult & __MetadataBearer;
 
+/**
+ * <p>Searches for routes in the specified local gateway route table.</p>
+ */
 export class SearchLocalGatewayRoutesCommand extends $Command<
   SearchLocalGatewayRoutesCommandInput,
   SearchLocalGatewayRoutesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

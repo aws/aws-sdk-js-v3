@@ -20,6 +20,27 @@ import {
 export type RetireGrantCommandInput = RetireGrantRequest;
 export type RetireGrantCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should
+ *       revoke a grant when you intend to actively deny operations that depend on it. The following
+ *       are permitted to call this API:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The AWS account (root user) under which the grant was created</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>RetiringPrincipal</code>, if present in the grant</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is an operation
+ *           specified in the grant</p>
+ *             </li>
+ *          </ul>
+ *          <p>You must identify the grant to retire by its grant token or by a combination of the grant
+ *       ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a
+ *       unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier
+ *       of a grant. The <a>CreateGrant</a> operation returns both.</p>
+ */
 export class RetireGrantCommand extends $Command<
   RetireGrantCommandInput,
   RetireGrantCommandOutput,
@@ -34,6 +55,9 @@ export class RetireGrantCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

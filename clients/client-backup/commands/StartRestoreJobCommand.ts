@@ -20,6 +20,9 @@ import {
 export type StartRestoreJobCommandInput = StartRestoreJobInput;
 export type StartRestoreJobCommandOutput = StartRestoreJobOutput & __MetadataBearer;
 
+/**
+ * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
+ */
 export class StartRestoreJobCommand extends $Command<
   StartRestoreJobCommandInput,
   StartRestoreJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartRestoreJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

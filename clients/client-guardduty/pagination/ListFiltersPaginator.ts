@@ -4,6 +4,9 @@ import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput }
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
   input: ListFiltersCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFiltersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GuardDuty,
   input: ListFiltersCommandInput,

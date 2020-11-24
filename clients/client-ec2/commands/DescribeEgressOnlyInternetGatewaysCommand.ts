@@ -24,6 +24,9 @@ export type DescribeEgressOnlyInternetGatewaysCommandInput = DescribeEgressOnlyI
 export type DescribeEgressOnlyInternetGatewaysCommandOutput = DescribeEgressOnlyInternetGatewaysResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your egress-only internet gateways.</p>
+ */
 export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
   DescribeEgressOnlyInternetGatewaysCommandInput,
   DescribeEgressOnlyInternetGatewaysCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

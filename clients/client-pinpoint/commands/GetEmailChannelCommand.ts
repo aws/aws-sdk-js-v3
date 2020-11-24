@@ -20,6 +20,9 @@ import {
 export type GetEmailChannelCommandInput = GetEmailChannelRequest;
 export type GetEmailChannelCommandOutput = GetEmailChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the email channel for an application.</p>
+ */
 export class GetEmailChannelCommand extends $Command<
   GetEmailChannelCommandInput,
   GetEmailChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetEmailChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

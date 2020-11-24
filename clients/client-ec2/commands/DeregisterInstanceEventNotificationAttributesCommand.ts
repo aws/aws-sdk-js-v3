@@ -24,6 +24,10 @@ export type DeregisterInstanceEventNotificationAttributesCommandInput = Deregist
 export type DeregisterInstanceEventNotificationAttributesCommandOutput = DeregisterInstanceEventNotificationAttributesResult &
   __MetadataBearer;
 
+/**
+ * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
+ * 			in scheduled event notifications for resources in the Region.</p>
+ */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command<
   DeregisterInstanceEventNotificationAttributesCommandInput,
   DeregisterInstanceEventNotificationAttributesCommandOutput,
@@ -38,6 +42,9 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

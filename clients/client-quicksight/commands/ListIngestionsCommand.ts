@@ -20,6 +20,9 @@ import {
 export type ListIngestionsCommandInput = ListIngestionsRequest;
 export type ListIngestionsCommandOutput = ListIngestionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the history of SPICE ingestions for a dataset.</p>
+ */
 export class ListIngestionsCommand extends $Command<
   ListIngestionsCommandInput,
   ListIngestionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListIngestionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AddThingToThingGroupCommandInput = AddThingToThingGroupRequest;
 export type AddThingToThingGroupCommandOutput = AddThingToThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a thing to a thing group.</p>
+ */
 export class AddThingToThingGroupCommand extends $Command<
   AddThingToThingGroupCommandInput,
   AddThingToThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AddThingToThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

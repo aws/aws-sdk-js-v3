@@ -20,6 +20,9 @@ import {
 export type DescribeConfigurationRevisionCommandInput = DescribeConfigurationRevisionRequest;
 export type DescribeConfigurationRevisionCommandOutput = DescribeConfigurationRevisionResponse & __MetadataBearer;
 
+/**
+ * Returns the specified configuration revision for the specified configuration.
+ */
 export class DescribeConfigurationRevisionCommand extends $Command<
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

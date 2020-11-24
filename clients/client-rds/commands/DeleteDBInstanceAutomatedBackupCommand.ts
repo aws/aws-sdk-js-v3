@@ -20,6 +20,10 @@ import {
 export type DeleteDBInstanceAutomatedBackupCommandInput = DeleteDBInstanceAutomatedBackupMessage;
 export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult & __MetadataBearer;
 
+/**
+ * <p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>
+ *             value or the restorable instance's resource ID.</p>
+ */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,
   DeleteDBInstanceAutomatedBackupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

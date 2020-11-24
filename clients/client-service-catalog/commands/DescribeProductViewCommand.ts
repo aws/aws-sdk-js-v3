@@ -20,6 +20,9 @@ import {
 export type DescribeProductViewCommandInput = DescribeProductViewInput;
 export type DescribeProductViewCommandOutput = DescribeProductViewOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified product.</p>
+ */
 export class DescribeProductViewCommand extends $Command<
   DescribeProductViewCommandInput,
   DescribeProductViewCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProductViewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

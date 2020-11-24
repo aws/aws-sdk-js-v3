@@ -20,6 +20,9 @@ import {
 export type DescribeCapacityProvidersCommandInput = DescribeCapacityProvidersRequest;
 export type DescribeCapacityProvidersCommandOutput = DescribeCapacityProvidersResponse & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your capacity providers.</p>
+ */
 export class DescribeCapacityProvidersCommand extends $Command<
   DescribeCapacityProvidersCommandInput,
   DescribeCapacityProvidersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCapacityProvidersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

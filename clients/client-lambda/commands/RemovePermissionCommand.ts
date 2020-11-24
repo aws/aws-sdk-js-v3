@@ -20,6 +20,10 @@ import {
 export type RemovePermissionCommandInput = RemovePermissionRequest;
 export type RemovePermissionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Revokes function-use permission from an AWS service or another account. You can get the ID of the statement
+ *       from the output of <a>GetPolicy</a>.</p>
+ */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput,
@@ -34,6 +38,9 @@ export class RemovePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

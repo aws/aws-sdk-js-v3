@@ -20,6 +20,18 @@ import {
 export type CreateCertificateCommandInput = CreateCertificateRequest;
 export type CreateCertificateCommandOutput = CreateCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Creates an SSL/TLS certificate for a Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *          <p>After the certificate is created, use the <code>AttachCertificateToDistribution</code>
+ *       action to attach the certificate to your distribution.</p>
+ *          <important>
+ *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
+ *         Lightsail distributions. Lightsail distributions are global resources that can reference
+ *         an origin in any AWS Region, and distribute its content globally. However, all
+ *         distributions are located in the <code>us-east-1</code> Region.</p>
+ *          </important>
+ */
 export class CreateCertificateCommand extends $Command<
   CreateCertificateCommandInput,
   CreateCertificateCommandOutput,
@@ -34,6 +46,9 @@ export class CreateCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

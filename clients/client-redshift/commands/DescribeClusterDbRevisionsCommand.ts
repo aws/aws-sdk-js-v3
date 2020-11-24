@@ -20,6 +20,9 @@ import {
 export type DescribeClusterDbRevisionsCommandInput = DescribeClusterDbRevisionsMessage;
 export type DescribeClusterDbRevisionsCommandOutput = ClusterDbRevisionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
+ */
 export class DescribeClusterDbRevisionsCommand extends $Command<
   DescribeClusterDbRevisionsCommandInput,
   DescribeClusterDbRevisionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

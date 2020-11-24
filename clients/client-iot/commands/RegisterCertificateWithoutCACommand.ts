@@ -20,6 +20,9 @@ import {
 export type RegisterCertificateWithoutCACommandInput = RegisterCertificateWithoutCARequest;
 export type RegisterCertificateWithoutCACommandOutput = RegisterCertificateWithoutCAResponse & __MetadataBearer;
 
+/**
+ * <p>Register a certificate that does not have a certificate authority (CA).</p>
+ */
 export class RegisterCertificateWithoutCACommand extends $Command<
   RegisterCertificateWithoutCACommandInput,
   RegisterCertificateWithoutCACommandOutput,
@@ -34,6 +37,9 @@ export class RegisterCertificateWithoutCACommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

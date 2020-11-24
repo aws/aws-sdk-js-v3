@@ -20,6 +20,9 @@ import {
 export type GetServiceCommandInput = GetServiceRequest;
 export type GetServiceCommandOutput = GetServiceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the settings for a specified service.</p>
+ */
 export class GetServiceCommand extends $Command<
   GetServiceCommandInput,
   GetServiceCommandOutput,
@@ -34,6 +37,9 @@ export class GetServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

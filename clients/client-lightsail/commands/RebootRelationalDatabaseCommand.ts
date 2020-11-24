@@ -20,6 +20,12 @@ import {
 export type RebootRelationalDatabaseCommandInput = RebootRelationalDatabaseRequest;
 export type RebootRelationalDatabaseCommandOutput = RebootRelationalDatabaseResult & __MetadataBearer;
 
+/**
+ * <p>Restarts a specific database in Amazon Lightsail.</p>
+ *          <p>The <code>reboot relational database</code> operation supports tag-based access control
+ *       via resource tags applied to the resource identified by relationalDatabaseName. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class RebootRelationalDatabaseCommand extends $Command<
   RebootRelationalDatabaseCommandInput,
   RebootRelationalDatabaseCommandOutput,
@@ -34,6 +40,9 @@ export class RebootRelationalDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

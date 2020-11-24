@@ -20,6 +20,11 @@ import {
 export type StartTriggerCommandInput = StartTriggerRequest;
 export type StartTriggerCommandOutput = StartTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
+ *       Jobs</a> for information about how different types of trigger are
+ *       started.</p>
+ */
 export class StartTriggerCommand extends $Command<
   StartTriggerCommandInput,
   StartTriggerCommandOutput,
@@ -34,6 +39,9 @@ export class StartTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

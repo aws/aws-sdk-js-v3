@@ -20,6 +20,9 @@ import {
 export type GetBackendEnvironmentCommandInput = GetBackendEnvironmentRequest;
 export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult & __MetadataBearer;
 
+/**
+ * <p> Returns a backend environment for an Amplify app. </p>
+ */
 export class GetBackendEnvironmentCommand extends $Command<
   GetBackendEnvironmentCommandInput,
   GetBackendEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class GetBackendEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

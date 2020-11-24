@@ -21,6 +21,10 @@ import {
 export type ListTrafficPolicyVersionsCommandInput = ListTrafficPolicyVersionsRequest;
 export type ListTrafficPolicyVersionsCommandOutput = ListTrafficPolicyVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about all of the versions for a specified traffic policy.</p>
+ * 		       <p>Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.</p>
+ */
 export class ListTrafficPolicyVersionsCommand extends $Command<
   ListTrafficPolicyVersionsCommandInput,
   ListTrafficPolicyVersionsCommandOutput,
@@ -35,6 +39,9 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

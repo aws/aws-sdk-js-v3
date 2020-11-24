@@ -20,6 +20,14 @@ import {
 export type AssociateSubnetsCommandInput = AssociateSubnetsRequest;
 export type AssociateSubnetsCommandOutput = AssociateSubnetsResponse & __MetadataBearer;
 
+/**
+ * <p>Associates the specified subnets in the Amazon VPC to the firewall. You can specify one
+ *          subnet for each of the Availability Zones that the VPC spans. </p>
+ *          <p>This request creates an AWS Network Firewall firewall endpoint in each of the subnets. To
+ *          enable the firewall's protections, you must also modify the VPC's route tables for each
+ *          subnet's Availability Zone, to redirect the traffic that's coming into and going out of the
+ *          zone through the firewall endpoint. </p>
+ */
 export class AssociateSubnetsCommand extends $Command<
   AssociateSubnetsCommandInput,
   AssociateSubnetsCommandOutput,
@@ -34,6 +42,9 @@ export class AssociateSubnetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

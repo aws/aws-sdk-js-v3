@@ -20,6 +20,14 @@ import {
 export type DescribeDefaultClusterParametersCommandInput = DescribeDefaultClusterParametersMessage;
 export type DescribeDefaultClusterParametersCommandOutput = DescribeDefaultClusterParametersResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of parameter settings for the specified parameter group
+ *             family.</p>
+ *         <p>
+ * For more information about parameters and parameter groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class DescribeDefaultClusterParametersCommand extends $Command<
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

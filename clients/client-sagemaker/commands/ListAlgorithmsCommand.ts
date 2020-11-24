@@ -20,6 +20,9 @@ import {
 export type ListAlgorithmsCommandInput = ListAlgorithmsInput;
 export type ListAlgorithmsCommandOutput = ListAlgorithmsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the machine learning algorithms that have been created.</p>
+ */
 export class ListAlgorithmsCommand extends $Command<
   ListAlgorithmsCommandInput,
   ListAlgorithmsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAlgorithmsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

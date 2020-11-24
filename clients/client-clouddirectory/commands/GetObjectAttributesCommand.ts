@@ -20,6 +20,9 @@ import {
 export type GetObjectAttributesCommandInput = GetObjectAttributesRequest;
 export type GetObjectAttributesCommandOutput = GetObjectAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves attributes within a facet that are associated with an object.</p>
+ */
 export class GetObjectAttributesCommand extends $Command<
   GetObjectAttributesCommandInput,
   GetObjectAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class GetObjectAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

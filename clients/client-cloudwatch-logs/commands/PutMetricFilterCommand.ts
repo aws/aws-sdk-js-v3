@@ -20,6 +20,13 @@ import {
 export type PutMetricFilterCommandInput = PutMetricFilterRequest;
 export type PutMetricFilterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates or updates a metric filter and associates it with the specified log group.
+ *       Metric filters allow you to configure rules to extract metric data from log events ingested
+ *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
+ *          <p>The maximum number of metric filters that can be associated with a log group is
+ *       100.</p>
+ */
 export class PutMetricFilterCommand extends $Command<
   PutMetricFilterCommandInput,
   PutMetricFilterCommandOutput,
@@ -34,6 +41,9 @@ export class PutMetricFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

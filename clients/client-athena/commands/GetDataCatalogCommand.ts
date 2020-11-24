@@ -20,6 +20,9 @@ import {
 export type GetDataCatalogCommandInput = GetDataCatalogInput;
 export type GetDataCatalogCommandOutput = GetDataCatalogOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the specified data catalog.</p>
+ */
 export class GetDataCatalogCommand extends $Command<
   GetDataCatalogCommandInput,
   GetDataCatalogCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

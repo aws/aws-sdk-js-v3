@@ -24,6 +24,9 @@ export type PurchaseReservedDBInstancesOfferingCommandInput = PurchaseReservedDB
 export type PurchaseReservedDBInstancesOfferingCommandOutput = PurchaseReservedDBInstancesOfferingResult &
   __MetadataBearer;
 
+/**
+ * <p>Purchases a reserved DB instance offering.</p>
+ */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
   PurchaseReservedDBInstancesOfferingCommandInput,
   PurchaseReservedDBInstancesOfferingCommandOutput,
@@ -38,6 +41,9 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

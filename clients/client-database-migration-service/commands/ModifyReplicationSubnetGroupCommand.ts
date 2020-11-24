@@ -24,6 +24,9 @@ import {
 export type ModifyReplicationSubnetGroupCommandInput = ModifyReplicationSubnetGroupMessage;
 export type ModifyReplicationSubnetGroupCommandOutput = ModifyReplicationSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for the specified replication subnet group.</p>
+ */
 export class ModifyReplicationSubnetGroupCommand extends $Command<
   ModifyReplicationSubnetGroupCommandInput,
   ModifyReplicationSubnetGroupCommandOutput,
@@ -38,6 +41,9 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

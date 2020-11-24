@@ -20,6 +20,9 @@ import {
 export type SearchIndexCommandInput = SearchIndexRequest;
 export type SearchIndexCommandOutput = SearchIndexResponse & __MetadataBearer;
 
+/**
+ * <p>The query search index.</p>
+ */
 export class SearchIndexCommand extends $Command<
   SearchIndexCommandInput,
   SearchIndexCommandOutput,
@@ -34,6 +37,9 @@ export class SearchIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

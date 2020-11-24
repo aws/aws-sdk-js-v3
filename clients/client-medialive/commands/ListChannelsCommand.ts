@@ -20,6 +20,9 @@ import {
 export type ListChannelsCommandInput = ListChannelsRequest;
 export type ListChannelsCommandOutput = ListChannelsResponse & __MetadataBearer;
 
+/**
+ * Produces list of channels that have been created
+ */
 export class ListChannelsCommand extends $Command<
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
@@ -34,6 +37,9 @@ export class ListChannelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeNodeConfigurationOptionsCommandInput = DescribeNodeConfigurationOptionsMessage;
 export type DescribeNodeConfigurationOptionsCommandOutput = NodeConfigurationOptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns properties of possible node configurations such as node type, number of nodes, and
+ *             disk usage for the specified action type.</p>
+ */
 export class DescribeNodeConfigurationOptionsCommand extends $Command<
   DescribeNodeConfigurationOptionsCommandInput,
   DescribeNodeConfigurationOptionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StartSchemaExtensionCommandInput = StartSchemaExtensionRequest;
 export type StartSchemaExtensionCommandOutput = StartSchemaExtensionResult & __MetadataBearer;
 
+/**
+ * <p>Applies a schema extension to a Microsoft AD directory.</p>
+ */
 export class StartSchemaExtensionCommand extends $Command<
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput,
@@ -34,6 +37,9 @@ export class StartSchemaExtensionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

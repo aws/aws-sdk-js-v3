@@ -17,6 +17,13 @@ import {
 export type StartTaskCommandInput = StartTaskRequest;
 export type StartTaskCommandOutput = StartTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a new task from the specified task definition on the specified container
+ * 			instance or instances.</p>
+ * 		       <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
+ * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +34,9 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

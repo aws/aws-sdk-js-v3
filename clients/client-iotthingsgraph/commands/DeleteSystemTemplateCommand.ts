@@ -20,6 +20,10 @@ import {
 export type DeleteSystemTemplateCommandInput = DeleteSystemTemplateRequest;
 export type DeleteSystemTemplateCommandOutput = DeleteSystemTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a system. New deployments can't contain the system after its deletion.
+ *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
+ */
 export class DeleteSystemTemplateCommand extends $Command<
   DeleteSystemTemplateCommandInput,
   DeleteSystemTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteSystemTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

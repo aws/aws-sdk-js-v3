@@ -20,6 +20,9 @@ import {
 export type CreateConferenceProviderCommandInput = CreateConferenceProviderRequest;
 export type CreateConferenceProviderCommandOutput = CreateConferenceProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a new conference provider under the user's AWS account.</p>
+ */
 export class CreateConferenceProviderCommand extends $Command<
   CreateConferenceProviderCommandInput,
   CreateConferenceProviderCommandOutput,
@@ -34,6 +37,9 @@ export class CreateConferenceProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

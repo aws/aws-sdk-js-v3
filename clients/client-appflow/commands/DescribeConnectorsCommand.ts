@@ -20,6 +20,12 @@ import {
 export type DescribeConnectorsCommandInput = DescribeConnectorsRequest;
 export type DescribeConnectorsCommandOutput = DescribeConnectorsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Describes the connectors vended by Amazon AppFlow for specified connector types. If you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow.
+ *   If there are more connectors than can be returned in one page, the response contains a <code>nextToken</code> object, which can be be passed in to the next call to the <code>DescribeConnectors</code> API operation to retrieve the next page.
+ * </p>
+ */
 export class DescribeConnectorsCommand extends $Command<
   DescribeConnectorsCommandInput,
   DescribeConnectorsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeConnectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

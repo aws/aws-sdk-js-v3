@@ -18,6 +18,9 @@ import {
 export type PauseClusterCommandInput = PauseClusterMessage;
 export type PauseClusterCommandOutput = PauseClusterResult & __MetadataBearer;
 
+/**
+ * <p>Pauses a cluster.</p>
+ */
 export class PauseClusterCommand extends $Command<
   PauseClusterCommandInput,
   PauseClusterCommandOutput,
@@ -32,6 +35,9 @@ export class PauseClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

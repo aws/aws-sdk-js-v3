@@ -20,6 +20,9 @@ import {
 export type ListDashboardsCommandInput = ListDashboardsRequest;
 export type ListDashboardsCommandOutput = ListDashboardsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of dashboards for an AWS IoT SiteWise Monitor project.</p>
+ */
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDashboardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

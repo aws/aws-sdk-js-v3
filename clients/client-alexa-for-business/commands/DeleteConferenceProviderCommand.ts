@@ -20,6 +20,9 @@ import {
 export type DeleteConferenceProviderCommandInput = DeleteConferenceProviderRequest;
 export type DeleteConferenceProviderCommandOutput = DeleteConferenceProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a conference provider.</p>
+ */
 export class DeleteConferenceProviderCommand extends $Command<
   DeleteConferenceProviderCommandInput,
   DeleteConferenceProviderCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConferenceProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

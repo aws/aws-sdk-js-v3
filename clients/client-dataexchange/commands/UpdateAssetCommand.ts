@@ -20,6 +20,9 @@ import {
 export type UpdateAssetCommandInput = UpdateAssetRequest;
 export type UpdateAssetCommandOutput = UpdateAssetResponse & __MetadataBearer;
 
+/**
+ * <p>This operation updates an asset.</p>
+ */
 export class UpdateAssetCommand extends $Command<
   UpdateAssetCommandInput,
   UpdateAssetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type GetCertificatesCommandInput = GetCertificatesRequest;
 export type GetCertificatesCommandOutput = GetCertificatesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
+ *          <note>
+ *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
+ *         your request. The response will include only the certificate Amazon Resource Name (ARN),
+ *         certificate name, domain name, and tags.</p>
+ *          </note>
+ */
 export class GetCertificatesCommand extends $Command<
   GetCertificatesCommandInput,
   GetCertificatesCommandOutput,
@@ -34,6 +42,9 @@ export class GetCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

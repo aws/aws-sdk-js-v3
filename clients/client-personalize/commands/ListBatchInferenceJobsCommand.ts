@@ -20,6 +20,10 @@ import {
 export type ListBatchInferenceJobsCommandInput = ListBatchInferenceJobsRequest;
 export type ListBatchInferenceJobsCommandOutput = ListBatchInferenceJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the batch inference jobs that have been performed off of a solution
+ *       version.</p>
+ */
 export class ListBatchInferenceJobsCommand extends $Command<
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,
@@ -34,6 +38,9 @@ export class ListBatchInferenceJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

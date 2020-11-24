@@ -20,6 +20,9 @@ import {
 export type GetAppsCommandInput = GetAppsRequest;
 export type GetAppsCommandOutput = GetAppsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
+ */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

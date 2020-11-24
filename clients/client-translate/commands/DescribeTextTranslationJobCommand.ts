@@ -20,6 +20,10 @@ import {
 export type DescribeTextTranslationJobCommandInput = DescribeTextTranslationJobRequest;
 export type DescribeTextTranslationJobCommandOutput = DescribeTextTranslationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with an asycnhronous batch translation job including name,
+ *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ */
 export class DescribeTextTranslationJobCommand extends $Command<
   DescribeTextTranslationJobCommandInput,
   DescribeTextTranslationJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeTextTranslationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

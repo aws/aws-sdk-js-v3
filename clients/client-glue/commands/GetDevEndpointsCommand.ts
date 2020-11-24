@@ -20,6 +20,14 @@ import {
 export type GetDevEndpointsCommandInput = GetDevEndpointsRequest;
 export type GetDevEndpointsCommandOutput = GetDevEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves all the development endpoints in this AWS account.</p>
+ *          <note>
+ *             <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address
+ *       and the public IP address field is not populated. When you create a non-VPC development
+ *       endpoint, AWS Glue returns only a public IP address.</p>
+ *          </note>
+ */
 export class GetDevEndpointsCommand extends $Command<
   GetDevEndpointsCommandInput,
   GetDevEndpointsCommandOutput,
@@ -34,6 +42,9 @@ export class GetDevEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

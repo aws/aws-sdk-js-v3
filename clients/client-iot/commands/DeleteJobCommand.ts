@@ -20,6 +20,16 @@ import {
 export type DeleteJobCommandInput = DeleteJobRequest;
 export type DeleteJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a job and its related job executions.</p>
+ *          <p>Deleting a job may take time, depending on the number of job
+ *         executions created for the job and various other factors. While the job
+ *         is being deleted, the status of the job will be shown as
+ *         "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
+ *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
+ *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
+ *         a LimitExceededException will occur.</p>
+ */
 export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +40,9 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

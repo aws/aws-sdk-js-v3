@@ -20,6 +20,9 @@ import {
 export type ListConfigsCommandInput = ListConfigsRequest;
 export type ListConfigsCommandOutput = ListConfigsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>Config</code> objects.</p>
+ */
 export class ListConfigsCommand extends $Command<
   ListConfigsCommandInput,
   ListConfigsCommandOutput,
@@ -34,6 +37,9 @@ export class ListConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

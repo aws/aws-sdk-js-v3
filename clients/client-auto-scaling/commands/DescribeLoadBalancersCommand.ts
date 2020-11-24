@@ -20,6 +20,11 @@ import {
 export type DescribeLoadBalancersCommandInput = DescribeLoadBalancersRequest;
 export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the load balancers for the specified Auto Scaling group.</p>
+ *         <p>This operation describes only Classic Load Balancers. If you have Application Load
+ *             Balancers or Network Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
+ */
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeLoadBalancersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

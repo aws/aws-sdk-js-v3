@@ -20,6 +20,9 @@ import {
 export type GetRouteResponseCommandInput = GetRouteResponseRequest;
 export type GetRouteResponseCommandOutput = GetRouteResponseResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a RouteResponse.</p>
+ */
 export class GetRouteResponseCommand extends $Command<
   GetRouteResponseCommandInput,
   GetRouteResponseCommandOutput,
@@ -34,6 +37,9 @@ export class GetRouteResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

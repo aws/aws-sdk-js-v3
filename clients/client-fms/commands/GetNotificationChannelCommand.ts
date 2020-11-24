@@ -20,6 +20,11 @@ import {
 export type GetNotificationChannelCommandInput = GetNotificationChannelRequest;
 export type GetNotificationChannelCommandOutput = GetNotificationChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Information
+ *       about the Amazon Simple Notification Service (SNS) topic that is used to
+ *       record AWS Firewall Manager SNS logs.</p>
+ */
 export class GetNotificationChannelCommand extends $Command<
   GetNotificationChannelCommandInput,
   GetNotificationChannelCommandOutput,
@@ -34,6 +39,9 @@ export class GetNotificationChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

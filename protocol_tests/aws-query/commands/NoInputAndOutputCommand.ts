@@ -20,6 +20,12 @@ import {
 export type NoInputAndOutputCommandInput = NoInputAndOutputOutput;
 export type NoInputAndOutputCommandOutput = __MetadataBearer;
 
+/**
+ * The example tests how requests and responses are serialized when there's
+ * no request payload or response members.
+ *
+ * While this should be rare, code generators must support this.
+ */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,
   NoInputAndOutputCommandOutput,
@@ -34,6 +40,9 @@ export class NoInputAndOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

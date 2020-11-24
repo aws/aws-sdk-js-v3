@@ -20,6 +20,10 @@ import {
 export type ListEventSubscriptionsCommandInput = ListEventSubscriptionsRequest;
 export type ListEventSubscriptionsCommandOutput = ListEventSubscriptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the event subscriptions for the assessment template that is specified by
+ *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
+ */
 export class ListEventSubscriptionsCommand extends $Command<
   ListEventSubscriptionsCommandInput,
   ListEventSubscriptionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListEventSubscriptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

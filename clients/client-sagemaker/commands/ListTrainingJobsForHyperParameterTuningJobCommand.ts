@@ -24,6 +24,10 @@ export type ListTrainingJobsForHyperParameterTuningJobCommandInput = ListTrainin
 export type ListTrainingJobsForHyperParameterTuningJobCommandOutput = ListTrainingJobsForHyperParameterTuningJobResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
+ *             jobs that a hyperparameter tuning job launched.</p>
+ */
 export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
   ListTrainingJobsForHyperParameterTuningJobCommandInput,
   ListTrainingJobsForHyperParameterTuningJobCommandOutput,
@@ -38,6 +42,9 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

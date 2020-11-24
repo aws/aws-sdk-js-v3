@@ -24,6 +24,10 @@ import {
 export type CreateTagsCommandInput = CreateTagsRequest;
 export type CreateTagsCommandOutput = CreateTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates one or more tags for configuration items. Tags are metadata that help you
+ *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
+ */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,
   CreateTagsCommandOutput,
@@ -38,6 +42,9 @@ export class CreateTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

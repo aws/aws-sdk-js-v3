@@ -20,6 +20,14 @@ import {
 export type DeleteDatabaseCommandInput = DeleteDatabaseRequest;
 export type DeleteDatabaseCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a given Timestream database. <i>This is an irreversible operation.
+ *       After a database is deleted, the time series data from its tables cannot be recovered.</i>
+ *          </p>
+ *
+ *          <p>All tables in the database must be deleted first, or a ValidationException error will be thrown.
+ *       </p>
+ */
 export class DeleteDatabaseCommand extends $Command<
   DeleteDatabaseCommandInput,
   DeleteDatabaseCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

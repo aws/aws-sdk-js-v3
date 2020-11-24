@@ -20,6 +20,9 @@ import {
 export type GetMissionProfileCommandInput = GetMissionProfileRequest;
 export type GetMissionProfileCommandOutput = GetMissionProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a mission profile.</p>
+ */
 export class GetMissionProfileCommand extends $Command<
   GetMissionProfileCommandInput,
   GetMissionProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetMissionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

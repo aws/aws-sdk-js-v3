@@ -20,6 +20,9 @@ import {
 export type SwapEnvironmentCNAMEsCommandInput = SwapEnvironmentCNAMEsMessage;
 export type SwapEnvironmentCNAMEsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Swaps the CNAMEs of two environments.</p>
+ */
 export class SwapEnvironmentCNAMEsCommand extends $Command<
   SwapEnvironmentCNAMEsCommandInput,
   SwapEnvironmentCNAMEsCommandOutput,
@@ -34,6 +37,9 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

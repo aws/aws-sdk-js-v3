@@ -20,6 +20,12 @@ import {
 export type ListTagsOfResourceCommandInput = ListTagsOfResourceInput;
 export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput & __MetadataBearer;
 
+/**
+ * <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10 times per second, per account.</p>
+ *          <p>For an overview on tagging DynamoDB resources, see
+ *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
+ *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ */
 export class ListTagsOfResourceCommand extends $Command<
   ListTagsOfResourceCommandInput,
   ListTagsOfResourceCommandOutput,
@@ -34,6 +40,9 @@ export class ListTagsOfResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -24,6 +24,23 @@ import {
 export type UntagResourcesCommandInput = UntagResourcesInput;
 export type UntagResourcesCommandOutput = UntagResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified tags from the specified resources. When you specify a tag key,
+ *             the action removes both that key and its associated value. The operation succeeds even
+ *             if you attempt to remove tags from a resource that were already removed. Note the
+ *             following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>To remove tags from a resource, you need the necessary permissions for the
+ *                     service that the resource belongs to as well as permissions for removing tags.
+ *                     For more information, see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *             </li>
+ *             <li>
+ *                 <p>You can only tag resources that are located in the specified Region for the
+ *                     AWS account.</p>
+ *             </li>
+ *          </ul>
+ */
 export class UntagResourcesCommand extends $Command<
   UntagResourcesCommandInput,
   UntagResourcesCommandOutput,
@@ -38,6 +55,9 @@ export class UntagResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

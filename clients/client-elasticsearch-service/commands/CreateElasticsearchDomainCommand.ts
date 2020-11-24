@@ -24,6 +24,10 @@ import {
 export type CreateElasticsearchDomainCommandInput = CreateElasticsearchDomainRequest;
 export type CreateElasticsearchDomainCommandOutput = CreateElasticsearchDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Elasticsearch domain. For more information,
+ *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
+ */
 export class CreateElasticsearchDomainCommand extends $Command<
   CreateElasticsearchDomainCommandInput,
   CreateElasticsearchDomainCommandOutput,
@@ -38,6 +42,9 @@ export class CreateElasticsearchDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeLedgerCommandInput = DescribeLedgerRequest;
 export type DescribeLedgerCommandOutput = DescribeLedgerResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a ledger, including its state and when it was created.</p>
+ */
 export class DescribeLedgerCommand extends $Command<
   DescribeLedgerCommandInput,
   DescribeLedgerCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLedgerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

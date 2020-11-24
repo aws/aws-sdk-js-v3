@@ -24,6 +24,9 @@ import {
 export type ListEntitiesCommandInput = ListEntitiesRequest;
 export type ListEntitiesCommandOutput = ListEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Provides the list of entities of a given type.</p>
+ */
 export class ListEntitiesCommand extends $Command<
   ListEntitiesCommandInput,
   ListEntitiesCommandOutput,
@@ -38,6 +41,9 @@ export class ListEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

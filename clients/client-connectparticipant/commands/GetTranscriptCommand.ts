@@ -24,6 +24,10 @@ import {
 export type GetTranscriptCommandInput = GetTranscriptRequest;
 export type GetTranscriptCommandOutput = GetTranscriptResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking
+ *             this API instead of ParticipantToken.</p>
+ */
 export class GetTranscriptCommand extends $Command<
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput,
@@ -38,6 +42,9 @@ export class GetTranscriptCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,

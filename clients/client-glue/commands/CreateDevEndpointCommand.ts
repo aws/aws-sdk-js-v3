@@ -20,6 +20,9 @@ import {
 export type CreateDevEndpointCommandInput = CreateDevEndpointRequest;
 export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new development endpoint.</p>
+ */
 export class CreateDevEndpointCommand extends $Command<
   CreateDevEndpointCommandInput,
   CreateDevEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDevEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DisassociateMembersCommandInput = DisassociateMembersRequest;
 export type DisassociateMembersCommandOutput = DisassociateMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified member accounts from the associated master account.</p>
+ */
 export class DisassociateMembersCommand extends $Command<
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

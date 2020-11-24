@@ -24,6 +24,11 @@ import {
 export type DeleteApplicationOutputCommandInput = DeleteApplicationOutputRequest;
 export type DeleteApplicationOutputCommandOutput = DeleteApplicationOutputResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration.
+ *       Kinesis Data Analytics will no longer write data from
+ *       the corresponding in-application stream to the external output destination.</p>
+ */
 export class DeleteApplicationOutputCommand extends $Command<
   DeleteApplicationOutputCommandInput,
   DeleteApplicationOutputCommandOutput,
@@ -38,6 +43,9 @@ export class DeleteApplicationOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

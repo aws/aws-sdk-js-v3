@@ -20,6 +20,9 @@ import {
 export type CreateFlowCommandInput = CreateFlowRequest;
 export type CreateFlowCommandOutput = CreateFlowResponse & __MetadataBearer;
 
+/**
+ * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
+ */
 export class CreateFlowCommand extends $Command<
   CreateFlowCommandInput,
   CreateFlowCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

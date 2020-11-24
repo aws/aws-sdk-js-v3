@@ -20,6 +20,12 @@ import {
 export type PutAccessControlRuleCommandInput = PutAccessControlRuleRequest;
 export type PutAccessControlRuleCommandOutput = PutAccessControlRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a new access control rule for the specified organization. The rule allows or
+ *          denies access to the organization for the specified IPv4 addresses, access protocol
+ *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
+ *          the older rule.</p>
+ */
 export class PutAccessControlRuleCommand extends $Command<
   PutAccessControlRuleCommandInput,
   PutAccessControlRuleCommandOutput,
@@ -34,6 +40,9 @@ export class PutAccessControlRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateResolverCommandInput = CreateResolverRequest;
 export type CreateResolverCommandOutput = CreateResolverResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <code>Resolver</code> object.</p>
+ *          <p>A resolver converts incoming requests into a format that a data source can understand
+ *          and converts the data source's responses into GraphQL.</p>
+ */
 export class CreateResolverCommand extends $Command<
   CreateResolverCommandInput,
   CreateResolverCommandOutput,
@@ -34,6 +39,9 @@ export class CreateResolverCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type DescribeConfigurationAggregatorsCommandInput = DescribeConfigurationAggregatorsRequest;
 export type DescribeConfigurationAggregatorsCommandOutput = DescribeConfigurationAggregatorsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details of one or more configuration aggregators.
+ * 			If the configuration aggregator is not specified, this action
+ * 			returns the details for all the configuration aggregators associated
+ * 			with the account. </p>
+ */
 export class DescribeConfigurationAggregatorsCommand extends $Command<
   DescribeConfigurationAggregatorsCommandInput,
   DescribeConfigurationAggregatorsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

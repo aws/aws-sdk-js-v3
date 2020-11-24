@@ -20,6 +20,11 @@ import {
 export type GetStatisticsCommandInput = GetStatisticsRequest;
 export type GetStatisticsCommandOutput = GetStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+ *       and standard deviation for the specified aggregated field. If the aggregation field is of type
+ *       <code>String</code>, only the count statistic is returned.</p>
+ */
 export class GetStatisticsCommand extends $Command<
   GetStatisticsCommandInput,
   GetStatisticsCommandOutput,
@@ -34,6 +39,9 @@ export class GetStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

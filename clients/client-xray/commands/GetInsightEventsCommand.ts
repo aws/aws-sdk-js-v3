@@ -20,6 +20,11 @@ import {
 export type GetInsightEventsCommandInput = GetInsightEventsRequest;
 export type GetInsightEventsCommandOutput = GetInsightEventsResult & __MetadataBearer;
 
+/**
+ * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
+ *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
+ *          console.</p>
+ */
 export class GetInsightEventsCommand extends $Command<
   GetInsightEventsCommandInput,
   GetInsightEventsCommandOutput,
@@ -34,6 +39,9 @@ export class GetInsightEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

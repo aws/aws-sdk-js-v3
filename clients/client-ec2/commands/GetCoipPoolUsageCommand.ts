@@ -20,6 +20,9 @@ import {
 export type GetCoipPoolUsageCommandInput = GetCoipPoolUsageRequest;
 export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult & __MetadataBearer;
 
+/**
+ * <p>Describes the allocations from the specified customer-owned address pool.</p>
+ */
 export class GetCoipPoolUsageCommand extends $Command<
   GetCoipPoolUsageCommandInput,
   GetCoipPoolUsageCommandOutput,
@@ -34,6 +37,9 @@ export class GetCoipPoolUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

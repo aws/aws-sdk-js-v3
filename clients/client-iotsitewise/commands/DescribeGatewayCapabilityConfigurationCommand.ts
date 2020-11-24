@@ -24,6 +24,13 @@ export type DescribeGatewayCapabilityConfigurationCommandInput = DescribeGateway
 export type DescribeGatewayCapabilityConfigurationCommandOutput = DescribeGatewayCapabilityConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a gateway capability configuration.
+ *       Each gateway capability defines data sources for a gateway. A capability configuration
+ *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
+ *       the AWS IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
+ *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
+ */
 export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

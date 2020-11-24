@@ -20,6 +20,11 @@ import {
 export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Removes the specified tags from an Elastic Inference Accelerator.
+ *         </p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +39,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticInferenceClientResolvedConfig,

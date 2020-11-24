@@ -20,6 +20,14 @@ import {
 export type UpdateRuleGroupCommandInput = UpdateRuleGroupRequest;
 export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the rule settings for the specified rule group. You use a rule group by
+ *          reference in one or more firewall policies. When you modify a rule group, you modify all
+ *          firewall policies that use the rule group. </p>
+ *          <p>To update a rule group, first call <a>DescribeRuleGroup</a> to retrieve the
+ *          current <a>RuleGroup</a> object, update the object as needed, and then provide
+ *          the updated object to this call. </p>
+ */
 export class UpdateRuleGroupCommand extends $Command<
   UpdateRuleGroupCommandInput,
   UpdateRuleGroupCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateRuleGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

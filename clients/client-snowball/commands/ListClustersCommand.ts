@@ -20,6 +20,11 @@ import {
 export type ListClustersCommandInput = ListClustersRequest;
 export type ListClustersCommandOutput = ListClustersResult & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
+ *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
+ *       important status information.</p>
+ */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -34,6 +39,9 @@ export class ListClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

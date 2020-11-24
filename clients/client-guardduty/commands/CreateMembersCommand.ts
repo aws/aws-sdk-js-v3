@@ -20,6 +20,20 @@ import {
 export type CreateMembersCommandInput = CreateMembersRequest;
 export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Creates member accounts of the current AWS account by specifying a list of AWS account
+ *       IDs. This step is a prerequisite for managing the associated member accounts either by
+ *       invitation or through an organization.</p>
+ *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
+ *       action will enable GuardDuty in the added member accounts, with the exception of the
+ *       organization master account, which must enable GuardDuty prior to being added as a
+ *       member.</p>
+ *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
+ *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
+ *                <code>Invite
+ *         Members</code>
+ *             </a>.</p>
+ */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,
   CreateMembersCommandOutput,
@@ -34,6 +48,9 @@ export class CreateMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

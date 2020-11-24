@@ -20,6 +20,11 @@ import {
 export type ListAccountsCommandInput = ListAccountsRequest;
 export type ListAccountsCommandOutput = ListAccountsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
+ *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation
+ *       returns a paginated response.</p>
+ */
 export class ListAccountsCommand extends $Command<
   ListAccountsCommandInput,
   ListAccountsCommandOutput,
@@ -34,6 +39,9 @@ export class ListAccountsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOClientResolvedConfig,

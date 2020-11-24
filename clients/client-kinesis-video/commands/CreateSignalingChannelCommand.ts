@@ -20,6 +20,11 @@ import {
 export type CreateSignalingChannelCommandInput = CreateSignalingChannelInput;
 export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a signaling channel. </p>
+ *         <p>
+ *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
+ */
 export class CreateSignalingChannelCommand extends $Command<
   CreateSignalingChannelCommandInput,
   CreateSignalingChannelCommandOutput,
@@ -34,6 +39,9 @@ export class CreateSignalingChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

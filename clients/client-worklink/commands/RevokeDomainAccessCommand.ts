@@ -20,6 +20,9 @@ import {
 export type RevokeDomainAccessCommandInput = RevokeDomainAccessRequest;
 export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse & __MetadataBearer;
 
+/**
+ * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
+ */
 export class RevokeDomainAccessCommand extends $Command<
   RevokeDomainAccessCommandInput,
   RevokeDomainAccessCommandOutput,
@@ -34,6 +37,9 @@ export class RevokeDomainAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

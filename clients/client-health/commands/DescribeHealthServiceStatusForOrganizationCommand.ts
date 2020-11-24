@@ -21,6 +21,12 @@ export type DescribeHealthServiceStatusForOrganizationCommandInput = {};
 export type DescribeHealthServiceStatusForOrganizationCommandOutput = DescribeHealthServiceStatusForOrganizationResponse &
   __MetadataBearer;
 
+/**
+ * <p>This operation provides status information on enabling or disabling AWS Health to work
+ *          with your organization. To call this operation, you must sign in as an IAM user, assume
+ *          an IAM role, or sign in as the root user (not recommended) in the organization's master
+ *          account.</p>
+ */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
   DescribeHealthServiceStatusForOrganizationCommandInput,
   DescribeHealthServiceStatusForOrganizationCommandOutput,
@@ -35,6 +41,9 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,

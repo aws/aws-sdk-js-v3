@@ -20,6 +20,11 @@ import {
 export type PutRetentionPolicyCommandInput = PutRetentionPolicyRequest;
 export type PutRetentionPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the retention of the specified log group. A retention policy allows you to
+ *       configure the number of days for which to retain log events in the specified log
+ *       group.</p>
+ */
 export class PutRetentionPolicyCommand extends $Command<
   PutRetentionPolicyCommandInput,
   PutRetentionPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutRetentionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

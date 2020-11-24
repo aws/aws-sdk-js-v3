@@ -20,6 +20,9 @@ import {
 export type CreateCustomDataIdentifierCommandInput = CreateCustomDataIdentifierRequest;
 export type CreateCustomDataIdentifierCommandOutput = CreateCustomDataIdentifierResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and defines the criteria and other settings for a custom data identifier.</p>
+ */
 export class CreateCustomDataIdentifierCommand extends $Command<
   CreateCustomDataIdentifierCommandInput,
   CreateCustomDataIdentifierCommandOutput,
@@ -34,6 +37,9 @@ export class CreateCustomDataIdentifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

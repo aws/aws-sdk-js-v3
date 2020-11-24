@@ -24,6 +24,18 @@ import {
 export type GetSlotTypeVersionsCommandInput = GetSlotTypeVersionsRequest;
 export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about all versions of a slot type.</p>
+ *          <p>The <code>GetSlotTypeVersions</code> operation returns a <code>SlotTypeMetadata</code>
+ *       object for each version of a slot type. For example, if a slot type has three numbered
+ *       versions, the <code>GetSlotTypeVersions</code> operation returns four
+ *         <code>SlotTypeMetadata</code> objects in the response, one for each numbered version and one
+ *       for the <code>$LATEST</code> version. </p>
+ *          <p>The <code>GetSlotTypeVersions</code> operation always returns at least one version, the
+ *         <code>$LATEST</code> version.</p>
+ *          <p>This operation requires permissions for the <code>lex:GetSlotTypeVersions</code>
+ *       action.</p>
+ */
 export class GetSlotTypeVersionsCommand extends $Command<
   GetSlotTypeVersionsCommandInput,
   GetSlotTypeVersionsCommandOutput,
@@ -38,6 +50,9 @@ export class GetSlotTypeVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

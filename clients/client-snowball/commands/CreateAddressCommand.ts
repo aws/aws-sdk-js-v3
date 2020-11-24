@@ -20,6 +20,12 @@ import {
 export type CreateAddressCommandInput = CreateAddressRequest;
 export type CreateAddressCommandOutput = CreateAddressResult & __MetadataBearer;
 
+/**
+ * <p>Creates an address for a Snow device to be shipped to. In most regions,
+ *       addresses are validated at the time of creation. The address you provide must be located
+ *       within the serviceable area of your region. If the address is invalid or unsupported, then an
+ *       exception is thrown.</p>
+ */
 export class CreateAddressCommand extends $Command<
   CreateAddressCommandInput,
   CreateAddressCommandOutput,
@@ -34,6 +40,9 @@ export class CreateAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListCommandsCommandInput = ListCommandsRequest;
 export type ListCommandsCommandOutput = ListCommandsResult & __MetadataBearer;
 
+/**
+ * <p>Lists the commands requested by users of the AWS account.</p>
+ */
 export class ListCommandsCommand extends $Command<
   ListCommandsCommandInput,
   ListCommandsCommandOutput,
@@ -34,6 +37,9 @@ export class ListCommandsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

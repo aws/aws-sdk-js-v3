@@ -20,6 +20,9 @@ import {
 export type ListThingTypesCommandInput = ListThingTypesRequest;
 export type ListThingTypesCommandOutput = ListThingTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the existing thing types.</p>
+ */
 export class ListThingTypesCommand extends $Command<
   ListThingTypesCommandInput,
   ListThingTypesCommandOutput,
@@ -34,6 +37,9 @@ export class ListThingTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

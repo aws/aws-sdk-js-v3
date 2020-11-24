@@ -20,6 +20,10 @@ import {
 export type UpdateGatewayRouteCommandInput = UpdateGatewayRouteInput;
 export type UpdateGatewayRouteCommandOutput = UpdateGatewayRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
+ *          service mesh.</p>
+ */
 export class UpdateGatewayRouteCommand extends $Command<
   UpdateGatewayRouteCommandInput,
   UpdateGatewayRouteCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGatewayRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

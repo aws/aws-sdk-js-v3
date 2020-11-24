@@ -20,6 +20,9 @@ import {
 export type ResetNetworkInterfaceAttributeCommandInput = ResetNetworkInterfaceAttributeRequest;
 export type ResetNetworkInterfaceAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
+ */
 export class ResetNetworkInterfaceAttributeCommand extends $Command<
   ResetNetworkInterfaceAttributeCommandInput,
   ResetNetworkInterfaceAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

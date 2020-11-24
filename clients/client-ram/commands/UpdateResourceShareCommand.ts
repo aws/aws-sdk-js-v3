@@ -20,6 +20,9 @@ import {
 export type UpdateResourceShareCommandInput = UpdateResourceShareRequest;
 export type UpdateResourceShareCommandOutput = UpdateResourceShareResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified resource share that you own.</p>
+ */
 export class UpdateResourceShareCommand extends $Command<
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateResourceShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type CreateNodeCommandInput = CreateNodeInput;
 export type CreateNodeCommandOutput = CreateNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a peer node in a member.</p>
+ */
 export class CreateNodeCommand extends $Command<
   CreateNodeCommandInput,
   CreateNodeCommandOutput,
@@ -38,6 +41,9 @@ export class CreateNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

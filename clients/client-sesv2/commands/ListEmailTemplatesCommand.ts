@@ -20,6 +20,12 @@ import {
 export type ListEmailTemplatesCommandInput = ListEmailTemplatesRequest;
 export type ListEmailTemplatesCommandOutput = ListEmailTemplatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the email templates present in your Amazon SES account in the current AWS
+ *             Region.</p>
+ *
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class ListEmailTemplatesCommand extends $Command<
   ListEmailTemplatesCommandInput,
   ListEmailTemplatesCommandOutput,
@@ -34,6 +40,9 @@ export class ListEmailTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

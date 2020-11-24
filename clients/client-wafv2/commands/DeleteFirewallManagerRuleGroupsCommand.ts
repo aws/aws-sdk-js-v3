@@ -20,6 +20,10 @@ import {
 export type DeleteFirewallManagerRuleGroupsCommandInput = DeleteFirewallManagerRuleGroupsRequest;
 export type DeleteFirewallManagerRuleGroupsCommandOutput = DeleteFirewallManagerRuleGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes all rule groups that are managed by AWS Firewall Manager for the specified web ACL. </p>
+ *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
+ */
 export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
   DeleteFirewallManagerRuleGroupsCommandInput,
   DeleteFirewallManagerRuleGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeregisterCertificateCommandInput = DeregisterCertificateRequest;
 export type DeregisterCertificateCommandOutput = DeregisterCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Deletes from the system the certificate that was registered for a secured LDAP
+ *       connection.</p>
+ */
 export class DeregisterCertificateCommand extends $Command<
   DeregisterCertificateCommandInput,
   DeregisterCertificateCommandOutput,
@@ -34,6 +38,9 @@ export class DeregisterCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

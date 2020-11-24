@@ -17,6 +17,9 @@ import {
 export type XmlMapsCommandInput = XmlMapsInputOutput;
 export type XmlMapsCommandOutput = XmlMapsInputOutput & __MetadataBearer;
 
+/**
+ * The example tests basic map serialization.
+ */
 export class XmlMapsCommand extends $Command<
   XmlMapsCommandInput,
   XmlMapsCommandOutput,
@@ -31,6 +34,9 @@ export class XmlMapsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

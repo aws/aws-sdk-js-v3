@@ -20,6 +20,9 @@ import {
 export type CancelImportTaskCommandInput = CancelImportTaskRequest;
 export type CancelImportTaskCommandOutput = CancelImportTaskResult & __MetadataBearer;
 
+/**
+ * <p>Cancels an in-process import virtual machine or import snapshot task.</p>
+ */
 export class CancelImportTaskCommand extends $Command<
   CancelImportTaskCommandInput,
   CancelImportTaskCommandOutput,
@@ -34,6 +37,9 @@ export class CancelImportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

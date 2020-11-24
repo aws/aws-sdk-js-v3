@@ -20,6 +20,14 @@ import {
 export type DescribeStacksCommandInput = DescribeStacksInput;
 export type DescribeStacksCommandOutput = DescribeStacksOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the description for the specified stack; if no stack name was specified, then
+ *          it returns the description for all the stacks created.</p>
+ *          <note>
+ *             <p>If the stack does not exist, an <code>AmazonCloudFormationException</code> is
+ *             returned.</p>
+ *          </note>
+ */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,
   DescribeStacksCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeStacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

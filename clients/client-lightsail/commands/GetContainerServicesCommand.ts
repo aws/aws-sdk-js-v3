@@ -20,6 +20,9 @@ import {
 export type GetContainerServicesCommandInput = GetContainerServicesRequest;
 export type GetContainerServicesCommandOutput = ContainerServicesListResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
+ */
 export class GetContainerServicesCommand extends $Command<
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
@@ -34,6 +37,9 @@ export class GetContainerServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

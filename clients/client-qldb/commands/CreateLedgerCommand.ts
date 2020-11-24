@@ -20,6 +20,9 @@ import {
 export type CreateLedgerCommandInput = CreateLedgerRequest;
 export type CreateLedgerCommandOutput = CreateLedgerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new ledger in your AWS account.</p>
+ */
 export class CreateLedgerCommand extends $Command<
   CreateLedgerCommandInput,
   CreateLedgerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLedgerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

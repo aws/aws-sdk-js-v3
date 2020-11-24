@@ -20,6 +20,9 @@ import {
 export type AssociateResourceShareCommandInput = AssociateResourceShareRequest;
 export type AssociateResourceShareCommandOutput = AssociateResourceShareResponse & __MetadataBearer;
 
+/**
+ * <p>Associates the specified resource share with the specified principals and resources.</p>
+ */
 export class AssociateResourceShareCommand extends $Command<
   AssociateResourceShareCommandInput,
   AssociateResourceShareCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateResourceShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

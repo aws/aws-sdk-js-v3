@@ -24,6 +24,9 @@ import {
 export type DescribeEntityCommandInput = DescribeEntityRequest;
 export type DescribeEntityCommandOutput = DescribeEntityResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the metadata and content of the entity.</p>
+ */
 export class DescribeEntityCommand extends $Command<
   DescribeEntityCommandInput,
   DescribeEntityCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeEntityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

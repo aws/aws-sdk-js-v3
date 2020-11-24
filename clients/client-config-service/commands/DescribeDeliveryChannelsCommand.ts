@@ -20,6 +20,15 @@ import {
 export type DescribeDeliveryChannelsCommandInput = DescribeDeliveryChannelsRequest;
 export type DescribeDeliveryChannelsCommandOutput = DescribeDeliveryChannelsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns details about the specified delivery channel. If a
+ * 			delivery channel is not specified, this action returns the details
+ * 			of all delivery channels associated with the account.</p>
+ * 		       <note>
+ * 			         <p>Currently, you can specify only one delivery channel per
+ * 				region in your account.</p>
+ * 		       </note>
+ */
 export class DescribeDeliveryChannelsCommand extends $Command<
   DescribeDeliveryChannelsCommandInput,
   DescribeDeliveryChannelsCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

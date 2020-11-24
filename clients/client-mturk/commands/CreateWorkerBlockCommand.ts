@@ -20,6 +20,9 @@ import {
 export type CreateWorkerBlockCommandInput = CreateWorkerBlockRequest;
 export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse & __MetadataBearer;
 
+/**
+ * <p>The <code>CreateWorkerBlock</code> operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.</p>
+ */
 export class CreateWorkerBlockCommand extends $Command<
   CreateWorkerBlockCommandInput,
   CreateWorkerBlockCommandOutput,
@@ -34,6 +37,9 @@ export class CreateWorkerBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

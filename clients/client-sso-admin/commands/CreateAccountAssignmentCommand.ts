@@ -20,6 +20,18 @@ import {
 export type CreateAccountAssignmentCommandInput = CreateAccountAssignmentRequest;
 export type CreateAccountAssignmentCommandOutput = CreateAccountAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Assigns access to a principal for a specified AWS account using a specified permission
+ *       set.</p>
+ *          <note>
+ *             <p>The term <i>principal</i> here refers to a user or group that is defined in AWS SSO.</p>
+ *          </note>
+ *          <note>
+ *             <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy attached to the SSO-created IAM role. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you will need to call <code>
+ *                   <a>ProvisionPermissionSet</a>
+ *                </code> to make these updates.</p>
+ *          </note>
+ */
 export class CreateAccountAssignmentCommand extends $Command<
   CreateAccountAssignmentCommandInput,
   CreateAccountAssignmentCommandOutput,
@@ -34,6 +46,9 @@ export class CreateAccountAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

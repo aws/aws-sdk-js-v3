@@ -20,6 +20,9 @@ import {
 export type GetAccountBalanceCommandInput = GetAccountBalanceRequest;
 export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse & __MetadataBearer;
 
+/**
+ * <p>The <code>GetAccountBalance</code> operation retrieves the amount of money in your Amazon Mechanical Turk account.</p>
+ */
 export class GetAccountBalanceCommand extends $Command<
   GetAccountBalanceCommandInput,
   GetAccountBalanceCommandOutput,
@@ -34,6 +37,9 @@ export class GetAccountBalanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

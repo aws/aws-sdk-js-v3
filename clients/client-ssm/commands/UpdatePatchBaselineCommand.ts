@@ -20,6 +20,14 @@ import {
 export type UpdatePatchBaselineCommandInput = UpdatePatchBaselineRequest;
 export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing patch baseline. Fields not specified in the request are left
+ *    unchanged.</p>
+ *          <note>
+ *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
+ *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
+ *          </note>
+ */
 export class UpdatePatchBaselineCommand extends $Command<
   UpdatePatchBaselineCommandInput,
   UpdatePatchBaselineCommandOutput,
@@ -34,6 +42,9 @@ export class UpdatePatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

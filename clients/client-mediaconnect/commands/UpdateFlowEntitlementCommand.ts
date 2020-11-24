@@ -20,6 +20,9 @@ import {
 export type UpdateFlowEntitlementCommandInput = UpdateFlowEntitlementRequest;
 export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse & __MetadataBearer;
 
+/**
+ * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.
+ */
 export class UpdateFlowEntitlementCommand extends $Command<
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFlowEntitlementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

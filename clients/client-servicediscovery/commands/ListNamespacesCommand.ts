@@ -20,6 +20,9 @@ import {
 export type ListNamespacesCommandInput = ListNamespacesRequest;
 export type ListNamespacesCommandOutput = ListNamespacesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists summary information about the namespaces that were created by the current AWS account.</p>
+ */
 export class ListNamespacesCommand extends $Command<
   ListNamespacesCommandInput,
   ListNamespacesCommandOutput,
@@ -34,6 +37,9 @@ export class ListNamespacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

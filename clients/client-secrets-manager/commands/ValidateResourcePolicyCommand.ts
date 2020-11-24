@@ -20,6 +20,13 @@ import {
 export type ValidateResourcePolicyCommandInput = ValidateResourcePolicyRequest;
 export type ValidateResourcePolicyCommandOutput = ValidateResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Validates the JSON text of the resource-based policy document attached to the
+ *       specified secret. The JSON request string input and response output displays formatted code
+ *       with white space and line breaks for better readability. Submit your input as a single line
+ *       JSON string. A resource-based
+ *       policy is optional.</p>
+ */
 export class ValidateResourcePolicyCommand extends $Command<
   ValidateResourcePolicyCommandInput,
   ValidateResourcePolicyCommandOutput,
@@ -34,6 +41,9 @@ export class ValidateResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListEnabledProductsForImportCommandInput = ListEnabledProductsForImportRequest;
 export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all findings-generating solutions (products) that you are subscribed to receive
+ *          findings from in Security Hub.</p>
+ */
 export class ListEnabledProductsForImportCommand extends $Command<
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -34,6 +38,9 @@ export class ListEnabledProductsForImportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

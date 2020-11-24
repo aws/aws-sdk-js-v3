@@ -20,6 +20,10 @@ import {
 export type DeleteFileShareCommandInput = DeleteFileShareInput;
 export type DeleteFileShareCommandOutput = DeleteFileShareOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a file share from a file gateway. This operation is only supported for file
+ *          gateways.</p>
+ */
 export class DeleteFileShareCommand extends $Command<
   DeleteFileShareCommandInput,
   DeleteFileShareCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteFileShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

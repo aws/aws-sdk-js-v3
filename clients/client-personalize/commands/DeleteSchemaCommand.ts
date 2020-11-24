@@ -20,6 +20,11 @@ import {
 export type DeleteSchemaCommandInput = DeleteSchemaRequest;
 export type DeleteSchemaCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a schema. Before deleting a schema, you must delete all
+ *       datasets referencing the schema. For more information on schemas, see
+ *       <a>CreateSchema</a>.</p>
+ */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,
   DeleteSchemaCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

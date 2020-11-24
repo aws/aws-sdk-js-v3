@@ -20,6 +20,9 @@ import {
 export type ListSkillsStoreCategoriesCommandInput = ListSkillsStoreCategoriesRequest;
 export type ListSkillsStoreCategoriesCommandOutput = ListSkillsStoreCategoriesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all categories in the Alexa skill store.</p>
+ */
 export class ListSkillsStoreCategoriesCommand extends $Command<
   ListSkillsStoreCategoriesCommandInput,
   ListSkillsStoreCategoriesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

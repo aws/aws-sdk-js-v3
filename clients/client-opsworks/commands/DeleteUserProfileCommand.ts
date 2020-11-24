@@ -20,6 +20,13 @@ import {
 export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
 export type DeleteUserProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a user profile.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
+ *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,
   DeleteUserProfileCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

@@ -24,6 +24,9 @@ export type DisassociateResourceSharePermissionCommandInput = DisassociateResour
 export type DisassociateResourceSharePermissionCommandOutput = DisassociateResourceSharePermissionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates an AWS RAM permission from a resource share.</p>
+ */
 export class DisassociateResourceSharePermissionCommand extends $Command<
   DisassociateResourceSharePermissionCommandInput,
   DisassociateResourceSharePermissionCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

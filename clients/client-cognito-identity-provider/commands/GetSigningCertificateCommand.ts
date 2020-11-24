@@ -25,6 +25,9 @@ import {
 export type GetSigningCertificateCommandInput = GetSigningCertificateRequest;
 export type GetSigningCertificateCommandOutput = GetSigningCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>This method takes a user pool ID, and returns the signing certificate.</p>
+ */
 export class GetSigningCertificateCommand extends $Command<
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
@@ -39,6 +42,9 @@ export class GetSigningCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

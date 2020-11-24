@@ -20,6 +20,9 @@ import {
 export type ImportRestApiCommandInput = ImportRestApiRequest;
 export type ImportRestApiCommandOutput = RestApi & __MetadataBearer;
 
+/**
+ * <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>
+ */
 export class ImportRestApiCommand extends $Command<
   ImportRestApiCommandInput,
   ImportRestApiCommandOutput,
@@ -34,6 +37,9 @@ export class ImportRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

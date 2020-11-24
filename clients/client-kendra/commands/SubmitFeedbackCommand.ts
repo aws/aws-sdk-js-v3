@@ -20,6 +20,10 @@ import {
 export type SubmitFeedbackCommandInput = SubmitFeedbackRequest;
 export type SubmitFeedbackCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables you to provide feedback to Amazon Kendra to improve the performance
+ *         of the service. </p>
+ */
 export class SubmitFeedbackCommand extends $Command<
   SubmitFeedbackCommandInput,
   SubmitFeedbackCommandOutput,
@@ -34,6 +38,9 @@ export class SubmitFeedbackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

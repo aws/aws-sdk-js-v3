@@ -20,6 +20,12 @@ import {
 export type DescribeStateMachineCommandInput = DescribeStateMachineInput;
 export type DescribeStateMachineCommandOutput = DescribeStateMachineOutput & __MetadataBearer;
 
+/**
+ * <p>Describes a state machine.</p>
+ *          <note>
+ *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
+ *          </note>
+ */
 export class DescribeStateMachineCommand extends $Command<
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeStateMachineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

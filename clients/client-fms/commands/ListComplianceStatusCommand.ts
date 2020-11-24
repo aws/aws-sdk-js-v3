@@ -20,6 +20,11 @@ import {
 export type ListComplianceStatusCommandInput = ListComplianceStatusRequest;
 export type ListComplianceStatusCommandOutput = ListComplianceStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
+ *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
+ *       by the specified policy. </p>
+ */
 export class ListComplianceStatusCommand extends $Command<
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
@@ -34,6 +39,9 @@ export class ListComplianceStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

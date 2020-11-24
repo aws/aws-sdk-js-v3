@@ -20,6 +20,9 @@ import {
 export type ListImageBuildVersionsCommandInput = ListImageBuildVersionsRequest;
 export type ListImageBuildVersionsCommandOutput = ListImageBuildVersionsResponse & __MetadataBearer;
 
+/**
+ * <p> Returns a list of image build versions. </p>
+ */
 export class ListImageBuildVersionsCommand extends $Command<
   ListImageBuildVersionsCommandInput,
   ListImageBuildVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListImageBuildVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

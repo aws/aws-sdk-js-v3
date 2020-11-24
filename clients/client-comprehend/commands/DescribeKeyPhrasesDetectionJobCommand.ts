@@ -20,6 +20,10 @@ import {
 export type DescribeKeyPhrasesDetectionJobCommandInput = DescribeKeyPhrasesDetectionJobRequest;
 export type DescribeKeyPhrasesDetectionJobCommandOutput = DescribeKeyPhrasesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
+ *       the status of a detection job.</p>
+ */
 export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

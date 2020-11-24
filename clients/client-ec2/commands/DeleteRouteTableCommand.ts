@@ -20,6 +20,9 @@ import {
 export type DeleteRouteTableCommandInput = DeleteRouteTableRequest;
 export type DeleteRouteTableCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
+ */
 export class DeleteRouteTableCommand extends $Command<
   DeleteRouteTableCommandInput,
   DeleteRouteTableCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

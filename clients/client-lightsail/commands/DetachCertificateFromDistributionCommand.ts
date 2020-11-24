@@ -20,6 +20,12 @@ import {
 export type DetachCertificateFromDistributionCommandInput = DetachCertificateFromDistributionRequest;
 export type DetachCertificateFromDistributionCommandOutput = DetachCertificateFromDistributionResult & __MetadataBearer;
 
+/**
+ * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
+ *       the domains that are associated with the certificate.</p>
+ */
 export class DetachCertificateFromDistributionCommand extends $Command<
   DetachCertificateFromDistributionCommandInput,
   DetachCertificateFromDistributionCommandOutput,
@@ -34,6 +40,9 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

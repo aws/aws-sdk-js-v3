@@ -20,6 +20,9 @@ import {
 export type DisableProactiveEngagementCommandInput = DisableProactiveEngagementRequest;
 export type DisableProactiveEngagementCommandOutput = DisableProactiveEngagementResponse & __MetadataBearer;
 
+/**
+ * <p>Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+ */
 export class DisableProactiveEngagementCommand extends $Command<
   DisableProactiveEngagementCommandInput,
   DisableProactiveEngagementCommandOutput,
@@ -34,6 +37,9 @@ export class DisableProactiveEngagementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

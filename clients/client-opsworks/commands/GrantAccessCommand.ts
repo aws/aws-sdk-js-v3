@@ -20,6 +20,12 @@ import {
 export type GrantAccessCommandInput = GrantAccessRequest;
 export type GrantAccessCommandOutput = GrantAccessResult & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action can be used only with Windows stacks.</p>
+ *          </note>
+ *          <p>Grants RDP access to a Windows instance for a specified time period.</p>
+ */
 export class GrantAccessCommand extends $Command<
   GrantAccessCommandInput,
   GrantAccessCommandOutput,
@@ -34,6 +40,9 @@ export class GrantAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

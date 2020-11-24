@@ -20,6 +20,10 @@ import {
 export type DeleteVirtualGatewayCommandInput = DeleteVirtualGatewayInput;
 export type DeleteVirtualGatewayCommandOutput = DeleteVirtualGatewayOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
+ *          routes are associated to it.</p>
+ */
 export class DeleteVirtualGatewayCommand extends $Command<
   DeleteVirtualGatewayCommandInput,
   DeleteVirtualGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteVirtualGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

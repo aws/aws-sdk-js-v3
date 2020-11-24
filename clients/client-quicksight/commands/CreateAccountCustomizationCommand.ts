@@ -20,6 +20,30 @@ import {
 export type CreateAccountCustomizationCommandInput = CreateAccountCustomizationRequest;
 export type CreateAccountCustomizationCommandOutput = CreateAccountCustomizationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates Amazon QuickSight customizations the current AWS Region. Currently, you can
+ *             add a custom default theme by using the <code>CreateAccountCustomization</code> or
+ *                 <code>UpdateAccountCustomization</code> API operation. To further customize
+ *             QuickSight by removing QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing QuickSight</a> in the <i>Amazon QuickSight User
+ *                 Guide.</i>
+ *          </p>
+ *         <p>You can create customizations for your AWS account or, if you specify a namespace, for
+ *             a QuickSight namespace instead. Customizations that apply to a namespace always override
+ *             customizations that apply to an AWS account. To find out which customizations apply, use
+ *             the <code>DescribeAccountCustomization</code> API operation.</p>
+ *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
+ *             as the namespace default, make sure that you first share the theme with the namespace.
+ *             If you don't share it with the namespace, the theme isn't visible to your users
+ *             even if you make it the default theme.
+ *             To check if the theme is shared, view the current permissions by using the
+ *             <code>
+ *                <a>DescribeThemePermissions</a>
+ *             </code> API operation.
+ *             To share the theme, grant permissions by using the
+ *             <code>
+ *                <a>UpdateThemePermissions</a>
+ *             </code> API operation. </p>
+ */
 export class CreateAccountCustomizationCommand extends $Command<
   CreateAccountCustomizationCommandInput,
   CreateAccountCustomizationCommandOutput,
@@ -34,6 +58,9 @@ export class CreateAccountCustomizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListArchivesCommandInput = ListArchivesRequest;
 export type ListArchivesCommandOutput = ListArchivesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists your archives. You can either list all the archives or you can provide a prefix
+ *             to match to the archive names. Filter parameters are exclusive.</p>
+ */
 export class ListArchivesCommand extends $Command<
   ListArchivesCommandInput,
   ListArchivesCommandOutput,
@@ -34,6 +38,9 @@ export class ListArchivesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type UpdateBandwidthRateLimitCommandInput = UpdateBandwidthRateLimitInput;
 export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and
+ *          download bandwidth rate limit or specify only one of the two. If you don't set a
+ *          bandwidth rate limit, the existing rate limit remains. This operation is supported for the
+ *          stored volume, cached volume, and tape gateway types.</p>
+ *
+ *          <p>By default, a gateway's bandwidth rate limits are not set. If you don't set
+ *          any limit, the gateway does not have any limitations on its bandwidth usage and could
+ *          potentially use the maximum available bandwidth.</p>
+ *
+ *          <p>To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
+ *          your request.</p>
+ */
 export class UpdateBandwidthRateLimitCommand extends $Command<
   UpdateBandwidthRateLimitCommandInput,
   UpdateBandwidthRateLimitCommandOutput,
@@ -34,6 +47,9 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

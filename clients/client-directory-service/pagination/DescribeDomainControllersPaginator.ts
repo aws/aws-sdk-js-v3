@@ -8,6 +8,9 @@ import {
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
   input: DescribeDomainControllersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDomainControllersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: DirectoryService,
   input: DescribeDomainControllersCommandInput,

@@ -20,6 +20,12 @@ import {
 export type DeleteCacheSubnetGroupCommandInput = DeleteCacheSubnetGroupMessage;
 export type DeleteCacheSubnetGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a cache subnet group.</p>
+ *         <note>
+ *             <p>You cannot delete a cache subnet group if it is associated with any clusters.</p>
+ *          </note>
+ */
 export class DeleteCacheSubnetGroupCommand extends $Command<
   DeleteCacheSubnetGroupCommandInput,
   DeleteCacheSubnetGroupCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

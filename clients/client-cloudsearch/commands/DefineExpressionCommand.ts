@@ -20,6 +20,9 @@ import {
 export type DefineExpressionCommandInput = DefineExpressionRequest;
 export type DefineExpressionCommandOutput = DefineExpressionResponse & __MetadataBearer;
 
+/**
+ * <p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones.  If the expression exists, the new configuration replaces the old one. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DefineExpressionCommand extends $Command<
   DefineExpressionCommandInput,
   DefineExpressionCommandOutput,
@@ -34,6 +37,9 @@ export class DefineExpressionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

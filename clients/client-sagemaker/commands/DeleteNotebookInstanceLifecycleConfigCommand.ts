@@ -20,6 +20,9 @@ import {
 export type DeleteNotebookInstanceLifecycleConfigCommandInput = DeleteNotebookInstanceLifecycleConfigInput;
 export type DeleteNotebookInstanceLifecycleConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a notebook instance lifecycle configuration.</p>
+ */
 export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AssociateTeamMemberCommandInput = AssociateTeamMemberRequest;
 export type AssociateTeamMemberCommandOutput = AssociateTeamMemberResult & __MetadataBearer;
 
+/**
+ * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
+ */
 export class AssociateTeamMemberCommand extends $Command<
   AssociateTeamMemberCommandInput,
   AssociateTeamMemberCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateTeamMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

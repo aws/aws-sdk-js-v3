@@ -20,6 +20,10 @@ import {
 export type TagResourceCommandInput = TagResourceInput;
 export type TagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
+ *          identified by an Amazon Resource Name (ARN).</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +38,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

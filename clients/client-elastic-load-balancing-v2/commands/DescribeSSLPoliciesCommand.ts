@@ -24,6 +24,11 @@ import {
 export type DescribeSSLPoliciesCommandInput = DescribeSSLPoliciesInput;
 export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
+ *       <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ */
 export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandInput,
   DescribeSSLPoliciesCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeSSLPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

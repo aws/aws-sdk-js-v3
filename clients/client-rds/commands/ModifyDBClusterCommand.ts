@@ -20,6 +20,18 @@ import {
 export type ModifyDBClusterCommandInput = ModifyDBClusterMessage;
 export type ModifyDBClusterCommandOutput = ModifyDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Modify a setting for an Amazon Aurora DB cluster.
+ *            You can change one
+ *            or more database configuration parameters by specifying these parameters and the new values in the
+ *            request. For more information on Amazon Aurora, see
+ *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,
   ModifyDBClusterCommandOutput,
@@ -34,6 +46,9 @@ export class ModifyDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

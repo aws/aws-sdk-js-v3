@@ -24,6 +24,11 @@ export type ModifyInstanceCapacityReservationAttributesCommandInput = ModifyInst
 export type ModifyInstanceCapacityReservationAttributesCommandOutput = ModifyInstanceCapacityReservationAttributesResult &
   __MetadataBearer;
 
+/**
+ * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
+ * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
+ * 			attributes, or run On-Demand Instance capacity.</p>
+ */
 export class ModifyInstanceCapacityReservationAttributesCommand extends $Command<
   ModifyInstanceCapacityReservationAttributesCommandInput,
   ModifyInstanceCapacityReservationAttributesCommandOutput,
@@ -38,6 +43,9 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

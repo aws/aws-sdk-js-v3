@@ -20,6 +20,19 @@ import {
 export type GetProfileCommandInput = GetProfileRequest;
 export type GetProfileCommandOutput = GetProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the aggregated profile of a profiling group for the specified time range.
+ *         If the requested time range does not align with the available aggregated profiles, it is expanded to
+ *         attain alignment. If aggregated profiles are available only for part of the period requested, the
+ *         profile is returned from the earliest available to the latest within the requested time range.
+ *       </p>
+ *          <p>For example, if the requested time range is from 00:00 to 00:20 and the available profiles are
+ *         from 00:15 to 00:25, the returned profile will be from 00:15 to 00:20.
+ *       </p>
+ *          <p>You must specify exactly two of the following parameters:
+ *         <code>startTime</code>, <code>period</code>, and <code>endTime</code>.
+ *       </p>
+ */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,
   GetProfileCommandOutput,
@@ -34,6 +47,9 @@ export class GetProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

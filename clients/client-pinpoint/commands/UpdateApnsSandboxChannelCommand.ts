@@ -20,6 +20,9 @@ import {
 export type UpdateApnsSandboxChannelCommandInput = UpdateApnsSandboxChannelRequest;
 export type UpdateApnsSandboxChannelCommandOutput = UpdateApnsSandboxChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
+ */
 export class UpdateApnsSandboxChannelCommand extends $Command<
   UpdateApnsSandboxChannelCommandInput,
   UpdateApnsSandboxChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

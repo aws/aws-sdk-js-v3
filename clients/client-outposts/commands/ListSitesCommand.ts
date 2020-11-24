@@ -20,6 +20,9 @@ import {
 export type ListSitesCommandInput = ListSitesInput;
 export type ListSitesCommandOutput = ListSitesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the sites for the specified AWS account.</p>
+ */
 export class ListSitesCommand extends $Command<
   ListSitesCommandInput,
   ListSitesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSitesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,

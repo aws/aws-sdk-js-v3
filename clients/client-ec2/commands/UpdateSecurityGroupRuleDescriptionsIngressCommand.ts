@@ -24,6 +24,14 @@ export type UpdateSecurityGroupRuleDescriptionsIngressCommandInput = UpdateSecur
 export type UpdateSecurityGroupRuleDescriptionsIngressCommandOutput = UpdateSecurityGroupRuleDescriptionsIngressResult &
   __MetadataBearer;
 
+/**
+ * <p>Updates the description of an ingress (inbound) security group rule. You can replace an
+ * 			existing description, or add a description to a rule that did not have one
+ * 			previously.</p>
+ * 		       <p>You specify the description as part of the IP permissions structure. You can remove a
+ * 			description for a security group rule by omitting the description parameter in the
+ * 			request.</p>
+ */
 export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
   UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
   UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
@@ -38,6 +46,9 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

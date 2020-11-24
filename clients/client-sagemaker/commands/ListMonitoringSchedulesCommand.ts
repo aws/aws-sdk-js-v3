@@ -20,6 +20,9 @@ import {
 export type ListMonitoringSchedulesCommandInput = ListMonitoringSchedulesRequest;
 export type ListMonitoringSchedulesCommandOutput = ListMonitoringSchedulesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns list of all monitoring schedules.</p>
+ */
 export class ListMonitoringSchedulesCommand extends $Command<
   ListMonitoringSchedulesCommandInput,
   ListMonitoringSchedulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListMonitoringSchedulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateAssociationStatusCommandInput = UpdateAssociationStatusRequest;
 export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult & __MetadataBearer;
 
+/**
+ * <p>Updates the status of the Systems Manager document associated with the specified instance.</p>
+ */
 export class UpdateAssociationStatusCommand extends $Command<
   UpdateAssociationStatusCommandInput,
   UpdateAssociationStatusCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAssociationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

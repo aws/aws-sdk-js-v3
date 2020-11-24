@@ -20,6 +20,12 @@ import {
 export type DescribeRegionSettingsCommandInput = DescribeRegionSettingsInput;
 export type DescribeRegionSettingsCommandOutput = DescribeRegionSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
+ *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
+ *          Otherwise, AWS Backup does not try to protect that service's resources in this Region, AWS Backup does not try to protect that service's
+ *          resources in this Region.</p>
+ */
 export class DescribeRegionSettingsCommand extends $Command<
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeRegionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

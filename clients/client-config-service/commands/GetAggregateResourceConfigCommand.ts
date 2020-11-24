@@ -20,6 +20,9 @@ import {
 export type GetAggregateResourceConfigCommandInput = GetAggregateResourceConfigRequest;
 export type GetAggregateResourceConfigCommandOutput = GetAggregateResourceConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
+ */
 export class GetAggregateResourceConfigCommand extends $Command<
   GetAggregateResourceConfigCommandInput,
   GetAggregateResourceConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetAggregateResourceConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type DeleteApplicationCommandInput = DeleteApplicationRequest;
 export type DeleteApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified application.</p>
+ */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

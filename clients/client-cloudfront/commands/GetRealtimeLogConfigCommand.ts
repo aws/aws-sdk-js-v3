@@ -21,6 +21,12 @@ import {
 export type GetRealtimeLogConfigCommandInput = GetRealtimeLogConfigRequest;
 export type GetRealtimeLogConfigCommandOutput = GetRealtimeLogConfigResult & __MetadataBearer;
 
+/**
+ * <p>Gets a real-time log configuration.</p>
+ * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its Amazon
+ * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
+ * 			name to identify the real-time log configuration to get.</p>
+ */
 export class GetRealtimeLogConfigCommand extends $Command<
   GetRealtimeLogConfigCommandInput,
   GetRealtimeLogConfigCommandOutput,
@@ -35,6 +41,9 @@ export class GetRealtimeLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

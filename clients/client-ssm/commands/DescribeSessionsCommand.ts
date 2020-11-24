@@ -21,6 +21,10 @@ import {
 export type DescribeSessionsCommandInput = DescribeSessionsRequest;
 export type DescribeSessionsCommandOutput = DescribeSessionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
+ *    sessions from the past 30 days.</p>
+ */
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,
   DescribeSessionsCommandOutput,
@@ -35,6 +39,9 @@ export class DescribeSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

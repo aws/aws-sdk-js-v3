@@ -8,6 +8,9 @@ import {
 import { BackupPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: BackupClient,
   input: ListBackupPlanTemplatesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBackupPlanTemplatesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Backup,
   input: ListBackupPlanTemplatesCommandInput,

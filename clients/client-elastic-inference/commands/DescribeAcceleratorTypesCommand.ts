@@ -20,6 +20,11 @@ import {
 export type DescribeAcceleratorTypesCommandInput = DescribeAcceleratorTypesRequest;
 export type DescribeAcceleratorTypesCommandOutput = DescribeAcceleratorTypesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
+ *         </p>
+ */
 export class DescribeAcceleratorTypesCommand extends $Command<
   DescribeAcceleratorTypesCommandInput,
   DescribeAcceleratorTypesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticInferenceClientResolvedConfig,

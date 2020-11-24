@@ -17,6 +17,9 @@ import {
 export type GetDomainCommandInput = GetDomainRequest;
 export type GetDomainCommandOutput = GetDomainResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific domain recordset.</p>
+ */
 export class GetDomainCommand extends $Command<
   GetDomainCommandInput,
   GetDomainCommandOutput,
@@ -31,6 +34,9 @@ export class GetDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

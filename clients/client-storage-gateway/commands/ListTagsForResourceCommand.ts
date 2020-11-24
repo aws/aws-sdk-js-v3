@@ -20,6 +20,10 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the tags that have been added to the specified resource. This operation is
+ *          supported in storage gateways of all types.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

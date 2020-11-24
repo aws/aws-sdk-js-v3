@@ -20,6 +20,14 @@ import {
 export type DecreaseStreamRetentionPeriodCommandInput = DecreaseStreamRetentionPeriodInput;
 export type DecreaseStreamRetentionPeriodCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Decreases the Kinesis data stream's retention period, which is the length of time
+ *             data records are accessible after they are added to the stream. The minimum value of a
+ *             stream's retention period is 24 hours.</p>
+ *         <p>This operation may result in lost data. For example, if the stream's retention
+ *             period is 48 hours and is decreased to 24 hours, any data already in the stream that is
+ *             older than 24 hours is inaccessible.</p>
+ */
 export class DecreaseStreamRetentionPeriodCommand extends $Command<
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
@@ -34,6 +42,9 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

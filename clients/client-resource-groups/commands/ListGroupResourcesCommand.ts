@@ -20,6 +20,10 @@ import {
 export type ListGroupResourcesCommandInput = ListGroupResourcesInput;
 export type ListGroupResourcesCommandOutput = ListGroupResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of ARNs of the resources that are members of a specified resource
+ *             group.</p>
+ */
 export class ListGroupResourcesCommand extends $Command<
   ListGroupResourcesCommandInput,
   ListGroupResourcesCommandOutput,
@@ -34,6 +38,9 @@ export class ListGroupResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

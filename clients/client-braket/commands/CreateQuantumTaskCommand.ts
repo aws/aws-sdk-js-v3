@@ -20,6 +20,9 @@ import {
 export type CreateQuantumTaskCommandInput = CreateQuantumTaskRequest;
 export type CreateQuantumTaskCommandOutput = CreateQuantumTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a quantum task.</p>
+ */
 export class CreateQuantumTaskCommand extends $Command<
   CreateQuantumTaskCommandInput,
   CreateQuantumTaskCommandOutput,
@@ -34,6 +37,9 @@ export class CreateQuantumTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BraketClientResolvedConfig,

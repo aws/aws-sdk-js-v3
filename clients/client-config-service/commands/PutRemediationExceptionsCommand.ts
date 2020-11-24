@@ -20,6 +20,14 @@ import {
 export type PutRemediationExceptionsCommandInput = PutRemediationExceptionsRequest;
 export type PutRemediationExceptionsCommandOutput = PutRemediationExceptionsResponse & __MetadataBearer;
 
+/**
+ * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
+ * 			This API adds a new exception or updates an exisiting exception for a specific resource with a specific AWS Config rule. </p>
+ * 		       <note>
+ *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+ * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
+ *          </note>
+ */
 export class PutRemediationExceptionsCommand extends $Command<
   PutRemediationExceptionsCommandInput,
   PutRemediationExceptionsCommandOutput,
@@ -34,6 +42,9 @@ export class PutRemediationExceptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

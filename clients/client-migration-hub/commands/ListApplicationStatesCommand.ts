@@ -20,6 +20,11 @@ import {
 export type ListApplicationStatesCommandInput = ListApplicationStatesRequest;
 export type ListApplicationStatesCommandOutput = ListApplicationStatesResult & __MetadataBearer;
 
+/**
+ * <p>Lists all the migration statuses for your applications. If you use the optional
+ *             <code>ApplicationIds</code> parameter, only the migration statuses for those
+ *          applications will be returned.</p>
+ */
 export class ListApplicationStatesCommand extends $Command<
   ListApplicationStatesCommandInput,
   ListApplicationStatesCommandOutput,
@@ -34,6 +39,9 @@ export class ListApplicationStatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

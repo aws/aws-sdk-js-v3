@@ -20,6 +20,10 @@ import {
 export type ListVersionsByFunctionCommandInput = ListVersionsByFunctionRequest;
 export type ListVersionsByFunctionCommandOutput = ListVersionsByFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
+ *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
+ */
 export class ListVersionsByFunctionCommand extends $Command<
   ListVersionsByFunctionCommandInput,
   ListVersionsByFunctionCommandOutput,
@@ -34,6 +38,9 @@ export class ListVersionsByFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

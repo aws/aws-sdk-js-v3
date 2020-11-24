@@ -20,6 +20,9 @@ import {
 export type UpgradeAppliedSchemaCommandInput = UpgradeAppliedSchemaRequest;
 export type UpgradeAppliedSchemaCommandOutput = UpgradeAppliedSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Upgrades a single directory in-place using the <code>PublishedSchemaArn</code> with schema updates found in <code>MinorVersion</code>. Backwards-compatible minor version upgrades are instantaneously available for readers on all objects in the directory. Note: This is a synchronous API call and upgrades only one schema on a given directory per call. To upgrade multiple directories from one schema, you would need to call this API on each directory.</p>
+ */
 export class UpgradeAppliedSchemaCommand extends $Command<
   UpgradeAppliedSchemaCommandInput,
   UpgradeAppliedSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class UpgradeAppliedSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

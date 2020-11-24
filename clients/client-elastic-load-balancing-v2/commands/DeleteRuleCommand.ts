@@ -21,6 +21,10 @@ import {
 export type DeleteRuleCommandInput = DeleteRuleInput;
 export type DeleteRuleCommandOutput = DeleteRuleOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified rule.</p>
+ *          <p>You can't delete the default rule.</p>
+ */
 export class DeleteRuleCommand extends $Command<
   DeleteRuleCommandInput,
   DeleteRuleCommandOutput,
@@ -35,6 +39,9 @@ export class DeleteRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

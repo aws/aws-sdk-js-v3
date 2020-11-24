@@ -20,6 +20,9 @@ import {
 export type UpdateRadiusCommandInput = UpdateRadiusRequest;
 export type UpdateRadiusCommandOutput = UpdateRadiusResult & __MetadataBearer;
 
+/**
+ * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.</p>
+ */
 export class UpdateRadiusCommand extends $Command<
   UpdateRadiusCommandInput,
   UpdateRadiusCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRadiusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

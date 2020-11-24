@@ -20,6 +20,9 @@ import {
 export type RetrieveDomainAuthCodeCommandInput = RetrieveDomainAuthCodeRequest;
 export type RetrieveDomainAuthCodeCommandOutput = RetrieveDomainAuthCodeResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.</p>
+ */
 export class RetrieveDomainAuthCodeCommand extends $Command<
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput,
@@ -34,6 +37,9 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

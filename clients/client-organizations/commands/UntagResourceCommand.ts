@@ -20,6 +20,25 @@ import {
 export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes any tags with the specified keys from the specified resource.</p>
+ *         <p>You can attach tags to the following resources in AWS Organizations.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>AWS account</p>
+ *             </li>
+ *             <li>
+ *                 <p>Organization root</p>
+ *             </li>
+ *             <li>
+ *                 <p>Organizational unit (OU)</p>
+ *             </li>
+ *             <li>
+ *                 <p>Policy (any type)</p>
+ *             </li>
+ *          </ul>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +53,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

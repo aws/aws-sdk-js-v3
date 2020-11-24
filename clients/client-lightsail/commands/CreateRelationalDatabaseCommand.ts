@@ -20,6 +20,11 @@ import {
 export type CreateRelationalDatabaseCommandInput = CreateRelationalDatabaseRequest;
 export type CreateRelationalDatabaseCommandOutput = CreateRelationalDatabaseResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new database in Amazon Lightsail.</p>
+ *          <p>The <code>create relational database</code> operation supports tag-based access control
+ *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateRelationalDatabaseCommand extends $Command<
   CreateRelationalDatabaseCommandInput,
   CreateRelationalDatabaseCommandOutput,
@@ -34,6 +39,9 @@ export class CreateRelationalDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

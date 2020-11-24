@@ -20,6 +20,11 @@ import {
 export type ListRecommendationsCommandInput = ListRecommendationsRequest;
 export type ListRecommendationsCommandOutput = ListRecommendationsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Returns the list of all recommendations for a completed code review.
+ *       </p>
+ */
 export class ListRecommendationsCommand extends $Command<
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
@@ -34,6 +39,9 @@ export class ListRecommendationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

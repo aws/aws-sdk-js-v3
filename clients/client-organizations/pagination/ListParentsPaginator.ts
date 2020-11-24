@@ -4,6 +4,9 @@ import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput }
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: OrganizationsClient,
   input: ListParentsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListParentsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Organizations,
   input: ListParentsCommandInput,

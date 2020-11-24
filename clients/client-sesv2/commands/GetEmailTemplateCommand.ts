@@ -20,6 +20,12 @@ import {
 export type GetEmailTemplateCommandInput = GetEmailTemplateRequest;
 export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Displays the template object (which includes the subject line, HTML part and text
+ *             part) for the template you specify.</p>
+ *
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetEmailTemplateCommand extends $Command<
   GetEmailTemplateCommandInput,
   GetEmailTemplateCommandOutput,
@@ -34,6 +40,9 @@ export class GetEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

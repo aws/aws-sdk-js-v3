@@ -20,6 +20,9 @@ import {
 export type PurchaseOfferingCommandInput = PurchaseOfferingRequest;
 export type PurchaseOfferingCommandOutput = PurchaseOfferingResponse & __MetadataBearer;
 
+/**
+ * Purchase an offering and create a reservation.
+ */
 export class PurchaseOfferingCommand extends $Command<
   PurchaseOfferingCommandInput,
   PurchaseOfferingCommandOutput,
@@ -34,6 +37,9 @@ export class PurchaseOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

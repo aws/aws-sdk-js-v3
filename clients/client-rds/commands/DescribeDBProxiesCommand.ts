@@ -20,6 +20,9 @@ import {
 export type DescribeDBProxiesCommandInput = DescribeDBProxiesRequest;
 export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about DB proxies.</p>
+ */
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,
   DescribeDBProxiesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDBProxiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

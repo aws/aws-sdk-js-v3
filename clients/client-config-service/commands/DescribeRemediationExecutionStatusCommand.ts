@@ -24,6 +24,10 @@ export type DescribeRemediationExecutionStatusCommandInput = DescribeRemediation
 export type DescribeRemediationExecutionStatusCommandOutput = DescribeRemediationExecutionStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
+ * 			When you specify the limit and the next token, you receive a paginated response.</p>
+ */
 export class DescribeRemediationExecutionStatusCommand extends $Command<
   DescribeRemediationExecutionStatusCommandInput,
   DescribeRemediationExecutionStatusCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

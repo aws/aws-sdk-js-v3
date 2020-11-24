@@ -20,6 +20,12 @@ import {
 export type DecreaseReplicationFactorCommandInput = DecreaseReplicationFactorRequest;
 export type DecreaseReplicationFactorCommandOutput = DecreaseReplicationFactorResponse & __MetadataBearer;
 
+/**
+ * <p>Removes one or more nodes from a DAX cluster.</p>
+ *         <note>
+ *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p>
+ *          </note>
+ */
 export class DecreaseReplicationFactorCommand extends $Command<
   DecreaseReplicationFactorCommandInput,
   DecreaseReplicationFactorCommandOutput,
@@ -34,6 +40,9 @@ export class DecreaseReplicationFactorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

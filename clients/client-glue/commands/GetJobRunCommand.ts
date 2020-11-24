@@ -17,6 +17,9 @@ import {
 export type GetJobRunCommandInput = GetJobRunRequest;
 export type GetJobRunCommandOutput = GetJobRunResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the metadata for a given job run.</p>
+ */
 export class GetJobRunCommand extends $Command<
   GetJobRunCommandInput,
   GetJobRunCommandOutput,
@@ -31,6 +34,9 @@ export class GetJobRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

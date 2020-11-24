@@ -20,6 +20,9 @@ import {
 export type ListTestGridSessionActionsCommandInput = ListTestGridSessionActionsRequest;
 export type ListTestGridSessionActionsCommandOutput = ListTestGridSessionActionsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
+ */
 export class ListTestGridSessionActionsCommand extends $Command<
   ListTestGridSessionActionsCommandInput,
   ListTestGridSessionActionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTestGridSessionActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

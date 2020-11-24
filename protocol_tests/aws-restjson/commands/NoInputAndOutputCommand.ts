@@ -20,6 +20,12 @@ import {
 export type NoInputAndOutputCommandInput = {};
 export type NoInputAndOutputCommandOutput = NoInputAndOutputOutput & __MetadataBearer;
 
+/**
+ * The example tests how requests and responses are serialized when there's
+ * no request or response payload because the operation has no input and the
+ * output is empty. While this should be rare, code generators must support
+ * this.
+ */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,
   NoInputAndOutputCommandOutput,
@@ -34,6 +40,9 @@ export class NoInputAndOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

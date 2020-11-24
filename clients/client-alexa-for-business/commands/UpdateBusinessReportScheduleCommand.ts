@@ -20,6 +20,10 @@ import {
 export type UpdateBusinessReportScheduleCommandInput = UpdateBusinessReportScheduleRequest;
 export type UpdateBusinessReportScheduleCommandOutput = UpdateBusinessReportScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the configuration of the report delivery schedule with the specified schedule
+ *          ARN.</p>
+ */
 export class UpdateBusinessReportScheduleCommand extends $Command<
   UpdateBusinessReportScheduleCommandInput,
   UpdateBusinessReportScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

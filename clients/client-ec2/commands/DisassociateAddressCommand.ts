@@ -20,6 +20,13 @@ import {
 export type DisassociateAddressCommandInput = DisassociateAddressRequest;
 export type DisassociateAddressCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
+ * 			      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
+ * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
+ */
 export class DisassociateAddressCommand extends $Command<
   DisassociateAddressCommandInput,
   DisassociateAddressCommandOutput,
@@ -34,6 +41,9 @@ export class DisassociateAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

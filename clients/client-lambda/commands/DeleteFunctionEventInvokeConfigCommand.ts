@@ -20,6 +20,10 @@ import {
 export type DeleteFunctionEventInvokeConfigCommandInput = DeleteFunctionEventInvokeConfigRequest;
 export type DeleteFunctionEventInvokeConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>
+ *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command<
   DeleteFunctionEventInvokeConfigCommandInput,
   DeleteFunctionEventInvokeConfigCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

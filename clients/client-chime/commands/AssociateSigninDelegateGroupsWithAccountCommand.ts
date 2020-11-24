@@ -24,6 +24,9 @@ export type AssociateSigninDelegateGroupsWithAccountCommandInput = AssociateSign
 export type AssociateSigninDelegateGroupsWithAccountCommandOutput = AssociateSigninDelegateGroupsWithAccountResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
+ */
 export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
   AssociateSigninDelegateGroupsWithAccountCommandInput,
   AssociateSigninDelegateGroupsWithAccountCommandOutput,
@@ -38,6 +41,9 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

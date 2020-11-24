@@ -25,6 +25,11 @@ import {
 export type VerifySoftwareTokenCommandInput = VerifySoftwareTokenRequest;
 export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Use this API to register a user's entered TOTP code and mark the user's software token
+ *             MFA status as "verified" if successful. The request takes an access token or a session
+ *             string, but not both.</p>
+ */
 export class VerifySoftwareTokenCommand extends $Command<
   VerifySoftwareTokenCommandInput,
   VerifySoftwareTokenCommandOutput,
@@ -39,6 +44,9 @@ export class VerifySoftwareTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

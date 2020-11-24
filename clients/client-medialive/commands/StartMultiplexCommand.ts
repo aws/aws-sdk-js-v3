@@ -20,6 +20,9 @@ import {
 export type StartMultiplexCommandInput = StartMultiplexRequest;
 export type StartMultiplexCommandOutput = StartMultiplexResponse & __MetadataBearer;
 
+/**
+ * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
+ */
 export class StartMultiplexCommand extends $Command<
   StartMultiplexCommandInput,
   StartMultiplexCommandOutput,
@@ -34,6 +37,9 @@ export class StartMultiplexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

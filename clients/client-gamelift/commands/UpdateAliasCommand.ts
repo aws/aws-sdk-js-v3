@@ -20,6 +20,44 @@ import {
 export type UpdateAliasCommandInput = UpdateAliasInput;
 export type UpdateAliasCommandOutput = UpdateAliasOutput & __MetadataBearer;
 
+/**
+ * <p>Updates properties for an alias. To update properties, specify the alias ID to be
+ *             updated and provide the information to be changed. To reassign an alias to another
+ *             fleet, provide an updated routing strategy. If successful, the updated alias record is
+ *             returned.</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListAliases</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ResolveAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateAliasCommand extends $Command<
   UpdateAliasCommandInput,
   UpdateAliasCommandOutput,
@@ -34,6 +72,9 @@ export class UpdateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

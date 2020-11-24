@@ -20,6 +20,9 @@ import {
 export type DeleteImagePermissionsCommandInput = DeleteImagePermissionsRequest;
 export type DeleteImagePermissionsCommandOutput = DeleteImagePermissionsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
+ */
 export class DeleteImagePermissionsCommand extends $Command<
   DeleteImagePermissionsCommandInput,
   DeleteImagePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteImagePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

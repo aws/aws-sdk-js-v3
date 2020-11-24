@@ -20,6 +20,9 @@ import {
 export type UpdateJourneyStateCommandInput = UpdateJourneyStateRequest;
 export type UpdateJourneyStateCommandOutput = UpdateJourneyStateResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels (stops) an active journey.</p>
+ */
 export class UpdateJourneyStateCommand extends $Command<
   UpdateJourneyStateCommandInput,
   UpdateJourneyStateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJourneyStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

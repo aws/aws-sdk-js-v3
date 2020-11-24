@@ -17,6 +17,9 @@ import {
 export type UntagCommandInput = UntagInput;
 export type UntagCommandOutput = UntagOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes tags from a specified resource group.</p>
+ */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

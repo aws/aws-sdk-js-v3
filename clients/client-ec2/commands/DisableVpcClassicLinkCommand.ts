@@ -20,6 +20,9 @@ import {
 export type DisableVpcClassicLinkCommandInput = DisableVpcClassicLinkRequest;
 export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult & __MetadataBearer;
 
+/**
+ * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
+ */
 export class DisableVpcClassicLinkCommand extends $Command<
   DisableVpcClassicLinkCommandInput,
   DisableVpcClassicLinkCommandOutput,
@@ -34,6 +37,9 @@ export class DisableVpcClassicLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

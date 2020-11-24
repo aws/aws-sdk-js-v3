@@ -20,6 +20,10 @@ import {
 export type GetCognitoEventsCommandInput = GetCognitoEventsRequest;
 export type GetCognitoEventsCommandOutput = GetCognitoEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>
+ *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class GetCognitoEventsCommand extends $Command<
   GetCognitoEventsCommandInput,
   GetCognitoEventsCommandOutput,
@@ -34,6 +38,9 @@ export class GetCognitoEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

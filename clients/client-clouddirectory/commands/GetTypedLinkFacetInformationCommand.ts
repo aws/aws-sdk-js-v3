@@ -20,6 +20,9 @@ import {
 export type GetTypedLinkFacetInformationCommandInput = GetTypedLinkFacetInformationRequest;
 export type GetTypedLinkFacetInformationCommandOutput = GetTypedLinkFacetInformationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class GetTypedLinkFacetInformationCommand extends $Command<
   GetTypedLinkFacetInformationCommandInput,
   GetTypedLinkFacetInformationCommandOutput,
@@ -34,6 +37,9 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

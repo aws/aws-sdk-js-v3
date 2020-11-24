@@ -20,6 +20,9 @@ import {
 export type ListDatabasesCommandInput = ListDatabasesInput;
 export type ListDatabasesCommandOutput = ListDatabasesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the databases in the specified data catalog.</p>
+ */
 export class ListDatabasesCommand extends $Command<
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDatabasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

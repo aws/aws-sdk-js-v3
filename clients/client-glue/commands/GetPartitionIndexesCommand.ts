@@ -20,6 +20,9 @@ import {
 export type GetPartitionIndexesCommandInput = GetPartitionIndexesRequest;
 export type GetPartitionIndexesCommandOutput = GetPartitionIndexesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the partition indexes associated with a table.</p>
+ */
 export class GetPartitionIndexesCommand extends $Command<
   GetPartitionIndexesCommandInput,
   GetPartitionIndexesCommandOutput,
@@ -34,6 +37,9 @@ export class GetPartitionIndexesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

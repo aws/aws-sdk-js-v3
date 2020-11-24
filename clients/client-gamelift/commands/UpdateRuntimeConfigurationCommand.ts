@@ -20,6 +20,81 @@ import {
 export type UpdateRuntimeConfigurationCommandInput = UpdateRuntimeConfigurationInput;
 export type UpdateRuntimeConfigurationCommandOutput = UpdateRuntimeConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the current runtime configuration for the specified fleet, which tells Amazon GameLift
+ *             how to launch server processes on instances in the fleet. You can update a fleet's
+ *             runtime configuration at any time after the fleet is created; it does not need to be in
+ *             an <code>ACTIVE</code> status.</p>
+ *         <p>To update runtime configuration, specify the fleet ID and provide a
+ *                 <code>RuntimeConfiguration</code> object with an updated set of server process
+ *             configurations.</p>
+ *         <p>Each instance in a Amazon GameLift fleet checks regularly for an updated runtime configuration
+ *             and changes how it launches server processes to comply with the latest version. Existing
+ *             server processes are not affected by the update; runtime configuration changes are
+ *             applied gradually as existing processes shut down and new processes are launched during
+ *             Amazon GameLift's normal process recycling activity.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Update fleets:</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetAttributes</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetCapacity</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateFleetPortSettings</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>UpdateRuntimeConfiguration</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateRuntimeConfigurationCommand extends $Command<
   UpdateRuntimeConfigurationCommandInput,
   UpdateRuntimeConfigurationCommandOutput,
@@ -34,6 +109,9 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

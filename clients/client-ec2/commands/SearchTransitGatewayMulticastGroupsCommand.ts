@@ -24,6 +24,9 @@ export type SearchTransitGatewayMulticastGroupsCommandInput = SearchTransitGatew
 export type SearchTransitGatewayMulticastGroupsCommandOutput = SearchTransitGatewayMulticastGroupsResult &
   __MetadataBearer;
 
+/**
+ * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
+ */
 export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
   SearchTransitGatewayMulticastGroupsCommandInput,
   SearchTransitGatewayMulticastGroupsCommandOutput,
@@ -38,6 +41,9 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

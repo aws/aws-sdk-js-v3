@@ -20,6 +20,9 @@ import {
 export type DeleteFunctionConcurrencyCommandInput = DeleteFunctionConcurrencyRequest;
 export type DeleteFunctionConcurrencyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a concurrent execution limit from a function.</p>
+ */
 export class DeleteFunctionConcurrencyCommand extends $Command<
   DeleteFunctionConcurrencyCommandInput,
   DeleteFunctionConcurrencyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

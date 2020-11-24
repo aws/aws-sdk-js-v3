@@ -24,6 +24,9 @@ import {
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
 export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p> Deletes an AWS DMS event subscription. </p>
+ */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

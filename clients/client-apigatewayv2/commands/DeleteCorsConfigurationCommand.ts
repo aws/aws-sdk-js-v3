@@ -20,6 +20,9 @@ import {
 export type DeleteCorsConfigurationCommandInput = DeleteCorsConfigurationRequest;
 export type DeleteCorsConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a CORS configuration.</p>
+ */
 export class DeleteCorsConfigurationCommand extends $Command<
   DeleteCorsConfigurationCommandInput,
   DeleteCorsConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCorsConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

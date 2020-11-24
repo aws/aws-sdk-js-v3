@@ -8,6 +8,9 @@ import {
 import { Route53ResolverPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: Route53ResolverClient,
   input: ListResolverRuleAssociationsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResolverRuleAssociationsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Route53Resolver,
   input: ListResolverRuleAssociationsCommandInput,

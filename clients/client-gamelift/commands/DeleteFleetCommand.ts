@@ -20,6 +20,57 @@ import {
 export type DeleteFleetCommandInput = DeleteFleetInput;
 export type DeleteFleetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes everything related to a fleet. Before deleting a fleet, you must set the
+ *             fleet's desired capacity to zero. See <a>UpdateFleetCapacity</a>.</p>
+ *         <p>If the fleet being deleted has a VPC peering connection, you first need to get a
+ *             valid authorization (good for 24 hours) by calling <a>CreateVpcPeeringAuthorization</a>.
+ *             You do not need to explicitly delete the VPC peering connection--this is done as part of the
+ *             delete fleet process.</p>
+ *         <p>This operation removes the fleet and its resources. Once a fleet is deleted, you can no
+ *             longer use any of the resource in that fleet.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteFleetCommand extends $Command<
   DeleteFleetCommandInput,
   DeleteFleetCommandOutput,
@@ -34,6 +85,9 @@ export class DeleteFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeObjectsCommandInput = DescribeObjectsInput;
 export type DescribeObjectsCommandOutput = DescribeObjectsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.</p>
+ */
 export class DescribeObjectsCommand extends $Command<
   DescribeObjectsCommandInput,
   DescribeObjectsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeObjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

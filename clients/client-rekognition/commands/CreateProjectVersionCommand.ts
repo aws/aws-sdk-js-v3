@@ -20,6 +20,20 @@ import {
 export type CreateProjectVersionCommandInput = CreateProjectVersionRequest;
 export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new version of a model and begins training.
+ *          Models are managed as part of an Amazon Rekognition Custom Labels project.  You can specify
+ *          one training dataset and one testing dataset. The response from <code>CreateProjectVersion</code>
+ *          is an Amazon Resource Name (ARN) for the version of the model. </p>
+ *          <p>Training takes a while to complete. You can get the current status by calling
+ *          <a>DescribeProjectVersions</a>.</p>
+ *          <p>Once training has successfully completed, call <a>DescribeProjectVersions</a> to
+ *          get the training results and evaluate the model.
+ *       </p>
+ *          <p>After evaluating the model, you start the model
+ *        by calling <a>StartProjectVersion</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>
+ */
 export class CreateProjectVersionCommand extends $Command<
   CreateProjectVersionCommandInput,
   CreateProjectVersionCommandOutput,
@@ -34,6 +48,9 @@ export class CreateProjectVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

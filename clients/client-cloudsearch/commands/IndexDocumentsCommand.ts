@@ -20,6 +20,9 @@ import {
 export type IndexDocumentsCommandInput = IndexDocumentsRequest;
 export type IndexDocumentsCommandOutput = IndexDocumentsResponse & __MetadataBearer;
 
+/**
+ * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>
+ */
 export class IndexDocumentsCommand extends $Command<
   IndexDocumentsCommandInput,
   IndexDocumentsCommandOutput,
@@ -34,6 +37,9 @@ export class IndexDocumentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

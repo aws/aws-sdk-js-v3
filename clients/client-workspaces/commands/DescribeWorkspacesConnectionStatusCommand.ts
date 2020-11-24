@@ -24,6 +24,9 @@ export type DescribeWorkspacesConnectionStatusCommandInput = DescribeWorkspacesC
 export type DescribeWorkspacesConnectionStatusCommandOutput = DescribeWorkspacesConnectionStatusResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the connection status of the specified WorkSpaces.</p>
+ */
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

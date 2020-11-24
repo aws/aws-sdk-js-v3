@@ -20,6 +20,9 @@ import {
 export type DescribeUserCommandInput = DescribeUserRequest;
 export type DescribeUserCommandOutput = DescribeUserResponse & __MetadataBearer;
 
+/**
+ * Returns information about an ActiveMQ user.
+ */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,
   DescribeUserCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

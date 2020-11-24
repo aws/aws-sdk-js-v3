@@ -20,6 +20,9 @@ import {
 export type GetEventStreamCommandInput = GetEventStreamRequest;
 export type GetEventStreamCommandOutput = GetEventStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the event stream settings for an application.</p>
+ */
 export class GetEventStreamCommand extends $Command<
   GetEventStreamCommandInput,
   GetEventStreamCommandOutput,
@@ -34,6 +37,9 @@ export class GetEventStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

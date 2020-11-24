@@ -24,6 +24,10 @@ export type CreateTransitGatewayMulticastDomainCommandInput = CreateTransitGatew
 export type CreateTransitGatewayMulticastDomainCommandOutput = CreateTransitGatewayMulticastDomainResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates a multicast domain using the specified transit gateway.</p>
+ *         <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
+ */
 export class CreateTransitGatewayMulticastDomainCommand extends $Command<
   CreateTransitGatewayMulticastDomainCommandInput,
   CreateTransitGatewayMulticastDomainCommandOutput,
@@ -38,6 +42,9 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

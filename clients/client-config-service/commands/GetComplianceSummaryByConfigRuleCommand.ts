@@ -20,6 +20,10 @@ import {
 export type GetComplianceSummaryByConfigRuleCommandInput = {};
 export type GetComplianceSummaryByConfigRuleCommandOutput = GetComplianceSummaryByConfigRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the number of AWS Config rules that are compliant and
+ * 			noncompliant, up to a maximum of 25 for each.</p>
+ */
 export class GetComplianceSummaryByConfigRuleCommand extends $Command<
   GetComplianceSummaryByConfigRuleCommandInput,
   GetComplianceSummaryByConfigRuleCommandOutput,
@@ -34,6 +38,9 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

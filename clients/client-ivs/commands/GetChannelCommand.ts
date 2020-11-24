@@ -20,6 +20,9 @@ import {
 export type GetChannelCommandInput = GetChannelRequest;
 export type GetChannelCommandOutput = GetChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
+ */
 export class GetChannelCommand extends $Command<
   GetChannelCommandInput,
   GetChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

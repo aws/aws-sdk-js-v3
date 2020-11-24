@@ -20,6 +20,13 @@ import {
 export type GetContainerServicePowersCommandInput = GetContainerServicePowersRequest;
 export type GetContainerServicePowersCommandOutput = GetContainerServicePowersResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
+ *       services.</p>
+ *
+ *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
+ *       container service.</p>
+ */
 export class GetContainerServicePowersCommand extends $Command<
   GetContainerServicePowersCommandInput,
   GetContainerServicePowersCommandOutput,
@@ -34,6 +41,9 @@ export class GetContainerServicePowersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

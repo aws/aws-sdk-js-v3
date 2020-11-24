@@ -20,6 +20,9 @@ import {
 export type ListContributorInsightsCommandInput = ListContributorInsightsInput;
 export type ListContributorInsightsCommandOutput = ListContributorInsightsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
+ */
 export class ListContributorInsightsCommand extends $Command<
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
@@ -34,6 +37,9 @@ export class ListContributorInsightsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

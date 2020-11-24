@@ -20,6 +20,11 @@ import {
 export type DeleteDatasetImportJobCommandInput = DeleteDatasetImportJobRequest;
 export type DeleteDatasetImportJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a dataset import job created using the <a>CreateDatasetImportJob</a>
+ *       operation. You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
+ *       or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeDatasetImportJob</a> operation.</p>
+ */
 export class DeleteDatasetImportJobCommand extends $Command<
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDatasetImportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

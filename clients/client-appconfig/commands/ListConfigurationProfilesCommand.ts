@@ -20,6 +20,9 @@ import {
 export type ListConfigurationProfilesCommandInput = ListConfigurationProfilesRequest;
 export type ListConfigurationProfilesCommandOutput = ConfigurationProfiles & __MetadataBearer;
 
+/**
+ * <p>Lists the configuration profiles for an application.</p>
+ */
 export class ListConfigurationProfilesCommand extends $Command<
   ListConfigurationProfilesCommandInput,
   ListConfigurationProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class ListConfigurationProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

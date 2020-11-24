@@ -20,6 +20,9 @@ import {
 export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
 export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * Deletes an existing configuration set.
+ */
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

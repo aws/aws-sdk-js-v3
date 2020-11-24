@@ -20,6 +20,12 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = EventsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns events related to instances, security groups, snapshots, and DB
+ *             parameter groups for the past 14 days. You can obtain events specific to a particular DB
+ *             instance, security group, snapshot, or parameter group by providing the name as
+ *             a parameter. By default, the events of the past hour are returned.</p>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

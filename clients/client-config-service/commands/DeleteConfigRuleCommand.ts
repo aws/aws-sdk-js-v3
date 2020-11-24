@@ -20,6 +20,17 @@ import {
 export type DeleteConfigRuleCommandInput = DeleteConfigRuleRequest;
 export type DeleteConfigRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified AWS Config rule and all of its evaluation
+ * 			results.</p>
+ * 		       <p>AWS Config sets the state of a rule to <code>DELETING</code>
+ * 			until the deletion is complete. You cannot update a rule while it is
+ * 			in this state. If you make a <code>PutConfigRule</code> or
+ * 				<code>DeleteConfigRule</code> request for the rule, you will
+ * 			receive a <code>ResourceInUseException</code>.</p>
+ * 		       <p>You can check the state of a rule by using the
+ * 				<code>DescribeConfigRules</code> request.</p>
+ */
 export class DeleteConfigRuleCommand extends $Command<
   DeleteConfigRuleCommandInput,
   DeleteConfigRuleCommandOutput,
@@ -34,6 +45,9 @@ export class DeleteConfigRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

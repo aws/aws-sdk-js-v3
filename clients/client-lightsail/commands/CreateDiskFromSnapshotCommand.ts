@@ -20,6 +20,14 @@ import {
 export type CreateDiskFromSnapshotCommandInput = CreateDiskFromSnapshotRequest;
 export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
+ *       disk can be attached to an Amazon Lightsail instance in the same Availability Zone (e.g.,
+ *         <code>us-east-2a</code>).</p>
+ *          <p>The <code>create disk from snapshot</code> operation supports tag-based access control via
+ *       request tags and resource tags applied to the resource identified by <code>disk snapshot
+ *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateDiskFromSnapshotCommand extends $Command<
   CreateDiskFromSnapshotCommandInput,
   CreateDiskFromSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

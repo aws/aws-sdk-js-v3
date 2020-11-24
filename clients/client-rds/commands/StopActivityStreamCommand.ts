@@ -20,6 +20,13 @@ import {
 export type StopActivityStreamCommandInput = StopActivityStreamRequest;
 export type StopActivityStreamCommandOutput = StopActivityStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a database activity stream that was started using the AWS console,
+ *             the <code>start-activity-stream</code> AWS CLI command, or the <code>StartActivityStream</code> action.</p>
+ *         <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
+ *             in the <i>Amazon Aurora User Guide</i>.</p>
+ */
 export class StopActivityStreamCommand extends $Command<
   StopActivityStreamCommandInput,
   StopActivityStreamCommandOutput,
@@ -34,6 +41,9 @@ export class StopActivityStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListDeploymentJobsCommandInput = ListDeploymentJobsRequest;
 export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve
+ *          specific deployment jobs.
+ *          </p>
+ */
 export class ListDeploymentJobsCommand extends $Command<
   ListDeploymentJobsCommandInput,
   ListDeploymentJobsCommandOutput,
@@ -34,6 +39,9 @@ export class ListDeploymentJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

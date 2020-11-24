@@ -24,6 +24,10 @@ import {
 export type ClaimDevicesByClaimCodeCommandInput = ClaimDevicesByClaimCodeRequest;
 export type ClaimDevicesByClaimCodeCommandOutput = ClaimDevicesByClaimCodeResponse & __MetadataBearer;
 
+/**
+ * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
+ *  received a claim code with the device(s).</p>
+ */
 export class ClaimDevicesByClaimCodeCommand extends $Command<
   ClaimDevicesByClaimCodeCommandInput,
   ClaimDevicesByClaimCodeCommandOutput,
@@ -38,6 +42,9 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

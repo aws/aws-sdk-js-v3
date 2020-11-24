@@ -20,6 +20,10 @@ import {
 export type DeleteMembersCommandInput = DeleteMembersRequest;
 export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by
+ *       the account IDs.</p>
+ */
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,
   DeleteMembersCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

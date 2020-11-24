@@ -20,6 +20,18 @@ import {
 export type DeleteConfigurationRecorderCommandInput = DeleteConfigurationRecorderRequest;
 export type DeleteConfigurationRecorderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the configuration recorder.</p>
+ * 		       <p>After the configuration recorder is deleted, AWS Config will
+ * 			not record resource configuration changes until you create a new
+ * 			configuration recorder.</p>
+ * 		       <p>This action does not delete the configuration information that
+ * 			was previously recorded. You will be able to access the previously
+ * 			recorded information by using the
+ * 				<code>GetResourceConfigHistory</code> action, but you will not
+ * 			be able to access this information in the AWS Config console until
+ * 			you create a new configuration recorder.</p>
+ */
 export class DeleteConfigurationRecorderCommand extends $Command<
   DeleteConfigurationRecorderCommandInput,
   DeleteConfigurationRecorderCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteConfigurationRecorderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteAssessmentTargetCommandInput = DeleteAssessmentTargetRequest;
 export type DeleteAssessmentTargetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the assessment target that is specified by the ARN of the assessment
+ *          target.</p>
+ */
 export class DeleteAssessmentTargetCommand extends $Command<
   DeleteAssessmentTargetCommandInput,
   DeleteAssessmentTargetCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAssessmentTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AccessAnalyzerClient,
   input: ListAnalyzedResourcesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnalyzedResourcesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: AccessAnalyzer,
   input: ListAnalyzedResourcesCommandInput,

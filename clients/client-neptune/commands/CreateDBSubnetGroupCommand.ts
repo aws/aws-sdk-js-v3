@@ -20,6 +20,10 @@ import {
 export type CreateDBSubnetGroupCommandInput = CreateDBSubnetGroupMessage;
 export type CreateDBSubnetGroupCommandOutput = CreateDBSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
+ *       least two AZs in the AWS Region.</p>
+ */
 export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandInput,
   CreateDBSubnetGroupCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDBSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

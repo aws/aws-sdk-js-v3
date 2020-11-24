@@ -20,6 +20,18 @@ import {
 export type DescribeEcsClustersCommandInput = DescribeEcsClustersRequest;
 export type DescribeEcsClustersCommandOutput = DescribeEcsClustersResult & __MetadataBearer;
 
+/**
+ * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
+ *     you can use the <code>MaxResults</code> and <code>NextToken</code> parameters to paginate the
+ *     response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result
+ *     set has a maximum of one element.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+ *       Manage permissions level for the stack or an attached policy that explicitly grants
+ *       permission. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ *          <p>This call accepts only one resource-identifying parameter.</p>
+ */
 export class DescribeEcsClustersCommand extends $Command<
   DescribeEcsClustersCommandInput,
   DescribeEcsClustersCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeEcsClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

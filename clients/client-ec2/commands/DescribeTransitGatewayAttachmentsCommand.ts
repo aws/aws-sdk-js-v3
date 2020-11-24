@@ -20,6 +20,10 @@ import {
 export type DescribeTransitGatewayAttachmentsCommandInput = DescribeTransitGatewayAttachmentsRequest;
 export type DescribeTransitGatewayAttachmentsCommandOutput = DescribeTransitGatewayAttachmentsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
+ *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
+ */
 export class DescribeTransitGatewayAttachmentsCommand extends $Command<
   DescribeTransitGatewayAttachmentsCommandInput,
   DescribeTransitGatewayAttachmentsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

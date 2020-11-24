@@ -20,6 +20,9 @@ import {
 export type GetTableMetadataCommandInput = GetTableMetadataInput;
 export type GetTableMetadataCommandOutput = GetTableMetadataOutput & __MetadataBearer;
 
+/**
+ * <p>Returns table metadata for the specified catalog, database, and table.</p>
+ */
 export class GetTableMetadataCommand extends $Command<
   GetTableMetadataCommandInput,
   GetTableMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class GetTableMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

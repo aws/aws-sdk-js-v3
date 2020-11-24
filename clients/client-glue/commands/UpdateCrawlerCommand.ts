@@ -20,6 +20,11 @@ import {
 export type UpdateCrawlerCommandInput = UpdateCrawlerRequest;
 export type UpdateCrawlerCommandOutput = UpdateCrawlerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a crawler. If a crawler is
+ *       running, you must stop it using <code>StopCrawler</code> before updating
+ *       it.</p>
+ */
 export class UpdateCrawlerCommand extends $Command<
   UpdateCrawlerCommandInput,
   UpdateCrawlerCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateCrawlerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

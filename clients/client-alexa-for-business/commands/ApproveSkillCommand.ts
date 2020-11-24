@@ -20,6 +20,10 @@ import {
 export type ApproveSkillCommandInput = ApproveSkillRequest;
 export type ApproveSkillCommandOutput = ApproveSkillResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a skill with the organization under the customer's AWS account. If a skill
+ *          is private, the user implicitly accepts access to this skill during enablement.</p>
+ */
 export class ApproveSkillCommand extends $Command<
   ApproveSkillCommandInput,
   ApproveSkillCommandOutput,
@@ -34,6 +38,9 @@ export class ApproveSkillCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DisassociateResolverRuleCommandInput = DisassociateResolverRuleRequest;
 export type DisassociateResolverRuleCommandOutput = DisassociateResolverRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
+ * 		       <important>
+ * 			         <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
+ * 				domain name that you specified in the Resolver rule. </p>
+ * 		       </important>
+ */
 export class DisassociateResolverRuleCommand extends $Command<
   DisassociateResolverRuleCommandInput,
   DisassociateResolverRuleCommandOutput,
@@ -34,6 +41,9 @@ export class DisassociateResolverRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

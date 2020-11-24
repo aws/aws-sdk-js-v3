@@ -20,6 +20,9 @@ import {
 export type GetFindingCommandInput = GetFindingRequest;
 export type GetFindingCommandOutput = GetFindingResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the specified finding.</p>
+ */
 export class GetFindingCommand extends $Command<
   GetFindingCommandInput,
   GetFindingCommandOutput,
@@ -34,6 +37,9 @@ export class GetFindingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

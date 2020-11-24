@@ -20,6 +20,9 @@ import {
 export type DescribeLaunchTemplatesCommandInput = DescribeLaunchTemplatesRequest;
 export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more launch templates.</p>
+ */
 export class DescribeLaunchTemplatesCommand extends $Command<
   DescribeLaunchTemplatesCommandInput,
   DescribeLaunchTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

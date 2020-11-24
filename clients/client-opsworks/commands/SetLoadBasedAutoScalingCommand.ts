@@ -20,6 +20,19 @@ import {
 export type SetLoadBasedAutoScalingCommandInput = SetLoadBasedAutoScalingRequest;
 export type SetLoadBasedAutoScalingCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Specify the load-based auto scaling configuration for a specified layer. For more
+ *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
+ *         Load with Time-based and Load-based Instances</a>.</p>
+ *          <note>
+ *             <p>To use load-based auto scaling, you must create a set of load-based auto scaling instances. Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough instances to handle the maximum anticipated load.</p>
+ *          </note>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class SetLoadBasedAutoScalingCommand extends $Command<
   SetLoadBasedAutoScalingCommandInput,
   SetLoadBasedAutoScalingCommandOutput,
@@ -34,6 +47,9 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

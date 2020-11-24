@@ -20,6 +20,9 @@ import {
 export type CancelJobExecutionCommandInput = CancelJobExecutionRequest;
 export type CancelJobExecutionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Cancels the execution of a job for a given thing.</p>
+ */
 export class CancelJobExecutionCommand extends $Command<
   CancelJobExecutionCommandInput,
   CancelJobExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class CancelJobExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type SetV2LoggingLevelCommandInput = SetV2LoggingLevelRequest;
 export type SetV2LoggingLevelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the logging level.</p>
+ */
 export class SetV2LoggingLevelCommand extends $Command<
   SetV2LoggingLevelCommandInput,
   SetV2LoggingLevelCommandOutput,
@@ -34,6 +37,9 @@ export class SetV2LoggingLevelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateConstraintCommandInput = UpdateConstraintInput;
 export type UpdateConstraintCommandOutput = UpdateConstraintOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the specified constraint.</p>
+ */
 export class UpdateConstraintCommand extends $Command<
   UpdateConstraintCommandInput,
   UpdateConstraintCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConstraintCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeBundleCommandInput = DescribeBundleRequest;
 export type DescribeBundleCommandOutput = DescribeBundleResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Get the bundle details for the requested bundle id.
+ *         </p>
+ */
 export class DescribeBundleCommand extends $Command<
   DescribeBundleCommandInput,
   DescribeBundleCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeBundleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

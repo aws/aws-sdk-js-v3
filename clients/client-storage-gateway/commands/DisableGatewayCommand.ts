@@ -20,6 +20,17 @@ import {
 export type DisableGatewayCommandInput = DisableGatewayInput;
 export type DisableGatewayCommandOutput = DisableGatewayOutput & __MetadataBearer;
 
+/**
+ * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
+ *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
+ *
+ *          <p>Use this operation for a tape gateway that is not reachable or not functioning. This
+ *          operation is only supported in the tape gateway type.</p>
+ *
+ *          <important>
+ *             <p>After a gateway is disabled, it cannot be enabled.</p>
+ *          </important>
+ */
 export class DisableGatewayCommand extends $Command<
   DisableGatewayCommandInput,
   DisableGatewayCommandOutput,
@@ -34,6 +45,9 @@ export class DisableGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

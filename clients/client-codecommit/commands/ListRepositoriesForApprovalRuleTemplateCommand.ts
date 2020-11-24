@@ -24,6 +24,9 @@ export type ListRepositoriesForApprovalRuleTemplateCommandInput = ListRepositori
 export type ListRepositoriesForApprovalRuleTemplateCommandOutput = ListRepositoriesForApprovalRuleTemplateOutput &
   __MetadataBearer;
 
+/**
+ * <p>Lists all repositories associated with the specified approval rule template.</p>
+ */
 export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
   ListRepositoriesForApprovalRuleTemplateCommandInput,
   ListRepositoriesForApprovalRuleTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

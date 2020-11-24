@@ -20,6 +20,9 @@ import {
 export type StopCrawlerCommandInput = StopCrawlerRequest;
 export type StopCrawlerCommandOutput = StopCrawlerResponse & __MetadataBearer;
 
+/**
+ * <p>If the specified crawler is running, stops the crawl.</p>
+ */
 export class StopCrawlerCommand extends $Command<
   StopCrawlerCommandInput,
   StopCrawlerCommandOutput,
@@ -34,6 +37,9 @@ export class StopCrawlerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

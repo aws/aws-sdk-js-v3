@@ -20,6 +20,9 @@ import {
 export type GetConnectorDefinitionVersionCommandInput = GetConnectorDefinitionVersionRequest;
 export type GetConnectorDefinitionVersionCommandOutput = GetConnectorDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.
+ */
 export class GetConnectorDefinitionVersionCommand extends $Command<
   GetConnectorDefinitionVersionCommandInput,
   GetConnectorDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

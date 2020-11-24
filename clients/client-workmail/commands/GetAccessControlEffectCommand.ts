@@ -20,6 +20,10 @@ import {
 export type GetAccessControlEffectCommandInput = GetAccessControlEffectRequest;
 export type GetAccessControlEffectCommandOutput = GetAccessControlEffectResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the effects of an organization's access control rules as they apply to a
+ *          specified IPv4 address, access protocol action, or user ID. </p>
+ */
 export class GetAccessControlEffectCommand extends $Command<
   GetAccessControlEffectCommandInput,
   GetAccessControlEffectCommandOutput,
@@ -34,6 +38,9 @@ export class GetAccessControlEffectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

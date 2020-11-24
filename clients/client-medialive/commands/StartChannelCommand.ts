@@ -20,6 +20,9 @@ import {
 export type StartChannelCommandInput = StartChannelRequest;
 export type StartChannelCommandOutput = StartChannelResponse & __MetadataBearer;
 
+/**
+ * Starts an existing channel
+ */
 export class StartChannelCommand extends $Command<
   StartChannelCommandInput,
   StartChannelCommandOutput,
@@ -34,6 +37,9 @@ export class StartChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

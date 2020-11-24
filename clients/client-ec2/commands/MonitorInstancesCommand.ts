@@ -20,6 +20,13 @@ import {
 export type MonitorInstancesCommandInput = MonitorInstancesRequest;
 export type MonitorInstancesCommandOutput = MonitorInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
+ *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and
+ *                 volumes</a> in the <i>Amazon Elastic Compute Cloud User
+ *             Guide</i>.</p>
+ *         <p>To disable detailed monitoring, see .</p>
+ */
 export class MonitorInstancesCommand extends $Command<
   MonitorInstancesCommandInput,
   MonitorInstancesCommandOutput,
@@ -34,6 +41,9 @@ export class MonitorInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

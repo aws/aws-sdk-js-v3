@@ -20,6 +20,9 @@ import {
 export type DetachLoadBalancerTargetGroupsCommandInput = DetachLoadBalancerTargetGroupsType;
 export type DetachLoadBalancerTargetGroupsCommandOutput = DetachLoadBalancerTargetGroupsResultType & __MetadataBearer;
 
+/**
+ * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
+ */
 export class DetachLoadBalancerTargetGroupsCommand extends $Command<
   DetachLoadBalancerTargetGroupsCommandInput,
   DetachLoadBalancerTargetGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

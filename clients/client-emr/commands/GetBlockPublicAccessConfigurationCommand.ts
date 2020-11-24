@@ -20,6 +20,9 @@ import {
 export type GetBlockPublicAccessConfigurationCommandInput = GetBlockPublicAccessConfigurationInput;
 export type GetBlockPublicAccessConfigurationCommandOutput = GetBlockPublicAccessConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>
+ */
 export class GetBlockPublicAccessConfigurationCommand extends $Command<
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

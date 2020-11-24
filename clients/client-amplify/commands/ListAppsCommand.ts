@@ -20,6 +20,9 @@ import {
 export type ListAppsCommandInput = ListAppsRequest;
 export type ListAppsCommandOutput = ListAppsResult & __MetadataBearer;
 
+/**
+ * <p> Returns a list of the existing Amplify apps. </p>
+ */
 export class ListAppsCommand extends $Command<
   ListAppsCommandInput,
   ListAppsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAppsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

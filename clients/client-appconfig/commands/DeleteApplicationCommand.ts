@@ -20,6 +20,10 @@ import {
 export type DeleteApplicationCommandInput = DeleteApplicationRequest;
 export type DeleteApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete an application. Deleting an application does not delete a configuration from a
+ *          host.</p>
+ */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

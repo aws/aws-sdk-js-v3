@@ -21,6 +21,9 @@ import {
 export type UpdateTrafficPolicyCommentCommandInput = UpdateTrafficPolicyCommentRequest;
 export type UpdateTrafficPolicyCommentCommandOutput = UpdateTrafficPolicyCommentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the comment for a specified traffic policy version.</p>
+ */
 export class UpdateTrafficPolicyCommentCommand extends $Command<
   UpdateTrafficPolicyCommentCommandInput,
   UpdateTrafficPolicyCommentCommandOutput,
@@ -35,6 +38,9 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

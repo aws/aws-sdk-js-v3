@@ -20,6 +20,9 @@ import {
 export type GetStreamingDistributionCommandInput = GetStreamingDistributionRequest;
 export type GetStreamingDistributionCommandOutput = GetStreamingDistributionResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+ */
 export class GetStreamingDistributionCommand extends $Command<
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
@@ -34,6 +37,9 @@ export class GetStreamingDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

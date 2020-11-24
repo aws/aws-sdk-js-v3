@@ -20,6 +20,10 @@ import {
 export type UpdateResolverRuleCommandInput = UpdateResolverRuleRequest;
 export type UpdateResolverRuleCommandOutput = UpdateResolverRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
+ * 			If you don't specify a parameter, it retains its current value.</p>
+ */
 export class UpdateResolverRuleCommand extends $Command<
   UpdateResolverRuleCommandInput,
   UpdateResolverRuleCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateResolverRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

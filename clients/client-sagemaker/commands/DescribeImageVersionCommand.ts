@@ -20,6 +20,9 @@ import {
 export type DescribeImageVersionCommandInput = DescribeImageVersionRequest;
 export type DescribeImageVersionCommandOutput = DescribeImageVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a version of a SageMaker image.</p>
+ */
 export class DescribeImageVersionCommand extends $Command<
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImageVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

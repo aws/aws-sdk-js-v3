@@ -20,6 +20,10 @@ import {
 export type UpdateGatewayGroupCommandInput = UpdateGatewayGroupRequest;
 export type UpdateGatewayGroupCommandOutput = UpdateGatewayGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details of a gateway group. If any optional field is not provided, the
+ *          existing corresponding value is left unmodified.</p>
+ */
 export class UpdateGatewayGroupCommand extends $Command<
   UpdateGatewayGroupCommandInput,
   UpdateGatewayGroupCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateGatewayGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CreateSipRuleCommandInput = CreateSipRuleRequest;
 export type CreateSipRuleCommandOutput = CreateSipRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a
+ *       specific trigger type.</p>
+ */
 export class CreateSipRuleCommand extends $Command<
   CreateSipRuleCommandInput,
   CreateSipRuleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateSipRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

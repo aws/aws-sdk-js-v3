@@ -20,6 +20,11 @@ import {
 export type DeleteWorkspaceImageCommandInput = DeleteWorkspaceImageRequest;
 export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified image from your account. To delete an image, you must first delete
+ *          any bundles that are associated with the image and unshare the image if it is shared with
+ *          other accounts. </p>
+ */
 export class DeleteWorkspaceImageCommand extends $Command<
   DeleteWorkspaceImageCommandInput,
   DeleteWorkspaceImageCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteWorkspaceImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

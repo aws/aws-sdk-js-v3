@@ -17,6 +17,10 @@ import {
 export type DeleteRunCommandInput = DeleteRunRequest;
 export type DeleteRunCommandOutput = DeleteRunResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the run, given the run ARN.</p>
+ *         <p> Deleting this resource does not stop an in-progress run.</p>
+ */
 export class DeleteRunCommand extends $Command<
   DeleteRunCommandInput,
   DeleteRunCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

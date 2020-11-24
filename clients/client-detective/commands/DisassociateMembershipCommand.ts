@@ -20,6 +20,10 @@ import {
 export type DisassociateMembershipCommandInput = DisassociateMembershipRequest;
 export type DisassociateMembershipCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the member account from the specified behavior graph. This operation can only be
+ *          called by a member account that has the <code>ENABLED</code> status.</p>
+ */
 export class DisassociateMembershipCommand extends $Command<
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetOpenIDConnectProviderCommandInput = GetOpenIDConnectProviderRequest;
 export type GetOpenIDConnectProviderCommandOutput = GetOpenIDConnectProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
+ *          in IAM.</p>
+ */
 export class GetOpenIDConnectProviderCommand extends $Command<
   GetOpenIDConnectProviderCommandInput,
   GetOpenIDConnectProviderCommandOutput,
@@ -34,6 +38,9 @@ export class GetOpenIDConnectProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

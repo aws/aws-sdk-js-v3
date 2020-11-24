@@ -20,6 +20,11 @@ import {
 export type UpdateConfigCommandInput = UpdateConfigRequest;
 export type UpdateConfigCommandOutput = ConfigIdResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
+ *          <p>Updating a <code>Config</code> will not update the execution parameters
+ *          for existing future contacts scheduled with this <code>Config</code>.</p>
+ */
 export class UpdateConfigCommand extends $Command<
   UpdateConfigCommandInput,
   UpdateConfigCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

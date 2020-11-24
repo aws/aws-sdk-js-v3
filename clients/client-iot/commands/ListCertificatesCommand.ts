@@ -20,6 +20,11 @@ import {
 export type ListCertificatesCommandInput = ListCertificatesRequest;
 export type ListCertificatesCommandOutput = ListCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the certificates registered in your AWS account.</p>
+ *          <p>The results are paginated with a default page size of 25. You can use the returned
+ *          marker to retrieve additional results.</p>
+ */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
@@ -34,6 +39,9 @@ export class ListCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

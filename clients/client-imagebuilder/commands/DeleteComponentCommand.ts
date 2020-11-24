@@ -20,6 +20,9 @@ import {
 export type DeleteComponentCommandInput = DeleteComponentRequest;
 export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
 
+/**
+ * <p> Deletes a component build version. </p>
+ */
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

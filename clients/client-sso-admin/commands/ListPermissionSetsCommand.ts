@@ -20,6 +20,9 @@ import {
 export type ListPermissionSetsCommandInput = ListPermissionSetsRequest;
 export type ListPermissionSetsCommandOutput = ListPermissionSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the <a>PermissionSet</a>s in an SSO instance.</p>
+ */
 export class ListPermissionSetsCommand extends $Command<
   ListPermissionSetsCommandInput,
   ListPermissionSetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPermissionSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AddSourceIdentifierToSubscriptionCommandInput = AddSourceIdentifierToSubscriptionMessage;
 export type AddSourceIdentifierToSubscriptionCommandOutput = AddSourceIdentifierToSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Adds a source identifier to an existing event notification subscription.</p>
+ */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
   AddSourceIdentifierToSubscriptionCommandInput,
   AddSourceIdentifierToSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

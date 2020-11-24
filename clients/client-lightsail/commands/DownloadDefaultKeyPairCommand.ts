@@ -20,6 +20,9 @@ import {
 export type DownloadDefaultKeyPairCommandInput = DownloadDefaultKeyPairRequest;
 export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult & __MetadataBearer;
 
+/**
+ * <p>Downloads the default SSH key pair from the user's account.</p>
+ */
 export class DownloadDefaultKeyPairCommand extends $Command<
   DownloadDefaultKeyPairCommandInput,
   DownloadDefaultKeyPairCommandOutput,
@@ -34,6 +37,9 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

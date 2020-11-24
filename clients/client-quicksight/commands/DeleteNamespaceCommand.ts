@@ -20,6 +20,11 @@ import {
 export type DeleteNamespaceCommandInput = DeleteNamespaceRequest;
 export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a namespace and the users and groups that are associated with the namespace.
+ *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
+ *         deleted. To delete these assets, you use the API operations for the relevant asset. </p>
+ */
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,
   DeleteNamespaceCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

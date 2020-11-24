@@ -20,6 +20,10 @@ import {
 export type SignOutUserCommandInput = SignOutUserRequest;
 export type SignOutUserCommandOutput = SignOutUserResponse & __MetadataBearer;
 
+/**
+ * <p>Signs the user out from all of their devices. The user can sign in again if they have
+ *             valid credentials.</p>
+ */
 export class SignOutUserCommand extends $Command<
   SignOutUserCommandInput,
   SignOutUserCommandOutput,
@@ -34,6 +38,9 @@ export class SignOutUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

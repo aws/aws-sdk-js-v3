@@ -20,6 +20,9 @@ import {
 export type DescribeCertificateCommandInput = DescribeCertificateRequest;
 export type DescribeCertificateCommandOutput = DescribeCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Returns detailed metadata about the specified ACM certificate.</p>
+ */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,

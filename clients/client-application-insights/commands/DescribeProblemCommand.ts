@@ -24,6 +24,9 @@ import {
 export type DescribeProblemCommandInput = DescribeProblemRequest;
 export type DescribeProblemCommandOutput = DescribeProblemResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an application problem.</p>
+ */
 export class DescribeProblemCommand extends $Command<
   DescribeProblemCommandInput,
   DescribeProblemCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeProblemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

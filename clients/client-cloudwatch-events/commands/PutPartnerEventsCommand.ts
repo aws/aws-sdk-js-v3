@@ -20,6 +20,10 @@ import {
 export type PutPartnerEventsCommandInput = PutPartnerEventsRequest;
 export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse & __MetadataBearer;
 
+/**
+ * <p>This is used by SaaS partners to write events to a customer's partner event bus. AWS
+ *             customers do not use this operation.</p>
+ */
 export class PutPartnerEventsCommand extends $Command<
   PutPartnerEventsCommandInput,
   PutPartnerEventsCommandOutput,
@@ -34,6 +38,9 @@ export class PutPartnerEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateReservationCommandInput = UpdateReservationRequest;
 export type UpdateReservationCommandOutput = UpdateReservationResponse & __MetadataBearer;
 
+/**
+ * Update reservation.
+ */
 export class UpdateReservationCommand extends $Command<
   UpdateReservationCommandInput,
   UpdateReservationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

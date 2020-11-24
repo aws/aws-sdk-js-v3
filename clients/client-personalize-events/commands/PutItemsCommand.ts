@@ -24,6 +24,10 @@ import {
 export type PutItemsCommandInput = PutItemsRequest;
 export type PutItemsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds one or more items to an Items dataset. For more information see
+ *       <a>importing-items</a>.</p>
+ */
 export class PutItemsCommand extends $Command<
   PutItemsCommandInput,
   PutItemsCommandOutput,
@@ -38,6 +42,9 @@ export class PutItemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeEventsClientResolvedConfig,

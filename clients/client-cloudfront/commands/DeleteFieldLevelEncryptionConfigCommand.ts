@@ -20,6 +20,9 @@ import {
 export type DeleteFieldLevelEncryptionConfigCommandInput = DeleteFieldLevelEncryptionConfigRequest;
 export type DeleteFieldLevelEncryptionConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Remove a field-level encryption configuration.</p>
+ */
 export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type GetTrailCommandInput = GetTrailRequest;
 export type GetTrailCommandOutput = GetTrailResponse & __MetadataBearer;
 
+/**
+ * <p>Returns settings information for a specified trail.</p>
+ */
 export class GetTrailCommand extends $Command<
   GetTrailCommandInput,
   GetTrailCommandOutput,
@@ -31,6 +34,9 @@ export class GetTrailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

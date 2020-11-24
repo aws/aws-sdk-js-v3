@@ -20,6 +20,10 @@ import {
 export type ListRobotApplicationsCommandInput = ListRobotApplicationsRequest;
 export type ListRobotApplicationsCommandOutput = ListRobotApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of robot application. You can optionally provide filters to retrieve
+ *          specific robot applications.</p>
+ */
 export class ListRobotApplicationsCommand extends $Command<
   ListRobotApplicationsCommandInput,
   ListRobotApplicationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListRobotApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

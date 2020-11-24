@@ -25,6 +25,9 @@ import {
 export type DeleteResourceServerCommandInput = DeleteResourceServerRequest;
 export type DeleteResourceServerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a resource server.</p>
+ */
 export class DeleteResourceServerCommand extends $Command<
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
@@ -39,6 +42,9 @@ export class DeleteResourceServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

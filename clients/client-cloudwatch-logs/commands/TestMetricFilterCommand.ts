@@ -20,6 +20,10 @@ import {
 export type TestMetricFilterCommandInput = TestMetricFilterRequest;
 export type TestMetricFilterCommandOutput = TestMetricFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
+ *       can use this operation to validate the correctness of a metric filter pattern.</p>
+ */
 export class TestMetricFilterCommand extends $Command<
   TestMetricFilterCommandInput,
   TestMetricFilterCommandOutput,
@@ -34,6 +38,9 @@ export class TestMetricFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

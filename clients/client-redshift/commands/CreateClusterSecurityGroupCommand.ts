@@ -20,6 +20,14 @@ import {
 export type CreateClusterSecurityGroupCommandInput = CreateClusterSecurityGroupMessage;
 export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Redshift security group. You use security groups to control access
+ *             to non-VPC clusters.</p>
+ *         <p>
+ * For information about managing security groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
+ * <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandInput,
   CreateClusterSecurityGroupCommandOutput,
@@ -34,6 +42,9 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

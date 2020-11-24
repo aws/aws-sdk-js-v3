@@ -20,6 +20,11 @@ import {
 export type UpdateColumnStatisticsForTableCommandInput = UpdateColumnStatisticsForTableRequest;
 export type UpdateColumnStatisticsForTableCommandOutput = UpdateColumnStatisticsForTableResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates table statistics of columns.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+ */
 export class UpdateColumnStatisticsForTableCommand extends $Command<
   UpdateColumnStatisticsForTableCommandInput,
   UpdateColumnStatisticsForTableCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

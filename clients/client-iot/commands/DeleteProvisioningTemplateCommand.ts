@@ -20,6 +20,9 @@ import {
 export type DeleteProvisioningTemplateCommandInput = DeleteProvisioningTemplateRequest;
 export type DeleteProvisioningTemplateCommandOutput = DeleteProvisioningTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a fleet provisioning template.</p>
+ */
 export class DeleteProvisioningTemplateCommand extends $Command<
   DeleteProvisioningTemplateCommandInput,
   DeleteProvisioningTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

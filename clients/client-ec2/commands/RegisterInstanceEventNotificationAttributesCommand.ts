@@ -24,6 +24,11 @@ export type RegisterInstanceEventNotificationAttributesCommandInput = RegisterIn
 export type RegisterInstanceEventNotificationAttributesCommandOutput = RegisterInstanceEventNotificationAttributesResult &
   __MetadataBearer;
 
+/**
+ * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
+ *    		</p>
+ *          <p>To remove tags, use .</p>
+ */
 export class RegisterInstanceEventNotificationAttributesCommand extends $Command<
   RegisterInstanceEventNotificationAttributesCommandInput,
   RegisterInstanceEventNotificationAttributesCommandOutput,
@@ -38,6 +43,9 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

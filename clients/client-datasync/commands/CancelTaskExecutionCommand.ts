@@ -20,6 +20,16 @@ import {
 export type CancelTaskExecutionCommandInput = CancelTaskExecutionRequest;
 export type CancelTaskExecutionCommandOutput = CancelTaskExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels execution of a task. </p>
+ *          <p>When you cancel a task execution, the transfer of some files is abruptly interrupted.
+ *       The contents of files that are transferred to the destination might be incomplete or
+ *       inconsistent with the source files. However, if you start a new task execution on the same
+ *       task and you allow the task execution to complete, file content on the destination is complete
+ *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
+ *       all of these cases, AWS DataSync successfully complete the transfer when you start the next
+ *       task execution.</p>
+ */
 export class CancelTaskExecutionCommand extends $Command<
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
@@ -34,6 +44,9 @@ export class CancelTaskExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

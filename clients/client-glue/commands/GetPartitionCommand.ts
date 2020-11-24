@@ -20,6 +20,9 @@ import {
 export type GetPartitionCommandInput = GetPartitionRequest;
 export type GetPartitionCommandOutput = GetPartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a specified partition.</p>
+ */
 export class GetPartitionCommand extends $Command<
   GetPartitionCommandInput,
   GetPartitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetPartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

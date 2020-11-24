@@ -24,6 +24,9 @@ export type ListFailuresForLicenseConfigurationOperationsCommandInput = ListFail
 export type ListFailuresForLicenseConfigurationOperationsCommandOutput = ListFailuresForLicenseConfigurationOperationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the license configuration operations that failed.</p>
+ */
 export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<
   ListFailuresForLicenseConfigurationOperationsCommandInput,
   ListFailuresForLicenseConfigurationOperationsCommandOutput,
@@ -38,6 +41,9 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

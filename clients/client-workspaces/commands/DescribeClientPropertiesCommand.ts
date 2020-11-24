@@ -20,6 +20,9 @@ import {
 export type DescribeClientPropertiesCommandInput = DescribeClientPropertiesRequest;
 export type DescribeClientPropertiesCommandOutput = DescribeClientPropertiesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
+ */
 export class DescribeClientPropertiesCommand extends $Command<
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClientPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

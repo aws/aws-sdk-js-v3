@@ -8,6 +8,9 @@ import {
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
   input: ListThreatIntelSetsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThreatIntelSetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GuardDuty,
   input: ListThreatIntelSetsCommandInput,

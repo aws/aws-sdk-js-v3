@@ -20,6 +20,9 @@ import {
 export type StartOnDemandAppReplicationCommandInput = StartOnDemandAppReplicationRequest;
 export type StartOnDemandAppReplicationCommandOutput = StartOnDemandAppReplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an on-demand replication run for the specified application.</p>
+ */
 export class StartOnDemandAppReplicationCommand extends $Command<
   StartOnDemandAppReplicationCommandInput,
   StartOnDemandAppReplicationCommandOutput,
@@ -34,6 +37,9 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

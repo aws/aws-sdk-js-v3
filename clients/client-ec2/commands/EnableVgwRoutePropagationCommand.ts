@@ -20,6 +20,9 @@ import {
 export type EnableVgwRoutePropagationCommandInput = EnableVgwRoutePropagationRequest;
 export type EnableVgwRoutePropagationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.</p>
+ */
 export class EnableVgwRoutePropagationCommand extends $Command<
   EnableVgwRoutePropagationCommandInput,
   EnableVgwRoutePropagationCommandOutput,
@@ -34,6 +37,9 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

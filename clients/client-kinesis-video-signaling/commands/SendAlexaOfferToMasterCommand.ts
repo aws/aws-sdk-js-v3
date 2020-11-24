@@ -24,6 +24,14 @@ import {
 export type SendAlexaOfferToMasterCommandInput = SendAlexaOfferToMasterRequest;
 export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse & __MetadataBearer;
 
+/**
+ * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When
+ *             invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer.
+ *             The offer is delivered as soon as the master is connected to the specified signaling
+ *             channel. This API returns the SDP answer from the connected master. If the master is not
+ *             connected to the signaling channel, redelivery requests are made until the message
+ *             expires.</p>
+ */
 export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandInput,
   SendAlexaOfferToMasterCommandOutput,
@@ -38,6 +46,9 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoSignalingClientResolvedConfig,

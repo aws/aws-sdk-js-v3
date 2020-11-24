@@ -20,6 +20,10 @@ import {
 export type StartLifecyclePolicyPreviewCommandInput = StartLifecyclePolicyPreviewRequest;
 export type StartLifecyclePolicyPreviewCommandOutput = StartLifecyclePolicyPreviewResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you
+ *             to see the results before associating the lifecycle policy with the repository.</p>
+ */
 export class StartLifecyclePolicyPreviewCommand extends $Command<
   StartLifecyclePolicyPreviewCommandInput,
   StartLifecyclePolicyPreviewCommandOutput,
@@ -34,6 +38,9 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

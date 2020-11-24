@@ -20,6 +20,10 @@ import {
 export type UpdateDetectorModelCommandInput = UpdateDetectorModelRequest;
 export type UpdateDetectorModelCommandOutput = UpdateDetectorModelResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
+ *       deleted and then re-created as new inputs arrive.</p>
+ */
 export class UpdateDetectorModelCommand extends $Command<
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDetectorModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

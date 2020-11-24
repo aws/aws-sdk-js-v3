@@ -20,6 +20,11 @@ import {
 export type DescribeDBSubnetGroupsCommandInput = DescribeDBSubnetGroupsMessage;
 export type DescribeDBSubnetGroupsCommandOutput = DBSubnetGroupMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
+ *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
+ *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
+ */
 export class DescribeDBSubnetGroupsCommand extends $Command<
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

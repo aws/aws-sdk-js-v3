@@ -20,6 +20,9 @@ import {
 export type GetIndexingConfigurationCommandInput = GetIndexingConfigurationRequest;
 export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the indexing configuration.</p>
+ */
 export class GetIndexingConfigurationCommand extends $Command<
   GetIndexingConfigurationCommandInput,
   GetIndexingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetIndexingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

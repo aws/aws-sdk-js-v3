@@ -20,6 +20,9 @@ import {
 export type UpdateTableCommandInput = UpdateTableRequest;
 export type UpdateTableCommandOutput = UpdateTableResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a metadata table in the Data Catalog.</p>
+ */
 export class UpdateTableCommand extends $Command<
   UpdateTableCommandInput,
   UpdateTableCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

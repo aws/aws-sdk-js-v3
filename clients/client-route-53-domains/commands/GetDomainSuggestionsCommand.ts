@@ -20,6 +20,9 @@ import {
 export type GetDomainSuggestionsCommandInput = GetDomainSuggestionsRequest;
 export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse & __MetadataBearer;
 
+/**
+ * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
+ */
 export class GetDomainSuggestionsCommand extends $Command<
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetDomainSuggestionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

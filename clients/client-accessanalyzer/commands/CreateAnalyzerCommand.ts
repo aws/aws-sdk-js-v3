@@ -20,6 +20,9 @@ import {
 export type CreateAnalyzerCommandInput = CreateAnalyzerRequest;
 export type CreateAnalyzerCommandOutput = CreateAnalyzerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an analyzer for your account.</p>
+ */
 export class CreateAnalyzerCommand extends $Command<
   CreateAnalyzerCommandInput,
   CreateAnalyzerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateAnalyzerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

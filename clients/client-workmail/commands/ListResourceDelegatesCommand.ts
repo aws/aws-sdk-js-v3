@@ -20,6 +20,10 @@ import {
 export type ListResourceDelegatesCommandInput = ListResourceDelegatesRequest;
 export type ListResourceDelegatesCommandOutput = ListResourceDelegatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the delegates associated with a resource. Users and groups can be resource
+ *          delegates and answer requests on behalf of the resource.</p>
+ */
 export class ListResourceDelegatesCommand extends $Command<
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
@@ -34,6 +38,9 @@ export class ListResourceDelegatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

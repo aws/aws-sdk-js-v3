@@ -20,6 +20,9 @@ import {
 export type GetModelVersionCommandInput = GetModelVersionRequest;
 export type GetModelVersionCommandOutput = GetModelVersionResult & __MetadataBearer;
 
+/**
+ * <p>Gets the details of the specified model version.</p>
+ */
 export class GetModelVersionCommand extends $Command<
   GetModelVersionCommandInput,
   GetModelVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetModelVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,20 @@ import {
 export type DescribeClusterParametersCommandInput = DescribeClusterParametersMessage;
 export type DescribeClusterParametersCommandOutput = ClusterParameterGroupDetails & __MetadataBearer;
 
+/**
+ * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
+ *             parameter group. For each parameter the response includes information such as parameter
+ *             name, description, data type, value, whether the parameter value is modifiable, and so
+ *             on.</p>
+ *         <p>You can specify <i>source</i> filter to retrieve parameters of only
+ *             specific type. For example, to retrieve parameters that were modified by a user action
+ *             such as from <a>ModifyClusterParameterGroup</a>, you can specify
+ *                 <i>source</i> equal to <i>user</i>.</p>
+ *         <p>
+ * For more information about parameters and parameter groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class DescribeClusterParametersCommand extends $Command<
   DescribeClusterParametersCommandInput,
   DescribeClusterParametersCommandOutput,
@@ -34,6 +48,9 @@ export class DescribeClusterParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

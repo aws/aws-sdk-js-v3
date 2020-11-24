@@ -20,6 +20,9 @@ import {
 export type DescribePatchBaselinesCommandInput = DescribePatchBaselinesRequest;
 export type DescribePatchBaselinesCommandOutput = DescribePatchBaselinesResult & __MetadataBearer;
 
+/**
+ * <p>Lists the patch baselines in your AWS account.</p>
+ */
 export class DescribePatchBaselinesCommand extends $Command<
   DescribePatchBaselinesCommandInput,
   DescribePatchBaselinesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePatchBaselinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateRegistryCommandInput = CreateRegistryRequest;
 export type CreateRegistryCommandOutput = CreateRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a registry.</p>
+ */
 export class CreateRegistryCommand extends $Command<
   CreateRegistryCommandInput,
   CreateRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CancelExportTaskCommandInput = CancelExportTaskRequest;
 export type CancelExportTaskCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Cancels the specified export task.</p>
+ *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
+ */
 export class CancelExportTaskCommand extends $Command<
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
@@ -34,6 +38,9 @@ export class CancelExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

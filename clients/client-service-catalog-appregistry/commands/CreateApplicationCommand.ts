@@ -24,6 +24,9 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationRequest;
 export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

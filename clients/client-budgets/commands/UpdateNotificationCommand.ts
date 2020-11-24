@@ -20,6 +20,9 @@ import {
 export type UpdateNotificationCommandInput = UpdateNotificationRequest;
 export type UpdateNotificationCommandOutput = UpdateNotificationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a notification.</p>
+ */
 export class UpdateNotificationCommand extends $Command<
   UpdateNotificationCommandInput,
   UpdateNotificationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateNotificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

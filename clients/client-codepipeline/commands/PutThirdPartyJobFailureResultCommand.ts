@@ -20,6 +20,10 @@ import {
 export type PutThirdPartyJobFailureResultCommandInput = PutThirdPartyJobFailureResultInput;
 export type PutThirdPartyJobFailureResultCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Represents the failure of a third party job as returned to the pipeline by a job
+ *             worker. Used for partner actions only.</p>
+ */
 export class PutThirdPartyJobFailureResultCommand extends $Command<
   PutThirdPartyJobFailureResultCommandInput,
   PutThirdPartyJobFailureResultCommandOutput,
@@ -34,6 +38,9 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

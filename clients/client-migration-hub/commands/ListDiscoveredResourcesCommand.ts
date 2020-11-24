@@ -20,6 +20,9 @@ import {
 export type ListDiscoveredResourcesCommandInput = ListDiscoveredResourcesRequest;
 export type ListDiscoveredResourcesCommandOutput = ListDiscoveredResourcesResult & __MetadataBearer;
 
+/**
+ * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
+ */
 export class ListDiscoveredResourcesCommand extends $Command<
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDiscoveredResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

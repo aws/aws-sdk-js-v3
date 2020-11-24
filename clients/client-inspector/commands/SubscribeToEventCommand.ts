@@ -20,6 +20,10 @@ import {
 export type SubscribeToEventCommandInput = SubscribeToEventRequest;
 export type SubscribeToEventCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
+ *          about a specified event to a specified SNS topic.</p>
+ */
 export class SubscribeToEventCommand extends $Command<
   SubscribeToEventCommandInput,
   SubscribeToEventCommandOutput,
@@ -34,6 +38,9 @@ export class SubscribeToEventCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

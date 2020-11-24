@@ -20,6 +20,10 @@ import {
 export type ListPublishingDestinationsCommandInput = ListPublishingDestinationsRequest;
 export type ListPublishingDestinationsCommandOutput = ListPublishingDestinationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of publishing destinations associated with the specified
+ *         <code>dectectorId</code>.</p>
+ */
 export class ListPublishingDestinationsCommand extends $Command<
   ListPublishingDestinationsCommandInput,
   ListPublishingDestinationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListPublishingDestinationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

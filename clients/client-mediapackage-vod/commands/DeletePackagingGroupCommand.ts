@@ -20,6 +20,9 @@ import {
 export type DeletePackagingGroupCommandInput = DeletePackagingGroupRequest;
 export type DeletePackagingGroupCommandOutput = DeletePackagingGroupResponse & __MetadataBearer;
 
+/**
+ * Deletes a MediaPackage VOD PackagingGroup resource.
+ */
 export class DeletePackagingGroupCommand extends $Command<
   DeletePackagingGroupCommandInput,
   DeletePackagingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePackagingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeAccountAttributesCommandInput = {};
 export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResult & __MetadataBearer;
 
+/**
+ * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
+ *       account.</p>
+ *          <p>The result currently has one set of attributes—resource quotas.</p>
+ */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

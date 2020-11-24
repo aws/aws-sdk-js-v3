@@ -20,6 +20,17 @@ import {
 export type DeleteBackupCommandInput = DeleteBackupRequest;
 export type DeleteBackupCommandOutput = DeleteBackupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no longer exists, and its data is gone.</p>
+ *
+ *         <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up
+ *             in later <code>DescribeBackups</code> calls.</p>
+ *
+ *         <important>
+ *             <p>The data in a deleted backup is also deleted and can't be recovered by any
+ *                 means.</p>
+ *         </important>
+ */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -34,6 +45,9 @@ export class DeleteBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,

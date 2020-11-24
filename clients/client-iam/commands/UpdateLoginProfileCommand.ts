@@ -20,6 +20,12 @@ import {
 export type UpdateLoginProfileCommandInput = UpdateLoginProfileRequest;
 export type UpdateLoginProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the password for the specified IAM user.</p>
+ *          <p>IAM users can change their own passwords by calling <a>ChangePassword</a>.
+ *          For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing Passwords</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ */
 export class UpdateLoginProfileCommand extends $Command<
   UpdateLoginProfileCommandInput,
   UpdateLoginProfileCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateLoginProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

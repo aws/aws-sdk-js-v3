@@ -20,6 +20,12 @@ import {
 export type GetOperationsCommandInput = GetOperationsRequest;
 export type GetOperationsCommandOutput = GetOperationsResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about all operations.</p>
+ *          <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
+ *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
+ *         <code>statusChangedAt</code> value from the previous request.</p>
+ */
 export class GetOperationsCommand extends $Command<
   GetOperationsCommandInput,
   GetOperationsCommandOutput,
@@ -34,6 +40,9 @@ export class GetOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

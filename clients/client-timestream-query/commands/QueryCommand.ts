@@ -17,6 +17,11 @@ import {
 export type QueryCommandInput = QueryRequest;
 export type QueryCommandOutput = QueryResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             Query is a synchronous operation that enables you to execute a query. Query will timeout after 60 seconds. You must update the default timeout in the SDK to support a timeout of 60 seconds. The result set will be truncated to 1MB. Service quotas apply. For more information, see Quotas in the Timestream Developer Guide.
+ *         </p>
+ */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +32,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamQueryClientResolvedConfig,

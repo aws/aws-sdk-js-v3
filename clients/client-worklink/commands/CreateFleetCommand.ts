@@ -20,6 +20,10 @@ import {
 export type CreateFleetCommandInput = CreateFleetRequest;
 export type CreateFleetCommandOutput = CreateFleetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
+ *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
+ */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,
   CreateFleetCommandOutput,
@@ -34,6 +38,9 @@ export class CreateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

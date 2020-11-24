@@ -20,6 +20,9 @@ import {
 export type UpdateMacieSessionCommandInput = UpdateMacieSessionRequest;
 export type UpdateMacieSessionCommandOutput = UpdateMacieSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Suspends or re-enables an Amazon Macie account, or updates the configuration settings for a Macie account.</p>
+ */
 export class UpdateMacieSessionCommand extends $Command<
   UpdateMacieSessionCommandInput,
   UpdateMacieSessionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMacieSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

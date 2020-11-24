@@ -20,6 +20,9 @@ import {
 export type GetConfigurationProfileCommandInput = GetConfigurationProfileRequest;
 export type GetConfigurationProfileCommandOutput = ConfigurationProfile & __MetadataBearer;
 
+/**
+ * <p>Retrieve information about a configuration profile.</p>
+ */
 export class GetConfigurationProfileCommand extends $Command<
   GetConfigurationProfileCommandInput,
   GetConfigurationProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetConfigurationProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

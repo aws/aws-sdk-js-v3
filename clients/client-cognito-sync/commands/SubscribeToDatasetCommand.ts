@@ -20,6 +20,10 @@ import {
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
 export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Subscribes to receive notifications when a dataset is modified by another device.</p>
+ *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+ */
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,
   SubscribeToDatasetCommandOutput,
@@ -34,6 +38,9 @@ export class SubscribeToDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteClusterCommandInput = DeleteClusterRequest;
 export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must
+ *       delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.</p>
+ */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

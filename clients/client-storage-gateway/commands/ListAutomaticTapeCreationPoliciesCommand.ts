@@ -20,6 +20,12 @@ import {
 export type ListAutomaticTapeCreationPoliciesCommandInput = ListAutomaticTapeCreationPoliciesInput;
 export type ListAutomaticTapeCreationPoliciesCommandOutput = ListAutomaticTapeCreationPoliciesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape
+ *          creation policies for the gateway, it returns an empty list.</p>
+ *
+ *          <p>This operation is only supported for tape gateways.</p>
+ */
 export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
@@ -34,6 +40,9 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

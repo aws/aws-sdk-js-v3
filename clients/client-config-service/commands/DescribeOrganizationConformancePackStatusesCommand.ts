@@ -24,6 +24,19 @@ export type DescribeOrganizationConformancePackStatusesCommandInput = DescribeOr
 export type DescribeOrganizationConformancePackStatusesCommandOutput = DescribeOrganizationConformancePackStatusesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Provides organization conformance pack deployment status for an organization. </p>
+ * 		       <p> Only a master account and a delegated administrator account can call this API.
+ * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
+ * 		       <note>
+ * 			         <p>The status is not considered successful until organization conformance pack is successfully
+ * 				deployed in all the member accounts with an exception of excluded accounts.</p>
+ * 			         <p>When you specify the limit and the next token, you receive a paginated response.
+ * 				Limit and next token are not applicable if you specify organization conformance pack names.
+ * 				They are only applicable, when you request all the organization conformance packs.</p>
+ *          </note>
+ */
 export class DescribeOrganizationConformancePackStatusesCommand extends $Command<
   DescribeOrganizationConformancePackStatusesCommandInput,
   DescribeOrganizationConformancePackStatusesCommandOutput,
@@ -38,6 +51,9 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

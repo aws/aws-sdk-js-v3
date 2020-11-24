@@ -20,6 +20,11 @@ import {
 export type CreateActionTargetCommandInput = CreateActionTargetRequest;
 export type CreateActionTargetCommandOutput = CreateActionTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a custom action target in Security Hub.</p>
+ *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
+ *          in Amazon CloudWatch Events.</p>
+ */
 export class CreateActionTargetCommand extends $Command<
   CreateActionTargetCommandInput,
   CreateActionTargetCommandOutput,
@@ -34,6 +39,9 @@ export class CreateActionTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

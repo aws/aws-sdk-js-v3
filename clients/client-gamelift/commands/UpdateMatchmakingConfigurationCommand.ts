@@ -20,6 +20,63 @@ import {
 export type UpdateMatchmakingConfigurationCommandInput = UpdateMatchmakingConfigurationInput;
 export type UpdateMatchmakingConfigurationCommandOutput = UpdateMatchmakingConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all matches and game sessions
+ *             that are created after the update. To update settings,
+ *             specify the configuration name to be updated and provide the new settings. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
+ *             Design a FlexMatch Matchmaker</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateMatchmakingConfigurationCommand extends $Command<
   UpdateMatchmakingConfigurationCommandInput,
   UpdateMatchmakingConfigurationCommandOutput,
@@ -34,6 +91,9 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

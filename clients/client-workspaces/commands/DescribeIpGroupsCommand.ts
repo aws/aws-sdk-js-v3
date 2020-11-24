@@ -20,6 +20,9 @@ import {
 export type DescribeIpGroupsCommandInput = DescribeIpGroupsRequest;
 export type DescribeIpGroupsCommandOutput = DescribeIpGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your IP access control groups.</p>
+ */
 export class DescribeIpGroupsCommand extends $Command<
   DescribeIpGroupsCommandInput,
   DescribeIpGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeIpGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

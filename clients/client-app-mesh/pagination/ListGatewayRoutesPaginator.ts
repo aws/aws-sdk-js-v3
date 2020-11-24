@@ -8,6 +8,9 @@ import {
 import { AppMeshPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AppMeshClient,
   input: ListGatewayRoutesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGatewayRoutesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: AppMesh,
   input: ListGatewayRoutesCommandInput,

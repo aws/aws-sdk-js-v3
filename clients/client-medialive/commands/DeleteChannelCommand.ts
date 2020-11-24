@@ -20,6 +20,9 @@ import {
 export type DeleteChannelCommandInput = DeleteChannelRequest;
 export type DeleteChannelCommandOutput = DeleteChannelResponse & __MetadataBearer;
 
+/**
+ * Starts deletion of channel. The associated outputs are also deleted.
+ */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

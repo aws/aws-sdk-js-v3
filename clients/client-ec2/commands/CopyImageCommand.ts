@@ -17,6 +17,14 @@ import {
 export type CopyImageCommandInput = CopyImageRequest;
 export type CopyImageCommandOutput = CopyImageResult & __MetadataBearer;
 
+/**
+ * <p>Initiates the copy of an AMI from the specified source Region to the current Region. You specify the destination Region by using its endpoint when making the request.</p>
+ *          <p>Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots
+ *        remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted
+ *        copy of an encrypted backing snapshot.</p>
+ *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
+ *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageCommandOutput, EC2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +35,9 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

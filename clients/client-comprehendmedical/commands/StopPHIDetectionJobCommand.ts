@@ -24,6 +24,9 @@ import {
 export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
 export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a protected health information (PHI) detection job in progress.</p>
+ */
 export class StopPHIDetectionJobCommand extends $Command<
   StopPHIDetectionJobCommandInput,
   StopPHIDetectionJobCommandOutput,
@@ -38,6 +41,9 @@ export class StopPHIDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

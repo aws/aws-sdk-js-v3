@@ -20,6 +20,9 @@ import {
 export type GetDataSetCommandInput = GetDataSetRequest;
 export type GetDataSetCommandOutput = GetDataSetResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns information about a data set.</p>
+ */
 export class GetDataSetCommand extends $Command<
   GetDataSetCommandInput,
   GetDataSetCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

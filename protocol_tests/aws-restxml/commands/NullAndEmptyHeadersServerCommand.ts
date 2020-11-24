@@ -20,6 +20,9 @@ import {
 export type NullAndEmptyHeadersServerCommandInput = NullAndEmptyHeadersIO;
 export type NullAndEmptyHeadersServerCommandOutput = NullAndEmptyHeadersIO & __MetadataBearer;
 
+/**
+ * Null and empty headers are not sent over the wire.
+ */
 export class NullAndEmptyHeadersServerCommand extends $Command<
   NullAndEmptyHeadersServerCommandInput,
   NullAndEmptyHeadersServerCommandOutput,
@@ -34,6 +37,9 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

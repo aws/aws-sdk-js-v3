@@ -20,6 +20,9 @@ import {
 export type UpdateAppCommandInput = UpdateAppRequest;
 export type UpdateAppCommandOutput = UpdateAppResult & __MetadataBearer;
 
+/**
+ * <p> Updates an existing Amplify app. </p>
+ */
 export class UpdateAppCommand extends $Command<
   UpdateAppCommandInput,
   UpdateAppCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

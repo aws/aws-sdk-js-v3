@@ -20,6 +20,13 @@ import {
 export type CreateSimulationJobCommandInput = CreateSimulationJobRequest;
 export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a simulation job.</p>
+ *          <note>
+ *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be accessible.
+ *          </p>
+ *          </note>
+ */
 export class CreateSimulationJobCommand extends $Command<
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput,
@@ -34,6 +41,9 @@ export class CreateSimulationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

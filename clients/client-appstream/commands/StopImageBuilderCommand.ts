@@ -20,6 +20,9 @@ import {
 export type StopImageBuilderCommandInput = StopImageBuilderRequest;
 export type StopImageBuilderCommandOutput = StopImageBuilderResult & __MetadataBearer;
 
+/**
+ * <p>Stops the specified image builder.</p>
+ */
 export class StopImageBuilderCommand extends $Command<
   StopImageBuilderCommandInput,
   StopImageBuilderCommandOutput,
@@ -34,6 +37,9 @@ export class StopImageBuilderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

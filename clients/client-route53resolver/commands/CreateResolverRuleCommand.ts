@@ -20,6 +20,10 @@ import {
 export type CreateResolverRuleCommandInput = CreateResolverRuleRequest;
 export type CreateResolverRuleCommandOutput = CreateResolverRuleResponse & __MetadataBearer;
 
+/**
+ * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
+ * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
+ */
 export class CreateResolverRuleCommand extends $Command<
   CreateResolverRuleCommandInput,
   CreateResolverRuleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateResolverRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

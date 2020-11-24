@@ -20,6 +20,9 @@ import {
 export type SearchSystemInstancesCommandInput = SearchSystemInstancesRequest;
 export type SearchSystemInstancesCommandOutput = SearchSystemInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for system instances in the user's account.</p>
+ */
 export class SearchSystemInstancesCommand extends $Command<
   SearchSystemInstancesCommandInput,
   SearchSystemInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchSystemInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

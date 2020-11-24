@@ -24,6 +24,9 @@ export type GetTransitGatewayMulticastDomainAssociationsCommandInput = GetTransi
 export type GetTransitGatewayMulticastDomainAssociationsCommandOutput = GetTransitGatewayMulticastDomainAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Gets information about the associations for the transit gateway multicast domain.</p>
+ */
 export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Command<
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

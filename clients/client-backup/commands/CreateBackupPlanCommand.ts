@@ -20,6 +20,12 @@ import {
 export type CreateBackupPlanCommandInput = CreateBackupPlanInput;
 export type CreateBackupPlanCommandOutput = CreateBackupPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
+ *          document that contains information that AWS Backup uses to schedule tasks that create
+ *          recovery points for resources.</p>
+ *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code> is returned.</p>
+ */
 export class CreateBackupPlanCommand extends $Command<
   CreateBackupPlanCommandInput,
   CreateBackupPlanCommandOutput,
@@ -34,6 +40,9 @@ export class CreateBackupPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ListGraphsCommandInput = ListGraphsRequest;
 export type ListGraphsCommandOutput = ListGraphsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the list of behavior graphs that the calling account is a master of. This
+ *          operation can only be called by a master account.</p>
+ *          <p>Because an account can currently only be the master of one behavior graph within a
+ *          Region, the results always contain a single graph.</p>
+ */
 export class ListGraphsCommand extends $Command<
   ListGraphsCommandInput,
   ListGraphsCommandOutput,
@@ -34,6 +40,9 @@ export class ListGraphsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

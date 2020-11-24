@@ -20,6 +20,9 @@ import {
 export type GetInstanceStateCommandInput = GetInstanceStateRequest;
 export type GetInstanceStateCommandOutput = GetInstanceStateResult & __MetadataBearer;
 
+/**
+ * <p>Returns the state of a specific instance. Works on one instance at a time.</p>
+ */
 export class GetInstanceStateCommand extends $Command<
   GetInstanceStateCommandInput,
   GetInstanceStateCommandOutput,
@@ -34,6 +37,9 @@ export class GetInstanceStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

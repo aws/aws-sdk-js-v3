@@ -20,6 +20,13 @@ import {
 export type ModifyCapacityReservationCommandInput = ModifyCapacityReservationRequest;
 export type ModifyCapacityReservationCommandOutput = ModifyCapacityReservationResult & __MetadataBearer;
 
+/**
+ * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You
+ * 			cannot change a Capacity Reservation's instance type, EBS optimization, instance store settings,
+ * 			platform, Availability Zone, or instance eligibility. If you need to modify any of these
+ * 			attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with
+ * 			the required attributes.</p>
+ */
 export class ModifyCapacityReservationCommand extends $Command<
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
@@ -34,6 +41,9 @@ export class ModifyCapacityReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

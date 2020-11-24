@@ -20,6 +20,9 @@ import {
 export type GetBranchCommandInput = GetBranchRequest;
 export type GetBranchCommandOutput = GetBranchResult & __MetadataBearer;
 
+/**
+ * <p> Returns a branch for an Amplify app. </p>
+ */
 export class GetBranchCommand extends $Command<
   GetBranchCommandInput,
   GetBranchCommandOutput,
@@ -34,6 +37,9 @@ export class GetBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

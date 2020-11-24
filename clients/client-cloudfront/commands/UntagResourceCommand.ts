@@ -20,6 +20,9 @@ import {
 export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Remove tags from a CloudFront resource.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +37,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

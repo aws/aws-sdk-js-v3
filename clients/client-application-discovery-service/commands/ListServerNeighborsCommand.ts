@@ -24,6 +24,10 @@ import {
 export type ListServerNeighborsCommandInput = ListServerNeighborsRequest;
 export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of servers that are one network hop away from a specified
+ *       server.</p>
+ */
 export class ListServerNeighborsCommand extends $Command<
   ListServerNeighborsCommandInput,
   ListServerNeighborsCommandOutput,
@@ -38,6 +42,9 @@ export class ListServerNeighborsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type StartAssociationsOnceCommandInput = StartAssociationsOnceRequest;
 export type StartAssociationsOnceCommandOutput = StartAssociationsOnceResult & __MetadataBearer;
 
+/**
+ * <p>Use this API action to run an association immediately and only one time. This action can be
+ *    helpful when troubleshooting associations.</p>
+ */
 export class StartAssociationsOnceCommand extends $Command<
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -34,6 +38,9 @@ export class StartAssociationsOnceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

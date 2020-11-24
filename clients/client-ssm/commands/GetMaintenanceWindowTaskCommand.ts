@@ -20,6 +20,9 @@ import {
 export type GetMaintenanceWindowTaskCommandInput = GetMaintenanceWindowTaskRequest;
 export type GetMaintenanceWindowTaskCommandOutput = GetMaintenanceWindowTaskResult & __MetadataBearer;
 
+/**
+ * <p>Lists the tasks in a maintenance window.</p>
+ */
 export class GetMaintenanceWindowTaskCommand extends $Command<
   GetMaintenanceWindowTaskCommandInput,
   GetMaintenanceWindowTaskCommandOutput,
@@ -34,6 +37,9 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

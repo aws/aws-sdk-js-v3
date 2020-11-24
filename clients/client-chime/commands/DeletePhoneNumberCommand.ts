@@ -20,6 +20,13 @@ import {
 export type DeletePhoneNumberCommandInput = DeletePhoneNumberRequest;
 export type DeletePhoneNumberCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Moves the specified phone number into the <b>Deletion
+ *       queue</b>. A phone number must be disassociated from any users or Amazon Chime Voice
+ *       Connectors before it can be deleted.</p>
+ *          <p>Deleted phone numbers remain in the <b>Deletion queue</b>
+ *       for 7 days before they are deleted permanently.</p>
+ */
 export class DeletePhoneNumberCommand extends $Command<
   DeletePhoneNumberCommandInput,
   DeletePhoneNumberCommandOutput,
@@ -34,6 +41,9 @@ export class DeletePhoneNumberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -24,6 +24,12 @@ import {
 export type DeleteHostCommandInput = DeleteHostInput;
 export type DeleteHostCommandOutput = DeleteHostOutput & __MetadataBearer;
 
+/**
+ * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
+ *          <note>
+ *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
+ *          </note>
+ */
 export class DeleteHostCommand extends $Command<
   DeleteHostCommandInput,
   DeleteHostCommandOutput,
@@ -38,6 +44,9 @@ export class DeleteHostCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

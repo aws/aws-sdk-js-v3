@@ -17,6 +17,9 @@ import {
 export type PutLabelCommandInput = PutLabelRequest;
 export type PutLabelCommandOutput = PutLabelResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>
+ */
 export class PutLabelCommand extends $Command<
   PutLabelCommandInput,
   PutLabelCommandOutput,
@@ -31,6 +34,9 @@ export class PutLabelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

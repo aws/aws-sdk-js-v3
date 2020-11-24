@@ -20,6 +20,9 @@ import {
 export type CancelPipelineReprocessingCommandInput = CancelPipelineReprocessingRequest;
 export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the reprocessing of data through the pipeline.</p>
+ */
 export class CancelPipelineReprocessingCommand extends $Command<
   CancelPipelineReprocessingCommandInput,
   CancelPipelineReprocessingCommandOutput,
@@ -34,6 +37,9 @@ export class CancelPipelineReprocessingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

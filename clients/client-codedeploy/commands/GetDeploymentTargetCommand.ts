@@ -20,6 +20,9 @@ import {
 export type GetDeploymentTargetCommandInput = GetDeploymentTargetInput;
 export type GetDeploymentTargetCommandOutput = GetDeploymentTargetOutput & __MetadataBearer;
 
+/**
+ * <p> Returns information about a deployment target. </p>
+ */
 export class GetDeploymentTargetCommand extends $Command<
   GetDeploymentTargetCommandInput,
   GetDeploymentTargetCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeploymentTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

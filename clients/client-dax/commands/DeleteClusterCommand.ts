@@ -20,6 +20,13 @@ import {
 export type DeleteClusterCommandInput = DeleteClusterRequest;
 export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a previously provisioned DAX cluster.
+ *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints
+ *             and the DAX cluster itself. When you receive a successful response from this action,
+ *             DAX immediately begins deleting the cluster; you cannot cancel or revert this
+ *             action.</p>
+ */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

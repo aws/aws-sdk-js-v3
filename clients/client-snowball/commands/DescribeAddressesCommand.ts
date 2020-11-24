@@ -20,6 +20,11 @@ import {
 export type DescribeAddressesCommandInput = DescribeAddressesRequest;
 export type DescribeAddressesCommandOutput = DescribeAddressesResult & __MetadataBearer;
 
+/**
+ * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
+ *       the US regions will return addresses from the list of all addresses associated with this
+ *       account in all US regions.</p>
+ */
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

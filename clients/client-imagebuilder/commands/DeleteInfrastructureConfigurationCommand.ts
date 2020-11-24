@@ -24,6 +24,9 @@ export type DeleteInfrastructureConfigurationCommandInput = DeleteInfrastructure
 export type DeleteInfrastructureConfigurationCommandOutput = DeleteInfrastructureConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p> Deletes an infrastructure configuration. </p>
+ */
 export class DeleteInfrastructureConfigurationCommand extends $Command<
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

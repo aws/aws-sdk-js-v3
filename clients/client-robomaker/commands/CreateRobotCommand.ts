@@ -20,6 +20,9 @@ import {
 export type CreateRobotCommandInput = CreateRobotRequest;
 export type CreateRobotCommandOutput = CreateRobotResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a robot.</p>
+ */
 export class CreateRobotCommand extends $Command<
   CreateRobotCommandInput,
   CreateRobotCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRobotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

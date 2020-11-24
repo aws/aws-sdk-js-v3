@@ -20,6 +20,9 @@ import {
 export type GetUsageForecastCommandInput = GetUsageForecastRequest;
 export type GetUsageForecastCommandOutput = GetUsageForecastResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage. </p>
+ */
 export class GetUsageForecastCommand extends $Command<
   GetUsageForecastCommandInput,
   GetUsageForecastCommandOutput,
@@ -34,6 +37,9 @@ export class GetUsageForecastCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

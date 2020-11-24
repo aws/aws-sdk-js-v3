@@ -20,6 +20,12 @@ import {
 export type CreateAssessmentTemplateCommandInput = CreateAssessmentTemplateRequest;
 export type CreateAssessmentTemplateCommandOutput = CreateAssessmentTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an assessment template for the assessment target that is specified by the ARN
+ *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
+ *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
+ *          perform security assessments.</p>
+ */
 export class CreateAssessmentTemplateCommand extends $Command<
   CreateAssessmentTemplateCommandInput,
   CreateAssessmentTemplateCommandOutput,
@@ -34,6 +40,9 @@ export class CreateAssessmentTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

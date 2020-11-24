@@ -20,6 +20,9 @@ import {
 export type RejectResourceShareInvitationCommandInput = RejectResourceShareInvitationRequest;
 export type RejectResourceShareInvitationCommandOutput = RejectResourceShareInvitationResponse & __MetadataBearer;
 
+/**
+ * <p>Rejects an invitation to a resource share from another AWS account.</p>
+ */
 export class RejectResourceShareInvitationCommand extends $Command<
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
@@ -34,6 +37,9 @@ export class RejectResourceShareInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

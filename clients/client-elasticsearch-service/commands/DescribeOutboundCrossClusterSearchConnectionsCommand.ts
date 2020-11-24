@@ -28,6 +28,9 @@ export type DescribeOutboundCrossClusterSearchConnectionsCommandInput = Describe
 export type DescribeOutboundCrossClusterSearchConnectionsCommandOutput = DescribeOutboundCrossClusterSearchConnectionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
+ */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command<
   DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   DescribeOutboundCrossClusterSearchConnectionsCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

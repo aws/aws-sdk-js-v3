@@ -24,6 +24,9 @@ import {
 export type DescribeReplicationSubnetGroupsCommandInput = DescribeReplicationSubnetGroupsMessage;
 export type DescribeReplicationSubnetGroupsCommandOutput = DescribeReplicationSubnetGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the replication subnet groups.</p>
+ */
 export class DescribeReplicationSubnetGroupsCommand extends $Command<
   DescribeReplicationSubnetGroupsCommandInput,
   DescribeReplicationSubnetGroupsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type CreateMemberCommandInput = CreateMemberInput;
 export type CreateMemberCommandOutput = CreateMemberOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a member within a Managed Blockchain network.</p>
+ */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,
   CreateMemberCommandOutput,
@@ -38,6 +41,9 @@ export class CreateMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

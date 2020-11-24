@@ -20,6 +20,14 @@ import {
 export type ListQualificationTypesCommandInput = ListQualificationTypesRequest;
 export type ListQualificationTypesCommandOutput = ListQualificationTypesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>ListQualificationTypes</code>
+ *             operation returns a list of Qualification types, filtered by
+ *             an optional search term.
+ *         </p>
+ */
 export class ListQualificationTypesCommand extends $Command<
   ListQualificationTypesCommandInput,
   ListQualificationTypesCommandOutput,
@@ -34,6 +42,9 @@ export class ListQualificationTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

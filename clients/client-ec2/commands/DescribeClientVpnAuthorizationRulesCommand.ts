@@ -24,6 +24,9 @@ export type DescribeClientVpnAuthorizationRulesCommandInput = DescribeClientVpnA
 export type DescribeClientVpnAuthorizationRulesCommandOutput = DescribeClientVpnAuthorizationRulesResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
+ */
 export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
   DescribeClientVpnAuthorizationRulesCommandInput,
   DescribeClientVpnAuthorizationRulesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

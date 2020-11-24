@@ -20,6 +20,27 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointRequest;
 export type DeleteEndpointCommandOutput = __MetadataBearer;
 
+/**
+ * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets
+ *             in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform
+ *             actions within your virtual private cloud (VPC). </p>
+ *         <p>This action deletes an endpoint.
+ *             </p>
+ *         <p></p>
+ *         <p>Related actions include:</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -34,6 +55,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3OutpostsClientResolvedConfig,

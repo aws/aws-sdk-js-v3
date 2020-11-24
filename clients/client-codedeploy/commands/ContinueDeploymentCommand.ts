@@ -20,6 +20,13 @@ import {
 export type ContinueDeploymentCommandInput = ContinueDeploymentInput;
 export type ContinueDeploymentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
+ *             the original environment to instances in the replacement environment without waiting for
+ *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
+ *             instances in the replacement environment with the load balancer, can start as soon as
+ *             all instances have a status of Ready.) </p>
+ */
 export class ContinueDeploymentCommand extends $Command<
   ContinueDeploymentCommandInput,
   ContinueDeploymentCommandOutput,
@@ -34,6 +41,9 @@ export class ContinueDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

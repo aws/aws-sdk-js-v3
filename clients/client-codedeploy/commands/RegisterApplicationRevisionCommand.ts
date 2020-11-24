@@ -20,6 +20,9 @@ import {
 export type RegisterApplicationRevisionCommandInput = RegisterApplicationRevisionInput;
 export type RegisterApplicationRevisionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Registers with AWS CodeDeploy a revision for the specified application.</p>
+ */
 export class RegisterApplicationRevisionCommand extends $Command<
   RegisterApplicationRevisionCommandInput,
   RegisterApplicationRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class RegisterApplicationRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

@@ -17,6 +17,15 @@ import {
 export type DeleteRoleCommandInput = DeleteRoleRequest;
 export type DeleteRoleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified role. The role must not have any policies attached. For more
+ *          information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>.</p>
+ *          <important>
+ *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you are
+ *             about to delete. Deleting a role or instance profile that is associated with a running
+ *             instance will break any applications running on the instance.</p>
+ *          </important>
+ */
 export class DeleteRoleCommand extends $Command<
   DeleteRoleCommandInput,
   DeleteRoleCommandOutput,
@@ -31,6 +40,9 @@ export class DeleteRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

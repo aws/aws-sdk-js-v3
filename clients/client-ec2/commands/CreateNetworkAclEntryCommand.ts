@@ -20,6 +20,16 @@ import {
 export type CreateNetworkAclEntryCommandInput = CreateNetworkAclEntryRequest;
 export type CreateNetworkAclEntryCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules
+ * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
+ * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
+ * 		        ingress rules and a separate set of egress rules.</p>
+ * 		       <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the
+ * 		        other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p>
+ * 		       <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
+ *          <p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class CreateNetworkAclEntryCommand extends $Command<
   CreateNetworkAclEntryCommandInput,
   CreateNetworkAclEntryCommandOutput,
@@ -34,6 +44,9 @@ export class CreateNetworkAclEntryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

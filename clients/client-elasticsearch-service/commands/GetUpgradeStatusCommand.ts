@@ -24,6 +24,9 @@ import {
 export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
 export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
+ */
 export class GetUpgradeStatusCommand extends $Command<
   GetUpgradeStatusCommandInput,
   GetUpgradeStatusCommandOutput,
@@ -38,6 +41,9 @@ export class GetUpgradeStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

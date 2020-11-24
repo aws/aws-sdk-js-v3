@@ -20,6 +20,9 @@ import {
 export type DescribeTransformJobCommandInput = DescribeTransformJobRequest;
 export type DescribeTransformJobCommandOutput = DescribeTransformJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a transform job.</p>
+ */
 export class DescribeTransformJobCommand extends $Command<
   DescribeTransformJobCommandInput,
   DescribeTransformJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTransformJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

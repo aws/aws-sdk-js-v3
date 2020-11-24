@@ -17,6 +17,9 @@ import {
 export type CreateFaqCommandInput = CreateFaqRequest;
 export type CreateFaqCommandOutput = CreateFaqResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+ */
 export class CreateFaqCommand extends $Command<
   CreateFaqCommandInput,
   CreateFaqCommandOutput,
@@ -31,6 +34,9 @@ export class CreateFaqCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

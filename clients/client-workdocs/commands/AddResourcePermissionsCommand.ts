@@ -20,6 +20,11 @@ import {
 export type AddResourcePermissionsCommandInput = AddResourcePermissionsRequest;
 export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a set of permissions for the specified folder or document. The resource
+ *             permissions are overwritten if the principals already have different
+ *             permissions.</p>
+ */
 export class AddResourcePermissionsCommand extends $Command<
   AddResourcePermissionsCommandInput,
   AddResourcePermissionsCommandOutput,
@@ -34,6 +39,9 @@ export class AddResourcePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

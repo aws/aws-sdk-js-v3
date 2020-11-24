@@ -20,6 +20,21 @@ import {
 export type WriteRecordsCommandInput = WriteRecordsRequest;
 export type WriteRecordsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>The WriteRecords operation enables you to write your time series
+ *       data into Timestream. You can specify a single data point or a batch
+ *       of data points to be inserted into the system. Timestream offers you
+ *       with a flexible schema that auto detects the column names and data types
+ *       for your Timestream tables based on the dimension names and data types of
+ *       the data points you specify when invoking writes into the database.
+ *       Timestream support eventual consistency read semantics. This means that
+ *       when you query data immediately after writing a batch of data into Timestream,
+ *       the query results might not reflect the results of a recently completed write
+ *       operation. The results may also include some stale data. If you repeat the
+ *       query request after a short time, the results should return the latest data.
+ *       Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *         </p>
+ */
 export class WriteRecordsCommand extends $Command<
   WriteRecordsCommandInput,
   WriteRecordsCommandOutput,
@@ -34,6 +49,9 @@ export class WriteRecordsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

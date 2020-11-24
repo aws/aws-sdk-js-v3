@@ -20,6 +20,10 @@ import {
 export type UpdateSMBFileShareVisibilityCommandInput = UpdateSMBFileShareVisibilityInput;
 export type UpdateSMBFileShareVisibilityCommandOutput = UpdateSMBFileShareVisibilityOutput & __MetadataBearer;
 
+/**
+ * <p>Controls whether the shares on a gateway are visible in a net view or browse
+ *          list.</p>
+ */
 export class UpdateSMBFileShareVisibilityCommand extends $Command<
   UpdateSMBFileShareVisibilityCommandInput,
   UpdateSMBFileShareVisibilityCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

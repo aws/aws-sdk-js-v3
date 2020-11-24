@@ -20,6 +20,9 @@ import {
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
 export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>
+ */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

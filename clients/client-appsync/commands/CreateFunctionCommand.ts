@@ -20,6 +20,11 @@ import {
 export type CreateFunctionCommandInput = CreateFunctionRequest;
 export type CreateFunctionCommandOutput = CreateFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <code>Function</code> object.</p>
+ *          <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
+ *          logic.</p>
+ */
 export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandInput,
   CreateFunctionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

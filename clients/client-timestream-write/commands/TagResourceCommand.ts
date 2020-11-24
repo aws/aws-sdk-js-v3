@@ -20,6 +20,13 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *     Associate a set of tags with a Timestream resource. You can then activate
+ *     these user-defined tags so that they appear on the Billing and Cost
+ *     Management console for cost allocation tracking.
+ * </p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +41,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

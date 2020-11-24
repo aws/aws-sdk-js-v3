@@ -20,6 +20,11 @@ import {
 export type GetThingShadowCommandInput = GetThingShadowRequest;
 export type GetThingShadowCommandOutput = GetThingShadowResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the shadow for the specified thing.</p>
+ *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the
+ *         AWS IoT Developer Guide.</p>
+ */
 export class GetThingShadowCommand extends $Command<
   GetThingShadowCommandInput,
   GetThingShadowCommandOutput,
@@ -34,6 +39,9 @@ export class GetThingShadowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTDataPlaneClientResolvedConfig,

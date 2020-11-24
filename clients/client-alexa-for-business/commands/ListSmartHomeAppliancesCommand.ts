@@ -20,6 +20,9 @@ import {
 export type ListSmartHomeAppliancesCommandInput = ListSmartHomeAppliancesRequest;
 export type ListSmartHomeAppliancesCommandOutput = ListSmartHomeAppliancesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the smart home appliances associated with a room.</p>
+ */
 export class ListSmartHomeAppliancesCommand extends $Command<
   ListSmartHomeAppliancesCommandInput,
   ListSmartHomeAppliancesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

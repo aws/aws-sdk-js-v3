@@ -20,6 +20,9 @@ import {
 export type DetachClassicLinkVpcCommandInput = DetachClassicLinkVpcRequest;
 export type DetachClassicLinkVpcCommandOutput = DetachClassicLinkVpcResult & __MetadataBearer;
 
+/**
+ * <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>
+ */
 export class DetachClassicLinkVpcCommand extends $Command<
   DetachClassicLinkVpcCommandInput,
   DetachClassicLinkVpcCommandOutput,
@@ -34,6 +37,9 @@ export class DetachClassicLinkVpcCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

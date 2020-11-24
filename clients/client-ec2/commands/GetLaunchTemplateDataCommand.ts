@@ -20,6 +20,13 @@ import {
 export type GetLaunchTemplateDataCommandInput = GetLaunchTemplateDataRequest;
 export type GetLaunchTemplateDataCommandOutput = GetLaunchTemplateDataResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the configuration data of the specified instance. You can use this data
+ *             to create a launch template. </p>
+ *         <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following
+ *             actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
+ *         <code>describe*</code> depending on your instance requirements.</p>
+ */
 export class GetLaunchTemplateDataCommand extends $Command<
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
@@ -34,6 +41,9 @@ export class GetLaunchTemplateDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

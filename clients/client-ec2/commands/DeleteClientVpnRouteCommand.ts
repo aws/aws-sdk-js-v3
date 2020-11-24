@@ -20,6 +20,12 @@ import {
 export type DeleteClientVpnRouteCommandInput = DeleteClientVpnRouteRequest;
 export type DeleteClientVpnRouteCommandOutput = DeleteClientVpnRouteResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using
+ * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
+ * 			automatically added when associating a subnet. To remove routes that have been automatically added,
+ * 			disassociate the target subnet from the Client VPN endpoint.</p>
+ */
 export class DeleteClientVpnRouteCommand extends $Command<
   DeleteClientVpnRouteCommandInput,
   DeleteClientVpnRouteCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteClientVpnRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

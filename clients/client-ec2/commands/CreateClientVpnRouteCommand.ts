@@ -20,6 +20,10 @@ import {
 export type CreateClientVpnRouteCommandInput = CreateClientVpnRouteRequest;
 export type CreateClientVpnRouteCommandOutput = CreateClientVpnRouteResult & __MetadataBearer;
 
+/**
+ * <p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the
+ * 			available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
+ */
 export class CreateClientVpnRouteCommand extends $Command<
   CreateClientVpnRouteCommandInput,
   CreateClientVpnRouteCommandOutput,
@@ -34,6 +38,9 @@ export class CreateClientVpnRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListPipelinesCommandInput = ListPipelinesRequest;
 export type ListPipelinesCommandOutput = ListPipelinesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of pipelines.</p>
+ */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

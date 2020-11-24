@@ -20,6 +20,11 @@ import {
 export type StartSchemaCreationCommandInput = StartSchemaCreationRequest;
 export type StartSchemaCreationCommandOutput = StartSchemaCreationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a new schema to your GraphQL API.</p>
+ *          <p>This operation is asynchronous. Use  to
+ *          determine when it has completed.</p>
+ */
 export class StartSchemaCreationCommand extends $Command<
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
@@ -34,6 +39,9 @@ export class StartSchemaCreationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

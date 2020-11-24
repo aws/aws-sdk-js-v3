@@ -22,6 +22,9 @@ export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
 };
 export type PutObjectCommandOutput = PutObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
+ */
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,
   PutObjectCommandOutput,
@@ -36,6 +39,9 @@ export class PutObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreDataClientResolvedConfig,

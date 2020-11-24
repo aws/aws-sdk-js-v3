@@ -25,6 +25,12 @@ import {
 export type GetUICustomizationCommandInput = GetUICustomizationRequest;
 export type GetUICustomizationCommandOutput = GetUICustomizationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the UI Customization information for a particular app client's app UI, if there
+ *             is something set. If nothing is set for the particular client, but there is an existing
+ *             pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that
+ *             is returned. If nothing is present, then an empty shape is returned.</p>
+ */
 export class GetUICustomizationCommand extends $Command<
   GetUICustomizationCommandInput,
   GetUICustomizationCommandOutput,
@@ -39,6 +45,9 @@ export class GetUICustomizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

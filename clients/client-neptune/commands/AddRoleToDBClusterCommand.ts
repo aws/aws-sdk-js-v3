@@ -20,6 +20,10 @@ import {
 export type AddRoleToDBClusterCommandInput = AddRoleToDBClusterMessage;
 export type AddRoleToDBClusterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates an Identity and Access Management (IAM) role from an
+ *       Neptune DB cluster.</p>
+ */
 export class AddRoleToDBClusterCommand extends $Command<
   AddRoleToDBClusterCommandInput,
   AddRoleToDBClusterCommandOutput,
@@ -34,6 +38,9 @@ export class AddRoleToDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

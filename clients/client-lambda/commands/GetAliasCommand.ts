@@ -20,6 +20,9 @@ import {
 export type GetAliasCommandInput = GetAliasRequest;
 export type GetAliasCommandOutput = AliasConfiguration & __MetadataBearer;
 
+/**
+ * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ */
 export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

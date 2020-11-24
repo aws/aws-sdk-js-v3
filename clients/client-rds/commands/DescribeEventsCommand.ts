@@ -20,6 +20,14 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = EventsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots for the past 14 days.
+ *           Events specific to a particular DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots group can be
+ *           obtained by providing the name as a parameter.</p>
+ *          <note>
+ *             <p>By default, the past hour of events are returned.</p>
+ *          </note>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

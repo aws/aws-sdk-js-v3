@@ -25,6 +25,9 @@ import {
 export type CreateIdentityProviderCommandInput = CreateIdentityProviderRequest;
 export type CreateIdentityProviderCommandOutput = CreateIdentityProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an identity provider for a user pool.</p>
+ */
 export class CreateIdentityProviderCommand extends $Command<
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
@@ -39,6 +42,9 @@ export class CreateIdentityProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

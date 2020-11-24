@@ -20,6 +20,11 @@ import {
 export type DescribeStatementCommandInput = DescribeStatementRequest;
 export type DescribeStatementCommandOutput = DescribeStatementResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
+ *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
+ *       statement. </p>
+ */
 export class DescribeStatementCommand extends $Command<
   DescribeStatementCommandInput,
   DescribeStatementCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeStatementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftDataClientResolvedConfig,

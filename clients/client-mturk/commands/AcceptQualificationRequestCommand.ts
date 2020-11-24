@@ -20,6 +20,18 @@ import {
 export type AcceptQualificationRequestCommandInput = AcceptQualificationRequestRequest;
 export type AcceptQualificationRequestCommandOutput = AcceptQualificationRequestResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification.
+ *         </p>
+ *         <p>
+ *             Only the owner of the Qualification type can grant a Qualification request for that	type.
+ *         </p>
+ *         <p>
+ *             A successful request for the <code>AcceptQualificationRequest</code> operation
+ *             returns with no errors and an empty body.
+ *         </p>
+ */
 export class AcceptQualificationRequestCommand extends $Command<
   AcceptQualificationRequestCommandInput,
   AcceptQualificationRequestCommandOutput,
@@ -34,6 +46,9 @@ export class AcceptQualificationRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

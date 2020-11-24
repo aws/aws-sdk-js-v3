@@ -24,6 +24,9 @@ import {
 export type ChangePasswordCommandInput = ChangePasswordRequest;
 export type ChangePasswordCommandOutput = ChangePasswordResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the password for a specified user in a user pool.</p>
+ */
 export class ChangePasswordCommand extends $Command<
   ChangePasswordCommandInput,
   ChangePasswordCommandOutput,
@@ -38,6 +41,9 @@ export class ChangePasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

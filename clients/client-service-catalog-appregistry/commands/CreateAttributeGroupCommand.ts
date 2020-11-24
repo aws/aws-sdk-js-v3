@@ -24,6 +24,9 @@ import {
 export type CreateAttributeGroupCommandInput = CreateAttributeGroupRequest;
 export type CreateAttributeGroupCommandOutput = CreateAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new attribute group as a container for user-defined attributes. This approach enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.</p>
+ */
 export class CreateAttributeGroupCommand extends $Command<
   CreateAttributeGroupCommandInput,
   CreateAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class CreateAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

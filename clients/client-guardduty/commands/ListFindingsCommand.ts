@@ -20,6 +20,9 @@ import {
 export type ListFindingsCommandInput = ListFindingsRequest;
 export type ListFindingsCommandOutput = ListFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
+ */
 export class ListFindingsCommand extends $Command<
   ListFindingsCommandInput,
   ListFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

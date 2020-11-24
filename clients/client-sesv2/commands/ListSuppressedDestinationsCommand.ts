@@ -20,6 +20,10 @@ import {
 export type ListSuppressedDestinationsCommandInput = ListSuppressedDestinationsRequest;
 export type ListSuppressedDestinationsCommandOutput = ListSuppressedDestinationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of email addresses that are on the suppression list for your
+ *             account.</p>
+ */
 export class ListSuppressedDestinationsCommand extends $Command<
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListSuppressedDestinationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

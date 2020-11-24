@@ -20,6 +20,9 @@ import {
 export type ListAuditMitigationActionsTasksCommandInput = ListAuditMitigationActionsTasksRequest;
 export type ListAuditMitigationActionsTasksCommandOutput = ListAuditMitigationActionsTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ */
 export class ListAuditMitigationActionsTasksCommand extends $Command<
   ListAuditMitigationActionsTasksCommandInput,
   ListAuditMitigationActionsTasksCommandOutput,
@@ -34,6 +37,9 @@ export class ListAuditMitigationActionsTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

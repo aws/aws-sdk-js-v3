@@ -20,6 +20,14 @@ import {
 export type SetDataRetrievalPolicyCommandInput = SetDataRetrievalPolicyInput;
 export type SetDataRetrievalPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation sets and then enacts a data retrieval policy in the region specified
+ *          in the PUT request. You can set one policy per region for an AWS account. The policy is
+ *          enacted within a few minutes of a successful PUT operation.</p>
+ *          <p>The set policy operation does not affect retrieval jobs that were in progress before
+ *          the policy was enacted. For more information about data retrieval policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon
+ *             Glacier Data Retrieval Policies</a>. </p>
+ */
 export class SetDataRetrievalPolicyCommand extends $Command<
   SetDataRetrievalPolicyCommandInput,
   SetDataRetrievalPolicyCommandOutput,
@@ -34,6 +42,9 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

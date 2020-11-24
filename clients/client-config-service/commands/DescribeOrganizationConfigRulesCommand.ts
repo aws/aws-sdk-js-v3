@@ -20,6 +20,17 @@ import {
 export type DescribeOrganizationConfigRulesCommandInput = DescribeOrganizationConfigRulesRequest;
 export type DescribeOrganizationConfigRulesCommandOutput = DescribeOrganizationConfigRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of organization config rules. </p>
+ * 			      <p>Only a master account and a delegated administrator account can call this API.
+ * 				When calling this API with a delegated administrator, you must ensure AWS Organizations
+ * 			<code>ListDelegatedAdministrator</code> permissions are added. </p>
+ * 		       <note>
+ *             <p>When you specify the limit and the next token, you receive a paginated response.
+ * 			Limit and next token are not applicable if you specify organization config rule names.
+ * 			It is only applicable, when you request all the organization config rules.</p>
+ *          </note>
+ */
 export class DescribeOrganizationConfigRulesCommand extends $Command<
   DescribeOrganizationConfigRulesCommandInput,
   DescribeOrganizationConfigRulesCommandOutput,
@@ -34,6 +45,9 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

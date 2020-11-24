@@ -20,6 +20,9 @@ import {
 export type ListPermissionsCommandInput = ListPermissionsRequest;
 export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS RAM permissions.</p>
+ */
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

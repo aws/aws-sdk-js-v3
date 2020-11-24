@@ -20,6 +20,9 @@ import {
 export type DescribeCodeBindingCommandInput = DescribeCodeBindingRequest;
 export type DescribeCodeBindingCommandOutput = DescribeCodeBindingResponse & __MetadataBearer;
 
+/**
+ * <p>Describe the code binding URI.</p>
+ */
 export class DescribeCodeBindingCommand extends $Command<
   DescribeCodeBindingCommandInput,
   DescribeCodeBindingCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCodeBindingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

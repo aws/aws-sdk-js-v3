@@ -20,6 +20,9 @@ import {
 export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
 export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
 
+/**
+ * The example tests how timestamp request and response headers are serialized.
+ */
 export class TimestampFormatHeadersCommand extends $Command<
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
@@ -34,6 +37,9 @@ export class TimestampFormatHeadersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

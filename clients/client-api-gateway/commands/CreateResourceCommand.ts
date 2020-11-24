@@ -20,6 +20,9 @@ import {
 export type CreateResourceCommandInput = CreateResourceRequest;
 export type CreateResourceCommandOutput = Resource & __MetadataBearer;
 
+/**
+ * <p>Creates a <a>Resource</a> resource.</p>
+ */
 export class CreateResourceCommand extends $Command<
   CreateResourceCommandInput,
   CreateResourceCommandOutput,
@@ -34,6 +37,9 @@ export class CreateResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

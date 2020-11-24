@@ -20,6 +20,9 @@ import {
 export type GetTagsCommandInput = GetTagsRequest;
 export type GetTagsCommandOutput = Tags & __MetadataBearer;
 
+/**
+ * <p>Gets the <a>Tags</a> collection for a given resource.</p>
+ */
 export class GetTagsCommand extends $Command<
   GetTagsCommandInput,
   GetTagsCommandOutput,
@@ -34,6 +37,9 @@ export class GetTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

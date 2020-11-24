@@ -21,6 +21,14 @@ import {
 export type GetQueryLoggingConfigCommandInput = GetQueryLoggingConfigRequest;
 export type GetQueryLoggingConfigCommandOutput = GetQueryLoggingConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified configuration for DNS query logging.</p>
+ *
+ * 		       <p>For more information about DNS query logs, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>
+ * 			and
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>.</p>
+ */
 export class GetQueryLoggingConfigCommand extends $Command<
   GetQueryLoggingConfigCommandInput,
   GetQueryLoggingConfigCommandOutput,
@@ -35,6 +43,9 @@ export class GetQueryLoggingConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateLinkCommandInput = CreateLinkRequest;
 export type CreateLinkCommandOutput = CreateLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new link for a specified site.</p>
+ */
 export class CreateLinkCommand extends $Command<
   CreateLinkCommandInput,
   CreateLinkCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

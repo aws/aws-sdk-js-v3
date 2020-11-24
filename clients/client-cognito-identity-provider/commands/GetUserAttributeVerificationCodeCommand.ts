@@ -24,6 +24,9 @@ import {
 export type GetUserAttributeVerificationCodeCommandInput = GetUserAttributeVerificationCodeRequest;
 export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the user attribute verification code for the specified attribute name.</p>
+ */
 export class GetUserAttributeVerificationCodeCommand extends $Command<
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
@@ -38,6 +41,9 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListViolationEventsCommandInput = ListViolationEventsRequest;
 export type ListViolationEventsCommandOutput = ListViolationEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Device Defender security profile violations discovered during the given time period.
+ *       You can use filters to limit the results to those alerts issued for a particular security profile,
+ *       behavior, or thing (device).</p>
+ */
 export class ListViolationEventsCommand extends $Command<
   ListViolationEventsCommandInput,
   ListViolationEventsCommandOutput,
@@ -34,6 +39,9 @@ export class ListViolationEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

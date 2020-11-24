@@ -20,6 +20,12 @@ import {
 export type ResetCacheParameterGroupCommandInput = ResetCacheParameterGroupMessage;
 export type ResetCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>Modifies the parameters of a cache
+ *             parameter group to the engine or system default value. You can reset specific parameters
+ *             by submitting a list of parameter names. To reset the entire cache parameter group,
+ *             specify the <code>ResetAllParameters</code> and <code>CacheParameterGroupName</code> parameters.</p>
+ */
 export class ResetCacheParameterGroupCommand extends $Command<
   ResetCacheParameterGroupCommandInput,
   ResetCacheParameterGroupCommandOutput,
@@ -34,6 +40,9 @@ export class ResetCacheParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

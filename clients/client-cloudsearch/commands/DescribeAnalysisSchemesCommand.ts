@@ -20,6 +20,9 @@ import {
 export type DescribeAnalysisSchemesCommandInput = DescribeAnalysisSchemesRequest;
 export type DescribeAnalysisSchemesCommandOutput = DescribeAnalysisSchemesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a <code>text</code> field. Can be limited to specific analysis schemes by name.  By default, shows all analysis schemes and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes.  For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeAnalysisSchemesCommand extends $Command<
   DescribeAnalysisSchemesCommandInput,
   DescribeAnalysisSchemesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAnalysisSchemesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

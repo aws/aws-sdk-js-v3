@@ -20,6 +20,9 @@ import {
 export type UpdatePullRequestTitleCommandInput = UpdatePullRequestTitleInput;
 export type UpdatePullRequestTitleCommandOutput = UpdatePullRequestTitleOutput & __MetadataBearer;
 
+/**
+ * <p>Replaces the title of a pull request.</p>
+ */
 export class UpdatePullRequestTitleCommand extends $Command<
   UpdatePullRequestTitleCommandInput,
   UpdatePullRequestTitleCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePullRequestTitleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

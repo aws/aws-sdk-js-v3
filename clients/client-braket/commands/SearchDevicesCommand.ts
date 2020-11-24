@@ -20,6 +20,9 @@ import {
 export type SearchDevicesCommandInput = SearchDevicesRequest;
 export type SearchDevicesCommandOutput = SearchDevicesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for devices using the specified filters.</p>
+ */
 export class SearchDevicesCommand extends $Command<
   SearchDevicesCommandInput,
   SearchDevicesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BraketClientResolvedConfig,

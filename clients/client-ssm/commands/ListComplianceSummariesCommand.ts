@@ -20,6 +20,11 @@ import {
 export type ListComplianceSummariesCommandInput = ListComplianceSummariesRequest;
 export type ListComplianceSummariesCommandOutput = ListComplianceSummariesResult & __MetadataBearer;
 
+/**
+ * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
+ *    example, this call can return State Manager associations, patches, or custom compliance types
+ *    according to the filter criteria that you specify.</p>
+ */
 export class ListComplianceSummariesCommand extends $Command<
   ListComplianceSummariesCommandInput,
   ListComplianceSummariesCommandOutput,
@@ -34,6 +39,9 @@ export class ListComplianceSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

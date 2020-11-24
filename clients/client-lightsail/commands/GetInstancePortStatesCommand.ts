@@ -20,6 +20,10 @@ import {
 export type GetInstancePortStatesCommandInput = GetInstancePortStatesRequest;
 export type GetInstancePortStatesCommandOutput = GetInstancePortStatesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
+ *       allowed to connect to the instance through the ports, and the protocol.</p>
+ */
 export class GetInstancePortStatesCommand extends $Command<
   GetInstancePortStatesCommandInput,
   GetInstancePortStatesCommandOutput,
@@ -34,6 +38,9 @@ export class GetInstancePortStatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

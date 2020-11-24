@@ -20,6 +20,27 @@ import {
 export type BatchGetResourceConfigCommandInput = BatchGetResourceConfigRequest;
 export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the current configuration for one or more requested
+ * 			resources. The operation also returns a list of resources that are
+ * 			not processed in the current request. If there are no unprocessed
+ * 			resources, the operation returns an empty unprocessedResourceKeys
+ * 			list. </p>
+ * 		       <note>
+ * 			         <ul>
+ *                <li>
+ * 					             <p>The API does not return results for deleted
+ * 						resources.</p>
+ * 				           </li>
+ *                <li>
+ * 					             <p> The API does not return any tags for the requested
+ * 						resources. This information is filtered out of the
+ * 						supplementaryConfiguration section of the API
+ * 						response.</p>
+ * 				           </li>
+ *             </ul>
+ * 		       </note>
+ */
 export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandInput,
   BatchGetResourceConfigCommandOutput,
@@ -34,6 +55,9 @@ export class BatchGetResourceConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateConfigurationProfileCommandInput = UpdateConfigurationProfileRequest;
 export type UpdateConfigurationProfileCommandOutput = ConfigurationProfile & __MetadataBearer;
 
+/**
+ * <p>Updates a configuration profile.</p>
+ */
 export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandInput,
   UpdateConfigurationProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateConfigurationProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

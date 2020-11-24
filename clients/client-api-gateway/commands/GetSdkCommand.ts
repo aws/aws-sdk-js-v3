@@ -17,6 +17,9 @@ import {
 export type GetSdkCommandInput = GetSdkRequest;
 export type GetSdkCommandOutput = SdkResponse & __MetadataBearer;
 
+/**
+ * <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
+ */
 export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

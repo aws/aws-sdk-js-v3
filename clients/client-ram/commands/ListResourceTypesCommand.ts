@@ -20,6 +20,9 @@ import {
 export type ListResourceTypesCommandInput = ListResourceTypesRequest;
 export type ListResourceTypesCommandOutput = ListResourceTypesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the shareable resource types supported by AWS RAM.</p>
+ */
 export class ListResourceTypesCommand extends $Command<
   ListResourceTypesCommandInput,
   ListResourceTypesCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourceTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeProjectCommandInput = DescribeProjectRequest;
 export type DescribeProjectCommandOutput = DescribeProjectResult & __MetadataBearer;
 
+/**
+ * <p>Describes a project and its resources.</p>
+ */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,
   DescribeProjectCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type NotifyAppValidationOutputCommandInput = NotifyAppValidationOutputRequest;
 export type NotifyAppValidationOutputCommandOutput = NotifyAppValidationOutputResponse & __MetadataBearer;
 
+/**
+ * <p>Provides information to AWS SMS about whether application validation is successful.</p>
+ */
 export class NotifyAppValidationOutputCommand extends $Command<
   NotifyAppValidationOutputCommandInput,
   NotifyAppValidationOutputCommandOutput,
@@ -34,6 +37,9 @@ export class NotifyAppValidationOutputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

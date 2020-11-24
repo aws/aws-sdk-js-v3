@@ -20,6 +20,9 @@ import {
 export type ListBootstrapActionsCommandInput = ListBootstrapActionsInput;
 export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput & __MetadataBearer;
 
+/**
+ * <p>Provides information about the bootstrap actions associated with a cluster.</p>
+ */
 export class ListBootstrapActionsCommand extends $Command<
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListBootstrapActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

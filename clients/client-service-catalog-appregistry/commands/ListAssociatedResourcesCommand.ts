@@ -24,6 +24,9 @@ import {
 export type ListAssociatedResourcesCommandInput = ListAssociatedResourcesRequest;
 export type ListAssociatedResourcesCommandOutput = ListAssociatedResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all resources that are associated with specified application. Results are paginated.</p>
+ */
 export class ListAssociatedResourcesCommand extends $Command<
   ListAssociatedResourcesCommandInput,
   ListAssociatedResourcesCommandOutput,
@@ -38,6 +41,9 @@ export class ListAssociatedResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

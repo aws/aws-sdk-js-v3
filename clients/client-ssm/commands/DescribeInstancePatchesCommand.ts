@@ -20,6 +20,10 @@ import {
 export type DescribeInstancePatchesCommandInput = DescribeInstancePatchesRequest;
 export type DescribeInstancePatchesCommandOutput = DescribeInstancePatchesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the patches on the specified instance and their state relative
+ *    to the patch baseline being used for the instance.</p>
+ */
 export class DescribeInstancePatchesCommand extends $Command<
   DescribeInstancePatchesCommandInput,
   DescribeInstancePatchesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeInstancePatchesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

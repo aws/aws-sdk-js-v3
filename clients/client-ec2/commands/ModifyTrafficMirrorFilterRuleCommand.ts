@@ -20,6 +20,12 @@ import {
 export type ModifyTrafficMirrorFilterRuleCommandInput = ModifyTrafficMirrorFilterRuleRequest;
 export type ModifyTrafficMirrorFilterRuleCommandOutput = ModifyTrafficMirrorFilterRuleResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified Traffic Mirror rule.</p>
+ *          <p>
+ *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
+ *          range or an IPv6 range.</p>
+ */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
   ModifyTrafficMirrorFilterRuleCommandInput,
   ModifyTrafficMirrorFilterRuleCommandOutput,
@@ -34,6 +40,9 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

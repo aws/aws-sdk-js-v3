@@ -20,6 +20,11 @@ import {
 export type ModifyClusterIamRolesCommandInput = ModifyClusterIamRolesMessage;
 export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
+ *             used by the cluster to access other AWS services.</p>
+ *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+ */
 export class ModifyClusterIamRolesCommand extends $Command<
   ModifyClusterIamRolesCommandInput,
   ModifyClusterIamRolesCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyClusterIamRolesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

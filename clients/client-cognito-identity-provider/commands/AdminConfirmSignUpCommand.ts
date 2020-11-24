@@ -25,6 +25,11 @@ import {
 export type AdminConfirmSignUpCommandInput = AdminConfirmSignUpRequest;
 export type AdminConfirmSignUpCommandOutput = AdminConfirmSignUpResponse & __MetadataBearer;
 
+/**
+ * <p>Confirms user registration as an admin without using a confirmation code. Works on any
+ *             user.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminConfirmSignUpCommand extends $Command<
   AdminConfirmSignUpCommandInput,
   AdminConfirmSignUpCommandOutput,
@@ -39,6 +44,9 @@ export class AdminConfirmSignUpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

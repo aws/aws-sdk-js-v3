@@ -20,6 +20,9 @@ import {
 export type CreateSchemaCommandInput = CreateSchemaRequest;
 export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
+ */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,
   CreateSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

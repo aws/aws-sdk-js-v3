@@ -20,6 +20,32 @@ import {
 export type RefreshTrustedAdvisorCheckCommandInput = RefreshTrustedAdvisorCheckRequest;
 export type RefreshTrustedAdvisorCheckCommandOutput = RefreshTrustedAdvisorCheckResponse & __MetadataBearer;
 
+/**
+ * <p>Refreshes the AWS Trusted Advisor check that you specify using the check ID. You can get the
+ *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
+ *             operation.</p>
+ *         <note>
+ *             <p>Some checks are refreshed automatically. If you call the
+ *                     <code>RefreshTrustedAdvisorCheck</code> operation to refresh them, you might see
+ *                 the <code>InvalidParameterValue</code> error.</p>
+ *         </note>
+ *         <p>The response contains a <a>TrustedAdvisorCheckRefreshStatus</a>
+ *             object.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class RefreshTrustedAdvisorCheckCommand extends $Command<
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
@@ -34,6 +60,9 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListGroupsCommandInput = ListGroupsRequest;
 export type ListGroupsCommandOutput = ListGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the attribute name and value of the group that you specified in the search. We only support <code>DisplayName</code> as a valid filter attribute path currently, and filter is required. This API returns minimum attributes, including <code>GroupId</code> and group <code>DisplayName</code> in the response.</p>
+ */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,
   ListGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IdentitystoreClientResolvedConfig,

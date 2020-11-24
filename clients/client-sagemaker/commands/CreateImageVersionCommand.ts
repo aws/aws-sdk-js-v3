@@ -20,6 +20,10 @@ import {
 export type CreateImageVersionCommandInput = CreateImageVersionRequest;
 export type CreateImageVersionCommandOutput = CreateImageVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
+ *         represents the Amazon Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
+ */
 export class CreateImageVersionCommand extends $Command<
   CreateImageVersionCommandInput,
   CreateImageVersionCommandOutput,
@@ -34,6 +38,9 @@ export class CreateImageVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

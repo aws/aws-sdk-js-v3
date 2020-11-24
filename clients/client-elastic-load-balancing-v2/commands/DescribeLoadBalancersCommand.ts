@@ -24,6 +24,9 @@ import {
 export type DescribeLoadBalancersCommandInput = DescribeLoadBalancersInput;
 export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified load balancers or all of your load balancers.</p>
+ */
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLoadBalancersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

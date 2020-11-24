@@ -17,6 +17,9 @@ import {
 export type ListRunsCommandInput = ListRunsRequest;
 export type ListRunsCommandOutput = ListRunsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
+ */
 export class ListRunsCommand extends $Command<
   ListRunsCommandInput,
   ListRunsCommandOutput,
@@ -31,6 +34,9 @@ export class ListRunsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

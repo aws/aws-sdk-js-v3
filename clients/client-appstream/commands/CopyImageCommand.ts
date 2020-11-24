@@ -17,6 +17,9 @@ import {
 export type CopyImageCommandInput = CopyImageRequest;
 export type CopyImageCommandOutput = CopyImageResponse & __MetadataBearer;
 
+/**
+ * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
+ */
 export class CopyImageCommand extends $Command<
   CopyImageCommandInput,
   CopyImageCommandOutput,
@@ -31,6 +34,9 @@ export class CopyImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

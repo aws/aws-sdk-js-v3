@@ -21,6 +21,27 @@ import {
 export type PutBucketRequestPaymentCommandInput = PutBucketRequestPaymentRequest;
 export type PutBucketRequestPaymentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
+ *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
+ *          to specify that the person requesting the download will be charged for the download. For
+ *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
+ *             Buckets</a>.</p>
+ *
+ *          <p>The following operations are related to <code>PutBucketRequestPayment</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html">GetBucketRequestPayment</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class PutBucketRequestPaymentCommand extends $Command<
   PutBucketRequestPaymentCommandInput,
   PutBucketRequestPaymentCommandOutput,
@@ -35,6 +56,9 @@ export class PutBucketRequestPaymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

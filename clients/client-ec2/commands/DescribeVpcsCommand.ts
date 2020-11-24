@@ -17,6 +17,9 @@ import {
 export type DescribeVpcsCommandInput = DescribeVpcsRequest;
 export type DescribeVpcsCommandOutput = DescribeVpcsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your VPCs.</p>
+ */
 export class DescribeVpcsCommand extends $Command<
   DescribeVpcsCommandInput,
   DescribeVpcsCommandOutput,
@@ -31,6 +34,9 @@ export class DescribeVpcsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

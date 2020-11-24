@@ -20,6 +20,12 @@ import {
 export type UpdatePolicyCommandInput = UpdatePolicyRequest;
 export type UpdatePolicyCommandOutput = UpdatePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing policy with a new name, description, or content. If you don't
+ *             supply any parameter, that value remains unchanged. You can't change a policy's
+ *             type.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class UpdatePolicyCommand extends $Command<
   UpdatePolicyCommandInput,
   UpdatePolicyCommandOutput,
@@ -34,6 +40,9 @@ export class UpdatePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

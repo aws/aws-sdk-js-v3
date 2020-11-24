@@ -20,6 +20,9 @@ import {
 export type ListAppsListsCommandInput = ListAppsListsRequest;
 export type ListAppsListsCommandOutput = ListAppsListsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
+ */
 export class ListAppsListsCommand extends $Command<
   ListAppsListsCommandInput,
   ListAppsListsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAppsListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

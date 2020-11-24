@@ -21,6 +21,10 @@ import {
 export type UpdateIdentityPoolCommandInput = IdentityPool;
 export type UpdateIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
 
+/**
+ * <p>Updates an identity pool.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class UpdateIdentityPoolCommand extends $Command<
   UpdateIdentityPoolCommandInput,
   UpdateIdentityPoolCommandOutput,
@@ -35,6 +39,9 @@ export class UpdateIdentityPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

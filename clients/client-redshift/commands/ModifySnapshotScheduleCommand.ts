@@ -21,6 +21,10 @@ import {
 export type ModifySnapshotScheduleCommandInput = ModifySnapshotScheduleMessage;
 export type ModifySnapshotScheduleCommandOutput = SnapshotSchedule & __MetadataBearer;
 
+/**
+ * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
+ *             asynchronously.</p>
+ */
 export class ModifySnapshotScheduleCommand extends $Command<
   ModifySnapshotScheduleCommandInput,
   ModifySnapshotScheduleCommandOutput,
@@ -35,6 +39,9 @@ export class ModifySnapshotScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

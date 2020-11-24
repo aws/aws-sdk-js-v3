@@ -20,6 +20,9 @@ import {
 export type DescribeRuleGroupCommandInput = DescribeRuleGroupRequest;
 export type DescribeRuleGroupCommandOutput = DescribeRuleGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the data objects for the specified rule group. </p>
+ */
 export class DescribeRuleGroupCommand extends $Command<
   DescribeRuleGroupCommandInput,
   DescribeRuleGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRuleGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

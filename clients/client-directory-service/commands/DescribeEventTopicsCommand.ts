@@ -20,6 +20,10 @@ import {
 export type DescribeEventTopicsCommandInput = DescribeEventTopicsRequest;
 export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult & __MetadataBearer;
 
+/**
+ * <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>
+ *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.</p>
+ */
 export class DescribeEventTopicsCommand extends $Command<
   DescribeEventTopicsCommandInput,
   DescribeEventTopicsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEventTopicsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type BatchExecuteStatementCommandInput = BatchExecuteStatementRequest;
 export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse & __MetadataBearer;
 
+/**
+ * <p>Runs a batch SQL statement over an array of data.</p>
+ *         <p>You can run bulk update and insert operations for multiple records using a DML
+ *             statement with different parameter sets. Bulk operations can provide a significant
+ *             performance improvement over individual insert and update operations.</p>
+ *         <important>
+ *             <p>If a call isn't part of a transaction because it doesn't include the
+ *                     <code>transactionID</code> parameter, changes that result from the call are
+ *                 committed automatically.</p>
+ *         </important>
+ */
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput,
@@ -34,6 +45,9 @@ export class BatchExecuteStatementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

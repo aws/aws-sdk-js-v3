@@ -20,6 +20,9 @@ import {
 export type UpdateDataSetCommandInput = UpdateDataSetRequest;
 export type UpdateDataSetCommandOutput = UpdateDataSetResponse & __MetadataBearer;
 
+/**
+ * <p>This operation updates a data set.</p>
+ */
 export class UpdateDataSetCommand extends $Command<
   UpdateDataSetCommandInput,
   UpdateDataSetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDataSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

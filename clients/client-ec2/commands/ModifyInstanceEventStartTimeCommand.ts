@@ -20,6 +20,9 @@ import {
 export type ModifyInstanceEventStartTimeCommandInput = ModifyInstanceEventStartTimeRequest;
 export type ModifyInstanceEventStartTimeCommandOutput = ModifyInstanceEventStartTimeResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
+ */
 export class ModifyInstanceEventStartTimeCommand extends $Command<
   ModifyInstanceEventStartTimeCommandInput,
   ModifyInstanceEventStartTimeCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

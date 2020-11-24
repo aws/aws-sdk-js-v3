@@ -20,6 +20,9 @@ import {
 export type AssociateResourceSharePermissionCommandInput = AssociateResourceSharePermissionRequest;
 export type AssociateResourceSharePermissionCommandOutput = AssociateResourceSharePermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a permission with a resource share.</p>
+ */
 export class AssociateResourceSharePermissionCommand extends $Command<
   AssociateResourceSharePermissionCommandInput,
   AssociateResourceSharePermissionCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

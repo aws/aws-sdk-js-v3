@@ -24,6 +24,11 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationRequest;
 export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Kinesis Data Analytics application. For information about creating a
+ *           Kinesis Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating an
+ *         Application</a>.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -38,6 +43,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

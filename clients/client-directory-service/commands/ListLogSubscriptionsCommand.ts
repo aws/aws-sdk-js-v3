@@ -20,6 +20,9 @@ import {
 export type ListLogSubscriptionsCommandInput = ListLogSubscriptionsRequest;
 export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult & __MetadataBearer;
 
+/**
+ * <p>Lists the active log subscriptions for the AWS account.</p>
+ */
 export class ListLogSubscriptionsCommand extends $Command<
   ListLogSubscriptionsCommandInput,
   ListLogSubscriptionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListLogSubscriptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

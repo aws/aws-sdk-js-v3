@@ -20,6 +20,9 @@ import {
 export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
 export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates sample findings.</p>
+ */
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,
   CreateSampleFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSampleFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

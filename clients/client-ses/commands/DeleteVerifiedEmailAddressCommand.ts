@@ -20,6 +20,10 @@ import {
 export type DeleteVerifiedEmailAddressCommandInput = DeleteVerifiedEmailAddressRequest;
 export type DeleteVerifiedEmailAddressCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
+ *             and domains.</p>
+ */
 export class DeleteVerifiedEmailAddressCommand extends $Command<
   DeleteVerifiedEmailAddressCommandInput,
   DeleteVerifiedEmailAddressCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

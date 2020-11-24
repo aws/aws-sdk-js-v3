@@ -20,6 +20,11 @@ import {
 export type ListCACertificatesCommandInput = ListCACertificatesRequest;
 export type ListCACertificatesCommandOutput = ListCACertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the CA certificates registered for your AWS account.</p>
+ *          <p>The results are paginated with a default page size of 25. You can use the returned
+ *          marker to retrieve additional results.</p>
+ */
 export class ListCACertificatesCommand extends $Command<
   ListCACertificatesCommandInput,
   ListCACertificatesCommandOutput,
@@ -34,6 +39,9 @@ export class ListCACertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

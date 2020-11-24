@@ -20,6 +20,13 @@ import {
 export type SubmitContainerStateChangeCommandInput = SubmitContainerStateChangeRequest;
 export type SubmitContainerStateChangeCommandOutput = SubmitContainerStateChangeResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *          </note>
+ *          <p>Sent to
+ * 			acknowledge that a container changed states.</p>
+ */
 export class SubmitContainerStateChangeCommand extends $Command<
   SubmitContainerStateChangeCommandInput,
   SubmitContainerStateChangeCommandOutput,
@@ -34,6 +41,9 @@ export class SubmitContainerStateChangeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

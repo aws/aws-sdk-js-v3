@@ -20,6 +20,9 @@ import {
 export type DescribeCodeRepositoryCommandInput = DescribeCodeRepositoryInput;
 export type DescribeCodeRepositoryCommandOutput = DescribeCodeRepositoryOutput & __MetadataBearer;
 
+/**
+ * <p>Gets details about the specified Git repository.</p>
+ */
 export class DescribeCodeRepositoryCommand extends $Command<
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCodeRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetParameterCommandInput = GetParameterRequest;
 export type GetParameterCommandOutput = GetParameterResult & __MetadataBearer;
 
+/**
+ * <p>Get information about a parameter by using the parameter name. Don't confuse this API action
+ *    with the <a>GetParameters</a> API action.</p>
+ */
 export class GetParameterCommand extends $Command<
   GetParameterCommandInput,
   GetParameterCommandOutput,
@@ -34,6 +38,9 @@ export class GetParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

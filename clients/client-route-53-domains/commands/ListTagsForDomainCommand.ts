@@ -20,6 +20,10 @@ import {
 export type ListTagsForDomainCommandInput = ListTagsForDomainRequest;
 export type ListTagsForDomainCommandOutput = ListTagsForDomainResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns all of the tags that are associated with the specified domain.</p>
+ * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ */
 export class ListTagsForDomainCommand extends $Command<
   ListTagsForDomainCommandInput,
   ListTagsForDomainCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

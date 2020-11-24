@@ -20,6 +20,9 @@ import {
 export type GetNamespaceDeletionStatusCommandInput = GetNamespaceDeletionStatusRequest;
 export type GetNamespaceDeletionStatusCommandOutput = GetNamespaceDeletionStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the status of a namespace deletion task.</p>
+ */
 export class GetNamespaceDeletionStatusCommand extends $Command<
   GetNamespaceDeletionStatusCommandInput,
   GetNamespaceDeletionStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

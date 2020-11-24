@@ -20,6 +20,20 @@ import {
 export type DescribeServersCommandInput = DescribeServersRequest;
 export type DescribeServersCommandOutput = DescribeServersResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Lists all configuration management servers that are identified with your account.
+ *       Only the stored results from Amazon DynamoDB
+ *       are returned. AWS OpsWorks CM does not query other services.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ *          <p>
+ *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
+ *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
+ *     </p>
+ */
 export class DescribeServersCommand extends $Command<
   DescribeServersCommandInput,
   DescribeServersCommandOutput,
@@ -34,6 +48,9 @@ export class DescribeServersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

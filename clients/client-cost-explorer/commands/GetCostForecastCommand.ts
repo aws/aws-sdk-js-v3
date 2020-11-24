@@ -20,6 +20,9 @@ import {
 export type GetCostForecastCommandInput = GetCostForecastRequest;
 export type GetCostForecastCommandOutput = GetCostForecastResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs. </p>
+ */
 export class GetCostForecastCommand extends $Command<
   GetCostForecastCommandInput,
   GetCostForecastCommandOutput,
@@ -34,6 +37,9 @@ export class GetCostForecastCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListFacetAttributesCommandInput = ListFacetAttributesRequest;
 export type ListFacetAttributesCommandOutput = ListFacetAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves attributes attached to the facet.</p>
+ */
 export class ListFacetAttributesCommand extends $Command<
   ListFacetAttributesCommandInput,
   ListFacetAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class ListFacetAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

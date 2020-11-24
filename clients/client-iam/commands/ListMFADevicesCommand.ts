@@ -20,6 +20,14 @@ import {
 export type ListMFADevicesCommandInput = ListMFADevicesRequest;
 export type ListMFADevicesCommandOutput = ListMFADevicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
+ *          this operation lists all the MFA devices associated with the specified user. If you do not
+ *          specify a user name, IAM determines the user name implicitly based on the AWS access
+ *          key ID signing the request for this API.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListMFADevicesCommand extends $Command<
   ListMFADevicesCommandInput,
   ListMFADevicesCommandOutput,
@@ -34,6 +42,9 @@ export class ListMFADevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

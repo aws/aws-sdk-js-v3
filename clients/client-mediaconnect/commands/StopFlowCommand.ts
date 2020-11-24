@@ -20,6 +20,9 @@ import {
 export type StopFlowCommandInput = StopFlowRequest;
 export type StopFlowCommandOutput = StopFlowResponse & __MetadataBearer;
 
+/**
+ * Stops a flow.
+ */
 export class StopFlowCommand extends $Command<
   StopFlowCommandInput,
   StopFlowCommandOutput,
@@ -34,6 +37,9 @@ export class StopFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

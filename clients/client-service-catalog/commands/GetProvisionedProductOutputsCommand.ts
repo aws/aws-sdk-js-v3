@@ -20,6 +20,9 @@ import {
 export type GetProvisionedProductOutputsCommandInput = GetProvisionedProductOutputsInput;
 export type GetProvisionedProductOutputsCommandOutput = GetProvisionedProductOutputsOutput & __MetadataBearer;
 
+/**
+ * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
+ */
 export class GetProvisionedProductOutputsCommand extends $Command<
   GetProvisionedProductOutputsCommandInput,
   GetProvisionedProductOutputsCommandOutput,
@@ -34,6 +37,9 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

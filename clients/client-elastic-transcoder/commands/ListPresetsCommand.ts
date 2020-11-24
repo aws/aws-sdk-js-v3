@@ -24,6 +24,10 @@ import {
 export type ListPresetsCommandInput = ListPresetsRequest;
 export type ListPresetsCommandOutput = ListPresetsResponse & __MetadataBearer;
 
+/**
+ * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
+ *             you've added in an AWS region.</p>
+ */
 export class ListPresetsCommand extends $Command<
   ListPresetsCommandInput,
   ListPresetsCommandOutput,
@@ -38,6 +42,9 @@ export class ListPresetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

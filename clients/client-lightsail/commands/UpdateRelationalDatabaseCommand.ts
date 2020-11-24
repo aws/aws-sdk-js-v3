@@ -20,6 +20,14 @@ import {
 export type UpdateRelationalDatabaseCommandInput = UpdateRelationalDatabaseRequest;
 export type UpdateRelationalDatabaseCommandOutput = UpdateRelationalDatabaseResult & __MetadataBearer;
 
+/**
+ * <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>
+ *          <p>Updates are applied immediately, or in cases where the updates could result in an outage,
+ *       are applied during the database's predefined maintenance window.</p>
+ *          <p>The <code>update relational database</code> operation supports tag-based access control
+ *       via resource tags applied to the resource identified by relationalDatabaseName. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class UpdateRelationalDatabaseCommand extends $Command<
   UpdateRelationalDatabaseCommandInput,
   UpdateRelationalDatabaseCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

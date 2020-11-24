@@ -20,6 +20,9 @@ import {
 export type DeletePublicKeyCommandInput = DeletePublicKeyRequest;
 export type DeletePublicKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Remove a public key you previously added to CloudFront.</p>
+ */
 export class DeletePublicKeyCommand extends $Command<
   DeletePublicKeyCommandInput,
   DeletePublicKeyCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

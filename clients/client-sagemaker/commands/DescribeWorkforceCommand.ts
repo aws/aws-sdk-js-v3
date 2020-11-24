@@ -20,6 +20,14 @@ import {
 export type DescribeWorkforceCommandInput = DescribeWorkforceRequest;
 export type DescribeWorkforceCommandOutput = DescribeWorkforceResponse & __MetadataBearer;
 
+/**
+ * <p>Lists private workforce information, including workforce name, Amazon Resource Name
+ *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
+ *             ranges are the IP addresses that workers can use to access tasks. </p>
+ *         <important>
+ *             <p>This operation applies only to private workforces.</p>
+ *         </important>
+ */
 export class DescribeWorkforceCommand extends $Command<
   DescribeWorkforceCommandInput,
   DescribeWorkforceCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeWorkforceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

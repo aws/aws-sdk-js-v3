@@ -20,6 +20,15 @@ import {
 export type DescribeLifecycleConfigurationCommandInput = DescribeLifecycleConfigurationRequest;
 export type DescribeLifecycleConfigurationCommandOutput = LifecycleConfigurationDescription & __MetadataBearer;
 
+/**
+ * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
+ *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
+ *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
+ *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
+ *       response.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
+ */
 export class DescribeLifecycleConfigurationCommand extends $Command<
   DescribeLifecycleConfigurationCommandInput,
   DescribeLifecycleConfigurationCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

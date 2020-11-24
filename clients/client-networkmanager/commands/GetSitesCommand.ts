@@ -20,6 +20,9 @@ import {
 export type GetSitesCommandInput = GetSitesRequest;
 export type GetSitesCommandOutput = GetSitesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more of your sites in a global network.</p>
+ */
 export class GetSitesCommand extends $Command<
   GetSitesCommandInput,
   GetSitesCommandOutput,
@@ -34,6 +37,9 @@ export class GetSitesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

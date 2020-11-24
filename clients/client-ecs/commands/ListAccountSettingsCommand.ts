@@ -20,6 +20,9 @@ import {
 export type ListAccountSettingsCommandInput = ListAccountSettingsRequest;
 export type ListAccountSettingsCommandOutput = ListAccountSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the account settings for a specified principal.</p>
+ */
 export class ListAccountSettingsCommand extends $Command<
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAccountSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

@@ -28,6 +28,10 @@ export type DescribeReplicationTaskAssessmentResultsCommandInput = DescribeRepli
 export type DescribeReplicationTaskAssessmentResultsCommandOutput = DescribeReplicationTaskAssessmentResultsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the task assessment results from Amazon S3. This action always returns the
+ *          latest results.</p>
+ */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
   DescribeReplicationTaskAssessmentResultsCommandInput,
   DescribeReplicationTaskAssessmentResultsCommandOutput,
@@ -42,6 +46,9 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

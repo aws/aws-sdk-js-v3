@@ -20,6 +20,9 @@ import {
 export type GetMasterAccountCommandInput = GetMasterAccountRequest;
 export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Provides the details for the Security Hub master account for the current member account. </p>
+ */
 export class GetMasterAccountCommand extends $Command<
   GetMasterAccountCommandInput,
   GetMasterAccountCommandOutput,
@@ -34,6 +37,9 @@ export class GetMasterAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

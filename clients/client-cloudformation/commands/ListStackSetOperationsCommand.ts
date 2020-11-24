@@ -20,6 +20,9 @@ import {
 export type ListStackSetOperationsCommandInput = ListStackSetOperationsInput;
 export type ListStackSetOperationsCommandOutput = ListStackSetOperationsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns summary information about operations performed on a stack set. </p>
+ */
 export class ListStackSetOperationsCommand extends $Command<
   ListStackSetOperationsCommandInput,
   ListStackSetOperationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListStackSetOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeNotebookExecutionCommandInput = DescribeNotebookExecutionInput;
 export type DescribeNotebookExecutionCommandOutput = DescribeNotebookExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Provides details of a notebook execution.</p>
+ */
 export class DescribeNotebookExecutionCommand extends $Command<
   DescribeNotebookExecutionCommandInput,
   DescribeNotebookExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNotebookExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

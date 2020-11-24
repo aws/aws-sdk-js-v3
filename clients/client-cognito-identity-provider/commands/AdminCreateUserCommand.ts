@@ -25,6 +25,20 @@ import {
 export type AdminCreateUserCommandInput = AdminCreateUserRequest;
 export type AdminCreateUserCommandOutput = AdminCreateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new user in the specified user pool.</p>
+ *         <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via
+ *             email or phone (SMS).</p>
+ *         <p>This message is based on a template that you configured in your call to create or
+ *             update a user pool. This template includes your custom sign-up instructions and placeholders
+ *             for user name and temporary password.</p>
+ *         <p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the
+ *                 <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p>
+ *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
+ *             they sign in and change their password.</p>
+ *         <p>
+ *             <code>AdminCreateUser</code> requires developer credentials.</p>
+ */
 export class AdminCreateUserCommand extends $Command<
   AdminCreateUserCommandInput,
   AdminCreateUserCommandOutput,
@@ -39,6 +53,9 @@ export class AdminCreateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

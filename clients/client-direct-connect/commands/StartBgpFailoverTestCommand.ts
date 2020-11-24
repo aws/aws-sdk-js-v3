@@ -20,6 +20,12 @@ import {
 export type StartBgpFailoverTestCommandInput = StartBgpFailoverTestRequest;
 export type StartBgpFailoverTestCommandOutput = StartBgpFailoverTestResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>
+ *          <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>
+ *          <p>You can use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p>
+ *          <p>If you need to stop the test before the test interval completes, use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html">StopBgpFailoverTest</a>.</p>
+ */
 export class StartBgpFailoverTestCommand extends $Command<
   StartBgpFailoverTestCommandInput,
   StartBgpFailoverTestCommandOutput,
@@ -34,6 +40,9 @@ export class StartBgpFailoverTestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListFlowDefinitionsCommandInput = ListFlowDefinitionsRequest;
 export type ListFlowDefinitionsCommandOutput = ListFlowDefinitionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the flow definitions in your account.</p>
+ */
 export class ListFlowDefinitionsCommand extends $Command<
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFlowDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

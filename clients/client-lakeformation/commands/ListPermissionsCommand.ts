@@ -20,6 +20,11 @@ import {
 export type ListPermissionsCommandInput = ListPermissionsRequest;
 export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
+ * 	        <p>This operation returns only those permissions that have been explicitly granted.</p>
+ * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+ */
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
@@ -34,6 +39,9 @@ export class ListPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

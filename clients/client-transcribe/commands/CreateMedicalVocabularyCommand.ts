@@ -20,6 +20,11 @@ import {
 export type CreateMedicalVocabularyCommandInput = CreateMedicalVocabularyRequest;
 export type CreateMedicalVocabularyCommandOutput = CreateMedicalVocabularyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom vocabulary that you can use to
+ *             change
+ *             how Amazon Transcribe Medical transcribes your audio file.</p>
+ */
 export class CreateMedicalVocabularyCommand extends $Command<
   CreateMedicalVocabularyCommandInput,
   CreateMedicalVocabularyCommandOutput,
@@ -34,6 +39,9 @@ export class CreateMedicalVocabularyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

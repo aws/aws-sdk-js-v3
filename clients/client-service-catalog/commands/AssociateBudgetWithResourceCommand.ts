@@ -20,6 +20,9 @@ import {
 export type AssociateBudgetWithResourceCommandInput = AssociateBudgetWithResourceInput;
 export type AssociateBudgetWithResourceCommandOutput = AssociateBudgetWithResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Associates the specified budget with the specified resource.</p>
+ */
 export class AssociateBudgetWithResourceCommand extends $Command<
   AssociateBudgetWithResourceCommandInput,
   AssociateBudgetWithResourceCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateBudgetWithResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

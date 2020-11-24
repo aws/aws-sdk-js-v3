@@ -17,6 +17,9 @@ import {
 export type PutFileCommandInput = PutFileInput;
 export type PutFileCommandOutput = PutFileOutput & __MetadataBearer;
 
+/**
+ * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
+ */
 export class PutFileCommand extends $Command<
   PutFileCommandInput,
   PutFileCommandOutput,
@@ -31,6 +34,9 @@ export class PutFileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

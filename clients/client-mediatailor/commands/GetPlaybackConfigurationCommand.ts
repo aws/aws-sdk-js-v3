@@ -20,6 +20,9 @@ import {
 export type GetPlaybackConfigurationCommandInput = GetPlaybackConfigurationRequest;
 export type GetPlaybackConfigurationCommandOutput = GetPlaybackConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the playback configuration for the specified name. </p>
+ */
 export class GetPlaybackConfigurationCommand extends $Command<
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetPlaybackConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,

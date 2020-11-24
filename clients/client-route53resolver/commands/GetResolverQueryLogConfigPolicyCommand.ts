@@ -20,6 +20,10 @@ import {
 export type GetResolverQueryLogConfigPolicyCommandInput = GetResolverQueryLogConfigPolicyRequest;
 export type GetResolverQueryLogConfigPolicyCommandOutput = GetResolverQueryLogConfigPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
+ * 			operations and resources that you want to allow another AWS account to be able to use.</p>
+ */
 export class GetResolverQueryLogConfigPolicyCommand extends $Command<
   GetResolverQueryLogConfigPolicyCommandInput,
   GetResolverQueryLogConfigPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

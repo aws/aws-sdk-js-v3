@@ -20,6 +20,10 @@ import {
 export type UpdateScheduleCommandInput = UpdateScheduleRequest;
 export type UpdateScheduleCommandOutput = UpdateScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the definition of an existing AWS Glue DataBrew schedule in the current AWS
+ *             account.</p>
+ */
 export class UpdateScheduleCommand extends $Command<
   UpdateScheduleCommandInput,
   UpdateScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

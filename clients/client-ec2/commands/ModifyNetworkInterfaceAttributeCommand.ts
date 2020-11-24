@@ -20,6 +20,11 @@ import {
 export type ModifyNetworkInterfaceAttributeCommandInput = ModifyNetworkInterfaceAttributeRequest;
 export type ModifyNetworkInterfaceAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Modifies the specified network interface attribute. You can specify only one
+ *             attribute at a time. You can use this action to attach and detach security groups from
+ *             an existing EC2 instance.</p>
+ */
 export class ModifyNetworkInterfaceAttributeCommand extends $Command<
   ModifyNetworkInterfaceAttributeCommandInput,
   ModifyNetworkInterfaceAttributeCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

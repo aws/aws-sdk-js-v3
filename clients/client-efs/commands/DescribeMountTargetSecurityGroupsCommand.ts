@@ -24,6 +24,24 @@ export type DescribeMountTargetSecurityGroupsCommandInput = DescribeMountTargetS
 export type DescribeMountTargetSecurityGroupsCommandOutput = DescribeMountTargetSecurityGroupsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the security groups currently in effect for a mount target. This operation
+ *       requires that the network interface of the mount target has been created and the lifecycle
+ *       state of the mount target is not <code>deleted</code>.</p>
+ *          <p>This operation requires permissions for the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action on the mount
+ *           target's file system. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ec2:DescribeNetworkInterfaceAttribute</code> action on the mount target's
+ *           network interface. </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command<
   DescribeMountTargetSecurityGroupsCommandInput,
   DescribeMountTargetSecurityGroupsCommandOutput,
@@ -38,6 +56,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type ModifyVpcTenancyCommandInput = ModifyVpcTenancyRequest;
 export type ModifyVpcTenancyCommandOutput = ModifyVpcTenancyResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
+ *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
+ *             instance tenancy attribute to <code>dedicated</code>.</p>
+ *         <p>After you modify the tenancy of the VPC, any new instances that you launch into the
+ *             VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
+ *             The tenancy of any existing instances in the VPC is not affected.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
+ * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class ModifyVpcTenancyCommand extends $Command<
   ModifyVpcTenancyCommandInput,
   ModifyVpcTenancyCommandOutput,
@@ -34,6 +44,9 @@ export class ModifyVpcTenancyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

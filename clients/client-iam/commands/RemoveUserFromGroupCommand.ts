@@ -20,6 +20,9 @@ import {
 export type RemoveUserFromGroupCommandInput = RemoveUserFromGroupRequest;
 export type RemoveUserFromGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified user from the specified group.</p>
+ */
 export class RemoveUserFromGroupCommand extends $Command<
   RemoveUserFromGroupCommandInput,
   RemoveUserFromGroupCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveUserFromGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

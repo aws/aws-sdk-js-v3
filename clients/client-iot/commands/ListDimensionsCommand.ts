@@ -20,6 +20,9 @@ import {
 export type ListDimensionsCommandInput = ListDimensionsRequest;
 export type ListDimensionsCommandOutput = ListDimensionsResponse & __MetadataBearer;
 
+/**
+ * <p>List the set of dimensions that are defined for your AWS account.</p>
+ */
 export class ListDimensionsCommand extends $Command<
   ListDimensionsCommandInput,
   ListDimensionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDimensionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

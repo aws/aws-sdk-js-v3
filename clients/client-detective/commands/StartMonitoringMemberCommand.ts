@@ -20,6 +20,21 @@ import {
 export type StartMonitoringMemberCommandInput = StartMonitoringMemberRequest;
 export type StartMonitoringMemberCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sends a request to enable data ingest for a member account that has a status of
+ *          <code>ACCEPTED_BUT_DISABLED</code>.</p>
+ *          <p>For valid member accounts, the status is updated as follows.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If Detective enabled the member account, then the new status is
+ *                <code>ENABLED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If Detective cannot enable the member account, the status remains
+ *                <code>ACCEPTED_BUT_DISABLED</code>. </p>
+ *             </li>
+ *          </ul>
+ */
 export class StartMonitoringMemberCommand extends $Command<
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
@@ -34,6 +49,9 @@ export class StartMonitoringMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

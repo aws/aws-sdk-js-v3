@@ -28,6 +28,9 @@ export type DeleteApplicationInputProcessingConfigurationCommandInput = DeleteAp
 export type DeleteApplicationInputProcessingConfigurationCommandOutput = DeleteApplicationInputProcessingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>
+ */
 export class DeleteApplicationInputProcessingConfigurationCommand extends $Command<
   DeleteApplicationInputProcessingConfigurationCommandInput,
   DeleteApplicationInputProcessingConfigurationCommandOutput,
@@ -42,6 +45,9 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

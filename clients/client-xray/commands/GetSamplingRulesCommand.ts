@@ -20,6 +20,9 @@ import {
 export type GetSamplingRulesCommandInput = GetSamplingRulesRequest;
 export type GetSamplingRulesCommandOutput = GetSamplingRulesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves all sampling rules.</p>
+ */
 export class GetSamplingRulesCommand extends $Command<
   GetSamplingRulesCommandInput,
   GetSamplingRulesCommandOutput,
@@ -34,6 +37,9 @@ export class GetSamplingRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

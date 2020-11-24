@@ -20,6 +20,9 @@ import {
 export type GetCoreDefinitionVersionCommandInput = GetCoreDefinitionVersionRequest;
 export type GetCoreDefinitionVersionCommandOutput = GetCoreDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a core definition version.
+ */
 export class GetCoreDefinitionVersionCommand extends $Command<
   GetCoreDefinitionVersionCommandInput,
   GetCoreDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

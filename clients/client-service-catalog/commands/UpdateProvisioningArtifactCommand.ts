@@ -20,6 +20,10 @@ import {
 export type UpdateProvisioningArtifactCommandInput = UpdateProvisioningArtifactInput;
 export type UpdateProvisioningArtifactCommandOutput = UpdateProvisioningArtifactOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
+ *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
+ */
 export class UpdateProvisioningArtifactCommand extends $Command<
   UpdateProvisioningArtifactCommandInput,
   UpdateProvisioningArtifactCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

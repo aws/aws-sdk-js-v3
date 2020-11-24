@@ -20,6 +20,11 @@ import {
 export type CancelExportTaskCommandInput = CancelExportTaskRequest;
 export type CancelExportTaskCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
+ *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
+ *    command fails and returns an error.</p>
+ */
 export class CancelExportTaskCommand extends $Command<
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
@@ -34,6 +39,9 @@ export class CancelExportTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type CreateAssetModelCommandInput = CreateAssetModelRequest;
 export type CreateAssetModelCommandOutput = CreateAssetModelResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an asset model from specified property and hierarchy definitions. You create
+ *       assets from asset models. With asset models, you can easily create assets of the same type
+ *       that have standardized definitions. Each asset created from a model inherits the asset model's
+ *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class CreateAssetModelCommand extends $Command<
   CreateAssetModelCommandInput,
   CreateAssetModelCommandOutput,
@@ -34,6 +41,9 @@ export class CreateAssetModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

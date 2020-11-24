@@ -28,6 +28,12 @@ export type CancelReplicationTaskAssessmentRunCommandInput = CancelReplicationTa
 export type CancelReplicationTaskAssessmentRunCommandOutput = CancelReplicationTaskAssessmentRunResponse &
   __MetadataBearer;
 
+/**
+ * <p>Cancels a single premigration assessment run.</p>
+ *          <p>This operation prevents any individual assessments from running if they haven't started
+ *          running. It also attempts to cancel any individual assessments that are currently
+ *          running.</p>
+ */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command<
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
@@ -42,6 +48,9 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

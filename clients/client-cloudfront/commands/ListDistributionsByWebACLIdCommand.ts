@@ -20,6 +20,9 @@ import {
 export type ListDistributionsByWebACLIdCommandInput = ListDistributionsByWebACLIdRequest;
 export type ListDistributionsByWebACLIdCommandOutput = ListDistributionsByWebACLIdResult & __MetadataBearer;
 
+/**
+ * <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
+ */
 export class ListDistributionsByWebACLIdCommand extends $Command<
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
@@ -34,6 +37,9 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

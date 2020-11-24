@@ -20,6 +20,9 @@ import {
 export type CreateRobotApplicationVersionCommandInput = CreateRobotApplicationVersionRequest;
 export type CreateRobotApplicationVersionCommandOutput = CreateRobotApplicationVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a version of a robot application.</p>
+ */
 export class CreateRobotApplicationVersionCommand extends $Command<
   CreateRobotApplicationVersionCommandInput,
   CreateRobotApplicationVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetDistributionsCommandInput = GetDistributionsRequest;
 export type GetDistributionsCommandOutput = GetDistributionsResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more of your Amazon Lightsail content delivery network
+ *       (CDN) distributions.</p>
+ */
 export class GetDistributionsCommand extends $Command<
   GetDistributionsCommandInput,
   GetDistributionsCommandOutput,
@@ -34,6 +38,9 @@ export class GetDistributionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

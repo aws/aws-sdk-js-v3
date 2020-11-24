@@ -24,6 +24,14 @@ export type ModifyTrafficMirrorFilterNetworkServicesCommandInput = ModifyTraffic
 export type ModifyTrafficMirrorFilterNetworkServicesCommandOutput = ModifyTrafficMirrorFilterNetworkServicesResult &
   __MetadataBearer;
 
+/**
+ * <p>Allows or restricts mirroring network services.</p>
+ *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
+ *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
+ *       </p>
+ *          <p>For information about filter rule properties, see
+ *          <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
+ */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
   ModifyTrafficMirrorFilterNetworkServicesCommandInput,
   ModifyTrafficMirrorFilterNetworkServicesCommandOutput,
@@ -38,6 +46,9 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

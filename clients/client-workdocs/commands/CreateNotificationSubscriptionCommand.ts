@@ -20,6 +20,13 @@ import {
 export type CreateNotificationSubscriptionCommandInput = CreateNotificationSubscriptionRequest;
 export type CreateNotificationSubscriptionCommandOutput = CreateNotificationSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
+ *             confirmation message, and must confirm the subscription.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe to
+ *                 Notifications</a> in the <i>Amazon WorkDocs Developer
+ *             Guide</i>.</p>
+ */
 export class CreateNotificationSubscriptionCommand extends $Command<
   CreateNotificationSubscriptionCommandInput,
   CreateNotificationSubscriptionCommandOutput,
@@ -34,6 +41,9 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

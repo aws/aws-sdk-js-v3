@@ -20,6 +20,10 @@ import {
 export type StartSmartHomeApplianceDiscoveryCommandInput = StartSmartHomeApplianceDiscoveryRequest;
 export type StartSmartHomeApplianceDiscoveryCommandOutput = StartSmartHomeApplianceDiscoveryResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates the discovery of any smart home appliances associated with the
+ *          room.</p>
+ */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
   StartSmartHomeApplianceDiscoveryCommandInput,
   StartSmartHomeApplianceDiscoveryCommandOutput,
@@ -34,6 +38,9 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

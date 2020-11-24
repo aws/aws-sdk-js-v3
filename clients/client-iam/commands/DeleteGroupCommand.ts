@@ -17,6 +17,10 @@ import {
 export type DeleteGroupCommandInput = DeleteGroupRequest;
 export type DeleteGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified IAM group. The group must not contain any users or have any
+ *          attached policies.</p>
+ */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,
   DeleteGroupCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

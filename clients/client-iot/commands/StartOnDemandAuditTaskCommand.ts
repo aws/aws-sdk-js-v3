@@ -20,6 +20,9 @@ import {
 export type StartOnDemandAuditTaskCommandInput = StartOnDemandAuditTaskRequest;
 export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an on-demand Device Defender audit.</p>
+ */
 export class StartOnDemandAuditTaskCommand extends $Command<
   StartOnDemandAuditTaskCommandInput,
   StartOnDemandAuditTaskCommandOutput,
@@ -34,6 +37,9 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

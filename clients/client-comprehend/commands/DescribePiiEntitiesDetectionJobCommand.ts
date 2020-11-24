@@ -20,6 +20,10 @@ import {
 export type DescribePiiEntitiesDetectionJobCommandInput = DescribePiiEntitiesDetectionJobRequest;
 export type DescribePiiEntitiesDetectionJobCommandOutput = DescribePiiEntitiesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a PII entities detection job. For example, you can use
+ *       this operation to get the job status.</p>
+ */
 export class DescribePiiEntitiesDetectionJobCommand extends $Command<
   DescribePiiEntitiesDetectionJobCommandInput,
   DescribePiiEntitiesDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

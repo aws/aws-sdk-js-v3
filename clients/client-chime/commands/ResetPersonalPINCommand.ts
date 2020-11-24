@@ -20,6 +20,10 @@ import {
 export type ResetPersonalPINCommandInput = ResetPersonalPINRequest;
 export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse & __MetadataBearer;
 
+/**
+ * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account.
+ *       Returns the <a>User</a> object with the updated personal meeting PIN.</p>
+ */
 export class ResetPersonalPINCommand extends $Command<
   ResetPersonalPINCommandInput,
   ResetPersonalPINCommandOutput,
@@ -34,6 +38,9 @@ export class ResetPersonalPINCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

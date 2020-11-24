@@ -20,6 +20,11 @@ import {
 export type CreateLoginProfileCommandInput = CreateLoginProfileRequest;
 export type CreateLoginProfileCommandOutput = CreateLoginProfileResponse & __MetadataBearer;
 
+/**
+ * <p> Creates a password for the specified user, giving the user the ability to access AWS
+ *          services through the AWS Management Console. For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+ *             Passwords</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class CreateLoginProfileCommand extends $Command<
   CreateLoginProfileCommandInput,
   CreateLoginProfileCommandOutput,
@@ -34,6 +39,9 @@ export class CreateLoginProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { SESPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SESClient,
   input: ListCustomVerificationEmailTemplatesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomVerificationEmailTemplatesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SES,
   input: ListCustomVerificationEmailTemplatesCommandInput,

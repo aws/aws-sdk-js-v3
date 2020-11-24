@@ -20,6 +20,9 @@ import {
 export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
 export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult & __MetadataBearer;
 
+/**
+ * <p>Updates the encryption configuration for X-Ray data.</p>
+ */
 export class PutEncryptionConfigCommand extends $Command<
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
@@ -34,6 +37,9 @@ export class PutEncryptionConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

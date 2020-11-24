@@ -20,6 +20,9 @@ import {
 export type PutParameterCommandInput = PutParameterRequest;
 export type PutParameterCommandOutput = PutParameterResult & __MetadataBearer;
 
+/**
+ * <p>Add a parameter to the system.</p>
+ */
 export class PutParameterCommand extends $Command<
   PutParameterCommandInput,
   PutParameterCommandOutput,
@@ -34,6 +37,9 @@ export class PutParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

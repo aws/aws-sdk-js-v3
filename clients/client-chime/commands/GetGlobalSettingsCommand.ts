@@ -20,6 +20,10 @@ import {
 export type GetGlobalSettingsCommandInput = {};
 export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves global settings for the administrator's AWS account, such as Amazon
+ *       Chime Business Calling and Amazon Chime Voice Connector settings.</p>
+ */
 export class GetGlobalSettingsCommand extends $Command<
   GetGlobalSettingsCommandInput,
   GetGlobalSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class GetGlobalSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

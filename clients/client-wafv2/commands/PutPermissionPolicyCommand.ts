@@ -20,6 +20,22 @@ import {
 export type PutPermissionPolicyCommandInput = PutPermissionPolicyRequest;
 export type PutPermissionPolicyCommandOutput = PutPermissionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across accounts.</p>
+ *         <p>You must be the owner of the rule group to perform this operation.</p>
+ *          <p>This action is subject to the following restrictions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group must exist in the same region.</p>
+ *             </li>
+ *             <li>
+ *                <p>The user making the request must be the owner of the rule group.</p>
+ *             </li>
+ *          </ul>
+ */
 export class PutPermissionPolicyCommand extends $Command<
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput,
@@ -34,6 +50,9 @@ export class PutPermissionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

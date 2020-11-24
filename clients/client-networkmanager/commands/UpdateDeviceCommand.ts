@@ -20,6 +20,10 @@ import {
 export type UpdateDeviceCommandInput = UpdateDeviceRequest;
 export type UpdateDeviceCommandOutput = UpdateDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details for an existing device. To remove information for any of the
+ *             parameters, specify an empty string.</p>
+ */
 export class UpdateDeviceCommand extends $Command<
   UpdateDeviceCommandInput,
   UpdateDeviceCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

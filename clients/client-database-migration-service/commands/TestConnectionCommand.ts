@@ -24,6 +24,9 @@ import {
 export type TestConnectionCommandInput = TestConnectionMessage;
 export type TestConnectionCommandOutput = TestConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Tests the connection between the replication instance and the endpoint.</p>
+ */
 export class TestConnectionCommand extends $Command<
   TestConnectionCommandInput,
   TestConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class TestConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

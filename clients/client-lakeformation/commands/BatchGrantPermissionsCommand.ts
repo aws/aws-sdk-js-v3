@@ -20,6 +20,9 @@ import {
 export type BatchGrantPermissionsCommandInput = BatchGrantPermissionsRequest;
 export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Batch operation to grant permissions to the principal.</p>
+ */
 export class BatchGrantPermissionsCommand extends $Command<
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGrantPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

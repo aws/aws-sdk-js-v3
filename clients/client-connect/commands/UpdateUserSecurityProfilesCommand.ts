@@ -20,6 +20,9 @@ import {
 export type UpdateUserSecurityProfilesCommandInput = UpdateUserSecurityProfilesRequest;
 export type UpdateUserSecurityProfilesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Assigns the specified security profiles to the specified user.</p>
+ */
 export class UpdateUserSecurityProfilesCommand extends $Command<
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

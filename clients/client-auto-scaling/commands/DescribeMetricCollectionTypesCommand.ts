@@ -20,6 +20,11 @@ import {
 export type DescribeMetricCollectionTypesCommandInput = {};
 export type DescribeMetricCollectionTypesCommandOutput = DescribeMetricCollectionTypesAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
+ *         <p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must
+ *             explicitly request this metric when calling the <a>EnableMetricsCollection</a> API.</p>
+ */
 export class DescribeMetricCollectionTypesCommand extends $Command<
   DescribeMetricCollectionTypesCommandInput,
   DescribeMetricCollectionTypesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

@@ -17,6 +17,11 @@ import {
 export type AllocateHostsCommandInput = AllocateHostsRequest;
 export type AllocateHostsCommandOutput = AllocateHostsResult & __MetadataBearer;
 
+/**
+ * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
+ *         	type or instance family, the Availability Zone in which to allocate the host, and the number of
+ *         	hosts to allocate.</p>
+ */
 export class AllocateHostsCommand extends $Command<
   AllocateHostsCommandInput,
   AllocateHostsCommandOutput,
@@ -31,6 +36,9 @@ export class AllocateHostsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

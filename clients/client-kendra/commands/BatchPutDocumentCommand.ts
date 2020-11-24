@@ -20,6 +20,16 @@ import {
 export type BatchPutDocumentCommandInput = BatchPutDocumentRequest;
 export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse & __MetadataBearer;
 
+/**
+ * <p>Adds one or more documents to an index.</p>
+ *          <p>The <code>BatchPutDocument</code> operation enables you to ingest inline documents or a
+ *       set of documents stored in an Amazon S3 bucket. Use this operation to ingest your text and
+ *       unstructured text into an index, add custom attributes to the documents, and to attach an
+ *       access control list to the documents added to the index.</p>
+ *          <p>The documents are indexed asynchronously. You can see the progress of the batch using AWS
+ *       CloudWatch. Any error messages related to processing the batch are sent to your AWS CloudWatch
+ *       log.</p>
+ */
 export class BatchPutDocumentCommand extends $Command<
   BatchPutDocumentCommandInput,
   BatchPutDocumentCommandOutput,
@@ -34,6 +44,9 @@ export class BatchPutDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

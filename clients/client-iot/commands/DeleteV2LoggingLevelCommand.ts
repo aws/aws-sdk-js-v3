@@ -20,6 +20,9 @@ import {
 export type DeleteV2LoggingLevelCommandInput = DeleteV2LoggingLevelRequest;
 export type DeleteV2LoggingLevelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a logging level.</p>
+ */
 export class DeleteV2LoggingLevelCommand extends $Command<
   DeleteV2LoggingLevelCommandInput,
   DeleteV2LoggingLevelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteV2LoggingLevelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

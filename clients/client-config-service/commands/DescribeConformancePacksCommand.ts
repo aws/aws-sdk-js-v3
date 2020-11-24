@@ -20,6 +20,9 @@ import {
 export type DescribeConformancePacksCommandInput = DescribeConformancePacksRequest;
 export type DescribeConformancePacksCommandOutput = DescribeConformancePacksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of one or more conformance packs.</p>
+ */
 export class DescribeConformancePacksCommand extends $Command<
   DescribeConformancePacksCommandInput,
   DescribeConformancePacksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeConformancePacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

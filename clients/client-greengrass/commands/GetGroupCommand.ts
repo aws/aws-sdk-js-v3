@@ -20,6 +20,9 @@ import {
 export type GetGroupCommandInput = GetGroupRequest;
 export type GetGroupCommandOutput = GetGroupResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a group.
+ */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,
   GetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class GetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

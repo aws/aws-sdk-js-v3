@@ -24,6 +24,9 @@ export type DescribeDevicePolicyConfigurationCommandInput = DescribeDevicePolicy
 export type DescribeDevicePolicyConfigurationCommandOutput = DescribeDevicePolicyConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the device policy configuration for the specified fleet.</p>
+ */
 export class DescribeDevicePolicyConfigurationCommand extends $Command<
   DescribeDevicePolicyConfigurationCommandInput,
   DescribeDevicePolicyConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

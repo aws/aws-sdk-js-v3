@@ -20,6 +20,22 @@ import {
 export type UpdateConfigurationTemplateCommandInput = UpdateConfigurationTemplateMessage;
 export type UpdateConfigurationTemplateCommandOutput = ConfigurationSettingsDescription & __MetadataBearer;
 
+/**
+ * <p>Updates the specified configuration template to have the specified properties or
+ *       configuration option values.</p>
+ *          <note>
+ *             <p>If a property (for example, <code>ApplicationName</code>) is not provided, its value
+ *         remains unchanged. To clear such properties, specify an empty string.</p>
+ *          </note>
+ *          <p>Related Topics</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeConfigurationOptions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateConfigurationTemplateCommand extends $Command<
   UpdateConfigurationTemplateCommandInput,
   UpdateConfigurationTemplateCommandOutput,
@@ -34,6 +50,9 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type ListHITsForQualificationTypeCommandInput = ListHITsForQualificationTypeRequest;
 export type ListHITsForQualificationTypeCommandOutput = ListHITsForQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>ListHITsForQualificationType</code> operation returns the HITs that use
+ *             the given Qualification type for a Qualification requirement.
+ *             The operation returns HITs of any status, except for HITs that have been deleted
+ *             with the <code>DeleteHIT</code> operation or that have been auto-deleted.
+ *         </p>
+ */
 export class ListHITsForQualificationTypeCommand extends $Command<
   ListHITsForQualificationTypeCommandInput,
   ListHITsForQualificationTypeCommandOutput,
@@ -34,6 +42,9 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

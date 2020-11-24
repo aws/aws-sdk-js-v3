@@ -20,6 +20,10 @@ import {
 export type PutResourcePolicyCommandInput = PutResourcePolicyInput;
 export type PutResourcePolicyCommandOutput = PutResourcePolicyOutput & __MetadataBearer;
 
+/**
+ * <p> Stores a resource policy for the ARN of a <code>Project</code> or
+ *                 <code>ReportGroup</code> object. </p>
+ */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class PutResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

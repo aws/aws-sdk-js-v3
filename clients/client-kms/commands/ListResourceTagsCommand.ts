@@ -20,6 +20,10 @@ import {
 export type ListResourceTagsCommandInput = ListResourceTagsRequest;
 export type ListResourceTagsCommandOutput = ListResourceTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all tags for the specified customer master key (CMK).</p>
+ *          <p>You cannot perform this operation on a CMK in a different AWS account.</p>
+ */
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,
   ListResourceTagsCommandOutput,
@@ -34,6 +38,9 @@ export class ListResourceTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeFindingsCommandInput = DescribeFindingsRequest;
 export type DescribeFindingsCommandOutput = DescribeFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the findings that are specified by the ARNs of the findings.</p>
+ */
 export class DescribeFindingsCommand extends $Command<
   DescribeFindingsCommandInput,
   DescribeFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

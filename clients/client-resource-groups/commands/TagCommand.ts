@@ -17,6 +17,16 @@ import {
 export type TagCommandInput = TagInput;
 export type TagCommandOutput = TagOutput & __MetadataBearer;
 
+/**
+ * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
+ *             group are not changed if they are not specified in the request parameters.</p>
+ *         <important>
+ *             <p>Do not store personally identifiable information (PII) or other confidential or
+ *                 sensitive information in tags. We use tags to provide you with billing and
+ *                 administration services. Tags are not intended to be used for private or sensitive
+ *                 data.</p>
+ *         </important>
+ */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +37,9 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

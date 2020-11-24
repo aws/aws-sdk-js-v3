@@ -20,6 +20,9 @@ import {
 export type UpgradePublishedSchemaCommandInput = UpgradePublishedSchemaRequest;
 export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>
+ */
 export class UpgradePublishedSchemaCommand extends $Command<
   UpgradePublishedSchemaCommandInput,
   UpgradePublishedSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class UpgradePublishedSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

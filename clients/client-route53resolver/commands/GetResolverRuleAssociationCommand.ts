@@ -20,6 +20,10 @@ import {
 export type GetResolverRuleAssociationCommandInput = GetResolverRuleAssociationRequest;
 export type GetResolverRuleAssociationCommandOutput = GetResolverRuleAssociationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
+ */
 export class GetResolverRuleAssociationCommand extends $Command<
   GetResolverRuleAssociationCommandInput,
   GetResolverRuleAssociationCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverRuleAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

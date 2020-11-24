@@ -20,6 +20,9 @@ import {
 export type DeleteQueuedSavingsPlanCommandInput = DeleteQueuedSavingsPlanRequest;
 export type DeleteQueuedSavingsPlanCommandOutput = DeleteQueuedSavingsPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the queued purchase for the specified Savings Plan.</p>
+ */
 export class DeleteQueuedSavingsPlanCommand extends $Command<
   DeleteQueuedSavingsPlanCommandInput,
   DeleteQueuedSavingsPlanCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SavingsplansClientResolvedConfig,

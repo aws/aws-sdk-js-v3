@@ -20,6 +20,28 @@ import {
 export type RevokeCertificateCommandInput = RevokeCertificateRequest;
 export type RevokeCertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Revokes a certificate that was issued inside ACM Private CA. If you enable a certificate
+ * 			revocation list (CRL) when you create or update your private CA, information about the
+ * 			revoked certificates will be included in the CRL. ACM Private CA writes the CRL to an S3 bucket
+ * 			that you specify. A CRL is typically updated approximately 30 minutes after a
+ * 			certificate is revoked. If for any reason the CRL update fails, ACM Private CA attempts makes
+ * 			further attempts every 15 minutes. With Amazon CloudWatch, you can create alarms for the
+ * 			metrics <code>CRLGenerated</code> and <code>MisconfiguredCRLBucket</code>. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html">Supported CloudWatch Metrics</a>.</p>
+ * 		       <note>
+ *                         <p>Both PCA and the IAM principal must have permission to write to
+ *                         the S3 bucket that you specify. If the IAM principal making the call
+ *                         does not have permission to write to the bucket, then an exception is
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+ *                         Access to ACM Private CA</a>.</p>
+ *                 </note>
+ * 		       <p>ACM Private CA also writes revocation information to the audit report. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
+ * 		       <note>
+ * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
+ * 		       </note>
+ */
 export class RevokeCertificateCommand extends $Command<
   RevokeCertificateCommandInput,
   RevokeCertificateCommandOutput,
@@ -34,6 +56,9 @@ export class RevokeCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

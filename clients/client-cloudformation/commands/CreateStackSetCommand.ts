@@ -20,6 +20,9 @@ import {
 export type CreateStackSetCommandInput = CreateStackSetInput;
 export type CreateStackSetCommandOutput = CreateStackSetOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a stack set.</p>
+ */
 export class CreateStackSetCommand extends $Command<
   CreateStackSetCommandInput,
   CreateStackSetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateStackSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

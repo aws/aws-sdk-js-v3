@@ -24,6 +24,9 @@ export type ExportClientVpnClientCertificateRevocationListCommandInput = ExportC
 export type ExportClientVpnClientCertificateRevocationListCommandOutput = ExportClientVpnClientCertificateRevocationListResult &
   __MetadataBearer;
 
+/**
+ * <p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>
+ */
 export class ExportClientVpnClientCertificateRevocationListCommand extends $Command<
   ExportClientVpnClientCertificateRevocationListCommandInput,
   ExportClientVpnClientCertificateRevocationListCommandOutput,
@@ -38,6 +41,9 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

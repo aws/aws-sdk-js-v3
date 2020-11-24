@@ -20,6 +20,10 @@ import {
 export type GetPhoneNumberOrderCommandInput = GetPhoneNumberOrderRequest;
 export type GetPhoneNumberOrderCommandOutput = GetPhoneNumberOrderResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details for the specified phone number order, such as order creation
+ *       timestamp, phone numbers in E.164 format, product type, and order status.</p>
+ */
 export class GetPhoneNumberOrderCommand extends $Command<
   GetPhoneNumberOrderCommandInput,
   GetPhoneNumberOrderCommandOutput,
@@ -34,6 +38,9 @@ export class GetPhoneNumberOrderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type GetRelationalDatabaseBundlesCommandInput = GetRelationalDatabaseBundlesRequest;
 export type GetRelationalDatabaseBundlesCommandOutput = GetRelationalDatabaseBundlesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
+ *       performance specifications for a database.</p>
+ *          <p>You can use a bundle ID to create a new database with explicit performance
+ *       specifications.</p>
+ */
 export class GetRelationalDatabaseBundlesCommand extends $Command<
   GetRelationalDatabaseBundlesCommandInput,
   GetRelationalDatabaseBundlesCommandOutput,
@@ -34,6 +40,9 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateObjectAttributesCommandInput = UpdateObjectAttributesRequest;
 export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a given object's attributes.</p>
+ */
 export class UpdateObjectAttributesCommand extends $Command<
   UpdateObjectAttributesCommandInput,
   UpdateObjectAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateObjectAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

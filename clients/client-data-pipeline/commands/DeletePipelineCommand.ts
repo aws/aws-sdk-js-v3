@@ -20,6 +20,12 @@ import {
 export type DeletePipelineCommandInput = DeletePipelineInput;
 export type DeletePipelineCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>
+ *         <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
+ *             To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components.
+ *             Components that are paused by <a>SetStatus</a> can be resumed.</p>
+ */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,
   DeletePipelineCommandOutput,
@@ -34,6 +40,9 @@ export class DeletePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

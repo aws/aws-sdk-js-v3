@@ -20,6 +20,9 @@ import {
 export type DeleteProfileCommandInput = DeleteProfileRequest;
 export type DeleteProfileCommandOutput = DeleteProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a room profile by the profile ARN.</p>
+ */
 export class DeleteProfileCommand extends $Command<
   DeleteProfileCommandInput,
   DeleteProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

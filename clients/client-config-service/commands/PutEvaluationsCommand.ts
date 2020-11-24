@@ -20,6 +20,11 @@ import {
 export type PutEvaluationsCommandInput = PutEvaluationsRequest;
 export type PutEvaluationsCommandOutput = PutEvaluationsResponse & __MetadataBearer;
 
+/**
+ * <p>Used by an AWS Lambda function to deliver evaluation results to
+ * 			AWS Config. This action is required in every AWS Lambda function
+ * 			that is invoked by an AWS Config rule.</p>
+ */
 export class PutEvaluationsCommand extends $Command<
   PutEvaluationsCommandInput,
   PutEvaluationsCommandOutput,
@@ -34,6 +39,9 @@ export class PutEvaluationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

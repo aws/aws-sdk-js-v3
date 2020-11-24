@@ -20,6 +20,9 @@ import {
 export type GenerateClientCertificateCommandInput = GenerateClientCertificateRequest;
 export type GenerateClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
 
+/**
+ * <p>Generates a <a>ClientCertificate</a> resource.</p>
+ */
 export class GenerateClientCertificateCommand extends $Command<
   GenerateClientCertificateCommandInput,
   GenerateClientCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class GenerateClientCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

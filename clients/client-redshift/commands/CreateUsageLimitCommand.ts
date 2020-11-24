@@ -20,6 +20,10 @@ import {
 export type CreateUsageLimitCommandInput = CreateUsageLimitMessage;
 export type CreateUsageLimitCommandOutput = UsageLimit & __MetadataBearer;
 
+/**
+ * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.
+ *             The usage limit is identified by the returned usage limit identifier.</p>
+ */
 export class CreateUsageLimitCommand extends $Command<
   CreateUsageLimitCommandInput,
   CreateUsageLimitCommandOutput,
@@ -34,6 +38,9 @@ export class CreateUsageLimitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

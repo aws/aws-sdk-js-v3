@@ -20,6 +20,9 @@ import {
 export type DescribeMultiplexProgramCommandInput = DescribeMultiplexProgramRequest;
 export type DescribeMultiplexProgramCommandOutput = DescribeMultiplexProgramResponse & __MetadataBearer;
 
+/**
+ * Get the details for a program in a multiplex.
+ */
 export class DescribeMultiplexProgramCommand extends $Command<
   DescribeMultiplexProgramCommandInput,
   DescribeMultiplexProgramCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMultiplexProgramCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

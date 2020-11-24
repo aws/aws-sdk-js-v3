@@ -20,6 +20,10 @@ import {
 export type DescribeCrossAccountAccessRoleCommandInput = {};
 export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
+ *          account.</p>
+ */
 export class DescribeCrossAccountAccessRoleCommand extends $Command<
   DescribeCrossAccountAccessRoleCommandInput,
   DescribeCrossAccountAccessRoleCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

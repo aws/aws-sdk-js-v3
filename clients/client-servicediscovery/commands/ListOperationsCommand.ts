@@ -20,6 +20,9 @@ import {
 export type ListOperationsCommandInput = ListOperationsRequest;
 export type ListOperationsCommandOutput = ListOperationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists operations that match the criteria that you specify.</p>
+ */
 export class ListOperationsCommand extends $Command<
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

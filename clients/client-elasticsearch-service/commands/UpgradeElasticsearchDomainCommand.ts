@@ -24,6 +24,9 @@ import {
 export type UpgradeElasticsearchDomainCommandInput = UpgradeElasticsearchDomainRequest;
 export type UpgradeElasticsearchDomainCommandOutput = UpgradeElasticsearchDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
+ */
 export class UpgradeElasticsearchDomainCommand extends $Command<
   UpgradeElasticsearchDomainCommandInput,
   UpgradeElasticsearchDomainCommandOutput,
@@ -38,6 +41,9 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

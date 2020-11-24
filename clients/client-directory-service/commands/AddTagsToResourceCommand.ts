@@ -20,6 +20,9 @@ import {
 export type AddTagsToResourceCommandInput = AddTagsToResourceRequest;
 export type AddTagsToResourceCommandOutput = AddTagsToResourceResult & __MetadataBearer;
 
+/**
+ * <p>Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.</p>
+ */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -34,6 +37,9 @@ export class AddTagsToResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

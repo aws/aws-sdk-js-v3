@@ -20,6 +20,9 @@ import {
 export type ListBulkDeploymentsCommandInput = ListBulkDeploymentsRequest;
 export type ListBulkDeploymentsCommandOutput = ListBulkDeploymentsResponse & __MetadataBearer;
 
+/**
+ * Returns a list of bulk deployments.
+ */
 export class ListBulkDeploymentsCommand extends $Command<
   ListBulkDeploymentsCommandInput,
   ListBulkDeploymentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListBulkDeploymentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

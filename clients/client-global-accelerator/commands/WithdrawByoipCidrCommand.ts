@@ -24,6 +24,16 @@ import {
 export type WithdrawByoipCidrCommandInput = WithdrawByoipCidrRequest;
 export type WithdrawByoipCidrCommandOutput = WithdrawByoipCidrResponse & __MetadataBearer;
 
+/**
+ * <p>Stops advertising an address range that is provisioned as an address pool.
+ * 			You can perform this operation at most once every 10 seconds, even if you specify different address
+ * 			ranges each time. To see an AWS CLI example of withdrawing an address range for BYOIP so
+ * 			it will no longer be advertised by AWS, scroll down to <b>Example</b>.</p>
+ * 		       <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS because of
+ * 			propagation delays.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+ * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ */
 export class WithdrawByoipCidrCommand extends $Command<
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
@@ -38,6 +48,9 @@ export class WithdrawByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

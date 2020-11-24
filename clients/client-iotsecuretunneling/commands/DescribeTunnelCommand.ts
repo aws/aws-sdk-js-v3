@@ -24,6 +24,9 @@ import {
 export type DescribeTunnelCommandInput = DescribeTunnelRequest;
 export type DescribeTunnelCommandOutput = DescribeTunnelResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
+ */
 export class DescribeTunnelCommand extends $Command<
   DescribeTunnelCommandInput,
   DescribeTunnelCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeTunnelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSecureTunnelingClientResolvedConfig,

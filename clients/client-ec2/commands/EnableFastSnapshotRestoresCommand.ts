@@ -20,6 +20,14 @@ import {
 export type EnableFastSnapshotRestoresCommandInput = EnableFastSnapshotRestoresRequest;
 export type EnableFastSnapshotRestoresCommandOutput = EnableFastSnapshotRestoresResult & __MetadataBearer;
 
+/**
+ * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
+ *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
+ *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
+ *       To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot
+ *       restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class EnableFastSnapshotRestoresCommand extends $Command<
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
@@ -34,6 +42,9 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

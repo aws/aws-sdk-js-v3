@@ -20,6 +20,10 @@ import {
 export type PutRestApiCommandInput = PutRestApiRequest;
 export type PutRestApiCommandOutput = RestApi & __MetadataBearer;
 
+/**
+ * <p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions.
+ *             The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
+ */
 export class PutRestApiCommand extends $Command<
   PutRestApiCommandInput,
   PutRestApiCommandOutput,
@@ -34,6 +38,9 @@ export class PutRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

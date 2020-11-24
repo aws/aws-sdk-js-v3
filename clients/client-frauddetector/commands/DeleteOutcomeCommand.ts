@@ -20,6 +20,11 @@ import {
 export type DeleteOutcomeCommandInput = DeleteOutcomeRequest;
 export type DeleteOutcomeCommandOutput = DeleteOutcomeResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an outcome.</p>
+ * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
+ * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteOutcomeCommand extends $Command<
   DeleteOutcomeCommandInput,
   DeleteOutcomeCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteOutcomeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

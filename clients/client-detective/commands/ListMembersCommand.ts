@@ -20,6 +20,10 @@ import {
 export type ListMembersCommandInput = ListMembersRequest;
 export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the list of member accounts for a behavior graph. Does not return member
+ *          accounts that were removed from the behavior graph.</p>
+ */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,
   ListMembersCommandOutput,
@@ -34,6 +38,9 @@ export class ListMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetOTAUpdateCommandInput = GetOTAUpdateRequest;
 export type GetOTAUpdateCommandOutput = GetOTAUpdateResponse & __MetadataBearer;
 
+/**
+ * <p>Gets an OTA update.</p>
+ */
 export class GetOTAUpdateCommand extends $Command<
   GetOTAUpdateCommandInput,
   GetOTAUpdateCommandOutput,
@@ -34,6 +37,9 @@ export class GetOTAUpdateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

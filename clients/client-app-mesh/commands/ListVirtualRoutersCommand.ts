@@ -20,6 +20,9 @@ import {
 export type ListVirtualRoutersCommandInput = ListVirtualRoutersInput;
 export type ListVirtualRoutersCommandOutput = ListVirtualRoutersOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing virtual routers in a service mesh.</p>
+ */
 export class ListVirtualRoutersCommand extends $Command<
   ListVirtualRoutersCommandInput,
   ListVirtualRoutersCommandOutput,
@@ -34,6 +37,9 @@ export class ListVirtualRoutersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

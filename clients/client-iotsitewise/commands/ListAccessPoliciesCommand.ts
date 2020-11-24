@@ -20,6 +20,10 @@ import {
 export type ListAccessPoliciesCommandInput = ListAccessPoliciesRequest;
 export type ListAccessPoliciesCommandOutput = ListAccessPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
+ *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
+ */
 export class ListAccessPoliciesCommand extends $Command<
   ListAccessPoliciesCommandInput,
   ListAccessPoliciesCommandOutput,
@@ -34,6 +38,9 @@ export class ListAccessPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

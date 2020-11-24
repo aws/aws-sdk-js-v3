@@ -20,6 +20,26 @@ import {
 export type CreateEndpointCommandInput = CreateEndpointRequest;
 export type CreateEndpointCommandOutput = CreateEndpointResult & __MetadataBearer;
 
+/**
+ * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets
+ *             in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform
+ *             actions within your virtual private cloud (VPC). </p>
+ *         <p>This action creates an endpoint and associates it with the specified Outpost. </p>
+ *         <p></p>
+ *         <p>Related actions include:</p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
   CreateEndpointCommandOutput,
@@ -34,6 +54,9 @@ export class CreateEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3OutpostsClientResolvedConfig,

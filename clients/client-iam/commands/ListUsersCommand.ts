@@ -17,6 +17,13 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
+ *          specified, the operation returns all users in the AWS account. If there are none, the
+ *          operation returns an empty list.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +34,9 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

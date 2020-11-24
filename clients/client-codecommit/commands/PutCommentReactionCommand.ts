@@ -20,6 +20,10 @@ import {
 export type PutCommentReactionCommandInput = PutCommentReactionInput;
 export type PutCommentReactionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
+ *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
+ */
 export class PutCommentReactionCommand extends $Command<
   PutCommentReactionCommandInput,
   PutCommentReactionCommandOutput,
@@ -34,6 +38,9 @@ export class PutCommentReactionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

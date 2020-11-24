@@ -20,6 +20,9 @@ import {
 export type ListWebhooksCommandInput = ListWebhooksRequest;
 export type ListWebhooksCommandOutput = ListWebhooksResult & __MetadataBearer;
 
+/**
+ * <p> Returns a list of webhooks for an Amplify app. </p>
+ */
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput,
@@ -34,6 +37,9 @@ export class ListWebhooksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

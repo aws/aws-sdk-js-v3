@@ -20,6 +20,12 @@ import {
 export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
 export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
+ *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
+ *             all actions that are still in progress continue working, and failed actions are
+ *             triggered again.</p>
+ */
 export class RetryStageExecutionCommand extends $Command<
   RetryStageExecutionCommandInput,
   RetryStageExecutionCommandOutput,
@@ -34,6 +40,9 @@ export class RetryStageExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

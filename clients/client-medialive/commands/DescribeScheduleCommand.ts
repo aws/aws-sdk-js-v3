@@ -20,6 +20,9 @@ import {
 export type DescribeScheduleCommandInput = DescribeScheduleRequest;
 export type DescribeScheduleCommandOutput = DescribeScheduleResponse & __MetadataBearer;
 
+/**
+ * Get a channel schedule
+ */
 export class DescribeScheduleCommand extends $Command<
   DescribeScheduleCommandInput,
   DescribeScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

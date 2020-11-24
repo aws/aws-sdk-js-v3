@@ -20,6 +20,10 @@ import {
 export type VerifyEmailAddressCommandInput = VerifyEmailAddressRequest;
 export type VerifyEmailAddressCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
+ *             address.</p>
+ */
 export class VerifyEmailAddressCommand extends $Command<
   VerifyEmailAddressCommandInput,
   VerifyEmailAddressCommandOutput,
@@ -34,6 +38,9 @@ export class VerifyEmailAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

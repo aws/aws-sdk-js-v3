@@ -20,6 +20,10 @@ import {
 export type ListGatewayRoutesCommandInput = ListGatewayRoutesInput;
 export type ListGatewayRoutesCommandOutput = ListGatewayRoutesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing gateway routes that are associated to a virtual
+ *          gateway.</p>
+ */
 export class ListGatewayRoutesCommand extends $Command<
   ListGatewayRoutesCommandInput,
   ListGatewayRoutesCommandOutput,
@@ -34,6 +38,9 @@ export class ListGatewayRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

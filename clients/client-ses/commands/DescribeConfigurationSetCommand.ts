@@ -20,6 +20,12 @@ import {
 export type DescribeConfigurationSetCommandInput = DescribeConfigurationSetRequest;
 export type DescribeConfigurationSetCommandOutput = DescribeConfigurationSetResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the details of the specified configuration set. For information about using
+ *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class DescribeConfigurationSetCommand extends $Command<
   DescribeConfigurationSetCommandInput,
   DescribeConfigurationSetCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeConfigurationSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDataLakeSettingsCommandInput = GetDataLakeSettingsRequest;
 export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
+ */
 export class GetDataLakeSettingsCommand extends $Command<
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataLakeSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type AddTagsToStreamCommandInput = AddTagsToStreamInput;
 export type AddTagsToStreamCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds or updates tags for the specified Kinesis data stream. Each time you invoke
+ *             this operation, you can specify up to 10 tags. If you want to add more than 10 tags to
+ *             your stream, you can invoke this operation multiple times. In total, each stream can
+ *             have up to 50 tags.</p>
+ *         <p>If tags have already been assigned to the stream, <code>AddTagsToStream</code>
+ *             overwrites any existing tags that correspond to the specified tag keys.</p>
+ *         <p>
+ *             <a>AddTagsToStream</a> has a limit of five transactions per second per
+ *             account.</p>
+ */
 export class AddTagsToStreamCommand extends $Command<
   AddTagsToStreamCommandInput,
   AddTagsToStreamCommandOutput,
@@ -34,6 +45,9 @@ export class AddTagsToStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

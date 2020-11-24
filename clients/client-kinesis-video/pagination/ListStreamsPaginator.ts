@@ -4,6 +4,9 @@ import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput }
 import { KinesisVideoPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: KinesisVideoClient,
   input: ListStreamsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStreamsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: KinesisVideo,
   input: ListStreamsCommandInput,

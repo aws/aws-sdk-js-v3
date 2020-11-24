@@ -20,6 +20,9 @@ import {
 export type ListResourcesForTagOptionCommandInput = ListResourcesForTagOptionInput;
 export type ListResourcesForTagOptionCommandOutput = ListResourcesForTagOptionOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the resources associated with the specified TagOption.</p>
+ */
 export class ListResourcesForTagOptionCommand extends $Command<
   ListResourcesForTagOptionCommandInput,
   ListResourcesForTagOptionCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourcesForTagOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

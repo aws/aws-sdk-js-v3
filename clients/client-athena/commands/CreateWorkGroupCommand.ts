@@ -20,6 +20,9 @@ import {
 export type CreateWorkGroupCommandInput = CreateWorkGroupInput;
 export type CreateWorkGroupCommandOutput = CreateWorkGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a workgroup with the specified name.</p>
+ */
 export class CreateWorkGroupCommand extends $Command<
   CreateWorkGroupCommandInput,
   CreateWorkGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateWorkGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

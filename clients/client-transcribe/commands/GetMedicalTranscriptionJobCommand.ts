@@ -20,6 +20,12 @@ import {
 export type GetMedicalTranscriptionJobCommandInput = GetMedicalTranscriptionJobRequest;
 export type GetMedicalTranscriptionJobCommandOutput = GetMedicalTranscriptionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the
+ *             job, check the <code>TranscriptionJobStatus</code> field. If the status is
+ *                 <code>COMPLETED</code>, the job is finished. You find the results of the completed
+ *             job in the <code>TranscriptFileUri</code> field.</p>
+ */
 export class GetMedicalTranscriptionJobCommand extends $Command<
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
@@ -34,6 +40,9 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

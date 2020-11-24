@@ -20,6 +20,9 @@ import {
 export type UpdateSchemaCommandInput = UpdateSchemaRequest;
 export type UpdateSchemaCommandOutput = UpdateSchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
+ */
 export class UpdateSchemaCommand extends $Command<
   UpdateSchemaCommandInput,
   UpdateSchemaCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

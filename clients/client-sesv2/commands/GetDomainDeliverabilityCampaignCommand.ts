@@ -20,6 +20,11 @@ import {
 export type GetDomainDeliverabilityCampaignCommandInput = GetDomainDeliverabilityCampaignRequest;
 export type GetDomainDeliverabilityCampaignCommandOutput = GetDomainDeliverabilityCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve all the deliverability data for a specific campaign. This data is available
+ *             for a campaign only if the campaign sent email by using a domain that the
+ *             Deliverability dashboard is enabled for.</p>
+ */
 export class GetDomainDeliverabilityCampaignCommand extends $Command<
   GetDomainDeliverabilityCampaignCommandInput,
   GetDomainDeliverabilityCampaignCommandOutput,
@@ -34,6 +39,9 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

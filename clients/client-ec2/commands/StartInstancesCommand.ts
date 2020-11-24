@@ -17,6 +17,25 @@ import {
 export type StartInstancesCommandInput = StartInstancesRequest;
 export type StartInstancesCommandOutput = StartInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
+ *         <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
+ *             started. When an instance is stopped, the compute resources are released and you are not
+ *             billed for instance usage. However, your root partition Amazon EBS volume remains and
+ *             continues to persist your data, and you are charged for Amazon EBS volume usage. You can
+ *             restart your instance at any time. Every time you start your Windows instance, Amazon
+ *             EC2 charges you for a full instance hour. If you stop and restart your Windows instance,
+ *             a new instance hour begins and Amazon EC2 charges you for another full instance hour
+ *             even if you are still within the same 60-minute period when it was stopped. Every time
+ *             you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
+ *             usage, and thereafter charges per second for instance usage.</p>
+ *         <p>Before stopping an instance, make sure it is in a state from which it can be
+ *             restarted. Stopping an instance does not preserve data stored in RAM.</p>
+ *         <p>Performing this operation on an instance that uses an instance store as its root
+ *             device returns an error.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
+ *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class StartInstancesCommand extends $Command<
   StartInstancesCommandInput,
   StartInstancesCommandOutput,
@@ -31,6 +50,9 @@ export class StartInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

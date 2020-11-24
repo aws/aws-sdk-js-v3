@@ -20,6 +20,9 @@ import {
 export type ViewBillingCommandInput = ViewBillingRequest;
 export type ViewBillingCommandOutput = ViewBillingResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
+ */
 export class ViewBillingCommand extends $Command<
   ViewBillingCommandInput,
   ViewBillingCommandOutput,
@@ -34,6 +37,9 @@ export class ViewBillingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetStackPolicyCommandInput = GetStackPolicyInput;
 export type GetStackPolicyCommandOutput = GetStackPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a
+ *          null value is returned.</p>
+ */
 export class GetStackPolicyCommand extends $Command<
   GetStackPolicyCommandInput,
   GetStackPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetStackPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

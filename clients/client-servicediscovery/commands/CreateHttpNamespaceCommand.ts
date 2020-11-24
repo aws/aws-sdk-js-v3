@@ -20,6 +20,12 @@ import {
 export type CreateHttpNamespaceCommandInput = CreateHttpNamespaceRequest;
 export type CreateHttpNamespaceCommandOutput = CreateHttpNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
+ *     <code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
+ *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
+ *     <i>AWS Cloud Map Developer Guide</i>.</p>
+ */
 export class CreateHttpNamespaceCommand extends $Command<
   CreateHttpNamespaceCommandInput,
   CreateHttpNamespaceCommandOutput,
@@ -34,6 +40,9 @@ export class CreateHttpNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

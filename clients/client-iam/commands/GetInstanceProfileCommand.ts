@@ -20,6 +20,12 @@ import {
 export type GetInstanceProfileCommandInput = GetInstanceProfileRequest;
 export type GetInstanceProfileCommandOutput = GetInstanceProfileResponse & __MetadataBearer;
 
+/**
+ * <p> Retrieves information about the specified instance profile, including the instance
+ *          profile's path, GUID, ARN, and role. For more information about instance profiles, see
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+ *             Instance Profiles</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,
   GetInstanceProfileCommandOutput,
@@ -34,6 +40,9 @@ export class GetInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

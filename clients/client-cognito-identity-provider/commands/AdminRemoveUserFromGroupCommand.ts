@@ -25,6 +25,10 @@ import {
 export type AdminRemoveUserFromGroupCommandInput = AdminRemoveUserFromGroupRequest;
 export type AdminRemoveUserFromGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified user from the specified group.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminRemoveUserFromGroupCommand extends $Command<
   AdminRemoveUserFromGroupCommandInput,
   AdminRemoveUserFromGroupCommandOutput,
@@ -39,6 +43,9 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

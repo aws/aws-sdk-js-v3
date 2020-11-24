@@ -20,6 +20,10 @@ import {
 export type DeleteThingShadowCommandInput = DeleteThingShadowRequest;
 export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the shadow for the specified thing.</p>
+ *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
+ */
 export class DeleteThingShadowCommand extends $Command<
   DeleteThingShadowCommandInput,
   DeleteThingShadowCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteThingShadowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTDataPlaneClientResolvedConfig,

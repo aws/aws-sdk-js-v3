@@ -20,6 +20,9 @@ import {
 export type ListNodesCommandInput = ListNodesRequest;
 export type ListNodesCommandOutput = ListNodesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the broker nodes in the cluster.</p>
+ */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,
   ListNodesCommandOutput,
@@ -34,6 +37,9 @@ export class ListNodesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

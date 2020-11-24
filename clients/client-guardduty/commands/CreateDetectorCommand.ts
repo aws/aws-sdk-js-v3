@@ -20,6 +20,12 @@ import {
 export type CreateDetectorCommandInput = CreateDetectorRequest;
 export type CreateDetectorCommandOutput = CreateDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
+ *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
+ *       you enable the service. You can have only one detector per account per Region. All data
+ *       sources are enabled in a new detector by default.</p>
+ */
 export class CreateDetectorCommand extends $Command<
   CreateDetectorCommandInput,
   CreateDetectorCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type UpdateApplicationVersionCommandInput = UpdateApplicationVersionMessage;
 export type UpdateApplicationVersionCommandOutput = ApplicationVersionDescriptionMessage & __MetadataBearer;
 
+/**
+ * <p>Updates the specified application version to have the specified properties.</p>
+ *          <note>
+ *             <p>If a property (for example, <code>description</code>) is not provided, the value
+ *         remains unchanged. To clear properties, specify an empty string.</p>
+ *          </note>
+ */
 export class UpdateApplicationVersionCommand extends $Command<
   UpdateApplicationVersionCommandInput,
   UpdateApplicationVersionCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateApplicationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

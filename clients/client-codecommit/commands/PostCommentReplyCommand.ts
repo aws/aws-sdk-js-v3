@@ -20,6 +20,9 @@ import {
 export type PostCommentReplyCommandInput = PostCommentReplyInput;
 export type PostCommentReplyCommandOutput = PostCommentReplyOutput & __MetadataBearer;
 
+/**
+ * <p>Posts a comment in reply to an existing comment on a comparison between commits or a pull request.</p>
+ */
 export class PostCommentReplyCommand extends $Command<
   PostCommentReplyCommandInput,
   PostCommentReplyCommandOutput,
@@ -34,6 +37,9 @@ export class PostCommentReplyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

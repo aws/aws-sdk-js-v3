@@ -20,6 +20,9 @@ import {
 export type ListProvisionedProductPlansCommandInput = ListProvisionedProductPlansInput;
 export type ListProvisionedProductPlansCommandOutput = ListProvisionedProductPlansOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
+ */
 export class ListProvisionedProductPlansCommand extends $Command<
   ListProvisionedProductPlansCommandInput,
   ListProvisionedProductPlansCommandOutput,
@@ -34,6 +37,9 @@ export class ListProvisionedProductPlansCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

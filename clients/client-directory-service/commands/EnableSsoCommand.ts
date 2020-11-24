@@ -17,6 +17,9 @@ import {
 export type EnableSsoCommandInput = EnableSsoRequest;
 export type EnableSsoCommandOutput = EnableSsoResult & __MetadataBearer;
 
+/**
+ * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.</p>
+ */
 export class EnableSsoCommand extends $Command<
   EnableSsoCommandInput,
   EnableSsoCommandOutput,
@@ -31,6 +34,9 @@ export class EnableSsoCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

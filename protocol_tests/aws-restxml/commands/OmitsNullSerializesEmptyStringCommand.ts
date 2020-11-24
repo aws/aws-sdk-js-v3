@@ -20,6 +20,9 @@ import {
 export type OmitsNullSerializesEmptyStringCommandInput = OmitsNullSerializesEmptyStringInput;
 export type OmitsNullSerializesEmptyStringCommandOutput = __MetadataBearer;
 
+/**
+ * Omits null, but serializes empty string value.
+ */
 export class OmitsNullSerializesEmptyStringCommand extends $Command<
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
@@ -34,6 +37,9 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

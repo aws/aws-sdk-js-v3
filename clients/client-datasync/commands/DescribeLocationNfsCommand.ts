@@ -20,6 +20,9 @@ import {
 export type DescribeLocationNfsCommandInput = DescribeLocationNfsRequest;
 export type DescribeLocationNfsCommandOutput = DescribeLocationNfsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata, such as the path information, about an NFS location.</p>
+ */
 export class DescribeLocationNfsCommand extends $Command<
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLocationNfsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

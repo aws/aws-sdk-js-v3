@@ -20,6 +20,18 @@ import {
 export type DeleteAutoScalingGroupCommandInput = DeleteAutoScalingGroupType;
 export type DeleteAutoScalingGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Auto Scaling group.</p>
+ *         <p>If the group has instances or scaling activities in progress, you must specify the
+ *             option to force the deletion in order for it to succeed.</p>
+ *         <p>If the group has policies, deleting the group deletes the policies, the underlying
+ *             alarm actions, and any alarm that no longer has an associated action.</p>
+ *         <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to
+ *             decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement
+ *             instances.</p>
+ *         <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
+ *             of the Auto Scaling group to zero.</p>
+ */
 export class DeleteAutoScalingGroupCommand extends $Command<
   DeleteAutoScalingGroupCommandInput,
   DeleteAutoScalingGroupCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteAutoScalingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

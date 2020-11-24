@@ -20,6 +20,11 @@ import {
 export type DeleteResourceDataSyncCommandInput = DeleteResourceDataSyncRequest;
 export type DeleteResourceDataSyncCommandOutput = DeleteResourceDataSyncResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to
+ *    data on managed instances are no longer synced to or from the target. Deleting a sync
+ *    configuration does not delete data.</p>
+ */
 export class DeleteResourceDataSyncCommand extends $Command<
   DeleteResourceDataSyncCommandInput,
   DeleteResourceDataSyncCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteResourceDataSyncCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

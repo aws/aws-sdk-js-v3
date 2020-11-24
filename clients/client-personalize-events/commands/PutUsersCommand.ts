@@ -24,6 +24,10 @@ import {
 export type PutUsersCommandInput = PutUsersRequest;
 export type PutUsersCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds one or more users to a Users dataset. For more information see
+ *       <a>importing-users</a>.</p>
+ */
 export class PutUsersCommand extends $Command<
   PutUsersCommandInput,
   PutUsersCommandOutput,
@@ -38,6 +42,9 @@ export class PutUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeEventsClientResolvedConfig,

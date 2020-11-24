@@ -28,6 +28,9 @@ export type DescribeReservedElasticsearchInstancesCommandInput = DescribeReserve
 export type DescribeReservedElasticsearchInstancesCommandOutput = DescribeReservedElasticsearchInstancesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns information about reserved Elasticsearch instances for this account.</p>
+ */
 export class DescribeReservedElasticsearchInstancesCommand extends $Command<
   DescribeReservedElasticsearchInstancesCommandInput,
   DescribeReservedElasticsearchInstancesCommandOutput,
@@ -42,6 +45,9 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

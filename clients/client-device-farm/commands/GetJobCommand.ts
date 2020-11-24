@@ -17,6 +17,9 @@ import {
 export type GetJobCommandInput = GetJobRequest;
 export type GetJobCommandOutput = GetJobResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a job.</p>
+ */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeFargateProfileCommandInput = DescribeFargateProfileRequest;
 export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Returns descriptive information about an AWS Fargate profile.</p>
+ */
 export class DescribeFargateProfileCommand extends $Command<
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFargateProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

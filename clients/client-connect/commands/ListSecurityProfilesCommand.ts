@@ -20,6 +20,12 @@ import {
 export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
 export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Provides summary information about the security profiles for the specified Amazon Connect
+ *    instance.</p>
+ *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
+ *     <i>Amazon Connect Administrator Guide</i>.</p>
+ */
 export class ListSecurityProfilesCommand extends $Command<
   ListSecurityProfilesCommandInput,
   ListSecurityProfilesCommandOutput,
@@ -34,6 +40,9 @@ export class ListSecurityProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

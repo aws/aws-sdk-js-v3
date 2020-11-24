@@ -20,6 +20,12 @@ import {
 export type CreateIAMPolicyAssignmentCommandInput = CreateIAMPolicyAssignmentRequest;
 export type CreateIAMPolicyAssignmentCommandOutput = CreateIAMPolicyAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name
+ * 			(ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight.
+ * 			Assignment names are unique per AWS account. To avoid overwriting rules in other namespaces,
+ * 			use assignment names that are unique.</p>
+ */
 export class CreateIAMPolicyAssignmentCommand extends $Command<
   CreateIAMPolicyAssignmentCommandInput,
   CreateIAMPolicyAssignmentCommandOutput,
@@ -34,6 +40,9 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

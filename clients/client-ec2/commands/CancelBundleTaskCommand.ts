@@ -20,6 +20,9 @@ import {
 export type CancelBundleTaskCommandInput = CancelBundleTaskRequest;
 export type CancelBundleTaskCommandOutput = CancelBundleTaskResult & __MetadataBearer;
 
+/**
+ * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
+ */
 export class CancelBundleTaskCommand extends $Command<
   CancelBundleTaskCommandInput,
   CancelBundleTaskCommandOutput,
@@ -34,6 +37,9 @@ export class CancelBundleTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

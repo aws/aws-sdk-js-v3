@@ -20,6 +20,10 @@ import {
 export type CreateApiKeyCommandInput = CreateApiKeyRequest;
 export type CreateApiKeyCommandOutput = ApiKey & __MetadataBearer;
 
+/**
+ * <p>Create an <a>ApiKey</a> resource. </p>
+ *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS CLI</a></div>
+ */
 export class CreateApiKeyCommand extends $Command<
   CreateApiKeyCommandInput,
   CreateApiKeyCommandOutput,
@@ -34,6 +38,9 @@ export class CreateApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

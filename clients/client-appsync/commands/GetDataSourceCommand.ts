@@ -20,6 +20,9 @@ import {
 export type GetDataSourceCommandInput = GetDataSourceRequest;
 export type GetDataSourceCommandOutput = GetDataSourceResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a <code>DataSource</code> object.</p>
+ */
 export class GetDataSourceCommand extends $Command<
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

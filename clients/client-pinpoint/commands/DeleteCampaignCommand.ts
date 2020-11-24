@@ -20,6 +20,9 @@ import {
 export type DeleteCampaignCommandInput = DeleteCampaignRequest;
 export type DeleteCampaignCommandOutput = DeleteCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a campaign from an application.</p>
+ */
 export class DeleteCampaignCommand extends $Command<
   DeleteCampaignCommandInput,
   DeleteCampaignCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

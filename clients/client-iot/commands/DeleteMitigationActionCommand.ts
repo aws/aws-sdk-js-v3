@@ -20,6 +20,9 @@ import {
 export type DeleteMitigationActionCommandInput = DeleteMitigationActionRequest;
 export type DeleteMitigationActionCommandOutput = DeleteMitigationActionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a defined mitigation action from your AWS account.</p>
+ */
 export class DeleteMitigationActionCommand extends $Command<
   DeleteMitigationActionCommandInput,
   DeleteMitigationActionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteMitigationActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

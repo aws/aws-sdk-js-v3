@@ -20,6 +20,10 @@ import {
 export type StartDataSourceSyncJobCommandInput = StartDataSourceSyncJobRequest;
 export type StartDataSourceSyncJobCommandOutput = StartDataSourceSyncJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a synchronization job for a data source. If a synchronization job is already in
+ *       progress, Amazon Kendra returns a <code>ResourceInUseException</code> exception.</p>
+ */
 export class StartDataSourceSyncJobCommand extends $Command<
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -34,6 +38,9 @@ export class StartDataSourceSyncJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

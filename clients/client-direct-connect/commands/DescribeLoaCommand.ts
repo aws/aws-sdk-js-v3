@@ -20,6 +20,12 @@ import {
 export type DescribeLoaCommandInput = DescribeLoaRequest;
 export type DescribeLoaCommandOutput = Loa & __MetadataBearer;
 
+/**
+ * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>
+ *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing
+ *       your cross connect to AWS at the colocation facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at AWS Direct Connect Locations</a>
+ *       in the <i>AWS Direct Connect User Guide</i>.</p>
+ */
 export class DescribeLoaCommand extends $Command<
   DescribeLoaCommandInput,
   DescribeLoaCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeLoaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

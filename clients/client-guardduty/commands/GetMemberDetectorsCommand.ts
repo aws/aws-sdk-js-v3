@@ -20,6 +20,9 @@ import {
 export type GetMemberDetectorsCommandInput = GetMemberDetectorsRequest;
 export type GetMemberDetectorsCommandOutput = GetMemberDetectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes which data sources are enabled for the member account's detector.</p>
+ */
 export class GetMemberDetectorsCommand extends $Command<
   GetMemberDetectorsCommandInput,
   GetMemberDetectorsCommandOutput,
@@ -34,6 +37,9 @@ export class GetMemberDetectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

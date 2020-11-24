@@ -24,6 +24,9 @@ export type PutConfigurationSetSuppressionOptionsCommandInput = PutConfiguration
 export type PutConfigurationSetSuppressionOptionsCommandOutput = PutConfigurationSetSuppressionOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Specify the account suppression list preferences for a configuration set.</p>
+ */
 export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
   PutConfigurationSetSuppressionOptionsCommandInput,
   PutConfigurationSetSuppressionOptionsCommandOutput,
@@ -38,6 +41,9 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

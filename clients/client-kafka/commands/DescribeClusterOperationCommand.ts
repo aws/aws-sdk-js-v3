@@ -20,6 +20,9 @@ import {
 export type DescribeClusterOperationCommandInput = DescribeClusterOperationRequest;
 export type DescribeClusterOperationCommandOutput = DescribeClusterOperationResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the cluster operation specified by the ARN.</p>
+ */
 export class DescribeClusterOperationCommand extends $Command<
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClusterOperationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

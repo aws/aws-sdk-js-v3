@@ -25,6 +25,9 @@ import {
 export type DescribeResourceServerCommandInput = DescribeResourceServerRequest;
 export type DescribeResourceServerCommandOutput = DescribeResourceServerResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a resource server.</p>
+ */
 export class DescribeResourceServerCommand extends $Command<
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
@@ -39,6 +42,9 @@ export class DescribeResourceServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

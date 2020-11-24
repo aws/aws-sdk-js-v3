@@ -20,6 +20,9 @@ import {
 export type CreateResourceDefinitionVersionCommandInput = CreateResourceDefinitionVersionRequest;
 export type CreateResourceDefinitionVersionCommandOutput = CreateResourceDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a resource definition that has already been defined.
+ */
 export class CreateResourceDefinitionVersionCommand extends $Command<
   CreateResourceDefinitionVersionCommandInput,
   CreateResourceDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

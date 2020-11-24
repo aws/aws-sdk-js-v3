@@ -20,6 +20,12 @@ import {
 export type DeleteLaunchTemplateVersionsCommandInput = DeleteLaunchTemplateVersionsRequest;
 export type DeleteLaunchTemplateVersionsCommandOutput = DeleteLaunchTemplateVersionsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more versions of a launch template. You cannot delete the default
+ *             version of a launch template; you must first assign a different version as the default.
+ *             If the default version is the only version for the launch template, you must delete the
+ *             entire launch template using <a>DeleteLaunchTemplate</a>.</p>
+ */
 export class DeleteLaunchTemplateVersionsCommand extends $Command<
   DeleteLaunchTemplateVersionsCommandInput,
   DeleteLaunchTemplateVersionsCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

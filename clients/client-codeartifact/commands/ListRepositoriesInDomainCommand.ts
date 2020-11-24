@@ -20,6 +20,16 @@ import {
 export type ListRepositoriesInDomainCommandInput = ListRepositoriesInDomainRequest;
 export type ListRepositoriesInDomainCommandOutput = ListRepositoriesInDomainResult & __MetadataBearer;
 
+/**
+ * <p>
+ *        Returns a list of
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
+ *                <code>RepositorySummary</code>
+ *             </a>
+ *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified domain and that matches the input
+ *        parameters.
+ *      </p>
+ */
 export class ListRepositoriesInDomainCommand extends $Command<
   ListRepositoriesInDomainCommandInput,
   ListRepositoriesInDomainCommandOutput,
@@ -34,6 +44,9 @@ export class ListRepositoriesInDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

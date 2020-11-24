@@ -20,6 +20,12 @@ import {
 export type DeleteNamedQueryCommandInput = DeleteNamedQueryInput;
 export type DeleteNamedQueryCommandOutput = DeleteNamedQueryOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the named query if you have access to the workgroup in which the query was
+ *             saved.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ */
 export class DeleteNamedQueryCommand extends $Command<
   DeleteNamedQueryCommandInput,
   DeleteNamedQueryCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteNamedQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DescribeConnectionAliasesCommandInput = DescribeConnectionAliasesRequest;
 export type DescribeConnectionAliasesCommandOutput = DescribeConnectionAliasesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+ *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ */
 export class DescribeConnectionAliasesCommand extends $Command<
   DescribeConnectionAliasesCommandInput,
   DescribeConnectionAliasesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeConnectionAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

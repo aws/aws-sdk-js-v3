@@ -17,6 +17,11 @@ import {
 export type DeleteHsmCommandInput = DeleteHsmRequest;
 export type DeleteHsmCommandOutput = DeleteHsmResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP
+ *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
+ *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
+ */
 export class DeleteHsmCommand extends $Command<
   DeleteHsmCommandInput,
   DeleteHsmCommandOutput,
@@ -31,6 +36,9 @@ export class DeleteHsmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

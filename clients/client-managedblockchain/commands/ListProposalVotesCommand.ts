@@ -24,6 +24,9 @@ import {
 export type ListProposalVotesCommandInput = ListProposalVotesInput;
 export type ListProposalVotesCommandOutput = ListProposalVotesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
+ */
 export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandInput,
   ListProposalVotesCommandOutput,
@@ -38,6 +41,9 @@ export class ListProposalVotesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

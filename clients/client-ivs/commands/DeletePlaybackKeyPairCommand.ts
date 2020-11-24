@@ -20,6 +20,10 @@ import {
 export type DeletePlaybackKeyPairCommandInput = DeletePlaybackKeyPairRequest;
 export type DeletePlaybackKeyPairCommandOutput = DeletePlaybackKeyPairResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
+ *       generated using the key pair’s <code>privateKey</code>.</p>
+ */
 export class DeletePlaybackKeyPairCommand extends $Command<
   DeletePlaybackKeyPairCommandInput,
   DeletePlaybackKeyPairCommandOutput,
@@ -34,6 +38,9 @@ export class DeletePlaybackKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

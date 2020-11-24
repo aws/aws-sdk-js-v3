@@ -20,6 +20,15 @@ import {
 export type DescribeTableCommandInput = DescribeTableInput;
 export type DescribeTableCommandOutput = DescribeTableOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>
+ *          <note>
+ *             <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might
+ *         return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually
+ *         consistent query, and the metadata for your table might not be available at that moment.
+ *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
+ *          </note>
+ */
 export class DescribeTableCommand extends $Command<
   DescribeTableCommandInput,
   DescribeTableCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

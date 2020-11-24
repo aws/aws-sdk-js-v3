@@ -20,6 +20,9 @@ import {
 export type DeleteDynamicThingGroupCommandInput = DeleteDynamicThingGroupRequest;
 export type DeleteDynamicThingGroupCommandOutput = DeleteDynamicThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a dynamic thing group.</p>
+ */
 export class DeleteDynamicThingGroupCommand extends $Command<
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

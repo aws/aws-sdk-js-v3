@@ -20,6 +20,9 @@ import {
 export type DeletePushTemplateCommandInput = DeletePushTemplateRequest;
 export type DeletePushTemplateCommandOutput = DeletePushTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
+ */
 export class DeletePushTemplateCommand extends $Command<
   DeletePushTemplateCommandInput,
   DeletePushTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePushTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

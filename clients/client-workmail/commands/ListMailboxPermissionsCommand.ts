@@ -20,6 +20,10 @@ import {
 export type ListMailboxPermissionsCommandInput = ListMailboxPermissionsRequest;
 export type ListMailboxPermissionsCommandOutput = ListMailboxPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the mailbox permissions associated with a user, group, or resource
+ *          mailbox.</p>
+ */
 export class ListMailboxPermissionsCommand extends $Command<
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListMailboxPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

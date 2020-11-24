@@ -20,6 +20,9 @@ import {
 export type DeleteRoomSkillParameterCommandInput = DeleteRoomSkillParameterRequest;
 export type DeleteRoomSkillParameterCommandOutput = DeleteRoomSkillParameterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
+ */
 export class DeleteRoomSkillParameterCommand extends $Command<
   DeleteRoomSkillParameterCommandInput,
   DeleteRoomSkillParameterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

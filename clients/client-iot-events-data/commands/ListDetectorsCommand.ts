@@ -20,6 +20,9 @@ import {
 export type ListDetectorsCommandInput = ListDetectorsRequest;
 export type ListDetectorsCommandOutput = ListDetectorsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists detectors (the instances of a detector model).</p>
+ */
 export class ListDetectorsCommand extends $Command<
   ListDetectorsCommandInput,
   ListDetectorsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDetectorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsDataClientResolvedConfig,

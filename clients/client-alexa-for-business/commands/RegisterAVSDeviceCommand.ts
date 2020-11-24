@@ -20,6 +20,10 @@ import {
 export type RegisterAVSDeviceCommandInput = RegisterAVSDeviceRequest;
 export type RegisterAVSDeviceCommandOutput = RegisterAVSDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
+ *          using Alexa Voice Service (AVS).</p>
+ */
 export class RegisterAVSDeviceCommand extends $Command<
   RegisterAVSDeviceCommandInput,
   RegisterAVSDeviceCommandOutput,
@@ -34,6 +38,9 @@ export class RegisterAVSDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

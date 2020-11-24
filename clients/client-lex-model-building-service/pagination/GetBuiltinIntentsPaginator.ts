@@ -8,6 +8,9 @@ import {
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: LexModelBuildingServiceClient,
   input: GetBuiltinIntentsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetBuiltinIntentsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: LexModelBuildingService,
   input: GetBuiltinIntentsCommandInput,

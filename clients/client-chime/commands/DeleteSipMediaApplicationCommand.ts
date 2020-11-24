@@ -20,6 +20,9 @@ import {
 export type DeleteSipMediaApplicationCommandInput = DeleteSipMediaApplicationRequest;
 export type DeleteSipMediaApplicationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a SIP media application.</p>
+ */
 export class DeleteSipMediaApplicationCommand extends $Command<
   DeleteSipMediaApplicationCommandInput,
   DeleteSipMediaApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

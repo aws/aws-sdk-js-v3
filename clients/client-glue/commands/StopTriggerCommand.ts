@@ -20,6 +20,9 @@ import {
 export type StopTriggerCommandInput = StopTriggerRequest;
 export type StopTriggerCommandOutput = StopTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a specified trigger.</p>
+ */
 export class StopTriggerCommand extends $Command<
   StopTriggerCommandInput,
   StopTriggerCommandOutput,
@@ -34,6 +37,9 @@ export class StopTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

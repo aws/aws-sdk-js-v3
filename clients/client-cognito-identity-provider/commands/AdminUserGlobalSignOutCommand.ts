@@ -25,6 +25,12 @@ import {
 export type AdminUserGlobalSignOutCommandInput = AdminUserGlobalSignOutRequest;
 export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse & __MetadataBearer;
 
+/**
+ * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh
+ *             tokens issued to a user. The user's current access and Id tokens remain valid until
+ *             their expiry. Access and Id tokens expire one hour after they are issued.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminUserGlobalSignOutCommand extends $Command<
   AdminUserGlobalSignOutCommandInput,
   AdminUserGlobalSignOutCommandOutput,
@@ -39,6 +45,9 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

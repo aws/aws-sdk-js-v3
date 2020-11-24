@@ -20,6 +20,12 @@ import {
 export type ResyncMFADeviceCommandInput = ResyncMFADeviceRequest;
 export type ResyncMFADeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Synchronizes the specified MFA device with its IAM resource object on the AWS
+ *          servers.</p>
+ *          <p>For more information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA
+ *             Device</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class ResyncMFADeviceCommand extends $Command<
   ResyncMFADeviceCommandInput,
   ResyncMFADeviceCommandOutput,
@@ -34,6 +40,9 @@ export class ResyncMFADeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

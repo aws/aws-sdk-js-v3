@@ -20,6 +20,9 @@ import {
 export type CreateStreamingURLCommandInput = CreateStreamingURLRequest;
 export type CreateStreamingURLCommandOutput = CreateStreamingURLResult & __MetadataBearer;
 
+/**
+ * <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
+ */
 export class CreateStreamingURLCommand extends $Command<
   CreateStreamingURLCommandInput,
   CreateStreamingURLCommandOutput,
@@ -34,6 +37,9 @@ export class CreateStreamingURLCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

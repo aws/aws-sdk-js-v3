@@ -20,6 +20,9 @@ import {
 export type RemoveAttributesCommandInput = RemoveAttributesRequest;
 export type RemoveAttributesCommandOutput = RemoveAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
+ */
 export class RemoveAttributesCommand extends $Command<
   RemoveAttributesCommandInput,
   RemoveAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

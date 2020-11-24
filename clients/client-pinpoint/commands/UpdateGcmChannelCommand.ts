@@ -20,6 +20,9 @@ import {
 export type UpdateGcmChannelCommandInput = UpdateGcmChannelRequest;
 export type UpdateGcmChannelCommandOutput = UpdateGcmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
+ */
 export class UpdateGcmChannelCommand extends $Command<
   UpdateGcmChannelCommandInput,
   UpdateGcmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateGcmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -25,6 +25,9 @@ import {
 export type ListIdentityProvidersCommandInput = ListIdentityProvidersRequest;
 export type ListIdentityProvidersCommandOutput = ListIdentityProvidersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists information about all identity providers for a user pool.</p>
+ */
 export class ListIdentityProvidersCommand extends $Command<
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
@@ -39,6 +42,9 @@ export class ListIdentityProvidersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

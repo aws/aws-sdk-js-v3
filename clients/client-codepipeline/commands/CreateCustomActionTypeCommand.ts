@@ -20,6 +20,10 @@ import {
 export type CreateCustomActionTypeCommandInput = CreateCustomActionTypeInput;
 export type CreateCustomActionTypeCommandOutput = CreateCustomActionTypeOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom action that can be used in all pipelines associated with the
+ *             AWS account. Only used for custom actions.</p>
+ */
 export class CreateCustomActionTypeCommand extends $Command<
   CreateCustomActionTypeCommandInput,
   CreateCustomActionTypeCommandOutput,
@@ -34,6 +38,9 @@ export class CreateCustomActionTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

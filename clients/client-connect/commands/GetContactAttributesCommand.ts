@@ -20,6 +20,9 @@ import {
 export type GetContactAttributesCommandInput = GetContactAttributesRequest;
 export type GetContactAttributesCommandOutput = GetContactAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the contact attributes for the specified contact.</p>
+ */
 export class GetContactAttributesCommand extends $Command<
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class GetContactAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

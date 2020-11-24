@@ -20,6 +20,9 @@ import {
 export type GetGcmChannelCommandInput = GetGcmChannelRequest;
 export type GetGcmChannelCommandOutput = GetGcmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
+ */
 export class GetGcmChannelCommand extends $Command<
   GetGcmChannelCommandInput,
   GetGcmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetGcmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

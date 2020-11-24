@@ -20,6 +20,14 @@ import {
 export type CancelSpotFleetRequestsCommandInput = CancelSpotFleetRequestsRequest;
 export type CancelSpotFleetRequestsCommandOutput = CancelSpotFleetRequestsResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified Spot Fleet requests.</p>
+ *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+ *        You must specify whether the Spot Fleet should also terminate its Spot Instances.
+ *        If you terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code> state.
+ *        Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances
+ *        continue to run until they are interrupted or you terminate them manually.</p>
+ */
 export class CancelSpotFleetRequestsCommand extends $Command<
   CancelSpotFleetRequestsCommandInput,
   CancelSpotFleetRequestsCommandOutput,
@@ -34,6 +42,9 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

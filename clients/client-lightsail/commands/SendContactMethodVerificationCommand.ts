@@ -20,6 +20,21 @@ import {
 export type SendContactMethodVerificationCommandInput = SendContactMethodVerificationRequest;
 export type SendContactMethodVerificationCommandOutput = SendContactMethodVerificationResult & __MetadataBearer;
 
+/**
+ * <p>Sends a verification request to an email contact method to ensure it's owned by the
+ *       requester. SMS contact methods don't need to be verified.</p>
+ *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
+ *       You can add one email address and one mobile phone number contact method in each AWS Region.
+ *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
+ *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *          <p>A verification request is sent to the contact method when you initially create it. Use
+ *       this action to send another verification request if a previous verification request was
+ *       deleted, or has expired.</p>
+ *          <important>
+ *             <p>Notifications are not sent to an email contact method until after it is verified, and
+ *         confirmed as valid.</p>
+ *          </important>
+ */
 export class SendContactMethodVerificationCommand extends $Command<
   SendContactMethodVerificationCommandInput,
   SendContactMethodVerificationCommandOutput,
@@ -34,6 +49,9 @@ export class SendContactMethodVerificationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

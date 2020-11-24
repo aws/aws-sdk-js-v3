@@ -20,6 +20,9 @@ import {
 export type DescribeIndexCommandInput = DescribeIndexRequest;
 export type DescribeIndexCommandOutput = DescribeIndexResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a search index.</p>
+ */
 export class DescribeIndexCommand extends $Command<
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

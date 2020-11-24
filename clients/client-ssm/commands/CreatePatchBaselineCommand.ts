@@ -20,6 +20,13 @@ import {
 export type CreatePatchBaselineCommandInput = CreatePatchBaselineRequest;
 export type CreatePatchBaselineCommandOutput = CreatePatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Creates a patch baseline.</p>
+ *          <note>
+ *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
+ *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
+ *          </note>
+ */
 export class CreatePatchBaselineCommand extends $Command<
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput,
@@ -34,6 +41,9 @@ export class CreatePatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

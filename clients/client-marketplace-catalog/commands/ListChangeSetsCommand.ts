@@ -24,6 +24,15 @@ import {
 export type ListChangeSetsCommandInput = ListChangeSetsRequest;
 export type ListChangeSetsCommandOutput = ListChangeSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the list of change sets owned by the account being used to make the call. You
+ *             can filter this list by providing any combination of <code>entityId</code>,
+ *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
+ *             operation applies a logical AND between the filters.</p>
+ *
+ *         <p>You can describe a change during the 60-day request history retention period for API
+ *             calls.</p>
+ */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput,
@@ -38,6 +47,9 @@ export class ListChangeSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

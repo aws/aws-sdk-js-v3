@@ -20,6 +20,9 @@ import {
 export type UpdateAuthorizerCommandInput = UpdateAuthorizerRequest;
 export type UpdateAuthorizerCommandOutput = UpdateAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an Authorizer.</p>
+ */
 export class UpdateAuthorizerCommand extends $Command<
   UpdateAuthorizerCommandInput,
   UpdateAuthorizerCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

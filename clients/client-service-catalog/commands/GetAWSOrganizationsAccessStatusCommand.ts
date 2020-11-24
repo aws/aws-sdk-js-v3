@@ -20,6 +20,10 @@ import {
 export type GetAWSOrganizationsAccessStatusCommandInput = GetAWSOrganizationsAccessStatusInput;
 export type GetAWSOrganizationsAccessStatusCommandOutput = GetAWSOrganizationsAccessStatusOutput & __MetadataBearer;
 
+/**
+ * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
+ *          called by the management account in the organization or by a delegated admin.</p>
+ */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<
   GetAWSOrganizationsAccessStatusCommandInput,
   GetAWSOrganizationsAccessStatusCommandOutput,
@@ -34,6 +38,9 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

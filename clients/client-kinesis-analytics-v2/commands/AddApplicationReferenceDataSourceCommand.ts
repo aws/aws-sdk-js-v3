@@ -28,6 +28,14 @@ export type AddApplicationReferenceDataSourceCommandInput = AddApplicationRefere
 export type AddApplicationReferenceDataSourceCommandOutput = AddApplicationReferenceDataSourceResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p>
+ *          <p>Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an
+ *       in-application table within your application. In the request, you provide the source (S3
+ *       bucket name and object key name), name of the in-application table to create, and the
+ *       necessary mapping information that describes how data in an Amazon S3 object maps to columns
+ *       in the resulting in-application table.</p>
+ */
 export class AddApplicationReferenceDataSourceCommand extends $Command<
   AddApplicationReferenceDataSourceCommandInput,
   AddApplicationReferenceDataSourceCommandOutput,
@@ -42,6 +50,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

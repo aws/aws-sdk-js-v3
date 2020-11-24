@@ -20,6 +20,10 @@ import {
 export type ListBackupVaultsCommandInput = ListBackupVaultsInput;
 export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of recovery point storage containers along with information about
+ *          them.</p>
+ */
 export class ListBackupVaultsCommand extends $Command<
   ListBackupVaultsCommandInput,
   ListBackupVaultsCommandOutput,
@@ -34,6 +38,9 @@ export class ListBackupVaultsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

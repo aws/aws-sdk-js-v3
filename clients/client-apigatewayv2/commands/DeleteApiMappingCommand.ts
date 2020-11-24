@@ -20,6 +20,9 @@ import {
 export type DeleteApiMappingCommandInput = DeleteApiMappingRequest;
 export type DeleteApiMappingCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an API mapping.</p>
+ */
 export class DeleteApiMappingCommand extends $Command<
   DeleteApiMappingCommandInput,
   DeleteApiMappingCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApiMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

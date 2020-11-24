@@ -17,6 +17,10 @@ import {
 export type EnableVolumeIOCommandInput = EnableVolumeIORequest;
 export type EnableVolumeIOCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
+ *       the volume was potentially inconsistent.</p>
+ */
 export class EnableVolumeIOCommand extends $Command<
   EnableVolumeIOCommandInput,
   EnableVolumeIOCommandOutput,
@@ -31,6 +35,9 @@ export class EnableVolumeIOCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

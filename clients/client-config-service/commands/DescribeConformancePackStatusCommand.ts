@@ -20,6 +20,12 @@ import {
 export type DescribeConformancePackStatusCommandInput = DescribeConformancePackStatusRequest;
 export type DescribeConformancePackStatusCommandOutput = DescribeConformancePackStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Provides one or more conformance packs deployment status.</p>
+ * 		       <note>
+ *             <p>If there are no conformance packs then you will see an empty result.</p>
+ *          </note>
+ */
 export class DescribeConformancePackStatusCommand extends $Command<
   DescribeConformancePackStatusCommandInput,
   DescribeConformancePackStatusCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeConformancePackStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

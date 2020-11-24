@@ -20,6 +20,11 @@ import {
 export type ListSubscribedWorkteamsCommandInput = ListSubscribedWorkteamsRequest;
 export type ListSubscribedWorkteamsCommandOutput = ListSubscribedWorkteamsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The
+ *             list may be empty if no work team satisfies the filter specified in the
+ *                 <code>NameContains</code> parameter.</p>
+ */
 export class ListSubscribedWorkteamsCommand extends $Command<
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput,
@@ -34,6 +39,9 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

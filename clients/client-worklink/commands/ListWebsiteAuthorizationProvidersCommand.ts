@@ -24,6 +24,9 @@ export type ListWebsiteAuthorizationProvidersCommandInput = ListWebsiteAuthoriza
 export type ListWebsiteAuthorizationProvidersCommandOutput = ListWebsiteAuthorizationProvidersResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
+ */
 export class ListWebsiteAuthorizationProvidersCommand extends $Command<
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput,
@@ -38,6 +41,9 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

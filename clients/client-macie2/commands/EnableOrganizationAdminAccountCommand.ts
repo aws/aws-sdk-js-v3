@@ -20,6 +20,9 @@ import {
 export type EnableOrganizationAdminAccountCommandInput = EnableOrganizationAdminAccountRequest;
 export type EnableOrganizationAdminAccountCommandOutput = EnableOrganizationAdminAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Designates an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
+ */
 export class EnableOrganizationAdminAccountCommand extends $Command<
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
@@ -34,6 +37,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

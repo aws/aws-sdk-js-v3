@@ -20,6 +20,16 @@ import {
 export type TransferCertificateCommandInput = TransferCertificateRequest;
 export type TransferCertificateCommandOutput = TransferCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Transfers the specified certificate to the specified AWS account.</p>
+ *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
+ *          <p>No notification is sent to the transfer destination's account. It is up to the caller
+ *          to notify the transfer target.</p>
+ *          <p>The certificate being transferred must not be in the ACTIVE state. You can use the
+ *          UpdateCertificate API to deactivate it.</p>
+ *          <p>The certificate must not have any policies attached to it. You can use the
+ *          DetachPrincipalPolicy API to detach them.</p>
+ */
 export class TransferCertificateCommand extends $Command<
   TransferCertificateCommandInput,
   TransferCertificateCommandOutput,
@@ -34,6 +44,9 @@ export class TransferCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

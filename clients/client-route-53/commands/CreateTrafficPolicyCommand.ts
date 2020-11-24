@@ -20,6 +20,10 @@ import {
 export type CreateTrafficPolicyCommandInput = CreateTrafficPolicyRequest;
 export type CreateTrafficPolicyCommandOutput = CreateTrafficPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or
+ * 			one subdomain name (such as www.example.com).</p>
+ */
 export class CreateTrafficPolicyCommand extends $Command<
   CreateTrafficPolicyCommandInput,
   CreateTrafficPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTrafficPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

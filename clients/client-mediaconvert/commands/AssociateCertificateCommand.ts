@@ -20,6 +20,9 @@ import {
 export type AssociateCertificateCommandInput = AssociateCertificateRequest;
 export type AssociateCertificateCommandOutput = AssociateCertificateResponse & __MetadataBearer;
 
+/**
+ * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+ */
 export class AssociateCertificateCommand extends $Command<
   AssociateCertificateCommandInput,
   AssociateCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

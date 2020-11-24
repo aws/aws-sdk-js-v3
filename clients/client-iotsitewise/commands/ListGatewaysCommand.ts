@@ -20,6 +20,9 @@ import {
 export type ListGatewaysCommandInput = ListGatewaysRequest;
 export type ListGatewaysCommandOutput = ListGatewaysResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of gateways.</p>
+ */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
@@ -34,6 +37,9 @@ export class ListGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

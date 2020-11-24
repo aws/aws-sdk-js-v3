@@ -24,6 +24,11 @@ import {
 export type UnsubscribeCommandInput = UnsubscribeRequest;
 export type UnsubscribeCommandOutput = UnsubscribeResult & __MetadataBearer;
 
+/**
+ * <p>Removes an association between a notification rule and an Amazon SNS topic so that
+ *             subscribers to that topic stop receiving notifications when the events described in the
+ *             rule are triggered.</p>
+ */
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,
   UnsubscribeCommandOutput,
@@ -38,6 +43,9 @@ export class UnsubscribeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

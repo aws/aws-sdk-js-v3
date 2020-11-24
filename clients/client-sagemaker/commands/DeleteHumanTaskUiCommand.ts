@@ -20,6 +20,13 @@ import {
 export type DeleteHumanTaskUiCommandInput = DeleteHumanTaskUiRequest;
 export type DeleteHumanTaskUiCommandOutput = DeleteHumanTaskUiResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to delete a human task user interface (worker task template).</p>
+ *          <p>
+ *       To see a list of human task user interfaces
+ *       (work task templates) in your account, use .
+ *       When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
+ */
 export class DeleteHumanTaskUiCommand extends $Command<
   DeleteHumanTaskUiCommandInput,
   DeleteHumanTaskUiCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteHumanTaskUiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

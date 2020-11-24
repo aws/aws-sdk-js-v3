@@ -20,6 +20,9 @@ import {
 export type DeleteConditionalForwarderCommandInput = DeleteConditionalForwarderRequest;
 export type DeleteConditionalForwarderCommandOutput = DeleteConditionalForwarderResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>
+ */
 export class DeleteConditionalForwarderCommand extends $Command<
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteConditionalForwarderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

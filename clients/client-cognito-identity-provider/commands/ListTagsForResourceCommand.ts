@@ -25,6 +25,12 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
+ *         <p>A tag is a label that you can apply to user pools to categorize and manage them in
+ *             different ways, such as by purpose, owner, environment, or other criteria.</p>
+ *         <p>You can use this action up to 10 times per second, per account.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -39,6 +45,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

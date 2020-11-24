@@ -20,6 +20,9 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointRequest;
 export type DeleteEndpointCommandOutput = DeleteEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an endpoint from an application.</p>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

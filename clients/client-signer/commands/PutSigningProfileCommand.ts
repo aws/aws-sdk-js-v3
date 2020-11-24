@@ -20,6 +20,11 @@ import {
 export type PutSigningProfileCommandInput = PutSigningProfileRequest;
 export type PutSigningProfileCommandOutput = PutSigningProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
+ * 			carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
+ *          </p>
+ */
 export class PutSigningProfileCommand extends $Command<
   PutSigningProfileCommandInput,
   PutSigningProfileCommandOutput,
@@ -34,6 +39,9 @@ export class PutSigningProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,

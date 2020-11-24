@@ -17,6 +17,9 @@ import {
 export type GetRoomCommandInput = GetRoomRequest;
 export type GetRoomCommandOutput = GetRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Gets room details by room ARN.</p>
+ */
 export class GetRoomCommand extends $Command<
   GetRoomCommandInput,
   GetRoomCommandOutput,
@@ -31,6 +34,9 @@ export class GetRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

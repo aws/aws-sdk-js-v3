@@ -20,6 +20,11 @@ import {
 export type GetCanaryCommandInput = GetCanaryRequest;
 export type GetCanaryCommandOutput = GetCanaryResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves complete information about one canary. You must specify
+ *       the name of the canary that you want. To get a list of canaries
+ *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+ */
 export class GetCanaryCommand extends $Command<
   GetCanaryCommandInput,
   GetCanaryCommandOutput,
@@ -34,6 +39,9 @@ export class GetCanaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

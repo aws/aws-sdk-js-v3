@@ -20,6 +20,9 @@ import {
 export type ListCustomDataIdentifiersCommandInput = ListCustomDataIdentifiersRequest;
 export type ListCustomDataIdentifiersCommandOutput = ListCustomDataIdentifiersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>
+ */
 export class ListCustomDataIdentifiersCommand extends $Command<
   ListCustomDataIdentifiersCommandInput,
   ListCustomDataIdentifiersCommandOutput,
@@ -34,6 +37,9 @@ export class ListCustomDataIdentifiersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type CreateSamplingRuleCommandInput = CreateSamplingRuleRequest;
 export type CreateSamplingRuleCommandOutput = CreateSamplingRuleResult & __MetadataBearer;
 
+/**
+ * <p>Creates a rule to control sampling behavior for instrumented applications. Services
+ *          retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending
+ *          order of <i>priority</i> for each request. If a rule matches, the service
+ *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
+ *          reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of
+ *          each in-use rule. The updated rule contains a trace quota that the service can use instead
+ *          of borrowing from the reservoir.</p>
+ */
 export class CreateSamplingRuleCommand extends $Command<
   CreateSamplingRuleCommandInput,
   CreateSamplingRuleCommandOutput,
@@ -34,6 +43,9 @@ export class CreateSamplingRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

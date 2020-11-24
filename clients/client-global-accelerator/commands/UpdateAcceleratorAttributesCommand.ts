@@ -24,6 +24,10 @@ import {
 export type UpdateAcceleratorAttributesCommandInput = UpdateAcceleratorAttributesRequest;
 export type UpdateAcceleratorAttributesCommandOutput = UpdateAcceleratorAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,
+ * 			scroll down to <b>Example</b>.</p>
+ */
 export class UpdateAcceleratorAttributesCommand extends $Command<
   UpdateAcceleratorAttributesCommandInput,
   UpdateAcceleratorAttributesCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateAcceleratorAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

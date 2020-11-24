@@ -20,6 +20,14 @@ import {
 export type GetOutcomesCommandInput = GetOutcomesRequest;
 export type GetOutcomesCommandOutput = GetOutcomesResult & __MetadataBearer;
 
+/**
+ * <p>Gets one or more outcomes. This is a paginated
+ *          API. If you provide a null <code>maxResults</code>, this actions retrieves a maximum of
+ *          100 records per page. If you provide a <code>maxResults</code>, the value must be
+ *          between 50 and 100. To get the next page results, provide the pagination token from the
+ *         <code>GetOutcomesResult</code> as part of your request. A null pagination token
+ *          fetches the records from the beginning. </p>
+ */
 export class GetOutcomesCommand extends $Command<
   GetOutcomesCommandInput,
   GetOutcomesCommandOutput,
@@ -34,6 +42,9 @@ export class GetOutcomesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type GetLoginProfileCommandInput = GetLoginProfileRequest;
 export type GetLoginProfileCommandOutput = GetLoginProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the user name and password-creation date for the specified IAM user. If the
+ *          user has not been assigned a password, the operation returns a 404
+ *             (<code>NoSuchEntity</code>) error.</p>
+ */
 export class GetLoginProfileCommand extends $Command<
   GetLoginProfileCommandInput,
   GetLoginProfileCommandOutput,
@@ -34,6 +39,9 @@ export class GetLoginProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -28,6 +28,9 @@ export type AssociateConfigurationItemsToApplicationCommandInput = AssociateConf
 export type AssociateConfigurationItemsToApplicationCommandOutput = AssociateConfigurationItemsToApplicationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Associates one or more configuration items with an application.</p>
+ */
 export class AssociateConfigurationItemsToApplicationCommand extends $Command<
   AssociateConfigurationItemsToApplicationCommandInput,
   AssociateConfigurationItemsToApplicationCommandOutput,
@@ -42,6 +45,9 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

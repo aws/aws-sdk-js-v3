@@ -20,6 +20,9 @@ import {
 export type DeleteFolderContentsCommandInput = DeleteFolderContentsRequest;
 export type DeleteFolderContentsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the contents of the specified folder.</p>
+ */
 export class DeleteFolderContentsCommand extends $Command<
   DeleteFolderContentsCommandInput,
   DeleteFolderContentsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFolderContentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

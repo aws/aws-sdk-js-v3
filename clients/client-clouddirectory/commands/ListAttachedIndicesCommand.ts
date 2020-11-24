@@ -20,6 +20,9 @@ import {
 export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
 export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists indices attached to the specified object.</p>
+ */
 export class ListAttachedIndicesCommand extends $Command<
   ListAttachedIndicesCommandInput,
   ListAttachedIndicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAttachedIndicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

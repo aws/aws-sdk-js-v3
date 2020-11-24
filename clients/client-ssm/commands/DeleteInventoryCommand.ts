@@ -20,6 +20,10 @@ import {
 export type DeleteInventoryCommandInput = DeleteInventoryRequest;
 export type DeleteInventoryCommandOutput = DeleteInventoryResult & __MetadataBearer;
 
+/**
+ * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
+ *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
+ */
 export class DeleteInventoryCommand extends $Command<
   DeleteInventoryCommandInput,
   DeleteInventoryCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteInventoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

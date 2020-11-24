@@ -20,6 +20,13 @@ import {
 export type UpdateHITReviewStatusCommandInput = UpdateHITReviewStatusRequest;
 export type UpdateHITReviewStatusCommandOutput = UpdateHITReviewStatusResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>UpdateHITReviewStatus</code> operation updates the status of a HIT.
+ *             If the status is Reviewable, this operation can update the status to Reviewing,
+ *             or it can revert a Reviewing HIT back to the Reviewable status.
+ *         </p>
+ */
 export class UpdateHITReviewStatusCommand extends $Command<
   UpdateHITReviewStatusCommandInput,
   UpdateHITReviewStatusCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateHITReviewStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

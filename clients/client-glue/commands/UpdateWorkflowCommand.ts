@@ -20,6 +20,9 @@ import {
 export type UpdateWorkflowCommandInput = UpdateWorkflowRequest;
 export type UpdateWorkflowCommandOutput = UpdateWorkflowResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing workflow.</p>
+ */
 export class UpdateWorkflowCommand extends $Command<
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateWorkflowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

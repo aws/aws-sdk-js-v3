@@ -20,6 +20,9 @@ import {
 export type DeleteClusterSubnetGroupCommandInput = DeleteClusterSubnetGroupMessage;
 export type DeleteClusterSubnetGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified cluster subnet group.</p>
+ */
 export class DeleteClusterSubnetGroupCommand extends $Command<
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

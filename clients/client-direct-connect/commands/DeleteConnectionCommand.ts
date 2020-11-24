@@ -20,6 +20,12 @@ import {
 export type DeleteConnectionCommandInput = DeleteConnectionRequest;
 export type DeleteConnectionCommandOutput = Connection & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified connection.</p>
+ *          <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges.
+ *       If you are partnering with any third parties to connect with the AWS Direct Connect location,
+ *       you must cancel your service with them separately.</p>
+ */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
   DeleteConnectionCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

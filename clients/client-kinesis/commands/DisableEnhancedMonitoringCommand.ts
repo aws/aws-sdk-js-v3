@@ -20,6 +20,9 @@ import {
 export type DisableEnhancedMonitoringCommandInput = DisableEnhancedMonitoringInput;
 export type DisableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput & __MetadataBearer;
 
+/**
+ * <p>Disables enhanced monitoring.</p>
+ */
 export class DisableEnhancedMonitoringCommand extends $Command<
   DisableEnhancedMonitoringCommandInput,
   DisableEnhancedMonitoringCommandOutput,
@@ -34,6 +37,9 @@ export class DisableEnhancedMonitoringCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

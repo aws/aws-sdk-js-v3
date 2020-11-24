@@ -20,6 +20,9 @@ import {
 export type StartBuildCommandInput = StartBuildInput;
 export type StartBuildCommandOutput = StartBuildOutput & __MetadataBearer;
 
+/**
+ * <p>Starts running a build.</p>
+ */
 export class StartBuildCommand extends $Command<
   StartBuildCommandInput,
   StartBuildCommandOutput,
@@ -34,6 +37,9 @@ export class StartBuildCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

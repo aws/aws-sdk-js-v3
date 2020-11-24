@@ -28,6 +28,13 @@ export type SetLoadBalancerListenerSSLCertificateCommandInput = SetLoadBalancerL
 export type SetLoadBalancerListenerSSLCertificateCommandOutput = SetLoadBalancerListenerSSLCertificateOutput &
   __MetadataBearer;
 
+/**
+ * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>
+ *
+ *         <p>For more information about updating your SSL certificate, see
+ *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace the SSL Certificate for Your Load Balancer</a>
+ *                 in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
   SetLoadBalancerListenerSSLCertificateCommandInput,
   SetLoadBalancerListenerSSLCertificateCommandOutput,
@@ -42,6 +49,9 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

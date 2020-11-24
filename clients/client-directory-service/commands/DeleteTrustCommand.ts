@@ -20,6 +20,9 @@ import {
 export type DeleteTrustCommandInput = DeleteTrustRequest;
 export type DeleteTrustCommandOutput = DeleteTrustResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
+ */
 export class DeleteTrustCommand extends $Command<
   DeleteTrustCommandInput,
   DeleteTrustCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTrustCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

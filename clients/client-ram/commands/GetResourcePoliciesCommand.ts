@@ -20,6 +20,9 @@ import {
 export type GetResourcePoliciesCommandInput = GetResourcePoliciesRequest;
 export type GetResourcePoliciesCommandOutput = GetResourcePoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the policies for the specified resources that you own and have shared.</p>
+ */
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourcePoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

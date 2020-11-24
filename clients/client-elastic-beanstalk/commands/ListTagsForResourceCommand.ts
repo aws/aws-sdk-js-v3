@@ -20,6 +20,12 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceMessage;
 export type ListTagsForResourceCommandOutput = ResourceTagsDescriptionMessage & __MetadataBearer;
 
+/**
+ * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
+ *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
+ *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
+ *         Resources</a>.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +40,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

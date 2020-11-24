@@ -20,6 +20,14 @@ import {
 export type DeleteAliasCommandInput = DeleteAliasRequest;
 export type DeleteAliasCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account. </p>
+ *          <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a
+ *       CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a> operation. </p>
+ *          <p>Each CMK can have multiple aliases. To change the alias of a CMK, use <a>DeleteAlias</a> to delete the current alias and <a>CreateAlias</a> to
+ *       create a new alias. To associate an existing alias with a different customer master key (CMK),
+ *       call <a>UpdateAlias</a>.</p>
+ */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,
   DeleteAliasCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

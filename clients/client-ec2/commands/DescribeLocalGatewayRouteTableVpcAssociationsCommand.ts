@@ -24,6 +24,9 @@ export type DescribeLocalGatewayRouteTableVpcAssociationsCommandInput = Describe
 export type DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput = DescribeLocalGatewayRouteTableVpcAssociationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
+ */
 export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Command<
   DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
   DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

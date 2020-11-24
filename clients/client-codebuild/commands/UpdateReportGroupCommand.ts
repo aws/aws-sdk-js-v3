@@ -20,6 +20,11 @@ import {
 export type UpdateReportGroupCommandInput = UpdateReportGroupInput;
 export type UpdateReportGroupCommandOutput = UpdateReportGroupOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Updates a report group.
+ *     </p>
+ */
 export class UpdateReportGroupCommand extends $Command<
   UpdateReportGroupCommandInput,
   UpdateReportGroupCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateReportGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

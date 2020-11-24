@@ -20,6 +20,16 @@ import {
 export type GetThirdPartyJobDetailsCommandInput = GetThirdPartyJobDetailsInput;
 export type GetThirdPartyJobDetailsCommandOutput = GetThirdPartyJobDetailsOutput & __MetadataBearer;
 
+/**
+ * <p>Requests the details of a job for a third party action. Used for partner actions
+ *             only.</p>
+ *         <important>
+ *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
+ *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+ *                 that S3 bucket for input or output artifacts. This API also returns any secret
+ *                 values defined for the action.</p>
+ *         </important>
+ */
 export class GetThirdPartyJobDetailsCommand extends $Command<
   GetThirdPartyJobDetailsCommandInput,
   GetThirdPartyJobDetailsCommandOutput,
@@ -34,6 +44,9 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

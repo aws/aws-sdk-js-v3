@@ -20,6 +20,9 @@ import {
 export type CopyDBClusterParameterGroupCommandInput = CopyDBClusterParameterGroupMessage;
 export type CopyDBClusterParameterGroupCommandOutput = CopyDBClusterParameterGroupResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified cluster parameter group.</p>
+ */
 export class CopyDBClusterParameterGroupCommand extends $Command<
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

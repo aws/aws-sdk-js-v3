@@ -20,6 +20,9 @@ import {
 export type DeleteJobExecutionCommandInput = DeleteJobExecutionRequest;
 export type DeleteJobExecutionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a job execution.</p>
+ */
 export class DeleteJobExecutionCommand extends $Command<
   DeleteJobExecutionCommandInput,
   DeleteJobExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteJobExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

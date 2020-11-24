@@ -24,6 +24,9 @@ export type GetServiceQuotaIncreaseRequestFromTemplateCommandInput = GetServiceQ
 export type GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = GetServiceQuotaIncreaseRequestFromTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the details of the service quota increase request in your template.</p>
+ */
 export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

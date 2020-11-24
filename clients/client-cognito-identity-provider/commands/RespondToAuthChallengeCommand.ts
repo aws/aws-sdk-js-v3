@@ -24,6 +24,9 @@ import {
 export type RespondToAuthChallengeCommandInput = RespondToAuthChallengeRequest;
 export type RespondToAuthChallengeCommandOutput = RespondToAuthChallengeResponse & __MetadataBearer;
 
+/**
+ * <p>Responds to the authentication challenge.</p>
+ */
 export class RespondToAuthChallengeCommand extends $Command<
   RespondToAuthChallengeCommandInput,
   RespondToAuthChallengeCommandOutput,
@@ -38,6 +41,9 @@ export class RespondToAuthChallengeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RegisterDBProxyTargetsCommandInput = RegisterDBProxyTargetsRequest;
 export type RegisterDBProxyTargetsCommandOutput = RegisterDBProxyTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
+ */
 export class RegisterDBProxyTargetsCommand extends $Command<
   RegisterDBProxyTargetsCommandInput,
   RegisterDBProxyTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

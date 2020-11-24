@@ -20,6 +20,11 @@ import {
 export type CreateCodeReviewCommandInput = CreateCodeReviewRequest;
 export type CreateCodeReviewCommandOutput = CreateCodeReviewResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Use to create a code review for a repository analysis.
+ *       </p>
+ */
 export class CreateCodeReviewCommand extends $Command<
   CreateCodeReviewCommandInput,
   CreateCodeReviewCommandOutput,
@@ -34,6 +39,9 @@ export class CreateCodeReviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

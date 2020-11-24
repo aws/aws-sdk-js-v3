@@ -20,6 +20,12 @@ import {
 export type StartMonitoringScheduleCommandInput = StartMonitoringScheduleRequest;
 export type StartMonitoringScheduleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Starts a previously stopped monitoring schedule.</p>
+ *          <note>
+ *             <p>New monitoring schedules are immediately started after creation.</p>
+ *          </note>
+ */
 export class StartMonitoringScheduleCommand extends $Command<
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
@@ -34,6 +40,9 @@ export class StartMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

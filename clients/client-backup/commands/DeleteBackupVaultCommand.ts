@@ -20,6 +20,10 @@ import {
 export type DeleteBackupVaultCommandInput = DeleteBackupVaultInput;
 export type DeleteBackupVaultCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
+ *          empty.</p>
+ */
 export class DeleteBackupVaultCommand extends $Command<
   DeleteBackupVaultCommandInput,
   DeleteBackupVaultCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteBackupVaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

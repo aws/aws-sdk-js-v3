@@ -20,6 +20,9 @@ import {
 export type UpdateRouteCommandInput = UpdateRouteInput;
 export type UpdateRouteCommandOutput = UpdateRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing route for a specified service mesh and virtual router.</p>
+ */
 export class UpdateRouteCommand extends $Command<
   UpdateRouteCommandInput,
   UpdateRouteCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

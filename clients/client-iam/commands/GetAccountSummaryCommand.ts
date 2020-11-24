@@ -20,6 +20,11 @@ import {
 export type GetAccountSummaryCommandInput = {};
 export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
+ *          account.</p>
+ *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class GetAccountSummaryCommand extends $Command<
   GetAccountSummaryCommandInput,
   GetAccountSummaryCommandOutput,
@@ -34,6 +39,9 @@ export class GetAccountSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

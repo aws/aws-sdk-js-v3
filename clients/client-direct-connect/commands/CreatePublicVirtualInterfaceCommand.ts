@@ -20,6 +20,12 @@ import {
 export type CreatePublicVirtualInterfaceCommandInput = CreatePublicVirtualInterfaceRequest;
 export type CreatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
+/**
+ * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic.
+ *       A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.</p>
+ *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
+ *       and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>
+ */
 export class CreatePublicVirtualInterfaceCommand extends $Command<
   CreatePublicVirtualInterfaceCommandInput,
   CreatePublicVirtualInterfaceCommandOutput,
@@ -34,6 +40,9 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

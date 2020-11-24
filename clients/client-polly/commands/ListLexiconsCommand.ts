@@ -20,6 +20,11 @@ import {
 export type ListLexiconsCommandInput = ListLexiconsInput;
 export type ListLexiconsCommandOutput = ListLexiconsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information,
+ *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
+ *         Lexicons</a>.</p>
+ */
 export class ListLexiconsCommand extends $Command<
   ListLexiconsCommandInput,
   ListLexiconsCommandOutput,
@@ -34,6 +39,9 @@ export class ListLexiconsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,

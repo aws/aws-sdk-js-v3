@@ -20,6 +20,9 @@ import {
 export type CreateTransitGatewayRouteTableCommandInput = CreateTransitGatewayRouteTableRequest;
 export type CreateTransitGatewayRouteTableCommandOutput = CreateTransitGatewayRouteTableResult & __MetadataBearer;
 
+/**
+ * <p>Creates a route table for the specified transit gateway.</p>
+ */
 export class CreateTransitGatewayRouteTableCommand extends $Command<
   CreateTransitGatewayRouteTableCommandInput,
   CreateTransitGatewayRouteTableCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTransitGatewayRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

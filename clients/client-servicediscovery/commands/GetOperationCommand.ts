@@ -20,6 +20,13 @@ import {
 export type GetOperationCommandInput = GetOperationRequest;
 export type GetOperationCommandOutput = GetOperationResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about any operation that returns an operation ID in the response, such as a
+ *     <code>CreateService</code> request.</p>
+ *          <note>
+ *             <p>To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.</p>
+ *          </note>
+ */
 export class GetOperationCommand extends $Command<
   GetOperationCommandInput,
   GetOperationCommandOutput,
@@ -34,6 +41,9 @@ export class GetOperationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

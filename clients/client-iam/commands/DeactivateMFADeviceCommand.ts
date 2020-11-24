@@ -20,6 +20,13 @@ import {
 export type DeactivateMFADeviceCommandInput = DeactivateMFADeviceRequest;
 export type DeactivateMFADeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deactivates the specified MFA device and removes it from association with the user name
+ *          for which it was originally enabled.</p>
+ *          <p>For more information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a Virtual
+ *             Multi-factor Authentication (MFA) Device</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ */
 export class DeactivateMFADeviceCommand extends $Command<
   DeactivateMFADeviceCommandInput,
   DeactivateMFADeviceCommandOutput,
@@ -34,6 +41,9 @@ export class DeactivateMFADeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

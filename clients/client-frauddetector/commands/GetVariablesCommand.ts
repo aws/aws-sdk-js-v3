@@ -20,6 +20,14 @@ import {
 export type GetVariablesCommandInput = GetVariablesRequest;
 export type GetVariablesCommandOutput = GetVariablesResult & __MetadataBearer;
 
+/**
+ * <p>Gets all of the variables or the specific variable. This is a
+ *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
+ *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
+ *          50 and 100. To get the next page result, a provide a pagination token from
+ *         <code>GetVariablesResult</code> as part of your request. Null pagination token
+ *          fetches the records from the beginning. </p>
+ */
 export class GetVariablesCommand extends $Command<
   GetVariablesCommandInput,
   GetVariablesCommandOutput,
@@ -34,6 +42,9 @@ export class GetVariablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

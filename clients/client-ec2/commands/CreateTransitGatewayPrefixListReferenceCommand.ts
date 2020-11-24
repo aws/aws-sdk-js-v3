@@ -24,6 +24,9 @@ export type CreateTransitGatewayPrefixListReferenceCommandInput = CreateTransitG
 export type CreateTransitGatewayPrefixListReferenceCommandOutput = CreateTransitGatewayPrefixListReferenceResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
+ */
 export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
   CreateTransitGatewayPrefixListReferenceCommandInput,
   CreateTransitGatewayPrefixListReferenceCommandOutput,
@@ -38,6 +41,9 @@ export class CreateTransitGatewayPrefixListReferenceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

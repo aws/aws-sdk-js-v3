@@ -20,6 +20,10 @@ import {
 export type CreateProfileJobCommandInput = CreateProfileJobRequest;
 export type CreateProfileJobCommandOutput = CreateProfileJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new job to profile an AWS Glue DataBrew dataset that exists in the current AWS
+ *             account.</p>
+ */
 export class CreateProfileJobCommand extends $Command<
   CreateProfileJobCommandInput,
   CreateProfileJobCommandOutput,
@@ -34,6 +38,9 @@ export class CreateProfileJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

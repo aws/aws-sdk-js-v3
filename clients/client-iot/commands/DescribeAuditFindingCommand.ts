@@ -20,6 +20,9 @@ import {
 export type DescribeAuditFindingCommandInput = DescribeAuditFindingRequest;
 export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+ */
 export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandInput,
   DescribeAuditFindingCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAuditFindingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

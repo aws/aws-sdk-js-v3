@@ -20,6 +20,12 @@ import {
 export type GetComplianceDetailsByConfigRuleCommandInput = GetComplianceDetailsByConfigRuleRequest;
 export type GetComplianceDetailsByConfigRuleCommandOutput = GetComplianceDetailsByConfigRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the evaluation results for the specified AWS Config
+ * 			rule. The results indicate which AWS resources were evaluated by the
+ * 			rule, when each resource was last evaluated, and whether each
+ * 			resource complies with the rule.</p>
+ */
 export class GetComplianceDetailsByConfigRuleCommand extends $Command<
   GetComplianceDetailsByConfigRuleCommandInput,
   GetComplianceDetailsByConfigRuleCommandOutput,
@@ -34,6 +40,9 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

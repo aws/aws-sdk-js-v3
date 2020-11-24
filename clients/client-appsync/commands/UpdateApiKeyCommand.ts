@@ -20,6 +20,9 @@ import {
 export type UpdateApiKeyCommandInput = UpdateApiKeyRequest;
 export type UpdateApiKeyCommandOutput = UpdateApiKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an API key. The key can be updated while it is not deleted.</p>
+ */
 export class UpdateApiKeyCommand extends $Command<
   UpdateApiKeyCommandInput,
   UpdateApiKeyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

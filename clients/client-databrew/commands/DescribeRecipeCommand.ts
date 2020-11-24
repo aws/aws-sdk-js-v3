@@ -20,6 +20,10 @@ import {
 export type DescribeRecipeCommandInput = DescribeRecipeRequest;
 export type DescribeRecipeCommandOutput = DescribeRecipeResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the definition of a specific AWS Glue DataBrew recipe that is in the current
+ *             AWS account.</p>
+ */
 export class DescribeRecipeCommand extends $Command<
   DescribeRecipeCommandInput,
   DescribeRecipeCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeRecipeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

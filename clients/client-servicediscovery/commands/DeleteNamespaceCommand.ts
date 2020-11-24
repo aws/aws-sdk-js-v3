@@ -20,6 +20,10 @@ import {
 export type DeleteNamespaceCommandInput = DeleteNamespaceRequest;
 export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request
+ *    fails.</p>
+ */
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,
   DeleteNamespaceCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

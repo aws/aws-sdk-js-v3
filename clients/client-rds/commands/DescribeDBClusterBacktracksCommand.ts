@@ -20,6 +20,16 @@ import {
 export type DescribeDBClusterBacktracksCommandInput = DescribeDBClusterBacktracksMessage;
 export type DescribeDBClusterBacktracksCommandOutput = DBClusterBacktrackMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about backtracks for a DB cluster.</p>
+ *         <p>For more information on Amazon Aurora, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *         </p>
+ *         <note>
+ *             <p>This action only applies to Aurora MySQL DB clusters.</p>
+ *         </note>
+ */
 export class DescribeDBClusterBacktracksCommand extends $Command<
   DescribeDBClusterBacktracksCommandInput,
   DescribeDBClusterBacktracksCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

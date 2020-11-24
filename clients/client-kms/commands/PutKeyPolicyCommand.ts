@@ -20,6 +20,11 @@ import {
 export type PutKeyPolicyCommandInput = PutKeyPolicyRequest;
 export type PutKeyPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Attaches a key policy to the specified customer master key (CMK).
+ *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class PutKeyPolicyCommand extends $Command<
   PutKeyPolicyCommandInput,
   PutKeyPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutKeyPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type GetApplicationPolicyCommandInput = GetApplicationPolicyRequest;
 export type GetApplicationPolicyCommandOutput = GetApplicationPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the policy for the application.</p>
+ */
 export class GetApplicationPolicyCommand extends $Command<
   GetApplicationPolicyCommandInput,
   GetApplicationPolicyCommandOutput,
@@ -38,6 +41,9 @@ export class GetApplicationPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

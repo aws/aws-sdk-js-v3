@@ -20,6 +20,31 @@ import {
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
 export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.</p>
+ * 	        <p>Rule groups are subject to the following limits:</p>
+ * 	        <ul>
+ *             <li>
+ *                <p>Three rule groups per account. You can request an increase to this limit by contacting customer support.</p>
+ *             </li>
+ *             <li>
+ *                <p>One rule group per web ACL.</p>
+ *             </li>
+ *             <li>
+ *                <p>Ten rules per rule group.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
+ *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ */
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
   CreateRuleGroupCommandOutput,
@@ -34,6 +59,9 @@ export class CreateRuleGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,

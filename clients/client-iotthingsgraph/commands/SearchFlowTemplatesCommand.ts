@@ -20,6 +20,9 @@ import {
 export type SearchFlowTemplatesCommandInput = SearchFlowTemplatesRequest;
 export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for summary information about workflows.</p>
+ */
 export class SearchFlowTemplatesCommand extends $Command<
   SearchFlowTemplatesCommandInput,
   SearchFlowTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchFlowTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

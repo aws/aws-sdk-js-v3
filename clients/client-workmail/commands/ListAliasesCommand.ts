@@ -20,6 +20,10 @@ import {
 export type ListAliasesCommandInput = ListAliasesRequest;
 export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a paginated call to list the aliases associated with a given
+ *          entity.</p>
+ */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,
   ListAliasesCommandOutput,
@@ -34,6 +38,9 @@ export class ListAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

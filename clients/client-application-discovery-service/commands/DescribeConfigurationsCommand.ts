@@ -24,6 +24,34 @@ import {
 export type DescribeConfigurationsCommandInput = DescribeConfigurationsRequest;
 export type DescribeConfigurationsCommandOutput = DescribeConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves attributes for a list of configuration item IDs.</p>
+ *
+ *          <note>
+ *             <p>All of the supplied IDs must be for the same asset type from one of the
+ *         following:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>server</p>
+ *                </li>
+ *                <li>
+ *                   <p>application</p>
+ *                </li>
+ *                <li>
+ *                   <p>process</p>
+ *                </li>
+ *                <li>
+ *                   <p>connection</p>
+ *                </li>
+ *             </ul>
+ *
+ *             <p>Output fields are specific to the asset type specified. For example, the output for a
+ *           <i>server</i> configuration item includes a list of attributes about the
+ *         server, such as host name, operating system, number of network cards, etc.</p>
+ *             <p>For a complete list of outputs for each asset type, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a> in the <i>AWS Application
+ *           Discovery Service User Guide</i>.</p>
+ *          </note>
+ */
 export class DescribeConfigurationsCommand extends $Command<
   DescribeConfigurationsCommandInput,
   DescribeConfigurationsCommandOutput,
@@ -38,6 +66,9 @@ export class DescribeConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

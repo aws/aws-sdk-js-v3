@@ -24,6 +24,11 @@ import {
 export type GetBotAliasesCommandInput = GetBotAliasesRequest;
 export type GetBotAliasesCommandOutput = GetBotAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
+ *          <p>This operation requires permissions for the <code>lex:GetBotAliases</code>
+ *       action.</p>
+ */
 export class GetBotAliasesCommand extends $Command<
   GetBotAliasesCommandInput,
   GetBotAliasesCommandOutput,
@@ -38,6 +43,9 @@ export class GetBotAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

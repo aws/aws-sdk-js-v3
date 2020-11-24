@@ -20,6 +20,9 @@ import {
 export type ListDeviceDefinitionVersionsCommandInput = ListDeviceDefinitionVersionsRequest;
 export type ListDeviceDefinitionVersionsCommandOutput = ListDeviceDefinitionVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a device definition.
+ */
 export class ListDeviceDefinitionVersionsCommand extends $Command<
   ListDeviceDefinitionVersionsCommandInput,
   ListDeviceDefinitionVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

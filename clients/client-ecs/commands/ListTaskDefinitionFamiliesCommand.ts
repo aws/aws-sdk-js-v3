@@ -20,6 +20,15 @@ import {
 export type ListTaskDefinitionFamiliesCommandInput = ListTaskDefinitionFamiliesRequest;
 export type ListTaskDefinitionFamiliesCommandOutput = ListTaskDefinitionFamiliesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of task definition families that are registered to your account (which
+ * 			may include task definition families that no longer have any <code>ACTIVE</code> task
+ * 			definition revisions).</p>
+ * 		       <p>You can filter out task definition families that do not contain any
+ * 				<code>ACTIVE</code> task definition revisions by setting the <code>status</code>
+ * 			parameter to <code>ACTIVE</code>. You can also filter the results with the
+ * 				<code>familyPrefix</code> parameter.</p>
+ */
 export class ListTaskDefinitionFamiliesCommand extends $Command<
   ListTaskDefinitionFamiliesCommandInput,
   ListTaskDefinitionFamiliesCommandOutput,
@@ -34,6 +43,9 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

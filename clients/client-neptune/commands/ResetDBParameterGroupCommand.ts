@@ -20,6 +20,15 @@ import {
 export type ResetDBParameterGroupCommandInput = ResetDBParameterGroupMessage;
 export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
+ *       reset specific parameters, provide a list of the following: <code>ParameterName</code> and
+ *       <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
+ *       <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters. When
+ *       resetting the entire group, dynamic parameters are updated immediately and static parameters
+ *       are set to <code>pending-reboot</code> to take effect on the next DB instance restart or
+ *       <code>RebootDBInstance</code> request.</p>
+ */
 export class ResetDBParameterGroupCommand extends $Command<
   ResetDBParameterGroupCommandInput,
   ResetDBParameterGroupCommandOutput,
@@ -34,6 +43,9 @@ export class ResetDBParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

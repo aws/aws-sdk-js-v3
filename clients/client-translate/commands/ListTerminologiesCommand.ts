@@ -20,6 +20,9 @@ import {
 export type ListTerminologiesCommandInput = ListTerminologiesRequest;
 export type ListTerminologiesCommandOutput = ListTerminologiesResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a list of custom terminologies associated with your account.</p>
+ */
 export class ListTerminologiesCommand extends $Command<
   ListTerminologiesCommandInput,
   ListTerminologiesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTerminologiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

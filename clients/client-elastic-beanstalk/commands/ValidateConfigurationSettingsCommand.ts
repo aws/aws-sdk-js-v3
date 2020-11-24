@@ -20,6 +20,12 @@ import {
 export type ValidateConfigurationSettingsCommandInput = ValidateConfigurationSettingsMessage;
 export type ValidateConfigurationSettingsCommandOutput = ConfigurationSettingsValidationMessages & __MetadataBearer;
 
+/**
+ * <p>Takes a set of configuration settings and either a configuration template or
+ *       environment, and determines whether those values are valid.</p>
+ *          <p>This action returns a list of messages indicating any errors or warnings associated
+ *       with the selection of option values.</p>
+ */
 export class ValidateConfigurationSettingsCommand extends $Command<
   ValidateConfigurationSettingsCommandInput,
   ValidateConfigurationSettingsCommandOutput,
@@ -34,6 +40,9 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

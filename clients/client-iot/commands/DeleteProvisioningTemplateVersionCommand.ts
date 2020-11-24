@@ -24,6 +24,9 @@ export type DeleteProvisioningTemplateVersionCommandInput = DeleteProvisioningTe
 export type DeleteProvisioningTemplateVersionCommandOutput = DeleteProvisioningTemplateVersionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Deletes a fleet provisioning template version.</p>
+ */
 export class DeleteProvisioningTemplateVersionCommand extends $Command<
   DeleteProvisioningTemplateVersionCommandInput,
   DeleteProvisioningTemplateVersionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

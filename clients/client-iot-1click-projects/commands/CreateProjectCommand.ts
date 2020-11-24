@@ -24,6 +24,10 @@ import {
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an empty project with a placement template. A project contains zero or more
+ *       placements that adhere to the placement template defined in the project.</p>
+ */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -38,6 +42,9 @@ export class CreateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

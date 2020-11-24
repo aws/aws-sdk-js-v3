@@ -20,6 +20,10 @@ import {
 export type DeleteEventCommandInput = DeleteEventRequest;
 export type DeleteEventCommandOutput = DeleteEventResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified event.</p>
+ * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event from the evaluation history, and the event data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteEventCommand extends $Command<
   DeleteEventCommandInput,
   DeleteEventCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteEventCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

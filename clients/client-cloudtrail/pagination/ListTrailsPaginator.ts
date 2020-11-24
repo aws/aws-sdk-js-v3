@@ -4,6 +4,9 @@ import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } fr
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
   input: ListTrailsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTrailsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CloudTrail,
   input: ListTrailsCommandInput,

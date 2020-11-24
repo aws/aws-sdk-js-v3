@@ -20,6 +20,9 @@ import {
 export type ListSubscriptionDefinitionsCommandInput = ListSubscriptionDefinitionsRequest;
 export type ListSubscriptionDefinitionsCommandOutput = ListSubscriptionDefinitionsResponse & __MetadataBearer;
 
+/**
+ * Retrieves a list of subscription definitions.
+ */
 export class ListSubscriptionDefinitionsCommand extends $Command<
   ListSubscriptionDefinitionsCommandInput,
   ListSubscriptionDefinitionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

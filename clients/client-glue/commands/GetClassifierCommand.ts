@@ -20,6 +20,9 @@ import {
 export type GetClassifierCommandInput = GetClassifierRequest;
 export type GetClassifierCommandOutput = GetClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve a classifier by name.</p>
+ */
 export class GetClassifierCommand extends $Command<
   GetClassifierCommandInput,
   GetClassifierCommandOutput,
@@ -34,6 +37,9 @@ export class GetClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DisableOrganizationAdminAccountCommandInput = DisableOrganizationAdminAccountRequest;
 export type DisableOrganizationAdminAccountCommandOutput = DisableOrganizationAdminAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Disables an AWS account within the Organization as the GuardDuty delegated
+ *       administrator.</p>
+ */
 export class DisableOrganizationAdminAccountCommand extends $Command<
   DisableOrganizationAdminAccountCommandInput,
   DisableOrganizationAdminAccountCommandOutput,
@@ -34,6 +38,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

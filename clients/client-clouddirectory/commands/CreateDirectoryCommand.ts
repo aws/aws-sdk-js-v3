@@ -20,6 +20,12 @@ import {
 export type CreateDirectoryCommandInput = CreateDirectoryRequest;
 export type CreateDirectoryCommandOutput = CreateDirectoryResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <a>Directory</a> by copying the published schema into the
+ *       directory. A directory cannot be created without a schema.</p>
+ *          <p>You can also quickly create a directory using a managed schema, called the
+ *         <code>QuickStartSchema</code>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html">Managed Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.</p>
+ */
 export class CreateDirectoryCommand extends $Command<
   CreateDirectoryCommandInput,
   CreateDirectoryCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

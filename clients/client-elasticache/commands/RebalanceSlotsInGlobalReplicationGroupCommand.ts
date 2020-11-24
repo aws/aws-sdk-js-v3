@@ -24,6 +24,9 @@ export type RebalanceSlotsInGlobalReplicationGroupCommandInput = RebalanceSlotsI
 export type RebalanceSlotsInGlobalReplicationGroupCommandOutput = RebalanceSlotsInGlobalReplicationGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
+ */
 export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
   RebalanceSlotsInGlobalReplicationGroupCommandInput,
   RebalanceSlotsInGlobalReplicationGroupCommandOutput,
@@ -38,6 +41,9 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

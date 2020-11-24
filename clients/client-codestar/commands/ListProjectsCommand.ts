@@ -20,6 +20,9 @@ import {
 export type ListProjectsCommandInput = ListProjectsRequest;
 export type ListProjectsCommandOutput = ListProjectsResult & __MetadataBearer;
 
+/**
+ * <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
+ */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

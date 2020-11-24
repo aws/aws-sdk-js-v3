@@ -20,6 +20,10 @@ import {
 export type DeleteDetectorModelCommandInput = DeleteDetectorModelRequest;
 export type DeleteDetectorModelCommandOutput = DeleteDetectorModelResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a detector model. Any active instances of the detector model are also
+ *       deleted.</p>
+ */
 export class DeleteDetectorModelCommand extends $Command<
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDetectorModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDatabaseCommandInput = UpdateDatabaseRequest;
 export type UpdateDatabaseCommandOutput = UpdateDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing database definition in a Data Catalog.</p>
+ */
 export class UpdateDatabaseCommand extends $Command<
   UpdateDatabaseCommandInput,
   UpdateDatabaseCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type UpdateAccountCustomizationCommandInput = UpdateAccountCustomizationRequest;
 export type UpdateAccountCustomizationCommandOutput = UpdateAccountCustomizationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates Amazon QuickSight customizations the current AWS Region. Currently, the only
+ *             customization you can use is a theme.</p>
+ *         <p>You can use customizations for your AWS account or, if you specify a namespace, for a
+ *             QuickSight namespace instead. Customizations that apply to a namespace override
+ *             customizations that apply to an AWS account. To find out which customizations apply, use
+ *             the <code>DescribeAccountCustomization</code> API operation. </p>
+ */
 export class UpdateAccountCustomizationCommand extends $Command<
   UpdateAccountCustomizationCommandInput,
   UpdateAccountCustomizationCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateAccountCustomizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type VerifyDomainIdentityCommandInput = VerifyDomainIdentityRequest;
 export type VerifyDomainIdentityCommandOutput = VerifyDomainIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
+ *             Region and attempts to verify it. For more information about verifying domains, see
+ *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email
+ *                 Addresses and Domains</a> in the <i>Amazon SES Developer
+ *             Guide.</i>
+ *          </p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class VerifyDomainIdentityCommand extends $Command<
   VerifyDomainIdentityCommandInput,
   VerifyDomainIdentityCommandOutput,
@@ -34,6 +43,9 @@ export class VerifyDomainIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

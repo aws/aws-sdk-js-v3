@@ -20,6 +20,9 @@ import {
 export type GetAppsListCommandInput = GetAppsListRequest;
 export type GetAppsListCommandOutput = GetAppsListResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified AWS Firewall Manager applications list.</p>
+ */
 export class GetAppsListCommand extends $Command<
   GetAppsListCommandInput,
   GetAppsListCommandOutput,
@@ -34,6 +37,9 @@ export class GetAppsListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

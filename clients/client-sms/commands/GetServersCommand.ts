@@ -20,6 +20,10 @@ import {
 export type GetServersCommandInput = GetServersRequest;
 export type GetServersCommandOutput = GetServersResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the servers in your server catalog.</p>
+ *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
+ */
 export class GetServersCommand extends $Command<
   GetServersCommandInput,
   GetServersCommandOutput,
@@ -34,6 +38,9 @@ export class GetServersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

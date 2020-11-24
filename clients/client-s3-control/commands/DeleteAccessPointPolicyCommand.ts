@@ -21,6 +21,24 @@ import {
 export type DeleteAccessPointPolicyCommandInput = DeleteAccessPointPolicyRequest;
 export type DeleteAccessPointPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the access point policy for the specified access point.</p>
+ *          <p></p>
+ *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples">Examples</a> section.</p>
+ *          <p>The following actions are related to <code>DeleteAccessPointPolicy</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html">GetAccessPointPolicy</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteAccessPointPolicyCommand extends $Command<
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
@@ -35,6 +53,9 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

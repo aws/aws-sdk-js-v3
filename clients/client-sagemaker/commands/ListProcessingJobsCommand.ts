@@ -20,6 +20,9 @@ import {
 export type ListProcessingJobsCommandInput = ListProcessingJobsRequest;
 export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists processing jobs that satisfy various filters.</p>
+ */
 export class ListProcessingJobsCommand extends $Command<
   ListProcessingJobsCommandInput,
   ListProcessingJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProcessingJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

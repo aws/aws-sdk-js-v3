@@ -24,6 +24,12 @@ import {
 export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsRequest;
 export type DescribeScheduledActionsCommandOutput = DescribeScheduledActionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
+ *          <p>You can filter the results using the <code>ResourceId</code>,
+ *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ */
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
@@ -38,6 +44,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

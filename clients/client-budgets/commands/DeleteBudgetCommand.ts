@@ -20,6 +20,12 @@ import {
 export type DeleteBudgetCommandInput = DeleteBudgetRequest;
 export type DeleteBudgetCommandOutput = DeleteBudgetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a budget. You can delete your budget at any time.</p>
+ * 		       <important>
+ * 			         <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
+ * 		       </important>
+ */
 export class DeleteBudgetCommand extends $Command<
   DeleteBudgetCommandInput,
   DeleteBudgetCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteBudgetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

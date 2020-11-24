@@ -25,6 +25,9 @@ import {
 export type StopUserImportJobCommandInput = StopUserImportJobRequest;
 export type StopUserImportJobCommandOutput = StopUserImportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the user import job.</p>
+ */
 export class StopUserImportJobCommand extends $Command<
   StopUserImportJobCommandInput,
   StopUserImportJobCommandOutput,
@@ -39,6 +42,9 @@ export class StopUserImportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

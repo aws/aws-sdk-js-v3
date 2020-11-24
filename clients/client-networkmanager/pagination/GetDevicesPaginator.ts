@@ -4,6 +4,9 @@ import { GetDevicesCommand, GetDevicesCommandInput, GetDevicesCommandOutput } fr
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
   input: GetDevicesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetDevicesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: NetworkManager,
   input: GetDevicesCommandInput,

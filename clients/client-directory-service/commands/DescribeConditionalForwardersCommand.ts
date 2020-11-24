@@ -20,6 +20,10 @@ import {
 export type DescribeConditionalForwardersCommandInput = DescribeConditionalForwardersRequest;
 export type DescribeConditionalForwardersCommandOutput = DescribeConditionalForwardersResult & __MetadataBearer;
 
+/**
+ * <p>Obtains information about the conditional forwarders for this account.</p>
+ *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.</p>
+ */
 export class DescribeConditionalForwardersCommand extends $Command<
   DescribeConditionalForwardersCommandInput,
   DescribeConditionalForwardersCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeConditionalForwardersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateFieldLevelEncryptionProfileCommandInput = CreateFieldLevelEncryptionProfileRequest;
 export type CreateFieldLevelEncryptionProfileCommandOutput = CreateFieldLevelEncryptionProfileResult & __MetadataBearer;
 
+/**
+ * <p>Create a field-level encryption profile.</p>
+ */
 export class CreateFieldLevelEncryptionProfileCommand extends $Command<
   CreateFieldLevelEncryptionProfileCommandInput,
   CreateFieldLevelEncryptionProfileCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

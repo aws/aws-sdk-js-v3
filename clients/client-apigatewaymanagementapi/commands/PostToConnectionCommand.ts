@@ -24,6 +24,9 @@ import {
 export type PostToConnectionCommandInput = PostToConnectionRequest;
 export type PostToConnectionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sends the provided data to the specified connection.</p>
+ */
 export class PostToConnectionCommand extends $Command<
   PostToConnectionCommandInput,
   PostToConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class PostToConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayManagementApiClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type DetachElasticLoadBalancerCommandInput = DetachElasticLoadBalancerRequest;
 export type DetachElasticLoadBalancerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DetachElasticLoadBalancerCommand extends $Command<
   DetachElasticLoadBalancerCommandInput,
   DetachElasticLoadBalancerCommandOutput,
@@ -34,6 +42,9 @@ export class DetachElasticLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

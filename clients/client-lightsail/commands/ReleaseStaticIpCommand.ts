@@ -20,6 +20,9 @@ import {
 export type ReleaseStaticIpCommandInput = ReleaseStaticIpRequest;
 export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a specific static IP from your account.</p>
+ */
 export class ReleaseStaticIpCommand extends $Command<
   ReleaseStaticIpCommandInput,
   ReleaseStaticIpCommandOutput,
@@ -34,6 +37,9 @@ export class ReleaseStaticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

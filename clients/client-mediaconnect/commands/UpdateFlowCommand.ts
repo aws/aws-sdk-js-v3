@@ -20,6 +20,9 @@ import {
 export type UpdateFlowCommandInput = UpdateFlowRequest;
 export type UpdateFlowCommandOutput = UpdateFlowResponse & __MetadataBearer;
 
+/**
+ * Updates flow
+ */
 export class UpdateFlowCommand extends $Command<
   UpdateFlowCommandInput,
   UpdateFlowCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

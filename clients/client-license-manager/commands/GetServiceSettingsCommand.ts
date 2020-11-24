@@ -20,6 +20,9 @@ import {
 export type GetServiceSettingsCommandInput = GetServiceSettingsRequest;
 export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the License Manager settings for the current Region.</p>
+ */
 export class GetServiceSettingsCommand extends $Command<
   GetServiceSettingsCommandInput,
   GetServiceSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetServiceSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

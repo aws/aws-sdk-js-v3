@@ -20,6 +20,9 @@ import {
 export type ImportAppCatalogCommandInput = ImportAppCatalogRequest;
 export type ImportAppCatalogCommandOutput = ImportAppCatalogResponse & __MetadataBearer;
 
+/**
+ * <p>Allows application import from AWS Migration Hub.</p>
+ */
 export class ImportAppCatalogCommand extends $Command<
   ImportAppCatalogCommandInput,
   ImportAppCatalogCommandOutput,
@@ -34,6 +37,9 @@ export class ImportAppCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

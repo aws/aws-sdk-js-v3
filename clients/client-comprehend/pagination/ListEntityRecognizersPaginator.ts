@@ -8,6 +8,9 @@ import {
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ComprehendClient,
   input: ListEntityRecognizersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEntityRecognizersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Comprehend,
   input: ListEntityRecognizersCommandInput,

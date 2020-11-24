@@ -24,6 +24,10 @@ export type DescribeReservedInstancesModificationsCommandInput = DescribeReserve
 export type DescribeReservedInstancesModificationsCommandOutput = DescribeReservedInstancesModificationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
+ *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ */
 export class DescribeReservedInstancesModificationsCommand extends $Command<
   DescribeReservedInstancesModificationsCommandInput,
   DescribeReservedInstancesModificationsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

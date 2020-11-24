@@ -20,6 +20,11 @@ import {
 export type UpdateMissionProfileCommandInput = UpdateMissionProfileRequest;
 export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a mission profile.</p>
+ *          <p>Updating a mission profile will not update the execution parameters
+ *          for existing future contacts.</p>
+ */
 export class UpdateMissionProfileCommand extends $Command<
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateMissionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

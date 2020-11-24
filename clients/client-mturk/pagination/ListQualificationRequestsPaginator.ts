@@ -8,6 +8,9 @@ import {
 import { MTurkPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MTurkClient,
   input: ListQualificationRequestsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListQualificationRequestsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MTurk,
   input: ListQualificationRequestsCommandInput,

@@ -20,6 +20,12 @@ import {
 export type CreateCustomVerificationEmailTemplateCommandInput = CreateCustomVerificationEmailTemplateRequest;
 export type CreateCustomVerificationEmailTemplateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a new custom verification email template.</p>
+ *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+ *                 Guide</i>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateCustomVerificationEmailTemplateCommand extends $Command<
   CreateCustomVerificationEmailTemplateCommandInput,
   CreateCustomVerificationEmailTemplateCommandOutput,
@@ -34,6 +40,9 @@ export class CreateCustomVerificationEmailTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

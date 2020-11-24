@@ -20,6 +20,19 @@ import {
 export type DeleteTableCommandInput = DeleteTableRequest;
 export type DeleteTableCommandOutput = DeleteTableResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a table definition from the Data Catalog.</p>
+ *          <note>
+ *             <p>After completing this operation, you no longer have access to the table versions and
+ *         partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
+ *         asynchronously in a timely manner, at the discretion of the service.</p>
+ *             <p>To ensure the immediate deletion of all related resources, before calling
+ *           <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or
+ *           <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or
+ *           <code>BatchDeletePartition</code>, to delete any resources that belong to the
+ *         table.</p>
+ *          </note>
+ */
 export class DeleteTableCommand extends $Command<
   DeleteTableCommandInput,
   DeleteTableCommandOutput,
@@ -34,6 +47,9 @@ export class DeleteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

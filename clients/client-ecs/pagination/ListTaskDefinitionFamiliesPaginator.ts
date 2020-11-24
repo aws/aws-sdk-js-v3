@@ -8,6 +8,9 @@ import {
 import { ECSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ECSClient,
   input: ListTaskDefinitionFamiliesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTaskDefinitionFamiliesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ECS,
   input: ListTaskDefinitionFamiliesCommandInput,

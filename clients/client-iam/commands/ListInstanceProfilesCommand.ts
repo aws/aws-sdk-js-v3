@@ -20,6 +20,13 @@ import {
 export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
 export type ListInstanceProfilesCommandOutput = ListInstanceProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the instance profiles that have the specified path prefix. If there are none, the
+ *          operation returns an empty list. For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
+ *             Profiles</a>.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListInstanceProfilesCommand extends $Command<
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
@@ -34,6 +41,9 @@ export class ListInstanceProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

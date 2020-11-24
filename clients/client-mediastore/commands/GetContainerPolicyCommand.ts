@@ -20,6 +20,11 @@ import {
 export type GetContainerPolicyCommandInput = GetContainerPolicyInput;
 export type GetContainerPolicyCommandOutput = GetContainerPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the access policy for the specified container. For information about the
+ *          data that is included in an access policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and Access Management User
+ *             Guide</a>.</p>
+ */
 export class GetContainerPolicyCommand extends $Command<
   GetContainerPolicyCommandInput,
   GetContainerPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class GetContainerPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

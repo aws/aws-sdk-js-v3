@@ -20,6 +20,9 @@ import {
 export type DescribeSecurityProfileCommandInput = DescribeSecurityProfileRequest;
 export type DescribeSecurityProfileCommandOutput = DescribeSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a Device Defender security profile.</p>
+ */
 export class DescribeSecurityProfileCommand extends $Command<
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

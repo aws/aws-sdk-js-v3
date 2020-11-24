@@ -20,6 +20,9 @@ import {
 export type DeregisterEventTopicCommandInput = DeregisterEventTopicRequest;
 export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult & __MetadataBearer;
 
+/**
+ * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
+ */
 export class DeregisterEventTopicCommand extends $Command<
   DeregisterEventTopicCommandInput,
   DeregisterEventTopicCommandOutput,
@@ -34,6 +37,9 @@ export class DeregisterEventTopicCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

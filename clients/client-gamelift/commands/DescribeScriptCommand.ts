@@ -20,6 +20,47 @@ import {
 export type DescribeScriptCommandInput = DescribeScriptInput;
 export type DescribeScriptCommandOutput = DescribeScriptOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves properties for a Realtime script. </p>
+ *         <p>To request a script record, specify the script ID. If successful, an object containing the script properties
+ *         is returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListScripts</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateScript</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteScript</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeScriptCommand extends $Command<
   DescribeScriptCommandInput,
   DescribeScriptCommandOutput,
@@ -34,6 +75,9 @@ export class DescribeScriptCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

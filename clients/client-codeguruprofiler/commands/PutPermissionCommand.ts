@@ -20,6 +20,10 @@ import {
 export type PutPermissionCommandInput = PutPermissionRequest;
 export type PutPermissionCommandOutput = PutPermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Provides permission to the principals. This overwrites the existing permissions, and
+ *             is not additive.</p>
+ */
 export class PutPermissionCommand extends $Command<
   PutPermissionCommandInput,
   PutPermissionCommandOutput,
@@ -34,6 +38,9 @@ export class PutPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

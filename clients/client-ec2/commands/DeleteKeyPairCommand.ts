@@ -17,6 +17,9 @@ import {
 export type DeleteKeyPairCommandInput = DeleteKeyPairRequest;
 export type DeleteKeyPairCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
+ */
 export class DeleteKeyPairCommand extends $Command<
   DeleteKeyPairCommandInput,
   DeleteKeyPairCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

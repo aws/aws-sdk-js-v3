@@ -20,6 +20,11 @@ import {
 export type ResetServiceSpecificCredentialCommandInput = ResetServiceSpecificCredentialRequest;
 export type ResetServiceSpecificCredentialCommandOutput = ResetServiceSpecificCredentialResponse & __MetadataBearer;
 
+/**
+ * <p>Resets the password for a service-specific credential. The new password is AWS
+ *          generated and cryptographically strong. It cannot be configured by the user. Resetting the
+ *          password immediately invalidates the previous password associated with this user.</p>
+ */
 export class ResetServiceSpecificCredentialCommand extends $Command<
   ResetServiceSpecificCredentialCommandInput,
   ResetServiceSpecificCredentialCommandOutput,
@@ -34,6 +39,9 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DisableStageTransitionCommandInput = DisableStageTransitionInput;
 export type DisableStageTransitionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
+ *             pipeline.</p>
+ */
 export class DisableStageTransitionCommand extends $Command<
   DisableStageTransitionCommandInput,
   DisableStageTransitionCommandOutput,
@@ -34,6 +38,9 @@ export class DisableStageTransitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

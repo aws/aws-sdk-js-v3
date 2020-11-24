@@ -4,6 +4,9 @@ import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "..
 import { ChimePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ChimeClient,
   input: ListBotsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBotsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Chime,
   input: ListBotsCommandInput,

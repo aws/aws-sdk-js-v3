@@ -20,6 +20,9 @@ import {
 export type CreateResourceDefinitionCommandInput = CreateResourceDefinitionRequest;
 export type CreateResourceDefinitionCommandOutput = CreateResourceDefinitionResponse & __MetadataBearer;
 
+/**
+ * Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
+ */
 export class CreateResourceDefinitionCommand extends $Command<
   CreateResourceDefinitionCommandInput,
   CreateResourceDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateResourceDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

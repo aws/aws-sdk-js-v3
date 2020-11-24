@@ -20,6 +20,13 @@ import {
 export type GetDefaultPatchBaselineCommandInput = GetDefaultPatchBaselineRequest;
 export type GetDefaultPatchBaselineCommandOutput = GetDefaultPatchBaselineResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default
+ *    patch baselines. For example, you can create a default patch baseline for each operating
+ *    system.</p>
+ *          <p>If you do not specify an operating system value, the default patch baseline for Windows is
+ *    returned.</p>
+ */
 export class GetDefaultPatchBaselineCommand extends $Command<
   GetDefaultPatchBaselineCommandInput,
   GetDefaultPatchBaselineCommandOutput,
@@ -34,6 +41,9 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

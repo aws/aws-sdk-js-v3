@@ -24,6 +24,9 @@ export type DeleteDirectConnectGatewayAssociationProposalCommandInput = DeleteDi
 export type DeleteDirectConnectGatewayAssociationProposalCommandOutput = DeleteDirectConnectGatewayAssociationProposalResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
+ */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<
   DeleteDirectConnectGatewayAssociationProposalCommandInput,
   DeleteDirectConnectGatewayAssociationProposalCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

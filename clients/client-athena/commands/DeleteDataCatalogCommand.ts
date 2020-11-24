@@ -20,6 +20,9 @@ import {
 export type DeleteDataCatalogCommandInput = DeleteDataCatalogInput;
 export type DeleteDataCatalogCommandOutput = DeleteDataCatalogOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a data catalog.</p>
+ */
 export class DeleteDataCatalogCommand extends $Command<
   DeleteDataCatalogCommandInput,
   DeleteDataCatalogCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDataCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

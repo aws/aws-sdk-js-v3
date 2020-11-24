@@ -20,6 +20,9 @@ import {
 export type DeleteContainerPolicyCommandInput = DeleteContainerPolicyInput;
 export type DeleteContainerPolicyCommandOutput = DeleteContainerPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the access policy that is associated with the specified container.</p>
+ */
 export class DeleteContainerPolicyCommand extends $Command<
   DeleteContainerPolicyCommandInput,
   DeleteContainerPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteContainerPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type XmlAttributesOnPayloadCommandInput = XmlAttributesOnPayloadInputOutput;
 export type XmlAttributesOnPayloadCommandOutput = XmlAttributesOnPayloadInputOutput & __MetadataBearer;
 
+/**
+ * This example serializes an XML attributes on a document targeted by httpPayload.
+ */
 export class XmlAttributesOnPayloadCommand extends $Command<
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput,
@@ -34,6 +37,9 @@ export class XmlAttributesOnPayloadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

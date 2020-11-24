@@ -20,6 +20,9 @@ import {
 export type GetDetectorVersionCommandInput = GetDetectorVersionRequest;
 export type GetDetectorVersionCommandOutput = GetDetectorVersionResult & __MetadataBearer;
 
+/**
+ * <p>Gets a particular detector version. </p>
+ */
 export class GetDetectorVersionCommand extends $Command<
   GetDetectorVersionCommandInput,
   GetDetectorVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetDetectorVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

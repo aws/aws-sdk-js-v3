@@ -20,6 +20,9 @@ import {
 export type UpdateFindingsCommandInput = UpdateFindingsRequest;
 export type UpdateFindingsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the status for the specified findings.</p>
+ */
 export class UpdateFindingsCommand extends $Command<
   UpdateFindingsCommandInput,
   UpdateFindingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

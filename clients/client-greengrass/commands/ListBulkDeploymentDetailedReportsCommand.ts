@@ -24,6 +24,9 @@ export type ListBulkDeploymentDetailedReportsCommandInput = ListBulkDeploymentDe
 export type ListBulkDeploymentDetailedReportsCommandOutput = ListBulkDeploymentDetailedReportsResponse &
   __MetadataBearer;
 
+/**
+ * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
+ */
 export class ListBulkDeploymentDetailedReportsCommand extends $Command<
   ListBulkDeploymentDetailedReportsCommandInput,
   ListBulkDeploymentDetailedReportsCommandOutput,
@@ -38,6 +41,9 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteUserCommandInput = DeleteUserRequest;
 export type DeleteUserCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
+ */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,
   DeleteUserCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

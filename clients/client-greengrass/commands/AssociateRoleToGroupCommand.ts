@@ -20,6 +20,9 @@ import {
 export type AssociateRoleToGroupCommandInput = AssociateRoleToGroupRequest;
 export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse & __MetadataBearer;
 
+/**
+ * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
+ */
 export class AssociateRoleToGroupCommand extends $Command<
   AssociateRoleToGroupCommandInput,
   AssociateRoleToGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateRoleToGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

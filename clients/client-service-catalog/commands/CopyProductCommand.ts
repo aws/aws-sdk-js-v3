@@ -20,6 +20,13 @@ import {
 export type CopyProductCommandInput = CopyProductInput;
 export type CopyProductCommandOutput = CopyProductOutput & __MetadataBearer;
 
+/**
+ * <p>Copies the specified source product to the specified target product or a new product.</p>
+ *          <p>You can copy a product to the same account or another account.
+ *          You can copy a product to the same region or another region.</p>
+ *          <p>This operation is performed asynchronously. To track the progress of the
+ *          operation, use <a>DescribeCopyProductStatus</a>.</p>
+ */
 export class CopyProductCommand extends $Command<
   CopyProductCommandInput,
   CopyProductCommandOutput,
@@ -34,6 +41,9 @@ export class CopyProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

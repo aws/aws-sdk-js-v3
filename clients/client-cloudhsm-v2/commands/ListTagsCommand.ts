@@ -17,6 +17,14 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of tags for the specified AWS CloudHSM cluster.</p>
+ *          <p>This is a paginated operation, which means that each response might contain only a
+ *       subset of all the tags. When the response contains only a subset of tags, it includes a
+ *       <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to
+ *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
+ *       value), that means there are no more tags to get.</p>
+ */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,
   ListTagsCommandOutput,
@@ -31,6 +39,9 @@ export class ListTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

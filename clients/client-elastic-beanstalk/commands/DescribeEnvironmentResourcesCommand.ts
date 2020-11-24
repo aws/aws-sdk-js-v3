@@ -20,6 +20,9 @@ import {
 export type DescribeEnvironmentResourcesCommandInput = DescribeEnvironmentResourcesMessage;
 export type DescribeEnvironmentResourcesCommandOutput = EnvironmentResourceDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns AWS resources for this environment.</p>
+ */
 export class DescribeEnvironmentResourcesCommand extends $Command<
   DescribeEnvironmentResourcesCommandInput,
   DescribeEnvironmentResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeAvailabilityOptionsCommandInput = DescribeAvailabilityOptionsRequest;
 export type DescribeAvailabilityOptionsCommandOutput = DescribeAvailabilityOptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DescribeAvailabilityOptionsCommand extends $Command<
   DescribeAvailabilityOptionsCommandInput,
   DescribeAvailabilityOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

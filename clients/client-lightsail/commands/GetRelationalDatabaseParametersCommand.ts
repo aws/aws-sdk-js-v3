@@ -20,6 +20,13 @@ import {
 export type GetRelationalDatabaseParametersCommandInput = GetRelationalDatabaseParametersRequest;
 export type GetRelationalDatabaseParametersCommandOutput = GetRelationalDatabaseParametersResult & __MetadataBearer;
 
+/**
+ * <p>Returns all of the runtime parameters offered by the underlying database software, or
+ *       engine, for a specific database in Amazon Lightsail.</p>
+ *          <p>In addition to the parameter names and values, this operation returns other information
+ *       about each parameter. This information includes whether changes require a reboot, whether the
+ *       parameter is modifiable, the allowed values, and the data types.</p>
+ */
 export class GetRelationalDatabaseParametersCommand extends $Command<
   GetRelationalDatabaseParametersCommandInput,
   GetRelationalDatabaseParametersCommandOutput,
@@ -34,6 +41,9 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

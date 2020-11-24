@@ -20,6 +20,10 @@ import {
 export type ModifyClusterDbRevisionCommandInput = ModifyClusterDbRevisionMessage;
 export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the database revision of a cluster. The database revision is a unique
+ *             revision of the database running in a cluster.</p>
+ */
 export class ModifyClusterDbRevisionCommand extends $Command<
   ModifyClusterDbRevisionCommandInput,
   ModifyClusterDbRevisionCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

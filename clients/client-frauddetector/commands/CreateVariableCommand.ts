@@ -20,6 +20,9 @@ import {
 export type CreateVariableCommandInput = CreateVariableRequest;
 export type CreateVariableCommandOutput = CreateVariableResult & __MetadataBearer;
 
+/**
+ * <p>Creates a variable.</p>
+ */
 export class CreateVariableCommand extends $Command<
   CreateVariableCommandInput,
   CreateVariableCommandOutput,
@@ -34,6 +37,9 @@ export class CreateVariableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

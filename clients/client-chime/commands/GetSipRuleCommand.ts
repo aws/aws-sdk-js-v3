@@ -20,6 +20,10 @@ import {
 export type GetSipRuleCommandInput = GetSipRuleRequest;
 export type GetSipRuleCommandOutput = GetSipRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target
+ *       endpoints.</p>
+ */
 export class GetSipRuleCommand extends $Command<
   GetSipRuleCommandInput,
   GetSipRuleCommandOutput,
@@ -34,6 +38,9 @@ export class GetSipRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

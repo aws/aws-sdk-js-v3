@@ -20,6 +20,11 @@ import {
 export type DeleteSshPublicKeyCommandInput = DeleteSshPublicKeyRequest;
 export type DeleteSshPublicKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a user's Secure Shell (SSH) public key.</p>
+ *
+ *          <p>No response is returned from this operation.</p>
+ */
 export class DeleteSshPublicKeyCommand extends $Command<
   DeleteSshPublicKeyCommandInput,
   DeleteSshPublicKeyCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteSshPublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

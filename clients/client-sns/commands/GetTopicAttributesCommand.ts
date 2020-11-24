@@ -20,6 +20,10 @@ import {
 export type GetTopicAttributesCommandInput = GetTopicAttributesInput;
 export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all of the properties of a topic. Topic properties returned might differ based
+ *             on the authorization of the user.</p>
+ */
 export class GetTopicAttributesCommand extends $Command<
   GetTopicAttributesCommandInput,
   GetTopicAttributesCommandOutput,
@@ -34,6 +38,9 @@ export class GetTopicAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

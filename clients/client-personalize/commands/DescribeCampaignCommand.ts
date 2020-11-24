@@ -20,6 +20,21 @@ import {
 export type DescribeCampaignCommandInput = DescribeCampaignRequest;
 export type DescribeCampaignCommandOutput = DescribeCampaignResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the given campaign, including its status.</p>
+ *          <p>A campaign can be in one of the following states:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *             </li>
+ *             <li>
+ *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+ *             </li>
+ *          </ul>
+ *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
+ *       <code>failureReason</code> key, which describes why.</p>
+ *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ */
 export class DescribeCampaignCommand extends $Command<
   DescribeCampaignCommandInput,
   DescribeCampaignCommandOutput,
@@ -34,6 +49,9 @@ export class DescribeCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

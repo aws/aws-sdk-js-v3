@@ -25,6 +25,10 @@ import {
 export type ListUsersInGroupCommandInput = ListUsersInGroupRequest;
 export type ListUsersInGroupCommandOutput = ListUsersInGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the users in the specified group.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class ListUsersInGroupCommand extends $Command<
   ListUsersInGroupCommandInput,
   ListUsersInGroupCommandOutput,
@@ -39,6 +43,9 @@ export class ListUsersInGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

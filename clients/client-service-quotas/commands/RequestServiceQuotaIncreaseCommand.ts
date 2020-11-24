@@ -20,6 +20,10 @@ import {
 export type RequestServiceQuotaIncreaseCommandInput = RequestServiceQuotaIncreaseRequest;
 export type RequestServiceQuotaIncreaseCommandOutput = RequestServiceQuotaIncreaseResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details of a service quota increase request. The response to this command
+ *       provides the details in the <a>RequestedServiceQuotaChange</a> object. </p>
+ */
 export class RequestServiceQuotaIncreaseCommand extends $Command<
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
@@ -34,6 +38,9 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

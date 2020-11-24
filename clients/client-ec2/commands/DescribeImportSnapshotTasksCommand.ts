@@ -20,6 +20,9 @@ import {
 export type DescribeImportSnapshotTasksCommandInput = DescribeImportSnapshotTasksRequest;
 export type DescribeImportSnapshotTasksCommandOutput = DescribeImportSnapshotTasksResult & __MetadataBearer;
 
+/**
+ * <p>Describes your import snapshot tasks.</p>
+ */
 export class DescribeImportSnapshotTasksCommand extends $Command<
   DescribeImportSnapshotTasksCommandInput,
   DescribeImportSnapshotTasksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

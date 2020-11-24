@@ -20,6 +20,9 @@ import {
 export type CreateSubscriberCommandInput = CreateSubscriberRequest;
 export type CreateSubscriberCommandOutput = CreateSubscriberResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>
+ */
 export class CreateSubscriberCommand extends $Command<
   CreateSubscriberCommandInput,
   CreateSubscriberCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSubscriberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

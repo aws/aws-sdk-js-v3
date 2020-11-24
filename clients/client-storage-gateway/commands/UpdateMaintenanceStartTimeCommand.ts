@@ -20,6 +20,10 @@ import {
 export type UpdateMaintenanceStartTimeCommandInput = UpdateMaintenanceStartTimeInput;
 export type UpdateMaintenanceStartTimeCommandOutput = UpdateMaintenanceStartTimeOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a gateway's weekly maintenance start time information, including day and
+ *          time of the week. The maintenance time is the time in your gateway's time zone.</p>
+ */
 export class UpdateMaintenanceStartTimeCommand extends $Command<
   UpdateMaintenanceStartTimeCommandInput,
   UpdateMaintenanceStartTimeCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

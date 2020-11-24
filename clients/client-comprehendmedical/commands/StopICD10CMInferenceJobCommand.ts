@@ -24,6 +24,9 @@ import {
 export type StopICD10CMInferenceJobCommandInput = StopICD10CMInferenceJobRequest;
 export type StopICD10CMInferenceJobCommandOutput = StopICD10CMInferenceJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops an InferICD10CM inference job in progress.</p>
+ */
 export class StopICD10CMInferenceJobCommand extends $Command<
   StopICD10CMInferenceJobCommandInput,
   StopICD10CMInferenceJobCommandOutput,
@@ -38,6 +41,9 @@ export class StopICD10CMInferenceJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

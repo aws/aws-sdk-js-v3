@@ -20,6 +20,13 @@ import {
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
 export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing event notification subscription. Note that you can't modify the
+ *       source identifiers using this call; to change source identifiers for a subscription, use the
+ *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
+ *          <p>You can see a list of the event categories for a given SourceType
+ *       by using the <b>DescribeEventCategories</b> action.</p>
+ */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
@@ -34,6 +41,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

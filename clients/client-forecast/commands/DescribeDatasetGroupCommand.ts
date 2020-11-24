@@ -20,6 +20,33 @@ import {
 export type DescribeDatasetGroupCommandInput = DescribeDatasetGroupRequest;
 export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a dataset group created using the <a>CreateDatasetGroup</a>
+ *       operation.</p>
+ *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
+ *       request, this operation includes the following properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DatasetArns</code> - The datasets belonging to the group.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeDatasetGroupCommand extends $Command<
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput,
@@ -34,6 +61,9 @@ export class DescribeDatasetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

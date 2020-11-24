@@ -20,6 +20,59 @@ import {
 export type DescribePlayerSessionsCommandInput = DescribePlayerSessionsInput;
 export type DescribePlayerSessionsCommandOutput = DescribePlayerSessionsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves properties for one or more player sessions. This operation can be used in
+ *         several ways: (1) provide a <code>PlayerSessionId</code> to request properties for a
+ *         specific player session; (2) provide a <code>GameSessionId</code> to request properties
+ *         for all player sessions in the specified game session; (3) provide a
+ *         <code>PlayerId</code> to request properties for all player sessions of a specified
+ *         player. </p>
+ *          <p>To get game session record(s), specify only one of the following: a player session
+ *         ID, a game session ID, or a player ID. You can filter this request by player session
+ *         status. Use the pagination parameters to retrieve results as a set of sequential pages.
+ *         If successful, a <a>PlayerSession</a> object is returned for each session
+ *         matching the request.</p>
+ *          <p>
+ *             <i>Available in Amazon GameLift Local.</i>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreatePlayerSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreatePlayerSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribePlayerSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Game session placements</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class DescribePlayerSessionsCommand extends $Command<
   DescribePlayerSessionsCommandInput,
   DescribePlayerSessionsCommandOutput,
@@ -34,6 +87,9 @@ export class DescribePlayerSessionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

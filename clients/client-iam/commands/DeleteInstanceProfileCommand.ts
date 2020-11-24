@@ -20,6 +20,16 @@ import {
 export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
 export type DeleteInstanceProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified instance profile. The instance profile must not have an associated
+ *          role.</p>
+ *          <important>
+ *             <p>Make sure that you do not have any Amazon EC2 instances running with the instance
+ *             profile you are about to delete. Deleting a role or instance profile that is associated
+ *             with a running instance will break any applications running on the instance.</p>
+ *          </important>
+ *          <p>For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
+ */
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type GetSnowballUsageCommandInput = GetSnowballUsageRequest;
 export type GetSnowballUsageCommandOutput = GetSnowballUsageResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the Snow Family service limit for your account, and also the
+ *       number of Snow devices your account has in use.</p>
+ *
+ *          <p>The default service limit for the number of Snow devices that you can have at one time is
+ *       1. If you want to increase your service limit, contact AWS Support.</p>
+ */
 export class GetSnowballUsageCommand extends $Command<
   GetSnowballUsageCommandInput,
   GetSnowballUsageCommandOutput,
@@ -34,6 +41,9 @@ export class GetSnowballUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListUpdatesCommandInput = ListUpdatesRequest;
 export type ListUpdatesCommandOutput = ListUpdatesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
+ *             account, in the specified Region.</p>
+ */
 export class ListUpdatesCommand extends $Command<
   ListUpdatesCommandInput,
   ListUpdatesCommandOutput,
@@ -34,6 +38,9 @@ export class ListUpdatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

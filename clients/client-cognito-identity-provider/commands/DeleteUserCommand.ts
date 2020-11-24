@@ -24,6 +24,9 @@ import {
 export type DeleteUserCommandInput = DeleteUserRequest;
 export type DeleteUserCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows a user to delete himself or herself.</p>
+ */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,
   DeleteUserCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

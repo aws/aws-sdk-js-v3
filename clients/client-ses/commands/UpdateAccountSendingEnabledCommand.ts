@@ -20,6 +20,14 @@ import {
 export type UpdateAccountSendingEnabledCommandInput = UpdateAccountSendingEnabledRequest;
 export type UpdateAccountSendingEnabledCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables or disables email sending across your entire Amazon SES account in the current
+ *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
+ *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
+ *             reputation metrics (such as your bounce or complaint rates) reach certain
+ *             thresholds.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class UpdateAccountSendingEnabledCommand extends $Command<
   UpdateAccountSendingEnabledCommandInput,
   UpdateAccountSendingEnabledCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

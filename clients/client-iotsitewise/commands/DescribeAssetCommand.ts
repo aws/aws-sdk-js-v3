@@ -20,6 +20,9 @@ import {
 export type DescribeAssetCommandInput = DescribeAssetRequest;
 export type DescribeAssetCommandOutput = DescribeAssetResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about an asset.</p>
+ */
 export class DescribeAssetCommand extends $Command<
   DescribeAssetCommandInput,
   DescribeAssetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

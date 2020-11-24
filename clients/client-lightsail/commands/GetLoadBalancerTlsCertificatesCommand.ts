@@ -20,6 +20,13 @@ import {
 export type GetLoadBalancerTlsCertificatesCommandInput = GetLoadBalancerTlsCertificatesRequest;
 export type GetLoadBalancerTlsCertificatesCommandOutput = GetLoadBalancerTlsCertificatesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the TLS certificates that are associated with the specified
+ *       Lightsail load balancer.</p>
+ *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
+ *          <p>You can have a maximum of 2 certificates associated with a Lightsail load balancer. One
+ *       is active and the other is inactive.</p>
+ */
 export class GetLoadBalancerTlsCertificatesCommand extends $Command<
   GetLoadBalancerTlsCertificatesCommandInput,
   GetLoadBalancerTlsCertificatesCommandOutput,
@@ -34,6 +41,9 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

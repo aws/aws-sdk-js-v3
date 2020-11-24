@@ -20,6 +20,9 @@ import {
 export type GetStreamCommandInput = GetStreamRequest;
 export type GetStreamCommandOutput = GetStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about the active (live) stream on a specified channel.</p>
+ */
 export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamCommandOutput, IvsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

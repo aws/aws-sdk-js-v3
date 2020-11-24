@@ -20,6 +20,10 @@ import {
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
 export type GetAccountSettingsCommandOutput = GetAccountSettingsResult & __MetadataBearer;
 
+/**
+ * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
+ *             account.</p>
+ */
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
@@ -34,6 +38,9 @@ export class GetAccountSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

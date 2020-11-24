@@ -20,6 +20,9 @@ import {
 export type DeleteCommentContentCommandInput = DeleteCommentContentInput;
 export type DeleteCommentContentCommandOutput = DeleteCommentContentOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
+ */
 export class DeleteCommentContentCommand extends $Command<
   DeleteCommentContentCommandInput,
   DeleteCommentContentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCommentContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

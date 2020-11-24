@@ -17,6 +17,9 @@ import {
 export type AddTagsCommandInput = AddTagsInput;
 export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds or modifies tags for the specified pipeline.</p>
+ */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,
   AddTagsCommandOutput,
@@ -31,6 +34,9 @@ export class AddTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListClusterJobsCommandInput = ListClusterJobsRequest;
 export type ListClusterJobsCommandOutput = ListClusterJobsResult & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
+ *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
+ *       state, a job's ID, and other information.</p>
+ */
 export class ListClusterJobsCommand extends $Command<
   ListClusterJobsCommandInput,
   ListClusterJobsCommandOutput,
@@ -34,6 +39,9 @@ export class ListClusterJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

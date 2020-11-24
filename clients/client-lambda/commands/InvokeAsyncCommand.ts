@@ -22,6 +22,12 @@ export type InvokeAsyncCommandInput = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
 };
 export type InvokeAsyncCommandOutput = InvokeAsyncResponse & __MetadataBearer;
 
+/**
+ * <important>
+ *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
+ *          </important>
+ *          <p>Invokes a function asynchronously.</p>
+ */
 export class InvokeAsyncCommand extends $Command<
   InvokeAsyncCommandInput,
   InvokeAsyncCommandOutput,
@@ -36,6 +42,9 @@ export class InvokeAsyncCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

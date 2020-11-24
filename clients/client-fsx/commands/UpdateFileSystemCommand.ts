@@ -20,6 +20,48 @@ import {
 export type UpdateFileSystemCommandInput = UpdateFileSystemRequest;
 export type UpdateFileSystemCommandOutput = UpdateFileSystemResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to update the configuration of an existing Amazon FSx file system.
+ *       You can update multiple properties in a single request.</p>
+ *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+ *     properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>AutomaticBackupRetentionDays</p>
+ *             </li>
+ *             <li>
+ *                <p>DailyAutomaticBackupStartTime</p>
+ *             </li>
+ *             <li>
+ *                <p>SelfManagedActiveDirectoryConfiguration</p>
+ *             </li>
+ *             <li>
+ *                <p>StorageCapacity</p>
+ *             </li>
+ *             <li>
+ *                <p>ThroughputCapacity</p>
+ *             </li>
+ *             <li>
+ *                <p>WeeklyMaintenanceStartTime</p>
+ *             </li>
+ *          </ul>
+ *          <p>For Amazon FSx for Lustre file systems, you can update the following
+ *       properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>AutoImportPolicy</p>
+ *             </li>
+ *             <li>
+ *                <p>AutomaticBackupRetentionDays</p>
+ *             </li>
+ *             <li>
+ *                <p>DailyAutomaticBackupStartTime</p>
+ *             </li>
+ *             <li>
+ *                <p>WeeklyMaintenanceStartTime</p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateFileSystemCommand extends $Command<
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
@@ -34,6 +76,9 @@ export class UpdateFileSystemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,

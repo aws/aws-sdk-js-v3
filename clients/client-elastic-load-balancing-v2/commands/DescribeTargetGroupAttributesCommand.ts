@@ -24,6 +24,27 @@ import {
 export type DescribeTargetGroupAttributesCommandInput = DescribeTargetGroupAttributesInput;
 export type DescribeTargetGroupAttributesCommandOutput = DescribeTargetGroupAttributesOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the attributes for the specified target group.</p>
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Application Load Balancers Guide</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Network Load Balancers Guide</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Gateway Load Balancers Guide</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeTargetGroupAttributesCommand extends $Command<
   DescribeTargetGroupAttributesCommandInput,
   DescribeTargetGroupAttributesCommandOutput,
@@ -38,6 +59,9 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

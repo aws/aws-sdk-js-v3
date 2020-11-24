@@ -20,6 +20,10 @@ import {
 export type CreateModelVersionCommandInput = CreateModelVersionRequest;
 export type CreateModelVersionCommandOutput = CreateModelVersionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a version of the model using the specified model type and model id.
+ *         </p>
+ */
 export class CreateModelVersionCommand extends $Command<
   CreateModelVersionCommandInput,
   CreateModelVersionCommandOutput,
@@ -34,6 +38,9 @@ export class CreateModelVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

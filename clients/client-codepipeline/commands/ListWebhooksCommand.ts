@@ -20,6 +20,11 @@ import {
 export type ListWebhooksCommandInput = ListWebhooksInput;
 export type ListWebhooksCommandOutput = ListWebhooksOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
+ *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
+ *             webhook.</p>
+ */
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput,
@@ -34,6 +39,9 @@ export class ListWebhooksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

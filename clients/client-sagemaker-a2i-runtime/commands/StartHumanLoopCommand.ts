@@ -24,6 +24,9 @@ import {
 export type StartHumanLoopCommandInput = StartHumanLoopRequest;
 export type StartHumanLoopCommandOutput = StartHumanLoopResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a human loop, provided that at least one activation condition is met.</p>
+ */
 export class StartHumanLoopCommand extends $Command<
   StartHumanLoopCommandInput,
   StartHumanLoopCommandOutput,
@@ -38,6 +41,9 @@ export class StartHumanLoopCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerA2IRuntimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeSecurityConfigurationCommandInput = DescribeSecurityConfigurationInput;
 export type DescribeSecurityConfigurationCommandOutput = DescribeSecurityConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Provides the details of a security configuration by returning the configuration JSON.</p>
+ */
 export class DescribeSecurityConfigurationCommand extends $Command<
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type DescribeFleetsCommandInput = DescribeFleetsRequest;
 export type DescribeFleetsCommandOutput = DescribeFleetsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
+ */
 export class DescribeFleetsCommand extends $Command<
   DescribeFleetsCommandInput,
   DescribeFleetsCommandOutput,
@@ -31,6 +34,9 @@ export class DescribeFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

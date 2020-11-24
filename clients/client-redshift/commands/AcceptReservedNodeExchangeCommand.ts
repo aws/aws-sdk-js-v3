@@ -20,6 +20,11 @@ import {
 export type AcceptReservedNodeExchangeCommandInput = AcceptReservedNodeExchangeInputMessage;
 export type AcceptReservedNodeExchangeCommandOutput = AcceptReservedNodeExchangeOutputMessage & __MetadataBearer;
 
+/**
+ * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
+ *             configuration (term, payment type, or number of nodes) and no additional costs.
+ *         </p>
+ */
 export class AcceptReservedNodeExchangeCommand extends $Command<
   AcceptReservedNodeExchangeCommandInput,
   AcceptReservedNodeExchangeCommandOutput,
@@ -34,6 +39,9 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

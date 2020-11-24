@@ -20,6 +20,13 @@ import {
 export type ListMLTransformsCommandInput = ListMLTransformsRequest;
 export type ListMLTransformsCommandOutput = ListMLTransformsResponse & __MetadataBearer;
 
+/**
+ * <p> Retrieves a sortable, filterable list of existing AWS Glue machine learning transforms in this AWS account,
+ *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
+ *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
+ *        filtering, only resources with the tags are retrieved.
+ *      </p>
+ */
 export class ListMLTransformsCommand extends $Command<
   ListMLTransformsCommandInput,
   ListMLTransformsCommandOutput,
@@ -34,6 +41,9 @@ export class ListMLTransformsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

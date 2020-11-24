@@ -8,6 +8,9 @@ import {
 import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CloudWatchLogsClient,
   input: DescribeSubscriptionFiltersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeSubscriptionFiltersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CloudWatchLogs,
   input: DescribeSubscriptionFiltersCommandInput,

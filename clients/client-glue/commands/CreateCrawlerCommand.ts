@@ -20,6 +20,11 @@ import {
 export type CreateCrawlerCommandInput = CreateCrawlerRequest;
 export type CreateCrawlerCommandOutput = CreateCrawlerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
+ *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
+ *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
+ */
 export class CreateCrawlerCommand extends $Command<
   CreateCrawlerCommandInput,
   CreateCrawlerCommandOutput,
@@ -34,6 +39,9 @@ export class CreateCrawlerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

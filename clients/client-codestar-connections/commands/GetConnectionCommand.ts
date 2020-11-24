@@ -24,6 +24,9 @@ import {
 export type GetConnectionCommandInput = GetConnectionInput;
 export type GetConnectionCommandOutput = GetConnectionOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
+ */
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
   GetConnectionCommandOutput,
@@ -38,6 +41,9 @@ export class GetConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

@@ -17,6 +17,25 @@ import {
 export type UpdateLagCommandInput = UpdateLagRequest;
 export type UpdateLagCommandOutput = Lag & __MetadataBearer;
 
+/**
+ * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
+ *          <p>You can update the following attributes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The name of the LAG.</p>
+ *             </li>
+ *             <li>
+ *                <p>The value for the minimum number of connections that must be operational
+ *           for the LAG itself to be operational. </p>
+ *             </li>
+ *          </ul>
+ *          <p>When you create a LAG, the default value for the minimum number of operational
+ *       connections is zero (0). If you update this value and the number of operational
+ *       connections falls below the specified value, the LAG automatically goes down to avoid
+ *       over-utilization of the remaining connections. Adjust this value with care, as it
+ *       could force the LAG down if it is set higher than the current number of operational
+ *       connections.</p>
+ */
 export class UpdateLagCommand extends $Command<
   UpdateLagCommandInput,
   UpdateLagCommandOutput,
@@ -31,6 +50,9 @@ export class UpdateLagCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

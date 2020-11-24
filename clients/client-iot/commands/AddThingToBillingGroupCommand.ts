@@ -20,6 +20,9 @@ import {
 export type AddThingToBillingGroupCommandInput = AddThingToBillingGroupRequest;
 export type AddThingToBillingGroupCommandOutput = AddThingToBillingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a thing to a billing group.</p>
+ */
 export class AddThingToBillingGroupCommand extends $Command<
   AddThingToBillingGroupCommandInput,
   AddThingToBillingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AddThingToBillingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

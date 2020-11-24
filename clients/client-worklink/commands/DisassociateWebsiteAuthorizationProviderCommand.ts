@@ -24,6 +24,11 @@ export type DisassociateWebsiteAuthorizationProviderCommandInput = DisassociateW
 export type DisassociateWebsiteAuthorizationProviderCommandOutput = DisassociateWebsiteAuthorizationProviderResponse &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a website authorization provider from a specified fleet. After the
+ *             disassociation, users can't load any associated websites that require this authorization
+ *             provider.</p>
+ */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
   DisassociateWebsiteAuthorizationProviderCommandInput,
   DisassociateWebsiteAuthorizationProviderCommandOutput,
@@ -38,6 +43,9 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

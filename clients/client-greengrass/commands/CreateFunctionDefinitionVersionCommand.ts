@@ -20,6 +20,9 @@ import {
 export type CreateFunctionDefinitionVersionCommandInput = CreateFunctionDefinitionVersionRequest;
 export type CreateFunctionDefinitionVersionCommandOutput = CreateFunctionDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a Lambda function definition that has already been defined.
+ */
 export class CreateFunctionDefinitionVersionCommand extends $Command<
   CreateFunctionDefinitionVersionCommandInput,
   CreateFunctionDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFunctionDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

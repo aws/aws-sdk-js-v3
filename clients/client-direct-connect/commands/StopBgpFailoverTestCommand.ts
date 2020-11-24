@@ -20,6 +20,9 @@ import {
 export type StopBgpFailoverTestCommandInput = StopBgpFailoverTestRequest;
 export type StopBgpFailoverTestCommandOutput = StopBgpFailoverTestResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the virtual interface failover test.</p>
+ */
 export class StopBgpFailoverTestCommand extends $Command<
   StopBgpFailoverTestCommandInput,
   StopBgpFailoverTestCommandOutput,
@@ -34,6 +37,9 @@ export class StopBgpFailoverTestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

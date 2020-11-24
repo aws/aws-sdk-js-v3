@@ -20,6 +20,11 @@ import {
 export type DescribeAddressesCommandInput = DescribeAddressesRequest;
 export type DescribeAddressesCommandOutput = DescribeAddressesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
+ *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
+ * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeAddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

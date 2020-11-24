@@ -20,6 +20,9 @@ import {
 export type ListUserProfilesCommandInput = ListUserProfilesRequest;
 export type ListUserProfilesCommandOutput = ListUserProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists user profiles.</p>
+ */
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,
   ListUserProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class ListUserProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type DeleteFaqCommandInput = DeleteFaqRequest;
 export type DeleteFaqCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes an FAQ from an index.</p>
+ */
 export class DeleteFaqCommand extends $Command<
   DeleteFaqCommandInput,
   DeleteFaqCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteFaqCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

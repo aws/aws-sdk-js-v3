@@ -21,6 +21,24 @@ import {
 export type GetBucketLoggingCommandInput = GetBucketLoggingRequest;
 export type GetBucketLoggingCommandOutput = GetBucketLoggingOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the logging status of a bucket and the permissions users have to view and modify
+ *          that status. To use GET, you must be the bucket owner.</p>
+ *
+ *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html">PutBucketLogging</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketLoggingCommand extends $Command<
   GetBucketLoggingCommandInput,
   GetBucketLoggingCommandOutput,
@@ -35,6 +53,9 @@ export class GetBucketLoggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

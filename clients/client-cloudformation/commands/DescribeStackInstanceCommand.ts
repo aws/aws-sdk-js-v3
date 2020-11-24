@@ -20,6 +20,12 @@ import {
 export type DescribeStackInstanceCommandInput = DescribeStackInstanceInput;
 export type DescribeStackInstanceCommandOutput = DescribeStackInstanceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the stack instance that's associated with the specified stack set, AWS
+ *          account, and Region.</p>
+ *          <p>For a list of stack instances that are associated with a specific stack set, use
+ *             <a>ListStackInstances</a>.</p>
+ */
 export class DescribeStackInstanceCommand extends $Command<
   DescribeStackInstanceCommandInput,
   DescribeStackInstanceCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeStackInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

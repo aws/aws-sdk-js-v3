@@ -20,6 +20,12 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
+ *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
+ *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
+ *     </p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +40,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

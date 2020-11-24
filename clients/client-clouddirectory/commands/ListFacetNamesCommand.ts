@@ -20,6 +20,9 @@ import {
 export type ListFacetNamesCommandInput = ListFacetNamesRequest;
 export type ListFacetNamesCommandOutput = ListFacetNamesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the names of facets that exist in a schema.</p>
+ */
 export class ListFacetNamesCommand extends $Command<
   ListFacetNamesCommandInput,
   ListFacetNamesCommandOutput,
@@ -34,6 +37,9 @@ export class ListFacetNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

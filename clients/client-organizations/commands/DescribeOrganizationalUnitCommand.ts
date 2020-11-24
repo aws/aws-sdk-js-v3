@@ -20,6 +20,11 @@ import {
 export type DescribeOrganizationalUnitCommandInput = DescribeOrganizationalUnitRequest;
 export type DescribeOrganizationalUnitCommandOutput = DescribeOrganizationalUnitResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about an organizational unit (OU).</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class DescribeOrganizationalUnitCommand extends $Command<
   DescribeOrganizationalUnitCommandInput,
   DescribeOrganizationalUnitCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListLaunchPathsCommandInput = ListLaunchPathsInput;
 export type ListLaunchPathsCommandOutput = ListLaunchPathsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the paths to the specified product. A path is how the user
+ *          has access to a specified product, and is necessary when provisioning a product. A path
+ *          also determines the constraints put on the product.</p>
+ */
 export class ListLaunchPathsCommand extends $Command<
   ListLaunchPathsCommandInput,
   ListLaunchPathsCommandOutput,
@@ -34,6 +39,9 @@ export class ListLaunchPathsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

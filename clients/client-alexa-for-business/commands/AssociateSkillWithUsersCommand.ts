@@ -20,6 +20,9 @@ import {
 export type AssociateSkillWithUsersCommandInput = AssociateSkillWithUsersRequest;
 export type AssociateSkillWithUsersCommandOutput = AssociateSkillWithUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
+ */
 export class AssociateSkillWithUsersCommand extends $Command<
   AssociateSkillWithUsersCommandInput,
   AssociateSkillWithUsersCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateSkillWithUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

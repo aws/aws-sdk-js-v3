@@ -20,6 +20,9 @@ import {
 export type SearchEntitiesCommandInput = SearchEntitiesRequest;
 export type SearchEntitiesCommandOutput = SearchEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
+ */
 export class SearchEntitiesCommand extends $Command<
   SearchEntitiesCommandInput,
   SearchEntitiesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateFleetCommandInput = CreateFleetRequest;
 export type CreateFleetCommandOutput = CreateFleetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
+ */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,
   CreateFleetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

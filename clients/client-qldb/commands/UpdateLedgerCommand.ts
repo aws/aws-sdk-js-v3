@@ -20,6 +20,9 @@ import {
 export type UpdateLedgerCommandInput = UpdateLedgerRequest;
 export type UpdateLedgerCommandOutput = UpdateLedgerResponse & __MetadataBearer;
 
+/**
+ * <p>Updates properties on a ledger.</p>
+ */
 export class UpdateLedgerCommand extends $Command<
   UpdateLedgerCommandInput,
   UpdateLedgerCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateLedgerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

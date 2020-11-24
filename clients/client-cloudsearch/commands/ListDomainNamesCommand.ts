@@ -20,6 +20,9 @@ import {
 export type ListDomainNamesCommandInput = {};
 export type ListDomainNamesCommandOutput = ListDomainNamesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all search domains owned by an account.</p>
+ */
 export class ListDomainNamesCommand extends $Command<
   ListDomainNamesCommandInput,
   ListDomainNamesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDomainNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

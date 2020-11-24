@@ -20,6 +20,9 @@ import {
 export type DeleteEventsConfigurationCommandInput = DeleteEventsConfigurationRequest;
 export type DeleteEventsConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
+ */
 export class DeleteEventsConfigurationCommand extends $Command<
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEventsConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

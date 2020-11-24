@@ -24,6 +24,10 @@ export type DescribeEffectivePatchesForPatchBaselineCommandInput = DescribeEffec
 export type DescribeEffectivePatchesForPatchBaselineCommandOutput = DescribeEffectivePatchesForPatchBaselineResult &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
+ *    patch baseline. Note that this API applies only to Windows patch baselines.</p>
+ */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
   DescribeEffectivePatchesForPatchBaselineCommandInput,
   DescribeEffectivePatchesForPatchBaselineCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

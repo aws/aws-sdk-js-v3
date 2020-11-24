@@ -20,6 +20,9 @@ import {
 export type BatchDescribeMergeConflictsCommandInput = BatchDescribeMergeConflictsInput;
 export type BatchDescribeMergeConflictsCommandOutput = BatchDescribeMergeConflictsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
+ */
 export class BatchDescribeMergeConflictsCommand extends $Command<
   BatchDescribeMergeConflictsCommandInput,
   BatchDescribeMergeConflictsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

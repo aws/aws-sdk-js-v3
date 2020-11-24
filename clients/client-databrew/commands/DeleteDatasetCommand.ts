@@ -20,6 +20,9 @@ import {
 export type DeleteDatasetCommandInput = DeleteDatasetRequest;
 export type DeleteDatasetCommandOutput = DeleteDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a dataset from AWS Glue DataBrew.</p>
+ */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

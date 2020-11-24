@@ -20,6 +20,9 @@ import {
 export type AssociateIpGroupsCommandInput = AssociateIpGroupsRequest;
 export type AssociateIpGroupsCommandOutput = AssociateIpGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Associates the specified IP access control group with the specified directory.</p>
+ */
 export class AssociateIpGroupsCommand extends $Command<
   AssociateIpGroupsCommandInput,
   AssociateIpGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateIpGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

@@ -17,6 +17,13 @@ import {
 export type EnableKeyCommandInput = EnableKeyRequest;
 export type EnableKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the key state of a customer master key (CMK) to enabled. This allows you to use the
+ *       CMK for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +34,9 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

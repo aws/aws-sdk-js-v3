@@ -20,6 +20,12 @@ import {
 export type AddClientIDToOpenIDConnectProviderCommandInput = AddClientIDToOpenIDConnectProviderRequest;
 export type AddClientIDToOpenIDConnectProviderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds a new client ID (also known as audience) to the list of client IDs already
+ *          registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
+ *          <p>This operation is idempotent; it does not fail or return an error if you add an existing
+ *          client ID to the provider.</p>
+ */
 export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
@@ -34,6 +40,9 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

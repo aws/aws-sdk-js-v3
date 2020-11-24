@@ -20,6 +20,15 @@ import {
 export type DeleteTestGridProjectCommandInput = DeleteTestGridProjectRequest;
 export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult & __MetadataBearer;
 
+/**
+ * <p> Deletes a Selenium testing project and all content generated under it. </p>
+ *          <important>
+ *             <p>You cannot undo this operation.</p>
+ *          </important>
+ *          <note>
+ *             <p>You cannot delete a project if it has active sessions.</p>
+ *          </note>
+ */
 export class DeleteTestGridProjectCommand extends $Command<
   DeleteTestGridProjectCommandInput,
   DeleteTestGridProjectCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteTestGridProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

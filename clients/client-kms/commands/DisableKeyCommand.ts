@@ -20,6 +20,17 @@ import {
 export type DisableKeyCommandInput = DisableKeyRequest;
 export type DisableKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for
+ *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects the Use of a
+ *         Customer Master Key</a> in the <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>.</p>
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class DisableKeyCommand extends $Command<
   DisableKeyCommandInput,
   DisableKeyCommandOutput,
@@ -34,6 +45,9 @@ export class DisableKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

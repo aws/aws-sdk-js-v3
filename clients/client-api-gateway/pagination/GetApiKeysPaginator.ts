@@ -4,6 +4,9 @@ import { GetApiKeysCommand, GetApiKeysCommandInput, GetApiKeysCommandOutput } fr
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
   input: GetApiKeysCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetApiKeysCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: APIGateway,
   input: GetApiKeysCommandInput,

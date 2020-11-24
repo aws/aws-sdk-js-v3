@@ -20,6 +20,9 @@ import {
 export type DescribeAnalysisCommandInput = DescribeAnalysisRequest;
 export type DescribeAnalysisCommandOutput = DescribeAnalysisResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a summary of the metadata for an analysis.</p>
+ */
 export class DescribeAnalysisCommand extends $Command<
   DescribeAnalysisCommandInput,
   DescribeAnalysisCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAnalysisCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

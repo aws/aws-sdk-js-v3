@@ -20,6 +20,10 @@ import {
 export type GetDomainStatisticsReportCommandInput = GetDomainStatisticsReportRequest;
 export type GetDomainStatisticsReportCommandOutput = GetDomainStatisticsReportResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
+ *             email.</p>
+ */
 export class GetDomainStatisticsReportCommand extends $Command<
   GetDomainStatisticsReportCommandInput,
   GetDomainStatisticsReportCommandOutput,
@@ -34,6 +38,9 @@ export class GetDomainStatisticsReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

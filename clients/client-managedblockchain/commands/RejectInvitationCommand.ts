@@ -24,6 +24,9 @@ import {
 export type RejectInvitationCommandInput = RejectInvitationInput;
 export type RejectInvitationCommandOutput = RejectInvitationOutput & __MetadataBearer;
 
+/**
+ * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
+ */
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,
   RejectInvitationCommandOutput,
@@ -38,6 +41,9 @@ export class RejectInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

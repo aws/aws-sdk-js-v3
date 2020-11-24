@@ -20,6 +20,13 @@ import {
 export type DeleteScalingPlanCommandInput = DeleteScalingPlanRequest;
 export type DeleteScalingPlanCommandOutput = DeleteScalingPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified scaling plan.</p>
+ *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
+ *          all of the scalable resources that are covered by the plan.</p>
+ *          <p>If the plan has launched resources or has scaling activities in progress, you must
+ *          delete those resources separately.</p>
+ */
 export class DeleteScalingPlanCommand extends $Command<
   DeleteScalingPlanCommandInput,
   DeleteScalingPlanCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteScalingPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,

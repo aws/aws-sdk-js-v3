@@ -20,6 +20,10 @@ import {
 export type ActivateEventSourceCommandInput = ActivateEventSourceRequest;
 export type ActivateEventSourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Activates a partner event source that has been deactivated. Once activated, your
+ *             matching event bus will start receiving events from the event source.</p>
+ */
 export class ActivateEventSourceCommand extends $Command<
   ActivateEventSourceCommandInput,
   ActivateEventSourceCommandOutput,
@@ -34,6 +38,9 @@ export class ActivateEventSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

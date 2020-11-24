@@ -20,6 +20,10 @@ import {
 export type DeleteCrawlerCommandInput = DeleteCrawlerRequest;
 export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is
+ *         <code>RUNNING</code>.</p>
+ */
 export class DeleteCrawlerCommand extends $Command<
   DeleteCrawlerCommandInput,
   DeleteCrawlerCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteCrawlerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type AllocateConnectionOnInterconnectCommandInput = AllocateConnectionOnInterconnectRequest;
 export type AllocateConnectionOnInterconnectCommandOutput = Connection & __MetadataBearer;
 
+/**
+ * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
+ *          <p>Creates a hosted connection on an interconnect.</p>
+ *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
+ *          <note>
+ *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *          </note>
+ */
 export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandInput,
   AllocateConnectionOnInterconnectCommandOutput,
@@ -34,6 +42,9 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

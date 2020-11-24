@@ -20,6 +20,9 @@ import {
 export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
 export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
+ */
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
@@ -34,6 +37,9 @@ export class GetInvitationsCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

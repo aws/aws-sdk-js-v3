@@ -20,6 +20,18 @@ import {
 export type DetachInstancesCommandInput = DetachInstancesQuery;
 export type DetachInstancesCommandOutput = DetachInstancesAnswer & __MetadataBearer;
 
+/**
+ * <p>Removes one or more instances from the specified Auto Scaling group.</p>
+ *         <p>After the instances are detached, you can manage them independent of the Auto Scaling
+ *             group.</p>
+ *         <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
+ *             instances to replace the ones that are detached.</p>
+ *         <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are
+ *             deregistered from the load balancer. If there are target groups attached to the Auto Scaling
+ *             group, the instances are deregistered from the target groups.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from
+ *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,
   DetachInstancesCommandOutput,
@@ -34,6 +46,9 @@ export class DetachInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

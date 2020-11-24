@@ -24,6 +24,12 @@ import {
 export type DeletePipelineCommandInput = DeletePipelineRequest;
 export type DeletePipelineCommandOutput = DeletePipelineResponse & __MetadataBearer;
 
+/**
+ * <p>The DeletePipeline operation removes a pipeline.</p>
+ *         <p> You can only delete a pipeline that has never been used or that is not currently in use
+ *             (doesn't contain any active jobs). If the pipeline is currently in use,
+ *                 <code>DeletePipeline</code> returns an error. </p>
+ */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,
   DeletePipelineCommandOutput,
@@ -38,6 +44,9 @@ export class DeletePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

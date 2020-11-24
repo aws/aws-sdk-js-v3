@@ -20,6 +20,9 @@ import {
 export type DescribeLDAPSSettingsCommandInput = DescribeLDAPSSettingsRequest;
 export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the status of LDAP security for the specified directory.</p>
+ */
 export class DescribeLDAPSSettingsCommand extends $Command<
   DescribeLDAPSSettingsCommandInput,
   DescribeLDAPSSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

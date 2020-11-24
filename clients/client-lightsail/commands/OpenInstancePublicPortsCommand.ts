@@ -20,6 +20,13 @@ import {
 export type OpenInstancePublicPortsCommandInput = OpenInstancePublicPortsRequest;
 export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult & __MetadataBearer;
 
+/**
+ * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
+ *       allowed to connect to the instance through the ports, and the protocol.</p>
+ *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
+ *       resource tags applied to the resource identified by <code>instanceName</code>. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class OpenInstancePublicPortsCommand extends $Command<
   OpenInstancePublicPortsCommandInput,
   OpenInstancePublicPortsCommandOutput,
@@ -34,6 +41,9 @@ export class OpenInstancePublicPortsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

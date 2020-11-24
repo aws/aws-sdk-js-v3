@@ -20,6 +20,9 @@ import {
 export type StopAutoMLJobCommandInput = StopAutoMLJobRequest;
 export type StopAutoMLJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>A method for forcing the termination of a running job.</p>
+ */
 export class StopAutoMLJobCommand extends $Command<
   StopAutoMLJobCommandInput,
   StopAutoMLJobCommandOutput,
@@ -34,6 +37,9 @@ export class StopAutoMLJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

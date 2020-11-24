@@ -25,6 +25,10 @@ import {
 export type AdminDisableUserCommandInput = AdminDisableUserRequest;
 export type AdminDisableUserCommandOutput = AdminDisableUserResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the specified user.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminDisableUserCommand extends $Command<
   AdminDisableUserCommandInput,
   AdminDisableUserCommandOutput,
@@ -39,6 +43,9 @@ export class AdminDisableUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

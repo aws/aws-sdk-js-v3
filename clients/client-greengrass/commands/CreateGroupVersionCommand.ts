@@ -20,6 +20,9 @@ import {
 export type CreateGroupVersionCommandInput = CreateGroupVersionRequest;
 export type CreateGroupVersionCommandOutput = CreateGroupVersionResponse & __MetadataBearer;
 
+/**
+ * Creates a version of a group which has already been defined.
+ */
 export class CreateGroupVersionCommand extends $Command<
   CreateGroupVersionCommandInput,
   CreateGroupVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateGroupVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type DescribeContainerCommandInput = DescribeContainerInput;
 export type DescribeContainerCommandOutput = DescribeContainerOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the properties of the requested container. This request is commonly used to
+ *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
+ *          new container is created. A container's endpoint does not change after it has been
+ *          assigned. The <code>DescribeContainer</code> request returns a single
+ *             <code>Container</code> object based on <code>ContainerName</code>. To return all
+ *             <code>Container</code> objects that are associated with a specified AWS account, use
+ *             <a>ListContainers</a>.</p>
+ */
 export class DescribeContainerCommand extends $Command<
   DescribeContainerCommandInput,
   DescribeContainerCommandOutput,
@@ -34,6 +43,9 @@ export class DescribeContainerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

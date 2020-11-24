@@ -20,6 +20,9 @@ import {
 export type ListPortalsCommandInput = ListPortalsRequest;
 export type ListPortalsCommandOutput = ListPortalsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of AWS IoT SiteWise Monitor portals.</p>
+ */
 export class ListPortalsCommand extends $Command<
   ListPortalsCommandInput,
   ListPortalsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPortalsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

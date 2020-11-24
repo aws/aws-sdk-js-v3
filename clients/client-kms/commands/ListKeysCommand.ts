@@ -17,6 +17,10 @@ import {
 export type ListKeysCommandInput = ListKeysRequest;
 export type ListKeysCommandOutput = ListKeysResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and
+ *       Region.</p>
+ */
 export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +31,9 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

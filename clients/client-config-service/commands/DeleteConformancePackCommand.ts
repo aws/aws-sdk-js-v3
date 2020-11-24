@@ -20,6 +20,12 @@ import {
 export type DeleteConformancePackCommandInput = DeleteConformancePackRequest;
 export type DeleteConformancePackCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that
+ * 			conformance pack.</p>
+ * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
+ * 			You cannot update a conformance pack while it is in this state.</p>
+ */
 export class DeleteConformancePackCommand extends $Command<
   DeleteConformancePackCommandInput,
   DeleteConformancePackCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteConformancePackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

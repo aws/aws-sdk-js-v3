@@ -20,6 +20,9 @@ import {
 export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
 export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing virtual nodes.</p>
+ */
 export class ListVirtualNodesCommand extends $Command<
   ListVirtualNodesCommandInput,
   ListVirtualNodesCommandOutput,
@@ -34,6 +37,9 @@ export class ListVirtualNodesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

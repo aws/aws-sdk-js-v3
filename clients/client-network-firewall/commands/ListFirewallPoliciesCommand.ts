@@ -20,6 +20,11 @@ import {
 export type ListFirewallPoliciesCommandInput = ListFirewallPoliciesRequest;
 export type ListFirewallPoliciesCommandOutput = ListFirewallPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the metadata for the firewall policies that you have defined. Depending on
+ *          your setting for max results and the number of firewall policies, a single call might not
+ *          return the full list. </p>
+ */
 export class ListFirewallPoliciesCommand extends $Command<
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
@@ -34,6 +39,9 @@ export class ListFirewallPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

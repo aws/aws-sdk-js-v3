@@ -20,6 +20,12 @@ import {
 export type DeleteRelationalDatabaseSnapshotCommandInput = DeleteRelationalDatabaseSnapshotRequest;
 export type DeleteRelationalDatabaseSnapshotCommandOutput = DeleteRelationalDatabaseSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a database snapshot in Amazon Lightsail.</p>
+ *          <p>The <code>delete relational database snapshot</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by relationalDatabaseName. For
+ *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
   DeleteRelationalDatabaseSnapshotCommandInput,
   DeleteRelationalDatabaseSnapshotCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteSecurityProfileCommandInput = DeleteSecurityProfileRequest;
 export type DeleteSecurityProfileCommandOutput = DeleteSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a Device Defender security profile.</p>
+ */
 export class DeleteSecurityProfileCommand extends $Command<
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteAccountCustomizationCommandInput = DeleteAccountCustomizationRequest;
 export type DeleteAccountCustomizationCommandOutput = DeleteAccountCustomizationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes all Amazon QuickSight customizations in this AWS Region for the specified AWS
+ *             account and QuickSight namespace.</p>
+ */
 export class DeleteAccountCustomizationCommand extends $Command<
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteAccountCustomizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

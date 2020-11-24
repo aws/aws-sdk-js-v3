@@ -20,6 +20,12 @@ import {
 export type ListBackupPlansCommandInput = ListBackupPlansInput;
 export type ListBackupPlansCommandOutput = ListBackupPlansOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing backup plans for an authenticated account. The list is
+ *          populated only if the advanced option is set for the backup plan. The list contains
+ *          information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion dates,
+ *          version IDs, plan names, and creator request IDs.</p>
+ */
 export class ListBackupPlansCommand extends $Command<
   ListBackupPlansCommandInput,
   ListBackupPlansCommandOutput,
@@ -34,6 +40,9 @@ export class ListBackupPlansCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

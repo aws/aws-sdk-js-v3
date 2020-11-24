@@ -20,6 +20,9 @@ import {
 export type ListThemesCommandInput = ListThemesRequest;
 export type ListThemesCommandOutput = ListThemesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the themes in the current AWS account.</p>
+ */
 export class ListThemesCommand extends $Command<
   ListThemesCommandInput,
   ListThemesCommandOutput,
@@ -34,6 +37,9 @@ export class ListThemesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

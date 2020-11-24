@@ -20,6 +20,10 @@ import {
 export type PutInvitationConfigurationCommandInput = PutInvitationConfigurationRequest;
 export type PutInvitationConfigurationCommandOutput = PutInvitationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Configures the email template for the user enrollment invitation with the specified
+ *          attributes.</p>
+ */
 export class PutInvitationConfigurationCommand extends $Command<
   PutInvitationConfigurationCommandInput,
   PutInvitationConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class PutInvitationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

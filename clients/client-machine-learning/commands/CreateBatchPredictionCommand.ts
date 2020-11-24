@@ -20,6 +20,20 @@ import {
 export type CreateBatchPredictionCommandInput = CreateBatchPredictionInput;
 export type CreateBatchPredictionCommandOutput = CreateBatchPredictionOutput & __MetadataBearer;
 
+/**
+ * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
+ *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
+ *             files referenced by the <code>DataSource</code> as information sources.
+ *         </p>
+ *
+ *         <p>
+ *             <code>CreateBatchPrediction</code> is an asynchronous operation. In response to <code>CreateBatchPrediction</code>,
+ *         Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>BatchPrediction</code> status to <code>PENDING</code>.
+ *         After the <code>BatchPrediction</code> completes, Amazon ML sets the status to <code>COMPLETED</code>.
+ *         </p>
+ *         <p>You can poll for status updates by using the <a>GetBatchPrediction</a> operation and checking the <code>Status</code> parameter of the result. After the <code>COMPLETED</code> status appears,
+ *             the results are available in the location specified by the <code>OutputUri</code> parameter.</p>
+ */
 export class CreateBatchPredictionCommand extends $Command<
   CreateBatchPredictionCommandInput,
   CreateBatchPredictionCommandOutput,
@@ -34,6 +48,9 @@ export class CreateBatchPredictionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

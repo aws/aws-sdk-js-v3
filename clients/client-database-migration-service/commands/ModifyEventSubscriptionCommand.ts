@@ -24,6 +24,9 @@ import {
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
 export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing AWS DMS event notification subscription. </p>
+ */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
@@ -38,6 +41,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

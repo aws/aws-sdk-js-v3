@@ -20,6 +20,9 @@ import {
 export type UpdatePullRequestStatusCommandInput = UpdatePullRequestStatusInput;
 export type UpdatePullRequestStatusCommandOutput = UpdatePullRequestStatusOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the status of a pull request. </p>
+ */
 export class UpdatePullRequestStatusCommand extends $Command<
   UpdatePullRequestStatusCommandInput,
   UpdatePullRequestStatusCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePullRequestStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

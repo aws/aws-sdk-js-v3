@@ -24,6 +24,9 @@ import {
 export type DeleteApplicationSnapshotCommandInput = DeleteApplicationSnapshotRequest;
 export type DeleteApplicationSnapshotCommandOutput = DeleteApplicationSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a snapshot of application state.</p>
+ */
 export class DeleteApplicationSnapshotCommand extends $Command<
   DeleteApplicationSnapshotCommandInput,
   DeleteApplicationSnapshotCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

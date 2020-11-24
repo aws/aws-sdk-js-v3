@@ -20,6 +20,27 @@ import {
 export type CreateCertificateAuthorityCommandInput = CreateCertificateAuthorityRequest;
 export type CreateCertificateAuthorityCommandOutput = CreateCertificateAuthorityResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
+ * 			CA configuration, the certificate revocation list (CRL) configuration, the CA type, and
+ * 			an optional idempotency token to avoid accidental creation of multiple CAs. The CA
+ * 			configuration specifies the name of the algorithm and key size to be used to create the
+ * 			CA private key, the type of signing algorithm that the CA uses, and X.500 subject
+ * 			information. The CRL configuration specifies the CRL expiration period in days (the
+ * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
+ * 			alias for the S3 bucket that is included in certificates issued by the CA. If
+ * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>
+ * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+ *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
+ * 			CRLs</a>.</p>
+ * 		       <note>
+ *                         <p>Both PCA and the IAM principal must have permission to write to
+ *                         the S3 bucket that you specify. If the IAM principal making the call
+ *                         does not have permission to write to the bucket, then an exception is
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+ *                         Access to ACM Private CA</a>.</p>
+ *                 </note>
+ */
 export class CreateCertificateAuthorityCommand extends $Command<
   CreateCertificateAuthorityCommandInput,
   CreateCertificateAuthorityCommandOutput,
@@ -34,6 +55,9 @@ export class CreateCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

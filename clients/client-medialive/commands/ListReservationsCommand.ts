@@ -20,6 +20,9 @@ import {
 export type ListReservationsCommandInput = ListReservationsRequest;
 export type ListReservationsCommandOutput = ListReservationsResponse & __MetadataBearer;
 
+/**
+ * List purchased reservations.
+ */
 export class ListReservationsCommand extends $Command<
   ListReservationsCommandInput,
   ListReservationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListReservationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

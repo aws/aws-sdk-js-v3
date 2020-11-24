@@ -20,6 +20,38 @@ import {
 export type ApproveAssignmentCommandInput = ApproveAssignmentRequest;
 export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
+ *         </p>
+ *         <p>
+ *             Approving an assignment initiates two payments from the Requester's Amazon.com account
+ *         </p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                     The Worker who submitted the results is paid the reward specified in the HIT.
+ *                 </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                     Amazon Mechanical Turk fees are debited.
+ *                 </p>
+ *             </li>
+ *          </ul>
+ *         <p>
+ *             If the Requester's account does not have adequate funds for these payments,
+ *             the call to ApproveAssignment returns an exception, and the approval is not processed.
+ *             You can include an optional feedback message with the approval,
+ *             which the Worker can see in the Status section of the web site.
+ *         </p>
+ *         <p>
+ *             You can also call this operation for assignments that were previous rejected
+ *             and approve them by explicitly overriding the previous rejection.
+ *             This only works on rejected assignments that were submitted within the previous 30 days
+ *             and only if the assignment's related HIT has not been deleted.
+ *         </p>
+ */
 export class ApproveAssignmentCommand extends $Command<
   ApproveAssignmentCommandInput,
   ApproveAssignmentCommandOutput,
@@ -34,6 +66,9 @@ export class ApproveAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

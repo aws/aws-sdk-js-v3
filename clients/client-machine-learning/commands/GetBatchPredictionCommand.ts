@@ -20,6 +20,10 @@ import {
 export type GetBatchPredictionCommandInput = GetBatchPredictionInput;
 export type GetBatchPredictionCommandOutput = GetBatchPredictionOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
+ *             <code>Batch Prediction</code> request.</p>
+ */
 export class GetBatchPredictionCommand extends $Command<
   GetBatchPredictionCommandInput,
   GetBatchPredictionCommandOutput,
@@ -34,6 +38,9 @@ export class GetBatchPredictionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

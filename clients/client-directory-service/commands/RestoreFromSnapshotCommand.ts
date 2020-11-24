@@ -20,6 +20,14 @@ import {
 export type RestoreFromSnapshotCommandInput = RestoreFromSnapshotRequest;
 export type RestoreFromSnapshotCommandOutput = RestoreFromSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Restores a directory using an existing directory snapshot.</p>
+ *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
+ *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
+ *          progress of the restore operation by calling the <a>DescribeDirectories</a> operation with
+ *          the directory identifier. When the <b>DirectoryDescription.Stage</b> value changes to
+ *             <code>Active</code>, the restore operation is complete.</p>
+ */
 export class RestoreFromSnapshotCommand extends $Command<
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class RestoreFromSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
 export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput & __MetadataBearer;
 
+/**
+ * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>
+ */
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
@@ -34,6 +37,9 @@ export class StopStackSetOperationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

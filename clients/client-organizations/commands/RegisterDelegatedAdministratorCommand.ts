@@ -20,6 +20,17 @@ import {
 export type RegisterDelegatedAdministratorCommandInput = RegisterDelegatedAdministratorRequest;
 export type RegisterDelegatedAdministratorCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables the specified member account to administer the Organizations features of the specified
+ *             AWS service. It grants read-only access to AWS Organizations service data. The account still
+ *             requires IAM permissions to access and administer the AWS service.</p>
+ *         <p>You can run this action only for AWS services that support this
+ *     feature. For a current list of services that support it, see the column <i>Supports
+ *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS Services that you can use with
+ *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
+ *          </p>
+ *         <p>This operation can be called only from the organization's management account.</p>
+ */
 export class RegisterDelegatedAdministratorCommand extends $Command<
   RegisterDelegatedAdministratorCommandInput,
   RegisterDelegatedAdministratorCommandOutput,
@@ -34,6 +45,9 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

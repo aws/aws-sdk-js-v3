@@ -24,6 +24,9 @@ import {
 export type DeleteApplicationCommandInput = DeleteApplicationRequest;
 export type DeleteApplicationCommandOutput = DeleteApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified application from monitoring. Does not delete the application.</p>
+ */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

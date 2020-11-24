@@ -20,6 +20,9 @@ import {
 export type DeleteFlowDefinitionCommandInput = DeleteFlowDefinitionRequest;
 export type DeleteFlowDefinitionCommandOutput = DeleteFlowDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified flow definition.</p>
+ */
 export class DeleteFlowDefinitionCommand extends $Command<
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFlowDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

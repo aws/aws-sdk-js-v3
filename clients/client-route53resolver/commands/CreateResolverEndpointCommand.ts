@@ -20,6 +20,19 @@ import {
 export type CreateResolverEndpointCommandInput = CreateResolverEndpointRequest;
 export type CreateResolverEndpointCommandOutput = CreateResolverEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC
+ * 				from your network.</p>
+ *             </li>
+ *             <li>
+ *                <p>An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for a VPC
+ * 				to your network.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateResolverEndpointCommand extends $Command<
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
@@ -34,6 +47,9 @@ export class CreateResolverEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

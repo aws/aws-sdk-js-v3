@@ -20,6 +20,9 @@ import {
 export type UpdateAccountSettingsCommandInput = UpdateAccountSettingsRequest;
 export type UpdateAccountSettingsCommandOutput = UpdateAccountSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the Amazon QuickSight settings in your AWS account.</p>
+ */
 export class UpdateAccountSettingsCommand extends $Command<
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

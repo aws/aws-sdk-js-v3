@@ -20,6 +20,10 @@ import {
 export type ListPortfolioAccessCommandInput = ListPortfolioAccessInput;
 export type ListPortfolioAccessCommandOutput = ListPortfolioAccessOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the account IDs that have access to the specified portfolio.</p>
+ *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
+ */
 export class ListPortfolioAccessCommand extends $Command<
   ListPortfolioAccessCommandInput,
   ListPortfolioAccessCommandOutput,
@@ -34,6 +38,9 @@ export class ListPortfolioAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

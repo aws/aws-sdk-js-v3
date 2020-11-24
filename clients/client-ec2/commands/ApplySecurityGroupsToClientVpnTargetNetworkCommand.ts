@@ -24,6 +24,10 @@ export type ApplySecurityGroupsToClientVpnTargetNetworkCommandInput = ApplySecur
 export type ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput = ApplySecurityGroupsToClientVpnTargetNetworkResult &
   __MetadataBearer;
 
+/**
+ * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
+ * 			security groups with the specified security groups.</p>
+ */
 export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command<
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
@@ -38,6 +42,9 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

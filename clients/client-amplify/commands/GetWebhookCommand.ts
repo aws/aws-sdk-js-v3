@@ -20,6 +20,9 @@ import {
 export type GetWebhookCommandInput = GetWebhookRequest;
 export type GetWebhookCommandOutput = GetWebhookResult & __MetadataBearer;
 
+/**
+ * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>
+ */
 export class GetWebhookCommand extends $Command<
   GetWebhookCommandInput,
   GetWebhookCommandOutput,
@@ -34,6 +37,9 @@ export class GetWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

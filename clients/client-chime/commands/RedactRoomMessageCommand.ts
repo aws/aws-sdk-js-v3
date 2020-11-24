@@ -20,6 +20,9 @@ import {
 export type RedactRoomMessageCommandInput = RedactRoomMessageRequest;
 export type RedactRoomMessageCommandOutput = RedactRoomMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Redacts the specified message from the specified Amazon Chime chat room.</p>
+ */
 export class RedactRoomMessageCommand extends $Command<
   RedactRoomMessageCommandInput,
   RedactRoomMessageCommandOutput,
@@ -34,6 +37,9 @@ export class RedactRoomMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

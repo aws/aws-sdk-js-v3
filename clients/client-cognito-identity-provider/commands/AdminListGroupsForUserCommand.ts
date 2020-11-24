@@ -25,6 +25,10 @@ import {
 export type AdminListGroupsForUserCommandInput = AdminListGroupsForUserRequest;
 export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the groups that the user belongs to.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminListGroupsForUserCommand extends $Command<
   AdminListGroupsForUserCommandInput,
   AdminListGroupsForUserCommandOutput,
@@ -39,6 +43,9 @@ export class AdminListGroupsForUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

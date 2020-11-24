@@ -20,6 +20,10 @@ import {
 export type DescribeProductsCommandInput = DescribeProductsRequest;
 export type DescribeProductsCommandOutput = DescribeProductsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the available products that you can subscribe to and integrate
+ *          with Security Hub in order to consolidate findings.</p>
+ */
 export class DescribeProductsCommand extends $Command<
   DescribeProductsCommandInput,
   DescribeProductsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeProductsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

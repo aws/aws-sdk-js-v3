@@ -20,6 +20,10 @@ import {
 export type ListApprovalRuleTemplatesCommandInput = ListApprovalRuleTemplatesInput;
 export type ListApprovalRuleTemplatesCommandOutput = ListApprovalRuleTemplatesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If
+ *             an AWS Region is not specified, the AWS Region where you are signed in is used.</p>
+ */
 export class ListApprovalRuleTemplatesCommand extends $Command<
   ListApprovalRuleTemplatesCommandInput,
   ListApprovalRuleTemplatesCommandOutput,
@@ -34,6 +38,9 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

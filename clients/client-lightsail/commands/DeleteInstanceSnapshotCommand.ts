@@ -20,6 +20,13 @@ import {
 export type DeleteInstanceSnapshotCommandInput = DeleteInstanceSnapshotRequest;
 export type DeleteInstanceSnapshotCommandOutput = DeleteInstanceSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a specific snapshot of a virtual private server (or
+ *       <i>instance</i>).</p>
+ *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
+ *       resource tags applied to the resource identified by <code>instance snapshot name</code>. For
+ *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteInstanceSnapshotCommand extends $Command<
   DeleteInstanceSnapshotCommandInput,
   DeleteInstanceSnapshotCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

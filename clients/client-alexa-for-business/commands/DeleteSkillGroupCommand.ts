@@ -20,6 +20,9 @@ import {
 export type DeleteSkillGroupCommandInput = DeleteSkillGroupRequest;
 export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a skill group by skill group ARN.</p>
+ */
 export class DeleteSkillGroupCommand extends $Command<
   DeleteSkillGroupCommandInput,
   DeleteSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

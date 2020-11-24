@@ -20,6 +20,13 @@ import {
 export type CancelMailboxExportJobCommandInput = CancelMailboxExportJobRequest;
 export type CancelMailboxExportJobCommandOutput = CancelMailboxExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a mailbox export job.</p>
+ *          <note>
+ *             <p>If the mailbox export job is near completion, it might not be possible to cancel
+ *             it.</p>
+ *          </note>
+ */
 export class CancelMailboxExportJobCommand extends $Command<
   CancelMailboxExportJobCommandInput,
   CancelMailboxExportJobCommandOutput,
@@ -34,6 +41,9 @@ export class CancelMailboxExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

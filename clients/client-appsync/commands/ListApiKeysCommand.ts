@@ -20,6 +20,15 @@ import {
 export type ListApiKeysCommandInput = ListApiKeysRequest;
 export type ListApiKeysCommandOutput = ListApiKeysResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the API keys for a given API.</p>
+ *          <note>
+ *             <p>API keys are deleted automatically 60 days after they expire. However, they may
+ *             still be included in the response until they have actually been deleted. You can safely
+ *             call <code>DeleteApiKey</code> to manually delete a key before it's automatically
+ *             deleted.</p>
+ *          </note>
+ */
 export class ListApiKeysCommand extends $Command<
   ListApiKeysCommandInput,
   ListApiKeysCommandOutput,
@@ -34,6 +43,9 @@ export class ListApiKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

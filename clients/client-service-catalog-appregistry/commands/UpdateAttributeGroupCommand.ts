@@ -24,6 +24,9 @@ import {
 export type UpdateAttributeGroupCommandInput = UpdateAttributeGroupRequest;
 export type UpdateAttributeGroupCommandOutput = UpdateAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing attribute group with new details. </p>
+ */
 export class UpdateAttributeGroupCommand extends $Command<
   UpdateAttributeGroupCommandInput,
   UpdateAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

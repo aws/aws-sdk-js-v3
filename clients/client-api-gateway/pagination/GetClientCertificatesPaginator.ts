@@ -8,6 +8,9 @@ import {
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
   input: GetClientCertificatesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetClientCertificatesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: APIGateway,
   input: GetClientCertificatesCommandInput,

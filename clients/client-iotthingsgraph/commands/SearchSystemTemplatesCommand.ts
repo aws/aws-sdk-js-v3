@@ -20,6 +20,9 @@ import {
 export type SearchSystemTemplatesCommandInput = SearchSystemTemplatesRequest;
 export type SearchSystemTemplatesCommandOutput = SearchSystemTemplatesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
+ */
 export class SearchSystemTemplatesCommand extends $Command<
   SearchSystemTemplatesCommandInput,
   SearchSystemTemplatesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchSystemTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListResolverEndpointIpAddressesCommandInput = ListResolverEndpointIpAddressesRequest;
 export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
+ */
 export class ListResolverEndpointIpAddressesCommand extends $Command<
   ListResolverEndpointIpAddressesCommandInput,
   ListResolverEndpointIpAddressesCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListGroupVersionsCommandInput = ListGroupVersionsRequest;
 export type ListGroupVersionsCommandOutput = ListGroupVersionsResponse & __MetadataBearer;
 
+/**
+ * Lists the versions of a group.
+ */
 export class ListGroupVersionsCommand extends $Command<
   ListGroupVersionsCommandInput,
   ListGroupVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroupVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

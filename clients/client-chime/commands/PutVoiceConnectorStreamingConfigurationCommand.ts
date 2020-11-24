@@ -24,6 +24,11 @@ export type PutVoiceConnectorStreamingConfigurationCommandInput = PutVoiceConnec
 export type PutVoiceConnectorStreamingConfigurationCommandOutput = PutVoiceConnectorStreamingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
+ *       streaming configuration specifies whether media streaming is enabled for sending to Amazon
+ *       Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
+ */
 export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
   PutVoiceConnectorStreamingConfigurationCommandInput,
   PutVoiceConnectorStreamingConfigurationCommandOutput,
@@ -38,6 +43,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

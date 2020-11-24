@@ -20,6 +20,11 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
+ *       IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked, this
+ *       operation returns all assigned tags for a given resource.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +39,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

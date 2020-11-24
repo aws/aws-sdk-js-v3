@@ -20,6 +20,10 @@ import {
 export type DeleteImageCommandInput = DeleteImageRequest;
 export type DeleteImageCommandOutput = DeleteImageResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified image. You cannot delete an image when it is in use.
+ *             After you delete an image, you cannot provision new capacity using the image.</p>
+ */
 export class DeleteImageCommand extends $Command<
   DeleteImageCommandInput,
   DeleteImageCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

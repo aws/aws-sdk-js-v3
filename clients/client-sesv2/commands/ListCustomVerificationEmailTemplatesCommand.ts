@@ -24,6 +24,13 @@ export type ListCustomVerificationEmailTemplatesCommandInput = ListCustomVerific
 export type ListCustomVerificationEmailTemplatesCommandOutput = ListCustomVerificationEmailTemplatesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the existing custom verification email templates for your account in the current
+ *             AWS Region.</p>
+ *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+ *                 Guide</i>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command<
   ListCustomVerificationEmailTemplatesCommandInput,
   ListCustomVerificationEmailTemplatesCommandOutput,
@@ -38,6 +45,9 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

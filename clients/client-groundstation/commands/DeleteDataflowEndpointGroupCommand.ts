@@ -20,6 +20,9 @@ import {
 export type DeleteDataflowEndpointGroupCommandInput = DeleteDataflowEndpointGroupRequest;
 export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a dataflow endpoint group.</p>
+ */
 export class DeleteDataflowEndpointGroupCommand extends $Command<
   DeleteDataflowEndpointGroupCommandInput,
   DeleteDataflowEndpointGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

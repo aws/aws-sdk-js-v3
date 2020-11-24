@@ -20,6 +20,10 @@ import {
 export type CancelCommandCommandInput = CancelCommandRequest;
 export type CancelCommandCommandOutput = CancelCommandResult & __MetadataBearer;
 
+/**
+ * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
+ *    command will be terminated and the underlying process stopped.</p>
+ */
 export class CancelCommandCommand extends $Command<
   CancelCommandCommandInput,
   CancelCommandCommandOutput,
@@ -34,6 +38,9 @@ export class CancelCommandCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

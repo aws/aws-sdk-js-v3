@@ -20,6 +20,9 @@ import {
 export type ListStreamProcessorsCommandInput = ListStreamProcessorsRequest;
 export type ListStreamProcessorsCommandOutput = ListStreamProcessorsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
+ */
 export class ListStreamProcessorsCommand extends $Command<
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput,
@@ -34,6 +37,9 @@ export class ListStreamProcessorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

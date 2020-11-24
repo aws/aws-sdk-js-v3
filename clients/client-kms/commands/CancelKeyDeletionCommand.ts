@@ -20,6 +20,16 @@ import {
 export type CancelKeyDeletionCommandInput = CancelKeyDeletionRequest;
 export type CancelKeyDeletionCommandOutput = CancelKeyDeletionResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the deletion of a customer master key (CMK). When this operation succeeds, the key
+ *       state of the CMK is <code>Disabled</code>. To enable the CMK, use <a>EnableKey</a>.
+ *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>For more information about scheduling and canceling deletion of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master
+ *         Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class CancelKeyDeletionCommand extends $Command<
   CancelKeyDeletionCommandInput,
   CancelKeyDeletionCommandOutput,
@@ -34,6 +44,9 @@ export class CancelKeyDeletionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateDBClusterSnapshotCommandInput = CreateDBClusterSnapshotMessage;
 export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of a DB cluster.</p>
+ */
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,
   CreateDBClusterSnapshotCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

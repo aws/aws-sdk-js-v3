@@ -20,6 +20,9 @@ import {
 export type CancelQuantumTaskCommandInput = CancelQuantumTaskRequest;
 export type CancelQuantumTaskCommandOutput = CancelQuantumTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified task.</p>
+ */
 export class CancelQuantumTaskCommand extends $Command<
   CancelQuantumTaskCommandInput,
   CancelQuantumTaskCommandOutput,
@@ -34,6 +37,9 @@ export class CancelQuantumTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BraketClientResolvedConfig,

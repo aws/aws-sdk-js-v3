@@ -24,6 +24,9 @@ import {
 export type ListApplicationSnapshotsCommandInput = ListApplicationSnapshotsRequest;
 export type ListApplicationSnapshotsCommandOutput = ListApplicationSnapshotsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists information about the current application snapshots.</p>
+ */
 export class ListApplicationSnapshotsCommand extends $Command<
   ListApplicationSnapshotsCommandInput,
   ListApplicationSnapshotsCommandOutput,
@@ -38,6 +41,9 @@ export class ListApplicationSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

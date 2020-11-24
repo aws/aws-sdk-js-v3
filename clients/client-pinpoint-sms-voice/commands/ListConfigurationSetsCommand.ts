@@ -20,6 +20,9 @@ import {
 export type ListConfigurationSetsCommandInput = ListConfigurationSetsRequest;
 export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse & __MetadataBearer;
 
+/**
+ * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
+ */
 export class ListConfigurationSetsCommand extends $Command<
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListConfigurationSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

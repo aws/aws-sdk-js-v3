@@ -20,6 +20,9 @@ import {
 export type GetRelationalDatabasesCommandInput = GetRelationalDatabasesRequest;
 export type GetRelationalDatabasesCommandOutput = GetRelationalDatabasesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about all of your databases in Amazon Lightsail.</p>
+ */
 export class GetRelationalDatabasesCommand extends $Command<
   GetRelationalDatabasesCommandInput,
   GetRelationalDatabasesCommandOutput,
@@ -34,6 +37,9 @@ export class GetRelationalDatabasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

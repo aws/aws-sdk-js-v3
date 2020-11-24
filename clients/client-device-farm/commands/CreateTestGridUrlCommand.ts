@@ -20,6 +20,10 @@ import {
 export type CreateTestGridUrlCommandInput = CreateTestGridUrlRequest;
 export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult & __MetadataBearer;
 
+/**
+ * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
+ *          constructor.</p>
+ */
 export class CreateTestGridUrlCommand extends $Command<
   CreateTestGridUrlCommandInput,
   CreateTestGridUrlCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTestGridUrlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

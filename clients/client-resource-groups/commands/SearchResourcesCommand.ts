@@ -20,6 +20,11 @@ import {
 export type SearchResourcesCommandInput = SearchResourcesInput;
 export type SearchResourcesCommandOutput = SearchResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of AWS resource identifiers that matches the specified query. The
+ *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
+ *             operation.</p>
+ */
 export class SearchResourcesCommand extends $Command<
   SearchResourcesCommandInput,
   SearchResourcesCommandOutput,
@@ -34,6 +39,9 @@ export class SearchResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsClientResolvedConfig,

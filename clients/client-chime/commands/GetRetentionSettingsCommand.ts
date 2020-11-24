@@ -20,6 +20,9 @@ import {
 export type GetRetentionSettingsCommandInput = GetRetentionSettingsRequest;
 export type GetRetentionSettingsCommandOutput = GetRetentionSettingsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+ */
 export class GetRetentionSettingsCommand extends $Command<
   GetRetentionSettingsCommandInput,
   GetRetentionSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetRetentionSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

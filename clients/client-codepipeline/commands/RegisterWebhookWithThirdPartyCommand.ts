@@ -20,6 +20,10 @@ import {
 export type RegisterWebhookWithThirdPartyCommandInput = RegisterWebhookWithThirdPartyInput;
 export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput & __MetadataBearer;
 
+/**
+ * <p>Configures a connection between the webhook that was created and the external tool
+ *             with events to be detected.</p>
+ */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<
   RegisterWebhookWithThirdPartyCommandInput,
   RegisterWebhookWithThirdPartyCommandOutput,
@@ -34,6 +38,9 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

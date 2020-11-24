@@ -20,6 +20,9 @@ import {
 export type AcceptPortfolioShareCommandInput = AcceptPortfolioShareInput;
 export type AcceptPortfolioShareCommandOutput = AcceptPortfolioShareOutput & __MetadataBearer;
 
+/**
+ * <p>Accepts an offer to share the specified portfolio.</p>
+ */
 export class AcceptPortfolioShareCommand extends $Command<
   AcceptPortfolioShareCommandInput,
   AcceptPortfolioShareCommandOutput,
@@ -34,6 +37,9 @@ export class AcceptPortfolioShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

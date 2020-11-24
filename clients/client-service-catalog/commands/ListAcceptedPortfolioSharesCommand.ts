@@ -20,6 +20,9 @@ import {
 export type ListAcceptedPortfolioSharesCommandInput = ListAcceptedPortfolioSharesInput;
 export type ListAcceptedPortfolioSharesCommandOutput = ListAcceptedPortfolioSharesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all portfolios for which sharing was accepted by this account.</p>
+ */
 export class ListAcceptedPortfolioSharesCommand extends $Command<
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

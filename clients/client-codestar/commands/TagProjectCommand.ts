@@ -20,6 +20,9 @@ import {
 export type TagProjectCommandInput = TagProjectRequest;
 export type TagProjectCommandOutput = TagProjectResult & __MetadataBearer;
 
+/**
+ * <p>Adds tags to a project.</p>
+ */
 export class TagProjectCommand extends $Command<
   TagProjectCommandInput,
   TagProjectCommandOutput,
@@ -34,6 +37,9 @@ export class TagProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateContactCommandInput = CreateContactRequest;
 export type CreateContactCommandOutput = CreateContactResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a contact with the specified details.</p>
+ */
 export class CreateContactCommand extends $Command<
   CreateContactCommandInput,
   CreateContactCommandOutput,
@@ -34,6 +37,9 @@ export class CreateContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

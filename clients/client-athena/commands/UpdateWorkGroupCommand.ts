@@ -20,6 +20,10 @@ import {
 export type UpdateWorkGroupCommandInput = UpdateWorkGroupInput;
 export type UpdateWorkGroupCommandOutput = UpdateWorkGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
+ *             changed.</p>
+ */
 export class UpdateWorkGroupCommand extends $Command<
   UpdateWorkGroupCommandInput,
   UpdateWorkGroupCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateWorkGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

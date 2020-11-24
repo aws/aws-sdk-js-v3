@@ -24,6 +24,9 @@ import {
 export type ListMembersCommandInput = ListMembersInput;
 export type ListMembersCommandOutput = ListMembersOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a listing of the members in a network and properties of their configurations.</p>
+ */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,
   ListMembersCommandOutput,
@@ -38,6 +41,9 @@ export class ListMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

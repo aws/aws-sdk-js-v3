@@ -20,6 +20,9 @@ import {
 export type ListProvisioningArtifactsCommandInput = ListProvisioningArtifactsInput;
 export type ListProvisioningArtifactsCommandOutput = ListProvisioningArtifactsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
+ */
 export class ListProvisioningArtifactsCommand extends $Command<
   ListProvisioningArtifactsCommandInput,
   ListProvisioningArtifactsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProvisioningArtifactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

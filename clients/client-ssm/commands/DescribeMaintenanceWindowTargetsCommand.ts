@@ -20,6 +20,9 @@ import {
 export type DescribeMaintenanceWindowTargetsCommandInput = DescribeMaintenanceWindowTargetsRequest;
 export type DescribeMaintenanceWindowTargetsCommandOutput = DescribeMaintenanceWindowTargetsResult & __MetadataBearer;
 
+/**
+ * <p>Lists the targets registered with the maintenance window.</p>
+ */
 export class DescribeMaintenanceWindowTargetsCommand extends $Command<
   DescribeMaintenanceWindowTargetsCommandInput,
   DescribeMaintenanceWindowTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMaintenanceWindowTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

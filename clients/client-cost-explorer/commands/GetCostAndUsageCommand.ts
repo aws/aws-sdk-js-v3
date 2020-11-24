@@ -20,6 +20,14 @@ import {
 export type GetCostAndUsageCommandInput = GetCostAndUsageRequest;
 export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric, such as
+ * 			<code>BlendedCosts</code> or <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
+ * 			your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
+ * 			of valid dimensions, see the
+ * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
+ * 		  operation. Master account in an organization in AWS Organizations have access to all member accounts.</p>
+ */
 export class GetCostAndUsageCommand extends $Command<
   GetCostAndUsageCommandInput,
   GetCostAndUsageCommandOutput,
@@ -34,6 +42,9 @@ export class GetCostAndUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

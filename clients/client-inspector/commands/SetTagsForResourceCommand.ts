@@ -20,6 +20,10 @@ import {
 export type SetTagsForResourceCommandInput = SetTagsForResourceRequest;
 export type SetTagsForResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
+ *          ARN of the assessment template.</p>
+ */
 export class SetTagsForResourceCommand extends $Command<
   SetTagsForResourceCommandInput,
   SetTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class SetTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type ListDashboardsCommandInput = ListDashboardsInput;
 export type ListDashboardsCommandOutput = ListDashboardsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
+ * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
+ * 			listed.
+ * 	    </p>
+ * 		       <p>
+ *             <code>ListDashboards</code> returns up to 1000 results on one page. If there
+ * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
+ * 		include the value you received for <code>NextToken</code> in the first call, to receive
+ * 		the next 1000 results.</p>
+ */
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
@@ -34,6 +45,9 @@ export class ListDashboardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

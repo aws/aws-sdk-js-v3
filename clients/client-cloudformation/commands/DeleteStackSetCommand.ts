@@ -20,6 +20,10 @@ import {
 export type DeleteStackSetCommandInput = DeleteStackSetInput;
 export type DeleteStackSetCommandOutput = DeleteStackSetOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
+ *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>. </p>
+ */
 export class DeleteStackSetCommand extends $Command<
   DeleteStackSetCommandInput,
   DeleteStackSetCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteStackSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

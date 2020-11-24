@@ -20,6 +20,10 @@ import {
 export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
 export type DeleteUserProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
+ *      volume, including data, notebooks, and other artifacts.</p>
+ */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,
   DeleteUserProfileCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

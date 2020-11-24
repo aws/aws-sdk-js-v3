@@ -20,6 +20,9 @@ import {
 export type UpdateStackCommandInput = UpdateStackRequest;
 export type UpdateStackCommandOutput = UpdateStackResult & __MetadataBearer;
 
+/**
+ * <p>Updates the specified fields for the specified stack.</p>
+ */
 export class UpdateStackCommand extends $Command<
   UpdateStackCommandInput,
   UpdateStackCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

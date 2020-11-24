@@ -20,6 +20,12 @@ import {
 export type StopRelationalDatabaseCommandInput = StopRelationalDatabaseRequest;
 export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult & __MetadataBearer;
 
+/**
+ * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
+ *          <p>The <code>stop relational database</code> operation supports tag-based access control via
+ *       resource tags applied to the resource identified by relationalDatabaseName. For more
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class StopRelationalDatabaseCommand extends $Command<
   StopRelationalDatabaseCommandInput,
   StopRelationalDatabaseCommandOutput,
@@ -34,6 +40,9 @@ export class StopRelationalDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

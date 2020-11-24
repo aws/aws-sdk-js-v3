@@ -24,6 +24,34 @@ import {
 export type CreateLoadBalancerCommandInput = CreateLoadBalancerInput;
 export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p>
+ *
+ *
+ *
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html">Application Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html">Gateway Load Balancers</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>This operation is idempotent, which means that it completes at most one time. If you
+ *       attempt to create multiple load balancers with the same settings, each call
+ *       succeeds.</p>
+ */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
   CreateLoadBalancerCommandOutput,
@@ -38,6 +66,9 @@ export class CreateLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

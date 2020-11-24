@@ -20,6 +20,10 @@ import {
 export type StartTopicsDetectionJobCommandInput = StartTopicsDetectionJobRequest;
 export type StartTopicsDetectionJobCommandOutput = StartTopicsDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous topic detection job. Use the
+ *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
+ */
 export class StartTopicsDetectionJobCommand extends $Command<
   StartTopicsDetectionJobCommandInput,
   StartTopicsDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class StartTopicsDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

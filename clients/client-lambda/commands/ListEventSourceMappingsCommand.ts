@@ -20,6 +20,10 @@ import {
 export type ListEventSourceMappingsCommandInput = ListEventSourceMappingsRequest;
 export type ListEventSourceMappingsCommandOutput = ListEventSourceMappingsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a
+ *       single event source.</p>
+ */
 export class ListEventSourceMappingsCommand extends $Command<
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
@@ -34,6 +38,9 @@ export class ListEventSourceMappingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

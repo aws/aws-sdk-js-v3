@@ -20,6 +20,9 @@ import {
 export type RemoveTagsFromOnPremisesInstancesCommandInput = RemoveTagsFromOnPremisesInstancesInput;
 export type RemoveTagsFromOnPremisesInstancesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes one or more tags from one or more on-premises instances.</p>
+ */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
   RemoveTagsFromOnPremisesInstancesCommandInput,
   RemoveTagsFromOnPremisesInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

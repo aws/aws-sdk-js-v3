@@ -20,6 +20,9 @@ import {
 export type ListDirectoriesCommandInput = ListDirectoriesRequest;
 export type ListDirectoriesCommandOutput = ListDirectoriesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists directories created within an account.</p>
+ */
 export class ListDirectoriesCommand extends $Command<
   ListDirectoriesCommandInput,
   ListDirectoriesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDirectoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

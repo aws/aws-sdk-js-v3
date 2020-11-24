@@ -20,6 +20,10 @@ import {
 export type SearchContactsCommandInput = SearchContactsRequest;
 export type SearchContactsCommandOutput = SearchContactsResponse & __MetadataBearer;
 
+/**
+ * <p>Searches contacts and lists the ones that meet a set of filter and sort
+ *          criteria.</p>
+ */
 export class SearchContactsCommand extends $Command<
   SearchContactsCommandInput,
   SearchContactsCommandOutput,
@@ -34,6 +38,9 @@ export class SearchContactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

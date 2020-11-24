@@ -20,6 +20,11 @@ import {
 export type GetPlaybackKeyPairCommandInput = GetPlaybackKeyPairRequest;
 export type GetPlaybackKeyPairCommandOutput = GetPlaybackKeyPairResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
+ *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
+ *       generate viewer authorization tokens, to grant viewers access to authorized channels.</p>
+ */
 export class GetPlaybackKeyPairCommand extends $Command<
   GetPlaybackKeyPairCommandInput,
   GetPlaybackKeyPairCommandOutput,
@@ -34,6 +39,9 @@ export class GetPlaybackKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

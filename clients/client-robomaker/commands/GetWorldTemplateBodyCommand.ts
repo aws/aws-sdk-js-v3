@@ -20,6 +20,9 @@ import {
 export type GetWorldTemplateBodyCommandInput = GetWorldTemplateBodyRequest;
 export type GetWorldTemplateBodyCommandOutput = GetWorldTemplateBodyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the world template body.</p>
+ */
 export class GetWorldTemplateBodyCommand extends $Command<
   GetWorldTemplateBodyCommandInput,
   GetWorldTemplateBodyCommandOutput,
@@ -34,6 +37,9 @@ export class GetWorldTemplateBodyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

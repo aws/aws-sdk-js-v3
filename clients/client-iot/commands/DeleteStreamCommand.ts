@@ -20,6 +20,9 @@ import {
 export type DeleteStreamCommandInput = DeleteStreamRequest;
 export type DeleteStreamCommandOutput = DeleteStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a stream.</p>
+ */
 export class DeleteStreamCommand extends $Command<
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

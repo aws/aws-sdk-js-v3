@@ -20,6 +20,9 @@ import {
 export type DescribeStreamCommandInput = DescribeStreamRequest;
 export type DescribeStreamCommandOutput = DescribeStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a stream.</p>
+ */
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,
   DescribeStreamCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

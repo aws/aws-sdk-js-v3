@@ -8,6 +8,9 @@ import {
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeCommitClient,
   input: GetCommentReactionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetCommentReactionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeCommit,
   input: GetCommentReactionsCommandInput,

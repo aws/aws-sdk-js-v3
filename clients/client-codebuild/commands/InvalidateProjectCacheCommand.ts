@@ -20,6 +20,9 @@ import {
 export type InvalidateProjectCacheCommandInput = InvalidateProjectCacheInput;
 export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput & __MetadataBearer;
 
+/**
+ * <p>Resets the cache for a project.</p>
+ */
 export class InvalidateProjectCacheCommand extends $Command<
   InvalidateProjectCacheCommandInput,
   InvalidateProjectCacheCommandOutput,
@@ -34,6 +37,9 @@ export class InvalidateProjectCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

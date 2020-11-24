@@ -20,6 +20,9 @@ import {
 export type GetCatalogImportStatusCommandInput = GetCatalogImportStatusRequest;
 export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the status of a migration operation.</p>
+ */
 export class GetCatalogImportStatusCommand extends $Command<
   GetCatalogImportStatusCommandInput,
   GetCatalogImportStatusCommandOutput,
@@ -34,6 +37,9 @@ export class GetCatalogImportStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
 export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse & __MetadataBearer;
 
+/**
+ * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class AttachTypedLinkCommand extends $Command<
   AttachTypedLinkCommandInput,
   AttachTypedLinkCommandOutput,
@@ -34,6 +37,9 @@ export class AttachTypedLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

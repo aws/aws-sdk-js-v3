@@ -20,6 +20,9 @@ import {
 export type DeleteDomainAssociationCommandInput = DeleteDomainAssociationRequest;
 export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult & __MetadataBearer;
 
+/**
+ * <p> Deletes a domain association for an Amplify app. </p>
+ */
 export class DeleteDomainAssociationCommand extends $Command<
   DeleteDomainAssociationCommandInput,
   DeleteDomainAssociationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDomainAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

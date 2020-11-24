@@ -20,6 +20,9 @@ import {
 export type AllocateStaticIpCommandInput = AllocateStaticIpRequest;
 export type AllocateStaticIpCommandOutput = AllocateStaticIpResult & __MetadataBearer;
 
+/**
+ * <p>Allocates a static IP address.</p>
+ */
 export class AllocateStaticIpCommand extends $Command<
   AllocateStaticIpCommandInput,
   AllocateStaticIpCommandOutput,
@@ -34,6 +37,9 @@ export class AllocateStaticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

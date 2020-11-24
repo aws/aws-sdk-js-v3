@@ -20,6 +20,10 @@ import {
 export type GrantPermissionsCommandInput = GrantPermissionsRequest;
 export type GrantPermissionsCommandOutput = GrantPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
+ * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
+ */
 export class GrantPermissionsCommand extends $Command<
   GrantPermissionsCommandInput,
   GrantPermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class GrantPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,

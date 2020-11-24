@@ -28,6 +28,17 @@ export type DescribeReplicationTaskAssessmentRunsCommandInput = DescribeReplicat
 export type DescribeReplicationTaskAssessmentRunsCommandOutput = DescribeReplicationTaskAssessmentRunsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of premigration assessment runs based on filter
+ *          settings.</p>
+ *          <p>These filter settings can specify a combination of premigration assessment runs,
+ *          migration tasks, replication instances, and assessment run status values.</p>
+ *          <note>
+ *             <p>This operation doesn't return information about individual assessments. For this
+ *             information, see the <code>DescribeReplicationTaskIndividualAssessments</code>
+ *             operation. </p>
+ *          </note>
+ */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
   DescribeReplicationTaskAssessmentRunsCommandInput,
   DescribeReplicationTaskAssessmentRunsCommandOutput,
@@ -42,6 +53,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

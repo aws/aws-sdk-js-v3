@@ -20,6 +20,13 @@ import {
 export type RevokeClusterSecurityGroupIngressCommandInput = RevokeClusterSecurityGroupIngressMessage;
 export type RevokeClusterSecurityGroupIngressCommandOutput = RevokeClusterSecurityGroupIngressResult & __MetadataBearer;
 
+/**
+ * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
+ *             IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>.
+ * For information about managing security groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
+ * <i>Amazon Redshift Cluster Management Guide</i>. </p>
+ */
 export class RevokeClusterSecurityGroupIngressCommand extends $Command<
   RevokeClusterSecurityGroupIngressCommandInput,
   RevokeClusterSecurityGroupIngressCommandOutput,
@@ -34,6 +41,9 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

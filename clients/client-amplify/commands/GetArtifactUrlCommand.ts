@@ -20,6 +20,9 @@ import {
 export type GetArtifactUrlCommandInput = GetArtifactUrlRequest;
 export type GetArtifactUrlCommandOutput = GetArtifactUrlResult & __MetadataBearer;
 
+/**
+ * <p> Returns the artifact info that corresponds to an artifact id. </p>
+ */
 export class GetArtifactUrlCommand extends $Command<
   GetArtifactUrlCommandInput,
   GetArtifactUrlCommandOutput,
@@ -34,6 +37,9 @@ export class GetArtifactUrlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

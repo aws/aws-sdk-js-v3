@@ -20,6 +20,11 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes tags for a resource in AWS CodeCommit. For a list of valid resources in AWS
+ *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>AWS CodeCommit User
+ *                 Guide</i>.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +39,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

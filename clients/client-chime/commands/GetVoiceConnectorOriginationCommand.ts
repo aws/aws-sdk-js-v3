@@ -20,6 +20,9 @@ import {
 export type GetVoiceConnectorOriginationCommandInput = GetVoiceConnectorOriginationRequest;
 export type GetVoiceConnectorOriginationCommandOutput = GetVoiceConnectorOriginationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class GetVoiceConnectorOriginationCommand extends $Command<
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,
@@ -34,6 +37,9 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

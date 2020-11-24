@@ -20,6 +20,14 @@ import {
 export type DeleteOpenIDConnectProviderCommandInput = DeleteOpenIDConnectProviderRequest;
 export type DeleteOpenIDConnectProviderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
+ *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
+ *          provider as a principal in their trust policies. Any attempt to assume a role that
+ *          references a deleted provider fails.</p>
+ *          <p>This operation is idempotent; it does not fail or return an error if you call the
+ *          operation for a provider that does not exist.</p>
+ */
 export class DeleteOpenIDConnectProviderCommand extends $Command<
   DeleteOpenIDConnectProviderCommandInput,
   DeleteOpenIDConnectProviderCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type UpdateHITTypeOfHITCommandInput = UpdateHITTypeOfHITRequest;
 export type UpdateHITTypeOfHITCommandOutput = UpdateHITTypeOfHITResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>UpdateHITTypeOfHIT</code>
+ *             operation allows you to change the HITType properties of a HIT. This
+ *             operation disassociates the HIT from its old HITType properties and
+ *             associates it with the new HITType properties. The HIT takes on the
+ *             properties of the new HITType in place of the old ones.
+ *         </p>
+ */
 export class UpdateHITTypeOfHITCommand extends $Command<
   UpdateHITTypeOfHITCommandInput,
   UpdateHITTypeOfHITCommandOutput,
@@ -34,6 +44,9 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

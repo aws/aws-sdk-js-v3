@@ -20,6 +20,9 @@ import {
 export type ListWorldGenerationJobsCommandInput = ListWorldGenerationJobsRequest;
 export type ListWorldGenerationJobsCommandOutput = ListWorldGenerationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists world generator jobs.</p>
+ */
 export class ListWorldGenerationJobsCommand extends $Command<
   ListWorldGenerationJobsCommandInput,
   ListWorldGenerationJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListWorldGenerationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

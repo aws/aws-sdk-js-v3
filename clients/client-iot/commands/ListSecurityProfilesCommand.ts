@@ -20,6 +20,10 @@ import {
 export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
 export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
+ *       profiles associated with a thing group or only those associated with your account.</p>
+ */
 export class ListSecurityProfilesCommand extends $Command<
   ListSecurityProfilesCommandInput,
   ListSecurityProfilesCommandOutput,
@@ -34,6 +38,9 @@ export class ListSecurityProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

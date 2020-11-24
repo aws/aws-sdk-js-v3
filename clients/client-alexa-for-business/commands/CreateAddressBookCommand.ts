@@ -20,6 +20,9 @@ import {
 export type CreateAddressBookCommandInput = CreateAddressBookRequest;
 export type CreateAddressBookCommandOutput = CreateAddressBookResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an address book with the specified details.</p>
+ */
 export class CreateAddressBookCommand extends $Command<
   CreateAddressBookCommandInput,
   CreateAddressBookCommandOutput,
@@ -34,6 +37,9 @@ export class CreateAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

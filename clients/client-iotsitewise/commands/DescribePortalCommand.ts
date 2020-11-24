@@ -20,6 +20,9 @@ import {
 export type DescribePortalCommandInput = DescribePortalRequest;
 export type DescribePortalCommandOutput = DescribePortalResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a portal.</p>
+ */
 export class DescribePortalCommand extends $Command<
   DescribePortalCommandInput,
   DescribePortalCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePortalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

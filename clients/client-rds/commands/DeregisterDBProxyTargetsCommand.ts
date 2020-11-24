@@ -20,6 +20,9 @@ import {
 export type DeregisterDBProxyTargetsCommandInput = DeregisterDBProxyTargetsRequest;
 export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
+ */
 export class DeregisterDBProxyTargetsCommand extends $Command<
   DeregisterDBProxyTargetsCommandInput,
   DeregisterDBProxyTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

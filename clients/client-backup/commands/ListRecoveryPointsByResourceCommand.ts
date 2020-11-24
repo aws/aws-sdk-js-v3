@@ -20,6 +20,10 @@ import {
 export type ListRecoveryPointsByResourceCommandInput = ListRecoveryPointsByResourceInput;
 export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about recovery points of the type specified by a resource
+ *          Amazon Resource Name (ARN).</p>
+ */
 export class ListRecoveryPointsByResourceCommand extends $Command<
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

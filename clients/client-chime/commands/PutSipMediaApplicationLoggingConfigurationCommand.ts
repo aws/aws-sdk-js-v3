@@ -24,6 +24,9 @@ export type PutSipMediaApplicationLoggingConfigurationCommandInput = PutSipMedia
 export type PutSipMediaApplicationLoggingConfigurationCommandOutput = PutSipMediaApplicationLoggingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Updates the logging configuration for the specified SIP media application.</p>
+ */
 export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
   PutSipMediaApplicationLoggingConfigurationCommandInput,
   PutSipMediaApplicationLoggingConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

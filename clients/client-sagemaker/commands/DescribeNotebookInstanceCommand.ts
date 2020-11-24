@@ -20,6 +20,9 @@ import {
 export type DescribeNotebookInstanceCommandInput = DescribeNotebookInstanceInput;
 export type DescribeNotebookInstanceCommandOutput = DescribeNotebookInstanceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a notebook instance.</p>
+ */
 export class DescribeNotebookInstanceCommand extends $Command<
   DescribeNotebookInstanceCommandInput,
   DescribeNotebookInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNotebookInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

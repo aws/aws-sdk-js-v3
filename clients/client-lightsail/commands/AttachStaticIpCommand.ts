@@ -20,6 +20,9 @@ import {
 export type AttachStaticIpCommandInput = AttachStaticIpRequest;
 export type AttachStaticIpCommandOutput = AttachStaticIpResult & __MetadataBearer;
 
+/**
+ * <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>
+ */
 export class AttachStaticIpCommand extends $Command<
   AttachStaticIpCommandInput,
   AttachStaticIpCommandOutput,
@@ -34,6 +37,9 @@ export class AttachStaticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

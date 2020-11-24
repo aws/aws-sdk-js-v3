@@ -24,6 +24,9 @@ export type DeleteConfigurationSetEventDestinationCommandInput = DeleteConfigura
 export type DeleteConfigurationSetEventDestinationCommandOutput = DeleteConfigurationSetEventDestinationResponse &
   __MetadataBearer;
 
+/**
+ * Deletes an event destination in a configuration set.
+ */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<
   DeleteConfigurationSetEventDestinationCommandInput,
   DeleteConfigurationSetEventDestinationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

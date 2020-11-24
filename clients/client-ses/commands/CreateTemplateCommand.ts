@@ -20,6 +20,12 @@ import {
 export type CreateTemplateCommandInput = CreateTemplateRequest;
 export type CreateTemplateCommandOutput = CreateTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an email template. Email templates enable you to send personalized email to
+ *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
@@ -34,6 +40,9 @@ export class CreateTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

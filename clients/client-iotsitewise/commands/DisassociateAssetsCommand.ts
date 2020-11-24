@@ -20,6 +20,10 @@ import {
 export type DisassociateAssetsCommandInput = DisassociateAssetsRequest;
 export type DisassociateAssetsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
+ *       parent asset's model.</p>
+ */
 export class DisassociateAssetsCommand extends $Command<
   DisassociateAssetsCommandInput,
   DisassociateAssetsCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

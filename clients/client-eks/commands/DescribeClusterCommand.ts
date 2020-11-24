@@ -20,6 +20,17 @@ import {
 export type DescribeClusterCommandInput = DescribeClusterRequest;
 export type DescribeClusterCommandOutput = DescribeClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Returns descriptive information about an Amazon EKS cluster.</p>
+ *         <p>The API server endpoint and certificate authority data returned by this operation are
+ *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
+ *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
+ *                 kubeconfig for Amazon EKS</a>.</p>
+ *         <note>
+ *             <p>The API server endpoint and certificate authority data aren't available until the
+ *                 cluster reaches the <code>ACTIVE</code> state.</p>
+ *         </note>
+ */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput,
@@ -34,6 +45,9 @@ export class DescribeClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

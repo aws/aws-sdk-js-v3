@@ -20,6 +20,9 @@ import {
 export type CreateSiteCommandInput = CreateSiteRequest;
 export type CreateSiteCommandOutput = CreateSiteResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new site in a global network.</p>
+ */
 export class CreateSiteCommand extends $Command<
   CreateSiteCommandInput,
   CreateSiteCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

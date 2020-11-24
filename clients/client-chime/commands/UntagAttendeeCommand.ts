@@ -20,6 +20,9 @@ import {
 export type UntagAttendeeCommandInput = UntagAttendeeRequest;
 export type UntagAttendeeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
+ */
 export class UntagAttendeeCommand extends $Command<
   UntagAttendeeCommandInput,
   UntagAttendeeCommandOutput,
@@ -34,6 +37,9 @@ export class UntagAttendeeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

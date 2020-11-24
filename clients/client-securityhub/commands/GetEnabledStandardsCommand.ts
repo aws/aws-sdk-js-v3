@@ -20,6 +20,9 @@ import {
 export type GetEnabledStandardsCommandInput = GetEnabledStandardsRequest;
 export type GetEnabledStandardsCommandOutput = GetEnabledStandardsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the standards that are currently enabled.</p>
+ */
 export class GetEnabledStandardsCommand extends $Command<
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -34,6 +37,9 @@ export class GetEnabledStandardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

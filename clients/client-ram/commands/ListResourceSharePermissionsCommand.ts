@@ -20,6 +20,9 @@ import {
 export type ListResourceSharePermissionsCommandInput = ListResourceSharePermissionsRequest;
 export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+ */
 export class ListResourceSharePermissionsCommand extends $Command<
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourceSharePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

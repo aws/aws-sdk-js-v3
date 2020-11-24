@@ -20,6 +20,9 @@ import {
 export type DescribeDataSetCommandInput = DescribeDataSetRequest;
 export type DescribeDataSetCommandOutput = DescribeDataSetResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a dataset. </p>
+ */
 export class DescribeDataSetCommand extends $Command<
   DescribeDataSetCommandInput,
   DescribeDataSetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDataSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

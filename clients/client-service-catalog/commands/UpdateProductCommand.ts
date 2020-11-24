@@ -20,6 +20,9 @@ import {
 export type UpdateProductCommandInput = UpdateProductInput;
 export type UpdateProductCommandOutput = UpdateProductOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the specified product.</p>
+ */
 export class UpdateProductCommand extends $Command<
   UpdateProductCommandInput,
   UpdateProductCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

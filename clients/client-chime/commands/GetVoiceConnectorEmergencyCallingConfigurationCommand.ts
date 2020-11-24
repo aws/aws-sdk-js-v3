@@ -24,6 +24,9 @@ export type GetVoiceConnectorEmergencyCallingConfigurationCommandInput = GetVoic
 export type GetVoiceConnectorEmergencyCallingConfigurationCommandOutput = GetVoiceConnectorEmergencyCallingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

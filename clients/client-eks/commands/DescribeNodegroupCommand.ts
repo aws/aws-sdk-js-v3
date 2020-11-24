@@ -20,6 +20,9 @@ import {
 export type DescribeNodegroupCommandInput = DescribeNodegroupRequest;
 export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns descriptive information about an Amazon EKS node group.</p>
+ */
 export class DescribeNodegroupCommand extends $Command<
   DescribeNodegroupCommandInput,
   DescribeNodegroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNodegroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

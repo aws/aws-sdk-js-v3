@@ -20,6 +20,9 @@ import {
 export type UpdateApiMappingCommandInput = UpdateApiMappingRequest;
 export type UpdateApiMappingCommandOutput = UpdateApiMappingResponse & __MetadataBearer;
 
+/**
+ * <p>The API mapping.</p>
+ */
 export class UpdateApiMappingCommand extends $Command<
   UpdateApiMappingCommandInput,
   UpdateApiMappingCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateApiMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

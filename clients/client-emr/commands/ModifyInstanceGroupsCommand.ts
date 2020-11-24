@@ -20,6 +20,9 @@ import {
 export type ModifyInstanceGroupsCommandInput = ModifyInstanceGroupsInput;
 export type ModifyInstanceGroupsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.</p>
+ */
 export class ModifyInstanceGroupsCommand extends $Command<
   ModifyInstanceGroupsCommandInput,
   ModifyInstanceGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyInstanceGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

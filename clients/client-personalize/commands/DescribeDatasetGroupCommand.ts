@@ -20,6 +20,9 @@ import {
 export type DescribeDatasetGroupCommandInput = DescribeDatasetGroupRequest;
 export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the given dataset group. For more information on dataset groups, see <a>CreateDatasetGroup</a>.</p>
+ */
 export class DescribeDatasetGroupCommand extends $Command<
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDatasetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

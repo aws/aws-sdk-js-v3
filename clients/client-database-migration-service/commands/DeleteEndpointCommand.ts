@@ -24,6 +24,14 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointMessage;
 export type DeleteEndpointCommandOutput = DeleteEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified endpoint.</p>
+ *          <note>
+ *             <p>All tasks associated with the endpoint must be deleted before you can delete the
+ *             endpoint.</p>
+ *          </note>
+ *          <p></p>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -38,6 +46,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

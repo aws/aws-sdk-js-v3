@@ -20,6 +20,9 @@ import {
 export type DescribeTrailsCommandInput = DescribeTrailsRequest;
 export type DescribeTrailsCommandOutput = DescribeTrailsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
+ */
 export class DescribeTrailsCommand extends $Command<
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTrailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

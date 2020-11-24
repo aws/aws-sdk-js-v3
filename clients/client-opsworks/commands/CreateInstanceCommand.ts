@@ -20,6 +20,15 @@ import {
 export type CreateInstanceCommandInput = CreateInstanceRequest;
 export type CreateInstanceCommandOutput = CreateInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
+ *         Instance to a Layer</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class CreateInstanceCommand extends $Command<
   CreateInstanceCommandInput,
   CreateInstanceCommandOutput,
@@ -34,6 +43,9 @@ export class CreateInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

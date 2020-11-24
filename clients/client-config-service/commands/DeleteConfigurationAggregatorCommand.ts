@@ -20,6 +20,10 @@ import {
 export type DeleteConfigurationAggregatorCommandInput = DeleteConfigurationAggregatorRequest;
 export type DeleteConfigurationAggregatorCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified configuration aggregator and the
+ * 			aggregated data associated with the aggregator.</p>
+ */
 export class DeleteConfigurationAggregatorCommand extends $Command<
   DeleteConfigurationAggregatorCommandInput,
   DeleteConfigurationAggregatorCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

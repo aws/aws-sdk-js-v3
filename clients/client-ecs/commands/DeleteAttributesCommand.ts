@@ -20,6 +20,9 @@ import {
 export type DeleteAttributesCommandInput = DeleteAttributesRequest;
 export type DeleteAttributesCommandOutput = DeleteAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>
+ */
 export class DeleteAttributesCommand extends $Command<
   DeleteAttributesCommandInput,
   DeleteAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

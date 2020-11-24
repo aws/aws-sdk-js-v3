@@ -20,6 +20,9 @@ import {
 export type UpdateTemplateAliasCommandInput = UpdateTemplateAliasRequest;
 export type UpdateTemplateAliasCommandOutput = UpdateTemplateAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the template alias of a template.</p>
+ */
 export class UpdateTemplateAliasCommand extends $Command<
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTemplateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type AcceptVpcEndpointConnectionsCommandInput = AcceptVpcEndpointConnectionsRequest;
 export type AcceptVpcEndpointConnectionsCommandOutput = AcceptVpcEndpointConnectionsResult & __MetadataBearer;
 
+/**
+ * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
+ *             service.</p>
+ */
 export class AcceptVpcEndpointConnectionsCommand extends $Command<
   AcceptVpcEndpointConnectionsCommandInput,
   AcceptVpcEndpointConnectionsCommandOutput,
@@ -34,6 +38,9 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

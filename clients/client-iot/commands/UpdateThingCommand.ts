@@ -20,6 +20,9 @@ import {
 export type UpdateThingCommandInput = UpdateThingRequest;
 export type UpdateThingCommandOutput = UpdateThingResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the data for a thing.</p>
+ */
 export class UpdateThingCommand extends $Command<
   UpdateThingCommandInput,
   UpdateThingCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

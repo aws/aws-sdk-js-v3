@@ -20,6 +20,10 @@ import {
 export type GetDigestCommandInput = GetDigestRequest;
 export type GetDigestCommandOutput = GetDigestResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the digest of a ledger at the latest committed block in the journal. The
+ *          response includes a 256-bit hash value and a block address.</p>
+ */
 export class GetDigestCommand extends $Command<
   GetDigestCommandInput,
   GetDigestCommandOutput,
@@ -34,6 +38,9 @@ export class GetDigestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

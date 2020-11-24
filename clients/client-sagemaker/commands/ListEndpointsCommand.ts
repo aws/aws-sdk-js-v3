@@ -20,6 +20,9 @@ import {
 export type ListEndpointsCommandInput = ListEndpointsInput;
 export type ListEndpointsCommandOutput = ListEndpointsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists endpoints.</p>
+ */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class ListEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

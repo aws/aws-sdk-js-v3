@@ -20,6 +20,9 @@ import {
 export type UpdateUserHierarchyStructureCommandInput = UpdateUserHierarchyStructureRequest;
 export type UpdateUserHierarchyStructureCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>
+ */
 export class UpdateUserHierarchyStructureCommand extends $Command<
   UpdateUserHierarchyStructureCommandInput,
   UpdateUserHierarchyStructureCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserHierarchyStructureCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

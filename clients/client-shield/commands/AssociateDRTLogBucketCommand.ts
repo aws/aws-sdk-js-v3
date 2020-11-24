@@ -20,6 +20,10 @@ import {
 export type AssociateDRTLogBucketCommandInput = AssociateDRTLogBucketRequest;
 export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse & __MetadataBearer;
 
+/**
+ * <p>Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
+ * 	        <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
+ */
 export class AssociateDRTLogBucketCommand extends $Command<
   AssociateDRTLogBucketCommandInput,
   AssociateDRTLogBucketCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateDRTLogBucketCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

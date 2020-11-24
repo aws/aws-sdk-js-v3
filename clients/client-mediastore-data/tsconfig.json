@@ -17,13 +17,16 @@
     "types": ["mocha"]
   },
   "typedocOptions": {
-    "exclude": "**/node_modules/**",
-    "excludedNotExported": true,
+    "exclude": ["**/node_modules/**", "**/*.spec.ts", "./protocols/*.ts", "./e2e/*.ts", "./endpoints.ts"],
+    "excludeNotExported": true,
     "excludePrivate": true,
     "hideGenerator": true,
     "ignoreCompilerErrors": true,
+    "includeDeclarations": true,
+    "readme": "./README.md",
     "mode": "file",
     "out": "./docs",
-    "plugin": "@aws-sdk/client-documentation-generator"
+    "theme": "minimal",
+    "plugin": ["@aws-sdk/client-documentation-generator"]
   }
 }

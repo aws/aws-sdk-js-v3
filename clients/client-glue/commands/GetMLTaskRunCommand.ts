@@ -20,6 +20,13 @@ import {
 export type GetMLTaskRunCommandInput = GetMLTaskRunRequest;
 export type GetMLTaskRunCommandOutput = GetMLTaskRunResponse & __MetadataBearer;
 
+/**
+ * <p>Gets details for a specific task run on a machine learning transform. Machine learning
+ *       task runs are asynchronous tasks that AWS Glue runs on your behalf as part of various machine
+ *       learning workflows. You can check the stats of any task run by calling
+ *         <code>GetMLTaskRun</code> with the <code>TaskRunID</code> and its parent transform's
+ *         <code>TransformID</code>.</p>
+ */
 export class GetMLTaskRunCommand extends $Command<
   GetMLTaskRunCommandInput,
   GetMLTaskRunCommandOutput,
@@ -34,6 +41,9 @@ export class GetMLTaskRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

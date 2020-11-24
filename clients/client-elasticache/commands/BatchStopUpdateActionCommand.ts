@@ -20,6 +20,9 @@ import {
 export type BatchStopUpdateActionCommandInput = BatchStopUpdateActionMessage;
 export type BatchStopUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
 
+/**
+ * <p>Stop the service update. For more information on service updates and stopping them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping Service Updates</a>.</p>
+ */
 export class BatchStopUpdateActionCommand extends $Command<
   BatchStopUpdateActionCommandInput,
   BatchStopUpdateActionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchStopUpdateActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

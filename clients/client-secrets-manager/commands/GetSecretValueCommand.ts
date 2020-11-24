@@ -20,6 +20,36 @@ import {
 export type GetSecretValueCommandInput = GetSecretValueRequest;
 export type GetSecretValueCommandOutput = GetSecretValueResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
+ *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
+ *       content.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:GetSecretValue</p>
+ *             </li>
+ *             <li>
+ *                <p>kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the
+ *           secret. You do not need this permission to use the account's default AWS managed CMK for
+ *           Secrets Manager.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To create a new version of the secret with different encrypted information, use <a>PutSecretValue</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,
   GetSecretValueCommandOutput,
@@ -34,6 +64,9 @@ export class GetSecretValueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

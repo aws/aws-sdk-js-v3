@@ -20,6 +20,9 @@ import {
 export type DeleteDistributionCommandInput = DeleteDistributionRequest;
 export type DeleteDistributionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete a distribution. </p>
+ */
 export class DeleteDistributionCommand extends $Command<
   DeleteDistributionCommandInput,
   DeleteDistributionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

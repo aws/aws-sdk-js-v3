@@ -20,6 +20,16 @@ import {
 export type DescribeJournalS3ExportCommandInput = DescribeJournalS3ExportRequest;
 export type DescribeJournalS3ExportCommandOutput = DescribeJournalS3ExportResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a journal export job, including the ledger name, export ID,
+ *          when it was created, current status, and its start and end time export parameters.</p>
+ *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+ *          Guide</i>.</p>
+ *          <p>If the export job with the given <code>ExportId</code> doesn't exist, then throws
+ *             <code>ResourceNotFoundException</code>.</p>
+ *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
+ *             <code>ResourceNotFoundException</code>.</p>
+ */
 export class DescribeJournalS3ExportCommand extends $Command<
   DescribeJournalS3ExportCommandInput,
   DescribeJournalS3ExportCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeJournalS3ExportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

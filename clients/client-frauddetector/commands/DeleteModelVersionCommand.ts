@@ -20,6 +20,11 @@ import {
 export type DeleteModelVersionCommandInput = DeleteModelVersionRequest;
 export type DeleteModelVersionCommandOutput = DeleteModelVersionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a model version.</p>
+ * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
+ * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteModelVersionCommand extends $Command<
   DeleteModelVersionCommandInput,
   DeleteModelVersionCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteModelVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

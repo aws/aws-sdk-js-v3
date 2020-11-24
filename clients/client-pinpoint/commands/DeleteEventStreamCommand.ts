@@ -20,6 +20,9 @@ import {
 export type DeleteEventStreamCommandInput = DeleteEventStreamRequest;
 export type DeleteEventStreamCommandOutput = DeleteEventStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the event stream for an application.</p>
+ */
 export class DeleteEventStreamCommand extends $Command<
   DeleteEventStreamCommandInput,
   DeleteEventStreamCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteEventStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteDetectorCommandInput = DeleteDetectorRequest;
 export type DeleteDetectorCommandOutput = DeleteDetectorResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
+ * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteDetectorCommand extends $Command<
   DeleteDetectorCommandInput,
   DeleteDetectorCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListApplicationsCommandInput = ListApplicationsInput;
 export type ListApplicationsCommandOutput = ListApplicationsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the applications registered with the IAM user or AWS account.</p>
+ */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

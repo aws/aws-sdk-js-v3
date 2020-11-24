@@ -20,6 +20,13 @@ import {
 export type CreateStorageLocationCommandInput = {};
 export type CreateStorageLocationCommandOutput = CreateStorageLocationResultMessage & __MetadataBearer;
 
+/**
+ * <p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used
+ *       by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the
+ *       first time you create an environment in a region. If the storage location already exists,
+ *         <code>CreateStorageLocation</code> still returns the bucket name but does not create a new
+ *       bucket.</p>
+ */
 export class CreateStorageLocationCommand extends $Command<
   CreateStorageLocationCommandInput,
   CreateStorageLocationCommandOutput,
@@ -34,6 +41,9 @@ export class CreateStorageLocationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -24,6 +24,9 @@ export type DisassociateServiceRoleFromAccountCommandInput = DisassociateService
 export type DisassociateServiceRoleFromAccountCommandOutput = DisassociateServiceRoleFromAccountResponse &
   __MetadataBearer;
 
+/**
+ * Disassociates the service role from your account. Without a service role, deployments will not work.
+ */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
   DisassociateServiceRoleFromAccountCommandInput,
   DisassociateServiceRoleFromAccountCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

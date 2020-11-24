@@ -21,6 +21,22 @@ import {
 export type CreateDBClusterCommandInput = CreateDBClusterMessage;
 export type CreateDBClusterCommandOutput = CreateDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Aurora DB cluster.</p>
+ *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
+ *             cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
+ *             cross-region replication where the DB cluster identified by
+ *                 <code>ReplicationSourceIdentifier</code> is encrypted, you must also specify the
+ *                 <code>PreSignedUrl</code> parameter.</p>
+ *
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandInput,
   CreateDBClusterCommandOutput,
@@ -35,6 +51,9 @@ export class CreateDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

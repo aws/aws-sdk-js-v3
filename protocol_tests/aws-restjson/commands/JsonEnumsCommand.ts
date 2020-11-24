@@ -20,6 +20,9 @@ import {
 export type JsonEnumsCommandInput = JsonEnumsInputOutput;
 export type JsonEnumsCommandOutput = JsonEnumsInputOutput & __MetadataBearer;
 
+/**
+ * This example serializes enums as top level properties, in lists, sets, and maps.
+ */
 export class JsonEnumsCommand extends $Command<
   JsonEnumsCommandInput,
   JsonEnumsCommandOutput,
@@ -34,6 +37,9 @@ export class JsonEnumsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

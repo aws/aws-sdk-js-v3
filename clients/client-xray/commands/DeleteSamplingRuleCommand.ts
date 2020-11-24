@@ -20,6 +20,9 @@ import {
 export type DeleteSamplingRuleCommandInput = DeleteSamplingRuleRequest;
 export type DeleteSamplingRuleCommandOutput = DeleteSamplingRuleResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a sampling rule.</p>
+ */
 export class DeleteSamplingRuleCommand extends $Command<
   DeleteSamplingRuleCommandInput,
   DeleteSamplingRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSamplingRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

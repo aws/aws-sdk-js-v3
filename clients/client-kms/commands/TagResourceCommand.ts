@@ -20,6 +20,18 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds or edits tags for a customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required,
+ *       but tag values can be empty (null) strings.</p>
+ *          <p>You can only use a tag key once for each CMK. If you use the tag key again, AWS KMS replaces
+ *       the current tag value with the specified value.</p>
+ *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User
+ *         Guide</i>.</p>
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +46,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

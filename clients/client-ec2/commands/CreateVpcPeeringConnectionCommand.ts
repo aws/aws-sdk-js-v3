@@ -20,6 +20,20 @@ import {
 export type CreateVpcPeeringConnectionCommandInput = CreateVpcPeeringConnectionRequest;
 export type CreateVpcPeeringConnectionCommandOutput = CreateVpcPeeringConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
+ * 			an accepter VPC with which to create the connection. The accepter VPC can belong to
+ * 			another AWS account and can be in a different Region to the requester VPC. The requester
+ * 			VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
+ *          <note>
+ *             <p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
+ *          </note>
+ *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
+ *             connection. The VPC peering connection request expires after 7 days, after which it
+ *             cannot be accepted or rejected.</p>
+ *          <p>If you create a VPC peering connection request between VPCs with overlapping CIDR
+ *             blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+ */
 export class CreateVpcPeeringConnectionCommand extends $Command<
   CreateVpcPeeringConnectionCommandInput,
   CreateVpcPeeringConnectionCommandOutput,
@@ -34,6 +48,9 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

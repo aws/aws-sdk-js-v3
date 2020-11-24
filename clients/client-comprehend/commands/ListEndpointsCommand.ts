@@ -20,6 +20,9 @@ import {
 export type ListEndpointsCommandInput = ListEndpointsRequest;
 export type ListEndpointsCommandOutput = ListEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of all existing endpoints that you've created.</p>
+ */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class ListEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

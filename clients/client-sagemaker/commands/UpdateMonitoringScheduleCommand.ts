@@ -20,6 +20,9 @@ import {
 export type UpdateMonitoringScheduleCommandInput = UpdateMonitoringScheduleRequest;
 export type UpdateMonitoringScheduleCommandOutput = UpdateMonitoringScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a previously created schedule.</p>
+ */
 export class UpdateMonitoringScheduleCommand extends $Command<
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMonitoringScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

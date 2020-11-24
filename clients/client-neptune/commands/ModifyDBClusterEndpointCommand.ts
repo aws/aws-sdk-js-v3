@@ -20,6 +20,9 @@ import {
 export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
 export type ModifyDBClusterEndpointCommandOutput = ModifyDBClusterEndpointOutput & __MetadataBearer;
 
+/**
+ * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
+ */
 export class ModifyDBClusterEndpointCommand extends $Command<
   ModifyDBClusterEndpointCommandInput,
   ModifyDBClusterEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

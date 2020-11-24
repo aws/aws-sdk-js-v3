@@ -20,6 +20,13 @@ import {
 export type TagLogGroupCommandInput = TagLogGroupRequest;
 export type TagLogGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds or updates the specified tags for the specified log group.</p>
+ *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+ *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p>
+ *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
+ *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
+ */
 export class TagLogGroupCommand extends $Command<
   TagLogGroupCommandInput,
   TagLogGroupCommandOutput,
@@ -34,6 +41,9 @@ export class TagLogGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

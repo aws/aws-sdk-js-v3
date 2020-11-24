@@ -17,6 +17,22 @@ import {
 export type CreateVolumeCommandInput = CreateVolumeRequest;
 export type CreateVolumeCommandOutput = Volume & __MetadataBearer;
 
+/**
+ * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.
+ *       The volume is created in the regional endpoint that you send the HTTP request to. For more
+ *       information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+ *         Endpoints</a>.</p>
+ *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
+ *       Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p>
+ *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
+ *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
+ *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
+ *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+ *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS volume</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CreateVolumeCommand extends $Command<
   CreateVolumeCommandInput,
   CreateVolumeCommandOutput,
@@ -31,6 +47,9 @@ export class CreateVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

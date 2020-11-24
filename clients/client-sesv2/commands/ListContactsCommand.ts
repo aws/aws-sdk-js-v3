@@ -20,6 +20,9 @@ import {
 export type ListContactsCommandInput = ListContactsRequest;
 export type ListContactsCommandOutput = ListContactsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the contacts present in a specific contact list.</p>
+ */
 export class ListContactsCommand extends $Command<
   ListContactsCommandInput,
   ListContactsCommandOutput,
@@ -34,6 +37,9 @@ export class ListContactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

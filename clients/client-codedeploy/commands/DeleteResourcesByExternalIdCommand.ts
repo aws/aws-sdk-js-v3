@@ -20,6 +20,9 @@ import {
 export type DeleteResourcesByExternalIdCommandInput = DeleteResourcesByExternalIdInput;
 export type DeleteResourcesByExternalIdCommandOutput = DeleteResourcesByExternalIdOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes resources linked to an external ID.</p>
+ */
 export class DeleteResourcesByExternalIdCommand extends $Command<
   DeleteResourcesByExternalIdCommandInput,
   DeleteResourcesByExternalIdCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

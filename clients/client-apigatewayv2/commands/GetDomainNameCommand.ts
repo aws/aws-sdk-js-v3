@@ -20,6 +20,9 @@ import {
 export type GetDomainNameCommandInput = GetDomainNameRequest;
 export type GetDomainNameCommandOutput = GetDomainNameResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a domain name.</p>
+ */
 export class GetDomainNameCommand extends $Command<
   GetDomainNameCommandInput,
   GetDomainNameCommandOutput,
@@ -34,6 +37,9 @@ export class GetDomainNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type BatchGetReportsCommandInput = BatchGetReportsInput;
 export type BatchGetReportsCommandOutput = BatchGetReportsOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns an array of reports.
+ *     </p>
+ */
 export class BatchGetReportsCommand extends $Command<
   BatchGetReportsCommandInput,
   BatchGetReportsCommandOutput,
@@ -34,6 +39,9 @@ export class BatchGetReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

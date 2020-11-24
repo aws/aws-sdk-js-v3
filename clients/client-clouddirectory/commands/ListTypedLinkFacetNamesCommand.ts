@@ -20,6 +20,10 @@ import {
 export type ListTypedLinkFacetNamesCommandInput = ListTypedLinkFacetNamesRequest;
 export type ListTypedLinkFacetNamesCommandOutput = ListTypedLinkFacetNamesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
+ *       For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class ListTypedLinkFacetNamesCommand extends $Command<
   ListTypedLinkFacetNamesCommandInput,
   ListTypedLinkFacetNamesCommandOutput,
@@ -34,6 +38,9 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

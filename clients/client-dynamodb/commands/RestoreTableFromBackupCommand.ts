@@ -20,6 +20,33 @@ import {
 export type RestoreTableFromBackupCommandInput = RestoreTableFromBackupInput;
 export type RestoreTableFromBackupCommandOutput = RestoreTableFromBackupOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores
+ *         (any type of restore) in a given account.
+ *       </p>
+ *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per second.</p>
+ *          <p>You must manually set up the following on the restored table:</p>
+ *          <ul>
+ *             <li>
+ *                  <p>Auto scaling policies</p>
+ *              </li>
+ *             <li>
+ *                  <p>IAM policies</p>
+ *              </li>
+ *             <li>
+ *                  <p>Amazon CloudWatch metrics and alarms</p>
+ *              </li>
+ *             <li>
+ *                  <p>Tags</p>
+ *              </li>
+ *             <li>
+ *                  <p>Stream settings</p>
+ *              </li>
+ *             <li>
+ *                  <p>Time to Live (TTL) settings</p>
+ *              </li>
+ *          </ul>
+ */
 export class RestoreTableFromBackupCommand extends $Command<
   RestoreTableFromBackupCommandInput,
   RestoreTableFromBackupCommandOutput,
@@ -34,6 +61,9 @@ export class RestoreTableFromBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListCuratedEnvironmentImagesCommandInput = ListCuratedEnvironmentImagesInput;
 export type ListCuratedEnvironmentImagesCommandOutput = ListCuratedEnvironmentImagesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>
+ */
 export class ListCuratedEnvironmentImagesCommand extends $Command<
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
@@ -34,6 +37,9 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

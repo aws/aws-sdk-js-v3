@@ -17,6 +17,10 @@ import {
 export type CreateHsmCommandInput = CreateHsmRequest;
 export type CreateHsmCommandOutput = CreateHsmResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
+ *       cluster.</p>
+ */
 export class CreateHsmCommand extends $Command<
   CreateHsmCommandInput,
   CreateHsmCommandOutput,
@@ -31,6 +35,9 @@ export class CreateHsmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

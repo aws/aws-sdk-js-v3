@@ -20,6 +20,11 @@ import {
 export type PutComponentPolicyCommandInput = PutComponentPolicyRequest;
 export type PutComponentPolicyCommandOutput = PutComponentPolicyResponse & __MetadataBearer;
 
+/**
+ * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+ *         <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+ *       all principals with whom the resource is shared. </p>
+ */
 export class PutComponentPolicyCommand extends $Command<
   PutComponentPolicyCommandInput,
   PutComponentPolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutComponentPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

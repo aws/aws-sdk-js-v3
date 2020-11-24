@@ -20,6 +20,9 @@ import {
 export type ListKafkaVersionsCommandInput = ListKafkaVersionsRequest;
 export type ListKafkaVersionsCommandOutput = ListKafkaVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of Kafka versions.</p>
+ */
 export class ListKafkaVersionsCommand extends $Command<
   ListKafkaVersionsCommandInput,
   ListKafkaVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListKafkaVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

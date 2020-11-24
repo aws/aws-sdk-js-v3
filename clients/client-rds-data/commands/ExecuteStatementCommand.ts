@@ -20,6 +20,15 @@ import {
 export type ExecuteStatementCommandInput = ExecuteStatementRequest;
 export type ExecuteStatementCommandOutput = ExecuteStatementResponse & __MetadataBearer;
 
+/**
+ * <p>Runs a SQL statement against a database.</p>
+ *         <important>
+ *             <p>If a call isn't part of a transaction because it doesn't include the
+ *                     <code>transactionID</code> parameter, changes that result from the call are
+ *                 committed automatically.</p>
+ *         </important>
+ *         <p>The response size limit is 1 MB. If the call returns more than 1 MB of response data, the call is terminated.</p>
+ */
 export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandInput,
   ExecuteStatementCommandOutput,
@@ -34,6 +43,9 @@ export class ExecuteStatementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

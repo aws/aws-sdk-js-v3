@@ -20,6 +20,9 @@ import {
 export type CreateLocalGatewayRouteCommandInput = CreateLocalGatewayRouteRequest;
 export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult & __MetadataBearer;
 
+/**
+ * <p>Creates a static route for the specified local gateway route table.</p>
+ */
 export class CreateLocalGatewayRouteCommand extends $Command<
   CreateLocalGatewayRouteCommandInput,
   CreateLocalGatewayRouteCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

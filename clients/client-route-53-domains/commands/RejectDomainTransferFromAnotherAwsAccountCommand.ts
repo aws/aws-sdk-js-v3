@@ -24,6 +24,19 @@ export type RejectDomainTransferFromAnotherAwsAccountCommandInput = RejectDomain
 export type RejectDomainTransferFromAnotherAwsAccountCommandOutput = RejectDomainTransferFromAnotherAwsAccountResponse &
   __MetadataBearer;
 
+/**
+ * <p>Rejects the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+ * 		</p>
+ *
+ * 		       <p>Use either
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+ * 			to determine whether the operation succeeded.
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+ * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
+ * 		</p>
+ */
 export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
   RejectDomainTransferFromAnotherAwsAccountCommandInput,
   RejectDomainTransferFromAnotherAwsAccountCommandOutput,
@@ -38,6 +51,9 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

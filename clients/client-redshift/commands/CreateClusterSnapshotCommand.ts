@@ -20,6 +20,14 @@ import {
 export type CreateClusterSnapshotCommandInput = CreateClusterSnapshotMessage;
 export type CreateClusterSnapshotCommandOutput = CreateClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
+ *                 <code>available</code> state. </p>
+ *         <p>
+ * For more information about working with snapshots, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class CreateClusterSnapshotCommand extends $Command<
   CreateClusterSnapshotCommandInput,
   CreateClusterSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class CreateClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

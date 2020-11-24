@@ -20,6 +20,11 @@ import {
 export type DescribeMetricFiltersCommandInput = DescribeMetricFiltersRequest;
 export type DescribeMetricFiltersCommandOutput = DescribeMetricFiltersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the specified metric filters. You can list all of the metric filters or filter
+ *       the results by log name, prefix, metric name, or metric namespace. The results are
+ *       ASCII-sorted by filter name.</p>
+ */
 export class DescribeMetricFiltersCommand extends $Command<
   DescribeMetricFiltersCommandInput,
   DescribeMetricFiltersCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeMetricFiltersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

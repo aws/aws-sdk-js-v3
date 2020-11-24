@@ -20,6 +20,12 @@ import {
 export type DeleteInstanceCommandInput = DeleteInstanceRequest;
 export type DeleteInstanceCommandOutput = DeleteInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon Lightsail instance.</p>
+ *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
+ *       tags applied to the resource identified by <code>instance name</code>. For more information,
+ *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

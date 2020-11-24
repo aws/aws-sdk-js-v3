@@ -20,6 +20,9 @@ import {
 export type DeleteClassifierCommandInput = DeleteClassifierRequest;
 export type DeleteClassifierCommandOutput = DeleteClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a classifier from the Data Catalog.</p>
+ */
 export class DeleteClassifierCommand extends $Command<
   DeleteClassifierCommandInput,
   DeleteClassifierCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

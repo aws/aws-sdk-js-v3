@@ -24,6 +24,9 @@ import {
 export type StopRxNormInferenceJobCommandInput = StopRxNormInferenceJobRequest;
 export type StopRxNormInferenceJobCommandOutput = StopRxNormInferenceJobResponse & __MetadataBearer;
 
+/**
+ * <p>Stops an InferRxNorm inference job in progress.</p>
+ */
 export class StopRxNormInferenceJobCommand extends $Command<
   StopRxNormInferenceJobCommandInput,
   StopRxNormInferenceJobCommandOutput,
@@ -38,6 +41,9 @@ export class StopRxNormInferenceJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

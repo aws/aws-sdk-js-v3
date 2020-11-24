@@ -20,6 +20,11 @@ import {
 export type StartActivityStreamCommandInput = StartActivityStreamRequest;
 export type StartActivityStreamCommandOutput = StartActivityStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a database activity stream to monitor activity on the database.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
+ *             in the <i>Amazon Aurora User Guide</i>.</p>
+ */
 export class StartActivityStreamCommand extends $Command<
   StartActivityStreamCommandInput,
   StartActivityStreamCommandOutput,
@@ -34,6 +39,9 @@ export class StartActivityStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

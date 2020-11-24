@@ -20,6 +20,9 @@ import {
 export type PutAccountSendingAttributesCommandInput = PutAccountSendingAttributesRequest;
 export type PutAccountSendingAttributesCommandOutput = PutAccountSendingAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Enable or disable the ability of your account to send email.</p>
+ */
 export class PutAccountSendingAttributesCommand extends $Command<
   PutAccountSendingAttributesCommandInput,
   PutAccountSendingAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class PutAccountSendingAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

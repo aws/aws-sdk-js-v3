@@ -20,6 +20,12 @@ import {
 export type CreateRealtimeLogConfigCommandInput = CreateRealtimeLogConfigRequest;
 export type CreateRealtimeLogConfigCommandOutput = CreateRealtimeLogConfigResult & __MetadataBearer;
 
+/**
+ * <p>Creates a real-time log configuration.</p>
+ * 		       <p>After you create a real-time log configuration, you can attach it to one or more cache
+ * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
+ * 		       <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ */
 export class CreateRealtimeLogConfigCommand extends $Command<
   CreateRealtimeLogConfigCommandInput,
   CreateRealtimeLogConfigCommandOutput,
@@ -34,6 +40,9 @@ export class CreateRealtimeLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteOptionGroupCommandInput = DeleteOptionGroupMessage;
 export type DeleteOptionGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an existing option group.</p>
+ */
 export class DeleteOptionGroupCommand extends $Command<
   DeleteOptionGroupCommandInput,
   DeleteOptionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteOptionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

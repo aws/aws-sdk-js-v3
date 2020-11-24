@@ -20,6 +20,22 @@ import {
 export type CompleteVaultLockCommandInput = CompleteVaultLockInput;
 export type CompleteVaultLockCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation completes the vault locking process by transitioning the vault lock
+ *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
+ *          vault lock policy to become unchangeable. A vault lock is put into the
+ *             <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. You can
+ *          obtain the state of the vault lock by calling <a>GetVaultLock</a>. For more
+ *          information about the vault locking process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon Glacier Vault Lock</a>. </p>
+ *          <p>This operation is idempotent. This request is always successful if the vault lock is
+ *          in the <code>Locked</code> state and the provided lock ID matches the lock ID originally
+ *          used to lock the vault.</p>
+ *          <p>If an invalid lock ID is passed in the request when the vault lock is in the
+ *             <code>Locked</code> state, the operation returns an <code>AccessDeniedException</code>
+ *          error. If an invalid lock ID is passed in the request when the vault lock is in the
+ *             <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code>
+ *          error.</p>
+ */
 export class CompleteVaultLockCommand extends $Command<
   CompleteVaultLockCommandInput,
   CompleteVaultLockCommandOutput,
@@ -34,6 +50,9 @@ export class CompleteVaultLockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

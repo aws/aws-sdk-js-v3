@@ -24,6 +24,9 @@ import {
 export type ListInvitationsCommandInput = ListInvitationsInput;
 export type ListInvitationsCommandOutput = ListInvitationsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a listing of all invitations for the current AWS account.</p>
+ */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
@@ -38,6 +41,9 @@ export class ListInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

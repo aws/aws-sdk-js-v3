@@ -20,6 +20,9 @@ import {
 export type CancelIngestionCommandInput = CancelIngestionRequest;
 export type CancelIngestionCommandOutput = CancelIngestionResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels an ongoing ingestion of data into SPICE.</p>
+ */
 export class CancelIngestionCommand extends $Command<
   CancelIngestionCommandInput,
   CancelIngestionCommandOutput,
@@ -34,6 +37,9 @@ export class CancelIngestionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

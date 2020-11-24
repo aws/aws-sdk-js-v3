@@ -20,6 +20,24 @@ import {
 export type CreateVpnConnectionCommandInput = CreateVpnConnectionRequest;
 export type CreateVpnConnectionCommandOutput = CreateVpnConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a
+ *             customer gateway. The supported connection type is <code>ipsec.1</code>.</p>
+ *         <p>The response includes information that you need to give to your network administrator
+ *             to configure your customer gateway.</p>
+ *         <important>
+ *             <p>We strongly recommend that you use HTTPS when calling this operation because the
+ *                 response contains sensitive cryptographic information for configuring your customer
+ *                 gateway device.</p>
+ *         </important>
+ *         <p>If you decide to shut down your VPN connection for any reason and later create a new
+ *             VPN connection, you must reconfigure your customer gateway with the new information
+ *             returned from this call.</p>
+ *         <p>This is an idempotent operation. If you perform the operation more than once, Amazon
+ *             EC2 doesn't return an error.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN
+ *                 User Guide</i>.</p>
+ */
 export class CreateVpnConnectionCommand extends $Command<
   CreateVpnConnectionCommandInput,
   CreateVpnConnectionCommandOutput,
@@ -34,6 +52,9 @@ export class CreateVpnConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeScheduledInstancesCommandInput = DescribeScheduledInstancesRequest;
 export type DescribeScheduledInstancesCommandOutput = DescribeScheduledInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
+ */
 export class DescribeScheduledInstancesCommand extends $Command<
   DescribeScheduledInstancesCommandInput,
   DescribeScheduledInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeScheduledInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

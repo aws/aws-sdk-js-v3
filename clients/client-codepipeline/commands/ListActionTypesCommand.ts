@@ -20,6 +20,10 @@ import {
 export type ListActionTypesCommandInput = ListActionTypesInput;
 export type ListActionTypesCommandOutput = ListActionTypesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a summary of all AWS CodePipeline action types associated with your
+ *             account.</p>
+ */
 export class ListActionTypesCommand extends $Command<
   ListActionTypesCommandInput,
   ListActionTypesCommandOutput,
@@ -34,6 +38,9 @@ export class ListActionTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

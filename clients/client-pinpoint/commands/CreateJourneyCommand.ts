@@ -20,6 +20,9 @@ import {
 export type CreateJourneyCommandInput = CreateJourneyRequest;
 export type CreateJourneyCommandOutput = CreateJourneyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a journey for an application.</p>
+ */
 export class CreateJourneyCommand extends $Command<
   CreateJourneyCommandInput,
   CreateJourneyCommandOutput,
@@ -34,6 +37,9 @@ export class CreateJourneyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

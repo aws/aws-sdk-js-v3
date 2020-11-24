@@ -20,6 +20,11 @@ import {
 export type UpdateManagedInstanceRoleCommandInput = UpdateManagedInstanceRoleRequest;
 export type UpdateManagedInstanceRoleCommandOutput = UpdateManagedInstanceRoleResult & __MetadataBearer;
 
+/**
+ * <p>Changes the Amazon Identity and Access Management (IAM) role that is assigned to the
+ *    on-premises instance or virtual machines (VM). IAM roles are first assigned to these hybrid
+ *    instances during the activation process. For more information, see <a>CreateActivation</a>.</p>
+ */
 export class UpdateManagedInstanceRoleCommand extends $Command<
   UpdateManagedInstanceRoleCommandInput,
   UpdateManagedInstanceRoleCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

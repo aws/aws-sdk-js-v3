@@ -20,6 +20,9 @@ import {
 export type ListInstancesCommandInput = ListInstancesRequest;
 export type ListInstancesCommandOutput = ListInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists summary information about the instances that you registered by using a specified service.</p>
+ */
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class ListInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,

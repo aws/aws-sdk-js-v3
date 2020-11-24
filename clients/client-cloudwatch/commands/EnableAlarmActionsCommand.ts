@@ -20,6 +20,9 @@ import {
 export type EnableAlarmActionsCommandInput = EnableAlarmActionsInput;
 export type EnableAlarmActionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables the actions for the specified alarms.</p>
+ */
 export class EnableAlarmActionsCommand extends $Command<
   EnableAlarmActionsCommandInput,
   EnableAlarmActionsCommandOutput,
@@ -34,6 +37,9 @@ export class EnableAlarmActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

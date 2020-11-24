@@ -20,6 +20,12 @@ import {
 export type PutVoiceConnectorTerminationCommandInput = PutVoiceConnectorTerminationRequest;
 export type PutVoiceConnectorTerminationCommandOutput = PutVoiceConnectorTerminationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
+ *          <note>
+ *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.</p>
+ *          </note>
+ */
 export class PutVoiceConnectorTerminationCommand extends $Command<
   PutVoiceConnectorTerminationCommandInput,
   PutVoiceConnectorTerminationCommandOutput,
@@ -34,6 +40,9 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

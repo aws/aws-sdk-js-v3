@@ -24,6 +24,10 @@ import {
 export type DescribeHomeRegionControlsCommandInput = DescribeHomeRegionControlsRequest;
 export type DescribeHomeRegionControlsCommandOutput = DescribeHomeRegionControlsResult & __MetadataBearer;
 
+/**
+ * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
+ *       fields.</p>
+ */
 export class DescribeHomeRegionControlsCommand extends $Command<
   DescribeHomeRegionControlsCommandInput,
   DescribeHomeRegionControlsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DeleteDirectConnectGatewayCommandInput = DeleteDirectConnectGatewayRequest;
 export type DeleteDirectConnectGatewayCommandOutput = DeleteDirectConnectGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
+ *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
+ *       with the Direct Connect gateway.</p>
+ */
 export class DeleteDirectConnectGatewayCommand extends $Command<
   DeleteDirectConnectGatewayCommandInput,
   DeleteDirectConnectGatewayCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

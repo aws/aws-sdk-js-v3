@@ -20,6 +20,9 @@ import {
 export type CreateHarvestJobCommandInput = CreateHarvestJobRequest;
 export type CreateHarvestJobCommandOutput = CreateHarvestJobResponse & __MetadataBearer;
 
+/**
+ * Creates a new HarvestJob record.
+ */
 export class CreateHarvestJobCommand extends $Command<
   CreateHarvestJobCommandInput,
   CreateHarvestJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateHarvestJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

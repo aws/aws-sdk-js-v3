@@ -17,6 +17,10 @@ import {
 export type GetSendQuotaCommandInput = {};
 export type GetSendQuotaCommandOutput = GetSendQuotaResponse & __MetadataBearer;
 
+/**
+ * <p>Provides the sending limits for the Amazon SES account. </p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetSendQuotaCommand extends $Command<
   GetSendQuotaCommandInput,
   GetSendQuotaCommandOutput,
@@ -31,6 +35,9 @@ export class GetSendQuotaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

@@ -4,6 +4,9 @@ import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from 
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ManagedBlockchainClient,
   input: ListNodesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNodesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ManagedBlockchain,
   input: ListNodesCommandInput,

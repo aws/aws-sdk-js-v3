@@ -20,6 +20,11 @@ import {
 export type StartAssessmentRunCommandInput = StartAssessmentRunRequest;
 export type StartAssessmentRunCommandOutput = StartAssessmentRunResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the assessment run specified by the ARN of the assessment template. For this
+ *          API to function properly, you must not exceed the limit of running up to 500 concurrent
+ *          agents per AWS account.</p>
+ */
 export class StartAssessmentRunCommand extends $Command<
   StartAssessmentRunCommandInput,
   StartAssessmentRunCommandOutput,
@@ -34,6 +39,9 @@ export class StartAssessmentRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

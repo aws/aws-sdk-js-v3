@@ -20,6 +20,9 @@ import {
 export type GetMinuteUsageCommandInput = GetMinuteUsageRequest;
 export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the number of minutes used by account.</p>
+ */
 export class GetMinuteUsageCommand extends $Command<
   GetMinuteUsageCommandInput,
   GetMinuteUsageCommandOutput,
@@ -34,6 +37,9 @@ export class GetMinuteUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

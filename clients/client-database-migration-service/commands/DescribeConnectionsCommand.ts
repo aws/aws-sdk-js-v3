@@ -24,6 +24,10 @@ import {
 export type DescribeConnectionsCommandInput = DescribeConnectionsMessage;
 export type DescribeConnectionsCommandOutput = DescribeConnectionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the status of the connections that have been made between the replication
+ *          instance and an endpoint. Connections are created when you test an endpoint.</p>
+ */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

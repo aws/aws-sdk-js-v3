@@ -20,6 +20,9 @@ import {
 export type GetRepositoryTriggersCommandInput = GetRepositoryTriggersInput;
 export type GetRepositoryTriggersCommandOutput = GetRepositoryTriggersOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about triggers configured for a repository.</p>
+ */
 export class GetRepositoryTriggersCommand extends $Command<
   GetRepositoryTriggersCommandInput,
   GetRepositoryTriggersCommandOutput,
@@ -34,6 +37,9 @@ export class GetRepositoryTriggersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

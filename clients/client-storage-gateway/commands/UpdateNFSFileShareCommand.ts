@@ -20,6 +20,35 @@ import {
 export type UpdateNFSFileShareCommandInput = UpdateNFSFileShareInput;
 export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a Network File System (NFS) file share. This operation is only supported in the
+ *          file gateway type.</p>
+ *
+ *          <note>
+ *             <p>To leave a file share field unchanged, set the corresponding input field to
+ *             null.</p>
+ *          </note>
+ *
+ *          <p>Updates the following file share settings:</p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>Default storage class for your S3 bucket</p>
+ *             </li>
+ *             <li>
+ *                <p>Metadata defaults for your S3 bucket</p>
+ *             </li>
+ *             <li>
+ *                <p>Allowed NFS clients for your file share</p>
+ *             </li>
+ *             <li>
+ *                <p>Squash settings</p>
+ *             </li>
+ *             <li>
+ *                <p>Write status of your file share</p>
+ *             </li>
+ *          </ul>
+ */
 export class UpdateNFSFileShareCommand extends $Command<
   UpdateNFSFileShareCommandInput,
   UpdateNFSFileShareCommandOutput,
@@ -34,6 +63,9 @@ export class UpdateNFSFileShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -24,6 +24,12 @@ import {
 export type AttachLoadBalancerToSubnetsCommandInput = AttachLoadBalancerToSubnetsInput;
 export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput & __MetadataBearer;
 
+/**
+ * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>
+ *         <p>The load balancer evenly distributes requests across all registered subnets.
+ *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandInput,
   AttachLoadBalancerToSubnetsCommandOutput,
@@ -38,6 +44,9 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

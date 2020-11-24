@@ -20,6 +20,9 @@ import {
 export type TagMeetingCommandInput = TagMeetingRequest;
 export type TagMeetingCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
+ */
 export class TagMeetingCommand extends $Command<
   TagMeetingCommandInput,
   TagMeetingCommandOutput,
@@ -34,6 +37,9 @@ export class TagMeetingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

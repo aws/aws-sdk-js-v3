@@ -20,6 +20,9 @@ import {
 export type UpdateClientCertificateCommandInput = UpdateClientCertificateRequest;
 export type UpdateClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
 
+/**
+ * <p>Changes information about an <a>ClientCertificate</a> resource.</p>
+ */
 export class UpdateClientCertificateCommand extends $Command<
   UpdateClientCertificateCommandInput,
   UpdateClientCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateClientCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

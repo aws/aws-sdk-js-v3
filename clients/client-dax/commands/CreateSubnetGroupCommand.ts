@@ -20,6 +20,9 @@ import {
 export type CreateSubnetGroupCommandInput = CreateSubnetGroupRequest;
 export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new subnet group.</p>
+ */
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,
   CreateSubnetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

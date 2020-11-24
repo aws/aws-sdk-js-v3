@@ -20,6 +20,12 @@ import {
 export type CreateDatabaseCommandInput = CreateDatabaseRequest;
 export type CreateDatabaseCommandOutput = CreateDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Timestream database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
+ *          Refer to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS managed KMS keys</a> for more info.
+ *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *       </p>
+ */
 export class CreateDatabaseCommand extends $Command<
   CreateDatabaseCommandInput,
   CreateDatabaseCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

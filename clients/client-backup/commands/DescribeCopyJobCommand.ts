@@ -20,6 +20,9 @@ import {
 export type DescribeCopyJobCommandInput = DescribeCopyJobInput;
 export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata associated with creating a copy of a resource.</p>
+ */
 export class DescribeCopyJobCommand extends $Command<
   DescribeCopyJobCommandInput,
   DescribeCopyJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCopyJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

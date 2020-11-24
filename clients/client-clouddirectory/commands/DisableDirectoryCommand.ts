@@ -20,6 +20,10 @@ import {
 export type DisableDirectoryCommandInput = DisableDirectoryRequest;
 export type DisableDirectoryCommandOutput = DisableDirectoryResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the specified directory. Disabled directories cannot be read or written to.
+ *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
+ */
 export class DisableDirectoryCommand extends $Command<
   DisableDirectoryCommandInput,
   DisableDirectoryCommandOutput,
@@ -34,6 +38,9 @@ export class DisableDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
 export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the Session Manager connection status for an instance to determine whether it is running and
+ *    ready to receive Session Manager connections.</p>
+ */
 export class GetConnectionStatusCommand extends $Command<
   GetConnectionStatusCommandInput,
   GetConnectionStatusCommandOutput,
@@ -34,6 +38,9 @@ export class GetConnectionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

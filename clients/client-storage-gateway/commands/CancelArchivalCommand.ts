@@ -20,6 +20,10 @@ import {
 export type CancelArchivalCommandInput = CancelArchivalInput;
 export type CancelArchivalCommandOutput = CancelArchivalOutput & __MetadataBearer;
 
+/**
+ * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
+ *          process is initiated. This operation is only supported in the tape gateway type.</p>
+ */
 export class CancelArchivalCommand extends $Command<
   CancelArchivalCommandInput,
   CancelArchivalCommandOutput,
@@ -34,6 +38,9 @@ export class CancelArchivalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -21,6 +21,9 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsInput;
 export type DescribeTagsCommandOutput = DescribeTagsOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the tags associated with the specified load balancers.</p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -35,6 +38,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

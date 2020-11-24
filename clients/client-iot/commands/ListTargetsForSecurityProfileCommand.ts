@@ -20,6 +20,9 @@ import {
 export type ListTargetsForSecurityProfileCommandInput = ListTargetsForSecurityProfileRequest;
 export type ListTargetsForSecurityProfileCommandOutput = ListTargetsForSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
+ */
 export class ListTargetsForSecurityProfileCommand extends $Command<
   ListTargetsForSecurityProfileCommandInput,
   ListTargetsForSecurityProfileCommandOutput,
@@ -34,6 +37,9 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

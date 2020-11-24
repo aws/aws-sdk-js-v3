@@ -20,6 +20,15 @@ import {
 export type BatchEnableStandardsCommandInput = BatchEnableStandardsRequest;
 export type BatchEnableStandardsCommandOutput = BatchEnableStandardsResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the
+ *          ARN for a standard, use the <code>
+ *                <a>DescribeStandards</a>
+ *             </code>
+ *          operation.</p>
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a>
+ *          section of the <i>AWS Security Hub User Guide</i>.</p>
+ */
 export class BatchEnableStandardsCommand extends $Command<
   BatchEnableStandardsCommandInput,
   BatchEnableStandardsCommandOutput,
@@ -34,6 +43,9 @@ export class BatchEnableStandardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

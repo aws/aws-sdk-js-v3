@@ -20,6 +20,9 @@ import {
 export type DeleteGroupMembershipCommandInput = DeleteGroupMembershipRequest;
 export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
+ */
 export class DeleteGroupMembershipCommand extends $Command<
   DeleteGroupMembershipCommandInput,
   DeleteGroupMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGroupMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

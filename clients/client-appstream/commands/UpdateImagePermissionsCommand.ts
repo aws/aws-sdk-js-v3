@@ -20,6 +20,9 @@ import {
 export type UpdateImagePermissionsCommandInput = UpdateImagePermissionsRequest;
 export type UpdateImagePermissionsCommandOutput = UpdateImagePermissionsResult & __MetadataBearer;
 
+/**
+ * <p>Adds or updates permissions for the specified private image. </p>
+ */
 export class UpdateImagePermissionsCommand extends $Command<
   UpdateImagePermissionsCommandInput,
   UpdateImagePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateImagePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

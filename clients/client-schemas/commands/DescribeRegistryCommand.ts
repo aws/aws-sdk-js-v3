@@ -20,6 +20,9 @@ import {
 export type DescribeRegistryCommandInput = DescribeRegistryRequest;
 export type DescribeRegistryCommandOutput = DescribeRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the registry.</p>
+ */
 export class DescribeRegistryCommand extends $Command<
   DescribeRegistryCommandInput,
   DescribeRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

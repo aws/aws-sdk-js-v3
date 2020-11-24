@@ -20,6 +20,10 @@ import {
 export type DeleteRuleCommandInput = DeleteRuleRequest;
 export type DeleteRuleCommandOutput = DeleteRuleResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
+ * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ */
 export class DeleteRuleCommand extends $Command<
   DeleteRuleCommandInput,
   DeleteRuleCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

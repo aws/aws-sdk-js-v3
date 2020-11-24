@@ -20,6 +20,10 @@ import {
 export type GetMonitoringSubscriptionCommandInput = GetMonitoringSubscriptionRequest;
 export type GetMonitoringSubscriptionCommandOutput = GetMonitoringSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
+ * 			CloudFront distribution.</p>
+ */
 export class GetMonitoringSubscriptionCommand extends $Command<
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
@@ -34,6 +38,9 @@ export class GetMonitoringSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

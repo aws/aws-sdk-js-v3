@@ -20,6 +20,10 @@ import {
 export type GetAppReplicationConfigurationCommandInput = GetAppReplicationConfigurationRequest;
 export type GetAppReplicationConfigurationCommandOutput = GetAppReplicationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the application replication configuration associated with the specified
+ *             application.</p>
+ */
 export class GetAppReplicationConfigurationCommand extends $Command<
   GetAppReplicationConfigurationCommandInput,
   GetAppReplicationConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

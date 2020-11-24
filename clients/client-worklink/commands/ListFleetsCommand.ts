@@ -20,6 +20,9 @@ import {
 export type ListFleetsCommandInput = ListFleetsRequest;
 export type ListFleetsCommandOutput = ListFleetsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of fleets for the current account and Region.</p>
+ */
 export class ListFleetsCommand extends $Command<
   ListFleetsCommandInput,
   ListFleetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

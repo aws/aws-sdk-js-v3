@@ -24,6 +24,11 @@ import {
 export type DescribeListenersCommandInput = DescribeListenersInput;
 export type DescribeListenersCommandOutput = DescribeListenersOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the specified listeners or the listeners for the specified Application Load
+ *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
+ *       balancer or one or more listeners.</p>
+ */
 export class DescribeListenersCommand extends $Command<
   DescribeListenersCommandInput,
   DescribeListenersCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeListenersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

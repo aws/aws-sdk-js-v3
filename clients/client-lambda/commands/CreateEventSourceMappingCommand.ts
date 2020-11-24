@@ -20,6 +20,60 @@ import {
 export type CreateEventSourceMappingCommandInput = CreateEventSourceMappingRequest;
 export type CreateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
+/**
+ * <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
+ *       and triggers the function.</p>
+ *          <p>For details about each event source type, see the following topics.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon
+ *           DynamoDB</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon
+ *           Kinesis</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon
+ *           SQS</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon
+ *           MSK</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateEventSourceMappingCommand extends $Command<
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput,
@@ -34,6 +88,9 @@ export class CreateEventSourceMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

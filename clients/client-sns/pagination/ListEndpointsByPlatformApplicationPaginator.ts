@@ -8,6 +8,9 @@ import {
 import { SNSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SNSClient,
   input: ListEndpointsByPlatformApplicationCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEndpointsByPlatformApplicationCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SNS,
   input: ListEndpointsByPlatformApplicationCommandInput,

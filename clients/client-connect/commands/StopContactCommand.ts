@@ -20,6 +20,9 @@ import {
 export type StopContactCommandInput = StopContactRequest;
 export type StopContactCommandOutput = StopContactResponse & __MetadataBearer;
 
+/**
+ * <p>Ends the specified contact.</p>
+ */
 export class StopContactCommand extends $Command<
   StopContactCommandInput,
   StopContactCommandOutput,
@@ -34,6 +37,9 @@ export class StopContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

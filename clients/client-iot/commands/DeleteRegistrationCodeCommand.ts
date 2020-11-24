@@ -20,6 +20,9 @@ import {
 export type DeleteRegistrationCodeCommandInput = DeleteRegistrationCodeRequest;
 export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a CA certificate registration code.</p>
+ */
 export class DeleteRegistrationCodeCommand extends $Command<
   DeleteRegistrationCodeCommandInput,
   DeleteRegistrationCodeCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRegistrationCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

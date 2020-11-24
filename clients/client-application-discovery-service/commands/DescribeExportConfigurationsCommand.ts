@@ -24,6 +24,10 @@ import {
 export type DescribeExportConfigurationsCommandInput = DescribeExportConfigurationsRequest;
 export type DescribeExportConfigurationsCommandOutput = DescribeExportConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>, instead.</p>
+ */
 export class DescribeExportConfigurationsCommand extends $Command<
   DescribeExportConfigurationsCommandInput,
   DescribeExportConfigurationsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeExportConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

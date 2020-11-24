@@ -25,6 +25,13 @@ import {
 export type SetUserMFAPreferenceCommandInput = SetUserMFAPreferenceRequest;
 export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse & __MetadataBearer;
 
+/**
+ * <p>Set the user's multi-factor authentication (MFA) method preference, including which
+ *             MFA factors are enabled and if any are preferred. Only one factor can be set as
+ *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
+ *             factors are enabled. If multiple options are enabled and no preference is set, a
+ *             challenge to choose an MFA option will be returned during sign in.</p>
+ */
 export class SetUserMFAPreferenceCommand extends $Command<
   SetUserMFAPreferenceCommandInput,
   SetUserMFAPreferenceCommandOutput,
@@ -39,6 +46,9 @@ export class SetUserMFAPreferenceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

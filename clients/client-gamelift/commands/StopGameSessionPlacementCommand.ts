@@ -20,6 +20,63 @@ import {
 export type StopGameSessionPlacementCommandInput = StopGameSessionPlacementInput;
 export type StopGameSessionPlacementCommandOutput = StopGameSessionPlacementOutput & __MetadataBearer;
 
+/**
+ * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
+ *         placement, provide the placement ID values. If successful, the placement is moved to
+ *         <code>CANCELLED</code> status.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionDetails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SearchGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetGameSessionLogUrl</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Game session placements</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class StopGameSessionPlacementCommand extends $Command<
   StopGameSessionPlacementCommandInput,
   StopGameSessionPlacementCommandOutput,
@@ -34,6 +91,9 @@ export class StopGameSessionPlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

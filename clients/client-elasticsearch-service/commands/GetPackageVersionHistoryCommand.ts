@@ -24,6 +24,9 @@ import {
 export type GetPackageVersionHistoryCommandInput = GetPackageVersionHistoryRequest;
 export type GetPackageVersionHistoryCommandOutput = GetPackageVersionHistoryResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
+ */
 export class GetPackageVersionHistoryCommand extends $Command<
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
@@ -38,6 +41,9 @@ export class GetPackageVersionHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

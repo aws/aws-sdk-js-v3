@@ -20,6 +20,14 @@ import {
 export type CreateKeysAndCertificateCommandInput = CreateKeysAndCertificateRequest;
 export type CreateKeysAndCertificateCommandOutput = CreateKeysAndCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
+ *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
+ *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
+ *          <p>
+ *             <b>Note</b> This is the only time AWS IoT issues the private key
+ *          for this certificate, so it is important to keep it in a secure location.</p>
+ */
 export class CreateKeysAndCertificateCommand extends $Command<
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput,
@@ -34,6 +42,9 @@ export class CreateKeysAndCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

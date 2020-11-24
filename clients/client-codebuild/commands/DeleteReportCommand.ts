@@ -20,6 +20,11 @@ import {
 export type DeleteReportCommandInput = DeleteReportInput;
 export type DeleteReportCommandOutput = DeleteReportOutput & __MetadataBearer;
 
+/**
+ * <p>
+ *       Deletes a report.
+ *     </p>
+ */
 export class DeleteReportCommand extends $Command<
   DeleteReportCommandInput,
   DeleteReportCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteReportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

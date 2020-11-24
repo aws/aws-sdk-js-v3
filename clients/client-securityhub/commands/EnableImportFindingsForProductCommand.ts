@@ -20,6 +20,12 @@ import {
 export type EnableImportFindingsForProductCommandInput = EnableImportFindingsForProductRequest;
 export type EnableImportFindingsForProductCommandOutput = EnableImportFindingsForProductResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the integration of a partner product with Security Hub. Integrated products send
+ *          findings to Security Hub.</p>
+ *          <p>When you enable a product integration, a permissions policy that grants permission for
+ *          the product to send findings to Security Hub is applied.</p>
+ */
 export class EnableImportFindingsForProductCommand extends $Command<
   EnableImportFindingsForProductCommandInput,
   EnableImportFindingsForProductCommandOutput,
@@ -34,6 +40,9 @@ export class EnableImportFindingsForProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

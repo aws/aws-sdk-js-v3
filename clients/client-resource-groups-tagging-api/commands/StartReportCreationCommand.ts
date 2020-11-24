@@ -24,6 +24,16 @@ import {
 export type StartReportCreationCommandInput = StartReportCreationInput;
 export type StartReportCreationCommandOutput = StartReportCreationOutput & __MetadataBearer;
 
+/**
+ * <p>Generates a report that lists all tagged resources in accounts across your
+ *             organization and tells whether each resource is compliant with the effective tag policy.
+ *             Compliance data is refreshed daily. </p>
+ *         <p>The generated report is saved to the following location:</p>
+ *         <p>
+ *             <code>s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv</code>
+ *          </p>
+ *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+ */
 export class StartReportCreationCommand extends $Command<
   StartReportCreationCommandInput,
   StartReportCreationCommandOutput,
@@ -38,6 +48,9 @@ export class StartReportCreationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

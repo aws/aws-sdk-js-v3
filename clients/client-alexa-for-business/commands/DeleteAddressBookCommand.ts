@@ -20,6 +20,9 @@ import {
 export type DeleteAddressBookCommandInput = DeleteAddressBookRequest;
 export type DeleteAddressBookCommandOutput = DeleteAddressBookResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an address book by the address book ARN.</p>
+ */
 export class DeleteAddressBookCommand extends $Command<
   DeleteAddressBookCommandInput,
   DeleteAddressBookCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

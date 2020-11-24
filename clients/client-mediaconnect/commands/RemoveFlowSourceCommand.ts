@@ -20,6 +20,9 @@ import {
 export type RemoveFlowSourceCommandInput = RemoveFlowSourceRequest;
 export type RemoveFlowSourceCommandOutput = RemoveFlowSourceResponse & __MetadataBearer;
 
+/**
+ * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
+ */
 export class RemoveFlowSourceCommand extends $Command<
   RemoveFlowSourceCommandInput,
   RemoveFlowSourceCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveFlowSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

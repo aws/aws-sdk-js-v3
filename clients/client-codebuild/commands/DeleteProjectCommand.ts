@@ -20,6 +20,10 @@ import {
 export type DeleteProjectCommandInput = DeleteProjectInput;
 export type DeleteProjectCommandOutput = DeleteProjectOutput & __MetadataBearer;
 
+/**
+ * <p> Deletes a build project. When you delete a project, its builds are not deleted.
+ *         </p>
+ */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

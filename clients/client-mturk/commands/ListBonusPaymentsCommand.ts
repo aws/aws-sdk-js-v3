@@ -20,6 +20,14 @@ import {
 export type ListBonusPaymentsCommandInput = ListBonusPaymentsRequest;
 export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>ListBonusPayments</code>
+ *             operation retrieves the amounts of bonuses you have paid to Workers
+ *             for a given HIT or assignment.
+ *         </p>
+ */
 export class ListBonusPaymentsCommand extends $Command<
   ListBonusPaymentsCommandInput,
   ListBonusPaymentsCommandOutput,
@@ -34,6 +42,9 @@ export class ListBonusPaymentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

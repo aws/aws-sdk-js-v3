@@ -20,6 +20,21 @@ import {
 export type DeleteVolumeCommandInput = DeleteVolumeInput;
 export type DeleteVolumeCommandOutput = DeleteVolumeOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
+ *          This operation is only supported in the cached volume and stored volume types. For stored
+ *          volume gateways, the local disk that was configured as the storage volume is not deleted.
+ *          You can reuse the local disk to create another storage volume.</p>
+ *
+ *          <p>Before you delete a volume, make sure there are no iSCSI connections to the volume you
+ *          are deleting. You should also make sure there is no snapshot in progress. You can use the
+ *          Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are
+ *          deleting and check the snapshot status. For more information, go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+ *             Reference</i>.</p>
+ *
+ *          <p>In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
+ *          you want to delete.</p>
+ */
 export class DeleteVolumeCommand extends $Command<
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput,
@@ -34,6 +49,9 @@ export class DeleteVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

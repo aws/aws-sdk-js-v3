@@ -20,6 +20,9 @@ import {
 export type ListDeploymentTargetsCommandInput = ListDeploymentTargetsInput;
 export type ListDeploymentTargetsCommandOutput = ListDeploymentTargetsOutput & __MetadataBearer;
 
+/**
+ * <p> Returns an array of target IDs that are associated a deployment. </p>
+ */
 export class ListDeploymentTargetsCommand extends $Command<
   ListDeploymentTargetsCommandInput,
   ListDeploymentTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDeploymentTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CloudDirectoryClient,
   input: ListFacetNamesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFacetNamesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CloudDirectory,
   input: ListFacetNamesCommandInput,

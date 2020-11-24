@@ -20,6 +20,15 @@ import {
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
 export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult & __MetadataBearer;
 
+/**
+ * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
+ *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
+ *             After creating the HSM configuration, you can specify it as a parameter when creating a
+ *             cluster. The cluster will then store its encryption keys in the HSM.</p>
+ *         <p>In addition to creating an HSM configuration, you must also create an HSM client
+ *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
+ *             in the Amazon Redshift Cluster Management Guide.</p>
+ */
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,
   CreateHsmConfigurationCommandOutput,
@@ -34,6 +43,9 @@ export class CreateHsmConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

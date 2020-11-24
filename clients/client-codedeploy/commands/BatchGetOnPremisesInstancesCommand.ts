@@ -20,6 +20,9 @@ import {
 export type BatchGetOnPremisesInstancesCommandInput = BatchGetOnPremisesInstancesInput;
 export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.</p>
+ */
 export class BatchGetOnPremisesInstancesCommand extends $Command<
   BatchGetOnPremisesInstancesCommandInput,
   BatchGetOnPremisesInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

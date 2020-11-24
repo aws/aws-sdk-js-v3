@@ -20,6 +20,9 @@ import {
 export type RenderUiTemplateCommandInput = RenderUiTemplateRequest;
 export type RenderUiTemplateCommandOutput = RenderUiTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Renders the UI template so that you can preview the worker's experience. </p>
+ */
 export class RenderUiTemplateCommand extends $Command<
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class RenderUiTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

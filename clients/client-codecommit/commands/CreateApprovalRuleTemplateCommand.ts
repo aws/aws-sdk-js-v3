@@ -20,6 +20,13 @@ import {
 export type CreateApprovalRuleTemplateCommandInput = CreateApprovalRuleTemplateInput;
 export type CreateApprovalRuleTemplateCommandOutput = CreateApprovalRuleTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a template for approval rules that can then be associated with one or more
+ *             repositories in your AWS account. When you associate a template with a repository, AWS
+ *             CodeCommit creates an approval rule that matches the conditions of the template for all
+ *             pull requests that meet the conditions of the template. For more information, see
+ *             <a>AssociateApprovalRuleTemplateWithRepository</a>.</p>
+ */
 export class CreateApprovalRuleTemplateCommand extends $Command<
   CreateApprovalRuleTemplateCommandInput,
   CreateApprovalRuleTemplateCommandOutput,
@@ -34,6 +41,9 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

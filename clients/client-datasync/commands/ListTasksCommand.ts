@@ -17,6 +17,9 @@ import {
 export type ListTasksCommandInput = ListTasksRequest;
 export type ListTasksCommandOutput = ListTasksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all the tasks.</p>
+ */
 export class ListTasksCommand extends $Command<
   ListTasksCommandInput,
   ListTasksCommandOutput,
@@ -31,6 +34,9 @@ export class ListTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

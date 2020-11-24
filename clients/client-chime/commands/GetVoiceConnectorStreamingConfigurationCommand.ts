@@ -24,6 +24,11 @@ export type GetVoiceConnectorStreamingConfigurationCommandInput = GetVoiceConnec
 export type GetVoiceConnectorStreamingConfigurationCommandOutput = GetVoiceConnectorStreamingConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice
+ *       Connector. Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
+ *       shows the retention period, in hours, for the Amazon Kinesis data.</p>
+ */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   GetVoiceConnectorStreamingConfigurationCommandInput,
   GetVoiceConnectorStreamingConfigurationCommandOutput,
@@ -38,6 +43,9 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

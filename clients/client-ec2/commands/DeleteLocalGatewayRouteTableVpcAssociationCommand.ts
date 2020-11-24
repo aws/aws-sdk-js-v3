@@ -24,6 +24,9 @@ export type DeleteLocalGatewayRouteTableVpcAssociationCommandInput = DeleteLocal
 export type DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = DeleteLocalGatewayRouteTableVpcAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the specified association between a VPC and local gateway route table.</p>
+ */
 export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

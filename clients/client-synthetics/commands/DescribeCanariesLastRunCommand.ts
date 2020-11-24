@@ -20,6 +20,9 @@ import {
 export type DescribeCanariesLastRunCommandInput = DescribeCanariesLastRunRequest;
 export type DescribeCanariesLastRunCommandOutput = DescribeCanariesLastRunResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
+ */
 export class DescribeCanariesLastRunCommand extends $Command<
   DescribeCanariesLastRunCommandInput,
   DescribeCanariesLastRunCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCanariesLastRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

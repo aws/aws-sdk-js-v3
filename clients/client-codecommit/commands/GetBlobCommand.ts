@@ -17,6 +17,9 @@ import {
 export type GetBlobCommandInput = GetBlobInput;
 export type GetBlobCommandOutput = GetBlobOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
+ */
 export class GetBlobCommand extends $Command<
   GetBlobCommandInput,
   GetBlobCommandOutput,
@@ -31,6 +34,9 @@ export class GetBlobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

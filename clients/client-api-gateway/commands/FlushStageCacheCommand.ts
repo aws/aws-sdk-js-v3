@@ -20,6 +20,9 @@ import {
 export type FlushStageCacheCommandInput = FlushStageCacheRequest;
 export type FlushStageCacheCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Flushes a stage's cache.</p>
+ */
 export class FlushStageCacheCommand extends $Command<
   FlushStageCacheCommandInput,
   FlushStageCacheCommandOutput,
@@ -34,6 +37,9 @@ export class FlushStageCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

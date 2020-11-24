@@ -20,6 +20,10 @@ import {
 export type TerminateSessionCommandInput = TerminateSessionRequest;
 export type TerminateSessionCommandOutput = TerminateSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Permanently ends a session and closes the data connection between the Session Manager client and
+ *    SSM Agent on the instance. A terminated session cannot be resumed.</p>
+ */
 export class TerminateSessionCommand extends $Command<
   TerminateSessionCommandInput,
   TerminateSessionCommandOutput,
@@ -34,6 +38,9 @@ export class TerminateSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

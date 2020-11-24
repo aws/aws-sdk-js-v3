@@ -20,6 +20,11 @@ import {
 export type DeleteColumnStatisticsForTableCommandInput = DeleteColumnStatisticsForTableRequest;
 export type DeleteColumnStatisticsForTableCommandOutput = DeleteColumnStatisticsForTableResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves table statistics of columns.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
+ */
 export class DeleteColumnStatisticsForTableCommand extends $Command<
   DeleteColumnStatisticsForTableCommandInput,
   DeleteColumnStatisticsForTableCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

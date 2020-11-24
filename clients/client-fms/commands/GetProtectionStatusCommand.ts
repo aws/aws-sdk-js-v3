@@ -20,6 +20,10 @@ import {
 export type GetProtectionStatusCommandInput = GetProtectionStatusRequest;
 export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse & __MetadataBearer;
 
+/**
+ * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
+ *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
+ */
 export class GetProtectionStatusCommand extends $Command<
   GetProtectionStatusCommandInput,
   GetProtectionStatusCommandOutput,
@@ -34,6 +38,9 @@ export class GetProtectionStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

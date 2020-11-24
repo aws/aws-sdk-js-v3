@@ -20,6 +20,15 @@ import {
 export type ModifySnapshotCopyRetentionPeriodCommandInput = ModifySnapshotCopyRetentionPeriodMessage;
 export type ModifySnapshotCopyRetentionPeriodCommandOutput = ModifySnapshotCopyRetentionPeriodResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the number of days to retain snapshots in the destination AWS Region after
+ *             they are copied from the source AWS Region. By default, this operation only changes the
+ *             retention period of copied automated snapshots. The retention periods for both new and
+ *             existing copied automated snapshots are updated with the new retention period. You can
+ *             set the manual option to change only the retention periods of copied manual snapshots.
+ *             If you set this option, only newly copied manual snapshots have the new retention
+ *             period. </p>
+ */
 export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ModifySnapshotCopyRetentionPeriodCommandInput,
   ModifySnapshotCopyRetentionPeriodCommandOutput,
@@ -34,6 +43,9 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

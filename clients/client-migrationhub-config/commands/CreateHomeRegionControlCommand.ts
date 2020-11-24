@@ -24,6 +24,9 @@ import {
 export type CreateHomeRegionControlCommandInput = CreateHomeRegionControlRequest;
 export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult & __MetadataBearer;
 
+/**
+ * <p>This API sets up the home region for the calling account only.</p>
+ */
 export class CreateHomeRegionControlCommand extends $Command<
   CreateHomeRegionControlCommandInput,
   CreateHomeRegionControlCommandOutput,
@@ -38,6 +41,9 @@ export class CreateHomeRegionControlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,

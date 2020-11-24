@@ -20,6 +20,12 @@ import {
 export type DeleteDataSourceCommandInput = DeleteDataSourceInput;
 export type DeleteDataSourceCommandOutput = DeleteDataSourceOutput & __MetadataBearer;
 
+/**
+ * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
+ *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
+ *         <p>
+ *             <b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.</p>
+ */
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

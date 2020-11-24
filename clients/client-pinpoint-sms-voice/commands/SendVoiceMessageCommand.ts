@@ -20,6 +20,9 @@ import {
 export type SendVoiceMessageCommandInput = SendVoiceMessageRequest;
 export type SendVoiceMessageCommandOutput = SendVoiceMessageResponse & __MetadataBearer;
 
+/**
+ * Create a new voice message and send it to a recipient's phone number.
+ */
 export class SendVoiceMessageCommand extends $Command<
   SendVoiceMessageCommandInput,
   SendVoiceMessageCommandOutput,
@@ -34,6 +37,9 @@ export class SendVoiceMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

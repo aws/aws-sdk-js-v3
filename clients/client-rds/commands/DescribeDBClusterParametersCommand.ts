@@ -20,6 +20,16 @@ import {
 export type DescribeDBClusterParametersCommandInput = DescribeDBClusterParametersMessage;
 export type DescribeDBClusterParametersCommandOutput = DBClusterParameterGroupDetails & __MetadataBearer;
 
+/**
+ * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class DescribeDBClusterParametersCommand extends $Command<
   DescribeDBClusterParametersCommandInput,
   DescribeDBClusterParametersCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeDBClusterParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

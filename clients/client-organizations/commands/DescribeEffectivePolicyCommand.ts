@@ -20,6 +20,18 @@ import {
 export type DescribeEffectivePolicyCommandInput = DescribeEffectivePolicyRequest;
 export type DescribeEffectivePolicyCommandOutput = DescribeEffectivePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the contents of the effective policy for specified policy type and account.
+ *             The effective policy is the aggregation of any policies of the specified type that the
+ *             account inherits, plus any policy of that type that is directly attached to the
+ *             account.</p>
+ *         <p>This operation applies only to policy types <i>other</i> than service
+ *             control policies (SCPs).</p>
+ *         <p>For more information about policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How Policy Inheritance
+ *                 Works</a> in the <i>AWS Organizations User Guide</i>.</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class DescribeEffectivePolicyCommand extends $Command<
   DescribeEffectivePolicyCommandInput,
   DescribeEffectivePolicyCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeEffectivePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetMethodResponseCommandInput = GetMethodResponseRequest;
 export type GetMethodResponseCommandOutput = MethodResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a <a>MethodResponse</a> resource.</p>
+ */
 export class GetMethodResponseCommand extends $Command<
   GetMethodResponseCommandInput,
   GetMethodResponseCommandOutput,
@@ -34,6 +37,9 @@ export class GetMethodResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetFieldLevelEncryptionProfileCommandInput = GetFieldLevelEncryptionProfileRequest;
 export type GetFieldLevelEncryptionProfileCommandOutput = GetFieldLevelEncryptionProfileResult & __MetadataBearer;
 
+/**
+ * <p>Get the field-level encryption profile information.</p>
+ */
 export class GetFieldLevelEncryptionProfileCommand extends $Command<
   GetFieldLevelEncryptionProfileCommandInput,
   GetFieldLevelEncryptionProfileCommandOutput,
@@ -34,6 +37,9 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

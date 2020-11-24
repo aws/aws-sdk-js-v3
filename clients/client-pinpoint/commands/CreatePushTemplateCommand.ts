@@ -20,6 +20,9 @@ import {
 export type CreatePushTemplateCommandInput = CreatePushTemplateRequest;
 export type CreatePushTemplateCommandOutput = CreatePushTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a message template for messages that are sent through a push notification channel.</p>
+ */
 export class CreatePushTemplateCommand extends $Command<
   CreatePushTemplateCommandInput,
   CreatePushTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePushTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

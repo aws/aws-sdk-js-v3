@@ -17,6 +17,9 @@ import {
 export type GetJobCommandInput = GetJobRequest;
 export type GetJobCommandOutput = GetJobResponse & __MetadataBearer;
 
+/**
+ * <p>This operation returns information about a job.</p>
+ */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, DataExchangeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

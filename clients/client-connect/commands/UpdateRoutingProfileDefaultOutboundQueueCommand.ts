@@ -20,6 +20,9 @@ import {
 export type UpdateRoutingProfileDefaultOutboundQueueCommandInput = UpdateRoutingProfileDefaultOutboundQueueRequest;
 export type UpdateRoutingProfileDefaultOutboundQueueCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the default outbound queue of a routing profile.</p>
+ */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
   UpdateRoutingProfileDefaultOutboundQueueCommandInput,
   UpdateRoutingProfileDefaultOutboundQueueCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

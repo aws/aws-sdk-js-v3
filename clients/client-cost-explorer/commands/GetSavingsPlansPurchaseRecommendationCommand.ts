@@ -24,6 +24,9 @@ export type GetSavingsPlansPurchaseRecommendationCommandInput = GetSavingsPlansP
 export type GetSavingsPlansPurchaseRecommendationCommandOutput = GetSavingsPlansPurchaseRecommendationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>
+ */
 export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
   GetSavingsPlansPurchaseRecommendationCommandInput,
   GetSavingsPlansPurchaseRecommendationCommandOutput,
@@ -38,6 +41,9 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

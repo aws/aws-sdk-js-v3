@@ -20,6 +20,9 @@ import {
 export type CreateDatasetCommandInput = CreateDatasetRequest;
 export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new AWS Glue DataBrew dataset for this AWS account.</p>
+ */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

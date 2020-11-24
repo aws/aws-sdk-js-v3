@@ -24,6 +24,9 @@ import {
 export type VoteOnProposalCommandInput = VoteOnProposalInput;
 export type VoteOnProposalCommandOutput = VoteOnProposalOutput & __MetadataBearer;
 
+/**
+ * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
+ */
 export class VoteOnProposalCommand extends $Command<
   VoteOnProposalCommandInput,
   VoteOnProposalCommandOutput,
@@ -38,6 +41,9 @@ export class VoteOnProposalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

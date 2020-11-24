@@ -20,6 +20,10 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
+ *       also view tags with <a>GetFunction</a>.</p>
+ */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +34,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

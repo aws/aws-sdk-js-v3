@@ -20,6 +20,9 @@ import {
 export type GetResourcePolicyCommandInput = GetResourcePolicyRequest;
 export type GetResourcePolicyCommandOutput = GetResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a specified resource policy.</p>
+ */
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

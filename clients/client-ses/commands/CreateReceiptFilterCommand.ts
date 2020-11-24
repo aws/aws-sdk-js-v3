@@ -20,6 +20,11 @@ import {
 export type CreateReceiptFilterCommandInput = CreateReceiptFilterRequest;
 export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new IP address filter.</p>
+ *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class CreateReceiptFilterCommand extends $Command<
   CreateReceiptFilterCommandInput,
   CreateReceiptFilterCommandOutput,
@@ -34,6 +39,9 @@ export class CreateReceiptFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

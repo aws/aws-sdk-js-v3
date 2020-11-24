@@ -20,6 +20,9 @@ import {
 export type RunPipelineActivityCommandInput = RunPipelineActivityRequest;
 export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse & __MetadataBearer;
 
+/**
+ * <p>Simulates the results of running a pipeline activity on a message payload.</p>
+ */
 export class RunPipelineActivityCommand extends $Command<
   RunPipelineActivityCommandInput,
   RunPipelineActivityCommandOutput,
@@ -34,6 +37,9 @@ export class RunPipelineActivityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

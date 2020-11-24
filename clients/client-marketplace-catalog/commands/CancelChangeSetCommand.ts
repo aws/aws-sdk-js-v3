@@ -24,6 +24,12 @@ import {
 export type CancelChangeSetCommandInput = CancelChangeSetRequest;
 export type CancelChangeSetCommandOutput = CancelChangeSetResponse & __MetadataBearer;
 
+/**
+ * <p>Used to cancel an open change request. Must be sent before the status of the request
+ *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
+ *             can describe a change during the 60-day request history retention period for API
+ *             calls.</p>
+ */
 export class CancelChangeSetCommand extends $Command<
   CancelChangeSetCommandInput,
   CancelChangeSetCommandOutput,
@@ -38,6 +44,9 @@ export class CancelChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

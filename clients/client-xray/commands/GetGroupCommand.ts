@@ -20,6 +20,9 @@ import {
 export type GetGroupCommandInput = GetGroupRequest;
 export type GetGroupCommandOutput = GetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves group resource details.</p>
+ */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

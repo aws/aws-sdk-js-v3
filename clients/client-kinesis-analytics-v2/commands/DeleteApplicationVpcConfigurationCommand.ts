@@ -28,6 +28,9 @@ export type DeleteApplicationVpcConfigurationCommandInput = DeleteApplicationVpc
 export type DeleteApplicationVpcConfigurationCommandOutput = DeleteApplicationVpcConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>
+ */
 export class DeleteApplicationVpcConfigurationCommand extends $Command<
   DeleteApplicationVpcConfigurationCommandInput,
   DeleteApplicationVpcConfigurationCommandOutput,
@@ -42,6 +45,9 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

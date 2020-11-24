@@ -20,6 +20,9 @@ import {
 export type AddFacetToObjectCommandInput = AddFacetToObjectRequest;
 export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
+ */
 export class AddFacetToObjectCommand extends $Command<
   AddFacetToObjectCommandInput,
   AddFacetToObjectCommandOutput,
@@ -34,6 +37,9 @@ export class AddFacetToObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

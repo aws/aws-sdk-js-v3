@@ -20,6 +20,10 @@ import {
 export type EnableMetricsCollectionCommandInput = EnableMetricsCollectionQuery;
 export type EnableMetricsCollectionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Enables group metrics for the specified Auto Scaling group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring CloudWatch metrics for your Auto Scaling groups and instances</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class EnableMetricsCollectionCommand extends $Command<
   EnableMetricsCollectionCommandInput,
   EnableMetricsCollectionCommandOutput,
@@ -34,6 +38,9 @@ export class EnableMetricsCollectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteVocabularyFilterCommandInput = DeleteVocabularyFilterRequest;
 export type DeleteVocabularyFilterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a vocabulary filter.</p>
+ */
 export class DeleteVocabularyFilterCommand extends $Command<
   DeleteVocabularyFilterCommandInput,
   DeleteVocabularyFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVocabularyFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

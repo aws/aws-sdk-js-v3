@@ -20,6 +20,22 @@ import {
 export type GetOriginRequestPolicyCommandInput = GetOriginRequestPolicyRequest;
 export type GetOriginRequestPolicyCommandOutput = GetOriginRequestPolicyResult & __MetadataBearer;
 
+/**
+ * <p>Gets an origin request policy, including the following metadata:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>The policy’s identifier.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>The date and time when the policy was last modified.</p>
+ * 			         </li>
+ *          </ul>
+ * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the origin
+ * 			request policy is attached to a distribution’s cache behavior, you can get the policy’s
+ * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+ * 			origin request policy is not attached to a cache behavior, you can get the identifier
+ * 			using <code>ListOriginRequestPolicies</code>.</p>
+ */
 export class GetOriginRequestPolicyCommand extends $Command<
   GetOriginRequestPolicyCommandInput,
   GetOriginRequestPolicyCommandOutput,
@@ -34,6 +50,9 @@ export class GetOriginRequestPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

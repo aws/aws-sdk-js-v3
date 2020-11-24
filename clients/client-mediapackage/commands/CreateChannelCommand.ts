@@ -20,6 +20,9 @@ import {
 export type CreateChannelCommandInput = CreateChannelRequest;
 export type CreateChannelCommandOutput = CreateChannelResponse & __MetadataBearer;
 
+/**
+ * Creates a new Channel.
+ */
 export class CreateChannelCommand extends $Command<
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
@@ -34,6 +37,9 @@ export class CreateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

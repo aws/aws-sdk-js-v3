@@ -20,6 +20,9 @@ import {
 export type GetBackupPlanFromJSONCommandInput = GetBackupPlanFromJSONInput;
 export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a valid JSON document specifying a backup plan or an error.</p>
+ */
 export class GetBackupPlanFromJSONCommand extends $Command<
   GetBackupPlanFromJSONCommandInput,
   GetBackupPlanFromJSONCommandOutput,
@@ -34,6 +37,9 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

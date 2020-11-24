@@ -20,6 +20,10 @@ import {
 export type DeleteLogStreamCommandInput = DeleteLogStreamRequest;
 export type DeleteLogStreamCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
+ *       with the log stream.</p>
+ */
 export class DeleteLogStreamCommand extends $Command<
   DeleteLogStreamCommandInput,
   DeleteLogStreamCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteLogStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsRequest;
 export type DeleteTagsCommandOutput = DeleteTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the association between configuration items and one or more tags. This API
+ *       accepts a list of multiple configuration items.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -38,6 +42,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

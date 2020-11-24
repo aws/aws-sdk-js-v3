@@ -20,6 +20,10 @@ import {
 export type GetCustomerGatewayAssociationsCommandInput = GetCustomerGatewayAssociationsRequest;
 export type GetCustomerGatewayAssociationsCommandOutput = GetCustomerGatewayAssociationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the association information for customer gateways that are associated with
+ *             devices and links in your global network.</p>
+ */
 export class GetCustomerGatewayAssociationsCommand extends $Command<
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
@@ -34,6 +38,9 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreateDBClusterEndpointCommandInput = CreateDBClusterEndpointMessage;
 export type CreateDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
+ *          <note>
+ *            <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class CreateDBClusterEndpointCommand extends $Command<
   CreateDBClusterEndpointCommandInput,
   CreateDBClusterEndpointCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDBClusterEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

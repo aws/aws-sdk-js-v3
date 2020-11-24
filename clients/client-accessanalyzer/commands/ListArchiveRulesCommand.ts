@@ -20,6 +20,9 @@ import {
 export type ListArchiveRulesCommandInput = ListArchiveRulesRequest;
 export type ListArchiveRulesCommandOutput = ListArchiveRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
+ */
 export class ListArchiveRulesCommand extends $Command<
   ListArchiveRulesCommandInput,
   ListArchiveRulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListArchiveRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

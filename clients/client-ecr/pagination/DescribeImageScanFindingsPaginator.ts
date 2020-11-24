@@ -8,6 +8,9 @@ import {
 import { ECRPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ECRClient,
   input: DescribeImageScanFindingsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeImageScanFindingsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ECR,
   input: DescribeImageScanFindingsCommandInput,

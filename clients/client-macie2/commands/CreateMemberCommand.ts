@@ -20,6 +20,9 @@ import {
 export type CreateMemberCommandInput = CreateMemberRequest;
 export type CreateMemberCommandOutput = CreateMemberResponse & __MetadataBearer;
 
+/**
+ * <p>Associates an account with an Amazon Macie master account.</p>
+ */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,
   CreateMemberCommandOutput,
@@ -34,6 +37,9 @@ export class CreateMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

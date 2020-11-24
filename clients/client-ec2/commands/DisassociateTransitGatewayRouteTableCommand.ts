@@ -24,6 +24,9 @@ export type DisassociateTransitGatewayRouteTableCommandInput = DisassociateTrans
 export type DisassociateTransitGatewayRouteTableCommandOutput = DisassociateTransitGatewayRouteTableResult &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates a resource attachment from a transit gateway route table.</p>
+ */
 export class DisassociateTransitGatewayRouteTableCommand extends $Command<
   DisassociateTransitGatewayRouteTableCommandInput,
   DisassociateTransitGatewayRouteTableCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

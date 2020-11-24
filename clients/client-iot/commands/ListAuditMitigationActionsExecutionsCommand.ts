@@ -24,6 +24,9 @@ export type ListAuditMitigationActionsExecutionsCommandInput = ListAuditMitigati
 export type ListAuditMitigationActionsExecutionsCommandOutput = ListAuditMitigationActionsExecutionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command<
   ListAuditMitigationActionsExecutionsCommandInput,
   ListAuditMitigationActionsExecutionsCommandOutput,
@@ -38,6 +41,9 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

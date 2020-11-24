@@ -20,6 +20,12 @@ import {
 export type UpdateSAMLProviderCommandInput = UpdateSAMLProviderRequest;
 export type UpdateSAMLProviderCommandOutput = UpdateSAMLProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the metadata document for an existing SAML provider resource object.</p>
+ *          <note>
+ *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+ *          </note>
+ */
 export class UpdateSAMLProviderCommand extends $Command<
   UpdateSAMLProviderCommandInput,
   UpdateSAMLProviderCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateSAMLProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

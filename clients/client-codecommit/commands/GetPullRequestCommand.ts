@@ -20,6 +20,9 @@ import {
 export type GetPullRequestCommandInput = GetPullRequestInput;
 export type GetPullRequestCommandOutput = GetPullRequestOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about a pull request in a specified repository.</p>
+ */
 export class GetPullRequestCommand extends $Command<
   GetPullRequestCommandInput,
   GetPullRequestCommandOutput,
@@ -34,6 +37,9 @@ export class GetPullRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

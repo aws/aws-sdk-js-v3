@@ -20,6 +20,9 @@ import {
 export type DeleteActivityCommandInput = DeleteActivityInput;
 export type DeleteActivityCommandOutput = DeleteActivityOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an activity.</p>
+ */
 export class DeleteActivityCommand extends $Command<
   DeleteActivityCommandInput,
   DeleteActivityCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteActivityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

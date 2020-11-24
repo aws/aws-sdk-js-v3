@@ -20,6 +20,15 @@ import {
 export type ListBackupsCommandInput = ListBackupsInput;
 export type ListBackupsCommandOutput = ListBackupsOutput & __MetadataBearer;
 
+/**
+ * <p>List backups associated with an AWS account. To list backups for a given table, specify
+ *                 <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
+ *             with at most 1 MB worth of items in a page. You can also specify a maximum number of
+ *             entries to be returned in a page. </p>
+ *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
+ *             boundaries are for the time at which the original backup was requested.</p>
+ *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
+ */
 export class ListBackupsCommand extends $Command<
   ListBackupsCommandInput,
   ListBackupsCommandOutput,
@@ -34,6 +43,9 @@ export class ListBackupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

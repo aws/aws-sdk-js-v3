@@ -20,6 +20,11 @@ import {
 export type DeleteConnectorProfileCommandInput = DeleteConnectorProfileRequest;
 export type DeleteConnectorProfileCommandOutput = DeleteConnectorProfileResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *  Enables you to delete an existing connector profile.
+ * </p>
+ */
 export class DeleteConnectorProfileCommand extends $Command<
   DeleteConnectorProfileCommandInput,
   DeleteConnectorProfileCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteConnectorProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

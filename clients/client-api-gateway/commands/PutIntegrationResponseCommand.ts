@@ -20,6 +20,9 @@ import {
 export type PutIntegrationResponseCommandInput = PutIntegrationResponseRequest;
 export type PutIntegrationResponseCommandOutput = IntegrationResponse & __MetadataBearer;
 
+/**
+ * <p>Represents a put integration.</p>
+ */
 export class PutIntegrationResponseCommand extends $Command<
   PutIntegrationResponseCommandInput,
   PutIntegrationResponseCommandOutput,
@@ -34,6 +37,9 @@ export class PutIntegrationResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

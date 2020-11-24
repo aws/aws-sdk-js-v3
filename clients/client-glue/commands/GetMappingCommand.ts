@@ -20,6 +20,9 @@ import {
 export type GetMappingCommandInput = GetMappingRequest;
 export type GetMappingCommandOutput = GetMappingResponse & __MetadataBearer;
 
+/**
+ * <p>Creates mappings.</p>
+ */
 export class GetMappingCommand extends $Command<
   GetMappingCommandInput,
   GetMappingCommandOutput,
@@ -34,6 +37,9 @@ export class GetMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type EnableRadiusCommandInput = EnableRadiusRequest;
 export type EnableRadiusCommandOutput = EnableRadiusResult & __MetadataBearer;
 
+/**
+ * <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
+ */
 export class EnableRadiusCommand extends $Command<
   EnableRadiusCommandInput,
   EnableRadiusCommandOutput,
@@ -34,6 +37,9 @@ export class EnableRadiusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

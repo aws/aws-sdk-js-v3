@@ -20,6 +20,9 @@ import {
 export type ModifyUserGroupCommandInput = ModifyUserGroupMessage;
 export type ModifyUserGroupCommandOutput = UserGroup & __MetadataBearer;
 
+/**
+ * <p>Changes the list of users that belong to the user group.</p>
+ */
 export class ModifyUserGroupCommand extends $Command<
   ModifyUserGroupCommandInput,
   ModifyUserGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyUserGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

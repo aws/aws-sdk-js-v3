@@ -20,6 +20,16 @@ import {
 export type DescribeDeliveryChannelStatusCommandInput = DescribeDeliveryChannelStatusRequest;
 export type DescribeDeliveryChannelStatusCommandOutput = DescribeDeliveryChannelStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the current status of the specified delivery channel.
+ * 			If a delivery channel is not specified, this action returns the
+ * 			current status of all delivery channels associated with the
+ * 			account.</p>
+ * 		       <note>
+ * 			         <p>Currently, you can specify only one delivery channel per
+ * 				region in your account.</p>
+ * 		       </note>
+ */
 export class DescribeDeliveryChannelStatusCommand extends $Command<
   DescribeDeliveryChannelStatusCommandInput,
   DescribeDeliveryChannelStatusCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

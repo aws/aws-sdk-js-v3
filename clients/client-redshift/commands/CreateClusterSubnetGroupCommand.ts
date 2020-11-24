@@ -20,6 +20,15 @@ import {
 export type CreateClusterSubnetGroupCommandInput = CreateClusterSubnetGroupMessage;
 export type CreateClusterSubnetGroupCommandOutput = CreateClusterSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
+ *             subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
+ *             Amazon Redshift subnet group.</p>
+ *         <p>
+ * For information about subnet groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift Cluster Subnet Groups</a> in the
+ * <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class CreateClusterSubnetGroupCommand extends $Command<
   CreateClusterSubnetGroupCommandInput,
   CreateClusterSubnetGroupCommandOutput,
@@ -34,6 +43,9 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

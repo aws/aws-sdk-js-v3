@@ -8,6 +8,9 @@ import {
 import { S3ControlPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: S3ControlClient,
   input: ListRegionalBucketsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRegionalBucketsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: S3Control,
   input: ListRegionalBucketsCommandInput,

@@ -24,6 +24,12 @@ import {
 export type DescribeScalingActivitiesCommandInput = DescribeScalingActivitiesRequest;
 export type DescribeScalingActivitiesCommandOutput = DescribeScalingActivitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Provides descriptive information about the scaling activities in the specified namespace
+ *          from the previous six weeks.</p>
+ *          <p>You can filter the results using <code>ResourceId</code> and
+ *             <code>ScalableDimension</code>.</p>
+ */
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,
   DescribeScalingActivitiesCommandOutput,
@@ -38,6 +44,9 @@ export class DescribeScalingActivitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

@@ -20,6 +20,30 @@ import {
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
+ * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
+ * 			scope user permissions, by granting a user permission to access or change only resources
+ * 			with certain tag values. You can use the <code>TagResource</code> operation with a
+ * 			resource that already has tags. If you specify a new tag key for the resource, this tag
+ * 			is appended to the list of tags associated with the resource. If you specify a tag key
+ * 			that is already associated with the resource, the new tag value that you specify
+ * 			replaces the previous value for that tag.</p>
+ * 		       <p>You can associate as many as 50 tags with a resource. QuickSight supports tagging on data
+ * 			set, data source, dashboard, and template. </p>
+ * 		       <p>Tagging for QuickSight works in a similar way to tagging for other AWS services, except for
+ * 			the following:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>You can't use tags to track AWS costs for QuickSight. This restriction is because QuickSight
+ * 					costs are based on users and SPICE capacity, which aren't taggable
+ * 					resources.</p>
+ *             </li>
+ *             <li>
+ *                <p>QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.</p>
+ *             </li>
+ *          </ul>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -34,6 +58,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

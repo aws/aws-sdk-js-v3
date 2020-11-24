@@ -20,6 +20,9 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationInput;
 export type CreateApplicationCommandOutput = CreateApplicationOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an application.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

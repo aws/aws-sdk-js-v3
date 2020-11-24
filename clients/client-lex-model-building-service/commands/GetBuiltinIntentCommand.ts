@@ -24,6 +24,11 @@ import {
 export type GetBuiltinIntentCommandInput = GetBuiltinIntentRequest;
 export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a built-in intent.</p>
+ *          <p>This operation requires permission for the <code>lex:GetBuiltinIntent</code>
+ *       action.</p>
+ */
 export class GetBuiltinIntentCommand extends $Command<
   GetBuiltinIntentCommandInput,
   GetBuiltinIntentCommandOutput,
@@ -38,6 +43,9 @@ export class GetBuiltinIntentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

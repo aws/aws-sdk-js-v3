@@ -20,6 +20,20 @@ import {
 export type UpdateFacetCommandInput = UpdateFacetRequest;
 export type UpdateFacetCommandOutput = UpdateFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Does the following:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Adds new <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Updates existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Deletes existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.</p>
+ *             </li>
+ *          </ol>
+ */
 export class UpdateFacetCommand extends $Command<
   UpdateFacetCommandInput,
   UpdateFacetCommandOutput,
@@ -34,6 +48,9 @@ export class UpdateFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

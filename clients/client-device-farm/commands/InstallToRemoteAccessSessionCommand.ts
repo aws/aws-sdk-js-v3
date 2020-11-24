@@ -20,6 +20,11 @@ import {
 export type InstallToRemoteAccessSessionCommandInput = InstallToRemoteAccessSessionRequest;
 export type InstallToRemoteAccessSessionCommandOutput = InstallToRemoteAccessSessionResult & __MetadataBearer;
 
+/**
+ * <p>Installs an application to the device in a remote access session. For Android
+ *             applications, the file must be in .apk format. For iOS applications, the file must be in
+ *             .ipa format.</p>
+ */
 export class InstallToRemoteAccessSessionCommand extends $Command<
   InstallToRemoteAccessSessionCommandInput,
   InstallToRemoteAccessSessionCommandOutput,
@@ -34,6 +39,9 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

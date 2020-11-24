@@ -20,6 +20,9 @@ import {
 export type UpdateStageCommandInput = UpdateStageRequest;
 export type UpdateStageCommandOutput = UpdateStageResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a Stage.</p>
+ */
 export class UpdateStageCommand extends $Command<
   UpdateStageCommandInput,
   UpdateStageCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateStageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

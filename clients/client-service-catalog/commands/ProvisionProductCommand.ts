@@ -20,6 +20,17 @@ import {
 export type ProvisionProductCommandInput = ProvisionProductInput;
 export type ProvisionProductCommandOutput = ProvisionProductOutput & __MetadataBearer;
 
+/**
+ * <p>Provisions the specified product.</p>
+ *          <p>A provisioned product is a resourced instance of a product.
+ *          For example, provisioning a product based on a CloudFormation template launches a
+ *          CloudFormation stack and its underlying resources.
+ *          You can check the status of this request using <a>DescribeRecord</a>.</p>
+ *          <p>If the request contains a tag key with an empty list of values, there is a
+ *          tag conflict for that key. Do not include conflicted keys as tags, or this causes
+ *          the error "Parameter validation failed: Missing required parameter in
+ *          Tags[<i>N</i>]:<i>Value</i>".</p>
+ */
 export class ProvisionProductCommand extends $Command<
   ProvisionProductCommandInput,
   ProvisionProductCommandOutput,
@@ -34,6 +45,9 @@ export class ProvisionProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

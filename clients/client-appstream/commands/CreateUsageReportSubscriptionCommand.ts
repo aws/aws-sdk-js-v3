@@ -20,6 +20,9 @@ import {
 export type CreateUsageReportSubscriptionCommandInput = CreateUsageReportSubscriptionRequest;
 export type CreateUsageReportSubscriptionCommandOutput = CreateUsageReportSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a usage report subscription. Usage reports are generated daily.</p>
+ */
 export class CreateUsageReportSubscriptionCommand extends $Command<
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUsageReportSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

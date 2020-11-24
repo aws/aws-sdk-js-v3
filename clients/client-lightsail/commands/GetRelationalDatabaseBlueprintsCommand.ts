@@ -20,6 +20,12 @@ import {
 export type GetRelationalDatabaseBlueprintsCommandInput = GetRelationalDatabaseBlueprintsRequest;
 export type GetRelationalDatabaseBlueprintsCommandOutput = GetRelationalDatabaseBlueprintsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
+ *       the major engine version of a database.</p>
+ *          <p>You can use a blueprint ID to create a new database that runs a specific database
+ *       engine.</p>
+ */
 export class GetRelationalDatabaseBlueprintsCommand extends $Command<
   GetRelationalDatabaseBlueprintsCommandInput,
   GetRelationalDatabaseBlueprintsCommandOutput,
@@ -34,6 +40,9 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

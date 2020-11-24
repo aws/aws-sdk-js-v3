@@ -20,6 +20,9 @@ import {
 export type CancelReplayCommandInput = CancelReplayRequest;
 export type CancelReplayCommandOutput = CancelReplayResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified replay.</p>
+ */
 export class CancelReplayCommand extends $Command<
   CancelReplayCommandInput,
   CancelReplayCommandOutput,
@@ -34,6 +37,9 @@ export class CancelReplayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

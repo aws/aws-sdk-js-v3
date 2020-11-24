@@ -20,6 +20,15 @@ import {
 export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
 export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse & __MetadataBearer;
 
+/**
+ * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
+ *             and effectively deactivates the request.</p>
+ *         <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
+ *             instead. The originator can't reactivate a declined request, but can reinitiate the
+ *             process with a new handshake request.</p>
+ *         <p>After you decline a handshake, it continues to appear in the results of relevant APIs
+ *             for only 30 days. After that, it's deleted.</p>
+ */
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,
   DeclineHandshakeCommandOutput,
@@ -34,6 +43,9 @@ export class DeclineHandshakeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

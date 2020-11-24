@@ -20,6 +20,9 @@ import {
 export type ListTopicsDetectionJobsCommandInput = ListTopicsDetectionJobsRequest;
 export type ListTopicsDetectionJobsCommandOutput = ListTopicsDetectionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the topic detection jobs that you have submitted.</p>
+ */
 export class ListTopicsDetectionJobsCommand extends $Command<
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTopicsDetectionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

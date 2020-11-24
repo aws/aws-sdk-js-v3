@@ -24,6 +24,10 @@ export type PutConfigurationSetSendingOptionsCommandInput = PutConfigurationSetS
 export type PutConfigurationSetSendingOptionsCommandOutput = PutConfigurationSetSendingOptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Enable or disable email sending for messages that use a particular configuration set
+ *             in a specific AWS Region.</p>
+ */
 export class PutConfigurationSetSendingOptionsCommand extends $Command<
   PutConfigurationSetSendingOptionsCommandInput,
   PutConfigurationSetSendingOptionsCommandOutput,
@@ -38,6 +42,9 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

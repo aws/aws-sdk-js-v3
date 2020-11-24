@@ -20,6 +20,9 @@ import {
 export type StopStreamProcessorCommandInput = StopStreamProcessorRequest;
 export type StopStreamProcessorCommandOutput = StopStreamProcessorResponse & __MetadataBearer;
 
+/**
+ * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
+ */
 export class StopStreamProcessorCommand extends $Command<
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput,
@@ -34,6 +37,9 @@ export class StopStreamProcessorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

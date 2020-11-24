@@ -20,6 +20,9 @@ import {
 export type ListPackagingGroupsCommandInput = ListPackagingGroupsRequest;
 export type ListPackagingGroupsCommandOutput = ListPackagingGroupsResponse & __MetadataBearer;
 
+/**
+ * Returns a collection of MediaPackage VOD PackagingGroup resources.
+ */
 export class ListPackagingGroupsCommand extends $Command<
   ListPackagingGroupsCommandInput,
   ListPackagingGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPackagingGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

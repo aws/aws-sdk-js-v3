@@ -20,6 +20,12 @@ import {
 export type ListLanguageModelsCommandInput = ListLanguageModelsRequest;
 export type ListLanguageModelsCommandOutput = ListLanguageModelsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides more information about the custom language models you've created. You can use
+ *             the information in this list to find a specific custom language model. You can then use
+ *             the  operation to get more information about
+ *             it.</p>
+ */
 export class ListLanguageModelsCommand extends $Command<
   ListLanguageModelsCommandInput,
   ListLanguageModelsCommandOutput,
@@ -34,6 +40,9 @@ export class ListLanguageModelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

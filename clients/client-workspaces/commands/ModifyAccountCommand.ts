@@ -20,6 +20,10 @@ import {
 export type ModifyAccountCommandInput = ModifyAccountRequest;
 export type ModifyAccountCommandOutput = ModifyAccountResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
+ *          account.</p>
+ */
 export class ModifyAccountCommand extends $Command<
   ModifyAccountCommandInput,
   ModifyAccountCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

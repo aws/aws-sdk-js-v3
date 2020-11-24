@@ -22,6 +22,9 @@ export type DeleteTransitGatewayPeeringAttachmentCommandInput = DeleteTransitGat
 export type DeleteTransitGatewayPeeringAttachmentCommandOutput = DeleteTransitGatewayPeeringAttachmentResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes a transit gateway peering attachment.</p>
+ */
 export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
   DeleteTransitGatewayPeeringAttachmentCommandInput,
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
@@ -36,6 +39,9 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

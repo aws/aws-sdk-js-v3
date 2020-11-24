@@ -20,6 +20,13 @@ import {
 export type CreateLoadBalancerTlsCertificateCommandInput = CreateLoadBalancerTlsCertificateRequest;
 export type CreateLoadBalancerTlsCertificateCommandOutput = CreateLoadBalancerTlsCertificateResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Lightsail load balancer TLS certificate.</p>
+ *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
+ *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
+ *       control via resource tags applied to the resource identified by <code>load balancer
+ *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateLoadBalancerTlsCertificateCommand extends $Command<
   CreateLoadBalancerTlsCertificateCommandInput,
   CreateLoadBalancerTlsCertificateCommandOutput,
@@ -34,6 +41,9 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

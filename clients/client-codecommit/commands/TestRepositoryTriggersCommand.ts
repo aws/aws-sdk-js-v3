@@ -20,6 +20,11 @@ import {
 export type TestRepositoryTriggersCommandInput = TestRepositoryTriggersInput;
 export type TestRepositoryTriggersCommandOutput = TestRepositoryTriggersOutput & __MetadataBearer;
 
+/**
+ * <p>Tests the functionality of repository triggers by sending information to the trigger
+ *             target. If real data is available in the repository, the test sends data from the last
+ *             commit. If no data is available, sample data is generated.</p>
+ */
 export class TestRepositoryTriggersCommand extends $Command<
   TestRepositoryTriggersCommandInput,
   TestRepositoryTriggersCommandOutput,
@@ -34,6 +39,9 @@ export class TestRepositoryTriggersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

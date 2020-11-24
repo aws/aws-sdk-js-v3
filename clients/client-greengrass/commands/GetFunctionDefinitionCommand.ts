@@ -20,6 +20,9 @@ import {
 export type GetFunctionDefinitionCommandInput = GetFunctionDefinitionRequest;
 export type GetFunctionDefinitionCommandOutput = GetFunctionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a Lambda function definition, including its creation time and latest version.
+ */
 export class GetFunctionDefinitionCommand extends $Command<
   GetFunctionDefinitionCommandInput,
   GetFunctionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetFunctionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteInsightCommandInput = DeleteInsightRequest;
 export type DeleteInsightCommandOutput = DeleteInsightResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
+ */
 export class DeleteInsightCommand extends $Command<
   DeleteInsightCommandInput,
   DeleteInsightCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInsightCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

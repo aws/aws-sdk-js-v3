@@ -20,6 +20,10 @@ import {
 export type DescribeRecoveryPointCommandInput = DescribeRecoveryPointInput;
 export type DescribeRecoveryPointCommandOutput = DescribeRecoveryPointOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
+ *          lifecycle.</p>
+ */
 export class DescribeRecoveryPointCommand extends $Command<
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeRecoveryPointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type PutMailboxPermissionsCommandInput = PutMailboxPermissionsRequest;
 export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
+ *          permissions.</p>
+ */
 export class PutMailboxPermissionsCommand extends $Command<
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
@@ -34,6 +38,9 @@ export class PutMailboxPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

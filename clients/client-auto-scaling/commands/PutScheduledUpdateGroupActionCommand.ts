@@ -20,6 +20,13 @@ import {
 export type PutScheduledUpdateGroupActionCommandInput = PutScheduledUpdateGroupActionType;
 export type PutScheduledUpdateGroupActionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a
+ *             parameter unspecified when updating a scheduled scaling action, the corresponding value
+ *             remains unchanged.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class PutScheduledUpdateGroupActionCommand extends $Command<
   PutScheduledUpdateGroupActionCommandInput,
   PutScheduledUpdateGroupActionCommandOutput,
@@ -34,6 +41,9 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

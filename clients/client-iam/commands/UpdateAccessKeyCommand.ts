@@ -20,6 +20,17 @@ import {
 export type UpdateAccessKeyCommandInput = UpdateAccessKeyRequest;
 export type UpdateAccessKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
+ *          This operation can be used to disable a user's key as part of a key rotation
+ *          workflow.</p>
+ *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
+ *          based on the AWS access key ID used to sign the request. This operation works for access
+ *          keys under the AWS account. Consequently, you can use this operation to manage AWS
+ *          account root user credentials even if the AWS account has no associated users.</p>
+ *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing Keys and Certificates</a> in
+ *          the <i>IAM User Guide</i>.</p>
+ */
 export class UpdateAccessKeyCommand extends $Command<
   UpdateAccessKeyCommandInput,
   UpdateAccessKeyCommandOutput,
@@ -34,6 +45,9 @@ export class UpdateAccessKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

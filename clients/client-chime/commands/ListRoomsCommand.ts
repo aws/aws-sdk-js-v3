@@ -20,6 +20,9 @@ import {
 export type ListRoomsCommandInput = ListRoomsRequest;
 export type ListRoomsCommandOutput = ListRoomsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
+ */
 export class ListRoomsCommand extends $Command<
   ListRoomsCommandInput,
   ListRoomsCommandOutput,
@@ -34,6 +37,9 @@ export class ListRoomsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListPolicyAttachmentsCommandInput = ListPolicyAttachmentsRequest;
 export type ListPolicyAttachmentsCommandOutput = ListPolicyAttachmentsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
+ */
 export class ListPolicyAttachmentsCommand extends $Command<
   ListPolicyAttachmentsCommandInput,
   ListPolicyAttachmentsCommandOutput,
@@ -34,6 +37,9 @@ export class ListPolicyAttachmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

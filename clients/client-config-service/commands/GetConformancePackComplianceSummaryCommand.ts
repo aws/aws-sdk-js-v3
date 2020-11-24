@@ -24,6 +24,9 @@ export type GetConformancePackComplianceSummaryCommandInput = GetConformancePack
 export type GetConformancePackComplianceSummaryCommandOutput = GetConformancePackComplianceSummaryResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
+ */
 export class GetConformancePackComplianceSummaryCommand extends $Command<
   GetConformancePackComplianceSummaryCommandInput,
   GetConformancePackComplianceSummaryCommandOutput,
@@ -38,6 +41,9 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

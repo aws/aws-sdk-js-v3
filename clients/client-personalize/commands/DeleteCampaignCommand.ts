@@ -20,6 +20,14 @@ import {
 export type DeleteCampaignCommandInput = DeleteCampaignRequest;
 export type DeleteCampaignCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a campaign by deleting the solution deployment. The solution that
+ *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
+ *       longer be specified in a
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
+ *       request.
+ *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ */
 export class DeleteCampaignCommand extends $Command<
   DeleteCampaignCommandInput,
   DeleteCampaignCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteCampaignCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

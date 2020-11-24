@@ -20,6 +20,11 @@ import {
 export type StartKeyPhrasesDetectionJobCommandInput = StartKeyPhrasesDetectionJobRequest;
 export type StartKeyPhrasesDetectionJobCommandOutput = StartKeyPhrasesDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
+ *          operation to track the status of a
+ *       job.</p>
+ */
 export class StartKeyPhrasesDetectionJobCommand extends $Command<
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
@@ -34,6 +39,9 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

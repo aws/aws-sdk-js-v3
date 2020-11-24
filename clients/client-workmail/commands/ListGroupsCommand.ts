@@ -20,6 +20,9 @@ import {
 export type ListGroupsCommandInput = ListGroupsRequest;
 export type ListGroupsCommandOutput = ListGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns summaries of the organization's groups.</p>
+ */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,
   ListGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

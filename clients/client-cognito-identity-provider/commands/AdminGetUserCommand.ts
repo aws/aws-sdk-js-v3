@@ -25,6 +25,11 @@ import {
 export type AdminGetUserCommandInput = AdminGetUserRequest;
 export type AdminGetUserCommandOutput = AdminGetUserResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
+ *             user.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminGetUserCommand extends $Command<
   AdminGetUserCommandInput,
   AdminGetUserCommandOutput,
@@ -39,6 +44,9 @@ export class AdminGetUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateOriginEndpointCommandInput = UpdateOriginEndpointRequest;
 export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse & __MetadataBearer;
 
+/**
+ * Updates an existing OriginEndpoint.
+ */
 export class UpdateOriginEndpointCommand extends $Command<
   UpdateOriginEndpointCommandInput,
   UpdateOriginEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateOriginEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

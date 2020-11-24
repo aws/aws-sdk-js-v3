@@ -20,6 +20,13 @@ import {
 export type DeleteAccessKeyCommandInput = DeleteAccessKeyRequest;
 export type DeleteAccessKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the access key pair associated with the specified IAM user.</p>
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          the AWS access key ID signing the request. This operation works for access keys under the
+ *          AWS account. Consequently, you can use this operation to manage AWS account root user
+ *          credentials even if the AWS account has no associated users.</p>
+ */
 export class DeleteAccessKeyCommand extends $Command<
   DeleteAccessKeyCommandInput,
   DeleteAccessKeyCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteAccessKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

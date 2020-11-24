@@ -20,6 +20,9 @@ import {
 export type UpdateBrokerStorageCommandInput = UpdateBrokerStorageRequest;
 export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the EBS storage associated with MSK brokers.</p>
+ */
 export class UpdateBrokerStorageCommand extends $Command<
   UpdateBrokerStorageCommandInput,
   UpdateBrokerStorageCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBrokerStorageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

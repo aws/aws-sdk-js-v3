@@ -17,6 +17,9 @@ import {
 export type GetPlanCommandInput = GetPlanRequest;
 export type GetPlanCommandOutput = GetPlanResponse & __MetadataBearer;
 
+/**
+ * <p>Gets code to perform a specified mapping.</p>
+ */
 export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

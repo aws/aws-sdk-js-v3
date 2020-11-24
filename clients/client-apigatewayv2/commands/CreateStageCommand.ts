@@ -20,6 +20,9 @@ import {
 export type CreateStageCommandInput = CreateStageRequest;
 export type CreateStageCommandOutput = CreateStageResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Stage for an API.</p>
+ */
 export class CreateStageCommand extends $Command<
   CreateStageCommandInput,
   CreateStageCommandOutput,
@@ -34,6 +37,9 @@ export class CreateStageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

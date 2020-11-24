@@ -20,6 +20,9 @@ import {
 export type UpdateEventConfigurationsCommandInput = UpdateEventConfigurationsRequest;
 export type UpdateEventConfigurationsCommandOutput = UpdateEventConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the event configurations.</p>
+ */
 export class UpdateEventConfigurationsCommand extends $Command<
   UpdateEventConfigurationsCommandInput,
   UpdateEventConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEventConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

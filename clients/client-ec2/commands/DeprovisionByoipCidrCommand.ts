@@ -20,6 +20,12 @@ import {
 export type DeprovisionByoipCidrCommandInput = DeprovisionByoipCidrRequest;
 export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResult & __MetadataBearer;
 
+/**
+ * <p>Releases the specified address range that you provisioned for use with your AWS resources
+ *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
+ *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
+ *          address range.</p>
+ */
 export class DeprovisionByoipCidrCommand extends $Command<
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput,
@@ -34,6 +40,9 @@ export class DeprovisionByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

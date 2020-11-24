@@ -20,6 +20,9 @@ import {
 export type GetSubscriptionStateCommandInput = GetSubscriptionStateRequest;
 export type GetSubscriptionStateCommandOutput = GetSubscriptionStateResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>
+ */
 export class GetSubscriptionStateCommand extends $Command<
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput,
@@ -34,6 +37,9 @@ export class GetSubscriptionStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

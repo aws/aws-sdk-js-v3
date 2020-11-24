@@ -20,6 +20,47 @@ import {
 export type DescribeBuildCommandInput = DescribeBuildInput;
 export type DescribeBuildCommandOutput = DescribeBuildOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves properties for a custom game build. To request a build resource, specify a
+ *             build ID. If successful, an object containing the build properties is returned.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+ *             Upload a Custom Server Build</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListBuilds</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBuild</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeBuildCommand extends $Command<
   DescribeBuildCommandInput,
   DescribeBuildCommandOutput,
@@ -34,6 +75,9 @@ export class DescribeBuildCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

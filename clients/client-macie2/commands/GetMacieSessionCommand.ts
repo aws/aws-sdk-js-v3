@@ -20,6 +20,9 @@ import {
 export type GetMacieSessionCommandInput = GetMacieSessionRequest;
 export type GetMacieSessionCommandOutput = GetMacieSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current status and configuration settings for an Amazon Macie account.</p>
+ */
 export class GetMacieSessionCommand extends $Command<
   GetMacieSessionCommandInput,
   GetMacieSessionCommandOutput,
@@ -34,6 +37,9 @@ export class GetMacieSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

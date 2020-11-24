@@ -20,6 +20,11 @@ import {
 export type DeregisterWebhookWithThirdPartyCommandInput = DeregisterWebhookWithThirdPartyInput;
 export type DeregisterWebhookWithThirdPartyCommandOutput = DeregisterWebhookWithThirdPartyOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the connection between the webhook that was created by CodePipeline and the
+ *             external tool with events to be detected. Currently supported only for webhooks that
+ *             target an action type of GitHub.</p>
+ */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<
   DeregisterWebhookWithThirdPartyCommandInput,
   DeregisterWebhookWithThirdPartyCommandOutput,
@@ -34,6 +39,9 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteRestApiCommandInput = DeleteRestApiRequest;
 export type DeleteRestApiCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified API.</p>
+ */
 export class DeleteRestApiCommand extends $Command<
   DeleteRestApiCommandInput,
   DeleteRestApiCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

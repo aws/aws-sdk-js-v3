@@ -20,6 +20,9 @@ import {
 export type DisassociateMemberAccountCommandInput = DisassociateMemberAccountRequest;
 export type DisassociateMemberAccountCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified member account from Amazon Macie Classic.</p>
+ */
 export class DisassociateMemberAccountCommand extends $Command<
   DisassociateMemberAccountCommandInput,
   DisassociateMemberAccountCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateMemberAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

@@ -24,6 +24,12 @@ import {
 export type ListByoipCidrsCommandInput = ListByoipCidrsRequest;
 export type ListByoipCidrsCommandOutput = ListByoipCidrsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
+ * 			the current state and a history of state changes.</p>
+ * 		       <p>To see an AWS CLI example of listing BYOIP CIDR addresses, scroll down to
+ * 			<b>Example</b>.</p>
+ */
 export class ListByoipCidrsCommand extends $Command<
   ListByoipCidrsCommandInput,
   ListByoipCidrsCommandOutput,
@@ -38,6 +44,9 @@ export class ListByoipCidrsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

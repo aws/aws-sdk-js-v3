@@ -4,6 +4,9 @@ import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } fr
 import { MediaLivePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: MediaLiveClient,
   input: ListInputsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInputsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: MediaLive,
   input: ListInputsCommandInput,

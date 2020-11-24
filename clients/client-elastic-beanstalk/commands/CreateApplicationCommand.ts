@@ -20,6 +20,10 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationMessage;
 export type CreateApplicationCommandOutput = ApplicationDescriptionMessage & __MetadataBearer;
 
+/**
+ * <p>Creates an application that has one configuration template named <code>default</code>
+ *       and no application versions.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -34,6 +38,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

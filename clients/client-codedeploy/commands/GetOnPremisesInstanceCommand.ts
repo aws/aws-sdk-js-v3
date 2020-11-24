@@ -20,6 +20,9 @@ import {
 export type GetOnPremisesInstanceCommandInput = GetOnPremisesInstanceInput;
 export type GetOnPremisesInstanceCommandOutput = GetOnPremisesInstanceOutput & __MetadataBearer;
 
+/**
+ * <p> Gets information about an on-premises instance. </p>
+ */
 export class GetOnPremisesInstanceCommand extends $Command<
   GetOnPremisesInstanceCommandInput,
   GetOnPremisesInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class GetOnPremisesInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

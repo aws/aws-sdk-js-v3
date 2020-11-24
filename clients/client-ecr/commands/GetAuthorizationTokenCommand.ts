@@ -20,6 +20,16 @@ import {
 export type GetAuthorizationTokenCommandInput = GetAuthorizationTokenRequest;
 export type GetAuthorizationTokenCommandOutput = GetAuthorizationTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves an authorization token. An authorization token represents your IAM
+ *             authentication credentials and can be used to access any Amazon ECR registry that your IAM
+ *             principal has access to. The authorization token is valid for 12 hours.</p>
+ *         <p>The <code>authorizationToken</code> returned is a base64 encoded string that can be
+ *             decoded and used in a <code>docker login</code> command to authenticate to a registry.
+ *             The AWS CLI offers an <code>get-login-password</code> command that simplifies the login
+ *             process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+ *                 Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ */
 export class GetAuthorizationTokenCommand extends $Command<
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -34,6 +44,9 @@ export class GetAuthorizationTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

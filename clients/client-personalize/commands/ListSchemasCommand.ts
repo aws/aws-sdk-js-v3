@@ -20,6 +20,11 @@ import {
 export type ListSchemasCommandInput = ListSchemasRequest;
 export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the list of schemas associated with the account. The response provides the
+ *       properties for each schema, including the Amazon Resource Name (ARN).
+ *       For more information on schemas, see <a>CreateSchema</a>.</p>
+ */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,
   ListSchemasCommandOutput,
@@ -34,6 +39,9 @@ export class ListSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

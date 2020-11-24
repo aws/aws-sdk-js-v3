@@ -20,6 +20,11 @@ import {
 export type PutResourcePolicyCommandInput = PutResourcePolicyRequest;
 export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates a resource policy allowing other AWS services to put log events to
+ *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per AWS
+ *       Region.</p>
+ */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
@@ -34,6 +39,9 @@ export class PutResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateTrafficMirrorFilterRuleCommandInput = CreateTrafficMirrorFilterRuleRequest;
 export type CreateTrafficMirrorFilterRuleCommandOutput = CreateTrafficMirrorFilterRuleResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Traffic Mirror filter rule. </p>
+ *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
+ *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ */
 export class CreateTrafficMirrorFilterRuleCommand extends $Command<
   CreateTrafficMirrorFilterRuleCommandInput,
   CreateTrafficMirrorFilterRuleCommandOutput,
@@ -34,6 +39,9 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

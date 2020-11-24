@@ -20,6 +20,15 @@ import {
 export type CreateDBClusterSnapshotCommandInput = CreateDBClusterSnapshotMessage;
 export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,
   CreateDBClusterSnapshotCommandOutput,
@@ -34,6 +43,9 @@ export class CreateDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

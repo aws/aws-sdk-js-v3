@@ -20,6 +20,11 @@ import {
 export type CancelRetrievalCommandInput = CancelRetrievalInput;
 export type CancelRetrievalCommandOutput = CancelRetrievalOutput & __MetadataBearer;
 
+/**
+ * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after
+ *          the retrieval process is initiated. The virtual tape is returned to the VTS. This operation
+ *          is only supported in the tape gateway type.</p>
+ */
 export class CancelRetrievalCommand extends $Command<
   CancelRetrievalCommandInput,
   CancelRetrievalCommandOutput,
@@ -34,6 +39,9 @@ export class CancelRetrievalCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

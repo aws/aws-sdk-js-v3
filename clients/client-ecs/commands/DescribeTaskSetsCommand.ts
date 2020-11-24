@@ -20,6 +20,12 @@ import {
 export type DescribeTaskSetsCommandInput = DescribeTaskSetsRequest;
 export type DescribeTaskSetsCommandOutput = DescribeTaskSetsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the task sets in the specified cluster and service. This is used when a
+ * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
+ * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
 export class DescribeTaskSetsCommand extends $Command<
   DescribeTaskSetsCommandInput,
   DescribeTaskSetsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeTaskSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type DeleteDBSubnetGroupCommandInput = DeleteDBSubnetGroupMessage;
 export type DeleteDBSubnetGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a subnet group.</p>
+ *         <note>
+ *             <p>The specified database subnet group must not be associated with any DB
+ *                 instances.</p>
+ *         </note>
+ */
 export class DeleteDBSubnetGroupCommand extends $Command<
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

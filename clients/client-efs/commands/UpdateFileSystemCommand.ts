@@ -20,6 +20,10 @@ import {
 export type UpdateFileSystemCommandInput = UpdateFileSystemRequest;
 export type UpdateFileSystemCommandOutput = FileSystemDescription & __MetadataBearer;
 
+/**
+ * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
+ *       system.</p>
+ */
 export class UpdateFileSystemCommand extends $Command<
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateFileSystemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

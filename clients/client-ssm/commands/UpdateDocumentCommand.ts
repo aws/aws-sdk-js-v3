@@ -20,6 +20,9 @@ import {
 export type UpdateDocumentCommandInput = UpdateDocumentRequest;
 export type UpdateDocumentCommandOutput = UpdateDocumentResult & __MetadataBearer;
 
+/**
+ * <p>Updates one or more values for an SSM document.</p>
+ */
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,
   UpdateDocumentCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

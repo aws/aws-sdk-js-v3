@@ -20,6 +20,17 @@ import {
 export type DescribeUserStackAssociationsCommandInput = DescribeUserStackAssociationsRequest;
 export type DescribeUserStackAssociationsCommandOutput = DescribeUserStackAssociationsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
+ *         <ul>
+ *             <li>
+ *                <p>The stack name</p>
+ *             </li>
+ *             <li>
+ *                <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeUserStackAssociationsCommand extends $Command<
   DescribeUserStackAssociationsCommandInput,
   DescribeUserStackAssociationsCommandOutput,
@@ -34,6 +45,9 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

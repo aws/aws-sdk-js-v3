@@ -20,6 +20,10 @@ import {
 export type StartDBClusterCommandInput = StartDBClusterMessage;
 export type StartDBClusterCommandOutput = StartDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS
+ *       console, the AWS CLI stop-db-cluster command, or the StopDBCluster API.</p>
+ */
 export class StartDBClusterCommand extends $Command<
   StartDBClusterCommandInput,
   StartDBClusterCommandOutput,
@@ -34,6 +38,9 @@ export class StartDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -24,6 +24,10 @@ import {
 export type UpdateComponentCommandInput = UpdateComponentRequest;
 export type UpdateComponentCommandOutput = UpdateComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the custom component name and/or the list of resources that make up the
+ *          component.</p>
+ */
 export class UpdateComponentCommand extends $Command<
   UpdateComponentCommandInput,
   UpdateComponentCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

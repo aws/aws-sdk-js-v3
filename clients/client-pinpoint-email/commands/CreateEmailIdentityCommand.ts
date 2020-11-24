@@ -20,6 +20,22 @@ import {
 export type CreateEmailIdentityCommandInput = CreateEmailIdentityRequest;
 export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an identity is an email
+ *             address or domain that you use when you send email. Before you can use an identity to
+ *             send email with Amazon Pinpoint, you first have to verify it. By verifying an address, you
+ *             demonstrate that you're the owner of the address, and that you've given Amazon Pinpoint permission
+ *             to send email from the address.</p>
+ *         <p>When you verify an email address, Amazon Pinpoint sends an email to the address. Your email
+ *             address is verified as soon as you follow the link in the verification email.
+ *
+ *         </p>
+ *         <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
+ *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
+ *             domain. Your domain is verified when Amazon Pinpoint detects these records in the DNS
+ *             configuration for your domain. It usually takes around 72 hours to complete the domain
+ *             verification process.</p>
+ */
 export class CreateEmailIdentityCommand extends $Command<
   CreateEmailIdentityCommandInput,
   CreateEmailIdentityCommandOutput,
@@ -34,6 +50,9 @@ export class CreateEmailIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

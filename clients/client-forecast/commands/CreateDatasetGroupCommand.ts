@@ -20,6 +20,18 @@ import {
 export type CreateDatasetGroupCommandInput = CreateDatasetGroupRequest;
 export type CreateDatasetGroupCommandOutput = CreateDatasetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a dataset group, which holds a collection of related datasets. You can add
+ *       datasets to the dataset group when you create the dataset group, or later by using the <a>UpdateDatasetGroup</a> operation.</p>
+ *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
+ *       create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p>
+ *          <p>To get a list of all your datasets groups, use the <a>ListDatasetGroups</a>
+ *       operation.</p>
+ *          <note>
+ *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
+ *          use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+ *          </note>
+ */
 export class CreateDatasetGroupCommand extends $Command<
   CreateDatasetGroupCommandInput,
   CreateDatasetGroupCommandOutput,
@@ -34,6 +46,9 @@ export class CreateDatasetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

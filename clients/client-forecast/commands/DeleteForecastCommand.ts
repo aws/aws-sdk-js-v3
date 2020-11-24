@@ -20,6 +20,13 @@ import {
 export type DeleteForecastCommandInput = DeleteForecastRequest;
 export type DeleteForecastCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
+ *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+ *       To get the status, use the <a>DescribeForecast</a> operation.</p>
+ *          <p>You can't delete a forecast while it is being exported. After a forecast is deleted, you
+ *       can no longer query the forecast.</p>
+ */
 export class DeleteForecastCommand extends $Command<
   DeleteForecastCommandInput,
   DeleteForecastCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteForecastCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

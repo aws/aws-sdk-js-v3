@@ -20,6 +20,18 @@ import {
 export type UpdateStreamCommandInput = UpdateStreamInput;
 export type UpdateStreamCommandOutput = UpdateStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Updates stream metadata, such as the device name and media type.</p>
+ *         <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
+ *             stream.</p>
+ *         <p>To make sure that you have the latest version of the stream before updating it, you
+ *             can specify the stream version. Kinesis Video Streams assigns a version to each stream.
+ *             When you update a stream, Kinesis Video Streams assigns a new version number. To get the
+ *             latest stream version, use the <code>DescribeStream</code> API. </p>
+ *         <p>
+ *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
+ *             complete.</p>
+ */
 export class UpdateStreamCommand extends $Command<
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput,
@@ -34,6 +46,9 @@ export class UpdateStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetContainerAPIMetadataCommandInput = GetContainerAPIMetadataRequest;
 export type GetContainerAPIMetadataCommandOutput = GetContainerAPIMetadataResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about Amazon Lightsail containers, such as the current version of the
+ *       Lightsail Control (lightsailctl) plugin.</p>
+ */
 export class GetContainerAPIMetadataCommand extends $Command<
   GetContainerAPIMetadataCommandInput,
   GetContainerAPIMetadataCommandOutput,
@@ -34,6 +38,9 @@ export class GetContainerAPIMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

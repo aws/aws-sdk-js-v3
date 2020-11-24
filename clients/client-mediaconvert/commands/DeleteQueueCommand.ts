@@ -20,6 +20,9 @@ import {
 export type DeleteQueueCommandInput = DeleteQueueRequest;
 export type DeleteQueueCommandOutput = DeleteQueueResponse & __MetadataBearer;
 
+/**
+ * Permanently delete a queue you have created.
+ */
 export class DeleteQueueCommand extends $Command<
   DeleteQueueCommandInput,
   DeleteQueueCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

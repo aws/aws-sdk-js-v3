@@ -20,6 +20,9 @@ import {
 export type GetDeploymentInstanceCommandInput = GetDeploymentInstanceInput;
 export type GetDeploymentInstanceCommandOutput = GetDeploymentInstanceOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about an instance as part of a deployment.</p>
+ */
 export class GetDeploymentInstanceCommand extends $Command<
   GetDeploymentInstanceCommandInput,
   GetDeploymentInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeploymentInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

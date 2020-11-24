@@ -20,6 +20,10 @@ import {
 export type CreateCarrierGatewayCommandInput = CreateCarrierGatewayRequest;
 export type CreateCarrierGatewayCommandOutput = CreateCarrierGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer
+ *                 Guide</i>.</p>
+ */
 export class CreateCarrierGatewayCommand extends $Command<
   CreateCarrierGatewayCommandInput,
   CreateCarrierGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class CreateCarrierGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

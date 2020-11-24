@@ -20,6 +20,9 @@ import {
 export type BatchDeleteScheduledActionCommandInput = BatchDeleteScheduledActionType;
 export type BatchDeleteScheduledActionCommandOutput = BatchDeleteScheduledActionAnswer & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
+ */
 export class BatchDeleteScheduledActionCommand extends $Command<
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

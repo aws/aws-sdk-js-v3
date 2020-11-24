@@ -24,6 +24,9 @@ export type DescribeEnvironmentManagedActionHistoryCommandInput = DescribeEnviro
 export type DescribeEnvironmentManagedActionHistoryCommandOutput = DescribeEnvironmentManagedActionHistoryResult &
   __MetadataBearer;
 
+/**
+ * <p>Lists an environment's completed and failed managed actions.</p>
+ */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
   DescribeEnvironmentManagedActionHistoryCommandInput,
   DescribeEnvironmentManagedActionHistoryCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

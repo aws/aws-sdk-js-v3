@@ -20,6 +20,9 @@ import {
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
 export type RemoveTagsFromResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
+ */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

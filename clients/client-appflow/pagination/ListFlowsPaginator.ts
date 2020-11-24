@@ -4,6 +4,9 @@ import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from 
 import { AppflowPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AppflowClient,
   input: ListFlowsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFlowsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Appflow,
   input: ListFlowsCommandInput,

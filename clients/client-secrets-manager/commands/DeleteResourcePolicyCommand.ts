@@ -20,6 +20,32 @@ import {
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
 export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the resource-based permission policy attached to the secret.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:DeleteResourcePolicy</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve the current resource-based policy that's attached to a secret, use <a>GetResourcePolicy</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -34,6 +60,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type StartTextTranslationJobCommandInput = StartTextTranslationJobRequest;
 export type StartTextTranslationJobCommandOutput = StartTextTranslationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to
+ *       translate large volumes of text across multiple documents at once. For more information, see
+ *         <a>async</a>.</p>
+ *
+ *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
+ *          <note>
+ *             <p>Amazon Translate does not support batch translation of multiple source languages at once.</p>
+ *          </note>
+ */
 export class StartTextTranslationJobCommand extends $Command<
   StartTextTranslationJobCommandInput,
   StartTextTranslationJobCommandOutput,
@@ -34,6 +44,9 @@ export class StartTextTranslationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

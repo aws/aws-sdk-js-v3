@@ -20,6 +20,9 @@ import {
 export type UpdateModelCommandInput = UpdateModelRequest;
 export type UpdateModelCommandOutput = UpdateModelResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a Model.</p>
+ */
 export class UpdateModelCommand extends $Command<
   UpdateModelCommandInput,
   UpdateModelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

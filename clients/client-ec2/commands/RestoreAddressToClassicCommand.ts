@@ -20,6 +20,9 @@ import {
 export type RestoreAddressToClassicCommandInput = RestoreAddressToClassicRequest;
 export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult & __MetadataBearer;
 
+/**
+ * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>
+ */
 export class RestoreAddressToClassicCommand extends $Command<
   RestoreAddressToClassicCommandInput,
   RestoreAddressToClassicCommandOutput,
@@ -34,6 +37,9 @@ export class RestoreAddressToClassicCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

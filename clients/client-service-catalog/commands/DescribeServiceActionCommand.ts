@@ -20,6 +20,9 @@ import {
 export type DescribeServiceActionCommandInput = DescribeServiceActionInput;
 export type DescribeServiceActionCommandOutput = DescribeServiceActionOutput & __MetadataBearer;
 
+/**
+ * <p>Describes a self-service action.</p>
+ */
 export class DescribeServiceActionCommand extends $Command<
   DescribeServiceActionCommandInput,
   DescribeServiceActionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeServiceActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

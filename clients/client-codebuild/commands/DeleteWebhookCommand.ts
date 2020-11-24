@@ -20,6 +20,11 @@ import {
 export type DeleteWebhookCommandInput = DeleteWebhookInput;
 export type DeleteWebhookCommandOutput = DeleteWebhookOutput & __MetadataBearer;
 
+/**
+ * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
+ *             Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code
+ *             change is pushed to the repository.</p>
+ */
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,
   DeleteWebhookCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

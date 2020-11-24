@@ -17,6 +17,26 @@ import {
 export type ListRootsCommandInput = ListRootsRequest;
 export type ListRootsCommandOutput = ListRootsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the roots that are defined in the current organization.</p>
+ *         <note>
+ *             <p>Always check the <code>NextToken</code> response parameter
+ * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
+ * occasionally return an empty set of results even when there are more results available. The
+ * <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
+ *          <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ *         <note>
+ *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether
+ *                 they're available in the organization. When you enable all features, you make policy
+ *                 types available for use in that organization. Individual policy types can then be
+ *                 enabled and disabled in a root. To see the availability of a policy type in an
+ *                 organization, use <a>DescribeOrganization</a>.</p>
+ *         </note>
+ */
 export class ListRootsCommand extends $Command<
   ListRootsCommandInput,
   ListRootsCommandOutput,
@@ -31,6 +51,9 @@ export class ListRootsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

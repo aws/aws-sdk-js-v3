@@ -20,6 +20,11 @@ import {
 export type ModifyCacheClusterCommandInput = ModifyCacheClusterMessage;
 export type ModifyCacheClusterCommandOutput = ModifyCacheClusterResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a cluster. You
+ *             can use this operation to change one or more cluster configuration parameters by
+ *             specifying the parameters and the new values.</p>
+ */
 export class ModifyCacheClusterCommand extends $Command<
   ModifyCacheClusterCommandInput,
   ModifyCacheClusterCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyCacheClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

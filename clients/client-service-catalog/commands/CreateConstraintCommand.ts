@@ -20,6 +20,10 @@ import {
 export type CreateConstraintCommandInput = CreateConstraintInput;
 export type CreateConstraintCommandOutput = CreateConstraintOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a constraint.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class CreateConstraintCommand extends $Command<
   CreateConstraintCommandInput,
   CreateConstraintCommandOutput,
@@ -34,6 +38,9 @@ export class CreateConstraintCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

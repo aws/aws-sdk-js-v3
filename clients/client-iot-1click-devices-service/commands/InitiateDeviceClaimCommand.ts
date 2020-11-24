@@ -24,6 +24,13 @@ import {
 export type InitiateDeviceClaimCommandInput = InitiateDeviceClaimRequest;
 export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse & __MetadataBearer;
 
+/**
+ * <p>Given a device ID, initiates a claim request for the associated device.</p><note>
+ *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
+ *  and finalizing the claim. For a device of type button, a device event can
+ *  be published by simply clicking the device.</p>
+ *  </note>
+ */
 export class InitiateDeviceClaimCommand extends $Command<
   InitiateDeviceClaimCommandInput,
   InitiateDeviceClaimCommandOutput,
@@ -38,6 +45,9 @@ export class InitiateDeviceClaimCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

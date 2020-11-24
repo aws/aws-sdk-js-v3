@@ -20,6 +20,12 @@ import {
 export type CopyDBClusterParameterGroupCommandInput = CopyDBClusterParameterGroupMessage;
 export type CopyDBClusterParameterGroupCommandOutput = CopyDBClusterParameterGroupResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified DB cluster parameter group.</p>
+ *         <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *         </note>
+ */
 export class CopyDBClusterParameterGroupCommand extends $Command<
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput,
@@ -34,6 +40,9 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

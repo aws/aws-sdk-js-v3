@@ -20,6 +20,10 @@ import {
 export type PutRoomSkillParameterCommandInput = PutRoomSkillParameterRequest;
 export type PutRoomSkillParameterCommandOutput = PutRoomSkillParameterResponse & __MetadataBearer;
 
+/**
+ * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
+ *          skills have a room skill parameter.</p>
+ */
 export class PutRoomSkillParameterCommand extends $Command<
   PutRoomSkillParameterCommandInput,
   PutRoomSkillParameterCommandOutput,
@@ -34,6 +38,9 @@ export class PutRoomSkillParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

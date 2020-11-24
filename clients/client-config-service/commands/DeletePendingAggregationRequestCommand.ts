@@ -20,6 +20,10 @@ import {
 export type DeletePendingAggregationRequestCommandInput = DeletePendingAggregationRequestRequest;
 export type DeletePendingAggregationRequestCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes pending authorization requests for a specified
+ * 			aggregator account in a specified region.</p>
+ */
 export class DeletePendingAggregationRequestCommand extends $Command<
   DeletePendingAggregationRequestCommandInput,
   DeletePendingAggregationRequestCommandOutput,
@@ -34,6 +38,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListBuildBatchesForProjectCommandInput = ListBuildBatchesForProjectInput;
 export type ListBuildBatchesForProjectCommandOutput = ListBuildBatchesForProjectOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the identifiers of the build batches for a specific project.</p>
+ */
 export class ListBuildBatchesForProjectCommand extends $Command<
   ListBuildBatchesForProjectCommandInput,
   ListBuildBatchesForProjectCommandOutput,
@@ -34,6 +37,9 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

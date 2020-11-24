@@ -20,6 +20,9 @@ import {
 export type BatchGetDeploymentGroupsCommandInput = BatchGetDeploymentGroupsInput;
 export type BatchGetDeploymentGroupsCommandOutput = BatchGetDeploymentGroupsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more deployment groups.</p>
+ */
 export class BatchGetDeploymentGroupsCommand extends $Command<
   BatchGetDeploymentGroupsCommandInput,
   BatchGetDeploymentGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

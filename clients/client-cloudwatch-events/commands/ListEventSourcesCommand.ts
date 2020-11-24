@@ -20,6 +20,10 @@ import {
 export type ListEventSourcesCommandInput = ListEventSourcesRequest;
 export type ListEventSourcesCommandOutput = ListEventSourcesResponse & __MetadataBearer;
 
+/**
+ * <p>You can use this to see all the partner event sources that have been shared with your
+ *             AWS account. For more information about partner event sources, see <a>CreateEventBus</a>.</p>
+ */
 export class ListEventSourcesCommand extends $Command<
   ListEventSourcesCommandInput,
   ListEventSourcesCommandOutput,
@@ -34,6 +38,9 @@ export class ListEventSourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

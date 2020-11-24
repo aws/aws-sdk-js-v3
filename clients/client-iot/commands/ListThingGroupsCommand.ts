@@ -20,6 +20,9 @@ import {
 export type ListThingGroupsCommandInput = ListThingGroupsRequest;
 export type ListThingGroupsCommandOutput = ListThingGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>List the thing groups in your account.</p>
+ */
 export class ListThingGroupsCommand extends $Command<
   ListThingGroupsCommandInput,
   ListThingGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListThingGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

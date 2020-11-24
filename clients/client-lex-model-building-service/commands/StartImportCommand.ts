@@ -24,6 +24,9 @@ import {
 export type StartImportCommandInput = StartImportRequest;
 export type StartImportCommandOutput = StartImportResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a job to import a resource to Amazon Lex.</p>
+ */
 export class StartImportCommand extends $Command<
   StartImportCommandInput,
   StartImportCommandOutput,
@@ -38,6 +41,9 @@ export class StartImportCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

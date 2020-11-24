@@ -20,6 +20,9 @@ import {
 export type GetPresetCommandInput = GetPresetRequest;
 export type GetPresetCommandOutput = GetPresetResponse & __MetadataBearer;
 
+/**
+ * Retrieve the JSON for a specific preset.
+ */
 export class GetPresetCommand extends $Command<
   GetPresetCommandInput,
   GetPresetCommandOutput,
@@ -34,6 +37,9 @@ export class GetPresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

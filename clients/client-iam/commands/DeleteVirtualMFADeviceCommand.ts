@@ -20,6 +20,14 @@ import {
 export type DeleteVirtualMFADeviceCommandInput = DeleteVirtualMFADeviceRequest;
 export type DeleteVirtualMFADeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a virtual MFA device.</p>
+ *          <note>
+ *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
+ *             information about deactivating MFA devices, see <a>DeactivateMFADevice</a>.
+ *          </p>
+ *          </note>
+ */
 export class DeleteVirtualMFADeviceCommand extends $Command<
   DeleteVirtualMFADeviceCommandInput,
   DeleteVirtualMFADeviceCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

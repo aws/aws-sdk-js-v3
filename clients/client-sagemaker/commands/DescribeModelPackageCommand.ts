@@ -20,6 +20,12 @@ import {
 export type DescribeModelPackageCommandInput = DescribeModelPackageInput;
 export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
+ *             models or list them on AWS Marketplace.</p>
+ *         <p>To create models in Amazon SageMaker, buyers can subscribe to model packages listed on AWS
+ *             Marketplace.</p>
+ */
 export class DescribeModelPackageCommand extends $Command<
   DescribeModelPackageCommandInput,
   DescribeModelPackageCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeModelPackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

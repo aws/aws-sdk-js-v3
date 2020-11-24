@@ -24,6 +24,12 @@ import {
 export type GetIntentCommandInput = GetIntentRequest;
 export type GetIntentCommandOutput = GetIntentResponse & __MetadataBearer;
 
+/**
+ * <p> Returns information about an intent. In addition to the intent name, you must specify
+ *       the intent version. </p>
+ *          <p> This operation requires permissions to perform the <code>lex:GetIntent</code> action.
+ *     </p>
+ */
 export class GetIntentCommand extends $Command<
   GetIntentCommandInput,
   GetIntentCommandOutput,
@@ -38,6 +44,9 @@ export class GetIntentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

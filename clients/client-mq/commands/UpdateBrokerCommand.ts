@@ -20,6 +20,9 @@ import {
 export type UpdateBrokerCommandInput = UpdateBrokerRequest;
 export type UpdateBrokerCommandOutput = UpdateBrokerResponse & __MetadataBearer;
 
+/**
+ * Adds a pending configuration change to a broker.
+ */
 export class UpdateBrokerCommand extends $Command<
   UpdateBrokerCommandInput,
   UpdateBrokerCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBrokerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

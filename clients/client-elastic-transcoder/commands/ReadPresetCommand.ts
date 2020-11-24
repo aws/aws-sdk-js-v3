@@ -24,6 +24,9 @@ import {
 export type ReadPresetCommandInput = ReadPresetRequest;
 export type ReadPresetCommandOutput = ReadPresetResponse & __MetadataBearer;
 
+/**
+ * <p>The ReadPreset operation gets detailed information about a preset.</p>
+ */
 export class ReadPresetCommand extends $Command<
   ReadPresetCommandInput,
   ReadPresetCommandOutput,
@@ -38,6 +41,9 @@ export class ReadPresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

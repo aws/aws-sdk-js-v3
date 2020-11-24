@@ -24,6 +24,12 @@ export type GetCertificateAuthorityCertificateCommandInput = GetCertificateAutho
 export type GetCertificateAuthorityCertificateCommandOutput = GetCertificateAuthorityCertificateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the certificate and certificate chain for your private certificate authority
+ * 			(CA) or one that has been shared with you. Both the certificate and the chain are base64
+ * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
+ * 			chain signs the one before it. </p>
+ */
 export class GetCertificateAuthorityCertificateCommand extends $Command<
   GetCertificateAuthorityCertificateCommandInput,
   GetCertificateAuthorityCertificateCommandOutput,
@@ -38,6 +44,9 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,

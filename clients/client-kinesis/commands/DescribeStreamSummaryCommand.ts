@@ -20,6 +20,16 @@ import {
 export type DescribeStreamSummaryCommandInput = DescribeStreamSummaryInput;
 export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput & __MetadataBearer;
 
+/**
+ * <p>Provides a summarized description of the specified Kinesis data stream without the
+ *             shard list.</p>
+ *         <p>The information returned includes the stream name, Amazon Resource Name (ARN),
+ *             status, record retention period, approximate creation time, monitoring, encryption
+ *             details, and open shard count. </p>
+ *         <p>
+ *             <a>DescribeStreamSummary</a> has a limit of 20 transactions per second
+ *             per account.</p>
+ */
 export class DescribeStreamSummaryCommand extends $Command<
   DescribeStreamSummaryCommandInput,
   DescribeStreamSummaryCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeStreamSummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

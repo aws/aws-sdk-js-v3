@@ -20,6 +20,10 @@ import {
 export type CreateFacetCommandInput = CreateFacetRequest;
 export type CreateFacetCommandOutput = CreateFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
+ *       in development or applied schemas.</p>
+ */
 export class CreateFacetCommand extends $Command<
   CreateFacetCommandInput,
   CreateFacetCommandOutput,
@@ -34,6 +38,9 @@ export class CreateFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

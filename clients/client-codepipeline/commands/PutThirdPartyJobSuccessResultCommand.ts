@@ -20,6 +20,10 @@ import {
 export type PutThirdPartyJobSuccessResultCommandInput = PutThirdPartyJobSuccessResultInput;
 export type PutThirdPartyJobSuccessResultCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Represents the success of a third party job as returned to the pipeline by a job
+ *             worker. Used for partner actions only.</p>
+ */
 export class PutThirdPartyJobSuccessResultCommand extends $Command<
   PutThirdPartyJobSuccessResultCommandInput,
   PutThirdPartyJobSuccessResultCommandOutput,
@@ -34,6 +38,9 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

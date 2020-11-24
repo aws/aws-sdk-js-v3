@@ -20,6 +20,11 @@ import {
 export type EnableDomainTransferLockCommandInput = EnableDomainTransferLockRequest;
 export type EnableDomainTransferLockCommandOutput = EnableDomainTransferLockResponse & __MetadataBearer;
 
+/**
+ * <p>This operation sets the transfer lock on the domain (specifically the <code>clientTransferProhibited</code> status)
+ * 			to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and
+ * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ */
 export class EnableDomainTransferLockCommand extends $Command<
   EnableDomainTransferLockCommandInput,
   EnableDomainTransferLockCommandOutput,
@@ -34,6 +39,9 @@ export class EnableDomainTransferLockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

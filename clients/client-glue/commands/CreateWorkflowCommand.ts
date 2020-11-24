@@ -20,6 +20,9 @@ import {
 export type CreateWorkflowCommandInput = CreateWorkflowRequest;
 export type CreateWorkflowCommandOutput = CreateWorkflowResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new workflow.</p>
+ */
 export class CreateWorkflowCommand extends $Command<
   CreateWorkflowCommandInput,
   CreateWorkflowCommandOutput,
@@ -34,6 +37,9 @@ export class CreateWorkflowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

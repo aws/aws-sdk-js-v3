@@ -20,6 +20,9 @@ import {
 export type UndeploySystemInstanceCommandInput = UndeploySystemInstanceRequest;
 export type UndeploySystemInstanceCommandOutput = UndeploySystemInstanceResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
+ */
 export class UndeploySystemInstanceCommand extends $Command<
   UndeploySystemInstanceCommandInput,
   UndeploySystemInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class UndeploySystemInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

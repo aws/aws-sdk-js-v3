@@ -25,6 +25,9 @@ import {
 export type ForgetDeviceCommandInput = ForgetDeviceRequest;
 export type ForgetDeviceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Forgets the specified device.</p>
+ */
 export class ForgetDeviceCommand extends $Command<
   ForgetDeviceCommandInput,
   ForgetDeviceCommandOutput,
@@ -39,6 +42,9 @@ export class ForgetDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

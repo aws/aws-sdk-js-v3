@@ -20,6 +20,9 @@ import {
 export type ListImageRecipesCommandInput = ListImageRecipesRequest;
 export type ListImageRecipesCommandOutput = ListImageRecipesResponse & __MetadataBearer;
 
+/**
+ * <p> Returns a list of image recipes. </p>
+ */
 export class ListImageRecipesCommand extends $Command<
   ListImageRecipesCommandInput,
   ListImageRecipesCommandOutput,
@@ -34,6 +37,9 @@ export class ListImageRecipesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

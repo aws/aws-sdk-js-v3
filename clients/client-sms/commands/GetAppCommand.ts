@@ -17,6 +17,9 @@ import {
 export type GetAppCommandInput = GetAppRequest;
 export type GetAppCommandOutput = GetAppResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve information about the specified application.</p>
+ */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

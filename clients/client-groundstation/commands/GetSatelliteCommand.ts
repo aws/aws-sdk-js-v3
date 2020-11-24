@@ -20,6 +20,9 @@ import {
 export type GetSatelliteCommandInput = GetSatelliteRequest;
 export type GetSatelliteCommandOutput = GetSatelliteResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a satellite.</p>
+ */
 export class GetSatelliteCommand extends $Command<
   GetSatelliteCommandInput,
   GetSatelliteCommandOutput,
@@ -34,6 +37,9 @@ export class GetSatelliteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

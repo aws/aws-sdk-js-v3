@@ -24,6 +24,13 @@ export type ReplaceIamInstanceProfileAssociationCommandInput = ReplaceIamInstanc
 export type ReplaceIamInstanceProfileAssociationCommandOutput = ReplaceIamInstanceProfileAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Replaces an IAM instance profile for the specified running instance. You can use
+ *             this action to change the IAM instance profile that's associated with an instance
+ *             without having to disassociate the existing IAM instance profile first.</p>
+ *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+ *             ID.</p>
+ */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
   ReplaceIamInstanceProfileAssociationCommandInput,
   ReplaceIamInstanceProfileAssociationCommandOutput,
@@ -38,6 +45,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

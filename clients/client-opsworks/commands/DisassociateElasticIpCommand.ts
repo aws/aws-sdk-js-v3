@@ -20,6 +20,15 @@ import {
 export type DisassociateElasticIpCommandInput = DisassociateElasticIpRequest;
 export type DisassociateElasticIpCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
+ *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DisassociateElasticIpCommand extends $Command<
   DisassociateElasticIpCommandInput,
   DisassociateElasticIpCommandOutput,
@@ -34,6 +43,9 @@ export class DisassociateElasticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

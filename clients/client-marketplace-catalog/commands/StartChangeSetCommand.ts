@@ -24,6 +24,19 @@ import {
 export type StartChangeSetCommandInput = StartChangeSetRequest;
 export type StartChangeSetCommandOutput = StartChangeSetResponse & __MetadataBearer;
 
+/**
+ * <p>This operation allows you to request changes for your entities. Within a single
+ *             ChangeSet, you cannot start the same change type against the same entity multiple times.
+ *             Additionally, when a ChangeSet is running, all the entities targeted by the different
+ *             changes are locked until the ChangeSet has completed (either succeeded, cancelled, or failed). If
+ *             you try to start a ChangeSet containing a change against an entity that is already
+ *             locked, you will receive a <code>ResourceInUseException</code>.</p>
+ *
+ *
+ *         <p>For example, you cannot start the ChangeSet described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> below because it contains two changes to execute the same change
+ *             type (<code>AddRevisions</code>) against the same entity
+ *             (<code>entity-id@1)</code>.</p>
+ */
 export class StartChangeSetCommand extends $Command<
   StartChangeSetCommandInput,
   StartChangeSetCommandOutput,
@@ -38,6 +51,9 @@ export class StartChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,

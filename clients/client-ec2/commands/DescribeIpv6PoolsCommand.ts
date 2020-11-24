@@ -20,6 +20,9 @@ import {
 export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
 export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult & __MetadataBearer;
 
+/**
+ * <p>Describes your IPv6 address pools.</p>
+ */
 export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandInput,
   DescribeIpv6PoolsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeIpv6PoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

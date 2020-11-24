@@ -24,6 +24,11 @@ export type DescribeNotebookInstanceLifecycleConfigCommandInput = DescribeNotebo
 export type DescribeNotebookInstanceLifecycleConfigCommandOutput = DescribeNotebookInstanceLifecycleConfigOutput &
   __MetadataBearer;
 
+/**
+ * <p>Returns a description of a notebook instance lifecycle configuration.</p>
+ *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+ *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ */
 export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
   DescribeNotebookInstanceLifecycleConfigCommandInput,
   DescribeNotebookInstanceLifecycleConfigCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

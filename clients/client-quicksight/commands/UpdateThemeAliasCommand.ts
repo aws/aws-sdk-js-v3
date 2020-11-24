@@ -20,6 +20,9 @@ import {
 export type UpdateThemeAliasCommandInput = UpdateThemeAliasRequest;
 export type UpdateThemeAliasCommandOutput = UpdateThemeAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an alias of a theme.</p>
+ */
 export class UpdateThemeAliasCommand extends $Command<
   UpdateThemeAliasCommandInput,
   UpdateThemeAliasCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateThemeAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

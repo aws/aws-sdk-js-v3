@@ -20,6 +20,13 @@ import {
 export type CreateThingGroupCommandInput = CreateThingGroupRequest;
 export type CreateThingGroupCommandOutput = CreateThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Create a thing group.</p>
+ * 		       <note>
+ * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
+ * 				information about authorizing control plane actions.</p>
+ * 		       </note>
+ */
 export class CreateThingGroupCommand extends $Command<
   CreateThingGroupCommandInput,
   CreateThingGroupCommandOutput,
@@ -34,6 +41,9 @@ export class CreateThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

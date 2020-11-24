@@ -20,6 +20,11 @@ import {
 export type ListChangeSetsCommandInput = ListChangeSetsInput;
 export type ListChangeSetsCommandOutput = ListChangeSetsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the ID and status of each active change set for a stack. For example, AWS
+ *          CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
+ *             <code>CREATE_PENDING</code> state.</p>
+ */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput,
@@ -34,6 +39,9 @@ export class ListChangeSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

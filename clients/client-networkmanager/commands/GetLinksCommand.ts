@@ -20,6 +20,10 @@ import {
 export type GetLinksCommandInput = GetLinksRequest;
 export type GetLinksCommandOutput = GetLinksResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more links in a specified global network.</p>
+ *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
+ */
 export class GetLinksCommand extends $Command<
   GetLinksCommandInput,
   GetLinksCommandOutput,
@@ -34,6 +38,9 @@ export class GetLinksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

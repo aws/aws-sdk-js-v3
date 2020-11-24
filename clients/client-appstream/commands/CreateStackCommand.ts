@@ -20,6 +20,9 @@ import {
 export type CreateStackCommandInput = CreateStackRequest;
 export type CreateStackCommandOutput = CreateStackResult & __MetadataBearer;
 
+/**
+ * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
+ */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,
   CreateStackCommandOutput,
@@ -34,6 +37,9 @@ export class CreateStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

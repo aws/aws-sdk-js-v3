@@ -20,6 +20,11 @@ import {
 export type GetRegionsCommandInput = GetRegionsRequest;
 export type GetRegionsCommandOutput = GetRegionsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
+ *         availability zones</code> parameter to also return the Availability Zones in a
+ *       region.</p>
+ */
 export class GetRegionsCommand extends $Command<
   GetRegionsCommandInput,
   GetRegionsCommandOutput,
@@ -34,6 +39,9 @@ export class GetRegionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

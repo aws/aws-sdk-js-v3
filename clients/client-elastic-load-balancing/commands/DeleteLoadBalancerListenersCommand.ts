@@ -24,6 +24,9 @@ import {
 export type DeleteLoadBalancerListenersCommandInput = DeleteLoadBalancerListenerInput;
 export type DeleteLoadBalancerListenersCommandOutput = DeleteLoadBalancerListenerOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified listeners from the specified load balancer.</p>
+ */
 export class DeleteLoadBalancerListenersCommand extends $Command<
   DeleteLoadBalancerListenersCommandInput,
   DeleteLoadBalancerListenersCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

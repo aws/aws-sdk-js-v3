@@ -20,6 +20,9 @@ import {
 export type UpdateRoomCommandInput = UpdateRoomRequest;
 export type UpdateRoomCommandOutput = UpdateRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
+ */
 export class UpdateRoomCommand extends $Command<
   UpdateRoomCommandInput,
   UpdateRoomCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

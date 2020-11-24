@@ -20,6 +20,9 @@ import {
 export type DeleteDeploymentCommandInput = DeleteDeploymentRequest;
 export type DeleteDeploymentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Deployment.</p>
+ */
 export class DeleteDeploymentCommand extends $Command<
   DeleteDeploymentCommandInput,
   DeleteDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

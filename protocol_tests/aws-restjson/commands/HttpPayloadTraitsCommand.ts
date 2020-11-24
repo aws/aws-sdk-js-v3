@@ -20,6 +20,12 @@ import {
 export type HttpPayloadTraitsCommandInput = HttpPayloadTraitsInputOutput;
 export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput & __MetadataBearer;
 
+/**
+ * This examples serializes a blob shape in the payload.
+ *
+ * In this example, no JSON document is synthesized because the payload is
+ * not a structure or a union type.
+ */
 export class HttpPayloadTraitsCommand extends $Command<
   HttpPayloadTraitsCommandInput,
   HttpPayloadTraitsCommandOutput,
@@ -34,6 +40,9 @@ export class HttpPayloadTraitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

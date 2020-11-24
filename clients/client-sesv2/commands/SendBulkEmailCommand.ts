@@ -20,6 +20,9 @@ import {
 export type SendBulkEmailCommandInput = SendBulkEmailRequest;
 export type SendBulkEmailCommandOutput = SendBulkEmailResponse & __MetadataBearer;
 
+/**
+ * <p>Composes an email message to multiple destinations.</p>
+ */
 export class SendBulkEmailCommand extends $Command<
   SendBulkEmailCommandInput,
   SendBulkEmailCommandOutput,
@@ -34,6 +37,9 @@ export class SendBulkEmailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

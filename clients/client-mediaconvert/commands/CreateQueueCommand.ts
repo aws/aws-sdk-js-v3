@@ -20,6 +20,9 @@ import {
 export type CreateQueueCommandInput = CreateQueueRequest;
 export type CreateQueueCommandOutput = CreateQueueResponse & __MetadataBearer;
 
+/**
+ * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
+ */
 export class CreateQueueCommand extends $Command<
   CreateQueueCommandInput,
   CreateQueueCommandOutput,
@@ -34,6 +37,9 @@ export class CreateQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

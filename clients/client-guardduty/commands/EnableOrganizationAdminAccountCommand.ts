@@ -20,6 +20,10 @@ import {
 export type EnableOrganizationAdminAccountCommandInput = EnableOrganizationAdminAccountRequest;
 export type EnableOrganizationAdminAccountCommandOutput = EnableOrganizationAdminAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Enables an AWS account within the organization as the GuardDuty delegated
+ *       administrator.</p>
+ */
 export class EnableOrganizationAdminAccountCommand extends $Command<
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
@@ -34,6 +38,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

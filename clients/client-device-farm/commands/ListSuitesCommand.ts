@@ -20,6 +20,9 @@ import {
 export type ListSuitesCommandInput = ListSuitesRequest;
 export type ListSuitesCommandOutput = ListSuitesResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about test suites for a given job.</p>
+ */
 export class ListSuitesCommand extends $Command<
   ListSuitesCommandInput,
   ListSuitesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSuitesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

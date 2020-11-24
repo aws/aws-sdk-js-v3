@@ -20,6 +20,12 @@ import {
 export type RebootInstanceCommandInput = RebootInstanceRequest;
 export type RebootInstanceCommandOutput = RebootInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Restarts a specific instance.</p>
+ *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
+ *       tags applied to the resource identified by <code>instance name</code>. For more information,
+ *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class RebootInstanceCommand extends $Command<
   RebootInstanceCommandInput,
   RebootInstanceCommandOutput,
@@ -34,6 +40,9 @@ export class RebootInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

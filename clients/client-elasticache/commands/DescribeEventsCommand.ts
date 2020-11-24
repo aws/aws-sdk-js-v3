@@ -20,6 +20,14 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = EventsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns events related to clusters, cache
+ *             security groups, and cache parameter groups. You can obtain events specific to a
+ *             particular cluster, cache security group, or cache parameter group by providing
+ *             the name as a parameter.</p>
+ *         <p>By default, only the events occurring within the last hour are returned;
+ *             however, you can retrieve up to 14 days' worth of events if necessary.</p>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

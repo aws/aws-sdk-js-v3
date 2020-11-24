@@ -20,6 +20,10 @@ import {
 export type CreateSipMediaApplicationCallCommandInput = CreateSipMediaApplicationCallRequest;
 export type CreateSipMediaApplicationCallCommandOutput = CreateSipMediaApplicationCallResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the
+ *       specified <code>sipMediaApplicationId</code>.</p>
+ */
 export class CreateSipMediaApplicationCallCommand extends $Command<
   CreateSipMediaApplicationCallCommandInput,
   CreateSipMediaApplicationCallCommandOutput,
@@ -34,6 +38,9 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

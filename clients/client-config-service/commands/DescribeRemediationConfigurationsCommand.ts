@@ -24,6 +24,9 @@ export type DescribeRemediationConfigurationsCommandInput = DescribeRemediationC
 export type DescribeRemediationConfigurationsCommandOutput = DescribeRemediationConfigurationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the details of one or more remediation configurations.</p>
+ */
 export class DescribeRemediationConfigurationsCommand extends $Command<
   DescribeRemediationConfigurationsCommandInput,
   DescribeRemediationConfigurationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

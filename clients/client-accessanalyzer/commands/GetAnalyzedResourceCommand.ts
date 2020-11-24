@@ -20,6 +20,9 @@ import {
 export type GetAnalyzedResourceCommandInput = GetAnalyzedResourceRequest;
 export type GetAnalyzedResourceCommandOutput = GetAnalyzedResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a resource that was analyzed.</p>
+ */
 export class GetAnalyzedResourceCommand extends $Command<
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput,
@@ -34,6 +37,9 @@ export class GetAnalyzedResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

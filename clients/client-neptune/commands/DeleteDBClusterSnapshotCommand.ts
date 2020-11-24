@@ -20,6 +20,14 @@ import {
 export type DeleteDBClusterSnapshotCommandInput = DeleteDBClusterSnapshotMessage;
 export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
+ *       terminated.</p>
+ *          <note>
+ *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
+ *         deleted.</p>
+ *          </note>
+ */
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,
   DeleteDBClusterSnapshotCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

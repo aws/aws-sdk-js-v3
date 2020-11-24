@@ -20,6 +20,9 @@ import {
 export type GetKMSEncryptionKeyCommandInput = {};
 export type GetKMSEncryptionKeyCommandOutput = GetKMSEncryptionKeyResult & __MetadataBearer;
 
+/**
+ * <p>Gets the encryption key if a Key Management Service (KMS) customer master key (CMK) has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
+ */
 export class GetKMSEncryptionKeyCommand extends $Command<
   GetKMSEncryptionKeyCommandInput,
   GetKMSEncryptionKeyCommandOutput,
@@ -34,6 +37,9 @@ export class GetKMSEncryptionKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

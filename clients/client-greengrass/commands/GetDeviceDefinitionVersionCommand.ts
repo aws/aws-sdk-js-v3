@@ -20,6 +20,9 @@ import {
 export type GetDeviceDefinitionVersionCommandInput = GetDeviceDefinitionVersionRequest;
 export type GetDeviceDefinitionVersionCommandOutput = GetDeviceDefinitionVersionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a device definition version.
+ */
 export class GetDeviceDefinitionVersionCommand extends $Command<
   GetDeviceDefinitionVersionCommandInput,
   GetDeviceDefinitionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetDeviceDefinitionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

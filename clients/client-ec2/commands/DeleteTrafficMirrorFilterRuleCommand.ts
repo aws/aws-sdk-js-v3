@@ -20,6 +20,9 @@ import {
 export type DeleteTrafficMirrorFilterRuleCommandInput = DeleteTrafficMirrorFilterRuleRequest;
 export type DeleteTrafficMirrorFilterRuleCommandOutput = DeleteTrafficMirrorFilterRuleResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified Traffic Mirror rule.</p>
+ */
 export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
   DeleteTrafficMirrorFilterRuleCommandInput,
   DeleteTrafficMirrorFilterRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

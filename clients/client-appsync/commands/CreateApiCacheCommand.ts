@@ -20,6 +20,9 @@ import {
 export type CreateApiCacheCommandInput = CreateApiCacheRequest;
 export type CreateApiCacheCommandOutput = CreateApiCacheResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a cache for the GraphQL API.</p>
+ */
 export class CreateApiCacheCommand extends $Command<
   CreateApiCacheCommandInput,
   CreateApiCacheCommandOutput,
@@ -34,6 +37,9 @@ export class CreateApiCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

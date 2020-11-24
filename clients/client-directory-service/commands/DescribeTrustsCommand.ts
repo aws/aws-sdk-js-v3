@@ -20,6 +20,10 @@ import {
 export type DescribeTrustsCommandInput = DescribeTrustsRequest;
 export type DescribeTrustsCommandOutput = DescribeTrustsResult & __MetadataBearer;
 
+/**
+ * <p>Obtains information about the trust relationships for this account.</p>
+ *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request describes all the trust relationships belonging to the account.</p>
+ */
 export class DescribeTrustsCommand extends $Command<
   DescribeTrustsCommandInput,
   DescribeTrustsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeTrustsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

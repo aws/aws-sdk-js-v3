@@ -20,6 +20,13 @@ import {
 export type DeleteVpcPeeringConnectionCommandInput = DeleteVpcPeeringConnectionRequest;
 export type DeleteVpcPeeringConnectionCommandOutput = DeleteVpcPeeringConnectionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
+ *             of the accepter VPC can delete the VPC peering connection if it's in the
+ *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
+ *             connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering
+ *             connection that's in the <code>failed</code> state.</p>
+ */
 export class DeleteVpcPeeringConnectionCommand extends $Command<
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

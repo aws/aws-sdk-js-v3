@@ -20,6 +20,9 @@ import {
 export type CreatePackagingConfigurationCommandInput = CreatePackagingConfigurationRequest;
 export type CreatePackagingConfigurationCommandOutput = CreatePackagingConfigurationResponse & __MetadataBearer;
 
+/**
+ * Creates a new MediaPackage VOD PackagingConfiguration resource.
+ */
 export class CreatePackagingConfigurationCommand extends $Command<
   CreatePackagingConfigurationCommandInput,
   CreatePackagingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePackagingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,

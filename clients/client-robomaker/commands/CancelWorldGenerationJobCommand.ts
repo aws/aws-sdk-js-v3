@@ -20,6 +20,9 @@ import {
 export type CancelWorldGenerationJobCommandInput = CancelWorldGenerationJobRequest;
 export type CancelWorldGenerationJobCommandOutput = CancelWorldGenerationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels the specified world generator job.</p>
+ */
 export class CancelWorldGenerationJobCommand extends $Command<
   CancelWorldGenerationJobCommandInput,
   CancelWorldGenerationJobCommandOutput,
@@ -34,6 +37,9 @@ export class CancelWorldGenerationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

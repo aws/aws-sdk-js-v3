@@ -21,6 +21,10 @@ import {
 export type ListIdentityPoolsCommandInput = ListIdentityPoolsInput;
 export type ListIdentityPoolsCommandOutput = ListIdentityPoolsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all of the Cognito identity pools registered for your account.</p>
+ *          <p>You must use AWS Developer credentials to call this API.</p>
+ */
 export class ListIdentityPoolsCommand extends $Command<
   ListIdentityPoolsCommandInput,
   ListIdentityPoolsCommandOutput,
@@ -35,6 +39,9 @@ export class ListIdentityPoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,

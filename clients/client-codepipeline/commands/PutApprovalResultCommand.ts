@@ -20,6 +20,10 @@ import {
 export type PutApprovalResultCommandInput = PutApprovalResultInput;
 export type PutApprovalResultCommandOutput = PutApprovalResultOutput & __MetadataBearer;
 
+/**
+ * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
+ *             responses include Approved and Rejected.</p>
+ */
 export class PutApprovalResultCommand extends $Command<
   PutApprovalResultCommandInput,
   PutApprovalResultCommandOutput,
@@ -34,6 +38,9 @@ export class PutApprovalResultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

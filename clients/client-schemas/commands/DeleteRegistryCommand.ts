@@ -20,6 +20,9 @@ import {
 export type DeleteRegistryCommandInput = DeleteRegistryRequest;
 export type DeleteRegistryCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a Registry.</p>
+ */
 export class DeleteRegistryCommand extends $Command<
   DeleteRegistryCommandInput,
   DeleteRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

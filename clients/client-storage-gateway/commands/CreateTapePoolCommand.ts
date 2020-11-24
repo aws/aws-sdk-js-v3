@@ -20,6 +20,10 @@ import {
 export type CreateTapePoolCommandInput = CreateTapePoolInput;
 export type CreateTapePoolCommandOutput = CreateTapePoolOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention
+ *          lock on tapes that are archived in the custom pool.</p>
+ */
 export class CreateTapePoolCommand extends $Command<
   CreateTapePoolCommandInput,
   CreateTapePoolCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTapePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
 export type RebootDBInstanceCommandOutput = RebootDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
+ *       if you make certain modifications, or if you change the DB parameter group associated with the
+ *       DB instance, you must reboot the instance for the changes to take effect.</p>
+ *          <p>Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
+ *       results in a momentary outage, during which the DB instance status is set to rebooting.</p>
+ */
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
@@ -34,6 +41,9 @@ export class RebootDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

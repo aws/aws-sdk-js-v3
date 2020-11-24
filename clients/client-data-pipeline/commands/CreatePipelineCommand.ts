@@ -20,6 +20,9 @@ import {
 export type CreatePipelineCommandInput = CreatePipelineInput;
 export type CreatePipelineCommandOutput = CreatePipelineOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
+ */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

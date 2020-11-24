@@ -20,6 +20,9 @@ import {
 export type DescribeDomainControllersCommandInput = DescribeDomainControllersRequest;
 export type DescribeDomainControllersCommandOutput = DescribeDomainControllersResult & __MetadataBearer;
 
+/**
+ * <p>Provides information about any domain controllers in your directory.</p>
+ */
 export class DescribeDomainControllersCommand extends $Command<
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDomainControllersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

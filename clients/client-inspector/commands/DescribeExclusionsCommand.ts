@@ -20,6 +20,9 @@ import {
 export type DescribeExclusionsCommandInput = DescribeExclusionsRequest;
 export type DescribeExclusionsCommandOutput = DescribeExclusionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
+ */
 export class DescribeExclusionsCommand extends $Command<
   DescribeExclusionsCommandInput,
   DescribeExclusionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExclusionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type QueryTimestampsCommandInput = QueryTimestampsInput;
 export type QueryTimestampsCommandOutput = __MetadataBearer;
 
+/**
+ * This test serializes timestamps.
+ *
+ * 1. Timestamps are serialized as RFC 3339 date-time values by default.
+ * 2. A timestampFormat trait on a member changes the format.
+ * 3. A timestampFormat trait on the shape targeted by the member changes the format.
+ */
 export class QueryTimestampsCommand extends $Command<
   QueryTimestampsCommandInput,
   QueryTimestampsCommandOutput,
@@ -34,6 +41,9 @@ export class QueryTimestampsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

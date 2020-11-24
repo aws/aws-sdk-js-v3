@@ -20,6 +20,9 @@ import {
 export type AssociateDelegateToResourceCommandInput = AssociateDelegateToResourceRequest;
 export type AssociateDelegateToResourceCommandOutput = AssociateDelegateToResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a member (user or group) to the resource's set of delegates.</p>
+ */
 export class AssociateDelegateToResourceCommand extends $Command<
   AssociateDelegateToResourceCommandInput,
   AssociateDelegateToResourceCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateDelegateToResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type StopHumanLoopCommandInput = StopHumanLoopRequest;
 export type StopHumanLoopCommandOutput = StopHumanLoopResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the specified human loop.</p>
+ */
 export class StopHumanLoopCommand extends $Command<
   StopHumanLoopCommandInput,
   StopHumanLoopCommandOutput,
@@ -38,6 +41,9 @@ export class StopHumanLoopCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerA2IRuntimeClientResolvedConfig,

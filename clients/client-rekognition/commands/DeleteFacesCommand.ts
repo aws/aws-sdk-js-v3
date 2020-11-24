@@ -20,6 +20,12 @@ import {
 export type DeleteFacesCommandInput = DeleteFacesRequest;
 export type DeleteFacesCommandOutput = DeleteFacesResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes faces from a collection. You specify a collection ID and an array of face IDs
+ *       to remove from the collection.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:DeleteFaces</code>
+ *       action.</p>
+ */
 export class DeleteFacesCommand extends $Command<
   DeleteFacesCommandInput,
   DeleteFacesCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteFacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

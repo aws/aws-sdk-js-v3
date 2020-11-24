@@ -20,6 +20,9 @@ import {
 export type AssociateFleetCommandInput = AssociateFleetRequest;
 export type AssociateFleetCommandOutput = AssociateFleetResult & __MetadataBearer;
 
+/**
+ * <p>Associates the specified fleet with the specified stack.</p>
+ */
 export class AssociateFleetCommand extends $Command<
   AssociateFleetCommandInput,
   AssociateFleetCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

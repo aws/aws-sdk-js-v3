@@ -20,6 +20,9 @@ import {
 export type GetRegistrationCodeCommandInput = GetRegistrationCodeRequest;
 export type GetRegistrationCodeCommandOutput = GetRegistrationCodeResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ */
 export class GetRegistrationCodeCommand extends $Command<
   GetRegistrationCodeCommandInput,
   GetRegistrationCodeCommandOutput,
@@ -34,6 +37,9 @@ export class GetRegistrationCodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

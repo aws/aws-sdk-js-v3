@@ -24,6 +24,9 @@ export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput = DeleteSe
 export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteServiceQuotaIncreaseRequestFromTemplateResponse &
   __MetadataBearer;
 
+/**
+ * <p>Removes a service quota increase request from the Service Quotas template. </p>
+ */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

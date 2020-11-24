@@ -20,6 +20,9 @@ import {
 export type ListResolverEndpointsCommandInput = ListResolverEndpointsRequest;
 export type ListResolverEndpointsCommandOutput = ListResolverEndpointsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the Resolver endpoints that were created using the current AWS account.</p>
+ */
 export class ListResolverEndpointsCommand extends $Command<
   ListResolverEndpointsCommandInput,
   ListResolverEndpointsCommandOutput,
@@ -34,6 +37,9 @@ export class ListResolverEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

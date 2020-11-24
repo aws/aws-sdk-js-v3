@@ -20,6 +20,11 @@ import {
 export type GetResourceMetricsCommandInput = GetResourceMetricsRequest;
 export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide
+ *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
+ *       each group.</p>
+ */
 export class GetResourceMetricsCommand extends $Command<
   GetResourceMetricsCommandInput,
   GetResourceMetricsCommandOutput,
@@ -34,6 +39,9 @@ export class GetResourceMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PIClientResolvedConfig,

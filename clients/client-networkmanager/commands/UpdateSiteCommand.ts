@@ -20,6 +20,10 @@ import {
 export type UpdateSiteCommandInput = UpdateSiteRequest;
 export type UpdateSiteCommandOutput = UpdateSiteResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the information for an existing site. To remove information for any of the
+ *             parameters, specify an empty string.</p>
+ */
 export class UpdateSiteCommand extends $Command<
   UpdateSiteCommandInput,
   UpdateSiteCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateSiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteApnsSandboxChannelCommandInput = DeleteApnsSandboxChannelRequest;
 export type DeleteApnsSandboxChannelCommandOutput = DeleteApnsSandboxChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteApnsSandboxChannelCommand extends $Command<
   DeleteApnsSandboxChannelCommandInput,
   DeleteApnsSandboxChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

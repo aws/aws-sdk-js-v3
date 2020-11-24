@@ -20,6 +20,9 @@ import {
 export type UpdateSubscriptionCommandInput = UpdateSubscriptionRequest;
 export type UpdateSubscriptionCommandOutput = UpdateSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
+ */
 export class UpdateSubscriptionCommand extends $Command<
   UpdateSubscriptionCommandInput,
   UpdateSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

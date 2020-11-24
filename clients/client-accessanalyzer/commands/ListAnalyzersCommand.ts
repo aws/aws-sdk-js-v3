@@ -20,6 +20,9 @@ import {
 export type ListAnalyzersCommandInput = ListAnalyzersRequest;
 export type ListAnalyzersCommandOutput = ListAnalyzersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of analyzers.</p>
+ */
 export class ListAnalyzersCommand extends $Command<
   ListAnalyzersCommandInput,
   ListAnalyzersCommandOutput,
@@ -34,6 +37,9 @@ export class ListAnalyzersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteHsmClientCertificateCommandInput = DeleteHsmClientCertificateMessage;
 export type DeleteHsmClientCertificateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified HSM client certificate.</p>
+ */
 export class DeleteHsmClientCertificateCommand extends $Command<
   DeleteHsmClientCertificateCommandInput,
   DeleteHsmClientCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

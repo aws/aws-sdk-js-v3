@@ -24,6 +24,11 @@ import {
 export type ListConfigurationsCommandInput = ListConfigurationsRequest;
 export type ListConfigurationsCommandOutput = ListConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of configuration items as specified by the value passed to the
+ *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
+ *       search results.</p>
+ */
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput,
@@ -38,6 +43,9 @@ export class ListConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

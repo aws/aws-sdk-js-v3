@@ -20,6 +20,9 @@ import {
 export type ListPendingInvitationResourcesCommandInput = ListPendingInvitationResourcesRequest;
 export type ListPendingInvitationResourcesCommandOutput = ListPendingInvitationResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>
+ */
 export class ListPendingInvitationResourcesCommand extends $Command<
   ListPendingInvitationResourcesCommandInput,
   ListPendingInvitationResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

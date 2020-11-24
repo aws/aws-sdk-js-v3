@@ -20,6 +20,9 @@ import {
 export type DescribeFpgaImageAttributeCommandInput = DescribeFpgaImageAttributeRequest;
 export type DescribeFpgaImageAttributeCommandOutput = DescribeFpgaImageAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>
+ */
 export class DescribeFpgaImageAttributeCommand extends $Command<
   DescribeFpgaImageAttributeCommandInput,
   DescribeFpgaImageAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

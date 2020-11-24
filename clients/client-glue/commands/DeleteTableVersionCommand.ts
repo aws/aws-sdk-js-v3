@@ -20,6 +20,9 @@ import {
 export type DeleteTableVersionCommandInput = DeleteTableVersionRequest;
 export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified version of a table.</p>
+ */
 export class DeleteTableVersionCommand extends $Command<
   DeleteTableVersionCommandInput,
   DeleteTableVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTableVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

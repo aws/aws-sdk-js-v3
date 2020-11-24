@@ -20,6 +20,9 @@ import {
 export type DeleteDeploymentGroupCommandInput = DeleteDeploymentGroupInput;
 export type DeleteDeploymentGroupCommandOutput = DeleteDeploymentGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a deployment group.</p>
+ */
 export class DeleteDeploymentGroupCommand extends $Command<
   DeleteDeploymentGroupCommandInput,
   DeleteDeploymentGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDeploymentGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

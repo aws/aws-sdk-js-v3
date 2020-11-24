@@ -20,6 +20,9 @@ import {
 export type DescribeRoutingProfileCommandInput = DescribeRoutingProfileRequest;
 export type DescribeRoutingProfileCommandOutput = DescribeRoutingProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified routing profile.</p>
+ */
 export class DescribeRoutingProfileCommand extends $Command<
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRoutingProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

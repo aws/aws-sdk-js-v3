@@ -20,6 +20,11 @@ import {
 export type DeleteDatasetCommandInput = DeleteDatasetRequest;
 export type DeleteDatasetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified dataset.</p>
+ *          <p>You do not have to delete the content of the dataset before you perform this
+ *       operation.</p>
+ */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

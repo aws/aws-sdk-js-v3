@@ -20,6 +20,21 @@ import {
 export type DescribeClustersCommandInput = DescribeClustersRequest;
 export type DescribeClustersCommandOutput = DescribeClustersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about all provisioned DAX clusters if no cluster identifier
+ *             is specified, or about a specific DAX cluster if a cluster identifier is
+ *             supplied.</p>
+ *         <p>If the cluster is in the CREATING state, only cluster level information will be
+ *             displayed until all of the nodes are successfully provisioned.</p>
+ *         <p>If the cluster is in the DELETING state, only cluster level information will be
+ *             displayed.</p>
+ *         <p>If nodes are currently being added to the DAX cluster, node endpoint information
+ *             and creation time for the additional nodes will not be displayed until they are
+ *             completely provisioned. When the DAX cluster state is <i>available</i>,
+ *             the cluster is ready for use.</p>
+ *         <p>If nodes are currently being removed from the DAX cluster, no endpoint
+ *             information for the removed nodes is displayed.</p>
+ */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,
   DescribeClustersCommandOutput,
@@ -34,6 +49,9 @@ export class DescribeClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

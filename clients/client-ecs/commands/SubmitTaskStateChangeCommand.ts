@@ -20,6 +20,13 @@ import {
 export type SubmitTaskStateChangeCommandInput = SubmitTaskStateChangeRequest;
 export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *          </note>
+ *          <p>Sent to acknowledge
+ * 			that a task changed states.</p>
+ */
 export class SubmitTaskStateChangeCommand extends $Command<
   SubmitTaskStateChangeCommandInput,
   SubmitTaskStateChangeCommandOutput,
@@ -34,6 +41,9 @@ export class SubmitTaskStateChangeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

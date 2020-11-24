@@ -24,6 +24,13 @@ export type DisassociateEnclaveCertificateIamRoleCommandInput = DisassociateEncl
 export type DisassociateEnclaveCertificateIamRoleCommandOutput = DisassociateEnclaveCertificateIamRoleResult &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role
+ * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
+ * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
+ * 			AWS Key Management Service (KMS) customer master key (CMK) used to encrypt the private key. This effectively revokes the role's
+ * 			permission to use the certificate. </p>
+ */
 export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
   DisassociateEnclaveCertificateIamRoleCommandInput,
   DisassociateEnclaveCertificateIamRoleCommandOutput,
@@ -38,6 +45,9 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

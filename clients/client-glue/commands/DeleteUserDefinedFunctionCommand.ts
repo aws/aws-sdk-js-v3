@@ -20,6 +20,9 @@ import {
 export type DeleteUserDefinedFunctionCommandInput = DeleteUserDefinedFunctionRequest;
 export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing function definition from the Data Catalog.</p>
+ */
 export class DeleteUserDefinedFunctionCommand extends $Command<
   DeleteUserDefinedFunctionCommandInput,
   DeleteUserDefinedFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

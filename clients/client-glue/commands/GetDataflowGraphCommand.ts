@@ -20,6 +20,9 @@ import {
 export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
 export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse & __MetadataBearer;
 
+/**
+ * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
+ */
 export class GetDataflowGraphCommand extends $Command<
   GetDataflowGraphCommandInput,
   GetDataflowGraphCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataflowGraphCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

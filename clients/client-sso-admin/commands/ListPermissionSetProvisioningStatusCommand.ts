@@ -24,6 +24,10 @@ export type ListPermissionSetProvisioningStatusCommandInput = ListPermissionSetP
 export type ListPermissionSetProvisioningStatusCommandOutput = ListPermissionSetProvisioningStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the status of the permission set provisioning requests for a specified SSO
+ *       instance.</p>
+ */
 export class ListPermissionSetProvisioningStatusCommand extends $Command<
   ListPermissionSetProvisioningStatusCommandInput,
   ListPermissionSetProvisioningStatusCommandOutput,
@@ -38,6 +42,9 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

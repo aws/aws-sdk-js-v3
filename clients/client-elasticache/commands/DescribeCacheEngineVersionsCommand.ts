@@ -20,6 +20,10 @@ import {
 export type DescribeCacheEngineVersionsCommandInput = DescribeCacheEngineVersionsMessage;
 export type DescribeCacheEngineVersionsCommandOutput = CacheEngineVersionMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the available cache
+ *             engines and their versions.</p>
+ */
 export class DescribeCacheEngineVersionsCommand extends $Command<
   DescribeCacheEngineVersionsCommandInput,
   DescribeCacheEngineVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

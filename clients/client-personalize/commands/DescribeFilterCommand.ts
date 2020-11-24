@@ -20,6 +20,9 @@ import {
 export type DescribeFilterCommandInput = DescribeFilterRequest;
 export type DescribeFilterCommandOutput = DescribeFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a filter's properties.</p>
+ */
 export class DescribeFilterCommand extends $Command<
   DescribeFilterCommandInput,
   DescribeFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

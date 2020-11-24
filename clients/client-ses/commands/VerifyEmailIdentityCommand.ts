@@ -20,6 +20,12 @@ import {
 export type VerifyEmailIdentityCommandInput = VerifyEmailIdentityRequest;
 export type VerifyEmailIdentityCommandOutput = VerifyEmailIdentityResponse & __MetadataBearer;
 
+/**
+ * <p>Adds an email address to the list of identities for your Amazon SES account in the current
+ *             AWS region and attempts to verify it. As a result of executing this operation, a
+ *             verification email is sent to the specified address.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class VerifyEmailIdentityCommand extends $Command<
   VerifyEmailIdentityCommandInput,
   VerifyEmailIdentityCommandOutput,
@@ -34,6 +40,9 @@ export class VerifyEmailIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

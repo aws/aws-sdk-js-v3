@@ -20,6 +20,14 @@ import {
 export type UpdateServerCommandInput = UpdateServerRequest;
 export type UpdateServerCommandOutput = UpdateServerResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *       Updates settings for a server.
+ *     </p>
+ *          <p>
+ *       This operation is synchronous.
+ *     </p>
+ */
 export class UpdateServerCommand extends $Command<
   UpdateServerCommandInput,
   UpdateServerCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,

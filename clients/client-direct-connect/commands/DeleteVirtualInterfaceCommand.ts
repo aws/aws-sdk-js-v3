@@ -20,6 +20,9 @@ import {
 export type DeleteVirtualInterfaceCommandInput = DeleteVirtualInterfaceRequest;
 export type DeleteVirtualInterfaceCommandOutput = DeleteVirtualInterfaceResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a virtual interface.</p>
+ */
 export class DeleteVirtualInterfaceCommand extends $Command<
   DeleteVirtualInterfaceCommandInput,
   DeleteVirtualInterfaceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

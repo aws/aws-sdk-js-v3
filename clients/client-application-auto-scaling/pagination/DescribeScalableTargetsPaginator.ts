@@ -8,6 +8,9 @@ import {
 import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ApplicationAutoScalingClient,
   input: DescribeScalableTargetsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeScalableTargetsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ApplicationAutoScaling,
   input: DescribeScalableTargetsCommandInput,

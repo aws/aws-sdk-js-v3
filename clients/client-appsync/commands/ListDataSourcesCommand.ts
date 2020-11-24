@@ -20,6 +20,9 @@ import {
 export type ListDataSourcesCommandInput = ListDataSourcesRequest;
 export type ListDataSourcesCommandOutput = ListDataSourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the data sources for a given API.</p>
+ */
 export class ListDataSourcesCommand extends $Command<
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDataSourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

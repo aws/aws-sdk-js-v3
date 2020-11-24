@@ -20,6 +20,9 @@ import {
 export type CreateBranchCommandInput = CreateBranchRequest;
 export type CreateBranchCommandOutput = CreateBranchResult & __MetadataBearer;
 
+/**
+ * <p> Creates a new branch for an Amplify app. </p>
+ */
 export class CreateBranchCommand extends $Command<
   CreateBranchCommandInput,
   CreateBranchCommandOutput,
@@ -34,6 +37,9 @@ export class CreateBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

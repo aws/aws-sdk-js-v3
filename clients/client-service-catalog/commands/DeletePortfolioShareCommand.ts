@@ -20,6 +20,12 @@ import {
 export type DeletePortfolioShareCommandInput = DeletePortfolioShareInput;
 export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput & __MetadataBearer;
 
+/**
+ * <p>Stops sharing the specified portfolio with the specified account or organization
+ *          node. Shares to an organization node can only be deleted by the management account of an
+ *          organization or by a delegated administrator.</p>
+ *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
+ */
 export class DeletePortfolioShareCommand extends $Command<
   DeletePortfolioShareCommandInput,
   DeletePortfolioShareCommandOutput,
@@ -34,6 +40,9 @@ export class DeletePortfolioShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

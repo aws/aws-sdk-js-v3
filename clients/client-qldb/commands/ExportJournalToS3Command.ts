@@ -20,6 +20,16 @@ import {
 export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
 export type ExportJournalToS3CommandOutput = ExportJournalToS3Response & __MetadataBearer;
 
+/**
+ * <p>Exports journal contents within a date and time range from a ledger into a specified
+ *          Amazon Simple Storage Service (Amazon S3) bucket. The data is written as files in Amazon Ion format.</p>
+ *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
+ *             <code>ResourceNotFoundException</code>.</p>
+ *          <p>If the ledger with the given <code>Name</code> is in <code>CREATING</code> status, then
+ *          throws <code>ResourcePreconditionNotMetException</code>.</p>
+ *          <p>You can initiate up to two concurrent journal export requests for each ledger. Beyond
+ *          this limit, journal export requests throw <code>LimitExceededException</code>.</p>
+ */
 export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandInput,
   ExportJournalToS3CommandOutput,
@@ -34,6 +44,9 @@ export class ExportJournalToS3Command extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

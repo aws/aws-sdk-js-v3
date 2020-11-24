@@ -20,6 +20,10 @@ import {
 export type DeleteParameterGroupCommandInput = DeleteParameterGroupRequest;
 export type DeleteParameterGroupCommandOutput = DeleteParameterGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
+ *             associated with any DAX clusters.</p>
+ */
 export class DeleteParameterGroupCommand extends $Command<
   DeleteParameterGroupCommandInput,
   DeleteParameterGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

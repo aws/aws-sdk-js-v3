@@ -20,6 +20,9 @@ import {
 export type GetImagePolicyCommandInput = GetImagePolicyRequest;
 export type GetImagePolicyCommandOutput = GetImagePolicyResponse & __MetadataBearer;
 
+/**
+ * <p> Gets an image policy. </p>
+ */
 export class GetImagePolicyCommand extends $Command<
   GetImagePolicyCommandInput,
   GetImagePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetImagePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

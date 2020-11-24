@@ -20,6 +20,12 @@ import {
 export type ListGlobalTablesCommandInput = ListGlobalTablesInput;
 export type ListGlobalTablesCommandOutput = ListGlobalTablesOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all global tables that have a replica in the specified Region.</p>
+ *           <note>
+ *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
+ *          </note>
+ */
 export class ListGlobalTablesCommand extends $Command<
   ListGlobalTablesCommandInput,
   ListGlobalTablesCommandOutput,
@@ -34,6 +40,9 @@ export class ListGlobalTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

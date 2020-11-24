@@ -24,6 +24,9 @@ import {
 export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
 export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a device from your AWS account using its device ID.</p>
+ */
 export class UnclaimDeviceCommand extends $Command<
   UnclaimDeviceCommandInput,
   UnclaimDeviceCommandOutput,
@@ -38,6 +41,9 @@ export class UnclaimDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type PollForThirdPartyJobsCommandInput = PollForThirdPartyJobsInput;
 export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput & __MetadataBearer;
 
+/**
+ * <p>Determines whether there are any third party jobs for a job worker to act on. Used
+ *             for partner actions only.</p>
+ *         <important>
+ *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
+ *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+ *                 that S3 bucket for input or output artifacts.</p>
+ *         </important>
+ */
 export class PollForThirdPartyJobsCommand extends $Command<
   PollForThirdPartyJobsCommandInput,
   PollForThirdPartyJobsCommandOutput,
@@ -34,6 +43,9 @@ export class PollForThirdPartyJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

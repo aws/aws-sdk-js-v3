@@ -20,6 +20,9 @@ import {
 export type UpdateServiceActionCommandInput = UpdateServiceActionInput;
 export type UpdateServiceActionCommandOutput = UpdateServiceActionOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a self-service action.</p>
+ */
 export class UpdateServiceActionCommand extends $Command<
   UpdateServiceActionCommandInput,
   UpdateServiceActionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateServiceActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

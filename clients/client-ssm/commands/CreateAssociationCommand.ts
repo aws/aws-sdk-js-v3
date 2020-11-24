@@ -20,6 +20,18 @@ import {
 export type CreateAssociationCommandInput = CreateAssociationRequest;
 export type CreateAssociationCommandOutput = CreateAssociationResult & __MetadataBearer;
 
+/**
+ * <p>A State Manager association defines the state that you want to maintain on your instances.
+ *    For example, an association can specify that anti-virus software must be installed and running on
+ *    your instances, or that certain ports must be closed. For static targets, the association
+ *    specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an AWS
+ *    Resource Group or an AWS Autoscaling Group, State Manager applies the configuration when new
+ *    instances are added to the group. The association also specifies actions to take when applying
+ *    the configuration. For example, an association for anti-virus software might run once a day. If
+ *    the software is not installed, then State Manager installs it. If the software is installed, but
+ *    the service is not running, then the association might instruct State Manager to start the
+ *    service. </p>
+ */
 export class CreateAssociationCommand extends $Command<
   CreateAssociationCommandInput,
   CreateAssociationCommandOutput,
@@ -34,6 +46,9 @@ export class CreateAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

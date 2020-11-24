@@ -20,6 +20,12 @@ import {
 export type StartNotebookInstanceCommandInput = StartNotebookInstanceInput;
 export type StartNotebookInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Launches an ML compute instance with the latest version of the libraries and
+ *             attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the
+ *             notebook instance status to <code>InService</code>. A notebook instance's status must be
+ *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
+ */
 export class StartNotebookInstanceCommand extends $Command<
   StartNotebookInstanceCommandInput,
   StartNotebookInstanceCommandOutput,
@@ -34,6 +40,9 @@ export class StartNotebookInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

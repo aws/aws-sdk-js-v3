@@ -20,6 +20,15 @@ import {
 export type CreateEnvironmentCommandInput = CreateEnvironmentRequest;
 export type CreateEnvironmentCommandOutput = Environment & __MetadataBearer;
 
+/**
+ * <p>For each application, you define one or more environments. An environment is a logical
+ *          deployment group of AppConfig targets, such as applications in a <code>Beta</code> or
+ *             <code>Production</code> environment. You can also define environments for application
+ *          subcomponents such as the <code>Web</code>, <code>Mobile</code> and <code>Back-end</code>
+ *          components for your application. You can configure Amazon CloudWatch alarms for each environment.
+ *          The system monitors alarms during a configuration deployment. If an alarm is triggered, the
+ *          system rolls back the configuration.</p>
+ */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,
   CreateEnvironmentCommandOutput,
@@ -34,6 +43,9 @@ export class CreateEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

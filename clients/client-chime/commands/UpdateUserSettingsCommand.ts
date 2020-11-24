@@ -20,6 +20,9 @@ import {
 export type UpdateUserSettingsCommandInput = UpdateUserSettingsRequest;
 export type UpdateUserSettingsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the settings for the specified user, such as phone number settings.</p>
+ */
 export class UpdateUserSettingsCommand extends $Command<
   UpdateUserSettingsCommandInput,
   UpdateUserSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AssociateDomainCommandInput = AssociateDomainRequest;
 export type AssociateDomainCommandOutput = AssociateDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
+ */
 export class AssociateDomainCommand extends $Command<
   AssociateDomainCommandInput,
   AssociateDomainCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

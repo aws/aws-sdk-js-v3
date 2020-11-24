@@ -20,6 +20,10 @@ import {
 export type ResolveRoomCommandInput = ResolveRoomRequest;
 export type ResolveRoomCommandOutput = ResolveRoomResponse & __MetadataBearer;
 
+/**
+ * <p>Determines the details for the room from which a skill request was invoked. This
+ *          operation is used by skill developers.</p>
+ */
 export class ResolveRoomCommand extends $Command<
   ResolveRoomCommandInput,
   ResolveRoomCommandOutput,
@@ -34,6 +38,9 @@ export class ResolveRoomCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

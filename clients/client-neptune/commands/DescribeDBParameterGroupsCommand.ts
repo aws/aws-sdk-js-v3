@@ -20,6 +20,11 @@ import {
 export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
 export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
+ *       <code>DBParameterGroupName</code> is specified, the list will contain only the description of
+ *       the specified DB parameter group.</p>
+ */
 export class DescribeDBParameterGroupsCommand extends $Command<
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

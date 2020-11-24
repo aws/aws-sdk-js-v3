@@ -20,6 +20,16 @@ import {
 export type DeleteDBClusterParameterGroupCommandInput = DeleteDBClusterParameterGroupMessage;
 export type DeleteDBClusterParameterGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class DeleteDBClusterParameterGroupCommand extends $Command<
   DeleteDBClusterParameterGroupCommandInput,
   DeleteDBClusterParameterGroupCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateVpcLinkCommandInput = UpdateVpcLinkRequest;
 export type UpdateVpcLinkCommandOutput = VpcLink & __MetadataBearer;
 
+/**
+ * <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
+ */
 export class UpdateVpcLinkCommand extends $Command<
   UpdateVpcLinkCommandInput,
   UpdateVpcLinkCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVpcLinkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

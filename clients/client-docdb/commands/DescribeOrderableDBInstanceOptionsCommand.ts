@@ -20,6 +20,9 @@ import {
 export type DescribeOrderableDBInstanceOptionsCommandInput = DescribeOrderableDBInstanceOptionsMessage;
 export type DescribeOrderableDBInstanceOptionsCommandOutput = OrderableDBInstanceOptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of orderable instance options for the specified engine.</p>
+ */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

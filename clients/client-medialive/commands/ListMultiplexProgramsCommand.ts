@@ -20,6 +20,9 @@ import {
 export type ListMultiplexProgramsCommandInput = ListMultiplexProgramsRequest;
 export type ListMultiplexProgramsCommandOutput = ListMultiplexProgramsResponse & __MetadataBearer;
 
+/**
+ * List the programs that currently exist for a specific multiplex.
+ */
 export class ListMultiplexProgramsCommand extends $Command<
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput,
@@ -34,6 +37,9 @@ export class ListMultiplexProgramsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

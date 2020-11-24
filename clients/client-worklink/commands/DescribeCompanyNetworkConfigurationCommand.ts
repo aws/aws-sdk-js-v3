@@ -24,6 +24,10 @@ export type DescribeCompanyNetworkConfigurationCommandInput = DescribeCompanyNet
 export type DescribeCompanyNetworkConfigurationCommandOutput = DescribeCompanyNetworkConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the networking configuration to access the internal websites associated with
+ *             the specified fleet.</p>
+ */
 export class DescribeCompanyNetworkConfigurationCommand extends $Command<
   DescribeCompanyNetworkConfigurationCommandInput,
   DescribeCompanyNetworkConfigurationCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

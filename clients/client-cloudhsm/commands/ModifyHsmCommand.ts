@@ -17,6 +17,25 @@ import {
 export type ModifyHsmCommandInput = ModifyHsmRequest;
 export type ModifyHsmCommandOutput = ModifyHsmResponse & __MetadataBearer;
 
+/**
+ * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+ *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
+ *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
+ *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
+ *          <p>
+ *             <b>For information about the current version of AWS
+ *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
+ *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
+ *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
+ *       Reference</a>.</p>
+ *          <p>Modifies an HSM.</p>
+ *          <important>
+ *             <p>This operation can result in the HSM being offline for up to 15 minutes while the AWS
+ *         CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure
+ *         that your AWS CloudHSM service is configured for high availability, and consider executing this
+ *         operation during a maintenance window.</p>
+ *          </important>
+ */
 export class ModifyHsmCommand extends $Command<
   ModifyHsmCommandInput,
   ModifyHsmCommandOutput,
@@ -31,6 +50,9 @@ export class ModifyHsmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMClientResolvedConfig,

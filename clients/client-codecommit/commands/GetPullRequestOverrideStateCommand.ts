@@ -20,6 +20,10 @@ import {
 export type GetPullRequestOverrideStateCommandInput = GetPullRequestOverrideStateInput;
 export type GetPullRequestOverrideStateCommandOutput = GetPullRequestOverrideStateOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about whether approval rules have been set aside (overridden) for a
+ *             pull request, and if so, the Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
+ */
 export class GetPullRequestOverrideStateCommand extends $Command<
   GetPullRequestOverrideStateCommandInput,
   GetPullRequestOverrideStateCommandOutput,
@@ -34,6 +38,9 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

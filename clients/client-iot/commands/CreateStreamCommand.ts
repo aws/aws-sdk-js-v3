@@ -20,6 +20,11 @@ import {
 export type CreateStreamCommandInput = CreateStreamRequest;
 export type CreateStreamCommandOutput = CreateStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
+ *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
+ *             associated with a stream.</p>
+ */
 export class CreateStreamCommand extends $Command<
   CreateStreamCommandInput,
   CreateStreamCommandOutput,
@@ -34,6 +39,9 @@ export class CreateStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

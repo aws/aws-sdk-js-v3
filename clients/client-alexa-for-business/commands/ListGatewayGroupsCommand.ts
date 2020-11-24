@@ -20,6 +20,10 @@ import {
 export type ListGatewayGroupsCommandInput = ListGatewayGroupsRequest;
 export type ListGatewayGroupsCommandOutput = ListGatewayGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
+ *          a specific gateway group.</p>
+ */
 export class ListGatewayGroupsCommand extends $Command<
   ListGatewayGroupsCommandInput,
   ListGatewayGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class ListGatewayGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

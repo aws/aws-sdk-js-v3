@@ -20,6 +20,35 @@ import {
 export type BatchGetDeploymentTargetsCommandInput = BatchGetDeploymentTargetsInput;
 export type BatchGetDeploymentTargetsCommandOutput = BatchGetDeploymentTargetsOutput & __MetadataBearer;
 
+/**
+ * <p> Returns an array of one or more targets associated with a deployment. This method works with all
+ *             compute types and should be used instead of the deprecated
+ *             <code>BatchGetDeploymentInstances</code>.
+ *             The maximum number of targets that can be returned is 25.</p>
+ *         <p> The type of targets returned depends on the deployment's compute platform or deployment method: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                     <b>EC2/On-premises</b>: Information about EC2 instance
+ *                     targets. </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                     <b>AWS Lambda</b>: Information about Lambda functions
+ *                     targets. </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                     <b>Amazon ECS</b>: Information about Amazon ECS
+ *                     service targets. </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <b>CloudFormation</b>: Information about targets of
+ *                     blue/green deployments initiated by a CloudFormation stack update.</p>
+ *             </li>
+ *          </ul>
+ */
 export class BatchGetDeploymentTargetsCommand extends $Command<
   BatchGetDeploymentTargetsCommandInput,
   BatchGetDeploymentTargetsCommandOutput,
@@ -34,6 +63,9 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

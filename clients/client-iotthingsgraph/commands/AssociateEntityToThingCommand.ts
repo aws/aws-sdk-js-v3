@@ -20,6 +20,10 @@ import {
 export type AssociateEntityToThingCommandInput = AssociateEntityToThingRequest;
 export type AssociateEntityToThingCommandOutput = AssociateEntityToThingResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a device with a concrete thing that is in the user's registry.</p>
+ *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
+ */
 export class AssociateEntityToThingCommand extends $Command<
   AssociateEntityToThingCommandInput,
   AssociateEntityToThingCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateEntityToThingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

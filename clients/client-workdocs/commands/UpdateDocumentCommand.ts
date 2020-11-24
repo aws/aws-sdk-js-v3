@@ -20,6 +20,10 @@ import {
 export type UpdateDocumentCommandInput = UpdateDocumentRequest;
 export type UpdateDocumentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the specified attributes of a document. The user must have access to both
+ *             the document and its parent folder, if applicable.</p>
+ */
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,
   UpdateDocumentCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

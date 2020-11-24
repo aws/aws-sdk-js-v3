@@ -20,6 +20,9 @@ import {
 export type ListProgressUpdateStreamsCommandInput = ListProgressUpdateStreamsRequest;
 export type ListProgressUpdateStreamsCommandOutput = ListProgressUpdateStreamsResult & __MetadataBearer;
 
+/**
+ * <p>Lists progress update streams associated with the user account making this call.</p>
+ */
 export class ListProgressUpdateStreamsCommand extends $Command<
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetVocabularyCommandInput = GetVocabularyRequest;
 export type GetVocabularyCommandOutput = GetVocabularyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a vocabulary. </p>
+ */
 export class GetVocabularyCommand extends $Command<
   GetVocabularyCommandInput,
   GetVocabularyCommandOutput,
@@ -34,6 +37,9 @@ export class GetVocabularyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

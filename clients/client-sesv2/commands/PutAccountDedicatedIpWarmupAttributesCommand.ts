@@ -24,6 +24,9 @@ export type PutAccountDedicatedIpWarmupAttributesCommandInput = PutAccountDedica
 export type PutAccountDedicatedIpWarmupAttributesCommandOutput = PutAccountDedicatedIpWarmupAttributesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
+ */
 export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
   PutAccountDedicatedIpWarmupAttributesCommandInput,
   PutAccountDedicatedIpWarmupAttributesCommandOutput,
@@ -38,6 +41,9 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

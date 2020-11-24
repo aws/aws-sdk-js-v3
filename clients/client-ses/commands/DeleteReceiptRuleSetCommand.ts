@@ -20,6 +20,15 @@ import {
 export type DeleteReceiptRuleSetCommandInput = DeleteReceiptRuleSetRequest;
 export type DeleteReceiptRuleSetCommandOutput = DeleteReceiptRuleSetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified receipt rule set and all of the receipt rules it
+ *             contains.</p>
+ *         <note>
+ *             <p>The currently active rule set cannot be deleted.</p>
+ *         </note>
+ *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class DeleteReceiptRuleSetCommand extends $Command<
   DeleteReceiptRuleSetCommandInput,
   DeleteReceiptRuleSetCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteReceiptRuleSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

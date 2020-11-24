@@ -20,6 +20,12 @@ import {
 export type AddRoleToDBInstanceCommandInput = AddRoleToDBInstanceMessage;
 export type AddRoleToDBInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates an AWS Identity and Access Management (IAM) role with a DB instance.</p>
+ *         <note>
+ *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
+ *         </note>
+ */
 export class AddRoleToDBInstanceCommand extends $Command<
   AddRoleToDBInstanceCommandInput,
   AddRoleToDBInstanceCommandOutput,
@@ -34,6 +40,9 @@ export class AddRoleToDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

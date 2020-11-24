@@ -20,6 +20,9 @@ import {
 export type GetTerminologyCommandInput = GetTerminologyRequest;
 export type GetTerminologyCommandOutput = GetTerminologyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a custom terminology.</p>
+ */
 export class GetTerminologyCommand extends $Command<
   GetTerminologyCommandInput,
   GetTerminologyCommandOutput,
@@ -34,6 +37,9 @@ export class GetTerminologyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

@@ -13,6 +13,9 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { ClientDefaults } from "./GlacierClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
+/**
+ * @internal
+ */
 export const ClientDefaultValues: Required<ClientDefaults> = {
   ...ClientSharedValues,
   runtime: "browser",

@@ -20,6 +20,9 @@ import {
 export type StartTranscriptionJobCommandInput = StartTranscriptionJobRequest;
 export type StartTranscriptionJobCommandOutput = StartTranscriptionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous job to transcribe speech to text. </p>
+ */
 export class StartTranscriptionJobCommand extends $Command<
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartTranscriptionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

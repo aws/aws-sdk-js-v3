@@ -20,6 +20,9 @@ import {
 export type DescribeBrokerCommandInput = DescribeBrokerRequest;
 export type DescribeBrokerCommandOutput = DescribeBrokerResponse & __MetadataBearer;
 
+/**
+ * Returns information about the specified broker.
+ */
 export class DescribeBrokerCommand extends $Command<
   DescribeBrokerCommandInput,
   DescribeBrokerCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBrokerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

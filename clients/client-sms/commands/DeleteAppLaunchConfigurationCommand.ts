@@ -20,6 +20,9 @@ import {
 export type DeleteAppLaunchConfigurationCommandInput = DeleteAppLaunchConfigurationRequest;
 export type DeleteAppLaunchConfigurationCommandOutput = DeleteAppLaunchConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the launch configuration for the specified application.</p>
+ */
 export class DeleteAppLaunchConfigurationCommand extends $Command<
   DeleteAppLaunchConfigurationCommandInput,
   DeleteAppLaunchConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeMailboxExportJobCommandInput = DescribeMailboxExportJobRequest;
 export type DescribeMailboxExportJobCommandOutput = DescribeMailboxExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the current status of a mailbox export job.</p>
+ */
 export class DescribeMailboxExportJobCommand extends $Command<
   DescribeMailboxExportJobCommandInput,
   DescribeMailboxExportJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMailboxExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

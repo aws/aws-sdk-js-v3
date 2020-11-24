@@ -20,6 +20,10 @@ import {
 export type UpdateRecipeCommandInput = UpdateRecipeRequest;
 export type UpdateRecipeCommandOutput = UpdateRecipeResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the definition of the latest working version of an AWS Glue DataBrew recipe
+ *             in the current AWS account.</p>
+ */
 export class UpdateRecipeCommand extends $Command<
   UpdateRecipeCommandInput,
   UpdateRecipeCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateRecipeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

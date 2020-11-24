@@ -20,6 +20,9 @@ import {
 export type DeleteRemoteAccessSessionCommandInput = DeleteRemoteAccessSessionRequest;
 export type DeleteRemoteAccessSessionCommandOutput = DeleteRemoteAccessSessionResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a completed remote access session and its results.</p>
+ */
 export class DeleteRemoteAccessSessionCommand extends $Command<
   DeleteRemoteAccessSessionCommandInput,
   DeleteRemoteAccessSessionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

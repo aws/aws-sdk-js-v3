@@ -20,6 +20,9 @@ import {
 export type DisassociateCustomerGatewayCommandInput = DisassociateCustomerGatewayRequest;
 export type DisassociateCustomerGatewayCommandOutput = DisassociateCustomerGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a customer gateway from a device and a link.</p>
+ */
 export class DisassociateCustomerGatewayCommand extends $Command<
   DisassociateCustomerGatewayCommandInput,
   DisassociateCustomerGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

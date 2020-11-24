@@ -20,6 +20,10 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p>List tags for a given resource.</p>
+ *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

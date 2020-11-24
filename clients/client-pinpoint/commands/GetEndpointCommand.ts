@@ -20,6 +20,9 @@ import {
 export type GetEndpointCommandInput = GetEndpointRequest;
 export type GetEndpointCommandOutput = GetEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
+ */
 export class GetEndpointCommand extends $Command<
   GetEndpointCommandInput,
   GetEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class GetEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

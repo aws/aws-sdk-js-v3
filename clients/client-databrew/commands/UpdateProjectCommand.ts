@@ -20,6 +20,10 @@ import {
 export type UpdateProjectCommandInput = UpdateProjectRequest;
 export type UpdateProjectCommandOutput = UpdateProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the definition of an existing AWS Glue DataBrew project in the current AWS
+ *             account.</p>
+ */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

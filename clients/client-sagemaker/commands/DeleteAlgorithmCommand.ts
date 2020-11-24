@@ -20,6 +20,9 @@ import {
 export type DeleteAlgorithmCommandInput = DeleteAlgorithmInput;
 export type DeleteAlgorithmCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes the specified algorithm from your account.</p>
+ */
 export class DeleteAlgorithmCommand extends $Command<
   DeleteAlgorithmCommandInput,
   DeleteAlgorithmCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAlgorithmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
 export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a previously provisioned instance.
+ *             </p>
+ */
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,
   DeleteDBInstanceCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

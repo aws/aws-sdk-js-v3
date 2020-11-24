@@ -20,6 +20,9 @@ import {
 export type ListTopicRulesCommandInput = ListTopicRulesRequest;
 export type ListTopicRulesCommandOutput = ListTopicRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the rules for the specific topic.</p>
+ */
 export class ListTopicRulesCommand extends $Command<
   ListTopicRulesCommandInput,
   ListTopicRulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListTopicRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

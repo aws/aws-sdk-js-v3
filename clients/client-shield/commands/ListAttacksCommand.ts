@@ -20,6 +20,10 @@ import {
 export type ListAttacksCommandInput = ListAttacksRequest;
 export type ListAttacksCommandOutput = ListAttacksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
+ *          period.</p>
+ */
 export class ListAttacksCommand extends $Command<
   ListAttacksCommandInput,
   ListAttacksCommandOutput,
@@ -34,6 +38,9 @@ export class ListAttacksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

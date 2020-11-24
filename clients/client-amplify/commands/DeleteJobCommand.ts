@@ -20,6 +20,9 @@ import {
 export type DeleteJobCommandInput = DeleteJobRequest;
 export type DeleteJobCommandOutput = DeleteJobResult & __MetadataBearer;
 
+/**
+ * <p> Deletes a job for a branch of an Amplify app. </p>
+ */
 export class DeleteJobCommand extends $Command<
   DeleteJobCommandInput,
   DeleteJobCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteServerCatalogCommandInput = DeleteServerCatalogRequest;
 export type DeleteServerCatalogCommandOutput = DeleteServerCatalogResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes all servers from your server catalog.</p>
+ */
 export class DeleteServerCatalogCommand extends $Command<
   DeleteServerCatalogCommandInput,
   DeleteServerCatalogCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteServerCatalogCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

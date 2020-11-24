@@ -24,6 +24,9 @@ export type BatchAssociateServiceActionWithProvisioningArtifactCommandInput = Ba
 export type BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = BatchAssociateServiceActionWithProvisioningArtifactOutput &
   __MetadataBearer;
 
+/**
+ * <p>Associates multiple self-service actions with provisioning artifacts.</p>
+ */
 export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends $Command<
   BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
   BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
@@ -38,6 +41,9 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

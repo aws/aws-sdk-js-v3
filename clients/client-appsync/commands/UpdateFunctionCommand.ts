@@ -20,6 +20,9 @@ import {
 export type UpdateFunctionCommandInput = UpdateFunctionRequest;
 export type UpdateFunctionCommandOutput = UpdateFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a <code>Function</code> object.</p>
+ */
 export class UpdateFunctionCommand extends $Command<
   UpdateFunctionCommandInput,
   UpdateFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

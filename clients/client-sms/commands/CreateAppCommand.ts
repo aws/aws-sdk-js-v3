@@ -17,6 +17,10 @@ import {
 export type CreateAppCommandInput = CreateAppRequest;
 export type CreateAppCommandOutput = CreateAppResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an application. An application consists of one or more server groups. Each
+ *             server group contain one or more servers.</p>
+ */
 export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +31,9 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

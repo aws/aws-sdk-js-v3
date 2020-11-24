@@ -20,6 +20,10 @@ import {
 export type CreateSystemTemplateCommandInput = CreateSystemTemplateRequest;
 export type CreateSystemTemplateCommandOutput = CreateSystemTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a system. The system is validated against the entities in the
+ *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
+ */
 export class CreateSystemTemplateCommand extends $Command<
   CreateSystemTemplateCommandInput,
   CreateSystemTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class CreateSystemTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

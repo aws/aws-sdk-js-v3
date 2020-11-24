@@ -20,6 +20,13 @@ import {
 export type ChangePasswordCommandInput = ChangePasswordRequest;
 export type ChangePasswordCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the password of the IAM user who is calling this operation. The AWS account
+ *          root user password is not affected by this operation.</p>
+ *          <p>To change the password for a different user, see <a>UpdateLoginProfile</a>.
+ *          For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing Passwords</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ */
 export class ChangePasswordCommand extends $Command<
   ChangePasswordCommandInput,
   ChangePasswordCommandOutput,
@@ -34,6 +41,9 @@ export class ChangePasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

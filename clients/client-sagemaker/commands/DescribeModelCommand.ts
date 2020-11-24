@@ -20,6 +20,10 @@ import {
 export type DescribeModelCommandInput = DescribeModelInput;
 export type DescribeModelCommandOutput = DescribeModelOutput & __MetadataBearer;
 
+/**
+ * <p>Describes a model that you created using the <code>CreateModel</code>
+ *             API.</p>
+ */
 export class DescribeModelCommand extends $Command<
   DescribeModelCommandInput,
   DescribeModelCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

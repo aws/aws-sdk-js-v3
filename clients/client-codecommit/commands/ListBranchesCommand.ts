@@ -20,6 +20,9 @@ import {
 export type ListBranchesCommandInput = ListBranchesInput;
 export type ListBranchesCommandOutput = ListBranchesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more branches in a repository.</p>
+ */
 export class ListBranchesCommand extends $Command<
   ListBranchesCommandInput,
   ListBranchesCommandOutput,
@@ -34,6 +37,9 @@ export class ListBranchesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

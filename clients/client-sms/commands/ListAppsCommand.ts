@@ -17,6 +17,9 @@ import {
 export type ListAppsCommandInput = ListAppsRequest;
 export type ListAppsCommandOutput = ListAppsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves summaries for all applications.</p>
+ */
 export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +30,9 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

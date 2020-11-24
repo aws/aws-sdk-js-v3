@@ -20,6 +20,11 @@ import {
 export type DescribeJournalKinesisStreamCommandInput = DescribeJournalKinesisStreamRequest;
 export type DescribeJournalKinesisStreamCommandOutput = DescribeJournalKinesisStreamResponse & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
+ *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
+ *          the parameters of your original stream creation request.</p>
+ */
 export class DescribeJournalKinesisStreamCommand extends $Command<
   DescribeJournalKinesisStreamCommandInput,
   DescribeJournalKinesisStreamCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,

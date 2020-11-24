@@ -20,6 +20,9 @@ import {
 export type DescribeDeploymentJobCommandInput = DescribeDeploymentJobRequest;
 export type DescribeDeploymentJobCommandOutput = DescribeDeploymentJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a deployment job.</p>
+ */
 export class DescribeDeploymentJobCommand extends $Command<
   DescribeDeploymentJobCommandInput,
   DescribeDeploymentJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDeploymentJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

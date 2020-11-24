@@ -20,6 +20,9 @@ import {
 export type GetInventoryCommandInput = GetInventoryRequest;
 export type GetInventoryCommandOutput = GetInventoryResult & __MetadataBearer;
 
+/**
+ * <p>Query inventory information.</p>
+ */
 export class GetInventoryCommand extends $Command<
   GetInventoryCommandInput,
   GetInventoryCommandOutput,
@@ -34,6 +37,9 @@ export class GetInventoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

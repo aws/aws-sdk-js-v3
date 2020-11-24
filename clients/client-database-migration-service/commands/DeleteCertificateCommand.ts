@@ -24,6 +24,9 @@ import {
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
 export type DeleteCertificateCommandOutput = DeleteCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified certificate. </p>
+ */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

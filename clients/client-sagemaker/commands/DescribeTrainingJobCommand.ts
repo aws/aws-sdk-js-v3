@@ -20,6 +20,9 @@ import {
 export type DescribeTrainingJobCommandInput = DescribeTrainingJobRequest;
 export type DescribeTrainingJobCommandOutput = DescribeTrainingJobResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about a training job.</p>
+ */
 export class DescribeTrainingJobCommand extends $Command<
   DescribeTrainingJobCommandInput,
   DescribeTrainingJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTrainingJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

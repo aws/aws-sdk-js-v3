@@ -20,6 +20,13 @@ import {
 export type ListPlatformVersionsCommandInput = ListPlatformVersionsRequest;
 export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult & __MetadataBearer;
 
+/**
+ * <p>Lists the platform versions available for your account in an AWS Region. Provides
+ *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
+ *       version.</p>
+ *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+ *         Platforms Glossary</a>.</p>
+ */
 export class ListPlatformVersionsCommand extends $Command<
   ListPlatformVersionsCommandInput,
   ListPlatformVersionsCommandOutput,
@@ -34,6 +41,9 @@ export class ListPlatformVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

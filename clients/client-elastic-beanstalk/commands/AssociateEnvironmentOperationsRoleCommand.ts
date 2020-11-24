@@ -20,6 +20,12 @@ import {
 export type AssociateEnvironmentOperationsRoleCommandInput = AssociateEnvironmentOperationsRoleMessage;
 export type AssociateEnvironmentOperationsRoleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
+ *       uses the associated operations role for permissions to downstream services during subsequent
+ *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+ *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+ */
 export class AssociateEnvironmentOperationsRoleCommand extends $Command<
   AssociateEnvironmentOperationsRoleCommandInput,
   AssociateEnvironmentOperationsRoleCommandOutput,
@@ -34,6 +40,9 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

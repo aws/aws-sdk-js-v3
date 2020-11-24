@@ -20,6 +20,9 @@ import {
 export type UpdateJobShipmentStateCommandInput = UpdateJobShipmentStateRequest;
 export type UpdateJobShipmentStateCommandOutput = UpdateJobShipmentStateResult & __MetadataBearer;
 
+/**
+ * <p>Updates the state when a the shipment states changes to a different state.</p>
+ */
 export class UpdateJobShipmentStateCommand extends $Command<
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateJobShipmentStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

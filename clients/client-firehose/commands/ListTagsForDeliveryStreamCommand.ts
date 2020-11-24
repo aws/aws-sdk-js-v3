@@ -20,6 +20,10 @@ import {
 export type ListTagsForDeliveryStreamCommandInput = ListTagsForDeliveryStreamInput;
 export type ListTagsForDeliveryStreamCommandOutput = ListTagsForDeliveryStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
+ *          transactions per second per account. </p>
+ */
 export class ListTagsForDeliveryStreamCommand extends $Command<
   ListTagsForDeliveryStreamCommandInput,
   ListTagsForDeliveryStreamCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,

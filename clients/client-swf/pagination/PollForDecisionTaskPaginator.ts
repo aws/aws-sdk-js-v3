@@ -8,6 +8,9 @@ import {
 import { SWFPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SWFClient,
   input: PollForDecisionTaskCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new PollForDecisionTaskCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SWF,
   input: PollForDecisionTaskCommandInput,

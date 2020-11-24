@@ -20,6 +20,9 @@ import {
 export type GetFlowTemplateCommandInput = GetFlowTemplateRequest;
 export type GetFlowTemplateCommandOutput = GetFlowTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
+ */
 export class GetFlowTemplateCommand extends $Command<
   GetFlowTemplateCommandInput,
   GetFlowTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetFlowTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteFlowCommandInput = DeleteFlowRequest;
 export type DeleteFlowCommandOutput = DeleteFlowResponse & __MetadataBearer;
 
+/**
+ * Deletes a flow. Before you can delete a flow, you must stop the flow.
+ */
 export class DeleteFlowCommand extends $Command<
   DeleteFlowCommandInput,
   DeleteFlowCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

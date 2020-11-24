@@ -20,6 +20,9 @@ import {
 export type UpdateRestApiCommandInput = UpdateRestApiRequest;
 export type UpdateRestApiCommandOutput = RestApi & __MetadataBearer;
 
+/**
+ * <p>Changes information about the specified API.</p>
+ */
 export class UpdateRestApiCommand extends $Command<
   UpdateRestApiCommandInput,
   UpdateRestApiCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

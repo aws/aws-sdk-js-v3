@@ -20,6 +20,9 @@ import {
 export type GetDocumentVersionCommandInput = GetDocumentVersionRequest;
 export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves version metadata for the specified document.</p>
+ */
 export class GetDocumentVersionCommand extends $Command<
   GetDocumentVersionCommandInput,
   GetDocumentVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetDocumentVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

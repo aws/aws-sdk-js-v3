@@ -20,6 +20,10 @@ import {
 export type ApplySchemaCommandInput = ApplySchemaRequest;
 export type ApplySchemaCommandOutput = ApplySchemaResponse & __MetadataBearer;
 
+/**
+ * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same
+ *       name and version as that of the published schema.</p>
+ */
 export class ApplySchemaCommand extends $Command<
   ApplySchemaCommandInput,
   ApplySchemaCommandOutput,
@@ -34,6 +38,9 @@ export class ApplySchemaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

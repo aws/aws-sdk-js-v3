@@ -20,6 +20,9 @@ import {
 export type GetResourcePolicyCommandInput = GetResourcePolicyInput;
 export type GetResourcePolicyCommandOutput = GetResourcePolicyOutput & __MetadataBearer;
 
+/**
+ * <p> Gets a resource policy that is identified by its resource ARN. </p>
+ */
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

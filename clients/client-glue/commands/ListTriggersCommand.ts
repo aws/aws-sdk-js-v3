@@ -20,6 +20,13 @@ import {
 export type ListTriggersCommandInput = ListTriggersRequest;
 export type ListTriggersCommandOutput = ListTriggersResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
+ *
+ *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
+ *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
+ *       filtering, only resources with the tag are retrieved.</p>
+ */
 export class ListTriggersCommand extends $Command<
   ListTriggersCommandInput,
   ListTriggersCommandOutput,
@@ -34,6 +41,9 @@ export class ListTriggersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

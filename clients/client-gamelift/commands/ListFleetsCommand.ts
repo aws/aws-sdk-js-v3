@@ -20,6 +20,55 @@ import {
 export type ListFleetsCommandInput = ListFleetsInput;
 export type ListFleetsCommandOutput = ListFleetsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves a collection of fleet resources for this AWS account. You can filter the
+ *             result set to find only those fleets that are deployed with a specific build or script.
+ *             Use the pagination parameters to retrieve results in sequential pages.</p>
+ *         <note>
+ *             <p>Fleet resources are not listed in a particular order.</p>
+ *         </note>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListFleets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteFleet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateFleetAttributes</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListFleetsCommand extends $Command<
   ListFleetsCommandInput,
   ListFleetsCommandOutput,
@@ -34,6 +83,9 @@ export class ListFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

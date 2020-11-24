@@ -20,6 +20,12 @@ import {
 export type CreateEgressOnlyInternetGatewayCommandInput = CreateEgressOnlyInternetGatewayRequest;
 export type CreateEgressOnlyInternetGatewayCommandOutput = CreateEgressOnlyInternetGatewayResult & __MetadataBearer;
 
+/**
+ * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
+ * 			internet gateway is used to enable outbound communication over IPv6 from instances in
+ * 			your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
+ * 			connection with your instance.</p>
+ */
 export class CreateEgressOnlyInternetGatewayCommand extends $Command<
   CreateEgressOnlyInternetGatewayCommandInput,
   CreateEgressOnlyInternetGatewayCommandOutput,
@@ -34,6 +40,9 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

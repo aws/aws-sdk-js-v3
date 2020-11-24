@@ -20,6 +20,9 @@ import {
 export type DescribeVpcAttributeCommandInput = DescribeVpcAttributeRequest;
 export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
+ */
 export class DescribeVpcAttributeCommand extends $Command<
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVpcAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

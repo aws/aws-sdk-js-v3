@@ -20,6 +20,9 @@ import {
 export type DefineSuggesterCommandInput = DefineSuggesterRequest;
 export type DefineSuggesterCommandOutput = DefineSuggesterResponse & __MetadataBearer;
 
+/**
+ * <p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DefineSuggesterCommand extends $Command<
   DefineSuggesterCommandInput,
   DefineSuggesterCommandOutput,
@@ -34,6 +37,9 @@ export class DefineSuggesterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

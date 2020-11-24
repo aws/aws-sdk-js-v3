@@ -20,6 +20,10 @@ import {
 export type DescribeJobCommandInput = DescribeJobRequest;
 export type DescribeJobCommandOutput = DescribeJobResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific job including shipping information, job status,
+ *       and other important metadata. </p>
+ */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,
   DescribeJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

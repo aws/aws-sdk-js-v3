@@ -21,6 +21,9 @@ export type DescribeNotificationConfigurationsCommandInput = DescribeNotificatio
 export type DescribeNotificationConfigurationsCommandOutput = DescribeNotificationConfigurationsAnswer &
   __MetadataBearer;
 
+/**
+ * <p>Describes the notification actions associated with the specified Auto Scaling group.</p>
+ */
 export class DescribeNotificationConfigurationsCommand extends $Command<
   DescribeNotificationConfigurationsCommandInput,
   DescribeNotificationConfigurationsCommandOutput,
@@ -35,6 +38,9 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

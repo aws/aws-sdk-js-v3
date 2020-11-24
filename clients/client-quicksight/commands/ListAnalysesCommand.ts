@@ -20,6 +20,9 @@ import {
 export type ListAnalysesCommandInput = ListAnalysesRequest;
 export type ListAnalysesCommandOutput = ListAnalysesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists Amazon QuickSight analyses that exist in the specified AWS account.</p>
+ */
 export class ListAnalysesCommand extends $Command<
   ListAnalysesCommandInput,
   ListAnalysesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAnalysesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

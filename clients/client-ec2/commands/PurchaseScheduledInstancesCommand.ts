@@ -20,6 +20,14 @@ import {
 export type PurchaseScheduledInstancesCommandInput = PurchaseScheduledInstancesRequest;
 export type PurchaseScheduledInstancesCommandOutput = PurchaseScheduledInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Purchases the Scheduled Instances with the specified schedule.</p>
+ *          <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
+ *          Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
+ *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
+ *          you must call <a>RunScheduledInstances</a> during each scheduled time period.</p>
+ *          <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ */
 export class PurchaseScheduledInstancesCommand extends $Command<
   PurchaseScheduledInstancesCommandInput,
   PurchaseScheduledInstancesCommandOutput,
@@ -34,6 +42,9 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

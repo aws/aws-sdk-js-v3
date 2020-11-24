@@ -20,6 +20,12 @@ import {
 export type DeleteEvaluationResultsCommandInput = DeleteEvaluationResultsRequest;
 export type DeleteEvaluationResultsCommandOutput = DeleteEvaluationResultsResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the evaluation results for the specified AWS Config
+ * 			rule. You can specify one AWS Config rule per request. After you
+ * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
+ * 			your AWS resources against the rule.</p>
+ */
 export class DeleteEvaluationResultsCommand extends $Command<
   DeleteEvaluationResultsCommandInput,
   DeleteEvaluationResultsCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteEvaluationResultsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

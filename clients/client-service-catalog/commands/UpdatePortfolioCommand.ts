@@ -20,6 +20,10 @@ import {
 export type UpdatePortfolioCommandInput = UpdatePortfolioInput;
 export type UpdatePortfolioCommandOutput = UpdatePortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the specified portfolio.</p>
+ *          <p>You cannot update a product that was shared with you.</p>
+ */
 export class UpdatePortfolioCommand extends $Command<
   UpdatePortfolioCommandInput,
   UpdatePortfolioCommandOutput,
@@ -34,6 +38,9 @@ export class UpdatePortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

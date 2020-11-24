@@ -20,6 +20,11 @@ import {
 export type IgnoreQueryParamsInResponseCommandInput = {};
 export type IgnoreQueryParamsInResponseCommandOutput = IgnoreQueryParamsInResponseOutput & __MetadataBearer;
 
+/**
+ * This example ensures that query string bound request parameters are
+ * serialized in the body of responses if the structure is used in both
+ * the request and response.
+ */
 export class IgnoreQueryParamsInResponseCommand extends $Command<
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -34,6 +39,9 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,

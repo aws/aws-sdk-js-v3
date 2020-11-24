@@ -20,6 +20,12 @@ import {
 export type ResetDistributionCacheCommandInput = ResetDistributionCacheRequest;
 export type ResetDistributionCacheCommandOutput = ResetDistributionCacheResult & __MetadataBearer;
 
+/**
+ * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
+ *       distribution.</p>
+ *          <p>After resetting the cache, the next time a content request is made, your distribution
+ *       pulls, serves, and caches it from the origin.</p>
+ */
 export class ResetDistributionCacheCommand extends $Command<
   ResetDistributionCacheCommandInput,
   ResetDistributionCacheCommandOutput,
@@ -34,6 +40,9 @@ export class ResetDistributionCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

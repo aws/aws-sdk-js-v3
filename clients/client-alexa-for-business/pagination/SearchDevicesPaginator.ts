@@ -8,6 +8,9 @@ import {
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AlexaForBusinessClient,
   input: SearchDevicesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchDevicesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: AlexaForBusiness,
   input: SearchDevicesCommandInput,

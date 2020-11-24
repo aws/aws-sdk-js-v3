@@ -20,6 +20,9 @@ import {
 export type DeleteManagedPrefixListCommandInput = DeleteManagedPrefixListRequest;
 export type DeleteManagedPrefixListCommandOutput = DeleteManagedPrefixListResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
+ */
 export class DeleteManagedPrefixListCommand extends $Command<
   DeleteManagedPrefixListCommandInput,
   DeleteManagedPrefixListCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteManagedPrefixListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

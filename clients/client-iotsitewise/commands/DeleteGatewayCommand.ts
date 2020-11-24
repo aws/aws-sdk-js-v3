@@ -20,6 +20,10 @@ import {
 export type DeleteGatewayCommandInput = DeleteGatewayRequest;
 export type DeleteGatewayCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain
+ *       in your gateway's file system.</p>
+ */
 export class DeleteGatewayCommand extends $Command<
   DeleteGatewayCommandInput,
   DeleteGatewayCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeNFSFileSharesCommandInput = DescribeNFSFileSharesInput;
 export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a description for one or more Network File System (NFS) file shares from a file
+ *          gateway. This operation is only supported for file gateways.</p>
+ */
 export class DescribeNFSFileSharesCommand extends $Command<
   DescribeNFSFileSharesCommandInput,
   DescribeNFSFileSharesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeNFSFileSharesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDevEndpointCommandInput = UpdateDevEndpointRequest;
 export type UpdateDevEndpointCommandOutput = UpdateDevEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a specified development endpoint.</p>
+ */
 export class UpdateDevEndpointCommand extends $Command<
   UpdateDevEndpointCommandInput,
   UpdateDevEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDevEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

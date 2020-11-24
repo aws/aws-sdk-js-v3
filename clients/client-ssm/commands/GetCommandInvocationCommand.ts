@@ -20,6 +20,9 @@ import {
 export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
 export type GetCommandInvocationCommandOutput = GetCommandInvocationResult & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about command execution for an invocation or plugin. </p>
+ */
 export class GetCommandInvocationCommand extends $Command<
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput,
@@ -34,6 +37,9 @@ export class GetCommandInvocationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

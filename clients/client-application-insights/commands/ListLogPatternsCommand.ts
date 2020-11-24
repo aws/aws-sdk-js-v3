@@ -24,6 +24,9 @@ import {
 export type ListLogPatternsCommandInput = ListLogPatternsRequest;
 export type ListLogPatternsCommandOutput = ListLogPatternsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
+ */
 export class ListLogPatternsCommand extends $Command<
   ListLogPatternsCommandInput,
   ListLogPatternsCommandOutput,
@@ -38,6 +41,9 @@ export class ListLogPatternsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

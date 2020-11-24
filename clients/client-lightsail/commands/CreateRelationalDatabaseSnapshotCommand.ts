@@ -20,6 +20,12 @@ import {
 export type CreateRelationalDatabaseSnapshotCommandInput = CreateRelationalDatabaseSnapshotRequest;
 export type CreateRelationalDatabaseSnapshotCommandOutput = CreateRelationalDatabaseSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
+ *       to make copies of a database, and to save data before deleting a database.</p>
+ *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
+ *       control via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateRelationalDatabaseSnapshotCommand extends $Command<
   CreateRelationalDatabaseSnapshotCommandInput,
   CreateRelationalDatabaseSnapshotCommandOutput,
@@ -34,6 +40,9 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

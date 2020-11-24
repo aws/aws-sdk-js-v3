@@ -20,6 +20,10 @@ import {
 export type DisableInsightRulesCommandInput = DisableInsightRulesInput;
 export type DisableInsightRulesCommandOutput = DisableInsightRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
+ * 		not incur costs.</p>
+ */
 export class DisableInsightRulesCommand extends $Command<
   DisableInsightRulesCommandInput,
   DisableInsightRulesCommandOutput,
@@ -34,6 +38,9 @@ export class DisableInsightRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

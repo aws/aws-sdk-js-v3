@@ -24,6 +24,9 @@ export type UpdateGroupCertificateConfigurationCommandInput = UpdateGroupCertifi
 export type UpdateGroupCertificateConfigurationCommandOutput = UpdateGroupCertificateConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * Updates the Certificate expiry time for a group.
+ */
 export class UpdateGroupCertificateConfigurationCommand extends $Command<
   UpdateGroupCertificateConfigurationCommandInput,
   UpdateGroupCertificateConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

@@ -4,6 +4,9 @@ import { GetLinksCommand, GetLinksCommandInput, GetLinksCommandOutput } from "..
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
   input: GetLinksCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetLinksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: NetworkManager,
   input: GetLinksCommandInput,

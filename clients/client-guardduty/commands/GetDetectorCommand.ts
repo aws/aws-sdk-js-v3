@@ -20,6 +20,9 @@ import {
 export type GetDetectorCommandInput = GetDetectorRequest;
 export type GetDetectorCommandOutput = GetDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
+ */
 export class GetDetectorCommand extends $Command<
   GetDetectorCommandInput,
   GetDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class GetDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

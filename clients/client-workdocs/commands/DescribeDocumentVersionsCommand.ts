@@ -20,6 +20,10 @@ import {
 export type DescribeDocumentVersionsCommandInput = DescribeDocumentVersionsRequest;
 export type DescribeDocumentVersionsCommandOutput = DescribeDocumentVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the document versions for the specified document.</p>
+ *         <p>By default, only active versions are returned.</p>
+ */
 export class DescribeDocumentVersionsCommand extends $Command<
   DescribeDocumentVersionsCommandInput,
   DescribeDocumentVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDocumentVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

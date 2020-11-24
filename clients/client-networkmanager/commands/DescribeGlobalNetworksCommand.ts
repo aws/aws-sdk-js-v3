@@ -20,6 +20,12 @@ import {
 export type DescribeGlobalNetworksCommandInput = DescribeGlobalNetworksRequest;
 export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse & __MetadataBearer;
 
+/**
+ * <p>Describes one or more global networks. By default, all global networks are
+ *             described. To describe the objects in your global network, you must use the appropriate
+ *                 <code>Get*</code> action. For example, to list the transit gateways in your global
+ *             network, use <a>GetTransitGatewayRegistrations</a>.</p>
+ */
 export class DescribeGlobalNetworksCommand extends $Command<
   DescribeGlobalNetworksCommandInput,
   DescribeGlobalNetworksCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeGlobalNetworksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

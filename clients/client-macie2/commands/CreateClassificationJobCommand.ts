@@ -20,6 +20,9 @@ import {
 export type CreateClassificationJobCommandInput = CreateClassificationJobRequest;
 export type CreateClassificationJobCommandOutput = CreateClassificationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and defines the settings for a classification job.</p>
+ */
 export class CreateClassificationJobCommand extends $Command<
   CreateClassificationJobCommandInput,
   CreateClassificationJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateClassificationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

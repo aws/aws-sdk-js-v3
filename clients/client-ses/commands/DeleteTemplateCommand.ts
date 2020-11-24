@@ -20,6 +20,10 @@ import {
 export type DeleteTemplateCommandInput = DeleteTemplateRequest;
 export type DeleteTemplateCommandOutput = DeleteTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an email template.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class DeleteTemplateCommand extends $Command<
   DeleteTemplateCommandInput,
   DeleteTemplateCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

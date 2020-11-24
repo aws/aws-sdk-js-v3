@@ -24,6 +24,9 @@ import {
 export type DeleteNodeCommandInput = DeleteNodeInput;
 export type DeleteNodeCommandOutput = DeleteNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+ */
 export class DeleteNodeCommand extends $Command<
   DeleteNodeCommandInput,
   DeleteNodeCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

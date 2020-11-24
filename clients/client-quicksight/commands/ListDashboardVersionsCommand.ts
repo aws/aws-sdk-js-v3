@@ -20,6 +20,9 @@ import {
 export type ListDashboardVersionsCommandInput = ListDashboardVersionsRequest;
 export type ListDashboardVersionsCommandOutput = ListDashboardVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
+ */
 export class ListDashboardVersionsCommand extends $Command<
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDashboardVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

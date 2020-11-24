@@ -20,6 +20,9 @@ import {
 export type StartWorkflowRunCommandInput = StartWorkflowRunRequest;
 export type StartWorkflowRunCommandOutput = StartWorkflowRunResponse & __MetadataBearer;
 
+/**
+ * <p>Starts a new run of the specified workflow.</p>
+ */
 export class StartWorkflowRunCommand extends $Command<
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput,
@@ -34,6 +37,9 @@ export class StartWorkflowRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

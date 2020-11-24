@@ -20,6 +20,9 @@ import {
 export type UpdateProfilingGroupCommandInput = UpdateProfilingGroupRequest;
 export type UpdateProfilingGroupCommandOutput = UpdateProfilingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a profiling group.</p>
+ */
 export class UpdateProfilingGroupCommand extends $Command<
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateProfilingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,

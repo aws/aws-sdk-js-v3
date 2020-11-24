@@ -20,6 +20,9 @@ import {
 export type ListSipRulesCommandInput = ListSipRulesRequest;
 export type ListSipRulesCommandOutput = ListSipRulesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the SIP rules under the administrator's AWS account.</p>
+ */
 export class ListSipRulesCommand extends $Command<
   ListSipRulesCommandInput,
   ListSipRulesCommandOutput,
@@ -34,6 +37,9 @@ export class ListSipRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

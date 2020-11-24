@@ -20,6 +20,11 @@ import {
 export type DisassociateAdminAccountCommandInput = DisassociateAdminAccountRequest;
 export type DisassociateAdminAccountCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator
+ *       account. To set a different account as the administrator account, you must submit an
+ *         <code>AssociateAdminAccount</code> request.</p>
+ */
 export class DisassociateAdminAccountCommand extends $Command<
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
@@ -34,6 +39,9 @@ export class DisassociateAdminAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

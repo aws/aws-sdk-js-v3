@@ -20,6 +20,9 @@ import {
 export type UpdateContributorInsightsCommandInput = UpdateContributorInsightsInput;
 export type UpdateContributorInsightsCommandOutput = UpdateContributorInsightsOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the status for contributor insights for a specific table or index.</p>
+ */
 export class UpdateContributorInsightsCommand extends $Command<
   UpdateContributorInsightsCommandInput,
   UpdateContributorInsightsCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateContributorInsightsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

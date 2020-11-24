@@ -24,6 +24,9 @@ import {
 export type StartDataCollectionByAgentIdsCommandInput = StartDataCollectionByAgentIdsRequest;
 export type StartDataCollectionByAgentIdsCommandOutput = StartDataCollectionByAgentIdsResponse & __MetadataBearer;
 
+/**
+ * <p>Instructs the specified agents or connectors to start collecting data.</p>
+ */
 export class StartDataCollectionByAgentIdsCommand extends $Command<
   StartDataCollectionByAgentIdsCommandInput,
   StartDataCollectionByAgentIdsCommandOutput,
@@ -38,6 +41,9 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

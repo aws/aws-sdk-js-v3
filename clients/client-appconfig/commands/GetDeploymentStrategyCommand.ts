@@ -20,6 +20,13 @@ import {
 export type GetDeploymentStrategyCommandInput = GetDeploymentStrategyRequest;
 export type GetDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
+/**
+ * <p>Retrieve information about a deployment strategy. A deployment strategy defines
+ *          important criteria for rolling out your configuration to the designated targets. A
+ *          deployment strategy includes: the overall duration required, a percentage of targets to
+ *          receive the deployment during each interval, an algorithm that defines how percentage
+ *          grows, and bake time.</p>
+ */
 export class GetDeploymentStrategyCommand extends $Command<
   GetDeploymentStrategyCommandInput,
   GetDeploymentStrategyCommandOutput,
@@ -34,6 +41,9 @@ export class GetDeploymentStrategyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

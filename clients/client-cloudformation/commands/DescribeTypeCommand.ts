@@ -17,6 +17,10 @@ import {
 export type DescribeTypeCommandInput = DescribeTypeInput;
 export type DescribeTypeCommandOutput = DescribeTypeOutput & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about a type that has been registered.</p>
+ *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific type version. Otherwise, it returns information about the default type version.</p>
+ */
 export class DescribeTypeCommand extends $Command<
   DescribeTypeCommandInput,
   DescribeTypeCommandOutput,
@@ -31,6 +35,9 @@ export class DescribeTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

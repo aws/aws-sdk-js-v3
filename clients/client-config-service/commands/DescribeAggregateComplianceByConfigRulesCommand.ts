@@ -24,6 +24,16 @@ export type DescribeAggregateComplianceByConfigRulesCommandInput = DescribeAggre
 export type DescribeAggregateComplianceByConfigRulesCommandOutput = DescribeAggregateComplianceByConfigRulesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of compliant and noncompliant rules with the
+ * 			number of resources for compliant and noncompliant rules.
+ * 			</p>
+ * 		       <note>
+ * 			         <p>The results can return an empty result page, but if you
+ * 				have a <code>nextToken</code>, the results are displayed on the next
+ * 				page.</p>
+ * 		       </note>
+ */
 export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
   DescribeAggregateComplianceByConfigRulesCommandInput,
   DescribeAggregateComplianceByConfigRulesCommandOutput,
@@ -38,6 +48,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: WorkMailClient,
   input: ListMailboxPermissionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMailboxPermissionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: WorkMail,
   input: ListMailboxPermissionsCommandInput,

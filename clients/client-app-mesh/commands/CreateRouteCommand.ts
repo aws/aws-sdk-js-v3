@@ -20,6 +20,12 @@ import {
 export type CreateRouteCommandInput = CreateRouteInput;
 export type CreateRouteCommandOutput = CreateRouteOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a route that is associated with a virtual router.</p>
+ *          <p> You can route several different protocols and define a retry policy for a route.
+ *          Traffic can be routed to one or more virtual nodes.</p>
+ *          <p>For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.</p>
+ */
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,
   CreateRouteCommandOutput,
@@ -34,6 +40,9 @@ export class CreateRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

@@ -20,6 +20,23 @@ import {
 export type ListSchemasCommandInput = ListSchemasRequest;
 export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the schemas in a database.
+ *       A token is returned to page through the schema list.
+ *       Depending on the authorization method, use one of the
+ *       following combinations of request parameters: </p>
+ *          <ul>
+ *             <li>
+ *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+ *          cluster identifier that matches the cluster in the secret. </p>
+ *             </li>
+ *             <li>
+ *                <p>Temporary credentials - specify the cluster identifier, the database name, and the
+ *           database user name. Permission to call the <code>redshift:GetClusterCredentials</code>
+ *           operation is required to use this method. </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,
   ListSchemasCommandOutput,
@@ -34,6 +51,9 @@ export class ListSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftDataClientResolvedConfig,

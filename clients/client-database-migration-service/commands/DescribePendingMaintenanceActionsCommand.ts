@@ -28,6 +28,9 @@ export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaint
 export type DescribePendingMaintenanceActionsCommandOutput = DescribePendingMaintenanceActionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>For internal use only</p>
+ */
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,
   DescribePendingMaintenanceActionsCommandOutput,
@@ -42,6 +45,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

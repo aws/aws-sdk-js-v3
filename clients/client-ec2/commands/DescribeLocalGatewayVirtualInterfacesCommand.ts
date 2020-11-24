@@ -24,6 +24,9 @@ export type DescribeLocalGatewayVirtualInterfacesCommandInput = DescribeLocalGat
 export type DescribeLocalGatewayVirtualInterfacesCommandOutput = DescribeLocalGatewayVirtualInterfacesResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the specified local gateway virtual interfaces.</p>
+ */
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
   DescribeLocalGatewayVirtualInterfacesCommandInput,
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

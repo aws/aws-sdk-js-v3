@@ -20,6 +20,10 @@ import {
 export type DescribePortfolioCommandInput = DescribePortfolioInput;
 export type DescribePortfolioCommandOutput = DescribePortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified portfolio.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class DescribePortfolioCommand extends $Command<
   DescribePortfolioCommandInput,
   DescribePortfolioCommandOutput,
@@ -34,6 +38,9 @@ export class DescribePortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

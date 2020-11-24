@@ -20,6 +20,13 @@ import {
 export type UpdateNodegroupConfigCommandInput = UpdateNodegroupConfigRequest;
 export type UpdateNodegroupConfigCommandOutput = UpdateNodegroupConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an Amazon EKS managed node group configuration. Your node group continues to
+ *             function during the update. The response output includes an update ID that you can use
+ *             to track the status of your node group update with the <a>DescribeUpdate</a>
+ *             API operation. Currently you can update the Kubernetes labels for a node group or the
+ *             scaling configuration.</p>
+ */
 export class UpdateNodegroupConfigCommand extends $Command<
   UpdateNodegroupConfigCommandInput,
   UpdateNodegroupConfigCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateNodegroupConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

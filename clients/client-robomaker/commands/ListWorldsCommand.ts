@@ -20,6 +20,9 @@ import {
 export type ListWorldsCommandInput = ListWorldsRequest;
 export type ListWorldsCommandOutput = ListWorldsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists worlds.</p>
+ */
 export class ListWorldsCommand extends $Command<
   ListWorldsCommandInput,
   ListWorldsCommandOutput,
@@ -34,6 +37,9 @@ export class ListWorldsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

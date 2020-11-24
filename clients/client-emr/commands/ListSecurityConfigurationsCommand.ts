@@ -20,6 +20,9 @@ import {
 export type ListSecurityConfigurationsCommandInput = ListSecurityConfigurationsInput;
 export type ListSecurityConfigurationsCommandOutput = ListSecurityConfigurationsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls.</p>
+ */
 export class ListSecurityConfigurationsCommand extends $Command<
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSecurityConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

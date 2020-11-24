@@ -20,6 +20,18 @@ import {
 export type UpdateTaskExecutionCommandInput = UpdateTaskExecutionRequest;
 export type UpdateTaskExecutionCommandOutput = UpdateTaskExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates execution of a task.</p>
+ *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
+ *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
+ *
+ *          <note>
+ *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
+ *         is <code>
+ *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
+ *                </code>.</p>
+ *          </note>
+ */
 export class UpdateTaskExecutionCommand extends $Command<
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
@@ -34,6 +46,9 @@ export class UpdateTaskExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

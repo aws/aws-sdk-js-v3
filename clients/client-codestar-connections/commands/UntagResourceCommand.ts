@@ -24,6 +24,9 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = UntagResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Removes tags from an AWS resource.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -38,6 +41,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

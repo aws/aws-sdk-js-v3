@@ -20,6 +20,11 @@ import {
 export type ListFlowsCommandInput = ListFlowsRequest;
 export type ListFlowsCommandOutput = ListFlowsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Lists all of the flows associated with your account.
+ * </p>
+ */
 export class ListFlowsCommand extends $Command<
   ListFlowsCommandInput,
   ListFlowsCommandOutput,
@@ -34,6 +39,9 @@ export class ListFlowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

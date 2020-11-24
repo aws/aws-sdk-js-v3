@@ -20,6 +20,11 @@ import {
 export type DescribeDBSubnetGroupsCommandInput = DescribeDBSubnetGroupsMessage;
 export type DescribeDBSubnetGroupsCommandOutput = DBSubnetGroupMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the
+ *       list will contain only the descriptions of the specified DBSubnetGroup.</p>
+ *          <p>For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
+ */
 export class DescribeDBSubnetGroupsCommand extends $Command<
   DescribeDBSubnetGroupsCommandInput,
   DescribeDBSubnetGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type DeregisterInstanceCommandInput = DeregisterInstanceRequest;
 export type DeregisterInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
+ *           instance from the stack and returns it to your control. This action cannot be used with
+ *           instances that were created with AWS OpsWorks Stacks.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DeregisterInstanceCommand extends $Command<
   DeregisterInstanceCommandInput,
   DeregisterInstanceCommandOutput,
@@ -34,6 +44,9 @@ export class DeregisterInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

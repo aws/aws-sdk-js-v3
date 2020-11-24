@@ -20,6 +20,9 @@ import {
 export type ListTextTranslationJobsCommandInput = ListTextTranslationJobsRequest;
 export type ListTextTranslationJobsCommandOutput = ListTextTranslationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the batch translation jobs that you have submitted.</p>
+ */
 export class ListTextTranslationJobsCommand extends $Command<
   ListTextTranslationJobsCommandInput,
   ListTextTranslationJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTextTranslationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

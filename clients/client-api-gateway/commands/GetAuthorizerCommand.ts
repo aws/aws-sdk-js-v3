@@ -20,6 +20,10 @@ import {
 export type GetAuthorizerCommandInput = GetAuthorizerRequest;
 export type GetAuthorizerCommandOutput = Authorizer & __MetadataBearer;
 
+/**
+ * <p>Describe an existing <a>Authorizer</a> resource.</p>
+ *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html">AWS CLI</a></div>
+ */
 export class GetAuthorizerCommand extends $Command<
   GetAuthorizerCommandInput,
   GetAuthorizerCommandOutput,
@@ -34,6 +38,9 @@ export class GetAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

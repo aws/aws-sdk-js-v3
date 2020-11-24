@@ -24,6 +24,9 @@ import {
 export type DisassociateDeviceFromPlacementCommandInput = DisassociateDeviceFromPlacementRequest;
 export type DisassociateDeviceFromPlacementCommandOutput = DisassociateDeviceFromPlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a physical device from a placement.</p>
+ */
 export class DisassociateDeviceFromPlacementCommand extends $Command<
   DisassociateDeviceFromPlacementCommandInput,
   DisassociateDeviceFromPlacementCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateDomainNameCommandInput = UpdateDomainNameRequest;
 export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a domain name.</p>
+ */
 export class UpdateDomainNameCommand extends $Command<
   UpdateDomainNameCommandInput,
   UpdateDomainNameCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDomainNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

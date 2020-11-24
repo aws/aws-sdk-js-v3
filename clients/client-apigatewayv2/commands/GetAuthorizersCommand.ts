@@ -20,6 +20,9 @@ import {
 export type GetAuthorizersCommandInput = GetAuthorizersRequest;
 export type GetAuthorizersCommandOutput = GetAuthorizersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the Authorizers for an API.</p>
+ */
 export class GetAuthorizersCommand extends $Command<
   GetAuthorizersCommandInput,
   GetAuthorizersCommandOutput,
@@ -34,6 +37,9 @@ export class GetAuthorizersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

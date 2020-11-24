@@ -24,6 +24,33 @@ import {
 export type CreateTargetGroupCommandInput = CreateTargetGroupInput;
 export type CreateTargetGroupCommandOutput = CreateTargetGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a target group.</p>
+ *
+ *
+ *
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target groups for your Application Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target groups for your Network Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html">Target groups for your Gateway Load Balancers</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>This operation is idempotent, which means that it completes at most one time. If you
+ *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
+ */
 export class CreateTargetGroupCommand extends $Command<
   CreateTargetGroupCommandInput,
   CreateTargetGroupCommandOutput,
@@ -38,6 +65,9 @@ export class CreateTargetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

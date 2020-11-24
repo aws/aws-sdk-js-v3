@@ -20,6 +20,9 @@ import {
 export type DeleteUserByPrincipalIdCommandInput = DeleteUserByPrincipalIdRequest;
 export type DeleteUserByPrincipalIdCommandOutput = DeleteUserByPrincipalIdResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a user identified by its principal ID. </p>
+ */
 export class DeleteUserByPrincipalIdCommand extends $Command<
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

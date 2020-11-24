@@ -20,6 +20,9 @@ import {
 export type ListPipelinesCommandInput = ListPipelinesInput;
 export type ListPipelinesCommandOutput = ListPipelinesOutput & __MetadataBearer;
 
+/**
+ * <p>Gets a summary of all of the pipelines associated with your account.</p>
+ */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
@@ -34,6 +37,9 @@ export class ListPipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

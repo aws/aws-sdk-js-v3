@@ -24,6 +24,10 @@ export type CreateDirectConnectGatewayAssociationCommandInput = CreateDirectConn
 export type CreateDirectConnectGatewayAssociationCommandOutput = CreateDirectConnectGatewayAssociationResult &
   __MetadataBearer;
 
+/**
+ * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
+ *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
+ */
 export class CreateDirectConnectGatewayAssociationCommand extends $Command<
   CreateDirectConnectGatewayAssociationCommandInput,
   CreateDirectConnectGatewayAssociationCommandOutput,
@@ -38,6 +42,9 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

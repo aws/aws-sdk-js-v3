@@ -20,6 +20,9 @@ import {
 export type PutAppLaunchConfigurationCommandInput = PutAppLaunchConfigurationRequest;
 export type PutAppLaunchConfigurationCommandOutput = PutAppLaunchConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates or updates the launch configuration for the specified application.</p>
+ */
 export class PutAppLaunchConfigurationCommand extends $Command<
   PutAppLaunchConfigurationCommandInput,
   PutAppLaunchConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

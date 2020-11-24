@@ -20,6 +20,9 @@ import {
 export type SearchFlowExecutionsCommandInput = SearchFlowExecutionsRequest;
 export type SearchFlowExecutionsCommandOutput = SearchFlowExecutionsResponse & __MetadataBearer;
 
+/**
+ * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
+ */
 export class SearchFlowExecutionsCommand extends $Command<
   SearchFlowExecutionsCommandInput,
   SearchFlowExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class SearchFlowExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

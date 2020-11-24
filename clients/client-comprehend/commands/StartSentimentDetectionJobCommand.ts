@@ -20,6 +20,11 @@ import {
 export type StartSentimentDetectionJobCommandInput = StartSentimentDetectionJobRequest;
 export type StartSentimentDetectionJobCommandOutput = StartSentimentDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
+ *          operation to track the status of a
+ *       job.</p>
+ */
 export class StartSentimentDetectionJobCommand extends $Command<
   StartSentimentDetectionJobCommandInput,
   StartSentimentDetectionJobCommandOutput,
@@ -34,6 +39,9 @@ export class StartSentimentDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

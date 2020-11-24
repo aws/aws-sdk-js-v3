@@ -20,6 +20,13 @@ import {
 export type DescribeUpdateCommandInput = DescribeUpdateRequest;
 export type DescribeUpdateCommandOutput = DescribeUpdateResponse & __MetadataBearer;
 
+/**
+ * <p>Returns descriptive information about an update against your Amazon EKS cluster or
+ *             associated managed node group.</p>
+ *         <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
+ *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
+ *             for the failure.</p>
+ */
 export class DescribeUpdateCommand extends $Command<
   DescribeUpdateCommandInput,
   DescribeUpdateCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeUpdateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

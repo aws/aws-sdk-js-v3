@@ -20,6 +20,9 @@ import {
 export type DescribeLabelingJobCommandInput = DescribeLabelingJobRequest;
 export type DescribeLabelingJobCommandOutput = DescribeLabelingJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a labeling job.</p>
+ */
 export class DescribeLabelingJobCommand extends $Command<
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLabelingJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeObjectCommandInput = DescribeObjectRequest;
 export type DescribeObjectCommandOutput = DescribeObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the headers for an object at the specified path.</p>
+ */
 export class DescribeObjectCommand extends $Command<
   DescribeObjectCommandInput,
   DescribeObjectCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreDataClientResolvedConfig,

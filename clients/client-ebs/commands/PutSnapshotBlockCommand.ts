@@ -22,6 +22,12 @@ export type PutSnapshotBlockCommandInput = Omit<PutSnapshotBlockRequest, "BlockD
 };
 export type PutSnapshotBlockCommandOutput = PutSnapshotBlockResponse & __MetadataBearer;
 
+/**
+ * <p>Writes a block of data to a snapshot. If the specified block contains
+ *             data, the existing data is overwritten. The target snapshot must be in the
+ *                 <code>pending</code> state.</p>
+ *     	    <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>
+ */
 export class PutSnapshotBlockCommand extends $Command<
   PutSnapshotBlockCommandInput,
   PutSnapshotBlockCommandOutput,
@@ -36,6 +42,9 @@ export class PutSnapshotBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EBSClientResolvedConfig,

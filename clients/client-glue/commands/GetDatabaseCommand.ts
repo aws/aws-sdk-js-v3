@@ -20,6 +20,9 @@ import {
 export type GetDatabaseCommandInput = GetDatabaseRequest;
 export type GetDatabaseCommandOutput = GetDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the definition of a specified database.</p>
+ */
 export class GetDatabaseCommand extends $Command<
   GetDatabaseCommandInput,
   GetDatabaseCommandOutput,
@@ -34,6 +37,9 @@ export class GetDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type PublishLayerVersionCommandInput = PublishLayerVersionRequest;
 export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
+ *       layer name, a new version is created.</p>
+ *          <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+ */
 export class PublishLayerVersionCommand extends $Command<
   PublishLayerVersionCommandInput,
   PublishLayerVersionCommandOutput,
@@ -34,6 +40,9 @@ export class PublishLayerVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

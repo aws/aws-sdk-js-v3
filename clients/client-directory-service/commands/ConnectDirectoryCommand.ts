@@ -20,6 +20,10 @@ import {
 export type ConnectDirectoryCommandInput = ConnectDirectoryRequest;
 export type ConnectDirectoryCommandOutput = ConnectDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Creates an AD Connector to connect to an on-premises directory.</p>
+ *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
+ */
 export class ConnectDirectoryCommand extends $Command<
   ConnectDirectoryCommandInput,
   ConnectDirectoryCommandOutput,
@@ -34,6 +38,9 @@ export class ConnectDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

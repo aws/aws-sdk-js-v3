@@ -20,6 +20,10 @@ import {
 export type ListSecurityPoliciesCommandInput = ListSecurityPoliciesRequest;
 export type ListSecurityPoliciesCommandOutput = ListSecurityPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the security policies that are attached to your file transfer protocol-enabled
+ *       servers.</p>
+ */
 export class ListSecurityPoliciesCommand extends $Command<
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
@@ -34,6 +38,9 @@ export class ListSecurityPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

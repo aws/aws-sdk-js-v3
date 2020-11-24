@@ -20,6 +20,9 @@ import {
 export type DisableFastSnapshotRestoresCommandInput = DisableFastSnapshotRestoresRequest;
 export type DisableFastSnapshotRestoresCommandOutput = DisableFastSnapshotRestoresResult & __MetadataBearer;
 
+/**
+ * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
+ */
 export class DisableFastSnapshotRestoresCommand extends $Command<
   DisableFastSnapshotRestoresCommandInput,
   DisableFastSnapshotRestoresCommandOutput,
@@ -34,6 +37,9 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

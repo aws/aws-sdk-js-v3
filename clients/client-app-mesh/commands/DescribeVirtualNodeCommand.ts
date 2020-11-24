@@ -20,6 +20,9 @@ import {
 export type DescribeVirtualNodeCommandInput = DescribeVirtualNodeInput;
 export type DescribeVirtualNodeCommandOutput = DescribeVirtualNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing virtual node.</p>
+ */
 export class DescribeVirtualNodeCommand extends $Command<
   DescribeVirtualNodeCommandInput,
   DescribeVirtualNodeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVirtualNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

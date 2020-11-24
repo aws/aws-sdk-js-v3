@@ -20,6 +20,11 @@ import {
 export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
 export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about when the specified access key was last used. The information
+ *          includes the date and time of last use, along with the AWS service and Region that were
+ *          specified in the last request made with that key.</p>
+ */
 export class GetAccessKeyLastUsedCommand extends $Command<
   GetAccessKeyLastUsedCommandInput,
   GetAccessKeyLastUsedCommandOutput,
@@ -34,6 +39,9 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

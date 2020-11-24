@@ -20,6 +20,13 @@ import {
 export type UpdateCanaryCommandInput = UpdateCanaryRequest;
 export type UpdateCanaryCommandOutput = UpdateCanaryResponse & __MetadataBearer;
 
+/**
+ * <p>Use this operation to change the settings of a canary that has
+ *          already been created.</p>
+ *          <p>You can't use this operation to update the tags of an existing canary. To
+ *          change the tags of an existing canary, use
+ *          <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
+ */
 export class UpdateCanaryCommand extends $Command<
   UpdateCanaryCommandInput,
   UpdateCanaryCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateCanaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

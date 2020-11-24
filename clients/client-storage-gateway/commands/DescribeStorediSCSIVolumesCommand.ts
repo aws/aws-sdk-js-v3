@@ -20,6 +20,12 @@ import {
 export type DescribeStorediSCSIVolumesCommandInput = DescribeStorediSCSIVolumesInput;
 export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the description of the gateway volumes specified in the request. The list of
+ *          gateway volumes in the request must be from one gateway. In the response, AWS Storage
+ *          Gateway returns volume information sorted by volume ARNs. This operation is only supported
+ *          in stored volume gateway type.</p>
+ */
 export class DescribeStorediSCSIVolumesCommand extends $Command<
   DescribeStorediSCSIVolumesCommandInput,
   DescribeStorediSCSIVolumesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

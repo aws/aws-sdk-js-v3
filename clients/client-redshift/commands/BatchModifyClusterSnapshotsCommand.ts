@@ -20,6 +20,9 @@ import {
 export type BatchModifyClusterSnapshotsCommandInput = BatchModifyClusterSnapshotsMessage;
 export type BatchModifyClusterSnapshotsCommandOutput = BatchModifyClusterSnapshotsOutputMessage & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a set of cluster snapshots.</p>
+ */
 export class BatchModifyClusterSnapshotsCommand extends $Command<
   BatchModifyClusterSnapshotsCommandInput,
   BatchModifyClusterSnapshotsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

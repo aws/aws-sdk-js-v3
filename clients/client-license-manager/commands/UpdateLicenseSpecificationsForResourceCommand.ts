@@ -24,6 +24,12 @@ export type UpdateLicenseSpecificationsForResourceCommandInput = UpdateLicenseSp
 export type UpdateLicenseSpecificationsForResourceCommandOutput = UpdateLicenseSpecificationsForResourceResponse &
   __MetadataBearer;
 
+/**
+ * <p>Adds or removes the specified license configurations for the specified AWS resource.</p>
+ *          <p>You can update the license specifications of AMIs, instances, and hosts.
+ *          You cannot update the license specifications for launch templates and AWS CloudFormation templates,
+ *          as they send license configurations to the operation that creates the resource.</p>
+ */
 export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
   UpdateLicenseSpecificationsForResourceCommandInput,
   UpdateLicenseSpecificationsForResourceCommandOutput,
@@ -38,6 +44,9 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

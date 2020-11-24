@@ -20,6 +20,9 @@ import {
 export type DescribeCarrierGatewaysCommandInput = DescribeCarrierGatewaysRequest;
 export type DescribeCarrierGatewaysCommandOutput = DescribeCarrierGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more of your carrier gateways.</p>
+ */
 export class DescribeCarrierGatewaysCommand extends $Command<
   DescribeCarrierGatewaysCommandInput,
   DescribeCarrierGatewaysCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeCarrierGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type GetAttributeGroupCommandInput = GetAttributeGroupRequest;
 export type GetAttributeGroupCommandOutput = GetAttributeGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves an attribute group, either by its name or its ID.</p>
+ */
 export class GetAttributeGroupCommand extends $Command<
   GetAttributeGroupCommandInput,
   GetAttributeGroupCommandOutput,
@@ -38,6 +41,9 @@ export class GetAttributeGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

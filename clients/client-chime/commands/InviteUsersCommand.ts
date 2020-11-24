@@ -20,6 +20,11 @@ import {
 export type InviteUsersCommandInput = InviteUsersRequest;
 export type InviteUsersCommandOutput = InviteUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
+ *         <code>Team</code> account. Only <code>Team</code> account types are currently supported for
+ *       this action. </p>
+ */
 export class InviteUsersCommand extends $Command<
   InviteUsersCommandInput,
   InviteUsersCommandOutput,
@@ -34,6 +39,9 @@ export class InviteUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

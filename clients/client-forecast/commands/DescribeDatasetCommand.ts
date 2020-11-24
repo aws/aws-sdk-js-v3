@@ -20,6 +20,29 @@ import {
 export type DescribeDatasetCommandInput = DescribeDatasetRequest;
 export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
 
+/**
+ * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
+ *       operation.</p>
+ *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
+ *       this operation includes the following dataset properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,
   DescribeDatasetCommandOutput,
@@ -34,6 +57,9 @@ export class DescribeDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

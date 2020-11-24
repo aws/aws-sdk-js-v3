@@ -20,6 +20,17 @@ import {
 export type ListShardsCommandInput = ListShardsInput;
 export type ListShardsCommandOutput = ListShardsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the shards in a stream and provides information about each shard. This
+ *             operation has a limit of 100 transactions per second per data stream.</p>
+ *         <important>
+ *             <p>This API is a new operation that is used by the Amazon Kinesis Client Library
+ *                 (KCL). If you have a fine-grained IAM policy that only allows specific operations,
+ *                 you must update your policy to allow calls to this API. For more information, see
+ *                     <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling Access to Amazon Kinesis Data Streams Resources Using
+ *                 IAM</a>.</p>
+ *         </important>
+ */
 export class ListShardsCommand extends $Command<
   ListShardsCommandInput,
   ListShardsCommandOutput,
@@ -34,6 +45,9 @@ export class ListShardsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListModelsCommandInput = ListModelsInput;
 export type ListModelsCommandOutput = ListModelsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists models created with the <a>CreateModel</a> API.</p>
+ */
 export class ListModelsCommand extends $Command<
   ListModelsCommandInput,
   ListModelsCommandOutput,
@@ -34,6 +37,9 @@ export class ListModelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

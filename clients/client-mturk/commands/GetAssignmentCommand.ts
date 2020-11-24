@@ -20,6 +20,11 @@ import {
 export type GetAssignmentCommandInput = GetAssignmentRequest;
 export type GetAssignmentCommandOutput = GetAssignmentResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
+ *         </p>
+ */
 export class GetAssignmentCommand extends $Command<
   GetAssignmentCommandInput,
   GetAssignmentCommandOutput,
@@ -34,6 +39,9 @@ export class GetAssignmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

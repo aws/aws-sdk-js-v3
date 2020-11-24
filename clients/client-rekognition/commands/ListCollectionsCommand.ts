@@ -20,6 +20,14 @@ import {
 export type ListCollectionsCommandInput = ListCollectionsRequest;
 export type ListCollectionsCommandOutput = ListCollectionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns list of collection IDs in your account.
+ *     If the result is truncated, the response also provides a <code>NextToken</code>
+ *     that you can use in the subsequent request to fetch the next set of collection IDs.</p>
+ *
+ *          <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
+ */
 export class ListCollectionsCommand extends $Command<
   ListCollectionsCommandInput,
   ListCollectionsCommandOutput,
@@ -34,6 +42,9 @@ export class ListCollectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

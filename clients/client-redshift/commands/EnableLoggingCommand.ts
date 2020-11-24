@@ -20,6 +20,10 @@ import {
 export type EnableLoggingCommandInput = EnableLoggingMessage;
 export type EnableLoggingCommandOutput = LoggingStatus & __MetadataBearer;
 
+/**
+ * <p>Starts logging information, such as queries and connection attempts, for the
+ *             specified Amazon Redshift cluster.</p>
+ */
 export class EnableLoggingCommand extends $Command<
   EnableLoggingCommandInput,
   EnableLoggingCommandOutput,
@@ -34,6 +38,9 @@ export class EnableLoggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

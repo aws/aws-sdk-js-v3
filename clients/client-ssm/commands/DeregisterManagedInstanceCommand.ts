@@ -20,6 +20,11 @@ import {
 export type DeregisterManagedInstanceCommandInput = DeregisterManagedInstanceRequest;
 export type DeregisterManagedInstanceCommandOutput = DeregisterManagedInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Removes the server or virtual machine from the list of registered servers. You can
+ *    reregister the instance again at any time. If you don't plan to use Run Command on the server, we
+ *    suggest uninstalling SSM Agent first.</p>
+ */
 export class DeregisterManagedInstanceCommand extends $Command<
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class DeregisterManagedInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

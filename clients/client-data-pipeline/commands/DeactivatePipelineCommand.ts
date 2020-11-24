@@ -20,6 +20,12 @@ import {
 export type DeactivatePipelineCommandInput = DeactivatePipelineInput;
 export type DeactivatePipelineCommandOutput = DeactivatePipelineOutput & __MetadataBearer;
 
+/**
+ * <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>
+ *           state until the deactivation process completes.</p>
+ *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
+ *           Optionally, you can specify the date and time to resume the pipeline.</p>
+ */
 export class DeactivatePipelineCommand extends $Command<
   DeactivatePipelineCommandInput,
   DeactivatePipelineCommandOutput,
@@ -34,6 +40,9 @@ export class DeactivatePipelineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

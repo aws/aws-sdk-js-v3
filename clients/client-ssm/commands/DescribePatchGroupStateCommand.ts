@@ -20,6 +20,9 @@ import {
 export type DescribePatchGroupStateCommandInput = DescribePatchGroupStateRequest;
 export type DescribePatchGroupStateCommandOutput = DescribePatchGroupStateResult & __MetadataBearer;
 
+/**
+ * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
+ */
 export class DescribePatchGroupStateCommand extends $Command<
   DescribePatchGroupStateCommandInput,
   DescribePatchGroupStateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePatchGroupStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

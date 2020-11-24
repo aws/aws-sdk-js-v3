@@ -20,6 +20,9 @@ import {
 export type CreateTrailCommandInput = CreateTrailRequest;
 export type CreateTrailCommandOutput = CreateTrailResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
+ */
 export class CreateTrailCommand extends $Command<
   CreateTrailCommandInput,
   CreateTrailCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTrailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

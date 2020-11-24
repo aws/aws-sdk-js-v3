@@ -25,6 +25,10 @@ import {
 export type AdminRespondToAuthChallengeCommandInput = AdminRespondToAuthChallengeRequest;
 export type AdminRespondToAuthChallengeCommandOutput = AdminRespondToAuthChallengeResponse & __MetadataBearer;
 
+/**
+ * <p>Responds to an authentication challenge, as an administrator.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminRespondToAuthChallengeCommand extends $Command<
   AdminRespondToAuthChallengeCommandInput,
   AdminRespondToAuthChallengeCommandOutput,
@@ -39,6 +43,9 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

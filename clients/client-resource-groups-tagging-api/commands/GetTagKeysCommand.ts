@@ -24,6 +24,9 @@ import {
 export type GetTagKeysCommandInput = GetTagKeysInput;
 export type GetTagKeysCommandOutput = GetTagKeysOutput & __MetadataBearer;
 
+/**
+ * <p>Returns all tag keys in the specified Region for the AWS account.</p>
+ */
 export class GetTagKeysCommand extends $Command<
   GetTagKeysCommandInput,
   GetTagKeysCommandOutput,
@@ -38,6 +41,9 @@ export class GetTagKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

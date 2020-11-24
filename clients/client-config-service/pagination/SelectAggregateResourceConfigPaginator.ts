@@ -8,6 +8,9 @@ import {
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ConfigServiceClient,
   input: SelectAggregateResourceConfigCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SelectAggregateResourceConfigCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ConfigService,
   input: SelectAggregateResourceConfigCommandInput,

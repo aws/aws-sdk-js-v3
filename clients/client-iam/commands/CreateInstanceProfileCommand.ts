@@ -20,6 +20,11 @@ import {
 export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
 export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResponse & __MetadataBearer;
 
+/**
+ * <p> Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
+ *             Profiles</a>.</p>
+ *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
@@ -34,6 +39,9 @@ export class CreateInstanceProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

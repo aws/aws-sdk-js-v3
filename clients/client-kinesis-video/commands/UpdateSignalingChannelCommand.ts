@@ -20,6 +20,14 @@ import {
 export type UpdateSignalingChannelCommandInput = UpdateSignalingChannelInput;
 export type UpdateSignalingChannelCommandOutput = UpdateSignalingChannelOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
+ *             time to complete. </p>
+ *         <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
+ *             it only applies to new messages sent via this channel after it's been updated. Existing
+ *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
+ *             value.</p>
+ */
 export class UpdateSignalingChannelCommand extends $Command<
   UpdateSignalingChannelCommandInput,
   UpdateSignalingChannelCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateSignalingChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

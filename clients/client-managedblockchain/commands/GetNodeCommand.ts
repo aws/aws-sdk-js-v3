@@ -24,6 +24,9 @@ import {
 export type GetNodeCommandInput = GetNodeInput;
 export type GetNodeCommandOutput = GetNodeOutput & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about a peer node.</p>
+ */
 export class GetNodeCommand extends $Command<
   GetNodeCommandInput,
   GetNodeCommandOutput,
@@ -38,6 +41,9 @@ export class GetNodeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

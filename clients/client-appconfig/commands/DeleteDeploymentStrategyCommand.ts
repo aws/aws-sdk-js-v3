@@ -20,6 +20,10 @@ import {
 export type DeleteDeploymentStrategyCommandInput = DeleteDeploymentStrategyRequest;
 export type DeleteDeploymentStrategyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete a deployment strategy. Deleting a deployment strategy does not delete a
+ *          configuration from a host.</p>
+ */
 export class DeleteDeploymentStrategyCommand extends $Command<
   DeleteDeploymentStrategyCommandInput,
   DeleteDeploymentStrategyCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

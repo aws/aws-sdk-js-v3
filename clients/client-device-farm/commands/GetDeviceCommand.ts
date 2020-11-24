@@ -17,6 +17,9 @@ import {
 export type GetDeviceCommandInput = GetDeviceRequest;
 export type GetDeviceCommandOutput = GetDeviceResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a unique device type.</p>
+ */
 export class GetDeviceCommand extends $Command<
   GetDeviceCommandInput,
   GetDeviceCommandOutput,
@@ -31,6 +34,9 @@ export class GetDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

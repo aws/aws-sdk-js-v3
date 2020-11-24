@@ -20,6 +20,9 @@ import {
 export type GetInlinePolicyForPermissionSetCommandInput = GetInlinePolicyForPermissionSetRequest;
 export type GetInlinePolicyForPermissionSetCommandOutput = GetInlinePolicyForPermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>Obtains the inline policy assigned to the permission set.</p>
+ */
 export class GetInlinePolicyForPermissionSetCommand extends $Command<
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
@@ -34,6 +37,9 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

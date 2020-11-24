@@ -20,6 +20,11 @@ import {
 export type DescribeStackResourceCommandInput = DescribeStackResourceInput;
 export type DescribeStackResourceCommandOutput = DescribeStackResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the specified resource in the specified stack.</p>
+ *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90
+ *          days after the stack has been deleted.</p>
+ */
 export class DescribeStackResourceCommand extends $Command<
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeStackResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CopyBackupToRegionCommandInput = CopyBackupToRegionRequest;
 export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse & __MetadataBearer;
 
+/**
+ * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>
+ */
 export class CopyBackupToRegionCommand extends $Command<
   CopyBackupToRegionCommandInput,
   CopyBackupToRegionCommandOutput,
@@ -34,6 +37,9 @@ export class CopyBackupToRegionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

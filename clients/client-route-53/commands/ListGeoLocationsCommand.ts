@@ -20,6 +20,13 @@ import {
 export type ListGeoLocationsCommandInput = ListGeoLocationsRequest;
 export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of supported geographic locations.</p>
+ * 		       <p>Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces),
+ * 			the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.</p>
+ * 		       <p>For a list of supported geolocation codes, see the
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data type.</p>
+ */
 export class ListGeoLocationsCommand extends $Command<
   ListGeoLocationsCommandInput,
   ListGeoLocationsCommandOutput,
@@ -34,6 +41,9 @@ export class ListGeoLocationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

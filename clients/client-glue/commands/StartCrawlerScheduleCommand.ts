@@ -20,6 +20,11 @@ import {
 export type StartCrawlerScheduleCommandInput = StartCrawlerScheduleRequest;
 export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the schedule state of the specified crawler to
+ *       <code>SCHEDULED</code>, unless the crawler is already running or the
+ *       schedule state is already <code>SCHEDULED</code>.</p>
+ */
 export class StartCrawlerScheduleCommand extends $Command<
   StartCrawlerScheduleCommandInput,
   StartCrawlerScheduleCommandOutput,
@@ -34,6 +39,9 @@ export class StartCrawlerScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

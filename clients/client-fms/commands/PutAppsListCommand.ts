@@ -20,6 +20,9 @@ import {
 export type PutAppsListCommandInput = PutAppsListRequest;
 export type PutAppsListCommandOutput = PutAppsListResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an AWS Firewall Manager applications list.</p>
+ */
 export class PutAppsListCommand extends $Command<
   PutAppsListCommandInput,
   PutAppsListCommandOutput,
@@ -34,6 +37,9 @@ export class PutAppsListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

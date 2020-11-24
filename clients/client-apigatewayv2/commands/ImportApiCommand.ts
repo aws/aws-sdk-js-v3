@@ -20,6 +20,9 @@ import {
 export type ImportApiCommandInput = ImportApiRequest;
 export type ImportApiCommandOutput = ImportApiResponse & __MetadataBearer;
 
+/**
+ * <p>Imports an API.</p>
+ */
 export class ImportApiCommand extends $Command<
   ImportApiCommandInput,
   ImportApiCommandOutput,
@@ -34,6 +37,9 @@ export class ImportApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,

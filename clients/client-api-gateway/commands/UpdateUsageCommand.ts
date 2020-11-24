@@ -20,6 +20,9 @@ import {
 export type UpdateUsageCommandInput = UpdateUsageRequest;
 export type UpdateUsageCommandOutput = Usage & __MetadataBearer;
 
+/**
+ * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
+ */
 export class UpdateUsageCommand extends $Command<
   UpdateUsageCommandInput,
   UpdateUsageCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

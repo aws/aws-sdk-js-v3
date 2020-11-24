@@ -17,6 +17,9 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the attribute name and value of the user that you specified in the search. We only support <code>UserName</code> as a valid filter attribute path currently, and filter is required. This API returns minimum attributes, including <code>UserId</code> and <code>UserName</code> in the response.</p>
+ */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,
   ListUsersCommandOutput,
@@ -31,6 +34,9 @@ export class ListUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IdentitystoreClientResolvedConfig,

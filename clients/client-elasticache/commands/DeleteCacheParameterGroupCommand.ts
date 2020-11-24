@@ -20,6 +20,11 @@ import {
 export type DeleteCacheParameterGroupCommandInput = DeleteCacheParameterGroupMessage;
 export type DeleteCacheParameterGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified cache parameter
+ *             group. You cannot delete a cache parameter group if it is associated with any cache
+ *             clusters.</p>
+ */
 export class DeleteCacheParameterGroupCommand extends $Command<
   DeleteCacheParameterGroupCommandInput,
   DeleteCacheParameterGroupCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

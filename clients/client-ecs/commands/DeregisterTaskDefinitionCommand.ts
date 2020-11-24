@@ -20,6 +20,24 @@ import {
 export type DeregisterTaskDefinitionCommandInput = DeregisterTaskDefinitionRequest;
 export type DeregisterTaskDefinitionCommandOutput = DeregisterTaskDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters the specified task definition by family and revision. Upon deregistration,
+ * 			the task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
+ * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
+ * 			Existing services that reference an <code>INACTIVE</code> task definition can still
+ * 			scale up or down by modifying the service's desired count.</p>
+ * 		       <p>You cannot use an <code>INACTIVE</code> task definition to run new tasks or create new
+ * 			services, and you cannot update an existing service to reference an
+ * 				<code>INACTIVE</code> task definition. However, there may be up to a 10-minute
+ * 			window following deregistration where these restrictions have not yet taken
+ * 			effect.</p>
+ * 		       <note>
+ * 			         <p>At this time, <code>INACTIVE</code> task definitions remain discoverable in your
+ * 				account indefinitely. However, this behavior is subject to change in the future, so
+ * 				you should not rely on <code>INACTIVE</code> task definitions persisting beyond the
+ * 				lifecycle of any associated tasks and services.</p>
+ * 		       </note>
+ */
 export class DeregisterTaskDefinitionCommand extends $Command<
   DeregisterTaskDefinitionCommandInput,
   DeregisterTaskDefinitionCommandOutput,
@@ -34,6 +52,9 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

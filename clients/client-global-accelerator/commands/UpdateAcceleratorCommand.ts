@@ -24,6 +24,15 @@ import {
 export type UpdateAcceleratorCommandInput = UpdateAcceleratorRequest;
 export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse & __MetadataBearer;
 
+/**
+ * <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
+ * 			scroll down to <b>Example</b>.</p>
+ *
+ * 		       <important>
+ * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+ * 				US West (Oregon) Region to create or update accelerators.</p>
+ * 		       </important>
+ */
 export class UpdateAcceleratorCommand extends $Command<
   UpdateAcceleratorCommandInput,
   UpdateAcceleratorCommandOutput,
@@ -38,6 +47,9 @@ export class UpdateAcceleratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

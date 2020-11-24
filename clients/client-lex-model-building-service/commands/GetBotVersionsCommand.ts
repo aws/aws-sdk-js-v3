@@ -24,6 +24,17 @@ import {
 export type GetBotVersionsCommandInput = GetBotVersionsRequest;
 export type GetBotVersionsCommandOutput = GetBotVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about all of the versions of a bot.</p>
+ *          <p>The <code>GetBotVersions</code> operation returns a <code>BotMetadata</code> object for
+ *       each version of a bot. For example, if a bot has three numbered versions, the
+ *         <code>GetBotVersions</code> operation returns four <code>BotMetadata</code> objects in the
+ *       response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
+ *          <p>The <code>GetBotVersions</code> operation always returns at least one version, the
+ *         <code>$LATEST</code> version.</p>
+ *          <p>This operation requires permissions for the <code>lex:GetBotVersions</code>
+ *       action.</p>
+ */
 export class GetBotVersionsCommand extends $Command<
   GetBotVersionsCommandInput,
   GetBotVersionsCommandOutput,
@@ -38,6 +49,9 @@ export class GetBotVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,

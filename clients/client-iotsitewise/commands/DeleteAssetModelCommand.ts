@@ -20,6 +20,13 @@ import {
 export type DeleteAssetModelCommandInput = DeleteAssetModelRequest;
 export type DeleteAssetModelCommandOutput = DeleteAssetModelResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
+ *       from an asset model before you can delete the model. Also, you can't delete an asset model if
+ *       a parent asset model exists that contains a property formula expression that depends on the
+ *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class DeleteAssetModelCommand extends $Command<
   DeleteAssetModelCommandInput,
   DeleteAssetModelCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteAssetModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

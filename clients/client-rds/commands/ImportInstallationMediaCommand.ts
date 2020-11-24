@@ -21,6 +21,10 @@ import {
 export type ImportInstallationMediaCommandInput = ImportInstallationMediaMessage;
 export type ImportInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
 
+/**
+ * <p>Imports the installation media for a DB engine that requires an on-premises
+ *           customer provided license, such as SQL Server.</p>
+ */
 export class ImportInstallationMediaCommand extends $Command<
   ImportInstallationMediaCommandInput,
   ImportInstallationMediaCommandOutput,
@@ -35,6 +39,9 @@ export class ImportInstallationMediaCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

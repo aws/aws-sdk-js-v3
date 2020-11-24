@@ -20,6 +20,10 @@ import {
 export type DeleteTranscriptionJobCommandInput = DeleteTranscriptionJobRequest;
 export type DeleteTranscriptionJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a previously submitted transcription job along with any other generated
+ *             results such as the transcription, models, and so on.</p>
+ */
 export class DeleteTranscriptionJobCommand extends $Command<
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTranscriptionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

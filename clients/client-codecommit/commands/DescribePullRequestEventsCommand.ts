@@ -20,6 +20,9 @@ import {
 export type DescribePullRequestEventsCommandInput = DescribePullRequestEventsInput;
 export type DescribePullRequestEventsCommandOutput = DescribePullRequestEventsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more pull request events.</p>
+ */
 export class DescribePullRequestEventsCommand extends $Command<
   DescribePullRequestEventsCommandInput,
   DescribePullRequestEventsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePullRequestEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

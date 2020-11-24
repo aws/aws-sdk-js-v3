@@ -20,6 +20,11 @@ import {
 export type DescribeByoipCidrsCommandInput = DescribeByoipCidrsRequest;
 export type DescribeByoipCidrsCommandOutput = DescribeByoipCidrsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
+ *          <p>To describe the address pools that were created when you provisioned the address
+ *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
+ */
 export class DescribeByoipCidrsCommand extends $Command<
   DescribeByoipCidrsCommandInput,
   DescribeByoipCidrsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeByoipCidrsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

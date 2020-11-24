@@ -20,6 +20,9 @@ import {
 export type CreateClusterCommandInput = CreateClusterRequest;
 export type CreateClusterCommandOutput = CreateClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new MSK cluster.</p>
+ */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -34,6 +37,9 @@ export class CreateClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

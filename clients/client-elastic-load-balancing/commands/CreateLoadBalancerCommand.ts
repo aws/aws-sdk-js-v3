@@ -24,6 +24,22 @@ import {
 export type CreateLoadBalancerCommandInput = CreateAccessPointInput;
 export type CreateLoadBalancerCommandOutput = CreateAccessPointOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a Classic Load Balancer.</p>
+ *
+ *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
+ *             or you can add them later using <a>CreateLoadBalancerListeners</a>,
+ *             <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>,
+ *             and <a>AddTags</a>.</p>
+ *         <p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>.
+ *             When you are finished with a load balancer, you can delete it using
+ *             <a>DeleteLoadBalancer</a>.</p>
+ *
+ *         <p>You can create up to 20 load balancers per region per account.
+ *             You can request an increase for the number of load balancers for your account.
+ *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
   CreateLoadBalancerCommandOutput,
@@ -38,6 +54,9 @@ export class CreateLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

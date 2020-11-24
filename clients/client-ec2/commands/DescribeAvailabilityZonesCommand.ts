@@ -20,6 +20,14 @@ import {
 export type DescribeAvailabilityZonesCommandInput = DescribeAvailabilityZonesRequest;
 export type DescribeAvailabilityZonesCommandOutput = DescribeAvailabilityZonesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
+ *       you. If there is an event impacting a zone, you can use this request to view the state and any
+ *       provided messages for that zone.</p>
+ *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions, Zones and
+ *         Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribeAvailabilityZonesCommand extends $Command<
   DescribeAvailabilityZonesCommandInput,
   DescribeAvailabilityZonesCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

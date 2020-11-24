@@ -20,6 +20,15 @@ import {
 export type RejectCertificateTransferCommandInput = RejectCertificateTransferRequest;
 export type RejectCertificateTransferCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
+ *          the certificate status changes from <b>PENDING_TRANSFER</b> to
+ *             <b>INACTIVE</b>.</p>
+ *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
+ *          to enumerate your certificates.</p>
+ *          <p>This operation can only be called by the transfer destination. After it is called,
+ *          the certificate will be returned to the source's account in the INACTIVE state.</p>
+ */
 export class RejectCertificateTransferCommand extends $Command<
   RejectCertificateTransferCommandInput,
   RejectCertificateTransferCommandOutput,
@@ -34,6 +43,9 @@ export class RejectCertificateTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

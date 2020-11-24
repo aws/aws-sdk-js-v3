@@ -20,6 +20,12 @@ import {
 export type DeletePortfolioCommandInput = DeletePortfolioInput;
 export type DeletePortfolioCommandOutput = DeletePortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified portfolio.</p>
+ *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
+ *          products, users, constraints, or shared accounts.</p>
+ *          <p>A delegated admin is authorized to invoke this command.</p>
+ */
 export class DeletePortfolioCommand extends $Command<
   DeletePortfolioCommandInput,
   DeletePortfolioCommandOutput,
@@ -34,6 +40,9 @@ export class DeletePortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type GetTestCommandInput = GetTestRequest;
 export type GetTestCommandOutput = GetTestResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about a test.</p>
+ */
 export class GetTestCommand extends $Command<
   GetTestCommandInput,
   GetTestCommandOutput,
@@ -31,6 +34,9 @@ export class GetTestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

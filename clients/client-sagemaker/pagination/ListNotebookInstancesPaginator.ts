@@ -8,6 +8,9 @@ import {
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SageMakerClient,
   input: ListNotebookInstancesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNotebookInstancesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SageMaker,
   input: ListNotebookInstancesCommandInput,

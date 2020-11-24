@@ -4,6 +4,9 @@ import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput }
 import { TransferPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: TransferClient,
   input: ListServersCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Transfer,
   input: ListServersCommandInput,

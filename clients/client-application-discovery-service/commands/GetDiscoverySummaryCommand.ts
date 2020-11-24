@@ -24,6 +24,11 @@ import {
 export type GetDiscoverySummaryCommandInput = GetDiscoverySummaryRequest;
 export type GetDiscoverySummaryCommandOutput = GetDiscoverySummaryResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a short summary of discovered assets.</p>
+ *          <p>This API operation takes no request parameters and is called as is at the command
+ *       prompt as shown in the example.</p>
+ */
 export class GetDiscoverySummaryCommand extends $Command<
   GetDiscoverySummaryCommandInput,
   GetDiscoverySummaryCommandOutput,
@@ -38,6 +43,9 @@ export class GetDiscoverySummaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

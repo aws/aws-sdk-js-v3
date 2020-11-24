@@ -20,6 +20,10 @@ import {
 export type GetLinkAssociationsCommandInput = GetLinkAssociationsRequest;
 export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
+ *             must be specified.</p>
+ */
 export class GetLinkAssociationsCommand extends $Command<
   GetLinkAssociationsCommandInput,
   GetLinkAssociationsCommandOutput,
@@ -34,6 +38,9 @@ export class GetLinkAssociationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

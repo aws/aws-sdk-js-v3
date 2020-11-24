@@ -20,6 +20,9 @@ import {
 export type DescribeTimeToLiveCommandInput = DescribeTimeToLiveInput;
 export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput & __MetadataBearer;
 
+/**
+ * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
+ */
 export class DescribeTimeToLiveCommand extends $Command<
   DescribeTimeToLiveCommandInput,
   DescribeTimeToLiveCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTimeToLiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type CreateModelPackageCommandInput = CreateModelPackageInput;
 export type CreateModelPackageCommandOutput = CreateModelPackageOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
+ *             Marketplace. Buyers can subscribe to model packages listed on AWS Marketplace to create
+ *             models in Amazon SageMaker.</p>
+ *         <p>To create a model package by specifying a Docker container that contains your
+ *             inference code and the Amazon S3 location of your model artifacts, provide values for
+ *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
+ *             that you created or subscribed to in AWS Marketplace, provide a value for
+ *                 <code>SourceAlgorithmSpecification</code>.</p>
+ */
 export class CreateModelPackageCommand extends $Command<
   CreateModelPackageCommandInput,
   CreateModelPackageCommandOutput,
@@ -34,6 +44,9 @@ export class CreateModelPackageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

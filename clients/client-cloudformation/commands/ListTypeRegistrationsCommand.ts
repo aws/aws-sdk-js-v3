@@ -20,6 +20,9 @@ import {
 export type ListTypeRegistrationsCommandInput = ListTypeRegistrationsInput;
 export type ListTypeRegistrationsCommandOutput = ListTypeRegistrationsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of registration tokens for the specified type(s).</p>
+ */
 export class ListTypeRegistrationsCommand extends $Command<
   ListTypeRegistrationsCommandInput,
   ListTypeRegistrationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTypeRegistrationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

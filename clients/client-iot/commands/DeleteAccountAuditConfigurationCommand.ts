@@ -20,6 +20,11 @@ import {
 export type DeleteAccountAuditConfigurationCommandInput = DeleteAccountAuditConfigurationRequest;
 export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Restores the default settings for Device Defender audits for this account. Any
+ *           configuration data you entered is deleted and all audit checks are reset to
+ *           disabled.  </p>
+ */
 export class DeleteAccountAuditConfigurationCommand extends $Command<
   DeleteAccountAuditConfigurationCommandInput,
   DeleteAccountAuditConfigurationCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

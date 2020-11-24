@@ -20,6 +20,10 @@ import {
 export type GetBulkPublishDetailsCommandInput = GetBulkPublishDetailsRequest;
 export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse & __MetadataBearer;
 
+/**
+ * <p>Get the status of the last BulkPublish operation for an identity pool.</p>
+ *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ */
 export class GetBulkPublishDetailsCommand extends $Command<
   GetBulkPublishDetailsCommandInput,
   GetBulkPublishDetailsCommandOutput,
@@ -34,6 +38,9 @@ export class GetBulkPublishDetailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AcceptSharedDirectoryCommandInput = AcceptSharedDirectoryRequest;
 export type AcceptSharedDirectoryCommandOutput = AcceptSharedDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Accepts a directory sharing request that was sent from the directory owner account.</p>
+ */
 export class AcceptSharedDirectoryCommand extends $Command<
   AcceptSharedDirectoryCommandInput,
   AcceptSharedDirectoryCommandOutput,
@@ -34,6 +37,9 @@ export class AcceptSharedDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

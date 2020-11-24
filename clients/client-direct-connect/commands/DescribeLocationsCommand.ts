@@ -20,6 +20,10 @@ import {
 export type DescribeLocationsCommandInput = {};
 export type DescribeLocationsCommandOutput = Locations & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling
+ *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
+ */
 export class DescribeLocationsCommand extends $Command<
   DescribeLocationsCommandInput,
   DescribeLocationsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeLocationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

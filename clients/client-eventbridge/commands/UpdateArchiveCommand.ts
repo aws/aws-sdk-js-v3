@@ -20,6 +20,9 @@ import {
 export type UpdateArchiveCommandInput = UpdateArchiveRequest;
 export type UpdateArchiveCommandOutput = UpdateArchiveResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the specified archive.</p>
+ */
 export class UpdateArchiveCommand extends $Command<
   UpdateArchiveCommandInput,
   UpdateArchiveCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateArchiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

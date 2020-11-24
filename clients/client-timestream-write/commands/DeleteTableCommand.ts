@@ -20,6 +20,12 @@ import {
 export type DeleteTableCommandInput = DeleteTableRequest;
 export type DeleteTableCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a given Timestream table. This is an irreversible operation.
+ *        After a Timestream database table is deleted, the time series data stored in
+ *        the table cannot be recovered.
+ *        </p>
+ */
 export class DeleteTableCommand extends $Command<
   DeleteTableCommandInput,
   DeleteTableCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

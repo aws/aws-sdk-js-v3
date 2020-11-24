@@ -8,6 +8,9 @@ import {
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
   input: SearchProvisionedProductsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchProvisionedProductsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ServiceCatalog,
   input: SearchProvisionedProductsCommandInput,

@@ -20,6 +20,10 @@ import {
 export type DeleteDevicePoolCommandInput = DeleteDevicePoolRequest;
 export type DeleteDevicePoolCommandOutput = DeleteDevicePoolResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
+ *             owned by the system.</p>
+ */
 export class DeleteDevicePoolCommand extends $Command<
   DeleteDevicePoolCommandInput,
   DeleteDevicePoolCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteDevicePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

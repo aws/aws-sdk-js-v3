@@ -17,6 +17,16 @@ import {
 export type GetTemplateCommandInput = GetTemplateInput;
 export type GetTemplateCommandOutput = GetTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the template body for a specified stack. You can get the template for running
+ *          or deleted stacks.</p>
+ *          <p>For deleted stacks, GetTemplate returns the template for up to 90 days after the
+ *          stack has been deleted.</p>
+ *          <note>
+ *             <p> If the template does not exist, a <code>ValidationError</code> is returned.
+ *          </p>
+ *          </note>
+ */
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,
   GetTemplateCommandOutput,
@@ -31,6 +41,9 @@ export class GetTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

@@ -17,6 +17,12 @@ import {
 export type CreateFleetCommandInput = CreateFleetRequest;
 export type CreateFleetCommandOutput = CreateFleetResult & __MetadataBearer;
 
+/**
+ * <p>Launches an EC2 Fleet.</p>
+ *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
+ *          instance type, AMI, Availability Zone, or subnet.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,
   CreateFleetCommandOutput,
@@ -31,6 +37,9 @@ export class CreateFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

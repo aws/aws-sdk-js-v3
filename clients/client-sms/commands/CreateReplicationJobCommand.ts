@@ -20,6 +20,11 @@ import {
 export type CreateReplicationJobCommandInput = CreateReplicationJobRequest;
 export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a replication job. The replication job schedules periodic replication runs
+ *             to replicate your server to AWS. Each replication run creates an Amazon Machine Image
+ *             (AMI).</p>
+ */
 export class CreateReplicationJobCommand extends $Command<
   CreateReplicationJobCommandInput,
   CreateReplicationJobCommandOutput,
@@ -34,6 +39,9 @@ export class CreateReplicationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

@@ -24,6 +24,14 @@ import {
 export type DeregisterInstancesFromLoadBalancerCommandInput = DeregisterEndPointsInput;
 export type DeregisterInstancesFromLoadBalancerCommandOutput = DeregisterEndPointsOutput & __MetadataBearer;
 
+/**
+ * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>
+ *
+ *         <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>
+ *
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register or De-Register EC2 Instances</a>
+ *             in the <i>Classic Load Balancers Guide</i>.</p>
+ */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
   DeregisterInstancesFromLoadBalancerCommandInput,
   DeregisterInstancesFromLoadBalancerCommandOutput,
@@ -38,6 +46,9 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

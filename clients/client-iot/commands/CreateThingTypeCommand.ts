@@ -20,6 +20,9 @@ import {
 export type CreateThingTypeCommandInput = CreateThingTypeRequest;
 export type CreateThingTypeCommandOutput = CreateThingTypeResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new thing type.</p>
+ */
 export class CreateThingTypeCommand extends $Command<
   CreateThingTypeCommandInput,
   CreateThingTypeCommandOutput,
@@ -34,6 +37,9 @@ export class CreateThingTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

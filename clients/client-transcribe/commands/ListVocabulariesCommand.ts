@@ -20,6 +20,10 @@ import {
 export type ListVocabulariesCommandInput = ListVocabulariesRequest;
 export type ListVocabulariesCommandOutput = ListVocabulariesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are
+ *             specified, returns the entire list of vocabularies.</p>
+ */
 export class ListVocabulariesCommand extends $Command<
   ListVocabulariesCommandInput,
   ListVocabulariesCommandOutput,
@@ -34,6 +38,9 @@ export class ListVocabulariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

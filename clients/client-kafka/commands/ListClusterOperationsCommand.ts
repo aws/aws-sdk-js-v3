@@ -20,6 +20,9 @@ import {
 export type ListClusterOperationsCommandInput = ListClusterOperationsRequest;
 export type ListClusterOperationsCommandOutput = ListClusterOperationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
+ */
 export class ListClusterOperationsCommand extends $Command<
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListClusterOperationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

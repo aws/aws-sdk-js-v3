@@ -24,6 +24,10 @@ import {
 export type TagResourceCommandInput = TagResourceInput;
 export type TagResourceCommandOutput = TagResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
+ *       to manage a resource.</p>
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
@@ -38,6 +42,9 @@ export class TagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

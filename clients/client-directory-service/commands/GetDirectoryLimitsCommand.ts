@@ -20,6 +20,9 @@ import {
 export type GetDirectoryLimitsCommandInput = GetDirectoryLimitsRequest;
 export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult & __MetadataBearer;
 
+/**
+ * <p>Obtains directory limit information for the current Region.</p>
+ */
 export class GetDirectoryLimitsCommand extends $Command<
   GetDirectoryLimitsCommandInput,
   GetDirectoryLimitsCommandOutput,
@@ -34,6 +37,9 @@ export class GetDirectoryLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

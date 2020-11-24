@@ -20,6 +20,9 @@ import {
 export type DeleteRetentionPolicyCommandInput = DeleteRetentionPolicyRequest;
 export type DeleteRetentionPolicyCommandOutput = DeleteRetentionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified retention policy from the specified organization.</p>
+ */
 export class DeleteRetentionPolicyCommand extends $Command<
   DeleteRetentionPolicyCommandInput,
   DeleteRetentionPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRetentionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateRuleMetadataCommandInput = UpdateRuleMetadataRequest;
 export type UpdateRuleMetadataCommandOutput = UpdateRuleMetadataResult & __MetadataBearer;
 
+/**
+ * <p>Updates a rule's metadata. The description attribute can be updated.</p>
+ */
 export class UpdateRuleMetadataCommand extends $Command<
   UpdateRuleMetadataCommandInput,
   UpdateRuleMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRuleMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

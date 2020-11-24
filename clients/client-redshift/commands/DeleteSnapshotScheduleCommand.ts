@@ -20,6 +20,9 @@ import {
 export type DeleteSnapshotScheduleCommandInput = DeleteSnapshotScheduleMessage;
 export type DeleteSnapshotScheduleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a snapshot schedule.</p>
+ */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

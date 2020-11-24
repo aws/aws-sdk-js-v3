@@ -20,6 +20,11 @@ import {
 export type DecreaseReplicaCountCommandInput = DecreaseReplicaCountMessage;
 export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult & __MetadataBearer;
 
+/**
+ * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
+ *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
+ *             is performed with no cluster down time.</p>
+ */
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,
   DecreaseReplicaCountCommandOutput,
@@ -34,6 +39,9 @@ export class DecreaseReplicaCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

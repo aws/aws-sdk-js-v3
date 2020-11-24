@@ -20,6 +20,11 @@ import {
 export type UpdatePrimaryEmailAddressCommandInput = UpdatePrimaryEmailAddressRequest;
 export type UpdatePrimaryEmailAddressCommandOutput = UpdatePrimaryEmailAddressResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the primary email for a user, group, or resource. The current email is moved
+ *          into the list of aliases (or swapped between an existing alias and the current primary
+ *          email), and the email provided in the input is promoted as the primary.</p>
+ */
 export class UpdatePrimaryEmailAddressCommand extends $Command<
   UpdatePrimaryEmailAddressCommandInput,
   UpdatePrimaryEmailAddressCommandOutput,
@@ -34,6 +39,9 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

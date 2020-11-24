@@ -20,6 +20,9 @@ import {
 export type DeleteContactCommandInput = DeleteContactRequest;
 export type DeleteContactCommandOutput = DeleteContactResponse & __MetadataBearer;
 
+/**
+ * <p>Removes a contact from a contact list.</p>
+ */
 export class DeleteContactCommand extends $Command<
   DeleteContactCommandInput,
   DeleteContactCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

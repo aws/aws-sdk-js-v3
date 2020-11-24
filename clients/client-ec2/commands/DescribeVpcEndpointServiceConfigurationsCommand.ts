@@ -24,6 +24,9 @@ export type DescribeVpcEndpointServiceConfigurationsCommandInput = DescribeVpcEn
 export type DescribeVpcEndpointServiceConfigurationsCommandOutput = DescribeVpcEndpointServiceConfigurationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
+ */
 export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   DescribeVpcEndpointServiceConfigurationsCommandInput,
   DescribeVpcEndpointServiceConfigurationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

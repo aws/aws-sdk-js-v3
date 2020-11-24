@@ -20,6 +20,9 @@ import {
 export type AssociatePrincipalWithPortfolioCommandInput = AssociatePrincipalWithPortfolioInput;
 export type AssociatePrincipalWithPortfolioCommandOutput = AssociatePrincipalWithPortfolioOutput & __MetadataBearer;
 
+/**
+ * <p>Associates the specified principal ARN with the specified portfolio.</p>
+ */
 export class AssociatePrincipalWithPortfolioCommand extends $Command<
   AssociatePrincipalWithPortfolioCommandInput,
   AssociatePrincipalWithPortfolioCommandOutput,
@@ -34,6 +37,9 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

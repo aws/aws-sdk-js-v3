@@ -24,6 +24,13 @@ import {
 export type DeleteProjectCommandInput = DeleteProjectRequest;
 export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a project. To delete a project, it must not have any placements associated with
+ *       it.</p>
+ *          <note>
+ *             <p>When you delete a project, all associated data becomes irretrievable.</p>
+ *          </note>
+ */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -38,6 +45,9 @@ export class DeleteProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

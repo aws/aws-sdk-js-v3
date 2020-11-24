@@ -20,6 +20,11 @@ import {
 export type StartMonitoringMembersCommandInput = StartMonitoringMembersRequest;
 export type StartMonitoringMembersCommandOutput = StartMonitoringMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
+ *       restart monitoring of accounts that you stopped monitoring with the
+ *         <code>StopMonitoringMembers</code> operation.</p>
+ */
 export class StartMonitoringMembersCommand extends $Command<
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
@@ -34,6 +39,9 @@ export class StartMonitoringMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

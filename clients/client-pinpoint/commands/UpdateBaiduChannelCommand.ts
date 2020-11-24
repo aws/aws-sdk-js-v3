@@ -20,6 +20,9 @@ import {
 export type UpdateBaiduChannelCommandInput = UpdateBaiduChannelRequest;
 export type UpdateBaiduChannelCommandOutput = UpdateBaiduChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
+ */
 export class UpdateBaiduChannelCommand extends $Command<
   UpdateBaiduChannelCommandInput,
   UpdateBaiduChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBaiduChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

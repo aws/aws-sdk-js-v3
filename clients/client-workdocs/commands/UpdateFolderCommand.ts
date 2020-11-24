@@ -20,6 +20,10 @@ import {
 export type UpdateFolderCommandInput = UpdateFolderRequest;
 export type UpdateFolderCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the specified attributes of the specified folder. The user must have access
+ *             to both the folder and its parent folder, if applicable.</p>
+ */
 export class UpdateFolderCommand extends $Command<
   UpdateFolderCommandInput,
   UpdateFolderCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateFolderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

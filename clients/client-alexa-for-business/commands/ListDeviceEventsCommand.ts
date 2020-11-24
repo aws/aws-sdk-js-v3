@@ -20,6 +20,10 @@ import {
 export type ListDeviceEventsCommandInput = ListDeviceEventsRequest;
 export type ListDeviceEventsCommandOutput = ListDeviceEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the device event history, including device connection status, for up to 30
+ *          days.</p>
+ */
 export class ListDeviceEventsCommand extends $Command<
   ListDeviceEventsCommandInput,
   ListDeviceEventsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDeviceEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
 export type DeleteDBClusterCommandOutput = DeleteDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a previously provisioned cluster. When you delete a cluster, all
+ *             automated backups for that cluster are deleted and can't be recovered. Manual DB
+ *             cluster snapshots of the specified cluster are not deleted.</p>
+ *         <p></p>
+ */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

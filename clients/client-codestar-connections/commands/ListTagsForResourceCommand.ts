@@ -24,6 +24,9 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the set of key-value pairs (metadata) that are used to manage the resource.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -38,6 +41,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

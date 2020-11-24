@@ -20,6 +20,9 @@ import {
 export type ListArtifactsCommandInput = ListArtifactsRequest;
 export type ListArtifactsCommandOutput = ListArtifactsResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about artifacts.</p>
+ */
 export class ListArtifactsCommand extends $Command<
   ListArtifactsCommandInput,
   ListArtifactsCommandOutput,
@@ -34,6 +37,9 @@ export class ListArtifactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

@@ -20,6 +20,22 @@ import {
 export type DeleteGlobalReplicationGroupCommandInput = DeleteGlobalReplicationGroupMessage;
 export type DeleteGlobalReplicationGroupCommandOutput = DeleteGlobalReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Deleting a Global Datastore is a two-step process: </p>
+ *             <ul>
+ *             <li>
+ *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global Datastore.</p>
+ *             </li>
+ *             <li>
+ *                <p>Once the Global Datastore contains only the primary cluster, you can use DeleteGlobalReplicationGroup API to delete the Global Datastore while retainining the primary cluster using Retain…= true.</p>
+ *             </li>
+ *          </ul>
+ *
+ *           <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
+ *              while retaining the primary by setting <code>RetainPrimaryCluster=true</code>.</p>
+ *         <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
+ *             you cannot cancel or revert this operation.</p>
+ */
 export class DeleteGlobalReplicationGroupCommand extends $Command<
   DeleteGlobalReplicationGroupCommandInput,
   DeleteGlobalReplicationGroupCommandOutput,
@@ -34,6 +50,9 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

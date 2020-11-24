@@ -20,6 +20,10 @@ import {
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
 export type RemoveTagsFromResourceCommandOutput = TagListMessage & __MetadataBearer;
 
+/**
+ * <p>Removes the tags identified by the <code>TagKeys</code>
+ *             list from the named resource.</p>
+ */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -34,6 +38,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

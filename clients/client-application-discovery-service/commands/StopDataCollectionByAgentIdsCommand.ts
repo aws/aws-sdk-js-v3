@@ -24,6 +24,9 @@ import {
 export type StopDataCollectionByAgentIdsCommandInput = StopDataCollectionByAgentIdsRequest;
 export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse & __MetadataBearer;
 
+/**
+ * <p>Instructs the specified agents or connectors to stop collecting data.</p>
+ */
 export class StopDataCollectionByAgentIdsCommand extends $Command<
   StopDataCollectionByAgentIdsCommandInput,
   StopDataCollectionByAgentIdsCommandOutput,
@@ -38,6 +41,9 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

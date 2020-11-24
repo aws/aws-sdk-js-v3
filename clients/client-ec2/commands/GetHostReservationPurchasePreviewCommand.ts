@@ -20,6 +20,13 @@ import {
 export type GetHostReservationPurchasePreviewCommandInput = GetHostReservationPurchasePreviewRequest;
 export type GetHostReservationPurchasePreviewCommandOutput = GetHostReservationPurchasePreviewResult & __MetadataBearer;
 
+/**
+ * <p>Preview a reservation purchase with configurations that match those of your
+ *             Dedicated Host. You must have active Dedicated Hosts in your account before you purchase
+ *             a reservation.</p>
+ *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
+ *             not result in the offering being purchased.</p>
+ */
 export class GetHostReservationPurchasePreviewCommand extends $Command<
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
@@ -34,6 +41,9 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

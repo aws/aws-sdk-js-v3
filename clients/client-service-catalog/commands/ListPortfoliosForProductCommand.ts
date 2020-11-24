@@ -20,6 +20,9 @@ import {
 export type ListPortfoliosForProductCommandInput = ListPortfoliosForProductInput;
 export type ListPortfoliosForProductCommandOutput = ListPortfoliosForProductOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all portfolios that the specified product is associated with.</p>
+ */
 export class ListPortfoliosForProductCommand extends $Command<
   ListPortfoliosForProductCommandInput,
   ListPortfoliosForProductCommandOutput,
@@ -34,6 +37,9 @@ export class ListPortfoliosForProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

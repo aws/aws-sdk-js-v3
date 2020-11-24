@@ -20,6 +20,11 @@ import {
 export type DeleteDestinationCommandInput = DeleteDestinationRequest;
 export type DeleteDestinationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified destination, and eventually disables all the
+ *       subscription filters that publish to it. This operation does not delete the
+ *       physical resource encapsulated by the destination.</p>
+ */
 export class DeleteDestinationCommand extends $Command<
   DeleteDestinationCommandInput,
   DeleteDestinationCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

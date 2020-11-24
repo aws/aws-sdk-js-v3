@@ -20,6 +20,9 @@ import {
 export type CreateRuleCommandInput = CreateRuleRequest;
 export type CreateRuleCommandOutput = CreateRuleResult & __MetadataBearer;
 
+/**
+ * <p>Creates a rule for use with the specified detector. </p>
+ */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,
   CreateRuleCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

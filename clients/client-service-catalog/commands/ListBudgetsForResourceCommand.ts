@@ -20,6 +20,9 @@ import {
 export type ListBudgetsForResourceCommandInput = ListBudgetsForResourceInput;
 export type ListBudgetsForResourceCommandOutput = ListBudgetsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Lists all the budgets associated to the specified resource.</p>
+ */
 export class ListBudgetsForResourceCommand extends $Command<
   ListBudgetsForResourceCommandInput,
   ListBudgetsForResourceCommandOutput,
@@ -34,6 +37,9 @@ export class ListBudgetsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

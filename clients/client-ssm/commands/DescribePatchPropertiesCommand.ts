@@ -20,6 +20,51 @@ import {
 export type DescribePatchPropertiesCommandInput = DescribePatchPropertiesRequest;
 export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult & __MetadataBearer;
 
+/**
+ * <p>Lists the properties of available patches organized by product, product family,
+ *    classification, severity, and other properties of available patches. You can use the reported
+ *    properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
+ *          <p>The following section lists the properties that can be used in filters for each major
+ *    operating system type:</p>
+ *          <dl>
+ *             <dt>AMAZON_LINUX</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>AMAZON_LINUX_2</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>CENTOS</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>DEBIAN</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, PRIORITY</p>
+ *             </dd>
+ *             <dt>ORACLE_LINUX</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>REDHAT_ENTERPRISE_LINUX</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>SUSE</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *             </dd>
+ *             <dt>UBUNTU</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, PRIORITY</p>
+ *             </dd>
+ *             <dt>WINDOWS</dt>
+ *             <dd>
+ *                <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>
+ *             </dd>
+ *          </dl>
+ */
 export class DescribePatchPropertiesCommand extends $Command<
   DescribePatchPropertiesCommandInput,
   DescribePatchPropertiesCommandOutput,
@@ -34,6 +79,9 @@ export class DescribePatchPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

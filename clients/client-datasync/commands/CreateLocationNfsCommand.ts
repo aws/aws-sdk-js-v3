@@ -20,6 +20,10 @@ import {
 export type CreateLocationNfsCommandInput = CreateLocationNfsRequest;
 export type CreateLocationNfsCommandOutput = CreateLocationNfsResponse & __MetadataBearer;
 
+/**
+ * <p>Defines a file system on a Network File System (NFS) server that can be read from or
+ *       written to.</p>
+ */
 export class CreateLocationNfsCommand extends $Command<
   CreateLocationNfsCommandInput,
   CreateLocationNfsCommandOutput,
@@ -34,6 +38,9 @@ export class CreateLocationNfsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

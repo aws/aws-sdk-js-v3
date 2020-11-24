@@ -24,6 +24,9 @@ import {
 export type DeleteSessionCommandInput = DeleteSessionRequest;
 export type DeleteSessionCommandOutput = DeleteSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Removes session information for a specified bot, alias, and user ID. </p>
+ */
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,
   DeleteSessionCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexRuntimeServiceClientResolvedConfig,

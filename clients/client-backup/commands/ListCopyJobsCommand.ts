@@ -20,6 +20,9 @@ import {
 export type ListCopyJobsCommandInput = ListCopyJobsInput;
 export type ListCopyJobsCommandOutput = ListCopyJobsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about your copy jobs.</p>
+ */
 export class ListCopyJobsCommand extends $Command<
   ListCopyJobsCommandInput,
   ListCopyJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListCopyJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

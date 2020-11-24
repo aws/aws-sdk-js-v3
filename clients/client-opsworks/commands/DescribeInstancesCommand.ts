@@ -20,6 +20,17 @@ import {
 export type DescribeInstancesCommandInput = DescribeInstancesRequest;
 export type DescribeInstancesCommandOutput = DescribeInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Requests a description of a set of instances.</p>
+ *          <note>
+ *             <p>This call accepts only one resource-identifying parameter.</p>
+ *          </note>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
+ *       Manage permissions level for the stack, or an attached policy that explicitly grants
+ *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,
   DescribeInstancesCommandOutput,
@@ -34,6 +45,9 @@ export class DescribeInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

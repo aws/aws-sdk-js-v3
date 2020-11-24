@@ -20,6 +20,68 @@ import {
 export type DescribeMatchmakingRuleSetsCommandInput = DescribeMatchmakingRuleSetsInput;
 export type DescribeMatchmakingRuleSetsCommandOutput = DescribeMatchmakingRuleSetsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all
+ *             existing rule sets for the Region, or provide a list of one or more rule set names. When
+ *             requesting multiple items, use the pagination parameters to retrieve results as a set of
+ *             sequential pages. If successful, a rule set is returned for each requested name. </p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a Rule
+ *                         Set</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeMatchmakingRuleSetsCommand extends $Command<
   DescribeMatchmakingRuleSetsCommandInput,
   DescribeMatchmakingRuleSetsCommandOutput,
@@ -34,6 +96,9 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

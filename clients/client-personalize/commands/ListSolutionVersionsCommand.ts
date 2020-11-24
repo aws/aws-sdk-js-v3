@@ -20,6 +20,12 @@ import {
 export type ListSolutionVersionsCommandInput = ListSolutionVersionsRequest;
 export type ListSolutionVersionsCommandOutput = ListSolutionVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of solution versions for the given solution. When a solution is not
+ *       specified, all the solution versions associated with the account are listed. The response
+ *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
+ *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ */
 export class ListSolutionVersionsCommand extends $Command<
   ListSolutionVersionsCommandInput,
   ListSolutionVersionsCommandOutput,
@@ -34,6 +40,9 @@ export class ListSolutionVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

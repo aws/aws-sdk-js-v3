@@ -20,6 +20,9 @@ import {
 export type DetachSecurityProfileCommandInput = DetachSecurityProfileRequest;
 export type DetachSecurityProfileCommandOutput = DetachSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
+ */
 export class DetachSecurityProfileCommand extends $Command<
   DetachSecurityProfileCommandInput,
   DetachSecurityProfileCommandOutput,
@@ -34,6 +37,9 @@ export class DetachSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

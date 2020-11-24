@@ -20,6 +20,9 @@ import {
 export type DeleteNetworkAclEntryCommandInput = DeleteNetworkAclEntryRequest;
 export type DeleteNetworkAclEntryCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
+ */
 export class DeleteNetworkAclEntryCommand extends $Command<
   DeleteNetworkAclEntryCommandInput,
   DeleteNetworkAclEntryCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

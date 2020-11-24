@@ -20,6 +20,11 @@ import {
 export type DeleteDeviceUsageDataCommandInput = DeleteDeviceUsageDataRequest;
 export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse & __MetadataBearer;
 
+/**
+ * <p>When this action is called for a specified shared device, it allows authorized users to
+ *          delete the device's entire previous history of voice input data and associated response
+ *          data. This action can be called once every 24 hours for a specific shared device.</p>
+ */
 export class DeleteDeviceUsageDataCommand extends $Command<
   DeleteDeviceUsageDataCommandInput,
   DeleteDeviceUsageDataCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type GetCheckerIpRangesCommandInput = GetCheckerIpRangesRequest;
 export type GetCheckerIpRangesCommandOutput = GetCheckerIpRangesResponse & __MetadataBearer;
 
+/**
+ * <important>
+ * 			         <p>
+ *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
+ * 			ip-ranges.json, which includes IP address ranges for all AWS services. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of Amazon Route 53 Servers</a>
+ * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ * 		       </important>
+ */
 export class GetCheckerIpRangesCommand extends $Command<
   GetCheckerIpRangesCommandInput,
   GetCheckerIpRangesCommandOutput,
@@ -34,6 +43,9 @@ export class GetCheckerIpRangesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

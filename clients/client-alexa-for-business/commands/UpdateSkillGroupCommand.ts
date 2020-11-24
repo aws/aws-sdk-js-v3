@@ -20,6 +20,9 @@ import {
 export type UpdateSkillGroupCommandInput = UpdateSkillGroupRequest;
 export type UpdateSkillGroupCommandOutput = UpdateSkillGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates skill group details by skill group ARN.</p>
+ */
 export class UpdateSkillGroupCommand extends $Command<
   UpdateSkillGroupCommandInput,
   UpdateSkillGroupCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSkillGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

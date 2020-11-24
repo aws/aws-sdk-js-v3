@@ -17,6 +17,13 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResult & __MetadataBearer;
 
+/**
+ * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
+ *         <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that
+ *       indicates whether the job is a job part, in the case of export jobs. Calling this API action
+ *       in one of the US regions will return jobs from the list of all jobs associated with this
+ *       account in all US regions.</p>
+ */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,
   ListJobsCommandOutput,
@@ -31,6 +38,9 @@ export class ListJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

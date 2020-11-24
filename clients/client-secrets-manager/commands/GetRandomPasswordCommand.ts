@@ -20,6 +20,21 @@ import {
 export type GetRandomPasswordCommandInput = GetRandomPasswordRequest;
 export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse & __MetadataBearer;
 
+/**
+ * <p>Generates a random password of the specified complexity. This operation is intended for
+ *       use in the Lambda rotation function. Per best practice, we recommend that you specify the
+ *       maximum length and include every character type that the system you are generating a password
+ *       for can support.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:GetRandomPassword</p>
+ *             </li>
+ *          </ul>
+ */
 export class GetRandomPasswordCommand extends $Command<
   GetRandomPasswordCommandInput,
   GetRandomPasswordCommandOutput,
@@ -34,6 +49,9 @@ export class GetRandomPasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

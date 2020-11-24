@@ -20,6 +20,11 @@ import {
 export type DeleteTrialComponentCommandInput = DeleteTrialComponentRequest;
 export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified trial component. A trial component must be disassociated from all
+ *       trials before the trial component can be deleted. To disassociate a trial component from a
+ *       trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ */
 export class DeleteTrialComponentCommand extends $Command<
   DeleteTrialComponentCommandInput,
   DeleteTrialComponentCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteTrialComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

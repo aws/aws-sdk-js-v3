@@ -20,6 +20,9 @@ import {
 export type GetSchemaAsJsonCommandInput = GetSchemaAsJsonRequest;
 export type GetSchemaAsJsonCommandOutput = GetSchemaAsJsonResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a JSON representation of the schema. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
+ */
 export class GetSchemaAsJsonCommand extends $Command<
   GetSchemaAsJsonCommandInput,
   GetSchemaAsJsonCommandOutput,
@@ -34,6 +37,9 @@ export class GetSchemaAsJsonCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

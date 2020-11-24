@@ -20,6 +20,9 @@ import {
 export type ListResourcesCommandInput = ListResourcesRequest;
 export type ListResourcesCommandOutput = ListResourcesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns summaries of the organization's resources.</p>
+ */
 export class ListResourcesCommand extends $Command<
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

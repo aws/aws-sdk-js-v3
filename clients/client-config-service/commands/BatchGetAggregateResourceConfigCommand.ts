@@ -20,6 +20,21 @@ import {
 export type BatchGetAggregateResourceConfigCommandInput = BatchGetAggregateResourceConfigRequest;
 export type BatchGetAggregateResourceConfigCommandOutput = BatchGetAggregateResourceConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request.
+ * 			If there are no unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list. </p>
+ *
+ * 		       <note>
+ *             <ul>
+ *                <li>
+ *                   <p>The API does not return results for deleted resources.</p>
+ *                </li>
+ *                <li>
+ *                   <p> The API does not return tags and relationships.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ */
 export class BatchGetAggregateResourceConfigCommand extends $Command<
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
@@ -34,6 +49,9 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

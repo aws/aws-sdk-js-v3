@@ -20,6 +20,9 @@ import {
 export type DeleteRepositoryPolicyCommandInput = DeleteRepositoryPolicyRequest;
 export type DeleteRepositoryPolicyCommandOutput = DeleteRepositoryPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the repository policy associated with the specified repository.</p>
+ */
 export class DeleteRepositoryPolicyCommand extends $Command<
   DeleteRepositoryPolicyCommandInput,
   DeleteRepositoryPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRepositoryPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

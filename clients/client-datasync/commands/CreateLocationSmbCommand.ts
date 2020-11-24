@@ -20,6 +20,10 @@ import {
 export type CreateLocationSmbCommandInput = CreateLocationSmbRequest;
 export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse & __MetadataBearer;
 
+/**
+ * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
+ *       written to.</p>
+ */
 export class CreateLocationSmbCommand extends $Command<
   CreateLocationSmbCommandInput,
   CreateLocationSmbCommandOutput,
@@ -34,6 +38,9 @@ export class CreateLocationSmbCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

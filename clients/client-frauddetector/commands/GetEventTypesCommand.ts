@@ -20,6 +20,14 @@ import {
 export type GetEventTypesCommandInput = GetEventTypesRequest;
 export type GetEventTypesCommandOutput = GetEventTypesResult & __MetadataBearer;
 
+/**
+ * <p>Gets all event types or a specific event type if name is provided. This is a paginated API. If you
+ *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
+ *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
+ *          To get the next page results, provide the pagination token from the
+ *             <code>GetEventTypesResponse</code> as part of your request. A null pagination token
+ *          fetches the records from the beginning. </p>
+ */
 export class GetEventTypesCommand extends $Command<
   GetEventTypesCommandInput,
   GetEventTypesCommandOutput,
@@ -34,6 +42,9 @@ export class GetEventTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

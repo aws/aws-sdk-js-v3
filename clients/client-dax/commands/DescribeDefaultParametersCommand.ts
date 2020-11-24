@@ -20,6 +20,10 @@ import {
 export type DescribeDefaultParametersCommandInput = DescribeDefaultParametersRequest;
 export type DescribeDefaultParametersCommandOutput = DescribeDefaultParametersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the default system parameter information for the DAX caching
+ *             software.</p>
+ */
 export class DescribeDefaultParametersCommand extends $Command<
   DescribeDefaultParametersCommandInput,
   DescribeDefaultParametersCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeDefaultParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

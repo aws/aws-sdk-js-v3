@@ -20,6 +20,9 @@ import {
 export type UpdateClusterConfigurationCommandInput = UpdateClusterConfigurationRequest;
 export type UpdateClusterConfigurationCommandOutput = UpdateClusterConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the cluster with the configuration that is specified in the request body.</p>
+ */
 export class UpdateClusterConfigurationCommand extends $Command<
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateClusterConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

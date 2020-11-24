@@ -20,6 +20,9 @@ import {
 export type ListSchemaVersionsCommandInput = ListSchemaVersionsRequest;
 export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a list of the schema versions and related information.</p>
+ */
 export class ListSchemaVersionsCommand extends $Command<
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSchemaVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

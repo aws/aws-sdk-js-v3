@@ -20,6 +20,10 @@ import {
 export type CreateDeviceCommandInput = CreateDeviceRequest;
 export type CreateDeviceCommandOutput = CreateDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new device in a global network. If you specify both a site ID and a
+ *             location, the location of the site is used for visualization in the Network Manager console.</p>
+ */
 export class CreateDeviceCommand extends $Command<
   CreateDeviceCommandInput,
   CreateDeviceCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

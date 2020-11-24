@@ -20,6 +20,12 @@ import {
 export type SetLocalConsolePasswordCommandInput = SetLocalConsolePasswordInput;
 export type SetLocalConsolePasswordCommandOutput = SetLocalConsolePasswordOutput & __MetadataBearer;
 
+/**
+ * <p>Sets the password for your VM local console. When you log in to the local console for
+ *          the first time, you log in to the VM with the default credentials. We recommend that you
+ *          set a new password. You don't need to know the default password to set a new
+ *          password.</p>
+ */
 export class SetLocalConsolePasswordCommand extends $Command<
   SetLocalConsolePasswordCommandInput,
   SetLocalConsolePasswordCommandOutput,
@@ -34,6 +40,9 @@ export class SetLocalConsolePasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

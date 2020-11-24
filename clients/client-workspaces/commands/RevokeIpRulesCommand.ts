@@ -20,6 +20,9 @@ import {
 export type RevokeIpRulesCommandInput = RevokeIpRulesRequest;
 export type RevokeIpRulesCommandOutput = RevokeIpRulesResult & __MetadataBearer;
 
+/**
+ * <p>Removes one or more rules from the specified IP access control group.</p>
+ */
 export class RevokeIpRulesCommand extends $Command<
   RevokeIpRulesCommandInput,
   RevokeIpRulesCommandOutput,
@@ -34,6 +37,9 @@ export class RevokeIpRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

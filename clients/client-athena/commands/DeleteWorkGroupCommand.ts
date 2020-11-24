@@ -20,6 +20,10 @@ import {
 export type DeleteWorkGroupCommandInput = DeleteWorkGroupInput;
 export type DeleteWorkGroupCommandOutput = DeleteWorkGroupOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
+ *             deleted.</p>
+ */
 export class DeleteWorkGroupCommand extends $Command<
   DeleteWorkGroupCommandInput,
   DeleteWorkGroupCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteWorkGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

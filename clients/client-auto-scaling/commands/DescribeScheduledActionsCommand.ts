@@ -20,6 +20,10 @@ import {
 export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsType;
 export type DescribeScheduledActionsCommandOutput = ScheduledActionsType & __MetadataBearer;
 
+/**
+ * <p>Describes the actions scheduled for your Auto Scaling group that haven't run or that have not
+ *             reached their end time. To describe the actions that have already run, call the <a>DescribeScalingActivities</a> API.</p>
+ */
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

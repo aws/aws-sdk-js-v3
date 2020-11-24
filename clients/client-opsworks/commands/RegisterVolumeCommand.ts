@@ -20,6 +20,16 @@ import {
 export type RegisterVolumeCommandInput = RegisterVolumeRequest;
 export type RegisterVolumeCommandOutput = RegisterVolumeResult & __MetadataBearer;
 
+/**
+ * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
+ *       stack at a time. If the volume is already registered, you must first deregister it by calling
+ *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
+ *          <p>
+ *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *       level for the stack, or an attached policy that explicitly grants permissions. For more
+ *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+ *         Permissions</a>.</p>
+ */
 export class RegisterVolumeCommand extends $Command<
   RegisterVolumeCommandInput,
   RegisterVolumeCommandOutput,
@@ -34,6 +44,9 @@ export class RegisterVolumeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,

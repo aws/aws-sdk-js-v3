@@ -20,6 +20,12 @@ import {
 export type DescribePlatformVersionCommandInput = DescribePlatformVersionRequest;
 export type DescribePlatformVersionCommandOutput = DescribePlatformVersionResult & __MetadataBearer;
 
+/**
+ * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
+ *       platform versions.</p>
+ *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+ *         Platforms Glossary</a>.</p>
+ */
 export class DescribePlatformVersionCommand extends $Command<
   DescribePlatformVersionCommandInput,
   DescribePlatformVersionCommandOutput,
@@ -34,6 +40,9 @@ export class DescribePlatformVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

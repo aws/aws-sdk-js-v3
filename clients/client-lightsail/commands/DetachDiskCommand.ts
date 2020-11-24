@@ -20,6 +20,14 @@ import {
 export type DetachDiskCommandInput = DetachDiskRequest;
 export type DetachDiskCommandOutput = DetachDiskResult & __MetadataBearer;
 
+/**
+ * <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount
+ *       any file systems on the device within your operating system before stopping the instance and
+ *       detaching the disk.</p>
+ *          <p>The <code>detach disk</code> operation supports tag-based access control via resource tags
+ *       applied to the resource identified by <code>disk name</code>. For more information, see the
+ *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DetachDiskCommand extends $Command<
   DetachDiskCommandInput,
   DetachDiskCommandOutput,
@@ -34,6 +42,9 @@ export class DetachDiskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

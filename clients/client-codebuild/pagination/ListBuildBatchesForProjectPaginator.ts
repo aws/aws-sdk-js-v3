@@ -8,6 +8,9 @@ import {
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: CodeBuildClient,
   input: ListBuildBatchesForProjectCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBuildBatchesForProjectCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: CodeBuild,
   input: ListBuildBatchesForProjectCommandInput,

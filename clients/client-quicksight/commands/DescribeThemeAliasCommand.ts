@@ -20,6 +20,9 @@ import {
 export type DescribeThemeAliasCommandInput = DescribeThemeAliasRequest;
 export type DescribeThemeAliasCommandOutput = DescribeThemeAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the alias for a theme.</p>
+ */
 export class DescribeThemeAliasCommand extends $Command<
   DescribeThemeAliasCommandInput,
   DescribeThemeAliasCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThemeAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

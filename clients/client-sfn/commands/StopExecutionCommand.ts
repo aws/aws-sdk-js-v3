@@ -20,6 +20,10 @@ import {
 export type StopExecutionCommandInput = StopExecutionInput;
 export type StopExecutionCommandOutput = StopExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Stops an execution.</p>
+ *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ */
 export class StopExecutionCommand extends $Command<
   StopExecutionCommandInput,
   StopExecutionCommandOutput,
@@ -34,6 +38,9 @@ export class StopExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

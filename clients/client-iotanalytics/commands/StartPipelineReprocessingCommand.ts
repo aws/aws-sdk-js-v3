@@ -20,6 +20,9 @@ import {
 export type StartPipelineReprocessingCommandInput = StartPipelineReprocessingRequest;
 export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse & __MetadataBearer;
 
+/**
+ * <p>Starts the reprocessing of raw message data through the pipeline.</p>
+ */
 export class StartPipelineReprocessingCommand extends $Command<
   StartPipelineReprocessingCommandInput,
   StartPipelineReprocessingCommandOutput,
@@ -34,6 +37,9 @@ export class StartPipelineReprocessingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

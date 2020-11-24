@@ -20,6 +20,9 @@ import {
 export type DescribeVirtualServiceCommandInput = DescribeVirtualServiceInput;
 export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing virtual service.</p>
+ */
 export class DescribeVirtualServiceCommand extends $Command<
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeVirtualServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

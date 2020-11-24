@@ -4,6 +4,9 @@ import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput }
 import { ShieldPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ShieldClient,
   input: ListAttacksCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttacksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Shield,
   input: ListAttacksCommandInput,

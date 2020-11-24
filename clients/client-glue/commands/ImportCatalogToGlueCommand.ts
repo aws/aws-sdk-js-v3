@@ -20,6 +20,9 @@ import {
 export type ImportCatalogToGlueCommandInput = ImportCatalogToGlueRequest;
 export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse & __MetadataBearer;
 
+/**
+ * <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>
+ */
 export class ImportCatalogToGlueCommand extends $Command<
   ImportCatalogToGlueCommandInput,
   ImportCatalogToGlueCommandOutput,
@@ -34,6 +37,9 @@ export class ImportCatalogToGlueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

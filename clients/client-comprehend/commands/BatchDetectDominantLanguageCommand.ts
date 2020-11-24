@@ -20,6 +20,11 @@ import {
 export type BatchDetectDominantLanguageCommandInput = BatchDetectDominantLanguageRequest;
 export type BatchDetectDominantLanguageCommandOutput = BatchDetectDominantLanguageResponse & __MetadataBearer;
 
+/**
+ * <p>Determines the dominant language of the input text for a batch of documents. For a list
+ *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
+ *     </p>
+ */
 export class BatchDetectDominantLanguageCommand extends $Command<
   BatchDetectDominantLanguageCommandInput,
   BatchDetectDominantLanguageCommandOutput,
@@ -34,6 +39,9 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

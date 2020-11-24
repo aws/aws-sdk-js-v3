@@ -20,6 +20,10 @@ import {
 export type DescribeClientVpnConnectionsCommandInput = DescribeClientVpnConnectionsRequest;
 export type DescribeClientVpnConnectionsCommandOutput = DescribeClientVpnConnectionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes active client connections and connections that have been terminated within the last 60
+ * 			minutes for the specified Client VPN endpoint.</p>
+ */
 export class DescribeClientVpnConnectionsCommand extends $Command<
   DescribeClientVpnConnectionsCommandInput,
   DescribeClientVpnConnectionsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,18 @@ import {
 export type DeleteRepositoryPermissionsPolicyCommandInput = DeleteRepositoryPermissionsPolicyRequest;
 export type DeleteRepositoryPermissionsPolicyCommandOutput = DeleteRepositoryPermissionsPolicyResult & __MetadataBearer;
 
+/**
+ * <p>
+ *         Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
+ *         permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
+ *       </p>
+ *          <important>
+ *             <p>
+ *          Use <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a policy is deleted, AWS users, roles, and accounts lose permissions to perform
+ *          the repository actions granted by the deleted policy.
+ *        </p>
+ *          </important>
+ */
 export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
   DeleteRepositoryPermissionsPolicyCommandInput,
   DeleteRepositoryPermissionsPolicyCommandOutput,
@@ -34,6 +46,9 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

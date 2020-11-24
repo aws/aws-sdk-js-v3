@@ -20,6 +20,9 @@ import {
 export type ListDataSetsCommandInput = ListDataSetsRequest;
 export type ListDataSetsCommandOutput = ListDataSetsResponse & __MetadataBearer;
 
+/**
+ * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
+ */
 export class ListDataSetsCommand extends $Command<
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDataSetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

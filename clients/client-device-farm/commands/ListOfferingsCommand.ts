@@ -20,6 +20,12 @@ import {
 export type ListOfferingsCommandInput = ListOfferingsRequest;
 export type ListOfferingsCommandOutput = ListOfferingsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
+ *             indicates the recurring price per unit and the frequency for that offering. The API returns a
+ *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
+ *             able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ */
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
@@ -34,6 +40,9 @@ export class ListOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

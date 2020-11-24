@@ -20,6 +20,9 @@ import {
 export type GetPushTemplateCommandInput = GetPushTemplateRequest;
 export type GetPushTemplateCommandOutput = GetPushTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
+ */
 export class GetPushTemplateCommand extends $Command<
   GetPushTemplateCommandInput,
   GetPushTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetPushTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

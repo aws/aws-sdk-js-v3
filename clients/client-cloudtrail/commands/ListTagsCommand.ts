@@ -17,6 +17,9 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags for the trail in the current region.</p>
+ */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,
   ListTagsCommandOutput,
@@ -31,6 +34,9 @@ export class ListTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

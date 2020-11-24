@@ -20,6 +20,9 @@ import {
 export type SearchSchemasCommandInput = SearchSchemasRequest;
 export type SearchSchemasCommandOutput = SearchSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Search the schemas</p>
+ */
 export class SearchSchemasCommand extends $Command<
   SearchSchemasCommandInput,
   SearchSchemasCommandOutput,
@@ -34,6 +37,9 @@ export class SearchSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

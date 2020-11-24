@@ -4,6 +4,9 @@ import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } fr
 import { IAMPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IAMClient,
   input: ListGroupsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IAM,
   input: ListGroupsCommandInput,

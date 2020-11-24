@@ -20,6 +20,12 @@ import {
 export type GetSendStatisticsCommandInput = {};
 export type GetSendStatisticsCommandOutput = GetSendStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides sending statistics for the current AWS Region. The result is a list of data
+ *             points, representing the last two weeks of sending activity. Each data point in the list
+ *             contains statistics for a 15-minute period of time.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class GetSendStatisticsCommand extends $Command<
   GetSendStatisticsCommandInput,
   GetSendStatisticsCommandOutput,
@@ -34,6 +40,9 @@ export class GetSendStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

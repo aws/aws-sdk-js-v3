@@ -25,6 +25,9 @@ import {
 export type SetUserPoolMfaConfigCommandInput = SetUserPoolMfaConfigRequest;
 export type SetUserPoolMfaConfigCommandOutput = SetUserPoolMfaConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Set the user pool multi-factor authentication (MFA) configuration.</p>
+ */
 export class SetUserPoolMfaConfigCommand extends $Command<
   SetUserPoolMfaConfigCommandInput,
   SetUserPoolMfaConfigCommandOutput,
@@ -39,6 +42,9 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

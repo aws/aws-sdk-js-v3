@@ -20,6 +20,10 @@ import {
 export type CreateUserCommandInput = CreateUserRequest;
 export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
+ *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
+ */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,
   CreateUserCommandOutput,
@@ -34,6 +38,9 @@ export class CreateUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

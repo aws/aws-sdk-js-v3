@@ -20,6 +20,11 @@ import {
 export type UpdateDevicePoolCommandInput = UpdateDevicePoolRequest;
 export type UpdateDevicePoolCommandOutput = UpdateDevicePoolResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the name, description, and rules in a device pool given the attributes and
+ *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
+ *             whole (or not at all).</p>
+ */
 export class UpdateDevicePoolCommand extends $Command<
   UpdateDevicePoolCommandInput,
   UpdateDevicePoolCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateDevicePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

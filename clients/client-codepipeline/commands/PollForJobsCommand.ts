@@ -20,6 +20,18 @@ import {
 export type PollForJobsCommandInput = PollForJobsInput;
 export type PollForJobsCommandOutput = PollForJobsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about any jobs for AWS CodePipeline to act on.
+ *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
+ *             field. If the action type contains "AWS" or "ThirdParty" in the owner field, the
+ *                 <code>PollForJobs</code> action returns an error.</p>
+ *         <important>
+ *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
+ *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+ *                 that S3 bucket for input or output artifacts. This API also returns any secret
+ *                 values defined for the action.</p>
+ *         </important>
+ */
 export class PollForJobsCommand extends $Command<
   PollForJobsCommandInput,
   PollForJobsCommandOutput,
@@ -34,6 +46,9 @@ export class PollForJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

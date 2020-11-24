@@ -20,6 +20,9 @@ import {
 export type DescribeFlowDefinitionCommandInput = DescribeFlowDefinitionRequest;
 export type DescribeFlowDefinitionCommandOutput = DescribeFlowDefinitionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified flow definition.</p>
+ */
 export class DescribeFlowDefinitionCommand extends $Command<
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFlowDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

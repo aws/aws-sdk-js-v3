@@ -20,6 +20,9 @@ import {
 export type ListTransformJobsCommandInput = ListTransformJobsRequest;
 export type ListTransformJobsCommandOutput = ListTransformJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists transform jobs.</p>
+ */
 export class ListTransformJobsCommand extends $Command<
   ListTransformJobsCommandInput,
   ListTransformJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTransformJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

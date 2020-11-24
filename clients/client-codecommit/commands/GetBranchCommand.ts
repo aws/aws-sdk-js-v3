@@ -17,6 +17,9 @@ import {
 export type GetBranchCommandInput = GetBranchInput;
 export type GetBranchCommandOutput = GetBranchOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
+ */
 export class GetBranchCommand extends $Command<
   GetBranchCommandInput,
   GetBranchCommandOutput,
@@ -31,6 +34,9 @@ export class GetBranchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

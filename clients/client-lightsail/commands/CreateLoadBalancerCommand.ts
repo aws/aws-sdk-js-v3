@@ -20,6 +20,16 @@ import {
 export type CreateLoadBalancerCommandInput = CreateLoadBalancerRequest;
 export type CreateLoadBalancerCommandOutput = CreateLoadBalancerResult & __MetadataBearer;
 
+/**
+ * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
+ *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
+ *       load balancers per AWS Region in your account.</p>
+ *          <p>When you create a load balancer, you can specify a unique name and port settings. To
+ *       change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
+ *       operation.</p>
+ *          <p>The <code>create load balancer</code> operation supports tag-based access control via
+ *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
   CreateLoadBalancerCommandOutput,
@@ -34,6 +44,9 @@ export class CreateLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

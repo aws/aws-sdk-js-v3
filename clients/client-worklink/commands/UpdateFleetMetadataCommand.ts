@@ -20,6 +20,9 @@ import {
 export type UpdateFleetMetadataCommandInput = UpdateFleetMetadataRequest;
 export type UpdateFleetMetadataCommandOutput = UpdateFleetMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Updates fleet metadata, such as DisplayName.</p>
+ */
 export class UpdateFleetMetadataCommand extends $Command<
   UpdateFleetMetadataCommandInput,
   UpdateFleetMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFleetMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

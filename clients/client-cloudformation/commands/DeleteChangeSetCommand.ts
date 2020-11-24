@@ -20,6 +20,15 @@ import {
 export type DeleteChangeSetCommandInput = DeleteChangeSetInput;
 export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified change set. Deleting change sets ensures that no one executes
+ *          the wrong change set.</p>
+ *          <p>If the call successfully completes, AWS CloudFormation successfully deleted the
+ *          change set.</p>
+ *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of
+ *          the nested change set, then <code>DeleteChangeSet</code> will delete all change sets that belong to the stacks hierarchy and
+ *           will also delete all change sets for nested stacks with the status of <code>REVIEW_IN_PROGRESS</code>.</p>
+ */
 export class DeleteChangeSetCommand extends $Command<
   DeleteChangeSetCommandInput,
   DeleteChangeSetCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteChangeSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

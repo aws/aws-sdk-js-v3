@@ -20,6 +20,9 @@ import {
 export type GetProvisionedConcurrencyConfigCommandInput = GetProvisionedConcurrencyConfigRequest;
 export type GetProvisionedConcurrencyConfigCommandOutput = GetProvisionedConcurrencyConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
+ */
 export class GetProvisionedConcurrencyConfigCommand extends $Command<
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
@@ -34,6 +37,9 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

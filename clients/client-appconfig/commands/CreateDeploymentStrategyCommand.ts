@@ -20,6 +20,12 @@ import {
 export type CreateDeploymentStrategyCommandInput = CreateDeploymentStrategyRequest;
 export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
+/**
+ * <p>A deployment strategy defines important criteria for rolling out your configuration to
+ *          the designated targets. A deployment strategy includes: the overall duration required, a
+ *          percentage of targets to receive the deployment during each interval, an algorithm that
+ *          defines how percentage grows, and bake time.</p>
+ */
 export class CreateDeploymentStrategyCommand extends $Command<
   CreateDeploymentStrategyCommandInput,
   CreateDeploymentStrategyCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDeploymentStrategyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,

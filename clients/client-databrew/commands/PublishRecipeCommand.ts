@@ -20,6 +20,10 @@ import {
 export type PublishRecipeCommandInput = PublishRecipeRequest;
 export type PublishRecipeCommandOutput = PublishRecipeResponse & __MetadataBearer;
 
+/**
+ * <p>Publishes a new major version of an AWS Glue DataBrew recipe that exists in the
+ *             current AWS account.</p>
+ */
 export class PublishRecipeCommand extends $Command<
   PublishRecipeCommandInput,
   PublishRecipeCommandOutput,
@@ -34,6 +38,9 @@ export class PublishRecipeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

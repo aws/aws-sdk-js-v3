@@ -20,6 +20,10 @@ import {
 export type AssociateTrialComponentCommandInput = AssociateTrialComponentRequest;
 export type AssociateTrialComponentCommandOutput = AssociateTrialComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a trial component with a trial. A trial component can be associated with
+ *       multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ */
 export class AssociateTrialComponentCommand extends $Command<
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateTrialComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

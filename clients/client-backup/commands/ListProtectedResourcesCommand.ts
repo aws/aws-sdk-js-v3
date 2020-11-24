@@ -20,6 +20,11 @@ import {
 export type ListProtectedResourcesCommandInput = ListProtectedResourcesInput;
 export type ListProtectedResourcesCommandOutput = ListProtectedResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of resources successfully backed up by AWS Backup, including the time
+ *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
+ *          type.</p>
+ */
 export class ListProtectedResourcesCommand extends $Command<
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -34,6 +39,9 @@ export class ListProtectedResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

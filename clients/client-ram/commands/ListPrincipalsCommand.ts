@@ -20,6 +20,10 @@ import {
 export type ListPrincipalsCommandInput = ListPrincipalsRequest;
 export type ListPrincipalsCommandOutput = ListPrincipalsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the principals that you have shared resources with or that have shared resources
+ * 			with you.</p>
+ */
 export class ListPrincipalsCommand extends $Command<
   ListPrincipalsCommandInput,
   ListPrincipalsCommandOutput,
@@ -34,6 +38,9 @@ export class ListPrincipalsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
   input: GetAssetPropertyValueHistoryCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetAssetPropertyValueHistoryCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTSiteWise,
   input: GetAssetPropertyValueHistoryCommandInput,

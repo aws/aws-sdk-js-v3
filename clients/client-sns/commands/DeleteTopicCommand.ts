@@ -17,6 +17,12 @@ import {
 export type DeleteTopicCommandInput = DeleteTopicInput;
 export type DeleteTopicCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
+ *             messages previously sent to the topic from being delivered to subscribers. This action
+ *             is idempotent, so deleting a topic that does not exist does not result in an
+ *             error.</p>
+ */
 export class DeleteTopicCommand extends $Command<
   DeleteTopicCommandInput,
   DeleteTopicCommandOutput,
@@ -31,6 +37,9 @@ export class DeleteTopicCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

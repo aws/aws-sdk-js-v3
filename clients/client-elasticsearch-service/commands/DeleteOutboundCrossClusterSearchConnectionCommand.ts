@@ -28,6 +28,9 @@ export type DeleteOutboundCrossClusterSearchConnectionCommandInput = DeleteOutbo
 export type DeleteOutboundCrossClusterSearchConnectionCommandOutput = DeleteOutboundCrossClusterSearchConnectionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.</p>
+ */
 export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
   DeleteOutboundCrossClusterSearchConnectionCommandInput,
   DeleteOutboundCrossClusterSearchConnectionCommandOutput,
@@ -42,6 +45,9 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

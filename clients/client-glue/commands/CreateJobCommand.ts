@@ -17,6 +17,9 @@ import {
 export type CreateJobCommandInput = CreateJobRequest;
 export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new job definition.</p>
+ */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,
   CreateJobCommandOutput,
@@ -31,6 +34,9 @@ export class CreateJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

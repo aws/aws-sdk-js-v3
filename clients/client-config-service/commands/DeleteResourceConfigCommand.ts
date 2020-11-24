@@ -20,6 +20,10 @@ import {
 export type DeleteResourceConfigCommandInput = DeleteResourceConfigRequest;
 export type DeleteResourceConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.
+ * 			 </p>
+ */
 export class DeleteResourceConfigCommand extends $Command<
   DeleteResourceConfigCommandInput,
   DeleteResourceConfigCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteResourceConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

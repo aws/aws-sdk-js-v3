@@ -20,6 +20,9 @@ import {
 export type ListStreamKeysCommandInput = ListStreamKeysRequest;
 export type ListStreamKeysCommandOutput = ListStreamKeysResponse & __MetadataBearer;
 
+/**
+ * <p>Gets summary information about stream keys for the specified channel.</p>
+ */
 export class ListStreamKeysCommand extends $Command<
   ListStreamKeysCommandInput,
   ListStreamKeysCommandOutput,
@@ -34,6 +37,9 @@ export class ListStreamKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

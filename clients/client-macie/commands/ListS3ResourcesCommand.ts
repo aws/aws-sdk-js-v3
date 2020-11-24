@@ -20,6 +20,12 @@ import {
 export type ListS3ResourcesCommandInput = ListS3ResourcesRequest;
 export type ListS3ResourcesCommandOutput = ListS3ResourcesResult & __MetadataBearer;
 
+/**
+ * <p>Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId
+ *       isn't specified, the action lists the S3 resources associated with Amazon Macie Classic for
+ *       the current master account. If memberAccountId is specified, the action lists the S3 resources
+ *       associated with Amazon Macie Classic for the specified member account. </p>
+ */
 export class ListS3ResourcesCommand extends $Command<
   ListS3ResourcesCommandInput,
   ListS3ResourcesCommandOutput,
@@ -34,6 +40,9 @@ export class ListS3ResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

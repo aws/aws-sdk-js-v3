@@ -20,6 +20,13 @@ import {
 export type GetPackageVersionAssetCommandInput = GetPackageVersionAssetRequest;
 export type GetPackageVersionAssetCommandOutput = GetPackageVersionAssetResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Returns an asset (or file) that is in a package. For example, for a Maven package version, use
+ *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
+ *       or any other assets in the package version.
+ *     </p>
+ */
 export class GetPackageVersionAssetCommand extends $Command<
   GetPackageVersionAssetCommandInput,
   GetPackageVersionAssetCommandOutput,
@@ -34,6 +41,9 @@ export class GetPackageVersionAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

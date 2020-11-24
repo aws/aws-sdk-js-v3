@@ -20,6 +20,11 @@ import {
 export type GetReservedInstancesExchangeQuoteCommandInput = GetReservedInstancesExchangeQuoteRequest;
 export type GetReservedInstancesExchangeQuoteCommandOutput = GetReservedInstancesExchangeQuoteResult & __MetadataBearer;
 
+/**
+ * <p>Returns a quote and exchange information for exchanging one or more specified
+ *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
+ *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
+ */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command<
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput,
@@ -34,6 +39,9 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteTaskCommandInput = DeleteTaskRequest;
 export type DeleteTaskCommandOutput = DeleteTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a task.</p>
+ */
 export class DeleteTaskCommand extends $Command<
   DeleteTaskCommandInput,
   DeleteTaskCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

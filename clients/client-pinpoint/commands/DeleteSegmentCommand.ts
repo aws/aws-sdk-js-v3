@@ -20,6 +20,9 @@ import {
 export type DeleteSegmentCommandInput = DeleteSegmentRequest;
 export type DeleteSegmentCommandOutput = DeleteSegmentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a segment from an application.</p>
+ */
 export class DeleteSegmentCommand extends $Command<
   DeleteSegmentCommandInput,
   DeleteSegmentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSegmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

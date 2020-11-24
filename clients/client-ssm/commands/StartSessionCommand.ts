@@ -20,6 +20,18 @@ import {
 export type StartSessionCommandInput = StartSessionRequest;
 export type StartSessionCommandOutput = StartSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a
+ *    URL and token that can be used to open a WebSocket connection for sending input and receiving
+ *    outputs.</p>
+ *          <note>
+ *             <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
+ *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
+ *      the Session Manager plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
+ *     for PowerShell on Windows local machines.</p>
+ *          </note>
+ */
 export class StartSessionCommand extends $Command<
   StartSessionCommandInput,
   StartSessionCommandOutput,
@@ -34,6 +46,9 @@ export class StartSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

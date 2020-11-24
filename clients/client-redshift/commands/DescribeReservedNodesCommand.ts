@@ -20,6 +20,9 @@ import {
 export type DescribeReservedNodesCommandInput = DescribeReservedNodesMessage;
 export type DescribeReservedNodesCommandOutput = ReservedNodesMessage & __MetadataBearer;
 
+/**
+ * <p>Returns the descriptions of the reserved nodes.</p>
+ */
 export class DescribeReservedNodesCommand extends $Command<
   DescribeReservedNodesCommandInput,
   DescribeReservedNodesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeReservedNodesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

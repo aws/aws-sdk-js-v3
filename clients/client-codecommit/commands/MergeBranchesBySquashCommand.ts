@@ -20,6 +20,9 @@ import {
 export type MergeBranchesBySquashCommandInput = MergeBranchesBySquashInput;
 export type MergeBranchesBySquashCommandOutput = MergeBranchesBySquashOutput & __MetadataBearer;
 
+/**
+ * <p>Merges two branches using the squash merge strategy.</p>
+ */
 export class MergeBranchesBySquashCommand extends $Command<
   MergeBranchesBySquashCommandInput,
   MergeBranchesBySquashCommandOutput,
@@ -34,6 +37,9 @@ export class MergeBranchesBySquashCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

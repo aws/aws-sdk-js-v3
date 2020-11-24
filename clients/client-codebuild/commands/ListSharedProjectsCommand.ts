@@ -20,6 +20,9 @@ import {
 export type ListSharedProjectsCommandInput = ListSharedProjectsInput;
 export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput & __MetadataBearer;
 
+/**
+ * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>
+ */
 export class ListSharedProjectsCommand extends $Command<
   ListSharedProjectsCommandInput,
   ListSharedProjectsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSharedProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

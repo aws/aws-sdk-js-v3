@@ -24,6 +24,9 @@ import {
 export type DeleteEndpointGroupCommandInput = DeleteEndpointGroupRequest;
 export type DeleteEndpointGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete an endpoint group from a listener.</p>
+ */
 export class DeleteEndpointGroupCommand extends $Command<
   DeleteEndpointGroupCommandInput,
   DeleteEndpointGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

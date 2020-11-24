@@ -20,6 +20,11 @@ import {
 export type UpdateTeamMemberCommandInput = UpdateTeamMemberRequest;
 export type UpdateTeamMemberCommandOutput = UpdateTeamMemberResult & __MetadataBearer;
 
+/**
+ * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
+ *       team member's role in the project, or change whether they have remote access to project
+ *       resources.</p>
+ */
 export class UpdateTeamMemberCommand extends $Command<
   UpdateTeamMemberCommandInput,
   UpdateTeamMemberCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateTeamMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,

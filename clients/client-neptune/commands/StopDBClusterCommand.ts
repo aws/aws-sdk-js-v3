@@ -20,6 +20,14 @@ import {
 export type StopDBClusterCommandInput = StopDBClusterMessage;
 export type StopDBClusterCommandOutput = StopDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
+ *       retains the DB cluster's metadata, including its endpoints and DB parameter
+ *       groups.</p>
+ *
+ *          <p>Neptune also retains the transaction logs so you can do a point-in-time
+ *       restore if necessary.</p>
+ */
 export class StopDBClusterCommand extends $Command<
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
@@ -34,6 +42,9 @@ export class StopDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

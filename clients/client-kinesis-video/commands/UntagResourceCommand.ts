@@ -20,6 +20,11 @@ import {
 export type UntagResourceCommandInput = UntagResourceInput;
 export type UntagResourceCommandOutput = UntagResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Removes one or more tags from a signaling channel. In the request, specify only a tag
+ *             key or keys; don't specify the value. If you specify a tag key that does not exist, it's
+ *             ignored.</p>
+ */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -34,6 +39,9 @@ export class UntagResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

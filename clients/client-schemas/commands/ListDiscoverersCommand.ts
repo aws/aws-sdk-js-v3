@@ -20,6 +20,9 @@ import {
 export type ListDiscoverersCommandInput = ListDiscoverersRequest;
 export type ListDiscoverersCommandOutput = ListDiscoverersResponse & __MetadataBearer;
 
+/**
+ * <p>List the discoverers.</p>
+ */
 export class ListDiscoverersCommand extends $Command<
   ListDiscoverersCommandInput,
   ListDiscoverersCommandOutput,
@@ -34,6 +37,9 @@ export class ListDiscoverersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

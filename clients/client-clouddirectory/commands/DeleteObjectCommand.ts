@@ -20,6 +20,10 @@ import {
 export type DeleteObjectCommandInput = DeleteObjectRequest;
 export type DeleteObjectCommandOutput = DeleteObjectResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an object and its associated attributes. Only objects with no children and no
+ *       parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
+ */
 export class DeleteObjectCommand extends $Command<
   DeleteObjectCommandInput,
   DeleteObjectCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteObjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

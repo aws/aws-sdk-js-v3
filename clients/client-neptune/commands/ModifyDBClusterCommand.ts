@@ -20,6 +20,10 @@ import {
 export type ModifyDBClusterCommandInput = ModifyDBClusterMessage;
 export type ModifyDBClusterCommandOutput = ModifyDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Modify a setting for a DB cluster. You can change one or more database configuration
+ *       parameters by specifying these parameters and the new values in the request.</p>
+ */
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,
   ModifyDBClusterCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

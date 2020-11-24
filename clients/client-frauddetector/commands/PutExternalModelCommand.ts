@@ -20,6 +20,9 @@ import {
 export type PutExternalModelCommandInput = PutExternalModelRequest;
 export type PutExternalModelCommandOutput = PutExternalModelResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
+ */
 export class PutExternalModelCommand extends $Command<
   PutExternalModelCommandInput,
   PutExternalModelCommandOutput,
@@ -34,6 +37,9 @@ export class PutExternalModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

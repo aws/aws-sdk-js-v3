@@ -20,6 +20,12 @@ import {
 export type DescribeLimitsCommandInput = DescribeLimitsInput;
 export type DescribeLimitsCommandOutput = DescribeLimitsOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the shard limits and usage for the account.</p>
+ *         <p>If you update your account limits, the old limits might be returned for a few
+ *             minutes.</p>
+ *         <p>This operation has a limit of one transaction per second per account.</p>
+ */
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,
   DescribeLimitsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeLimitsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,

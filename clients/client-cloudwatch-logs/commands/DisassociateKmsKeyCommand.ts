@@ -20,6 +20,12 @@ import {
 export type DisassociateKmsKeyCommandInput = DisassociateKmsKeyRequest;
 export type DisassociateKmsKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p>
+ *          <p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group.
+ *       All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p>
+ *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ */
 export class DisassociateKmsKeyCommand extends $Command<
   DisassociateKmsKeyCommandInput,
   DisassociateKmsKeyCommandOutput,
@@ -34,6 +40,9 @@ export class DisassociateKmsKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

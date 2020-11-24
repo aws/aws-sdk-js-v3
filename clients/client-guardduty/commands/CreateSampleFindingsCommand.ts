@@ -20,6 +20,11 @@ import {
 export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
 export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
+ *       specified for <code>findingTypes</code>, the API generates example findings of all supported
+ *       finding types.</p>
+ */
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,
   CreateSampleFindingsCommandOutput,
@@ -34,6 +39,9 @@ export class CreateSampleFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

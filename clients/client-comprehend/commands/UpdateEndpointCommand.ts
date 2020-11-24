@@ -20,6 +20,9 @@ import {
 export type UpdateEndpointCommandInput = UpdateEndpointRequest;
 export type UpdateEndpointCommandOutput = UpdateEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Updates information about the specified endpoint.</p>
+ */
 export class UpdateEndpointCommand extends $Command<
   UpdateEndpointCommandInput,
   UpdateEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

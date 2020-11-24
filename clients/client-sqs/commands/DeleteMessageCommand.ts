@@ -20,6 +20,28 @@ import {
 export type DeleteMessageCommandInput = DeleteMessageRequest;
 export type DeleteMessageCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified message from the specified queue. To select the message to
+ *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
+ *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
+ *             delete a message from a queue even if a visibility timeout setting causes the message to
+ *             be locked by another consumer. Amazon SQS automatically deletes messages left in a queue
+ *             longer than the retention period configured for the queue. </p>
+ *          <note>
+ *             <p>The <code>ReceiptHandle</code> is associated with a <i>specific
+ *                     instance</i> of receiving a message. If you receive a message more than
+ *                 once, the <code>ReceiptHandle</code> is different each time you receive a message.
+ *                 When you use the <code>DeleteMessage</code> action, you must provide the most
+ *                 recently received <code>ReceiptHandle</code> for the message (otherwise, the request
+ *                 succeeds, but the message might not be deleted).</p>
+ *             <p>For standard queues, it is possible to receive a message even after you
+ *                 delete it. This might happen on rare occasions if one of the servers which stores a
+ *                 copy of the message is unavailable when you send the request to delete the message.
+ *                 The copy remains on the server and might be returned to you during a subsequent
+ *                 receive request. You should ensure that your application is idempotent, so that
+ *                 receiving a message more than once does not cause issues.</p>
+ *          </note>
+ */
 export class DeleteMessageCommand extends $Command<
   DeleteMessageCommandInput,
   DeleteMessageCommandOutput,
@@ -34,6 +56,9 @@ export class DeleteMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

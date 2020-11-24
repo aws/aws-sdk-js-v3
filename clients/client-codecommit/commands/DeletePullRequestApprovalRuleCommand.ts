@@ -20,6 +20,11 @@ import {
 export type DeletePullRequestApprovalRuleCommandInput = DeletePullRequestApprovalRuleInput;
 export type DeletePullRequestApprovalRuleCommandOutput = DeletePullRequestApprovalRuleOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes an approval rule from a specified pull request. Approval rules can be deleted from a pull request only if the pull request is open, and if the
+ *             approval rule was created specifically for a pull request and not generated from an approval rule template associated with the repository where the
+ *             pull request was created. You cannot delete an approval rule from a merged or closed pull request.</p>
+ */
 export class DeletePullRequestApprovalRuleCommand extends $Command<
   DeletePullRequestApprovalRuleCommandInput,
   DeletePullRequestApprovalRuleCommandOutput,
@@ -34,6 +39,9 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

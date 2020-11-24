@@ -20,6 +20,16 @@ import {
 export type GetOpsItemCommandInput = GetOpsItemRequest;
 export type GetOpsItemCommandOutput = GetOpsItemResponse & __MetadataBearer;
 
+/**
+ * <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity
+ *    and Access Management (IAM) to view information about an OpsItem. For more information, see
+ *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+ *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
+ *    operational issues impacting the performance and health of their AWS resources. For more
+ *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+ *     <i>AWS Systems Manager User Guide</i>. </p>
+ */
 export class GetOpsItemCommand extends $Command<
   GetOpsItemCommandInput,
   GetOpsItemCommandOutput,
@@ -34,6 +44,9 @@ export class GetOpsItemCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

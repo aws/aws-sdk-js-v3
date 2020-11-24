@@ -20,6 +20,11 @@ import {
 export type DescribeConnectorEntityCommandInput = DescribeConnectorEntityRequest;
 export type DescribeConnectorEntityCommandOutput = DescribeConnectorEntityResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Provides details regarding the entity used with the connector, with a description of the data model for each entity.
+ * </p>
+ */
 export class DescribeConnectorEntityCommand extends $Command<
   DescribeConnectorEntityCommandInput,
   DescribeConnectorEntityCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeConnectorEntityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

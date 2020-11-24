@@ -20,6 +20,9 @@ import {
 export type UpdateFunctionDefinitionCommandInput = UpdateFunctionDefinitionRequest;
 export type UpdateFunctionDefinitionCommandOutput = UpdateFunctionDefinitionResponse & __MetadataBearer;
 
+/**
+ * Updates a Lambda function definition.
+ */
 export class UpdateFunctionDefinitionCommand extends $Command<
   UpdateFunctionDefinitionCommandInput,
   UpdateFunctionDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

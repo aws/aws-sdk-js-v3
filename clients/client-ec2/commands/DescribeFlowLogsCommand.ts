@@ -20,6 +20,11 @@ import {
 export type DescribeFlowLogsCommandInput = DescribeFlowLogsRequest;
 export type DescribeFlowLogsCommandOutput = DescribeFlowLogsResult & __MetadataBearer;
 
+/**
+ * <p>Describes one or more flow logs. To view the information in your flow logs (the log
+ *             streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs
+ *             API.</p>
+ */
 export class DescribeFlowLogsCommand extends $Command<
   DescribeFlowLogsCommandInput,
   DescribeFlowLogsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeFlowLogsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

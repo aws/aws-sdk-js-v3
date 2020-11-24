@@ -20,6 +20,9 @@ import {
 export type ListTestGridSessionArtifactsCommandInput = ListTestGridSessionArtifactsRequest;
 export type ListTestGridSessionArtifactsCommandOutput = ListTestGridSessionArtifactsResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of artifacts created during the session.</p>
+ */
 export class ListTestGridSessionArtifactsCommand extends $Command<
   ListTestGridSessionArtifactsCommandInput,
   ListTestGridSessionArtifactsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

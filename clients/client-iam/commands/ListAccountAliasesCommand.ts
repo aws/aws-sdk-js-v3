@@ -20,6 +20,11 @@ import {
 export type ListAccountAliasesCommandInput = ListAccountAliasesRequest;
 export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the account alias associated with the AWS account (Note: you can have only one).
+ *          For information about using an AWS account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an Alias for Your AWS Account ID</a>
+ *          in the <i>IAM User Guide</i>.</p>
+ */
 export class ListAccountAliasesCommand extends $Command<
   ListAccountAliasesCommandInput,
   ListAccountAliasesCommandOutput,
@@ -34,6 +39,9 @@ export class ListAccountAliasesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

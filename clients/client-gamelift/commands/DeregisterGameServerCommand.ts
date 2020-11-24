@@ -20,6 +20,58 @@ import {
 export type DeregisterGameServerCommandInput = DeregisterGameServerInput;
 export type DeregisterGameServerCommandOutput = __MetadataBearer;
 
+/**
+ * <p>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *          </p>
+ *         <p>Removes the game server from a game server group. As a result of this operation, the
+ *             deregistered game server can no longer be claimed and will not be returned in a list of
+ *             active game servers. </p>
+ *         <p>To deregister a game server, specify the game server group and game server ID. If
+ *             successful, this operation emits a CloudWatch event with termination timestamp and
+ *             reason.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>RegisterGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGameServers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ClaimGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameServer</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeregisterGameServer</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeregisterGameServerCommand extends $Command<
   DeregisterGameServerCommandInput,
   DeregisterGameServerCommandOutput,
@@ -34,6 +86,9 @@ export class DeregisterGameServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateWebhookCommandInput = CreateWebhookRequest;
 export type CreateWebhookCommandOutput = CreateWebhookResult & __MetadataBearer;
 
+/**
+ * <p> Creates a new webhook on an Amplify app. </p>
+ */
 export class CreateWebhookCommand extends $Command<
   CreateWebhookCommandInput,
   CreateWebhookCommandOutput,
@@ -34,6 +37,9 @@ export class CreateWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

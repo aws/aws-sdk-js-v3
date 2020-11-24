@@ -20,6 +20,13 @@ import {
 export type DeleteDomainCommandInput = DeleteDomainRequest;
 export type DeleteDomainCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Used to delete a domain.
+ *      If you onboarded with IAM mode, you will need to delete your domain to onboard again using SSO.
+ *      Use with caution. All of the members of the domain will lose access to their EFS volume,
+ *      including data, notebooks, and other artifacts.
+ *    </p>
+ */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -24,6 +24,9 @@ export type IncreaseNodeGroupsInGlobalReplicationGroupCommandInput = IncreaseNod
 export type IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput = IncreaseNodeGroupsInGlobalReplicationGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Increase the number of node groups in the Global Datastore</p>
+ */
 export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
@@ -38,6 +41,9 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

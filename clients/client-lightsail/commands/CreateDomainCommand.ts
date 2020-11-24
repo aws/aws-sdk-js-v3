@@ -20,6 +20,11 @@ import {
 export type CreateDomainCommandInput = CreateDomainRequest;
 export type CreateDomainCommandOutput = CreateDomainResult & __MetadataBearer;
 
+/**
+ * <p>Creates a domain resource for the specified domain (e.g., example.com).</p>
+ *          <p>The <code>create domain</code> operation supports tag-based access control via request
+ *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
@@ -34,6 +39,9 @@ export class CreateDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

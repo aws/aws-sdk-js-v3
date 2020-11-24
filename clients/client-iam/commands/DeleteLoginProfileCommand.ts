@@ -20,6 +20,16 @@ import {
 export type DeleteLoginProfileCommandInput = DeleteLoginProfileRequest;
 export type DeleteLoginProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the password for the specified IAM user, which terminates the user's ability
+ *          to access AWS services through the AWS Management Console.</p>
+ *          <important>
+ *             <p> Deleting a user's password does not prevent a user from accessing AWS through the
+ *             command line interface or the API. To prevent all user access, you must also either make
+ *             any access keys inactive or delete them. For more information about making keys inactive
+ *             or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>. </p>
+ *          </important>
+ */
 export class DeleteLoginProfileCommand extends $Command<
   DeleteLoginProfileCommandInput,
   DeleteLoginProfileCommandOutput,
@@ -34,6 +44,9 @@ export class DeleteLoginProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

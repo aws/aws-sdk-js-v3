@@ -24,6 +24,9 @@ import {
 export type ListHumanLoopsCommandInput = ListHumanLoopsRequest;
 export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
+ */
 export class ListHumanLoopsCommand extends $Command<
   ListHumanLoopsCommandInput,
   ListHumanLoopsCommandOutput,
@@ -38,6 +41,9 @@ export class ListHumanLoopsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerA2IRuntimeClientResolvedConfig,

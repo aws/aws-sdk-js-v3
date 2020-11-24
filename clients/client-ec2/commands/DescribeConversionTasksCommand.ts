@@ -20,6 +20,11 @@ import {
 export type DescribeConversionTasksCommandInput = DescribeConversionTasksRequest;
 export type DescribeConversionTasksCommandOutput = DescribeConversionTasksResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
+ *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
+ *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ */
 export class DescribeConversionTasksCommand extends $Command<
   DescribeConversionTasksCommandInput,
   DescribeConversionTasksCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeConversionTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

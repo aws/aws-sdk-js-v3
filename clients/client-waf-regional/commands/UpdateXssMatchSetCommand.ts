@@ -20,6 +20,60 @@ import {
 export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
 export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 		       <p>Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
+ * 			For each <code>XssMatchTuple</code> object, you specify the following values:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>
+ *                   <code>Action</code>: Whether to insert the object into or delete the object from the
+ *                array. To change an
+ *                <code>XssMatchTuple</code>, you delete the existing object and add a new
+ *                one.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to inspect a header or custom query parameter,
+ * 				the name of the header or parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TextTransformation</code>: Which text transformation, if any, to perform on the web request before
+ * 				inspecting the request for cross-site scripting attacks.</p>
+ * 				           <p>You can only specify a single type of TextTransformation.</p>
+ *             </li>
+ *          </ul>
+ * 		       <p>You use <code>XssMatchSet</code> objects to specify which CloudFront requests
+ *          that
+ *          you want to allow, block, or count. For example, if you're receiving
+ *          requests that contain cross-site scripting attacks in the request body and you want to
+ *          block the requests, you can create an <code>XssMatchSet</code> with the applicable
+ *          settings, and then configure AWS WAF to block the requests. </p>
+ * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
+ * 		       <ol>
+ *             <li>
+ *                <p>Submit a <a>CreateXssMatchSet</a> request.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of an
+ * 				<a>UpdateIPSet</a> request.</p>
+ *             </li>
+ *             <li>
+ *                <p>Submit an <code>UpdateXssMatchSet</code> request to specify the parts of web requests that you want AWS WAF to
+ * 				inspect for cross-site scripting attacks.</p>
+ *             </li>
+ *          </ol>
+ * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
+ * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ */
 export class UpdateXssMatchSetCommand extends $Command<
   UpdateXssMatchSetCommandInput,
   UpdateXssMatchSetCommandOutput,
@@ -34,6 +88,9 @@ export class UpdateXssMatchSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DetectSentimentCommandInput = DetectSentimentRequest;
 export type DetectSentimentCommandOutput = DetectSentimentResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects text and returns an inference of the prevailing sentiment
+ *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
+ */
 export class DetectSentimentCommand extends $Command<
   DetectSentimentCommandInput,
   DetectSentimentCommandOutput,
@@ -34,6 +38,9 @@ export class DetectSentimentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,25 @@ import {
 export type AddApplicationInputCommandInput = AddApplicationInputRequest;
 export type AddApplicationInputCommandOutput = AddApplicationInputResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
+ *          </note>
+ *         <p>
+ *             Adds a streaming source to your Amazon Kinesis application.
+ *             For conceptual information,
+ *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
+ *         </p>
+ *         <p>You can add a streaming source either when you create an application or you can use
+ *             this operation to add a streaming source after you create an application. For more information, see
+ *            <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html">CreateApplication</a>.</p>
+ *         <p>Any configuration update, including adding a streaming source using this operation,
+ *             results in a new version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation
+ *             to find the current application version.
+ *         </p>
+ *         <p>This operation requires permissions to perform the
+ *             <code>kinesisanalytics:AddApplicationInput</code> action.</p>
+ */
 export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandInput,
   AddApplicationInputCommandOutput,
@@ -34,6 +53,9 @@ export class AddApplicationInputCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,

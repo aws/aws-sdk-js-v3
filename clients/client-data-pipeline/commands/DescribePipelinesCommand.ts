@@ -20,6 +20,10 @@ import {
 export type DescribePipelinesCommandInput = DescribePipelinesInput;
 export type DescribePipelinesCommandOutput = DescribePipelinesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p>
+ *         <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>
+ */
 export class DescribePipelinesCommand extends $Command<
   DescribePipelinesCommandInput,
   DescribePipelinesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribePipelinesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

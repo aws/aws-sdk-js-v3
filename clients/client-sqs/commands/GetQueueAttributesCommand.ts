@@ -20,6 +20,12 @@ import {
 export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
 export type GetQueueAttributesCommandOutput = GetQueueAttributesResult & __MetadataBearer;
 
+/**
+ * <p>Gets attributes for the specified queue.</p>
+ *          <note>
+ *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
+ *          </note>
+ */
 export class GetQueueAttributesCommand extends $Command<
   GetQueueAttributesCommandInput,
   GetQueueAttributesCommandOutput,
@@ -34,6 +40,9 @@ export class GetQueueAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

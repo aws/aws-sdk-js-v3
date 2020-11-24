@@ -24,6 +24,9 @@ import {
 export type DescribeApplicationCommandInput = DescribeApplicationRequest;
 export type DescribeApplicationCommandOutput = DescribeApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the application.</p>
+ */
 export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

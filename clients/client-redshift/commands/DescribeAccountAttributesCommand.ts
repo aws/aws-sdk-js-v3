@@ -20,6 +20,9 @@ import {
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
 export type DescribeAccountAttributesCommandOutput = AccountAttributeList & __MetadataBearer;
 
+/**
+ * <p>Returns a list of attributes attached to an account</p>
+ */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

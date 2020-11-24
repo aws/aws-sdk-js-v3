@@ -20,6 +20,14 @@ import {
 export type DescribeClustersCommandInput = DescribeClustersRequest;
 export type DescribeClustersCommandOutput = DescribeClustersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about AWS CloudHSM clusters.</p>
+ *          <p>This is a paginated operation, which means that each response might contain only a
+ *       subset of all the clusters. When the response contains only a subset of clusters, it includes
+ *       a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>
+ *       request to get more clusters. When you receive a response with no <code>NextToken</code> (or
+ *       an empty or null value), that means there are no more clusters to get.</p>
+ */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,
   DescribeClustersCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

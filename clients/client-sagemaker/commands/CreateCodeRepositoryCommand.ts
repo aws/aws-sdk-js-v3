@@ -20,6 +20,15 @@ import {
 export type CreateCodeRepositoryCommandInput = CreateCodeRepositoryInput;
 export type CreateCodeRepositoryCommandOutput = CreateCodeRepositoryOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the
+ *             repository with notebook instances so that you can use Git source control for the
+ *             notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can
+ *             be associated with more than one notebook instance, and it persists independently from
+ *             the lifecycle of any notebook instances it is associated with.</p>
+ *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+ *             other Git repository.</p>
+ */
 export class CreateCodeRepositoryCommand extends $Command<
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -34,6 +43,9 @@ export class CreateCodeRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type UpdateClusterVersionCommandInput = UpdateClusterVersionRequest;
 export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues
+ *             to function during the update. The response output includes an update ID that you can
+ *             use to track the status of your cluster update with the <a>DescribeUpdate</a>
+ *             API operation.</p>
+ *         <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
+ *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
+ *             eventually consistent). When the update is complete (either <code>Failed</code> or
+ *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
+ *         <p>If your cluster has managed node groups attached to it, all of your node groups’
+ *             Kubernetes versions must match the cluster’s Kubernetes version in order to update the
+ *             cluster to a new Kubernetes version.</p>
+ */
 export class UpdateClusterVersionCommand extends $Command<
   UpdateClusterVersionCommandInput,
   UpdateClusterVersionCommandOutput,
@@ -34,6 +47,9 @@ export class UpdateClusterVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

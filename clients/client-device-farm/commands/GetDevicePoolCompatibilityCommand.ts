@@ -20,6 +20,9 @@ import {
 export type GetDevicePoolCompatibilityCommandInput = GetDevicePoolCompatibilityRequest;
 export type GetDevicePoolCompatibilityCommandOutput = GetDevicePoolCompatibilityResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about compatibility with a device pool.</p>
+ */
 export class GetDevicePoolCompatibilityCommand extends $Command<
   GetDevicePoolCompatibilityCommandInput,
   GetDevicePoolCompatibilityCommandOutput,
@@ -34,6 +37,9 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

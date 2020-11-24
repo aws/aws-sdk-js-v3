@@ -20,6 +20,9 @@ import {
 export type CreateNetworkProfileCommandInput = CreateNetworkProfileRequest;
 export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a network profile with the specified details.</p>
+ */
 export class CreateNetworkProfileCommand extends $Command<
   CreateNetworkProfileCommandInput,
   CreateNetworkProfileCommandOutput,
@@ -34,6 +37,9 @@ export class CreateNetworkProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

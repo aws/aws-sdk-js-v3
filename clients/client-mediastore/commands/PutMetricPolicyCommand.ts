@@ -20,6 +20,9 @@ import {
 export type PutMetricPolicyCommandInput = PutMetricPolicyInput;
 export type PutMetricPolicyCommandOutput = PutMetricPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
+ */
 export class PutMetricPolicyCommand extends $Command<
   PutMetricPolicyCommandInput,
   PutMetricPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class PutMetricPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

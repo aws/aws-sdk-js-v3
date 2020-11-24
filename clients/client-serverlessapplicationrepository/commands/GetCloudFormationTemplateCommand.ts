@@ -24,6 +24,9 @@ import {
 export type GetCloudFormationTemplateCommandInput = GetCloudFormationTemplateRequest;
 export type GetCloudFormationTemplateCommandOutput = GetCloudFormationTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the specified AWS CloudFormation template.</p>
+ */
 export class GetCloudFormationTemplateCommand extends $Command<
   GetCloudFormationTemplateCommandInput,
   GetCloudFormationTemplateCommandOutput,
@@ -38,6 +41,9 @@ export class GetCloudFormationTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type TestInvokeMethodCommandInput = TestInvokeMethodRequest;
 export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse & __MetadataBearer;
 
+/**
+ * <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
+ */
 export class TestInvokeMethodCommand extends $Command<
   TestInvokeMethodCommandInput,
   TestInvokeMethodCommandOutput,
@@ -34,6 +37,9 @@ export class TestInvokeMethodCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeDetectorCommandInput = DescribeDetectorRequest;
 export type DescribeDetectorCommandOutput = DescribeDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified detector (instance).</p>
+ */
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,
   DescribeDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsDataClientResolvedConfig,

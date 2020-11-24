@@ -20,6 +20,9 @@ import {
 export type ListAccountRolesCommandInput = ListAccountRolesRequest;
 export type ListAccountRolesCommandOutput = ListAccountRolesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
+ */
 export class ListAccountRolesCommand extends $Command<
   ListAccountRolesCommandInput,
   ListAccountRolesCommandOutput,
@@ -34,6 +37,9 @@ export class ListAccountRolesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CompleteSnapshotCommandInput = CompleteSnapshotRequest;
 export type CompleteSnapshotCommandOutput = CompleteSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Seals and completes the snapshot after all of the required blocks of data have been
+ *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
+ *             cannot write new blocks to a snapshot after it has been completed.</p>
+ */
 export class CompleteSnapshotCommand extends $Command<
   CompleteSnapshotCommandInput,
   CompleteSnapshotCommandOutput,
@@ -34,6 +39,9 @@ export class CompleteSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EBSClientResolvedConfig,

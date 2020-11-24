@@ -20,6 +20,9 @@ import {
 export type UpdateDocumentDefaultVersionCommandInput = UpdateDocumentDefaultVersionRequest;
 export type UpdateDocumentDefaultVersionCommandOutput = UpdateDocumentDefaultVersionResult & __MetadataBearer;
 
+/**
+ * <p>Set the default version of a document. </p>
+ */
 export class UpdateDocumentDefaultVersionCommand extends $Command<
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

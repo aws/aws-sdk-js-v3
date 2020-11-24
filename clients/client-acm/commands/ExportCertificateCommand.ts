@@ -20,6 +20,15 @@ import {
 export type ExportCertificateCommandInput = ExportCertificateRequest;
 export type ExportCertificateCommandOutput = ExportCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Exports a private certificate issued by a private certificate authority (CA) for use
+ *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
+ *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
+ *       For security, you must assign a passphrase for the private key when exporting it. </p>
+ *          <p>For information about exporting and formatting a certificate using the ACM console or
+ *       CLI, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export a
+ *         Private Certificate</a>.</p>
+ */
 export class ExportCertificateCommand extends $Command<
   ExportCertificateCommandInput,
   ExportCertificateCommandOutput,
@@ -34,6 +43,9 @@ export class ExportCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,

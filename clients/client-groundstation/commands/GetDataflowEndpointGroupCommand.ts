@@ -20,6 +20,9 @@ import {
 export type GetDataflowEndpointGroupCommandInput = GetDataflowEndpointGroupRequest;
 export type GetDataflowEndpointGroupCommandOutput = GetDataflowEndpointGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the dataflow endpoint group.</p>
+ */
 export class GetDataflowEndpointGroupCommand extends $Command<
   GetDataflowEndpointGroupCommandInput,
   GetDataflowEndpointGroupCommandOutput,
@@ -34,6 +37,9 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,

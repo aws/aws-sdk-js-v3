@@ -20,6 +20,9 @@ import {
 export type UpdateOrganizationConfigurationCommandInput = UpdateOrganizationConfigurationRequest;
 export type UpdateOrganizationConfigurationCommandOutput = UpdateOrganizationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the delegated administrator account with the values provided.</p>
+ */
 export class UpdateOrganizationConfigurationCommand extends $Command<
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

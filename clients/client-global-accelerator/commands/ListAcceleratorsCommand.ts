@@ -24,6 +24,10 @@ import {
 export type ListAcceleratorsCommandInput = ListAcceleratorsRequest;
 export type ListAcceleratorsCommandOutput = ListAcceleratorsResponse & __MetadataBearer;
 
+/**
+ * <p>List the accelerators for an AWS account. To see an AWS CLI example of listing the accelerators for an AWS account,
+ * 			scroll down to <b>Example</b>.</p>
+ */
 export class ListAcceleratorsCommand extends $Command<
   ListAcceleratorsCommandInput,
   ListAcceleratorsCommandOutput,
@@ -38,6 +42,9 @@ export class ListAcceleratorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

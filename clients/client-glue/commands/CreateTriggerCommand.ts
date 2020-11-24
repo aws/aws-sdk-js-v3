@@ -20,6 +20,9 @@ import {
 export type CreateTriggerCommandInput = CreateTriggerRequest;
 export type CreateTriggerCommandOutput = CreateTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new trigger.</p>
+ */
 export class CreateTriggerCommand extends $Command<
   CreateTriggerCommandInput,
   CreateTriggerCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

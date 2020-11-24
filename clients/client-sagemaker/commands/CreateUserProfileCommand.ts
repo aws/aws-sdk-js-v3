@@ -20,6 +20,15 @@ import {
 export type CreateUserProfileCommandInput = CreateUserProfileRequest;
 export type CreateUserProfileCommandOutput = CreateUserProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a user profile. A user profile represents a single user within a domain, and is
+ *      the main way to reference a "person" for the purposes of sharing, reporting, and other
+ *      user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an
+ *      administrator invites a person by email or imports them from SSO, a user profile is
+ *      automatically created. A user profile is the primary holder of settings for an individual
+ *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
+ *    </p>
+ */
 export class CreateUserProfileCommand extends $Command<
   CreateUserProfileCommandInput,
   CreateUserProfileCommandOutput,
@@ -34,6 +43,9 @@ export class CreateUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

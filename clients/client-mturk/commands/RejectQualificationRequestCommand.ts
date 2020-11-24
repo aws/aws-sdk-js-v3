@@ -20,6 +20,15 @@ import {
 export type RejectQualificationRequestCommandInput = RejectQualificationRequestRequest;
 export type RejectQualificationRequestCommandOutput = RejectQualificationRequestResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>RejectQualificationRequest</code>
+ *             operation rejects a user's request for a Qualification.
+ *         </p>
+ *         <p> You can provide a text message explaining why the request was
+ *             rejected. The Worker who made the request can see this message.</p>
+ */
 export class RejectQualificationRequestCommand extends $Command<
   RejectQualificationRequestCommandInput,
   RejectQualificationRequestCommandOutput,
@@ -34,6 +43,9 @@ export class RejectQualificationRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

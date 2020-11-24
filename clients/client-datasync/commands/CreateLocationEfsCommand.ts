@@ -20,6 +20,9 @@ import {
 export type CreateLocationEfsCommandInput = CreateLocationEfsRequest;
 export type CreateLocationEfsCommandOutput = CreateLocationEfsResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an endpoint for an Amazon EFS file system.</p>
+ */
 export class CreateLocationEfsCommand extends $Command<
   CreateLocationEfsCommandInput,
   CreateLocationEfsCommandOutput,
@@ -34,6 +37,9 @@ export class CreateLocationEfsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

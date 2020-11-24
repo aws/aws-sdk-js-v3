@@ -20,6 +20,9 @@ import {
 export type ListProtectionGroupsCommandInput = ListProtectionGroupsRequest;
 export type ListProtectionGroupsCommandOutput = ListProtectionGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the <a>ProtectionGroup</a> objects for the account.</p>
+ */
 export class ListProtectionGroupsCommand extends $Command<
   ListProtectionGroupsCommandInput,
   ListProtectionGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListProtectionGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

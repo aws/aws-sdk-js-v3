@@ -20,6 +20,9 @@ import {
 export type CreateJobCommandInput = CreateJobRequest;
 export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
 
+/**
+ * Create a new transcoding job. For information about jobs and job settings, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,
   CreateJobCommandOutput,
@@ -34,6 +37,9 @@ export class CreateJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

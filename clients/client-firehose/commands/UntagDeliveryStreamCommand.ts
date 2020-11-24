@@ -20,6 +20,12 @@ import {
 export type UntagDeliveryStreamCommandInput = UntagDeliveryStreamInput;
 export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
+ *          can't recover them after this operation successfully completes.</p>
+ *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
+ *          <p>This operation has a limit of five transactions per second per account. </p>
+ */
 export class UntagDeliveryStreamCommand extends $Command<
   UntagDeliveryStreamCommandInput,
   UntagDeliveryStreamCommandOutput,
@@ -34,6 +40,9 @@ export class UntagDeliveryStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,

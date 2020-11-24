@@ -24,6 +24,13 @@ import {
 export type DescribeEventsCommandInput = DescribeEventsMessage;
 export type DescribeEventsCommandOutput = DescribeEventsResponse & __MetadataBearer;
 
+/**
+ * <p> Lists events for a given source identifier and source type. You can also specify a
+ *          start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
+ *             Notifications</a> in the <i>AWS Database Migration User
+ *          Guide.</i>
+ *          </p>
+ */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -38,6 +45,9 @@ export class DescribeEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

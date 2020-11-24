@@ -20,6 +20,9 @@ import {
 export type CreateSipMediaApplicationCommandInput = CreateSipMediaApplicationRequest;
 export type CreateSipMediaApplicationCommandOutput = CreateSipMediaApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a SIP media application.</p>
+ */
 export class CreateSipMediaApplicationCommand extends $Command<
   CreateSipMediaApplicationCommandInput,
   CreateSipMediaApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class CreateSipMediaApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

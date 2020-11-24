@@ -24,6 +24,9 @@ import {
 export type ListElasticsearchInstanceTypesCommandInput = ListElasticsearchInstanceTypesRequest;
 export type ListElasticsearchInstanceTypesCommandOutput = ListElasticsearchInstanceTypesResponse & __MetadataBearer;
 
+/**
+ * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
+ */
 export class ListElasticsearchInstanceTypesCommand extends $Command<
   ListElasticsearchInstanceTypesCommandInput,
   ListElasticsearchInstanceTypesCommandOutput,
@@ -38,6 +41,9 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

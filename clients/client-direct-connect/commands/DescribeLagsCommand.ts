@@ -20,6 +20,9 @@ import {
 export type DescribeLagsCommandInput = DescribeLagsRequest;
 export type DescribeLagsCommandOutput = Lags & __MetadataBearer;
 
+/**
+ * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
+ */
 export class DescribeLagsCommand extends $Command<
   DescribeLagsCommandInput,
   DescribeLagsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListResourceInventoryCommandInput = ListResourceInventoryRequest;
 export type ListResourceInventoryCommandOutput = ListResourceInventoryResponse & __MetadataBearer;
 
+/**
+ * <p>Lists resources managed using Systems Manager inventory.</p>
+ */
 export class ListResourceInventoryCommand extends $Command<
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
@@ -34,6 +37,9 @@ export class ListResourceInventoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

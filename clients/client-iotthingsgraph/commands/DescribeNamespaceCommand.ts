@@ -20,6 +20,9 @@ import {
 export type DescribeNamespaceCommandInput = DescribeNamespaceRequest;
 export type DescribeNamespaceCommandOutput = DescribeNamespaceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
+ */
 export class DescribeNamespaceCommand extends $Command<
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNamespaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

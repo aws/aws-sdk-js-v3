@@ -20,6 +20,10 @@ import {
 export type DescribeSpotDatafeedSubscriptionCommandInput = DescribeSpotDatafeedSubscriptionRequest;
 export type DescribeSpotDatafeedSubscriptionCommandOutput = DescribeSpotDatafeedSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+ *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
   DescribeSpotDatafeedSubscriptionCommandInput,
   DescribeSpotDatafeedSubscriptionCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

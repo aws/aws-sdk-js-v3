@@ -20,6 +20,15 @@ import {
 export type AttachClassicLinkVpcCommandInput = AttachClassicLinkVpcRequest;
 export type AttachClassicLinkVpcCommandOutput = AttachClassicLinkVpcResult & __MetadataBearer;
 
+/**
+ * <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
+ * 			security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
+ * 			can only link an instance that's in the <code>running</code> state. An instance is
+ * 			automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
+ * 			you restart it.</p>
+ * 		       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
+ * 		       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
+ */
 export class AttachClassicLinkVpcCommand extends $Command<
   AttachClassicLinkVpcCommandInput,
   AttachClassicLinkVpcCommandOutput,
@@ -34,6 +43,9 @@ export class AttachClassicLinkVpcCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

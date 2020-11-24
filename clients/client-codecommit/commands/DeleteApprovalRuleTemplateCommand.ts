@@ -20,6 +20,9 @@ import {
 export type DeleteApprovalRuleTemplateCommandInput = DeleteApprovalRuleTemplateInput;
 export type DeleteApprovalRuleTemplateCommandOutput = DeleteApprovalRuleTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.</p>
+ */
 export class DeleteApprovalRuleTemplateCommand extends $Command<
   DeleteApprovalRuleTemplateCommandInput,
   DeleteApprovalRuleTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

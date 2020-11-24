@@ -20,6 +20,11 @@ import {
 export type DeleteVpcEndpointsCommandInput = DeleteVpcEndpointsRequest;
 export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
+ *             the endpoint routes in the route tables that were associated with the endpoint. Deleting
+ *             an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that are associated with the endpoint are deleted.</p>
+ */
 export class DeleteVpcEndpointsCommand extends $Command<
   DeleteVpcEndpointsCommandInput,
   DeleteVpcEndpointsCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteVpcEndpointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

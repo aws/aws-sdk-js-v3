@@ -20,6 +20,9 @@ import {
 export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
 export type ListInstanceProfilesCommandOutput = ListInstanceProfilesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about all the instance profiles in an AWS account.</p>
+ */
 export class ListInstanceProfilesCommand extends $Command<
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class ListInstanceProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

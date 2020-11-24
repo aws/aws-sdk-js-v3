@@ -20,6 +20,52 @@ import {
 export type ListBuildsCommandInput = ListBuildsInput;
 export type ListBuildsCommandOutput = ListBuildsOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves build resources for all builds associated with the AWS account in use. You
+ *             can limit results to builds that are in a specific status by using the
+ *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
+ *             a set of sequential pages. </p>
+ *         <note>
+ *             <p>Build resources are not listed in any particular order.</p>
+ *         </note>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+ *             Upload a Custom Server Build</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListBuilds</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBuild</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBuild</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListBuildsCommand extends $Command<
   ListBuildsCommandInput,
   ListBuildsCommandOutput,
@@ -34,6 +80,9 @@ export class ListBuildsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

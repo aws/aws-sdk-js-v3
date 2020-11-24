@@ -20,6 +20,10 @@ import {
 export type ListResolverQueryLogConfigsCommandInput = ListResolverQueryLogConfigsRequest;
 export type ListResolverQueryLogConfigsCommandOutput = ListResolverQueryLogConfigsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
+ * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
+ */
 export class ListResolverQueryLogConfigsCommand extends $Command<
   ListResolverQueryLogConfigsCommandInput,
   ListResolverQueryLogConfigsCommandOutput,
@@ -34,6 +38,9 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

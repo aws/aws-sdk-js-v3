@@ -4,6 +4,9 @@ import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput }
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GroundStationClient,
   input: ListConfigsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConfigsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GroundStation,
   input: ListConfigsCommandInput,

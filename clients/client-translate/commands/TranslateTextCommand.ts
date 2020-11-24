@@ -20,6 +20,10 @@ import {
 export type TranslateTextCommandInput = TranslateTextRequest;
 export type TranslateTextCommandOutput = TranslateTextResponse & __MetadataBearer;
 
+/**
+ * <p>Translates input text from the source language to the target language. For a list of
+ *       available languages and language codes, see <a>what-is-languages</a>.</p>
+ */
 export class TranslateTextCommand extends $Command<
   TranslateTextCommandInput,
   TranslateTextCommandOutput,
@@ -34,6 +38,9 @@ export class TranslateTextCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,

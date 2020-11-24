@@ -24,6 +24,9 @@ import {
 export type RemoveListenerCertificatesCommandInput = RemoveListenerCertificatesInput;
 export type RemoveListenerCertificatesCommandOutput = RemoveListenerCertificatesOutput & __MetadataBearer;
 
+/**
+ * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS listener.</p>
+ */
 export class RemoveListenerCertificatesCommand extends $Command<
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput,
@@ -38,6 +41,9 @@ export class RemoveListenerCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,

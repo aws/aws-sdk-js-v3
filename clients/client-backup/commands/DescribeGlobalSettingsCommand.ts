@@ -20,6 +20,9 @@ import {
 export type DescribeGlobalSettingsCommandInput = DescribeGlobalSettingsInput;
 export type DescribeGlobalSettingsCommandOutput = DescribeGlobalSettingsOutput & __MetadataBearer;
 
+/**
+ * <p>The current feature settings for the AWS Account.</p>
+ */
 export class DescribeGlobalSettingsCommand extends $Command<
   DescribeGlobalSettingsCommandInput,
   DescribeGlobalSettingsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeGlobalSettingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

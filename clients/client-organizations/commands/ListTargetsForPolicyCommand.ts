@@ -20,6 +20,20 @@ import {
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
 export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
+ *             policy is attached to.</p>
+ *          <note>
+ *             <p>Always check the <code>NextToken</code> response parameter
+ * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
+ * occasionally return an empty set of results even when there are more results available. The
+ * <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
+ *             <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class ListTargetsForPolicyCommand extends $Command<
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
@@ -34,6 +48,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type UpdateListenerCommandInput = UpdateListenerRequest;
 export type UpdateListenerCommandOutput = UpdateListenerResponse & __MetadataBearer;
 
+/**
+ * <p>Update a listener. To see an AWS CLI example of updating listener, scroll down to <b>Example</b>.</p>
+ */
 export class UpdateListenerCommand extends $Command<
   UpdateListenerCommandInput,
   UpdateListenerCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateListenerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

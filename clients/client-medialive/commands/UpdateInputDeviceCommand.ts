@@ -20,6 +20,9 @@ import {
 export type UpdateInputDeviceCommandInput = UpdateInputDeviceRequest;
 export type UpdateInputDeviceCommandOutput = UpdateInputDeviceResponse & __MetadataBearer;
 
+/**
+ * Updates the parameters for the input device.
+ */
 export class UpdateInputDeviceCommand extends $Command<
   UpdateInputDeviceCommandInput,
   UpdateInputDeviceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInputDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

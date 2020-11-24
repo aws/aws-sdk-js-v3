@@ -20,6 +20,9 @@ import {
 export type ListVirtualServicesCommandInput = ListVirtualServicesInput;
 export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of existing virtual services in a service mesh.</p>
+ */
 export class ListVirtualServicesCommand extends $Command<
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListVirtualServicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

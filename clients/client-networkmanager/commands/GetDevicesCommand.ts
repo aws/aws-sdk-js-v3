@@ -20,6 +20,9 @@ import {
 export type GetDevicesCommandInput = GetDevicesRequest;
 export type GetDevicesCommandOutput = GetDevicesResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more of your devices in a global network.</p>
+ */
 export class GetDevicesCommand extends $Command<
   GetDevicesCommandInput,
   GetDevicesCommandOutput,
@@ -34,6 +37,9 @@ export class GetDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

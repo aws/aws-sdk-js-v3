@@ -20,6 +20,9 @@ import {
 export type DeleteLanguageModelCommandInput = DeleteLanguageModelRequest;
 export type DeleteLanguageModelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a custom language model using its name.</p>
+ */
 export class DeleteLanguageModelCommand extends $Command<
   DeleteLanguageModelCommandInput,
   DeleteLanguageModelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLanguageModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

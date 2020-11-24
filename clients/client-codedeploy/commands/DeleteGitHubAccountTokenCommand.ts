@@ -20,6 +20,9 @@ import {
 export type DeleteGitHubAccountTokenCommandInput = DeleteGitHubAccountTokenInput;
 export type DeleteGitHubAccountTokenCommandOutput = DeleteGitHubAccountTokenOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a GitHub account connection.</p>
+ */
 export class DeleteGitHubAccountTokenCommand extends $Command<
   DeleteGitHubAccountTokenCommandInput,
   DeleteGitHubAccountTokenCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

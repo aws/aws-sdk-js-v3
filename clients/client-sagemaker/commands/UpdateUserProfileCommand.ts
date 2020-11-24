@@ -20,6 +20,9 @@ import {
 export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
 export type UpdateUserProfileCommandOutput = UpdateUserProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a user profile.</p>
+ */
 export class UpdateUserProfileCommand extends $Command<
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

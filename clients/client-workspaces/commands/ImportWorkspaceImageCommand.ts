@@ -20,6 +20,13 @@ import {
 export type ImportWorkspaceImageCommandInput = ImportWorkspaceImageRequest;
 export type ImportWorkspaceImageCommandOutput = ImportWorkspaceImageResult & __MetadataBearer;
 
+/**
+ * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
+ *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your AWS
+ *          account, and you must own the image. For more information about creating BYOL images, see
+ *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+ *             Bring Your Own Windows Desktop Licenses</a>.</p>
+ */
 export class ImportWorkspaceImageCommand extends $Command<
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
@@ -34,6 +41,9 @@ export class ImportWorkspaceImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

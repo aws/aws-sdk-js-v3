@@ -20,6 +20,9 @@ import {
 export type ListClustersCommandInput = ListClustersRequest;
 export type ListClustersCommandOutput = ListClustersResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all the MSK clusters in the current Region.</p>
+ */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -34,6 +37,9 @@ export class ListClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

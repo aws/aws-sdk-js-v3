@@ -20,6 +20,9 @@ import {
 export type DescribeDiscovererCommandInput = DescribeDiscovererRequest;
 export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the discoverer.</p>
+ */
 export class DescribeDiscovererCommand extends $Command<
   DescribeDiscovererCommandInput,
   DescribeDiscovererCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDiscovererCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetBucketStatisticsCommandInput = GetBucketStatisticsRequest;
 export type GetBucketStatisticsCommandOutput = GetBucketStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) aggregated statistical data for all the S3 buckets that Amazon Macie monitors and analyzes.</p>
+ */
 export class GetBucketStatisticsCommand extends $Command<
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -34,6 +37,9 @@ export class GetBucketStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeDocumentClassifierCommandInput = DescribeDocumentClassifierRequest;
 export type DescribeDocumentClassifierCommandOutput = DescribeDocumentClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a document classifier.</p>
+ */
 export class DescribeDocumentClassifierCommand extends $Command<
   DescribeDocumentClassifierCommandInput,
   DescribeDocumentClassifierCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDocumentClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SageMakerA2IRuntimeClient,
   input: ListHumanLoopsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHumanLoopsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SageMakerA2IRuntime,
   input: ListHumanLoopsCommandInput,

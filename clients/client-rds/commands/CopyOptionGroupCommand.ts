@@ -20,6 +20,9 @@ import {
 export type CopyOptionGroupCommandInput = CopyOptionGroupMessage;
 export type CopyOptionGroupCommandOutput = CopyOptionGroupResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified option group.</p>
+ */
 export class CopyOptionGroupCommand extends $Command<
   CopyOptionGroupCommandInput,
   CopyOptionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CopyOptionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

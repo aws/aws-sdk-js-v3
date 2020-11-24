@@ -20,6 +20,9 @@ import {
 export type CreatePullRequestCommandInput = CreatePullRequestInput;
 export type CreatePullRequestCommandOutput = CreatePullRequestOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a pull request in the specified repository.</p>
+ */
 export class CreatePullRequestCommand extends $Command<
   CreatePullRequestCommandInput,
   CreatePullRequestCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePullRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

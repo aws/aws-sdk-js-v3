@@ -20,6 +20,11 @@ import {
 export type ConfirmTransitVirtualInterfaceCommandInput = ConfirmTransitVirtualInterfaceRequest;
 export type ConfirmTransitVirtualInterfaceCommandOutput = ConfirmTransitVirtualInterfaceResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts ownership of a transit virtual interface created by another AWS account.</p>
+ *
+ *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
+ */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   ConfirmTransitVirtualInterfaceCommandInput,
   ConfirmTransitVirtualInterfaceCommandOutput,
@@ -34,6 +39,9 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

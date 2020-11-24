@@ -24,6 +24,9 @@ export type RemoveSourceIdentifierFromSubscriptionCommandInput = RemoveSourceIde
 export type RemoveSourceIdentifierFromSubscriptionCommandOutput = RemoveSourceIdentifierFromSubscriptionResult &
   __MetadataBearer;
 
+/**
+ * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
+ */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
   RemoveSourceIdentifierFromSubscriptionCommandInput,
   RemoveSourceIdentifierFromSubscriptionCommandOutput,
@@ -38,6 +41,9 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

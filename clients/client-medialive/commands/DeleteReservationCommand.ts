@@ -20,6 +20,9 @@ import {
 export type DeleteReservationCommandInput = DeleteReservationRequest;
 export type DeleteReservationCommandOutput = DeleteReservationResponse & __MetadataBearer;
 
+/**
+ * Delete an expired reservation.
+ */
 export class DeleteReservationCommand extends $Command<
   DeleteReservationCommandInput,
   DeleteReservationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteReservationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

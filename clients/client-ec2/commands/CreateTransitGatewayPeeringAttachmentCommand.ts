@@ -24,6 +24,14 @@ export type CreateTransitGatewayPeeringAttachmentCommandInput = CreateTransitGat
 export type CreateTransitGatewayPeeringAttachmentCommandOutput = CreateTransitGatewayPeeringAttachmentResult &
   __MetadataBearer;
 
+/**
+ * <p>Requests a transit gateway peering attachment between the specified transit gateway
+ *             (requester) and a peer transit gateway (accepter). The transit gateways must be in
+ *             different Regions. The peer transit gateway can be in your account or a different AWS
+ *             account. </p>
+ *          <p>After you create the peering attachment, the owner of the accepter
+ *             transit gateway must accept the attachment request.</p>
+ */
 export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
   CreateTransitGatewayPeeringAttachmentCommandInput,
   CreateTransitGatewayPeeringAttachmentCommandOutput,
@@ -38,6 +46,9 @@ export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

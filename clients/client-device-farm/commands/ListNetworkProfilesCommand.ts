@@ -20,6 +20,9 @@ import {
 export type ListNetworkProfilesCommandInput = ListNetworkProfilesRequest;
 export type ListNetworkProfilesCommandOutput = ListNetworkProfilesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list of available network profiles.</p>
+ */
 export class ListNetworkProfilesCommand extends $Command<
   ListNetworkProfilesCommandInput,
   ListNetworkProfilesCommandOutput,
@@ -34,6 +37,9 @@ export class ListNetworkProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

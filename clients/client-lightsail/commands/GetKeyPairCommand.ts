@@ -20,6 +20,9 @@ import {
 export type GetKeyPairCommandInput = GetKeyPairRequest;
 export type GetKeyPairCommandOutput = GetKeyPairResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific key pair.</p>
+ */
 export class GetKeyPairCommand extends $Command<
   GetKeyPairCommandInput,
   GetKeyPairCommandOutput,
@@ -34,6 +37,9 @@ export class GetKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

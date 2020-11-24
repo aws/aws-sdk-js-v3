@@ -20,6 +20,9 @@ import {
 export type DescribeAuditStreamConfigurationCommandInput = DescribeAuditStreamConfigurationRequest;
 export type DescribeAuditStreamConfigurationCommandOutput = DescribeAuditStreamConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the configuration for delivering audit streams to the customer account.</p>
+ */
 export class DescribeAuditStreamConfigurationCommand extends $Command<
   DescribeAuditStreamConfigurationCommandInput,
   DescribeAuditStreamConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

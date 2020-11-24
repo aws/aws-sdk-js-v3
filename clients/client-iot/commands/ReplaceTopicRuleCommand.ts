@@ -20,6 +20,11 @@ import {
 export type ReplaceTopicRuleCommandInput = ReplaceTopicRuleRequest;
 export type ReplaceTopicRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
+ *          is an administrator-level action. Any user who has permission to create rules will be able
+ *          to access data processed by the rule.</p>
+ */
 export class ReplaceTopicRuleCommand extends $Command<
   ReplaceTopicRuleCommandInput,
   ReplaceTopicRuleCommandOutput,
@@ -34,6 +39,9 @@ export class ReplaceTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

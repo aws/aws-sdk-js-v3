@@ -20,6 +20,24 @@ import {
 export type ResolveCaseCommandInput = ResolveCaseRequest;
 export type ResolveCaseCommandOutput = ResolveCaseResponse & __MetadataBearer;
 
+/**
+ * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
+ *             initial and final state of the case.</p>
+ *         <note>
+ *             <ul>
+ *                <li>
+ *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                         API. </p>
+ *                 </li>
+ *                <li>
+ *                     <p>If you call the AWS Support API from an account that does not have a
+ *                         Business or Enterprise support plan, the
+ *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *             </ul>
+ *         </note>
+ */
 export class ResolveCaseCommand extends $Command<
   ResolveCaseCommandInput,
   ResolveCaseCommandOutput,
@@ -34,6 +52,9 @@ export class ResolveCaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,

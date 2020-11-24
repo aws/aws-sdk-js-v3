@@ -20,6 +20,9 @@ import {
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new AWS Glue DataBrew project in the current AWS account.</p>
+ */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -34,6 +37,9 @@ export class CreateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

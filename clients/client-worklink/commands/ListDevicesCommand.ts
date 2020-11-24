@@ -20,6 +20,9 @@ import {
 export type ListDevicesCommandInput = ListDevicesRequest;
 export type ListDevicesCommandOutput = ListDevicesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of devices registered with the specified fleet.</p>
+ */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,
   ListDevicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

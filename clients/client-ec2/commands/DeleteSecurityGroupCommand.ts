@@ -20,6 +20,13 @@ import {
 export type DeleteSecurityGroupCommandInput = DeleteSecurityGroupRequest;
 export type DeleteSecurityGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a security group.</p>
+ *          <p>If you attempt to delete a security group that is associated with an instance, or is
+ * 			  referenced by another security group, the operation fails with
+ * 				<code>InvalidGroup.InUse</code> in EC2-Classic or
+ * 				<code>DependencyViolation</code> in EC2-VPC.</p>
+ */
 export class DeleteSecurityGroupCommand extends $Command<
   DeleteSecurityGroupCommandInput,
   DeleteSecurityGroupCommandOutput,
@@ -34,6 +41,9 @@ export class DeleteSecurityGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

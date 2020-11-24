@@ -20,6 +20,9 @@ import {
 export type StopChannelCommandInput = StopChannelRequest;
 export type StopChannelCommandOutput = StopChannelResponse & __MetadataBearer;
 
+/**
+ * Stops a running channel
+ */
 export class StopChannelCommand extends $Command<
   StopChannelCommandInput,
   StopChannelCommandOutput,
@@ -34,6 +37,9 @@ export class StopChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

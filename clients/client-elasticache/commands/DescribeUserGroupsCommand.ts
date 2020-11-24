@@ -20,6 +20,9 @@ import {
 export type DescribeUserGroupsCommandInput = DescribeUserGroupsMessage;
 export type DescribeUserGroupsCommandOutput = DescribeUserGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of user groups.</p>
+ */
 export class DescribeUserGroupsCommand extends $Command<
   DescribeUserGroupsCommandInput,
   DescribeUserGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUserGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type ListTablesCommandInput = ListTablesInput;
 export type ListTablesCommandOutput = ListTablesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns an array of table names associated with the current account and endpoint. The output
+ *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
+ *       names.</p>
+ */
 export class ListTablesCommand extends $Command<
   ListTablesCommandInput,
   ListTablesCommandOutput,
@@ -34,6 +39,9 @@ export class ListTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type StopNotebookInstanceCommandInput = StopNotebookInstanceInput;
 export type StopNotebookInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker
+ *             disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume. Amazon SageMaker
+ *             stops charging you for the ML compute instance when you call
+ *                 <code>StopNotebookInstance</code>.</p>
+ *         <p>To access data on the ML storage volume for a notebook instance that has been
+ *             terminated, call the <code>StartNotebookInstance</code> API.
+ *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
+ *             it, and attaches the preserved ML storage volume so you can continue your work.
+ *         </p>
+ */
 export class StopNotebookInstanceCommand extends $Command<
   StopNotebookInstanceCommandInput,
   StopNotebookInstanceCommandOutput,
@@ -34,6 +45,9 @@ export class StopNotebookInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

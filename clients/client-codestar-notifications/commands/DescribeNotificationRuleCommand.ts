@@ -24,6 +24,9 @@ import {
 export type DescribeNotificationRuleCommandInput = DescribeNotificationRuleRequest;
 export type DescribeNotificationRuleCommandOutput = DescribeNotificationRuleResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specified notification rule.</p>
+ */
 export class DescribeNotificationRuleCommand extends $Command<
   DescribeNotificationRuleCommandInput,
   DescribeNotificationRuleCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeNotificationRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

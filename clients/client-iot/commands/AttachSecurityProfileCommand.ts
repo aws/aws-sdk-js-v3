@@ -20,6 +20,10 @@ import {
 export type AttachSecurityProfileCommandInput = AttachSecurityProfileRequest;
 export type AttachSecurityProfileCommandOutput = AttachSecurityProfileResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a Device Defender security profile with a thing group or this account. Each
+ *         thing group or account can have up to five security profiles associated with it.</p>
+ */
 export class AttachSecurityProfileCommand extends $Command<
   AttachSecurityProfileCommandInput,
   AttachSecurityProfileCommandOutput,
@@ -34,6 +38,9 @@ export class AttachSecurityProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

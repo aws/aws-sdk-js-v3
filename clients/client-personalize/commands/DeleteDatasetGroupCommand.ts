@@ -20,6 +20,21 @@ import {
 export type DeleteDatasetGroupCommandInput = DeleteDatasetGroupRequest;
 export type DeleteDatasetGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a dataset group. Before you delete a dataset group, you must delete the
+ *       following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>All associated event trackers.</p>
+ *             </li>
+ *             <li>
+ *                <p>All associated solutions.</p>
+ *             </li>
+ *             <li>
+ *                <p>All datasets in the dataset group.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteDatasetGroupCommand extends $Command<
   DeleteDatasetGroupCommandInput,
   DeleteDatasetGroupCommandOutput,
@@ -34,6 +49,9 @@ export class DeleteDatasetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

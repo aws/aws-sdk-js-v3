@@ -20,6 +20,10 @@ import {
 export type UpdateChannelCommandInput = UpdateChannelRequest;
 export type UpdateChannelCommandOutput = UpdateChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a channel's configuration. This does not affect an ongoing stream of this channel.
+ *       You must stop and restart the stream for the changes to take effect.</p>
+ */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

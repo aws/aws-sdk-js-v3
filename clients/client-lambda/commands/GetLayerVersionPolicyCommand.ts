@@ -20,6 +20,10 @@ import {
 export type GetLayerVersionPolicyCommandInput = GetLayerVersionPolicyRequest;
 export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ */
 export class GetLayerVersionPolicyCommand extends $Command<
   GetLayerVersionPolicyCommandInput,
   GetLayerVersionPolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetLayerVersionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

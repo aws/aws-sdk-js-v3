@@ -20,6 +20,12 @@ import {
 export type DescribeFleetHistoryCommandInput = DescribeFleetHistoryRequest;
 export type DescribeFleetHistoryCommandOutput = DescribeFleetHistoryResult & __MetadataBearer;
 
+/**
+ * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>
+ *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
+ *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
+ *          are available for 48 hours.</p>
+ */
 export class DescribeFleetHistoryCommand extends $Command<
   DescribeFleetHistoryCommandInput,
   DescribeFleetHistoryCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeFleetHistoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

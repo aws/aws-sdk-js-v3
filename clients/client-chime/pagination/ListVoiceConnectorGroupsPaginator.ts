@@ -8,6 +8,9 @@ import {
 import { ChimePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ChimeClient,
   input: ListVoiceConnectorGroupsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVoiceConnectorGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Chime,
   input: ListVoiceConnectorGroupsCommandInput,

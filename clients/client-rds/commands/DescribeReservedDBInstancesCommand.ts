@@ -20,6 +20,9 @@ import {
 export type DescribeReservedDBInstancesCommandInput = DescribeReservedDBInstancesMessage;
 export type DescribeReservedDBInstancesCommandOutput = ReservedDBInstanceMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
+ */
 export class DescribeReservedDBInstancesCommand extends $Command<
   DescribeReservedDBInstancesCommandInput,
   DescribeReservedDBInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

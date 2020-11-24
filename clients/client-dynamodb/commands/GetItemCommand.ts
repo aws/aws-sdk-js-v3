@@ -17,6 +17,15 @@ import {
 export type GetItemCommandInput = GetItemInput;
 export type GetItemCommandOutput = GetItemOutput & __MetadataBearer;
 
+/**
+ * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary
+ *           key. If there is no matching item, <code>GetItem</code> does not return any data and there will be no <code>Item</code> element in the response.</p>
+ *          <p>
+ *             <code>GetItem</code> provides an eventually consistent read by default. If your application
+ *       requires a strongly consistent read, set <code>ConsistentRead</code> to <code>true</code>. Although
+ *       a strongly consistent read might take more time than an eventually consistent read, it always
+ *       returns the last updated value.</p>
+ */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +36,9 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

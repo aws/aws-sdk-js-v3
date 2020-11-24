@@ -24,6 +24,9 @@ import {
 export type ReadJobCommandInput = ReadJobRequest;
 export type ReadJobCommandOutput = ReadJobResponse & __MetadataBearer;
 
+/**
+ * <p>The ReadJob operation returns detailed information about a job.</p>
+ */
 export class ReadJobCommand extends $Command<
   ReadJobCommandInput,
   ReadJobCommandOutput,
@@ -38,6 +41,9 @@ export class ReadJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

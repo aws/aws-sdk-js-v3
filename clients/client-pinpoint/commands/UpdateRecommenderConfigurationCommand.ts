@@ -20,6 +20,9 @@ import {
 export type UpdateRecommenderConfigurationCommandInput = UpdateRecommenderConfigurationRequest;
 export type UpdateRecommenderConfigurationCommandOutput = UpdateRecommenderConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
+ */
 export class UpdateRecommenderConfigurationCommand extends $Command<
   UpdateRecommenderConfigurationCommandInput,
   UpdateRecommenderConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

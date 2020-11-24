@@ -21,6 +21,11 @@ import {
 export type DetectPHICommandInput = DetectPHIRequest;
 export type DetectPHICommandOutput = DetectPHIResponse & __MetadataBearer;
 
+/**
+ * <p> Inspects the clinical text for protected health information (PHI) entities and returns
+ *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
+ *       only detects entities in English language texts.</p>
+ */
 export class DetectPHICommand extends $Command<
   DetectPHICommandInput,
   DetectPHICommandOutput,
@@ -35,6 +40,9 @@ export class DetectPHICommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

@@ -4,6 +4,9 @@ import { ListTapesCommand, ListTapesCommandInput, ListTapesCommandOutput } from 
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
   input: ListTapesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTapesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: StorageGateway,
   input: ListTapesCommandInput,

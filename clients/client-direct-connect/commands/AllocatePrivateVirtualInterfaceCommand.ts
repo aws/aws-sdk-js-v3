@@ -20,6 +20,11 @@ import {
 export type AllocatePrivateVirtualInterfaceCommandInput = AllocatePrivateVirtualInterfaceRequest;
 export type AllocatePrivateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
+/**
+ * <p>Provisions a private virtual interface to be owned by the specified AWS account.</p>
+ *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
+ *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
+ */
 export class AllocatePrivateVirtualInterfaceCommand extends $Command<
   AllocatePrivateVirtualInterfaceCommandInput,
   AllocatePrivateVirtualInterfaceCommandOutput,
@@ -34,6 +39,9 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

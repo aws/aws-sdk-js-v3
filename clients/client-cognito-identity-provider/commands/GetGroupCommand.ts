@@ -22,6 +22,10 @@ import {
 export type GetGroupCommandInput = GetGroupRequest;
 export type GetGroupCommandOutput = GetGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a group.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,
   GetGroupCommandOutput,
@@ -36,6 +40,9 @@ export class GetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

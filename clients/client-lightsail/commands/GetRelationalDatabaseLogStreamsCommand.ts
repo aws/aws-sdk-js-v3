@@ -20,6 +20,9 @@ import {
 export type GetRelationalDatabaseLogStreamsCommandInput = GetRelationalDatabaseLogStreamsRequest;
 export type GetRelationalDatabaseLogStreamsCommandOutput = GetRelationalDatabaseLogStreamsResult & __MetadataBearer;
 
+/**
+ * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>
+ */
 export class GetRelationalDatabaseLogStreamsCommand extends $Command<
   GetRelationalDatabaseLogStreamsCommandInput,
   GetRelationalDatabaseLogStreamsCommandOutput,
@@ -34,6 +37,9 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

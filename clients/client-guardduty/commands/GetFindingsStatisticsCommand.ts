@@ -20,6 +20,9 @@ import {
 export type GetFindingsStatisticsCommandInput = GetFindingsStatisticsRequest;
 export type GetFindingsStatisticsCommandOutput = GetFindingsStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
+ */
 export class GetFindingsStatisticsCommand extends $Command<
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput,
@@ -34,6 +37,9 @@ export class GetFindingsStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

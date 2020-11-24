@@ -20,6 +20,9 @@ import {
 export type PutWorkflowRunPropertiesCommandInput = PutWorkflowRunPropertiesRequest;
 export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse & __MetadataBearer;
 
+/**
+ * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
+ */
 export class PutWorkflowRunPropertiesCommand extends $Command<
   PutWorkflowRunPropertiesCommandInput,
   PutWorkflowRunPropertiesCommandOutput,
@@ -34,6 +37,9 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

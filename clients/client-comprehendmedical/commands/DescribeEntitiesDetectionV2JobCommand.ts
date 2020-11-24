@@ -24,6 +24,10 @@ import {
 export type DescribeEntitiesDetectionV2JobCommandInput = DescribeEntitiesDetectionV2JobRequest;
 export type DescribeEntitiesDetectionV2JobCommandOutput = DescribeEntitiesDetectionV2JobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a medical entities detection job. Use this operation
+ *       to get the status of a detection job.</p>
+ */
 export class DescribeEntitiesDetectionV2JobCommand extends $Command<
   DescribeEntitiesDetectionV2JobCommandInput,
   DescribeEntitiesDetectionV2JobCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,

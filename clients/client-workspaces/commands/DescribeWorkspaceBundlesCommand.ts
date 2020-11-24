@@ -20,6 +20,10 @@ import {
 export type DescribeWorkspaceBundlesCommandInput = DescribeWorkspaceBundlesRequest;
 export type DescribeWorkspaceBundlesCommandOutput = DescribeWorkspaceBundlesResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
+ *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
+ */
 export class DescribeWorkspaceBundlesCommand extends $Command<
   DescribeWorkspaceBundlesCommandInput,
   DescribeWorkspaceBundlesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

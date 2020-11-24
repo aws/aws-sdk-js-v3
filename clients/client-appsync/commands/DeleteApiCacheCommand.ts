@@ -20,6 +20,9 @@ import {
 export type DeleteApiCacheCommandInput = DeleteApiCacheRequest;
 export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an <code>ApiCache</code> object.</p>
+ */
 export class DeleteApiCacheCommand extends $Command<
   DeleteApiCacheCommandInput,
   DeleteApiCacheCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApiCacheCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

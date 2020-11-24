@@ -20,6 +20,12 @@ import {
 export type UpdateDomainConfigurationCommandInput = UpdateDomainConfigurationRequest;
 export type UpdateDomainConfigurationCommandOutput = UpdateDomainConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ */
 export class UpdateDomainConfigurationCommand extends $Command<
   UpdateDomainConfigurationCommandInput,
   UpdateDomainConfigurationCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateDomainConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

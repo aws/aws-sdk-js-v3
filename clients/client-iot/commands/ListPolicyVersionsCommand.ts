@@ -20,6 +20,10 @@ import {
 export type ListPolicyVersionsCommandInput = ListPolicyVersionsRequest;
 export type ListPolicyVersionsCommandOutput = ListPolicyVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the versions of the specified policy and identifies the default
+ *          version.</p>
+ */
 export class ListPolicyVersionsCommand extends $Command<
   ListPolicyVersionsCommandInput,
   ListPolicyVersionsCommandOutput,
@@ -34,6 +38,9 @@ export class ListPolicyVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

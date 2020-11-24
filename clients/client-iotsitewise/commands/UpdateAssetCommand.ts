@@ -20,6 +20,10 @@ import {
 export type UpdateAssetCommandInput = UpdateAssetRequest;
 export type UpdateAssetCommandOutput = UpdateAssetResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
+ *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ */
 export class UpdateAssetCommand extends $Command<
   UpdateAssetCommandInput,
   UpdateAssetCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type StartJobCommandInput = StartJobRequest;
 export type StartJobCommandOutput = StartJobResponse & __MetadataBearer;
 
+/**
+ * <p>This operation starts a job.</p>
+ */
 export class StartJobCommand extends $Command<
   StartJobCommandInput,
   StartJobCommandOutput,
@@ -34,6 +37,9 @@ export class StartJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

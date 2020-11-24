@@ -20,6 +20,17 @@ import {
 export type UpdateChapCredentialsCommandInput = UpdateChapCredentialsInput;
 export type UpdateChapCredentialsCommandOutput = UpdateChapCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
+ *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
+ *          added security, you might use it. This operation is supported in the volume and tape
+ *          gateway types.</p>
+ *
+ *          <important>
+ *             <p>When you update CHAP credentials, all existing connections on the target are closed
+ *             and initiators must reconnect with the new credentials.</p>
+ *          </important>
+ */
 export class UpdateChapCredentialsCommand extends $Command<
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
@@ -34,6 +45,9 @@ export class UpdateChapCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

@@ -21,6 +21,29 @@ import {
 export type GetBucketCorsCommandInput = GetBucketCorsRequest;
 export type GetBucketCorsCommandOutput = GetBucketCorsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the cors configuration information set for the bucket.</p>
+ *
+ *          <p> To use this operation, you must have permission to perform the s3:GetBucketCORS action.
+ *          By default, the bucket owner has this permission and can grant it to others.</p>
+ *
+ *          <p> For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling
+ *             Cross-Origin Resource Sharing</a>.</p>
+ *
+ *          <p>The following operations are related to <code>GetBucketCors</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html">PutBucketCors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html">DeleteBucketCors</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketCorsCommand extends $Command<
   GetBucketCorsCommandInput,
   GetBucketCorsCommandOutput,
@@ -35,6 +58,9 @@ export class GetBucketCorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

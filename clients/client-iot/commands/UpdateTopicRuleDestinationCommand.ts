@@ -20,6 +20,10 @@ import {
 export type UpdateTopicRuleDestinationCommandInput = UpdateTopicRuleDestinationRequest;
 export type UpdateTopicRuleDestinationCommandOutput = UpdateTopicRuleDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
+ *          confirmation URL of the destination.</p>
+ */
 export class UpdateTopicRuleDestinationCommand extends $Command<
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

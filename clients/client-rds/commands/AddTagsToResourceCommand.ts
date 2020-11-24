@@ -20,6 +20,11 @@ import {
 export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
 export type AddTagsToResourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
+ *          <p>For an overview on tagging Amazon RDS resources,
+ *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>.</p>
+ */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -34,6 +39,9 @@ export class AddTagsToResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

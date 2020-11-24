@@ -20,6 +20,9 @@ import {
 export type ListSipMediaApplicationsCommandInput = ListSipMediaApplicationsRequest;
 export type ListSipMediaApplicationsCommandOutput = ListSipMediaApplicationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the SIP media applications under the administrator's AWS account.</p>
+ */
 export class ListSipMediaApplicationsCommand extends $Command<
   ListSipMediaApplicationsCommandInput,
   ListSipMediaApplicationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListSipMediaApplicationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

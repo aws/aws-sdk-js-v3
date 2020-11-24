@@ -20,6 +20,9 @@ import {
 export type ModifySubnetAttributeCommandInput = ModifySubnetAttributeRequest;
 export type ModifySubnetAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
+ */
 export class ModifySubnetAttributeCommand extends $Command<
   ModifySubnetAttributeCommandInput,
   ModifySubnetAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class ModifySubnetAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

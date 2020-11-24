@@ -20,6 +20,9 @@ import {
 export type DeleteFunctionCommandInput = DeleteFunctionRequest;
 export type DeleteFunctionCommandOutput = DeleteFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a <code>Function</code>.</p>
+ */
 export class DeleteFunctionCommand extends $Command<
   DeleteFunctionCommandInput,
   DeleteFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

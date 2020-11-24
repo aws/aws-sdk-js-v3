@@ -20,6 +20,10 @@ import {
 export type CreateStageCommandInput = CreateStageRequest;
 export type CreateStageCommandOutput = Stage & __MetadataBearer;
 
+/**
+ * <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>
+ *         <!--   <p>Creates a <a>Stage</a> resource.</p>  -->
+ */
 export class CreateStageCommand extends $Command<
   CreateStageCommandInput,
   CreateStageCommandOutput,
@@ -34,6 +38,9 @@ export class CreateStageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

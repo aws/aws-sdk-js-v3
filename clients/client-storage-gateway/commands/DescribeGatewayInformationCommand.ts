@@ -20,6 +20,11 @@ import {
 export type DescribeGatewayInformationCommandInput = DescribeGatewayInformationInput;
 export type DescribeGatewayInformationCommandOutput = DescribeGatewayInformationOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about a gateway such as its name, network interfaces, configured time
+ *          zone, and the state (whether the gateway is running or not). To specify which gateway to
+ *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+ */
 export class DescribeGatewayInformationCommand extends $Command<
   DescribeGatewayInformationCommandInput,
   DescribeGatewayInformationCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeGatewayInformationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

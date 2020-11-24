@@ -20,6 +20,14 @@ import {
 export type StopPipelineExecutionCommandInput = StopPipelineExecutionInput;
 export type StopPipelineExecutionCommandOutput = StopPipelineExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
+ *             execution by completing in-progress actions without starting subsequent actions, or by
+ *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
+ *             pipeline execution is in a <code>Stopping</code> state. After all in-progress actions
+ *             are completed or abandoned, the pipeline execution is in a <code>Stopped</code>
+ *             state.</p>
+ */
 export class StopPipelineExecutionCommand extends $Command<
   StopPipelineExecutionCommandInput,
   StopPipelineExecutionCommandOutput,
@@ -34,6 +42,9 @@ export class StopPipelineExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type AttachNetworkInterfaceCommandInput = AttachNetworkInterfaceRequest;
 export type AttachNetworkInterfaceCommandOutput = AttachNetworkInterfaceResult & __MetadataBearer;
 
+/**
+ * <p>Attaches a network interface to an instance.</p>
+ */
 export class AttachNetworkInterfaceCommand extends $Command<
   AttachNetworkInterfaceCommandInput,
   AttachNetworkInterfaceCommandOutput,
@@ -34,6 +37,9 @@ export class AttachNetworkInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

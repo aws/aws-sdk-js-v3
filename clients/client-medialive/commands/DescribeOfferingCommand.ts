@@ -20,6 +20,9 @@ import {
 export type DescribeOfferingCommandInput = DescribeOfferingRequest;
 export type DescribeOfferingCommandOutput = DescribeOfferingResponse & __MetadataBearer;
 
+/**
+ * Get details for an offering.
+ */
 export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandInput,
   DescribeOfferingCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOfferingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

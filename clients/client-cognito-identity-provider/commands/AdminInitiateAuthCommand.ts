@@ -25,6 +25,10 @@ import {
 export type AdminInitiateAuthCommandInput = AdminInitiateAuthRequest;
 export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse & __MetadataBearer;
 
+/**
+ * <p>Initiates the authentication flow, as an administrator.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminInitiateAuthCommand extends $Command<
   AdminInitiateAuthCommandInput,
   AdminInitiateAuthCommandOutput,
@@ -39,6 +43,9 @@ export class AdminInitiateAuthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

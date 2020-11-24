@@ -24,6 +24,9 @@ import {
 export type GetNetworkCommandInput = GetNetworkInput;
 export type GetNetworkCommandOutput = GetNetworkOutput & __MetadataBearer;
 
+/**
+ * <p>Returns detailed information about a network.</p>
+ */
 export class GetNetworkCommand extends $Command<
   GetNetworkCommandInput,
   GetNetworkCommandOutput,
@@ -38,6 +41,9 @@ export class GetNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type DescribeInsightRulesCommandInput = DescribeInsightRulesInput;
 export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all the Contributor Insights rules in your account.</p>
+ *
+ * 		       <p>For more information about Contributor Insights, see
+ * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
+ */
 export class DescribeInsightRulesCommand extends $Command<
   DescribeInsightRulesCommandInput,
   DescribeInsightRulesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeInsightRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type CreateLaunchTemplateVersionCommandInput = CreateLaunchTemplateVersionRequest;
 export type CreateLaunchTemplateVersionCommandOutput = CreateLaunchTemplateVersionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new version for a launch template. You can specify an existing version of
+ *             launch template from which to base the new version.</p>
+ *         <p>Launch template versions are numbered in the order in which they are created. You
+ *             cannot specify, change, or replace the numbering of launch template versions.</p>
+ *         <p>For
+ *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CreateLaunchTemplateVersionCommand extends $Command<
   CreateLaunchTemplateVersionCommandInput,
   CreateLaunchTemplateVersionCommandOutput,
@@ -34,6 +42,9 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

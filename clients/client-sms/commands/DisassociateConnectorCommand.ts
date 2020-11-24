@@ -20,6 +20,11 @@ import {
 export type DisassociateConnectorCommandInput = DisassociateConnectorRequest;
 export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified connector from AWS SMS.</p>
+ *         <p>After you disassociate a connector, it is no longer available to support
+ *             replication jobs.</p>
+ */
 export class DisassociateConnectorCommand extends $Command<
   DisassociateConnectorCommandInput,
   DisassociateConnectorCommandOutput,
@@ -34,6 +39,9 @@ export class DisassociateConnectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

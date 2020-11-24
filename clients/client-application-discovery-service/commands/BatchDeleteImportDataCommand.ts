@@ -24,6 +24,16 @@ import {
 export type BatchDeleteImportDataCommandInput = BatchDeleteImportDataRequest;
 export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
+ *       a number of records that can identify servers or applications. </p>
+ *
+ *          <p>AWS Application Discovery Service has built-in matching logic that will identify when
+ *       discovered servers match existing entries that you've previously discovered, the information
+ *       for the already-existing discovered server is updated. When you delete an import task that
+ *       contains records that were used to match, the information in those matched records that comes
+ *       from the deleted records will also be deleted.</p>
+ */
 export class BatchDeleteImportDataCommand extends $Command<
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput,
@@ -38,6 +48,9 @@ export class BatchDeleteImportDataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type DescribeFolderContentsCommandInput = DescribeFolderContentsRequest;
 export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the contents of the specified folder, including its documents and
+ *             subfolders.</p>
+ *         <p>By default, Amazon WorkDocs returns the first 100 active document and folder
+ *             metadata items. If there are more results, the response includes a marker that you can
+ *             use to request the next set of results. You can also request initialized
+ *             documents.</p>
+ */
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,
   DescribeFolderContentsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeFolderContentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

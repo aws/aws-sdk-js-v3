@@ -20,6 +20,12 @@ import {
 export type ListRetirableGrantsCommandInput = ListRetirableGrantsRequest;
 export type ListRetirableGrantsCommandOutput = ListGrantsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all grants for which the grant's <code>RetiringPrincipal</code> matches
+ *       the one specified.</p>
+ *          <p>A typical use is to list all grants that you are able to retire. To retire a grant, use
+ *         <a>RetireGrant</a>.</p>
+ */
 export class ListRetirableGrantsCommand extends $Command<
   ListRetirableGrantsCommandInput,
   ListRetirableGrantsCommandOutput,
@@ -34,6 +40,9 @@ export class ListRetirableGrantsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListImagesCommandInput = ListImagesRequest;
 export type ListImagesCommandOutput = ListImagesResponse & __MetadataBearer;
 
+/**
+ * <p> Returns the list of images that you have access to. </p>
+ */
 export class ListImagesCommand extends $Command<
   ListImagesCommandInput,
   ListImagesCommandOutput,
@@ -34,6 +37,9 @@ export class ListImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

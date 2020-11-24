@@ -20,6 +20,12 @@ import {
 export type DeleteIPSetCommandInput = DeleteIPSetRequest;
 export type DeleteIPSetCommandOutput = DeleteIPSetResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ *          </note>
+ *          <p>Deletes the specified <a>IPSet</a>. </p>
+ */
 export class DeleteIPSetCommand extends $Command<
   DeleteIPSetCommandInput,
   DeleteIPSetCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteIPSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

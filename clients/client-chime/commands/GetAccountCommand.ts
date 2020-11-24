@@ -20,6 +20,10 @@ import {
 export type GetAccountCommandInput = GetAccountRequest;
 export type GetAccountCommandOutput = GetAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details for the specified Amazon Chime account, such as account type and
+ *        supported licenses.</p>
+ */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,
   GetAccountCommandOutput,
@@ -34,6 +38,9 @@ export class GetAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

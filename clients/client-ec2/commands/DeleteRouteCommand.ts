@@ -17,6 +17,9 @@ import {
 export type DeleteRouteCommandInput = DeleteRouteRequest;
 export type DeleteRouteCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified route from the specified route table.</p>
+ */
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,
   DeleteRouteCommandOutput,
@@ -31,6 +34,9 @@ export class DeleteRouteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

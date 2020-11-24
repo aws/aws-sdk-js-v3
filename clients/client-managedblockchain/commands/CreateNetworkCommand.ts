@@ -24,6 +24,9 @@ import {
 export type CreateNetworkCommandInput = CreateNetworkInput;
 export type CreateNetworkCommandOutput = CreateNetworkOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
+ */
 export class CreateNetworkCommand extends $Command<
   CreateNetworkCommandInput,
   CreateNetworkCommandOutput,
@@ -38,6 +41,9 @@ export class CreateNetworkCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

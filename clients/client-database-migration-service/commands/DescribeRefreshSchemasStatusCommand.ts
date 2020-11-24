@@ -24,6 +24,9 @@ import {
 export type DescribeRefreshSchemasStatusCommandInput = DescribeRefreshSchemasStatusMessage;
 export type DescribeRefreshSchemasStatusCommandOutput = DescribeRefreshSchemasStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the status of the RefreshSchemas operation.</p>
+ */
 export class DescribeRefreshSchemasStatusCommand extends $Command<
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

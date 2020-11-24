@@ -20,6 +20,25 @@ import {
 export type ModifyReplicationGroupCommandInput = ModifyReplicationGroupMessage;
 export type ModifyReplicationGroupCommandOutput = ModifyReplicationGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the settings for a replication group.</p>
+ *
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a>
+ *                     in the ElastiCache User Guide</p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
+ *                     in the ElastiCache API Reference</p>
+ *             </li>
+ *          </ul>
+ *         <note>
+ *             <p>This operation is valid for Redis only.</p>
+ *          </note>
+ */
 export class ModifyReplicationGroupCommand extends $Command<
   ModifyReplicationGroupCommandInput,
   ModifyReplicationGroupCommandOutput,
@@ -34,6 +53,9 @@ export class ModifyReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

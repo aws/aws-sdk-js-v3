@@ -20,6 +20,9 @@ import {
 export type DeleteCustomerGatewayCommandInput = DeleteCustomerGatewayRequest;
 export type DeleteCustomerGatewayCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
+ */
 export class DeleteCustomerGatewayCommand extends $Command<
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCustomerGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ModifyCacheSubnetGroupCommandInput = ModifyCacheSubnetGroupMessage;
 export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult & __MetadataBearer;
 
+/**
+ * <p>Modifies an existing cache subnet group.</p>
+ */
 export class ModifyCacheSubnetGroupCommand extends $Command<
   ModifyCacheSubnetGroupCommandInput,
   ModifyCacheSubnetGroupCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

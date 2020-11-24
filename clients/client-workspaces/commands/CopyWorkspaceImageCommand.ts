@@ -20,6 +20,18 @@ import {
 export type CopyWorkspaceImageCommandInput = CopyWorkspaceImageRequest;
 export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult & __MetadataBearer;
 
+/**
+ * <p>Copies the specified image from the specified Region to the current Region.
+ *          For more information about copying images, see
+ *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html">
+ *             Copy a Custom WorkSpaces Image</a>.</p>
+ *
+ *          <important>
+ *             <p>Before copying a shared image, be sure to verify that it has been shared from the
+ *             correct AWS account. To determine if an image has been shared and to see the AWS
+ *             account ID that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a> and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a> API operations. </p>
+ *          </important>
+ */
 export class CopyWorkspaceImageCommand extends $Command<
   CopyWorkspaceImageCommandInput,
   CopyWorkspaceImageCommandOutput,
@@ -34,6 +46,9 @@ export class CopyWorkspaceImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

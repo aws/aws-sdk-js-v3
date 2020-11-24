@@ -20,6 +20,9 @@ import {
 export type SearchTransitGatewayRoutesCommandInput = SearchTransitGatewayRoutesRequest;
 export type SearchTransitGatewayRoutesCommandOutput = SearchTransitGatewayRoutesResult & __MetadataBearer;
 
+/**
+ * <p>Searches for routes in the specified transit gateway route table.</p>
+ */
 export class SearchTransitGatewayRoutesCommand extends $Command<
   SearchTransitGatewayRoutesCommandInput,
   SearchTransitGatewayRoutesCommandOutput,
@@ -34,6 +37,9 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

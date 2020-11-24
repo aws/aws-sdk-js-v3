@@ -20,6 +20,9 @@ import {
 export type PromoteReadReplicaDBClusterCommandInput = PromoteReadReplicaDBClusterMessage;
 export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult & __MetadataBearer;
 
+/**
+ * <p>Not supported.</p>
+ */
 export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput,
@@ -34,6 +37,9 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

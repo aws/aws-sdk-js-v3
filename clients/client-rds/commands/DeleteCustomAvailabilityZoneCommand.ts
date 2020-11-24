@@ -20,6 +20,15 @@ import {
 export type DeleteCustomAvailabilityZoneCommandInput = DeleteCustomAvailabilityZoneMessage;
 export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a custom Availability Zone (AZ).</p>
+ *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
+ *         <p>For more information about RDS on VMware, see the
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+ *                 <i>RDS on VMware User Guide.</i>
+ *             </a>
+ *          </p>
+ */
 export class DeleteCustomAvailabilityZoneCommand extends $Command<
   DeleteCustomAvailabilityZoneCommandInput,
   DeleteCustomAvailabilityZoneCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

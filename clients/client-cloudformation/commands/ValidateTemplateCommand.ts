@@ -20,6 +20,11 @@ import {
 export type ValidateTemplateCommandInput = ValidateTemplateInput;
 export type ValidateTemplateCommandOutput = ValidateTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Validates a specified template. AWS CloudFormation first checks if the template is
+ *          valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML. If both
+ *          these checks fail, AWS CloudFormation returns a template validation error.</p>
+ */
 export class ValidateTemplateCommand extends $Command<
   ValidateTemplateCommandInput,
   ValidateTemplateCommandOutput,
@@ -34,6 +39,9 @@ export class ValidateTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

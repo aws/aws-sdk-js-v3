@@ -20,6 +20,13 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the tags associated with a file system. The order of tags returned in the
+ *       response of one <code>DescribeTags</code> call and the order of tags returned across the
+ *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
+ *          <p> This operation requires permissions for the
+ *         <code>elasticfilesystem:DescribeTags</code> action. </p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,

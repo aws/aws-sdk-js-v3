@@ -20,6 +20,9 @@ import {
 export type GetConnectorDefinitionCommandInput = GetConnectorDefinitionRequest;
 export type GetConnectorDefinitionCommandOutput = GetConnectorDefinitionResponse & __MetadataBearer;
 
+/**
+ * Retrieves information about a connector definition.
+ */
 export class GetConnectorDefinitionCommand extends $Command<
   GetConnectorDefinitionCommandInput,
   GetConnectorDefinitionCommandOutput,
@@ -34,6 +37,9 @@ export class GetConnectorDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

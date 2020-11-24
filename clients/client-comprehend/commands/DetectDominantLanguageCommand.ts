@@ -20,6 +20,10 @@ import {
 export type DetectDominantLanguageCommandInput = DetectDominantLanguageRequest;
 export type DetectDominantLanguageCommandOutput = DetectDominantLanguageResponse & __MetadataBearer;
 
+/**
+ * <p>Determines the dominant language of the input text. For a list of languages that Amazon
+ *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+ */
 export class DetectDominantLanguageCommand extends $Command<
   DetectDominantLanguageCommandInput,
   DetectDominantLanguageCommandOutput,
@@ -34,6 +38,9 @@ export class DetectDominantLanguageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

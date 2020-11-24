@@ -20,6 +20,12 @@ import {
 export type DeleteActivationCommandInput = DeleteActivationRequest;
 export type DeleteActivationCommandOutput = DeleteActivationResult & __MetadataBearer;
 
+/**
+ * <p>Deletes an activation. You are not required to delete an activation. If you delete an
+ *    activation, you can no longer use it to register additional managed instances. Deleting an
+ *    activation does not de-register managed instances. You must manually de-register managed
+ *    instances.</p>
+ */
 export class DeleteActivationCommand extends $Command<
   DeleteActivationCommandInput,
   DeleteActivationCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteActivationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

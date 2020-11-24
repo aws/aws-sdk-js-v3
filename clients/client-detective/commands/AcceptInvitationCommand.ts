@@ -20,6 +20,12 @@ import {
 export type AcceptInvitationCommandInput = AcceptInvitationRequest;
 export type AcceptInvitationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
+ *          This operation can only be called by an invited member account. </p>
+ *          <p>The request provides the ARN of behavior graph.</p>
+ *          <p>The member account status in the graph must be <code>INVITED</code>.</p>
+ */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
@@ -34,6 +40,9 @@ export class AcceptInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

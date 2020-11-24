@@ -20,6 +20,12 @@ import {
 export type CreateNamedQueryCommandInput = CreateNamedQueryInput;
 export type CreateNamedQueryCommandOutput = CreateNamedQueryOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a named query in the specified workgroup. Requires that you have access to the
+ *             workgroup.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ */
 export class CreateNamedQueryCommand extends $Command<
   CreateNamedQueryCommandInput,
   CreateNamedQueryCommandOutput,
@@ -34,6 +40,9 @@ export class CreateNamedQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

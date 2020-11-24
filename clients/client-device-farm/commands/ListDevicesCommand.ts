@@ -20,6 +20,9 @@ import {
 export type ListDevicesCommandInput = ListDevicesRequest;
 export type ListDevicesCommandOutput = ListDevicesResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about unique device types.</p>
+ */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,
   ListDevicesCommandOutput,
@@ -34,6 +37,9 @@ export class ListDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

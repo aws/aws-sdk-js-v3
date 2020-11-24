@@ -18,6 +18,13 @@ import {
 export type SearchCommandInput = SearchRequest;
 export type SearchCommandOutput = SearchResponse & __MetadataBearer;
 
+/**
+ * <p>Finds Amazon SageMaker resources that match a search query. Matching resources are returned
+ *       as a list of <code>SearchRecord</code> objects in the response. You can sort the search
+ *       results by any resource property in a ascending or descending order.</p>
+ *          <p>You can query against the following value types: numeric, text, Boolean, and
+ *       timestamp.</p>
+ */
 export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -28,6 +35,9 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

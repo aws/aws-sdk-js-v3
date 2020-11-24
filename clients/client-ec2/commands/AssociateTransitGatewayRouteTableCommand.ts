@@ -20,6 +20,10 @@ import {
 export type AssociateTransitGatewayRouteTableCommandInput = AssociateTransitGatewayRouteTableRequest;
 export type AssociateTransitGatewayRouteTableCommandOutput = AssociateTransitGatewayRouteTableResult & __MetadataBearer;
 
+/**
+ * <p>Associates the specified attachment with the specified transit gateway route table. You can
+ *         associate only one route table with an attachment.</p>
+ */
 export class AssociateTransitGatewayRouteTableCommand extends $Command<
   AssociateTransitGatewayRouteTableCommandInput,
   AssociateTransitGatewayRouteTableCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

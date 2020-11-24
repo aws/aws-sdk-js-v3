@@ -20,6 +20,9 @@ import {
 export type DeleteTagsCommandInput = DeleteTagsRequest;
 export type DeleteTagsCommandOutput = DeleteTagsResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified tags from the specified WorkSpaces resource.</p>
+ */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

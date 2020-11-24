@@ -8,6 +8,9 @@ import {
 import { NeptunePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: NeptuneClient,
   input: DescribeDBSubnetGroupsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDBSubnetGroupsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Neptune,
   input: DescribeDBSubnetGroupsCommandInput,

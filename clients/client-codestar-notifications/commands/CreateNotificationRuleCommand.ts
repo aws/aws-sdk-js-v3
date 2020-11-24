@@ -24,6 +24,11 @@ import {
 export type CreateNotificationRuleCommandInput = CreateNotificationRuleRequest;
 export type CreateNotificationRuleCommandOutput = CreateNotificationRuleResult & __MetadataBearer;
 
+/**
+ * <p>Creates a notification rule for a resource. The rule specifies the events you want
+ *             notifications about and the targets (such as SNS topics) where you want to receive
+ *             them.</p>
+ */
 export class CreateNotificationRuleCommand extends $Command<
   CreateNotificationRuleCommandInput,
   CreateNotificationRuleCommandOutput,
@@ -38,6 +43,9 @@ export class CreateNotificationRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodestarNotificationsClientResolvedConfig,

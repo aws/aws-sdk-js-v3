@@ -20,6 +20,10 @@ import {
 export type CreateDatasetContentCommandInput = CreateDatasetContentRequest;
 export type CreateDatasetContentCommandOutput = CreateDatasetContentResponse & __MetadataBearer;
 
+/**
+ * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query)
+ *       or a <code>containerAction</code> (executing a containerized application).</p>
+ */
 export class CreateDatasetContentCommand extends $Command<
   CreateDatasetContentCommandInput,
   CreateDatasetContentCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDatasetContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

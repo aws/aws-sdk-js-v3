@@ -20,6 +20,9 @@ import {
 export type ListKeyPhrasesDetectionJobsCommandInput = ListKeyPhrasesDetectionJobsRequest;
 export type ListKeyPhrasesDetectionJobsCommandOutput = ListKeyPhrasesDetectionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Get a list of key phrase detection jobs that you have submitted.</p>
+ */
 export class ListKeyPhrasesDetectionJobsCommand extends $Command<
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

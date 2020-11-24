@@ -20,6 +20,9 @@ import {
 export type DisassociateTagOptionFromResourceCommandInput = DisassociateTagOptionFromResourceInput;
 export type DisassociateTagOptionFromResourceCommandOutput = DisassociateTagOptionFromResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified TagOption from the specified resource.</p>
+ */
 export class DisassociateTagOptionFromResourceCommand extends $Command<
   DisassociateTagOptionFromResourceCommandInput,
   DisassociateTagOptionFromResourceCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

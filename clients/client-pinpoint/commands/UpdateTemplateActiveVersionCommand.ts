@@ -20,6 +20,9 @@ import {
 export type UpdateTemplateActiveVersionCommandInput = UpdateTemplateActiveVersionRequest;
 export type UpdateTemplateActiveVersionCommandOutput = UpdateTemplateActiveVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
+ */
 export class UpdateTemplateActiveVersionCommand extends $Command<
   UpdateTemplateActiveVersionCommandInput,
   UpdateTemplateActiveVersionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

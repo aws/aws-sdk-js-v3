@@ -24,6 +24,9 @@ import {
 export type DescribeElasticsearchDomainsCommandInput = DescribeElasticsearchDomainsRequest;
 export type DescribeElasticsearchDomainsCommandOutput = DescribeElasticsearchDomainsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
+ */
 export class DescribeElasticsearchDomainsCommand extends $Command<
   DescribeElasticsearchDomainsCommandInput,
   DescribeElasticsearchDomainsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeElasticsearchDomainsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

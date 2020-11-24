@@ -20,6 +20,9 @@ import {
 export type GetMetricPolicyCommandInput = GetMetricPolicyInput;
 export type GetMetricPolicyCommandOutput = GetMetricPolicyOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the metric policy for the specified container. </p>
+ */
 export class GetMetricPolicyCommand extends $Command<
   GetMetricPolicyCommandInput,
   GetMetricPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class GetMetricPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

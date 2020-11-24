@@ -20,6 +20,9 @@ import {
 export type GetMergeConflictsCommandInput = GetMergeConflictsInput;
 export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>
+ */
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,
   GetMergeConflictsCommandOutput,
@@ -34,6 +37,9 @@ export class GetMergeConflictsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

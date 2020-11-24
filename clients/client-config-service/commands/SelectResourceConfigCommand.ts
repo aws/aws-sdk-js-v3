@@ -20,6 +20,13 @@ import {
 export type SelectResourceConfigCommandInput = SelectResourceConfigRequest;
 export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
+ * 		       <p>For more information about query components, see the
+ * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
+ *                <b>Query Components</b>
+ *             </a> section in the AWS Config Developer Guide.</p>
+ */
 export class SelectResourceConfigCommand extends $Command<
   SelectResourceConfigCommandInput,
   SelectResourceConfigCommandOutput,
@@ -34,6 +41,9 @@ export class SelectResourceConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

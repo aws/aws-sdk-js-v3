@@ -20,6 +20,13 @@ import {
 export type GetSAMLProviderCommandInput = GetSAMLProviderRequest;
 export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
+ *          resource object was created or updated.</p>
+ *          <note>
+ *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+ *          </note>
+ */
 export class GetSAMLProviderCommand extends $Command<
   GetSAMLProviderCommandInput,
   GetSAMLProviderCommandOutput,
@@ -34,6 +41,9 @@ export class GetSAMLProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

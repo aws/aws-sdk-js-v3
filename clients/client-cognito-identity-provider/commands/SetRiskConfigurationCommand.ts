@@ -25,6 +25,13 @@ import {
 export type SetRiskConfigurationCommandInput = SetRiskConfigurationRequest;
 export type SetRiskConfigurationCommandOutput = SetRiskConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Configures actions on detected risks. To delete the risk configuration for
+ *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
+ *             configuration types.</p>
+ *         <p>To enable Amazon Cognito advanced security features, update the user pool to include
+ *             the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
+ */
 export class SetRiskConfigurationCommand extends $Command<
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput,
@@ -39,6 +46,9 @@ export class SetRiskConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

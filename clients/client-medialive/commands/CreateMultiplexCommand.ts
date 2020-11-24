@@ -20,6 +20,9 @@ import {
 export type CreateMultiplexCommandInput = CreateMultiplexRequest;
 export type CreateMultiplexCommandOutput = CreateMultiplexResponse & __MetadataBearer;
 
+/**
+ * Create a new multiplex.
+ */
 export class CreateMultiplexCommand extends $Command<
   CreateMultiplexCommandInput,
   CreateMultiplexCommandOutput,
@@ -34,6 +37,9 @@ export class CreateMultiplexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

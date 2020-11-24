@@ -20,6 +20,17 @@ import {
 export type CreateResolverQueryLogConfigCommandInput = CreateResolverQueryLogConfigRequest;
 export type CreateResolverQueryLogConfigCommandOutput = CreateResolverQueryLogConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
+ * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
+ *
+ * 		       <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>. </p>
+ *
+ * 		       <p>You can optionally use AWS Resource Access Manager (AWS RAM) to share a query logging configuration with other AWS accounts. The other accounts
+ * 			can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all
+ * 			VPCs that are associated with the configuration.</p>
+ */
 export class CreateResolverQueryLogConfigCommand extends $Command<
   CreateResolverQueryLogConfigCommandInput,
   CreateResolverQueryLogConfigCommandOutput,
@@ -34,6 +45,9 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

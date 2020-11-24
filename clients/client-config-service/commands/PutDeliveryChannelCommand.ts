@@ -20,6 +20,25 @@ import {
 export type PutDeliveryChannelCommandInput = PutDeliveryChannelRequest;
 export type PutDeliveryChannelCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a delivery channel object to deliver configuration
+ * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
+ * 		       <p>Before you can create a delivery channel, you must create a
+ * 			configuration recorder.</p>
+ * 		       <p>You can use this action to change the Amazon S3 bucket or an
+ * 			Amazon SNS topic of the existing delivery channel. To change the
+ * 			Amazon S3 bucket or an Amazon SNS topic, call this action and
+ * 			specify the changed values for the S3 bucket and the SNS topic. If
+ * 			you specify a different value for either the S3 bucket or the SNS
+ * 			topic, this action will keep the existing value for the parameter
+ * 			that is not changed.</p>
+ * 		       <note>
+ * 			         <p>You can have only one delivery channel per region in your
+ * 				account.</p>
+ *
+ *
+ * 		       </note>
+ */
 export class PutDeliveryChannelCommand extends $Command<
   PutDeliveryChannelCommandInput,
   PutDeliveryChannelCommandOutput,
@@ -34,6 +53,9 @@ export class PutDeliveryChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

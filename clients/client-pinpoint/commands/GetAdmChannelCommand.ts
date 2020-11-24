@@ -20,6 +20,9 @@ import {
 export type GetAdmChannelCommandInput = GetAdmChannelRequest;
 export type GetAdmChannelCommandOutput = GetAdmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
+ */
 export class GetAdmChannelCommand extends $Command<
   GetAdmChannelCommandInput,
   GetAdmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetAdmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

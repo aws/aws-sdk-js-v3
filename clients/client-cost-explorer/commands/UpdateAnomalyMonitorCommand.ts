@@ -20,6 +20,10 @@ import {
 export type UpdateAnomalyMonitorCommandInput = UpdateAnomalyMonitorRequest;
 export type UpdateAnomalyMonitorCommandOutput = UpdateAnomalyMonitorResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
+ *       does not change anomalies detected in the past. </p>
+ */
 export class UpdateAnomalyMonitorCommand extends $Command<
   UpdateAnomalyMonitorCommandInput,
   UpdateAnomalyMonitorCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

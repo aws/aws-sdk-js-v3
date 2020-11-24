@@ -20,6 +20,9 @@ import {
 export type CheckDomainTransferabilityCommandInput = CheckDomainTransferabilityRequest;
 export type CheckDomainTransferabilityCommandOutput = CheckDomainTransferabilityResponse & __MetadataBearer;
 
+/**
+ * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
+ */
 export class CheckDomainTransferabilityCommand extends $Command<
   CheckDomainTransferabilityCommandInput,
   CheckDomainTransferabilityCommandOutput,
@@ -34,6 +37,9 @@ export class CheckDomainTransferabilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

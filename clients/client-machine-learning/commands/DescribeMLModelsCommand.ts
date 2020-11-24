@@ -20,6 +20,9 @@ import {
 export type DescribeMLModelsCommandInput = DescribeMLModelsInput;
 export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
+ */
 export class DescribeMLModelsCommand extends $Command<
   DescribeMLModelsCommandInput,
   DescribeMLModelsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeMLModelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

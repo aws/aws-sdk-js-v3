@@ -20,6 +20,9 @@ import {
 export type DescribeRepositoriesCommandInput = DescribeRepositoriesRequest;
 export type DescribeRepositoriesCommandOutput = DescribeRepositoriesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes image repositories in a registry.</p>
+ */
 export class DescribeRepositoriesCommand extends $Command<
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeRepositoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

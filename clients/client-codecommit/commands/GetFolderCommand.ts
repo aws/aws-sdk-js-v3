@@ -17,6 +17,9 @@ import {
 export type GetFolderCommandInput = GetFolderInput;
 export type GetFolderCommandOutput = GetFolderOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the contents of a specified folder in a repository.</p>
+ */
 export class GetFolderCommand extends $Command<
   GetFolderCommandInput,
   GetFolderCommandOutput,
@@ -31,6 +34,9 @@ export class GetFolderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

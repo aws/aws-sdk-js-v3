@@ -20,6 +20,16 @@ import {
 export type CreateTemplateCommandInput = CreateTemplateRequest;
 export type CreateTemplateCommandOutput = CreateTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a template from an existing QuickSight analysis or template. You can use the resulting
+ * 			template to create a dashboard.</p>
+ * 		       <p>A <i>template</i> is an entity in QuickSight that encapsulates the metadata
+ * 			required to create an analysis and that you can use to create s dashboard. A template adds
+ * 			a layer of abstraction by using placeholders to replace the dataset associated with the
+ * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
+ * 			with datasets that follow the same schema that was used to create the source analysis
+ * 			and template.</p>
+ */
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
@@ -34,6 +44,9 @@ export class CreateTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

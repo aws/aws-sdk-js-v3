@@ -20,6 +20,9 @@ import {
 export type DisassociateBudgetFromResourceCommandInput = DisassociateBudgetFromResourceInput;
 export type DisassociateBudgetFromResourceCommandOutput = DisassociateBudgetFromResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified budget from the specified resource.</p>
+ */
 export class DisassociateBudgetFromResourceCommand extends $Command<
   DisassociateBudgetFromResourceCommandInput,
   DisassociateBudgetFromResourceCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

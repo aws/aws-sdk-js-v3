@@ -20,6 +20,23 @@ import {
 export type UpdateAccountPasswordPolicyCommandInput = UpdateAccountPasswordPolicyRequest;
 export type UpdateAccountPasswordPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the password policy settings for the AWS account.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>This operation does not support partial updates. No parameters are required,
+ *                   but if you do not specify a parameter, that parameter's value reverts to its
+ *                   default value. See the <b>Request Parameters</b> section
+ *                   for each parameter's default value. Also note that some parameters do not allow
+ *                   the default parameter to be explicitly set. Instead, to invoke the default value,
+ *                   do not include that parameter when you invoke the operation.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ *          <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
+ *             Policy</a> in the <i>IAM User Guide</i>.</p>
+ */
 export class UpdateAccountPasswordPolicyCommand extends $Command<
   UpdateAccountPasswordPolicyCommandInput,
   UpdateAccountPasswordPolicyCommandOutput,
@@ -34,6 +51,9 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

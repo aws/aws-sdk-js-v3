@@ -20,6 +20,9 @@ import {
 export type GetRestApiCommandInput = GetRestApiRequest;
 export type GetRestApiCommandOutput = RestApi & __MetadataBearer;
 
+/**
+ * <p>Lists the <a>RestApi</a> resource in the collection.</p>
+ */
 export class GetRestApiCommand extends $Command<
   GetRestApiCommandInput,
   GetRestApiCommandOutput,
@@ -34,6 +37,9 @@ export class GetRestApiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

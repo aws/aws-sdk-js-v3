@@ -20,6 +20,9 @@ import {
 export type DescribeStorageCommandInput = {};
 export type DescribeStorageCommandOutput = CustomerStorageMessage & __MetadataBearer;
 
+/**
+ * <p>Returns account level backups storage size and provisional storage.</p>
+ */
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,
   DescribeStorageCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeStorageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

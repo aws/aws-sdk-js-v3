@@ -24,6 +24,10 @@ export type DescribeAggregationAuthorizationsCommandInput = DescribeAggregationA
 export type DescribeAggregationAuthorizationsCommandOutput = DescribeAggregationAuthorizationsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns a list of authorizations granted to various aggregator
+ * 			accounts and regions.</p>
+ */
 export class DescribeAggregationAuthorizationsCommand extends $Command<
   DescribeAggregationAuthorizationsCommandInput,
   DescribeAggregationAuthorizationsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

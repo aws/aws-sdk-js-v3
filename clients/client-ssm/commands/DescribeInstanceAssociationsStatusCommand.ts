@@ -24,6 +24,9 @@ export type DescribeInstanceAssociationsStatusCommandInput = DescribeInstanceAss
 export type DescribeInstanceAssociationsStatusCommandOutput = DescribeInstanceAssociationsStatusResult &
   __MetadataBearer;
 
+/**
+ * <p>The status of the associations for the instance(s).</p>
+ */
 export class DescribeInstanceAssociationsStatusCommand extends $Command<
   DescribeInstanceAssociationsStatusCommandInput,
   DescribeInstanceAssociationsStatusCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

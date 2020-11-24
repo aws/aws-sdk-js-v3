@@ -25,6 +25,9 @@ import {
 export type DescribeRiskConfigurationCommandInput = DescribeRiskConfigurationRequest;
 export type DescribeRiskConfigurationCommandOutput = DescribeRiskConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the risk configuration.</p>
+ */
 export class DescribeRiskConfigurationCommand extends $Command<
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
@@ -39,6 +42,9 @@ export class DescribeRiskConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

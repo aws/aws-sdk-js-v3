@@ -24,6 +24,12 @@ import {
 export type DeleteLoadBalancerCommandInput = DeleteAccessPointInput;
 export type DeleteLoadBalancerCommandOutput = DeleteAccessPointOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified load balancer.</p>
+ *         <p>If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.</p>
+ *         <p>If the load balancer does not exist or has already been deleted, the call to
+ *             <code>DeleteLoadBalancer</code> still succeeds.</p>
+ */
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,
   DeleteLoadBalancerCommandOutput,
@@ -38,6 +44,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type DescribeProblemObservationsCommandInput = DescribeProblemObservationsRequest;
 export type DescribeProblemObservationsCommandOutput = DescribeProblemObservationsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the anomalies or errors associated with the problem.</p>
+ */
 export class DescribeProblemObservationsCommand extends $Command<
   DescribeProblemObservationsCommandInput,
   DescribeProblemObservationsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeProblemObservationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

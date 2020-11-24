@@ -20,6 +20,9 @@ import {
 export type DeleteArchiveCommandInput = DeleteArchiveRequest;
 export type DeleteArchiveCommandOutput = DeleteArchiveResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified archive.</p>
+ */
 export class DeleteArchiveCommand extends $Command<
   DeleteArchiveCommandInput,
   DeleteArchiveCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteArchiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

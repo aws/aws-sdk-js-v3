@@ -20,6 +20,9 @@ import {
 export type GetApnsChannelCommandInput = GetApnsChannelRequest;
 export type GetApnsChannelCommandOutput = GetApnsChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
+ */
 export class GetApnsChannelCommand extends $Command<
   GetApnsChannelCommandInput,
   GetApnsChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetApnsChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

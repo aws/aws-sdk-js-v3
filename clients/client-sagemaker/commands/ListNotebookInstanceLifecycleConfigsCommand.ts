@@ -24,6 +24,9 @@ export type ListNotebookInstanceLifecycleConfigsCommandInput = ListNotebookInsta
 export type ListNotebookInstanceLifecycleConfigsCommandOutput = ListNotebookInstanceLifecycleConfigsOutput &
   __MetadataBearer;
 
+/**
+ * <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
+ */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
   ListNotebookInstanceLifecycleConfigsCommandInput,
   ListNotebookInstanceLifecycleConfigsCommandOutput,
@@ -38,6 +41,9 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

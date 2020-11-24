@@ -24,6 +24,15 @@ import {
 export type MeterUsageCommandInput = MeterUsageRequest;
 export type MeterUsageCommandOutput = MeterUsageResult & __MetadataBearer;
 
+/**
+ * <p>API to emit metering records. For identical requests, the API is idempotent. It
+ *             simply returns the metering record ID.</p>
+ *         <p>MeterUsage is authenticated on the buyer's AWS account using credentials from the
+ *             EC2 instance, ECS task, or EKS pod.</p>
+ *         <p>MeterUsage can optionally include multiple usage allocations, to provide customers
+ *             with usage data split into buckets by tags that you define (or allow the customer to
+ *             define).</p>
+ */
 export class MeterUsageCommand extends $Command<
   MeterUsageCommandInput,
   MeterUsageCommandOutput,
@@ -38,6 +47,9 @@ export class MeterUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceMeteringClientResolvedConfig,

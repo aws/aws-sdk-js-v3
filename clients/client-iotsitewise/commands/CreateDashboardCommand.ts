@@ -20,6 +20,9 @@ import {
 export type CreateDashboardCommandInput = CreateDashboardRequest;
 export type CreateDashboardCommandOutput = CreateDashboardResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a dashboard in an AWS IoT SiteWise Monitor project.</p>
+ */
 export class CreateDashboardCommand extends $Command<
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

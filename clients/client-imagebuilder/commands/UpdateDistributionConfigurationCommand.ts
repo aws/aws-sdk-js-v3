@@ -20,6 +20,10 @@ import {
 export type UpdateDistributionConfigurationCommandInput = UpdateDistributionConfigurationRequest;
 export type UpdateDistributionConfigurationCommandOutput = UpdateDistributionConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p> Updates a new distribution configuration. Distribution configurations define and
+ *       configure the outputs of your pipeline. </p>
+ */
 export class UpdateDistributionConfigurationCommand extends $Command<
   UpdateDistributionConfigurationCommandInput,
   UpdateDistributionConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

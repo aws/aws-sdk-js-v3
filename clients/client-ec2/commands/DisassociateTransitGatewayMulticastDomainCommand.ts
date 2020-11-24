@@ -24,6 +24,9 @@ export type DisassociateTransitGatewayMulticastDomainCommandInput = Disassociate
 export type DisassociateTransitGatewayMulticastDomainCommandOutput = DisassociateTransitGatewayMulticastDomainResult &
   __MetadataBearer;
 
+/**
+ * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
+ */
 export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
   DisassociateTransitGatewayMulticastDomainCommandInput,
   DisassociateTransitGatewayMulticastDomainCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeProjectsCommandInput = DescribeProjectsRequest;
 export type DescribeProjectsCommandOutput = DescribeProjectsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
+ */
 export class DescribeProjectsCommand extends $Command<
   DescribeProjectsCommandInput,
   DescribeProjectsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

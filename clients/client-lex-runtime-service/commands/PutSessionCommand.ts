@@ -24,6 +24,11 @@ import {
 export type PutSessionCommandInput = PutSessionRequest;
 export type PutSessionCommandOutput = PutSessionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this
+ *       operation to enable your application to set the state of the bot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
+ */
 export class PutSessionCommand extends $Command<
   PutSessionCommandInput,
   PutSessionCommandOutput,
@@ -38,6 +43,9 @@ export class PutSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexRuntimeServiceClientResolvedConfig,

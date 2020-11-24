@@ -24,6 +24,9 @@ import {
 export type UpdateMemberCommandInput = UpdateMemberInput;
 export type UpdateMemberCommandOutput = UpdateMemberOutput & __MetadataBearer;
 
+/**
+ * <p>Updates a member configuration with new parameters.</p>
+ */
 export class UpdateMemberCommand extends $Command<
   UpdateMemberCommandInput,
   UpdateMemberCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateMemberCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ManagedBlockchainClientResolvedConfig,

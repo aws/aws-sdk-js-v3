@@ -20,6 +20,10 @@ import {
 export type GetSoftwareUpdatesCommandInput = GetSoftwareUpdatesRequest;
 export type GetSoftwareUpdatesCommandOutput = GetSoftwareUpdatesResult & __MetadataBearer;
 
+/**
+ * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
+ *       <code>JobId</code>.</p>
+ */
 export class GetSoftwareUpdatesCommand extends $Command<
   GetSoftwareUpdatesCommandInput,
   GetSoftwareUpdatesCommandOutput,
@@ -34,6 +38,9 @@ export class GetSoftwareUpdatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

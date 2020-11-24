@@ -20,6 +20,9 @@ import {
 export type DescribeHarvestJobCommandInput = DescribeHarvestJobRequest;
 export type DescribeHarvestJobCommandOutput = DescribeHarvestJobResponse & __MetadataBearer;
 
+/**
+ * Gets details about an existing HarvestJob.
+ */
 export class DescribeHarvestJobCommand extends $Command<
   DescribeHarvestJobCommandInput,
   DescribeHarvestJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeHarvestJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

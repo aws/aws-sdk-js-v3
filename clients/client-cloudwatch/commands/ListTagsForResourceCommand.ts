@@ -20,6 +20,10 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
+/**
+ * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
+ * 			and Contributor Insights rules support tagging.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +38,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DisassociateDiscoveredResourceCommandInput = DisassociateDiscoveredResourceRequest;
 export type DisassociateDiscoveredResourceCommandOutput = DisassociateDiscoveredResourceResult & __MetadataBearer;
 
+/**
+ * <p>Disassociate an Application Discovery Service discovered resource from a migration
+ *          task.</p>
+ */
 export class DisassociateDiscoveredResourceCommand extends $Command<
   DisassociateDiscoveredResourceCommandInput,
   DisassociateDiscoveredResourceCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,

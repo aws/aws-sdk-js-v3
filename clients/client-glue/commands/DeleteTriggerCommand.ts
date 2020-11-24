@@ -20,6 +20,10 @@ import {
 export type DeleteTriggerCommandInput = DeleteTriggerRequest;
 export type DeleteTriggerCommandOutput = DeleteTriggerResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified trigger. If the trigger is not found, no
+ *       exception is thrown.</p>
+ */
 export class DeleteTriggerCommand extends $Command<
   DeleteTriggerCommandInput,
   DeleteTriggerCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTriggerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

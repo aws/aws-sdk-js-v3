@@ -24,6 +24,9 @@ export type DescribeNetworkInterfacePermissionsCommandInput = DescribeNetworkInt
 export type DescribeNetworkInterfacePermissionsCommandOutput = DescribeNetworkInterfacePermissionsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the permissions for your network interfaces. </p>
+ */
 export class DescribeNetworkInterfacePermissionsCommand extends $Command<
   DescribeNetworkInterfacePermissionsCommandInput,
   DescribeNetworkInterfacePermissionsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

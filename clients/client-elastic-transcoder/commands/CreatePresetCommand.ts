@@ -24,6 +24,22 @@ import {
 export type CreatePresetCommandInput = CreatePresetRequest;
 export type CreatePresetCommandOutput = CreatePresetResponse & __MetadataBearer;
 
+/**
+ * <p>The CreatePreset operation creates a preset with settings that you specify.</p>
+ *         <important>
+ *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
+ *             and to determine whether they comply with H.264 standards. If your settings are not
+ *             valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (<code>ValidationException</code>) and
+ *             does not create the preset. If the settings are valid for Elastic Transcoder but aren't strictly
+ *             compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message
+ *             in the response. This helps you determine whether your settings comply with the H.264
+ *             standard while giving you greater flexibility with respect to the video that Elastic Transcoder
+ *             produces.</p>
+ *          </important>
+ *         <p>Elastic Transcoder uses the H.264 video-compression format. For more information, see the International
+ *             Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding
+ *                 for generic audiovisual services</i>.</p>
+ */
 export class CreatePresetCommand extends $Command<
   CreatePresetCommandInput,
   CreatePresetCommandOutput,
@@ -38,6 +54,9 @@ export class CreatePresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

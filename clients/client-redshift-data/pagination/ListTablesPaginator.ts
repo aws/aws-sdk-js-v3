@@ -4,6 +4,9 @@ import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } fr
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RedshiftDataClient,
   input: ListTablesCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTablesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: RedshiftData,
   input: ListTablesCommandInput,

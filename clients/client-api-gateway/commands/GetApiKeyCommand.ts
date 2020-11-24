@@ -20,6 +20,9 @@ import {
 export type GetApiKeyCommandInput = GetApiKeyRequest;
 export type GetApiKeyCommandOutput = ApiKey & __MetadataBearer;
 
+/**
+ * <p>Gets information about the current <a>ApiKey</a> resource.</p>
+ */
 export class GetApiKeyCommand extends $Command<
   GetApiKeyCommandInput,
   GetApiKeyCommandOutput,
@@ -34,6 +37,9 @@ export class GetApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

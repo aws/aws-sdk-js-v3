@@ -20,6 +20,11 @@ import {
 export type DescribeFpgaImagesCommandInput = DescribeFpgaImagesRequest;
 export type DescribeFpgaImagesCommandOutput = DescribeFpgaImagesResult & __MetadataBearer;
 
+/**
+ * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
+ * 			private AFIs that you own, and AFIs owned by other AWS accounts for which you have load
+ * 			permissions.</p>
+ */
 export class DescribeFpgaImagesCommand extends $Command<
   DescribeFpgaImagesCommandInput,
   DescribeFpgaImagesCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeFpgaImagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

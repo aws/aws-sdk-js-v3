@@ -20,6 +20,10 @@ import {
 export type DescribeOrganizationCommandInput = DescribeOrganizationRequest;
 export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Provides more information regarding a given organization based on its
+ *          identifier.</p>
+ */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

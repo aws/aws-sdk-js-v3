@@ -20,6 +20,9 @@ import {
 export type UpdateDashboardPublishedVersionCommandInput = UpdateDashboardPublishedVersionRequest;
 export type UpdateDashboardPublishedVersionCommandOutput = UpdateDashboardPublishedVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the published version of a dashboard.</p>
+ */
 export class UpdateDashboardPublishedVersionCommand extends $Command<
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

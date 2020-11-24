@@ -20,6 +20,9 @@ import {
 export type DescribeArchiveCommandInput = DescribeArchiveRequest;
 export type DescribeArchiveCommandOutput = DescribeArchiveResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details about an archive.</p>
+ */
 export class DescribeArchiveCommand extends $Command<
   DescribeArchiveCommandInput,
   DescribeArchiveCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeArchiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

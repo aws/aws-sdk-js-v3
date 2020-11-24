@@ -8,6 +8,9 @@ import {
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RedshiftClient,
   input: DescribeReservedNodesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReservedNodesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Redshift,
   input: DescribeReservedNodesCommandInput,

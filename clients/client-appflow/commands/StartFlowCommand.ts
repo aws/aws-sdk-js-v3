@@ -20,6 +20,12 @@ import {
 export type StartFlowCommandInput = StartFlowRequest;
 export type StartFlowCommandOutput = StartFlowResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * Activates an existing flow. For on-demand flows, this operation runs the flow immediately. For schedule and event-triggered flows, this operation activates the flow.
+ *
+ * </p>
+ */
 export class StartFlowCommand extends $Command<
   StartFlowCommandInput,
   StartFlowCommandOutput,
@@ -34,6 +40,9 @@ export class StartFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

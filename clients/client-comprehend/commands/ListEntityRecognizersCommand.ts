@@ -20,6 +20,14 @@ import {
 export type ListEntityRecognizersCommandInput = ListEntityRecognizersRequest;
 export type ListEntityRecognizersCommandOutput = ListEntityRecognizersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of the properties of all entity recognizers that you created, including
+ *       recognizers currently in training. Allows you to filter the list of recognizers based on
+ *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
+ *       the list, with a default number of 100 recognizers in the list.</p>
+ *          <p>The results of this list are not in any particular order. Please get the list and sort
+ *       locally if needed.</p>
+ */
 export class ListEntityRecognizersCommand extends $Command<
   ListEntityRecognizersCommandInput,
   ListEntityRecognizersCommandOutput,
@@ -34,6 +42,9 @@ export class ListEntityRecognizersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

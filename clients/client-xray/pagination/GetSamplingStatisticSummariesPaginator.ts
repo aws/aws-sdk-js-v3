@@ -8,6 +8,9 @@ import {
 import { XRayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: XRayClient,
   input: GetSamplingStatisticSummariesCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSamplingStatisticSummariesCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: XRay,
   input: GetSamplingStatisticSummariesCommandInput,

@@ -20,6 +20,18 @@ import {
 export type DescribeReservedNodeOfferingsCommandInput = DescribeReservedNodeOfferingsMessage;
 export type DescribeReservedNodeOfferingsCommandOutput = ReservedNodeOfferingsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
+ *             descriptions including the node type, the fixed and recurring costs of reserving the
+ *             node and duration the node will be reserved for you. These descriptions help you
+ *             determine which reserve node offering you want to purchase. You then use the unique
+ *             offering ID in you call to <a>PurchaseReservedNodeOffering</a> to reserve one
+ *             or more nodes for your Amazon Redshift cluster. </p>
+ *         <p>
+ * For more information about reserved node offerings, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class DescribeReservedNodeOfferingsCommand extends $Command<
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

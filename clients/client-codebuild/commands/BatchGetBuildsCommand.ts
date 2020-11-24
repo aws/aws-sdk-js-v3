@@ -20,6 +20,9 @@ import {
 export type BatchGetBuildsCommandInput = BatchGetBuildsInput;
 export type BatchGetBuildsCommandOutput = BatchGetBuildsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more builds.</p>
+ */
 export class BatchGetBuildsCommand extends $Command<
   BatchGetBuildsCommandInput,
   BatchGetBuildsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetBuildsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

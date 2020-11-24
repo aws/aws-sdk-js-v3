@@ -20,6 +20,10 @@ import {
 export type AssociateSubnetCidrBlockCommandInput = AssociateSubnetCidrBlockRequest;
 export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult & __MetadataBearer;
 
+/**
+ * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
+ *             block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
+ */
 export class AssociateSubnetCidrBlockCommand extends $Command<
   AssociateSubnetCidrBlockCommandInput,
   AssociateSubnetCidrBlockCommandOutput,
@@ -34,6 +38,9 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

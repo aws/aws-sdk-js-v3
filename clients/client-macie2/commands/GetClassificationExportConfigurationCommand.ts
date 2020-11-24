@@ -24,6 +24,9 @@ export type GetClassificationExportConfigurationCommandInput = GetClassification
 export type GetClassificationExportConfigurationCommandOutput = GetClassificationExportConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the configuration settings for storing data classification results.</p>
+ */
 export class GetClassificationExportConfigurationCommand extends $Command<
   GetClassificationExportConfigurationCommandInput,
   GetClassificationExportConfigurationCommandOutput,
@@ -38,6 +41,9 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

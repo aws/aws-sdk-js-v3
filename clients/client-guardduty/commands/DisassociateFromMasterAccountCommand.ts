@@ -20,6 +20,9 @@ import {
 export type DisassociateFromMasterAccountCommandInput = DisassociateFromMasterAccountRequest;
 export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse & __MetadataBearer;
 
+/**
+ * <p>Disassociates the current GuardDuty member account from its master account.</p>
+ */
 export class DisassociateFromMasterAccountCommand extends $Command<
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

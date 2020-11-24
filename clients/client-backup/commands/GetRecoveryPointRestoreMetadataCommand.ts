@@ -20,6 +20,9 @@ import {
 export type GetRecoveryPointRestoreMetadataCommandInput = GetRecoveryPointRestoreMetadataInput;
 export type GetRecoveryPointRestoreMetadataCommandOutput = GetRecoveryPointRestoreMetadataOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

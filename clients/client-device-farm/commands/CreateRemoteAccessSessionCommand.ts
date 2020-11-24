@@ -20,6 +20,9 @@ import {
 export type CreateRemoteAccessSessionCommandInput = CreateRemoteAccessSessionRequest;
 export type CreateRemoteAccessSessionCommandOutput = CreateRemoteAccessSessionResult & __MetadataBearer;
 
+/**
+ * <p>Specifies and starts a remote access session.</p>
+ */
 export class CreateRemoteAccessSessionCommand extends $Command<
   CreateRemoteAccessSessionCommandInput,
   CreateRemoteAccessSessionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

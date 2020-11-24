@@ -20,6 +20,21 @@ import {
 export type DeleteResolverEndpointCommandInput = DeleteResolverEndpointRequest;
 export type DeleteResolverEndpointCommandOutput = DeleteResolverEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
+ * 			Resolver endpoint:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Inbound</b>: DNS queries from your network are no longer routed
+ * 				to the DNS service for the specified VPC.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteResolverEndpointCommand extends $Command<
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
@@ -34,6 +49,9 @@ export class DeleteResolverEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

@@ -17,6 +17,14 @@ import {
 export type CreateAppCommandInput = CreateAppRequest;
 export type CreateAppCommandOutput = CreateAppResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a running App for the specified UserProfile. Supported Apps are JupyterServer
+ *
+ *       and KernelGateway. This operation is automatically invoked by Amazon SageMaker Studio
+ *       upon access to the associated Domain, and when new kernel configurations are selected by the user.
+ *
+ *       A user may have multiple Apps active simultaneously.</p>
+ */
 export class CreateAppCommand extends $Command<
   CreateAppCommandInput,
   CreateAppCommandOutput,
@@ -31,6 +39,9 @@ export class CreateAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

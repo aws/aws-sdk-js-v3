@@ -8,6 +8,9 @@ import {
 import { RDSPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: RDSClient,
   input: DescribeOptionGroupOptionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeOptionGroupOptionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: RDS,
   input: DescribeOptionGroupOptionsCommandInput,

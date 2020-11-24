@@ -20,6 +20,10 @@ import {
 export type GetResolverRulePolicyCommandInput = GetResolverRulePolicyRequest;
 export type GetResolverRulePolicyCommandOutput = GetResolverRulePolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a Resolver rule policy. A Resolver rule policy specifies the Resolver operations and resources
+ * 			that you want to allow another AWS account to be able to use. </p>
+ */
 export class GetResolverRulePolicyCommand extends $Command<
   GetResolverRulePolicyCommandInput,
   GetResolverRulePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverRulePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

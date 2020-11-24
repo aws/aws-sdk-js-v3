@@ -20,6 +20,9 @@ import {
 export type CancelInputDeviceTransferCommandInput = CancelInputDeviceTransferRequest;
 export type CancelInputDeviceTransferCommandOutput = CancelInputDeviceTransferResponse & __MetadataBearer;
 
+/**
+ * Cancel an input device transfer that you have requested.
+ */
 export class CancelInputDeviceTransferCommand extends $Command<
   CancelInputDeviceTransferCommandInput,
   CancelInputDeviceTransferCommandOutput,
@@ -34,6 +37,9 @@ export class CancelInputDeviceTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { ElasticTranscoderPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElasticTranscoderClient,
   input: ListJobsByPipelineCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobsByPipelineCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElasticTranscoder,
   input: ListJobsByPipelineCommandInput,

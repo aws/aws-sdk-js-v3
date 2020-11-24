@@ -20,6 +20,13 @@ import {
 export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
 export type DescribeEventCategoriesCommandOutput = EventCategoriesMessage & __MetadataBearer;
 
+/**
+ * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
+ *             You can see a list of the event categories and source types
+ *             in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
+ *                 Events</a> in the <i>Amazon RDS User Guide.</i>
+ *          </p>
+ */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

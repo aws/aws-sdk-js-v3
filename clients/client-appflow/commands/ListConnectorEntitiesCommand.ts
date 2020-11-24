@@ -20,6 +20,11 @@ import {
 export type ListConnectorEntitiesCommandInput = ListConnectorEntitiesRequest;
 export type ListConnectorEntitiesCommandOutput = ListConnectorEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *   Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for <i>Account</i> and <i>Opportunity</i> entities, or query ServiceNow for the <i>Incident</i> entity.
+ * </p>
+ */
 export class ListConnectorEntitiesCommand extends $Command<
   ListConnectorEntitiesCommandInput,
   ListConnectorEntitiesCommandOutput,
@@ -34,6 +39,9 @@ export class ListConnectorEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,

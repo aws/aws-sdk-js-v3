@@ -20,6 +20,20 @@ import {
 export type AuthorizeDBSecurityGroupIngressCommandInput = AuthorizeDBSecurityGroupIngressMessage;
 export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult & __MetadataBearer;
 
+/**
+ * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
+ *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
+ *           instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
+ *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
+ *           and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).</p>
+ *          <note>
+ *             <p>You can't authorize ingress from an EC2 security group in one AWS Region to an Amazon RDS DB instance in
+ *              another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another.</p>
+ *          </note>
+ *          <p>For an overview of CIDR ranges, go to the
+ *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
+ *         </p>
+ */
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
   AuthorizeDBSecurityGroupIngressCommandInput,
   AuthorizeDBSecurityGroupIngressCommandOutput,
@@ -34,6 +48,9 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

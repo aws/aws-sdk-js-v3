@@ -20,6 +20,9 @@ import {
 export type GetSolutionMetricsCommandInput = GetSolutionMetricsRequest;
 export type GetSolutionMetricsCommandOutput = GetSolutionMetricsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the metrics for the specified solution version.</p>
+ */
 export class GetSolutionMetricsCommand extends $Command<
   GetSolutionMetricsCommandInput,
   GetSolutionMetricsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSolutionMetricsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

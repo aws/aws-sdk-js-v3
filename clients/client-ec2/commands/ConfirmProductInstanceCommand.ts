@@ -20,6 +20,11 @@ import {
 export type ConfirmProductInstanceCommandInput = ConfirmProductInstanceRequest;
 export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Determines whether a product code is associated with an instance. This action can only
+ *             be used by the owner of the product code. It is useful when a product code owner must
+ *             verify whether another user's instance is eligible for support.</p>
+ */
 export class ConfirmProductInstanceCommand extends $Command<
   ConfirmProductInstanceCommandInput,
   ConfirmProductInstanceCommandOutput,
@@ -34,6 +39,9 @@ export class ConfirmProductInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

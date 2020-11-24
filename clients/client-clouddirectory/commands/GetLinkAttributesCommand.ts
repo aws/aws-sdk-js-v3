@@ -20,6 +20,9 @@ import {
 export type GetLinkAttributesCommandInput = GetLinkAttributesRequest;
 export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves attributes that are associated with a typed link.</p>
+ */
 export class GetLinkAttributesCommand extends $Command<
   GetLinkAttributesCommandInput,
   GetLinkAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class GetLinkAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

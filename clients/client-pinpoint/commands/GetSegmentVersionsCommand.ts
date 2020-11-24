@@ -20,6 +20,9 @@ import {
 export type GetSegmentVersionsCommandInput = GetSegmentVersionsRequest;
 export type GetSegmentVersionsCommandOutput = GetSegmentVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
+ */
 export class GetSegmentVersionsCommand extends $Command<
   GetSegmentVersionsCommandInput,
   GetSegmentVersionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSegmentVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

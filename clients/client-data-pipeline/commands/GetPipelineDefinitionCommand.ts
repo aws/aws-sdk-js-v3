@@ -20,6 +20,10 @@ import {
 export type GetPipelineDefinitionCommandInput = GetPipelineDefinitionInput;
 export type GetPipelineDefinitionCommandOutput = GetPipelineDefinitionOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve
+ *             the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>
+ */
 export class GetPipelineDefinitionCommand extends $Command<
   GetPipelineDefinitionCommandInput,
   GetPipelineDefinitionCommandOutput,
@@ -34,6 +38,9 @@ export class GetPipelineDefinitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

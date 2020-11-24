@@ -20,6 +20,9 @@ import {
 export type DeleteCloudFrontOriginAccessIdentityCommandInput = DeleteCloudFrontOriginAccessIdentityRequest;
 export type DeleteCloudFrontOriginAccessIdentityCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Delete an origin access identity. </p>
+ */
 export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

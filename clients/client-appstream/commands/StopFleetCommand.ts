@@ -17,6 +17,9 @@ import {
 export type StopFleetCommandInput = StopFleetRequest;
 export type StopFleetCommandOutput = StopFleetResult & __MetadataBearer;
 
+/**
+ * <p>Stops the specified fleet.</p>
+ */
 export class StopFleetCommand extends $Command<
   StopFleetCommandInput,
   StopFleetCommandOutput,
@@ -31,6 +34,9 @@ export class StopFleetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type PutEntityTypeCommandInput = PutEntityTypeRequest;
 export type PutEntityTypeCommandOutput = PutEntityTypeResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>
+ */
 export class PutEntityTypeCommand extends $Command<
   PutEntityTypeCommandInput,
   PutEntityTypeCommandOutput,
@@ -34,6 +37,9 @@ export class PutEntityTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

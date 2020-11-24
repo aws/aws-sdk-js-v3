@@ -24,6 +24,21 @@ export type PromoteResourceShareCreatedFromPolicyCommandInput = PromoteResourceS
 export type PromoteResourceShareCreatedFromPolicyCommandOutput = PromoteResourceShareCreatedFromPolicyResponse &
   __MetadataBearer;
 
+/**
+ * <p>Resource shares that were created by attaching a policy to a resource are visible only to
+ * 			the resource share owner, and the resource share cannot be modified in AWS RAM.</p>
+ *
+ *     	    <p>Use this API action to promote the resource share. When you promote the resource share,
+ * 			it becomes:</p>
+ *     	    <ul>
+ *             <li>
+ *     			        <p>Visible to all principals that it is shared with.</p>
+ *     		      </li>
+ *             <li>
+ *     			        <p>Modifiable in AWS RAM.</p>
+ *     		      </li>
+ *          </ul>
+ */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
@@ -38,6 +53,9 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,

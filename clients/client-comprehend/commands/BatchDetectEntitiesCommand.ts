@@ -20,6 +20,11 @@ import {
 export type BatchDetectEntitiesCommandInput = BatchDetectEntitiesRequest;
 export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects the text of a batch of documents for named entities and returns information
+ *       about them. For more information about named entities, see <a>how-entities</a>
+ *          </p>
+ */
 export class BatchDetectEntitiesCommand extends $Command<
   BatchDetectEntitiesCommandInput,
   BatchDetectEntitiesCommandOutput,
@@ -34,6 +39,9 @@ export class BatchDetectEntitiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

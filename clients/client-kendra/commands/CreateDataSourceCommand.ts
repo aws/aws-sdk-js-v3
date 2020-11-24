@@ -20,6 +20,15 @@ import {
 export type CreateDataSourceCommandInput = CreateDataSourceRequest;
 export type CreateDataSourceCommandOutput = CreateDataSourceResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a data source that you use to with an Amazon Kendra index. </p>
+ *          <p>You specify a name, data source connector type and description for your data source. You
+ *       also specify configuration information such as document metadata (author, source URI, and so
+ *       on) and user context information.</p>
+ *          <p>
+ *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
+ *       data source was successfully created. Otherwise, an exception is raised.</p>
+ */
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
@@ -34,6 +43,9 @@ export class CreateDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

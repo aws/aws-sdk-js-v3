@@ -20,6 +20,11 @@ import {
 export type DeleteTapePoolCommandInput = DeleteTapePoolInput;
 export type DeleteTapePoolCommandOutput = DeleteTapePoolOutput & __MetadataBearer;
 
+/**
+ * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
+ *          in the pool and if there are no automatic tape creation policies that reference the custom
+ *          tape pool.</p>
+ */
 export class DeleteTapePoolCommand extends $Command<
   DeleteTapePoolCommandInput,
   DeleteTapePoolCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteTapePoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

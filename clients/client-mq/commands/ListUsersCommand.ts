@@ -20,6 +20,9 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
+/**
+ * Returns a list of all ActiveMQ users.
+ */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, MqClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,

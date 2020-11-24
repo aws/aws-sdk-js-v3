@@ -20,6 +20,9 @@ import {
 export type AttachPolicyCommandInput = AttachPolicyRequest;
 export type AttachPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Attaches a policy to the specified target.</p>
+ */
 export class AttachPolicyCommand extends $Command<
   AttachPolicyCommandInput,
   AttachPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class AttachPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

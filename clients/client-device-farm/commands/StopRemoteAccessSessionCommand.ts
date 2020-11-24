@@ -20,6 +20,9 @@ import {
 export type StopRemoteAccessSessionCommandInput = StopRemoteAccessSessionRequest;
 export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult & __MetadataBearer;
 
+/**
+ * <p>Ends a specified remote access session.</p>
+ */
 export class StopRemoteAccessSessionCommand extends $Command<
   StopRemoteAccessSessionCommandInput,
   StopRemoteAccessSessionCommandOutput,
@@ -34,6 +37,9 @@ export class StopRemoteAccessSessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

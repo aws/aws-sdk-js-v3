@@ -20,6 +20,10 @@ import {
 export type ListSimulationJobsCommandInput = ListSimulationJobsRequest;
 export type ListSimulationJobsCommandOutput = ListSimulationJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
+ *          specific simulation jobs. </p>
+ */
 export class ListSimulationJobsCommand extends $Command<
   ListSimulationJobsCommandInput,
   ListSimulationJobsCommandOutput,
@@ -34,6 +38,9 @@ export class ListSimulationJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type ListVolumeRecoveryPointsCommandInput = ListVolumeRecoveryPointsInput;
 export type ListVolumeRecoveryPointsCommandOutput = ListVolumeRecoveryPointsOutput & __MetadataBearer;
 
+/**
+ * <p>Lists the recovery points for a specified gateway. This operation is only supported in
+ *          the cached volume gateway type.</p>
+ *
+ *          <p>Each cache volume has one recovery point. A volume recovery point is a point in time at
+ *          which all data of the volume is consistent and from which you can create a snapshot or
+ *          clone a new cached volume from a source volume. To create a snapshot from a volume recovery
+ *          point use the <a>CreateSnapshotFromVolumeRecoveryPoint</a> operation.</p>
+ */
 export class ListVolumeRecoveryPointsCommand extends $Command<
   ListVolumeRecoveryPointsCommandInput,
   ListVolumeRecoveryPointsCommandOutput,
@@ -34,6 +43,9 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

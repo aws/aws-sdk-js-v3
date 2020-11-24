@@ -20,6 +20,9 @@ import {
 export type CancelJobCommandInput = CancelJobRequest;
 export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a job.</p>
+ */
 export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

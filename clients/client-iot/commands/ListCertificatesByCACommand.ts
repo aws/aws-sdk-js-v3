@@ -20,6 +20,9 @@ import {
 export type ListCertificatesByCACommandInput = ListCertificatesByCARequest;
 export type ListCertificatesByCACommandOutput = ListCertificatesByCAResponse & __MetadataBearer;
 
+/**
+ * <p>List the device certificates signed by the specified CA certificate.</p>
+ */
 export class ListCertificatesByCACommand extends $Command<
   ListCertificatesByCACommandInput,
   ListCertificatesByCACommandOutput,
@@ -34,6 +37,9 @@ export class ListCertificatesByCACommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

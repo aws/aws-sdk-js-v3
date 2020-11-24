@@ -20,6 +20,9 @@ import {
 export type CreateDomainNameCommandInput = CreateDomainNameRequest;
 export type CreateDomainNameCommandOutput = DomainName & __MetadataBearer;
 
+/**
+ * <p>Creates a new domain name.</p>
+ */
 export class CreateDomainNameCommand extends $Command<
   CreateDomainNameCommandInput,
   CreateDomainNameCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDomainNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetDocumentCommandInput = GetDocumentRequest;
 export type GetDocumentCommandOutput = GetDocumentResult & __MetadataBearer;
 
+/**
+ * <p>Gets the contents of the specified Systems Manager document.</p>
+ */
 export class GetDocumentCommand extends $Command<
   GetDocumentCommandInput,
   GetDocumentCommandOutput,
@@ -34,6 +37,9 @@ export class GetDocumentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

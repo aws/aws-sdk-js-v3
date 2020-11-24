@@ -20,6 +20,10 @@ import {
 export type SearchNetworkProfilesCommandInput = SearchNetworkProfilesRequest;
 export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse & __MetadataBearer;
 
+/**
+ * <p>Searches network profiles and lists the ones that meet a set of filter and sort
+ *          criteria.</p>
+ */
 export class SearchNetworkProfilesCommand extends $Command<
   SearchNetworkProfilesCommandInput,
   SearchNetworkProfilesCommandOutput,
@@ -34,6 +38,9 @@ export class SearchNetworkProfilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

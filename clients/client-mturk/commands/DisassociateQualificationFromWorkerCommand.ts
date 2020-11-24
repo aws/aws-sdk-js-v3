@@ -24,6 +24,16 @@ export type DisassociateQualificationFromWorkerCommandInput = DisassociateQualif
 export type DisassociateQualificationFromWorkerCommandOutput = DisassociateQualificationFromWorkerResponse &
   __MetadataBearer;
 
+/**
+ * <p>
+ *             The 	<code>DisassociateQualificationFromWorker</code>
+ *             revokes a previously granted Qualification from a user.
+ *         </p>
+ *         <p>
+ *             You can provide a text message explaining why the Qualification was
+ *             revoked. The user who had the Qualification can see this message.
+ *         </p>
+ */
 export class DisassociateQualificationFromWorkerCommand extends $Command<
   DisassociateQualificationFromWorkerCommandInput,
   DisassociateQualificationFromWorkerCommandOutput,
@@ -38,6 +48,9 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

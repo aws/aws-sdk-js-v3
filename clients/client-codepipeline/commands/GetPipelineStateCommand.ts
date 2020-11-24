@@ -20,6 +20,15 @@ import {
 export type GetPipelineStateCommandInput = GetPipelineStateInput;
 export type GetPipelineStateCommandOutput = GetPipelineStateOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about the state of a pipeline, including the stages and
+ *             actions.</p>
+ *         <note>
+ *             <p>Values returned in the <code>revisionId</code> and <code>revisionUrl</code>
+ *                 fields indicate the source revision information, such as the commit ID, for the
+ *                 current state.</p>
+ *         </note>
+ */
 export class GetPipelineStateCommand extends $Command<
   GetPipelineStateCommandInput,
   GetPipelineStateCommandOutput,
@@ -34,6 +43,9 @@ export class GetPipelineStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

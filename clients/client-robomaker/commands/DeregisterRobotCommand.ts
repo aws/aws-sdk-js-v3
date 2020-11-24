@@ -20,6 +20,9 @@ import {
 export type DeregisterRobotCommandInput = DeregisterRobotRequest;
 export type DeregisterRobotCommandOutput = DeregisterRobotResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters a robot.</p>
+ */
 export class DeregisterRobotCommand extends $Command<
   DeregisterRobotCommandInput,
   DeregisterRobotCommandOutput,
@@ -34,6 +37,9 @@ export class DeregisterRobotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

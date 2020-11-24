@@ -20,6 +20,9 @@ import {
 export type GetProtocolsListCommandInput = GetProtocolsListRequest;
 export type GetProtocolsListCommandOutput = GetProtocolsListResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified AWS Firewall Manager protocols list.</p>
+ */
 export class GetProtocolsListCommand extends $Command<
   GetProtocolsListCommandInput,
   GetProtocolsListCommandOutput,
@@ -34,6 +37,9 @@ export class GetProtocolsListCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,

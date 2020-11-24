@@ -20,6 +20,23 @@ import {
 export type ChangeMessageVisibilityBatchCommandInput = ChangeMessageVisibilityBatchRequest;
 export type ChangeMessageVisibilityBatchCommandOutput = ChangeMessageVisibilityBatchResult & __MetadataBearer;
 
+/**
+ * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
+ *                <a>ChangeMessageVisibility</a>.</code> The result of the action on each message is reported individually in the response.
+ *           You can send up to 10 <code>
+ *                <a>ChangeMessageVisibility</a>
+ *             </code> requests with each <code>ChangeMessageVisibilityBatch</code> action.</p>
+ *          <important>
+ *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
+ *          </important>
+ *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
+ *          <p>
+ *             <code>&AttributeName.1=first</code>
+ *          </p>
+ *          <p>
+ *             <code>&AttributeName.2=second</code>
+ *          </p>
+ */
 export class ChangeMessageVisibilityBatchCommand extends $Command<
   ChangeMessageVisibilityBatchCommandInput,
   ChangeMessageVisibilityBatchCommandOutput,
@@ -34,6 +51,9 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type PutSkillAuthorizationCommandInput = PutSkillAuthorizationRequest;
 export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse & __MetadataBearer;
 
+/**
+ * <p>Links a user's account to a third-party skill provider. If this API operation is
+ *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
+ *          skill must be owned by the AWS account that assumed the IAM role.</p>
+ */
 export class PutSkillAuthorizationCommand extends $Command<
   PutSkillAuthorizationCommandInput,
   PutSkillAuthorizationCommandOutput,
@@ -34,6 +39,9 @@ export class PutSkillAuthorizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

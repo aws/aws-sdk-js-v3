@@ -20,6 +20,9 @@ import {
 export type DescribeSolutionVersionCommandInput = DescribeSolutionVersionRequest;
 export type DescribeSolutionVersionCommandOutput = DescribeSolutionVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>
+ */
 export class DescribeSolutionVersionCommand extends $Command<
   DescribeSolutionVersionCommandInput,
   DescribeSolutionVersionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSolutionVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

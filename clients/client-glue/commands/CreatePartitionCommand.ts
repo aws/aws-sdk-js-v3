@@ -20,6 +20,9 @@ import {
 export type CreatePartitionCommandInput = CreatePartitionRequest;
 export type CreatePartitionCommandOutput = CreatePartitionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new partition.</p>
+ */
 export class CreatePartitionCommand extends $Command<
   CreatePartitionCommandInput,
   CreatePartitionCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePartitionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

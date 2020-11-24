@@ -24,6 +24,9 @@ import {
 export type DescribePlacementCommandInput = DescribePlacementRequest;
 export type DescribePlacementCommandOutput = DescribePlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a placement in a project.</p>
+ */
 export class DescribePlacementCommand extends $Command<
   DescribePlacementCommandInput,
   DescribePlacementCommandOutput,
@@ -38,6 +41,9 @@ export class DescribePlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

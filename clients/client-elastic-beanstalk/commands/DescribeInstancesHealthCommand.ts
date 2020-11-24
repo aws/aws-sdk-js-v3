@@ -20,6 +20,11 @@ import {
 export type DescribeInstancesHealthCommandInput = DescribeInstancesHealthRequest;
 export type DescribeInstancesHealthCommandOutput = DescribeInstancesHealthResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves detailed information about the health of instances in your AWS Elastic
+ *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
+ *       reporting</a>.</p>
+ */
 export class DescribeInstancesHealthCommand extends $Command<
   DescribeInstancesHealthCommandInput,
   DescribeInstancesHealthCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeInstancesHealthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

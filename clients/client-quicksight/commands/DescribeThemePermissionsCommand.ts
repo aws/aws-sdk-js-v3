@@ -20,6 +20,9 @@ import {
 export type DescribeThemePermissionsCommandInput = DescribeThemePermissionsRequest;
 export type DescribeThemePermissionsCommandOutput = DescribeThemePermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the read and write permissions for a theme.</p>
+ */
 export class DescribeThemePermissionsCommand extends $Command<
   DescribeThemePermissionsCommandInput,
   DescribeThemePermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThemePermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

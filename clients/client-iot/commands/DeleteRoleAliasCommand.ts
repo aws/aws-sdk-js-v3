@@ -20,6 +20,9 @@ import {
 export type DeleteRoleAliasCommandInput = DeleteRoleAliasRequest;
 export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a role alias</p>
+ */
 export class DeleteRoleAliasCommand extends $Command<
   DeleteRoleAliasCommandInput,
   DeleteRoleAliasCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRoleAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

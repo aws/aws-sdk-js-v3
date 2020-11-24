@@ -24,6 +24,10 @@ import {
 export type ListJobsByStatusCommandInput = ListJobsByStatusRequest;
 export type ListJobsByStatusCommandOutput = ListJobsByStatusResponse & __MetadataBearer;
 
+/**
+ * <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
+ *             body contains one element for each job that satisfies the search criteria.</p>
+ */
 export class ListJobsByStatusCommand extends $Command<
   ListJobsByStatusCommandInput,
   ListJobsByStatusCommandOutput,
@@ -38,6 +42,9 @@ export class ListJobsByStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

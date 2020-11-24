@@ -20,6 +20,9 @@ import {
 export type GetBaiduChannelCommandInput = GetBaiduChannelRequest;
 export type GetBaiduChannelCommandOutput = GetBaiduChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
+ */
 export class GetBaiduChannelCommand extends $Command<
   GetBaiduChannelCommandInput,
   GetBaiduChannelCommandOutput,
@@ -34,6 +37,9 @@ export class GetBaiduChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

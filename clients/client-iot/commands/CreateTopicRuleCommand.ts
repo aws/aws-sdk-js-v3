@@ -20,6 +20,10 @@ import {
 export type CreateTopicRuleCommandInput = CreateTopicRuleRequest;
 export type CreateTopicRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
+ *          permission to create rules will be able to access data processed by the rule.</p>
+ */
 export class CreateTopicRuleCommand extends $Command<
   CreateTopicRuleCommandInput,
   CreateTopicRuleCommandOutput,
@@ -34,6 +38,9 @@ export class CreateTopicRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

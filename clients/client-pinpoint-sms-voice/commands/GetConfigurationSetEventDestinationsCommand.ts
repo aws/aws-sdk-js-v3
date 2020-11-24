@@ -24,6 +24,9 @@ export type GetConfigurationSetEventDestinationsCommandInput = GetConfigurationS
 export type GetConfigurationSetEventDestinationsCommandOutput = GetConfigurationSetEventDestinationsResponse &
   __MetadataBearer;
 
+/**
+ * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
+ */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
@@ -38,6 +41,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type RegisterDeviceCommandInput = RegisterDeviceRequest;
 export type RegisterDeviceCommandOutput = RegisterDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Registers a device to receive push sync notifications.</p>
+ *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+ */
 export class RegisterDeviceCommand extends $Command<
   RegisterDeviceCommandInput,
   RegisterDeviceCommandOutput,
@@ -34,6 +38,9 @@ export class RegisterDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

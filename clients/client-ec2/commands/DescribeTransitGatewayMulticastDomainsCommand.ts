@@ -24,6 +24,9 @@ export type DescribeTransitGatewayMulticastDomainsCommandInput = DescribeTransit
 export type DescribeTransitGatewayMulticastDomainsCommandOutput = DescribeTransitGatewayMulticastDomainsResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes one or more transit gateway multicast domains.</p>
+ */
 export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
   DescribeTransitGatewayMulticastDomainsCommandInput,
   DescribeTransitGatewayMulticastDomainsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

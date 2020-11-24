@@ -20,6 +20,10 @@ import {
 export type ListServersCommandInput = ListServersRequest;
 export type ListServersCommandOutput = ListServersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the file transfer protocol-enabled servers that are associated with your AWS
+ *       account.</p>
+ */
 export class ListServersCommand extends $Command<
   ListServersCommandInput,
   ListServersCommandOutput,
@@ -34,6 +38,9 @@ export class ListServersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

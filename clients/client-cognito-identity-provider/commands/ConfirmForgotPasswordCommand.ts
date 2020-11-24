@@ -24,6 +24,9 @@ import {
 export type ConfirmForgotPasswordCommandInput = ConfirmForgotPasswordRequest;
 export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse & __MetadataBearer;
 
+/**
+ * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
+ */
 export class ConfirmForgotPasswordCommand extends $Command<
   ConfirmForgotPasswordCommandInput,
   ConfirmForgotPasswordCommandOutput,
@@ -38,6 +41,9 @@ export class ConfirmForgotPasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -24,6 +24,9 @@ export type DescribeSavingsPlansOfferingRatesCommandInput = DescribeSavingsPlans
 export type DescribeSavingsPlansOfferingRatesCommandOutput = DescribeSavingsPlansOfferingRatesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the specified Savings Plans offering rates.</p>
+ */
 export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
   DescribeSavingsPlansOfferingRatesCommandInput,
   DescribeSavingsPlansOfferingRatesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SavingsplansClientResolvedConfig,

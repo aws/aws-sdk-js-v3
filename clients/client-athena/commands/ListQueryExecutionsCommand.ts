@@ -20,6 +20,14 @@ import {
 export type ListQueryExecutionsCommandInput = ListQueryExecutionsInput;
 export type ListQueryExecutionsCommandOutput = ListQueryExecutionsOutput & __MetadataBearer;
 
+/**
+ * <p>Provides a list of available query execution IDs for the queries in the specified
+ *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
+ *             the primary workgroup. Requires you to have access to the workgroup in which the queries
+ *             ran.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ */
 export class ListQueryExecutionsCommand extends $Command<
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
@@ -34,6 +42,9 @@ export class ListQueryExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type UpdateRepositoryCommandInput = UpdateRepositoryRequest;
 export type UpdateRepositoryCommandOutput = UpdateRepositoryResult & __MetadataBearer;
 
+/**
+ * <p>
+ *          Update the properties of a repository.
+ *        </p>
+ */
 export class UpdateRepositoryCommand extends $Command<
   UpdateRepositoryCommandInput,
   UpdateRepositoryCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

@@ -24,6 +24,9 @@ export type DeleteTransitGatewayMulticastDomainCommandInput = DeleteTransitGatew
 export type DeleteTransitGatewayMulticastDomainCommandOutput = DeleteTransitGatewayMulticastDomainResult &
   __MetadataBearer;
 
+/**
+ * <p>Deletes the specified transit gateway multicast domain.</p>
+ */
 export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
   DeleteTransitGatewayMulticastDomainCommandInput,
   DeleteTransitGatewayMulticastDomainCommandOutput,
@@ -38,6 +41,9 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

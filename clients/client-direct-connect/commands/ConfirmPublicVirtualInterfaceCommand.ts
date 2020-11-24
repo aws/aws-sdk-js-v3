@@ -20,6 +20,11 @@ import {
 export type ConfirmPublicVirtualInterfaceCommandInput = ConfirmPublicVirtualInterfaceRequest;
 export type ConfirmPublicVirtualInterfaceCommandOutput = ConfirmPublicVirtualInterfaceResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts ownership of a public virtual interface created by another AWS account.</p>
+ *          <p>After the virtual interface owner makes this call, the specified virtual interface is
+ *       created and made available to handle traffic.</p>
+ */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command<
   ConfirmPublicVirtualInterfaceCommandInput,
   ConfirmPublicVirtualInterfaceCommandOutput,
@@ -34,6 +39,9 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

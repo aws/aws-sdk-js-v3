@@ -20,6 +20,10 @@ import {
 export type GetVoiceConnectorCommandInput = GetVoiceConnectorRequest;
 export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,
+ *       name, outbound host, and encryption requirements.</p>
+ */
 export class GetVoiceConnectorCommand extends $Command<
   GetVoiceConnectorCommandInput,
   GetVoiceConnectorCommandOutput,
@@ -34,6 +38,9 @@ export class GetVoiceConnectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

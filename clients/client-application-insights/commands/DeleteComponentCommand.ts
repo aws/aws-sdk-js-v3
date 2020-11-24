@@ -24,6 +24,10 @@ import {
 export type DeleteComponentCommandInput = DeleteComponentRequest;
 export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Ungroups a custom component. When you ungroup custom components, all applicable
+ *          monitors that are set up for the component are removed and the instances revert to their standalone status.</p>
+ */
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
@@ -38,6 +42,9 @@ export class DeleteComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

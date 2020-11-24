@@ -20,6 +20,9 @@ import {
 export type GetCommentReactionsCommandInput = GetCommentReactionsInput;
 export type GetCommentReactionsCommandOutput = GetCommentReactionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
+ */
 export class GetCommentReactionsCommand extends $Command<
   GetCommentReactionsCommandInput,
   GetCommentReactionsCommandOutput,
@@ -34,6 +37,9 @@ export class GetCommentReactionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

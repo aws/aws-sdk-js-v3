@@ -20,6 +20,9 @@ import {
 export type DeleteProvisionedProductPlanCommandInput = DeleteProvisionedProductPlanInput;
 export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified plan.</p>
+ */
 export class DeleteProvisionedProductPlanCommand extends $Command<
   DeleteProvisionedProductPlanCommandInput,
   DeleteProvisionedProductPlanCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

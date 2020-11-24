@@ -20,6 +20,9 @@ import {
 export type CreateBasePathMappingCommandInput = CreateBasePathMappingRequest;
 export type CreateBasePathMappingCommandOutput = BasePathMapping & __MetadataBearer;
 
+/**
+ * <p>Creates a new <a>BasePathMapping</a> resource.</p>
+ */
 export class CreateBasePathMappingCommand extends $Command<
   CreateBasePathMappingCommandInput,
   CreateBasePathMappingCommandOutput,
@@ -34,6 +37,9 @@ export class CreateBasePathMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

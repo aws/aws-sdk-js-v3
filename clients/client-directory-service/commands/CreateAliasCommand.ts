@@ -20,6 +20,14 @@ import {
 export type CreateAliasCommandInput = CreateAliasRequest;
 export type CreateAliasCommandOutput = CreateAliasResult & __MetadataBearer;
 
+/**
+ * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
+ *          to construct the access URL for the directory, such as
+ *             <code>http://<alias>.awsapps.com</code>.</p>
+ *          <important>
+ *             <p>After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.</p>
+ *          </important>
+ */
 export class CreateAliasCommand extends $Command<
   CreateAliasCommandInput,
   CreateAliasCommandOutput,
@@ -34,6 +42,9 @@ export class CreateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

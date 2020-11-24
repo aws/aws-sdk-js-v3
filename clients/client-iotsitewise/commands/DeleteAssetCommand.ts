@@ -20,6 +20,15 @@ import {
 export type DeleteAssetCommandInput = DeleteAssetRequest;
 export type DeleteAssetCommandOutput = DeleteAssetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
+ *         models</a> in the <i>AWS IoT SiteWise User Guide</i>.
+ *       </p>
+ *          <note>
+ *             <p>You can't delete an asset that's associated to another asset. For more information, see
+ *           <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html">DisassociateAssets</a>.</p>
+ *          </note>
+ */
 export class DeleteAssetCommand extends $Command<
   DeleteAssetCommandInput,
   DeleteAssetCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

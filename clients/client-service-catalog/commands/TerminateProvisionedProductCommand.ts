@@ -20,6 +20,11 @@ import {
 export type TerminateProvisionedProductCommandInput = TerminateProvisionedProductInput;
 export type TerminateProvisionedProductCommandOutput = TerminateProvisionedProductOutput & __MetadataBearer;
 
+/**
+ * <p>Terminates the specified provisioned product.</p>
+ *          <p>This operation does not delete any records associated with the provisioned product.</p>
+ *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
+ */
 export class TerminateProvisionedProductCommand extends $Command<
   TerminateProvisionedProductCommandInput,
   TerminateProvisionedProductCommandOutput,
@@ -34,6 +39,9 @@ export class TerminateProvisionedProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

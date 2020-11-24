@@ -20,6 +20,14 @@ import {
 export type DescribeStackEventsCommandInput = DescribeStackEventsInput;
 export type DescribeStackEventsCommandOutput = DescribeStackEventsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns all stack related events for a specified stack in reverse chronological
+ *          order. For more information about a stack's event history, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a> in the AWS CloudFormation User Guide.</p>
+ *          <note>
+ *             <p>You can list events for stacks that have failed to create or have been deleted by
+ *             specifying the unique stack identifier (stack ID).</p>
+ *          </note>
+ */
 export class DescribeStackEventsCommand extends $Command<
   DescribeStackEventsCommandInput,
   DescribeStackEventsCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeStackEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

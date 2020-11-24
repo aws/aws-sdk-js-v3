@@ -4,6 +4,9 @@ import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput }
 import { DetectivePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: DetectiveClient,
   input: ListMembersCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Detective,
   input: ListMembersCommandInput,

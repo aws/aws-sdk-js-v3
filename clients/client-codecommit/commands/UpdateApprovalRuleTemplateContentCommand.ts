@@ -20,6 +20,11 @@ import {
 export type UpdateApprovalRuleTemplateContentCommandInput = UpdateApprovalRuleTemplateContentInput;
 export type UpdateApprovalRuleTemplateContentCommandOutput = UpdateApprovalRuleTemplateContentOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the content of an approval rule template. You can change the number of
+ *             required approvals, the membership of the approval rule, and whether an approval pool is
+ *             defined.</p>
+ */
 export class UpdateApprovalRuleTemplateContentCommand extends $Command<
   UpdateApprovalRuleTemplateContentCommandInput,
   UpdateApprovalRuleTemplateContentCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

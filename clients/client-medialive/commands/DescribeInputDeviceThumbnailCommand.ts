@@ -20,6 +20,9 @@ import {
 export type DescribeInputDeviceThumbnailCommandInput = DescribeInputDeviceThumbnailRequest;
 export type DescribeInputDeviceThumbnailCommandOutput = DescribeInputDeviceThumbnailResponse & __MetadataBearer;
 
+/**
+ * Get the latest thumbnail data for the input device.
+ */
 export class DescribeInputDeviceThumbnailCommand extends $Command<
   DescribeInputDeviceThumbnailCommandInput,
   DescribeInputDeviceThumbnailCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

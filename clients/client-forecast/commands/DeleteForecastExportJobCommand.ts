@@ -20,6 +20,11 @@ import {
 export type DeleteForecastExportJobCommandInput = DeleteForecastExportJobRequest;
 export type DeleteForecastExportJobCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
+ *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
+ *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
+ */
 export class DeleteForecastExportJobCommand extends $Command<
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteForecastExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

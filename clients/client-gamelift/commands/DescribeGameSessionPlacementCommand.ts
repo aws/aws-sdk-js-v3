@@ -20,6 +20,62 @@ import {
 export type DescribeGameSessionPlacementCommandInput = DescribeGameSessionPlacementInput;
 export type DescribeGameSessionPlacementCommandOutput = DescribeGameSessionPlacementOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves properties and current status of a game session placement request. To get
+ *         game session placement details, specify the placement ID. If successful, a <a>GameSessionPlacement</a> object is returned.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionDetails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>SearchGameSessions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetGameSessionLogUrl</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Game session placements</p>
+ *                         <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>StartGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>DescribeGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopGameSessionPlacement</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeGameSessionPlacementCommand extends $Command<
   DescribeGameSessionPlacementCommandInput,
   DescribeGameSessionPlacementCommandOutput,
@@ -34,6 +90,9 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

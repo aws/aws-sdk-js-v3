@@ -20,6 +20,9 @@ import {
 export type UpdateBasePathMappingCommandInput = UpdateBasePathMappingRequest;
 export type UpdateBasePathMappingCommandOutput = BasePathMapping & __MetadataBearer;
 
+/**
+ * <p>Changes information about the <a>BasePathMapping</a> resource.</p>
+ */
 export class UpdateBasePathMappingCommand extends $Command<
   UpdateBasePathMappingCommandInput,
   UpdateBasePathMappingCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateBasePathMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

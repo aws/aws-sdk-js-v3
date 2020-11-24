@@ -20,6 +20,9 @@ import {
 export type DescribeFlowCommandInput = DescribeFlowRequest;
 export type DescribeFlowCommandOutput = DescribeFlowResponse & __MetadataBearer;
 
+/**
+ * Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.
+ */
 export class DescribeFlowCommand extends $Command<
   DescribeFlowCommandInput,
   DescribeFlowCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeFlowCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DisassociateCertificateCommandInput = DisassociateCertificateRequest;
 export type DisassociateCertificateCommandOutput = DisassociateCertificateResponse & __MetadataBearer;
 
+/**
+ * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
+ */
 export class DisassociateCertificateCommand extends $Command<
   DisassociateCertificateCommandInput,
   DisassociateCertificateCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

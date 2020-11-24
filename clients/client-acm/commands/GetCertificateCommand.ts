@@ -20,6 +20,12 @@ import {
 export type GetCertificateCommandInput = GetCertificateRequest;
 export type GetCertificateCommandOutput = GetCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
+ *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
+ *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
+ *       the certificates and inspect individual fields.</p>
+ */
 export class GetCertificateCommand extends $Command<
   GetCertificateCommandInput,
   GetCertificateCommandOutput,
@@ -34,6 +40,9 @@ export class GetCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,

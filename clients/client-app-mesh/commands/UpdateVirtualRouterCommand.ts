@@ -20,6 +20,9 @@ import {
 export type UpdateVirtualRouterCommandInput = UpdateVirtualRouterInput;
 export type UpdateVirtualRouterCommandOutput = UpdateVirtualRouterOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing virtual router in a specified service mesh.</p>
+ */
 export class UpdateVirtualRouterCommand extends $Command<
   UpdateVirtualRouterCommandInput,
   UpdateVirtualRouterCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVirtualRouterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,

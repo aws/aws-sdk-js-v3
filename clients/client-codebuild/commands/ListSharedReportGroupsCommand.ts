@@ -20,6 +20,10 @@ import {
 export type ListSharedReportGroupsCommandInput = ListSharedReportGroupsInput;
 export type ListSharedReportGroupsCommandOutput = ListSharedReportGroupsOutput & __MetadataBearer;
 
+/**
+ * <p> Gets a list of report groups that are shared with other AWS accounts or users.
+ *         </p>
+ */
 export class ListSharedReportGroupsCommand extends $Command<
   ListSharedReportGroupsCommandInput,
   ListSharedReportGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class ListSharedReportGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

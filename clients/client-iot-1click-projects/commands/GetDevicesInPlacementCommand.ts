@@ -24,6 +24,9 @@ import {
 export type GetDevicesInPlacementCommandInput = GetDevicesInPlacementRequest;
 export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse & __MetadataBearer;
 
+/**
+ * <p>Returns an object enumerating the devices in a placement.</p>
+ */
 export class GetDevicesInPlacementCommand extends $Command<
   GetDevicesInPlacementCommandInput,
   GetDevicesInPlacementCommandOutput,
@@ -38,6 +41,9 @@ export class GetDevicesInPlacementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

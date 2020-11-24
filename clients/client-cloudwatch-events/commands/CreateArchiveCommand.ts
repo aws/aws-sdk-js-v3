@@ -20,6 +20,11 @@ import {
 export type CreateArchiveCommandInput = CreateArchiveRequest;
 export type CreateArchiveCommandOutput = CreateArchiveResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an archive of events with the specified settings. When you create an archive,
+ *             incoming events might not immediately start being sent to the archive. Allow a short
+ *             period of time for changes to take effect.</p>
+ */
 export class CreateArchiveCommand extends $Command<
   CreateArchiveCommandInput,
   CreateArchiveCommandOutput,
@@ -34,6 +39,9 @@ export class CreateArchiveCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,

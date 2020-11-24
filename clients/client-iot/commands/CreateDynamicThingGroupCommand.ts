@@ -20,6 +20,9 @@ import {
 export type CreateDynamicThingGroupCommandInput = CreateDynamicThingGroupRequest;
 export type CreateDynamicThingGroupCommandOutput = CreateDynamicThingGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a dynamic thing group.</p>
+ */
 export class CreateDynamicThingGroupCommand extends $Command<
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDynamicThingGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

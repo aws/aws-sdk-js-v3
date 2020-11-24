@@ -20,6 +20,10 @@ import {
 export type GetTimeSeriesServiceStatisticsCommandInput = GetTimeSeriesServiceStatisticsRequest;
 export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult & __MetadataBearer;
 
+/**
+ * <p>Get an aggregation of service statistics defined by a specific time
+ *             range.</p>
+ */
 export class GetTimeSeriesServiceStatisticsCommand extends $Command<
   GetTimeSeriesServiceStatisticsCommandInput,
   GetTimeSeriesServiceStatisticsCommandOutput,
@@ -34,6 +38,9 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

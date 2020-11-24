@@ -20,6 +20,9 @@ import {
 export type DeleteScheduledActionCommandInput = DeleteScheduledActionType;
 export type DeleteScheduledActionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified scheduled action.</p>
+ */
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteScheduledActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

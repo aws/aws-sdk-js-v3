@@ -20,6 +20,19 @@ import {
 export type DescribeHsmConfigurationsCommandInput = DescribeHsmConfigurationsMessage;
 export type DescribeHsmConfigurationsCommandOutput = HsmConfigurationMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
+ *             configuration ID is specified, returns information about all the HSM configurations
+ *             owned by your AWS customer account.</p>
+ *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *             all HSM connections that match any combination of the specified keys and values. For
+ *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
+ *                 <code>admin</code> and <code>test</code> for tag values, all HSM connections that
+ *             have any combination of those values are returned.</p>
+ *         <p>If both tag keys and values are omitted from the request, HSM connections are
+ *             returned regardless of whether they have tag keys or values associated with
+ *             them.</p>
+ */
 export class DescribeHsmConfigurationsCommand extends $Command<
   DescribeHsmConfigurationsCommandInput,
   DescribeHsmConfigurationsCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

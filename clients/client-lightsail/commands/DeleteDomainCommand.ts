@@ -20,6 +20,12 @@ import {
 export type DeleteDomainCommandInput = DeleteDomainRequest;
 export type DeleteDomainCommandOutput = DeleteDomainResult & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified domain recordset and all of its domain records.</p>
+ *          <p>The <code>delete domain</code> operation supports tag-based access control via resource
+ *       tags applied to the resource identified by <code>domain name</code>. For more information, see
+ *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

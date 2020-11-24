@@ -24,6 +24,10 @@ export type DescribeConfigurationAggregatorSourcesStatusCommandInput = DescribeC
 export type DescribeConfigurationAggregatorSourcesStatusCommandOutput = DescribeConfigurationAggregatorSourcesStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns status information for sources within an aggregator.
+ * 			The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
+ */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command<
   DescribeConfigurationAggregatorSourcesStatusCommandInput,
   DescribeConfigurationAggregatorSourcesStatusCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,

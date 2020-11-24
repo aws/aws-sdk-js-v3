@@ -20,6 +20,12 @@ import {
 export type GetWebACLForResourceCommandInput = GetWebACLForResourceRequest;
 export type GetWebACLForResourceCommandOutput = GetWebACLForResourceResponse & __MetadataBearer;
 
+/**
+ * <note>
+ *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ *          </note>
+ *          <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
+ */
 export class GetWebACLForResourceCommand extends $Command<
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
@@ -34,6 +40,9 @@ export class GetWebACLForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,

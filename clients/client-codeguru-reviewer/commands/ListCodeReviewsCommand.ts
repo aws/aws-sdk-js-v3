@@ -20,6 +20,11 @@ import {
 export type ListCodeReviewsCommandInput = ListCodeReviewsRequest;
 export type ListCodeReviewsCommandOutput = ListCodeReviewsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *          Lists all the code reviews that the customer has created in the past 90 days.
+ *       </p>
+ */
 export class ListCodeReviewsCommand extends $Command<
   ListCodeReviewsCommandInput,
   ListCodeReviewsCommandOutput,
@@ -34,6 +39,9 @@ export class ListCodeReviewsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,

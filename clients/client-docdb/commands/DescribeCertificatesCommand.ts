@@ -20,6 +20,10 @@ import {
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
 export type DescribeCertificatesCommandOutput = CertificateMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for
+ *             this AWS account.</p>
+ */
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

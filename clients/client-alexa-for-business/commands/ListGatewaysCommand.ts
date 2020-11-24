@@ -20,6 +20,11 @@ import {
 export type ListGatewaysCommandInput = ListGatewaysRequest;
 export type ListGatewaysCommandOutput = ListGatewaysResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
+ *          gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
+ *          of gateways that are associated with that gateway group ARN.</p>
+ */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
@@ -34,6 +39,9 @@ export class ListGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

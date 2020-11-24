@@ -20,6 +20,10 @@ import {
 export type CreateProvisioningArtifactCommandInput = CreateProvisioningArtifactInput;
 export type CreateProvisioningArtifactCommandOutput = CreateProvisioningArtifactOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
+ *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
+ */
 export class CreateProvisioningArtifactCommand extends $Command<
   CreateProvisioningArtifactCommandInput,
   CreateProvisioningArtifactCommandOutput,
@@ -34,6 +38,9 @@ export class CreateProvisioningArtifactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

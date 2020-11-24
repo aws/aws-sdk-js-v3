@@ -24,6 +24,10 @@ export type UpdateInfrastructureConfigurationCommandInput = UpdateInfrastructure
 export type UpdateInfrastructureConfigurationCommandOutput = UpdateInfrastructureConfigurationResponse &
   __MetadataBearer;
 
+/**
+ * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
+ *       environment in which your image will be built and tested. </p>
+ */
 export class UpdateInfrastructureConfigurationCommand extends $Command<
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
@@ -38,6 +42,9 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

@@ -24,6 +24,13 @@ import {
 export type FinalizeDeviceClaimCommandInput = FinalizeDeviceClaimRequest;
 export type FinalizeDeviceClaimCommandOutput = FinalizeDeviceClaimResponse & __MetadataBearer;
 
+/**
+ * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>
+ *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
+ *  and finalizing the claim. For a device of type button, a device event can
+ *  be published by simply clicking the device.</p>
+ *  </note>
+ */
 export class FinalizeDeviceClaimCommand extends $Command<
   FinalizeDeviceClaimCommandInput,
   FinalizeDeviceClaimCommandOutput,
@@ -38,6 +45,9 @@ export class FinalizeDeviceClaimCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

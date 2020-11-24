@@ -24,6 +24,10 @@ export type DescribeInstanceEventNotificationAttributesCommandInput = DescribeIn
 export type DescribeInstanceEventNotificationAttributesCommandOutput = DescribeInstanceEventNotificationAttributesResult &
   __MetadataBearer;
 
+/**
+ * <p>Describes the tag keys that are registered to appear in scheduled event notifications for
+ *       	resources in the current Region.</p>
+ */
 export class DescribeInstanceEventNotificationAttributesCommand extends $Command<
   DescribeInstanceEventNotificationAttributesCommandInput,
   DescribeInstanceEventNotificationAttributesCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

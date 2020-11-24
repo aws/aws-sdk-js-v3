@@ -20,6 +20,11 @@ import {
 export type GetEnrollmentStatusCommandInput = GetEnrollmentStatusRequest;
 export type GetEnrollmentStatusCommandOutput = GetEnrollmentStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
+ *         <p>If the account is the master account of an organization, this action also confirms the
+ *             enrollment status of member accounts within the organization.</p>
+ */
 export class GetEnrollmentStatusCommand extends $Command<
   GetEnrollmentStatusCommandInput,
   GetEnrollmentStatusCommandOutput,
@@ -34,6 +39,9 @@ export class GetEnrollmentStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

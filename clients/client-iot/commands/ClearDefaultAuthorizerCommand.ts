@@ -20,6 +20,9 @@ import {
 export type ClearDefaultAuthorizerCommandInput = ClearDefaultAuthorizerRequest;
 export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse & __MetadataBearer;
 
+/**
+ * <p>Clears the default authorizer.</p>
+ */
 export class ClearDefaultAuthorizerCommand extends $Command<
   ClearDefaultAuthorizerCommandInput,
   ClearDefaultAuthorizerCommandOutput,
@@ -34,6 +37,9 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

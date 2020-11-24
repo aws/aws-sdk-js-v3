@@ -20,6 +20,13 @@ import {
 export type StartOnDemandReplicationRunCommandInput = StartOnDemandReplicationRunRequest;
 export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse & __MetadataBearer;
 
+/**
+ * <p>Starts an on-demand replication run for the specified replication job. This
+ *             replication run starts immediately. This replication run is in addition to the ones
+ *             already scheduled.</p>
+ *         <p>There is a limit on the number of on-demand replications runs that you can request
+ *             in a 24-hour period.</p>
+ */
 export class StartOnDemandReplicationRunCommand extends $Command<
   StartOnDemandReplicationRunCommandInput,
   StartOnDemandReplicationRunCommandOutput,
@@ -34,6 +41,9 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

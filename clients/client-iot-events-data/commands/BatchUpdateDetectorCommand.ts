@@ -20,6 +20,10 @@ import {
 export type BatchUpdateDetectorCommandInput = BatchUpdateDetectorRequest;
 export type BatchUpdateDetectorCommandOutput = BatchUpdateDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
+ *         of a specified detector model.</p>
+ */
 export class BatchUpdateDetectorCommand extends $Command<
   BatchUpdateDetectorCommandInput,
   BatchUpdateDetectorCommandOutput,
@@ -34,6 +38,9 @@ export class BatchUpdateDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsDataClientResolvedConfig,

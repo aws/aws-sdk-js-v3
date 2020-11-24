@@ -20,6 +20,11 @@ import {
 export type UpdateRoleDescriptionCommandInput = UpdateRoleDescriptionRequest;
 export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Use <a>UpdateRole</a> instead.</p>
+ *          <p>Modifies only the description of a role. This operation performs the same function as
+ *          the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
+ */
 export class UpdateRoleDescriptionCommand extends $Command<
   UpdateRoleDescriptionCommandInput,
   UpdateRoleDescriptionCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateRoleDescriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

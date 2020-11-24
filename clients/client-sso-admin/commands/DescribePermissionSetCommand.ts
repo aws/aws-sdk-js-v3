@@ -20,6 +20,9 @@ import {
 export type DescribePermissionSetCommandInput = DescribePermissionSetRequest;
 export type DescribePermissionSetCommandOutput = DescribePermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the details of the permission set.</p>
+ */
 export class DescribePermissionSetCommand extends $Command<
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

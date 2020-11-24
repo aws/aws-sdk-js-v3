@@ -20,6 +20,10 @@ import {
 export type GetInvitationConfigurationCommandInput = GetInvitationConfigurationRequest;
 export type GetInvitationConfigurationCommandOutput = GetInvitationConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the configured values for the user enrollment invitation email
+ *          template.</p>
+ */
 export class GetInvitationConfigurationCommand extends $Command<
   GetInvitationConfigurationCommandInput,
   GetInvitationConfigurationCommandOutput,
@@ -34,6 +38,9 @@ export class GetInvitationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,15 @@ import {
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
 export type RebootDBInstanceCommandOutput = RebootDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>You might need to reboot your instance, usually for maintenance reasons. For
+ *             example, if you make certain changes, or if you change the cluster parameter group
+ *             that is associated with the instance, you must reboot the instance for the changes to
+ *             take effect. </p>
+ *         <p>Rebooting an instance restarts the database engine service. Rebooting an instance
+ *             results in a momentary outage, during which the instance status is set to
+ *                 <i>rebooting</i>. </p>
+ */
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
@@ -34,6 +43,9 @@ export class RebootDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

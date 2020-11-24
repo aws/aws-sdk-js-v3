@@ -20,6 +20,10 @@ import {
 export type ListDedicatedIpPoolsCommandInput = ListDedicatedIpPoolsRequest;
 export type ListDedicatedIpPoolsCommandOutput = ListDedicatedIpPoolsResponse & __MetadataBearer;
 
+/**
+ * <p>List all of the dedicated IP pools that exist in your Amazon Pinpoint account in the current
+ *             AWS Region.</p>
+ */
 export class ListDedicatedIpPoolsCommand extends $Command<
   ListDedicatedIpPoolsCommandInput,
   ListDedicatedIpPoolsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDedicatedIpPoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,

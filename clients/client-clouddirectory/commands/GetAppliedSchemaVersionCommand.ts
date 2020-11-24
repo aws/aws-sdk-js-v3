@@ -20,6 +20,9 @@ import {
 export type GetAppliedSchemaVersionCommandInput = GetAppliedSchemaVersionRequest;
 export type GetAppliedSchemaVersionCommandOutput = GetAppliedSchemaVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Returns current applied schema version ARN, including the minor version in use.</p>
+ */
 export class GetAppliedSchemaVersionCommand extends $Command<
   GetAppliedSchemaVersionCommandInput,
   GetAppliedSchemaVersionCommandOutput,
@@ -34,6 +37,9 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

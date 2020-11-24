@@ -20,6 +20,10 @@ import {
 export type ListInvitationsCommandInput = ListInvitationsRequest;
 export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all Security Hub membership invitations that were sent to the current AWS account.
+ *       </p>
+ */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
@@ -34,6 +38,9 @@ export class ListInvitationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

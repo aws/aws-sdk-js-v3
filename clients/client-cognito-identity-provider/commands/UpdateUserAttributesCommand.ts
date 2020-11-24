@@ -24,6 +24,9 @@ import {
 export type UpdateUserAttributesCommandInput = UpdateUserAttributesRequest;
 export type UpdateUserAttributesCommandOutput = UpdateUserAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Allows a user to update a specific attribute (one at a time).</p>
+ */
 export class UpdateUserAttributesCommand extends $Command<
   UpdateUserAttributesCommandInput,
   UpdateUserAttributesCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateUserAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

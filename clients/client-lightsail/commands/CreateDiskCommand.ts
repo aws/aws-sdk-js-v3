@@ -20,6 +20,12 @@ import {
 export type CreateDiskCommandInput = CreateDiskRequest;
 export type CreateDiskCommandOutput = CreateDiskResult & __MetadataBearer;
 
+/**
+ * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
+ *       same Availability Zone (e.g., <code>us-east-2a</code>).</p>
+ *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
+ *       For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ */
 export class CreateDiskCommand extends $Command<
   CreateDiskCommandInput,
   CreateDiskCommandOutput,
@@ -34,6 +40,9 @@ export class CreateDiskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

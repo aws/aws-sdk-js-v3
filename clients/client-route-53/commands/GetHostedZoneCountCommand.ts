@@ -20,6 +20,9 @@ import {
 export type GetHostedZoneCountCommandInput = GetHostedZoneCountRequest;
 export type GetHostedZoneCountCommandOutput = GetHostedZoneCountResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the number of hosted zones that are associated with the current AWS account.</p>
+ */
 export class GetHostedZoneCountCommand extends $Command<
   GetHostedZoneCountCommandInput,
   GetHostedZoneCountCommandOutput,
@@ -34,6 +37,9 @@ export class GetHostedZoneCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

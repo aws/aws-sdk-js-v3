@@ -20,6 +20,9 @@ import {
 export type DeleteDedicatedIpPoolCommandInput = DeleteDedicatedIpPoolRequest;
 export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse & __MetadataBearer;
 
+/**
+ * <p>Delete a dedicated IP pool.</p>
+ */
 export class DeleteDedicatedIpPoolCommand extends $Command<
   DeleteDedicatedIpPoolCommandInput,
   DeleteDedicatedIpPoolCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

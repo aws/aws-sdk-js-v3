@@ -20,6 +20,9 @@ import {
 export type BatchStopJobRunCommandInput = BatchStopJobRunRequest;
 export type BatchStopJobRunCommandOutput = BatchStopJobRunResponse & __MetadataBearer;
 
+/**
+ * <p>Stops one or more job runs for a specified job definition.</p>
+ */
 export class BatchStopJobRunCommand extends $Command<
   BatchStopJobRunCommandInput,
   BatchStopJobRunCommandOutput,
@@ -34,6 +37,9 @@ export class BatchStopJobRunCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

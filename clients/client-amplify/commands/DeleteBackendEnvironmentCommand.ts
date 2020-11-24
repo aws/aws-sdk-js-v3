@@ -20,6 +20,9 @@ import {
 export type DeleteBackendEnvironmentCommandInput = DeleteBackendEnvironmentRequest;
 export type DeleteBackendEnvironmentCommandOutput = DeleteBackendEnvironmentResult & __MetadataBearer;
 
+/**
+ * <p> Deletes a backend environment for an Amplify app. </p>
+ */
 export class DeleteBackendEnvironmentCommand extends $Command<
   DeleteBackendEnvironmentCommandInput,
   DeleteBackendEnvironmentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

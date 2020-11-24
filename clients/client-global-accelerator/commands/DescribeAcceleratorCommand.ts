@@ -24,6 +24,9 @@ import {
 export type DescribeAcceleratorCommandInput = DescribeAcceleratorRequest;
 export type DescribeAcceleratorCommandOutput = DescribeAcceleratorResponse & __MetadataBearer;
 
+/**
+ * <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>
+ */
 export class DescribeAcceleratorCommand extends $Command<
   DescribeAcceleratorCommandInput,
   DescribeAcceleratorCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeAcceleratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,

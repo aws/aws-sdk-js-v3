@@ -20,6 +20,25 @@ import {
 export type DescribeClusterParameterGroupsCommandInput = DescribeClusterParameterGroupsMessage;
 export type DescribeClusterParameterGroupsCommandOutput = ClusterParameterGroupsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
+ *             created and the default parameter group. For each parameter group, the response includes
+ *             the parameter group name, description, and parameter group family name. You can
+ *             optionally specify a name to retrieve the description of a specific parameter
+ *             group.</p>
+ *         <p>
+ * For more information about parameters and parameter groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *             all parameter groups that match any combination of the specified keys and values. For
+ *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
+ *                 <code>admin</code> and <code>test</code> for tag values, all parameter groups that
+ *             have any combination of those values are returned.</p>
+ *         <p>If both tag keys and values are omitted from the request, parameter groups are
+ *             returned regardless of whether they have tag keys or values associated with
+ *             them.</p>
+ */
 export class DescribeClusterParameterGroupsCommand extends $Command<
   DescribeClusterParameterGroupsCommandInput,
   DescribeClusterParameterGroupsCommandOutput,
@@ -34,6 +53,9 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ResendContactReachabilityEmailCommandInput = ResendContactReachabilityEmailRequest;
 export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse & __MetadataBearer;
 
+/**
+ * <p>For operations that require confirmation that the email address for the registrant contact is valid,
+ * 			such as registering a new domain, this operation resends the confirmation email to the current email address for the registrant contact.</p>
+ */
 export class ResendContactReachabilityEmailCommand extends $Command<
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput,
@@ -34,6 +38,9 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

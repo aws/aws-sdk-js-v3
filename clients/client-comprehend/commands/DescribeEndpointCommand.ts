@@ -20,6 +20,10 @@ import {
 export type DescribeEndpointCommandInput = DescribeEndpointRequest;
 export type DescribeEndpointCommandOutput = DescribeEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
+ *       status of an endpoint.</p>
+ */
 export class DescribeEndpointCommand extends $Command<
   DescribeEndpointCommandInput,
   DescribeEndpointCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

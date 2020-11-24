@@ -17,6 +17,28 @@ import {
 export type CreateHsmCommandInput = CreateHsmRequest;
 export type CreateHsmCommandOutput = CreateHsmResponse & __MetadataBearer;
 
+/**
+ * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+ *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
+ *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
+ *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
+ *          <p>
+ *             <b>For information about the current version of AWS
+ *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
+ *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
+ *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
+ *       Reference</a>.</p>
+ *          <p>Creates an uninitialized HSM instance.</p>
+ *          <p>There is an upfront fee charged for each HSM instance that you create with the
+ *         <code>CreateHsm</code> operation. If you accidentally provision an HSM and want to request a
+ *       refund, delete the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>, create a new case, and select
+ *         <b>Account and Billing Support</b>.</p>
+ *          <important>
+ *             <p>It can take up to 20 minutes to create and provision an HSM. You can monitor the
+ *         status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be
+ *         initialized when the status changes to <code>RUNNING</code>.</p>
+ *          </important>
+ */
 export class CreateHsmCommand extends $Command<
   CreateHsmCommandInput,
   CreateHsmCommandOutput,
@@ -31,6 +53,9 @@ export class CreateHsmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMClientResolvedConfig,

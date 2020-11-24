@@ -25,6 +25,9 @@ import {
 export type ListUserPoolClientsCommandInput = ListUserPoolClientsRequest;
 export type ListUserPoolClientsCommandOutput = ListUserPoolClientsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the clients that have been created for the specified user pool.</p>
+ */
 export class ListUserPoolClientsCommand extends $Command<
   ListUserPoolClientsCommandInput,
   ListUserPoolClientsCommandOutput,
@@ -39,6 +42,9 @@ export class ListUserPoolClientsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

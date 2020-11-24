@@ -24,6 +24,10 @@ export type ListAccountAssignmentCreationStatusCommandInput = ListAccountAssignm
 export type ListAccountAssignmentCreationStatusCommandOutput = ListAccountAssignmentCreationStatusResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the status of the AWS account assignment creation requests for a specified SSO
+ *        instance.</p>
+ */
 export class ListAccountAssignmentCreationStatusCommand extends $Command<
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
@@ -38,6 +42,9 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

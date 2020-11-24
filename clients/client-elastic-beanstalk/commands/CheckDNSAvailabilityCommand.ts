@@ -20,6 +20,9 @@ import {
 export type CheckDNSAvailabilityCommandInput = CheckDNSAvailabilityMessage;
 export type CheckDNSAvailabilityCommandOutput = CheckDNSAvailabilityResultMessage & __MetadataBearer;
 
+/**
+ * <p>Checks if the specified CNAME is available.</p>
+ */
 export class CheckDNSAvailabilityCommand extends $Command<
   CheckDNSAvailabilityCommandInput,
   CheckDNSAvailabilityCommandOutput,
@@ -34,6 +37,9 @@ export class CheckDNSAvailabilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

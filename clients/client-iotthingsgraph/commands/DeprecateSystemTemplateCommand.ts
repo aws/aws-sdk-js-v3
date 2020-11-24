@@ -20,6 +20,9 @@ import {
 export type DeprecateSystemTemplateCommandInput = DeprecateSystemTemplateRequest;
 export type DeprecateSystemTemplateCommandOutput = DeprecateSystemTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deprecates the specified system.</p>
+ */
 export class DeprecateSystemTemplateCommand extends $Command<
   DeprecateSystemTemplateCommandInput,
   DeprecateSystemTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeprecateSystemTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,

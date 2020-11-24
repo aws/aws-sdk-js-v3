@@ -20,6 +20,13 @@ import {
 export type GetCommentCommandInput = GetCommentInput;
 export type GetCommentCommandOutput = GetCommentOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
+ *             <note>
+ *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
+ *         reactions from active identities, use GetCommentReactions.</p>
+ *          </note>
+ */
 export class GetCommentCommand extends $Command<
   GetCommentCommandInput,
   GetCommentCommandOutput,
@@ -34,6 +41,9 @@ export class GetCommentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

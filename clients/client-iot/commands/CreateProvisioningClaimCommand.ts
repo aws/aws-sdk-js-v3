@@ -20,6 +20,9 @@ import {
 export type CreateProvisioningClaimCommandInput = CreateProvisioningClaimRequest;
 export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a provisioning claim.</p>
+ */
 export class CreateProvisioningClaimCommand extends $Command<
   CreateProvisioningClaimCommandInput,
   CreateProvisioningClaimCommandOutput,
@@ -34,6 +37,9 @@ export class CreateProvisioningClaimCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

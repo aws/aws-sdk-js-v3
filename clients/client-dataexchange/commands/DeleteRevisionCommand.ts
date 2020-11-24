@@ -20,6 +20,9 @@ import {
 export type DeleteRevisionCommandInput = DeleteRevisionRequest;
 export type DeleteRevisionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation deletes a revision.</p>
+ */
 export class DeleteRevisionCommand extends $Command<
   DeleteRevisionCommandInput,
   DeleteRevisionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRevisionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

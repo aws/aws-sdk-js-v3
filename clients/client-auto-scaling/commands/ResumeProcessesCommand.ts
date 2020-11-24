@@ -20,6 +20,12 @@ import {
 export type ResumeProcessesCommandInput = ScalingProcessQuery;
 export type ResumeProcessesCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for
+ *             the specified Auto Scaling group.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
+ *                 resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class ResumeProcessesCommand extends $Command<
   ResumeProcessesCommandInput,
   ResumeProcessesCommandOutput,
@@ -34,6 +40,9 @@ export class ResumeProcessesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

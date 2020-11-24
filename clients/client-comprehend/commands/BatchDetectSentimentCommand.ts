@@ -20,6 +20,11 @@ import {
 export type BatchDetectSentimentCommandInput = BatchDetectSentimentRequest;
 export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse & __MetadataBearer;
 
+/**
+ * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
+ *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
+ *       in each one.</p>
+ */
 export class BatchDetectSentimentCommand extends $Command<
   BatchDetectSentimentCommandInput,
   BatchDetectSentimentCommandOutput,
@@ -34,6 +39,9 @@ export class BatchDetectSentimentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

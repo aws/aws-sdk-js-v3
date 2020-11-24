@@ -20,6 +20,9 @@ import {
 export type DescribeDBLogFilesCommandInput = DescribeDBLogFilesMessage;
 export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of DB log files for the DB instance.</p>
+ */
 export class DescribeDBLogFilesCommand extends $Command<
   DescribeDBLogFilesCommandInput,
   DescribeDBLogFilesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDBLogFilesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

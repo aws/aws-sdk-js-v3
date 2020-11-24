@@ -20,6 +20,11 @@ import {
 export type DeleteIndexCommandInput = DeleteIndexRequest;
 export type DeleteIndexCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is already
+ *       being deleted. While the index is being deleted, the <code>Status</code> field returned by a
+ *       call to the <a>DescribeIndex</a> operation is set to <code>DELETING</code>.</p>
+ */
 export class DeleteIndexCommand extends $Command<
   DeleteIndexCommandInput,
   DeleteIndexCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteIndexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

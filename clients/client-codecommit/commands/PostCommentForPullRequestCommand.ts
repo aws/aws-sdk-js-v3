@@ -20,6 +20,9 @@ import {
 export type PostCommentForPullRequestCommandInput = PostCommentForPullRequestInput;
 export type PostCommentForPullRequestCommandOutput = PostCommentForPullRequestOutput & __MetadataBearer;
 
+/**
+ * <p>Posts a comment on a pull request.</p>
+ */
 export class PostCommentForPullRequestCommand extends $Command<
   PostCommentForPullRequestCommandInput,
   PostCommentForPullRequestCommandOutput,
@@ -34,6 +37,9 @@ export class PostCommentForPullRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

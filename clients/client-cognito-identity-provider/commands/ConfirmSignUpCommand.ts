@@ -24,6 +24,10 @@ import {
 export type ConfirmSignUpCommandInput = ConfirmSignUpRequest;
 export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse & __MetadataBearer;
 
+/**
+ * <p>Confirms registration of a user and handles the existing alias from a previous
+ *             user.</p>
+ */
 export class ConfirmSignUpCommand extends $Command<
   ConfirmSignUpCommandInput,
   ConfirmSignUpCommandOutput,
@@ -38,6 +42,9 @@ export class ConfirmSignUpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

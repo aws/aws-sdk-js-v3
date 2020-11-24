@@ -20,6 +20,12 @@ import {
 export type SetDefaultPolicyVersionCommandInput = SetDefaultPolicyVersionRequest;
 export type SetDefaultPolicyVersionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the specified version of the specified policy as the policy's default
+ *          (operative) version. This action affects all certificates to which the policy is attached.
+ *          To list the principals the policy is attached to, use the ListPrincipalPolicy
+ *          API.</p>
+ */
 export class SetDefaultPolicyVersionCommand extends $Command<
   SetDefaultPolicyVersionCommandInput,
   SetDefaultPolicyVersionCommandOutput,
@@ -34,6 +40,9 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

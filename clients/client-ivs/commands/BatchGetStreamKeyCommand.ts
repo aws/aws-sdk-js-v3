@@ -20,6 +20,9 @@ import {
 export type BatchGetStreamKeyCommandInput = BatchGetStreamKeyRequest;
 export type BatchGetStreamKeyCommandOutput = BatchGetStreamKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Performs <a>GetStreamKey</a> on multiple ARNs simultaneously.</p>
+ */
 export class BatchGetStreamKeyCommand extends $Command<
   BatchGetStreamKeyCommandInput,
   BatchGetStreamKeyCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetStreamKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IvsClientResolvedConfig,

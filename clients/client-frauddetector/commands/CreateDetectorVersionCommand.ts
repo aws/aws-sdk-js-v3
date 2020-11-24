@@ -20,6 +20,9 @@ import {
 export type CreateDetectorVersionCommandInput = CreateDetectorVersionRequest;
 export type CreateDetectorVersionCommandOutput = CreateDetectorVersionResult & __MetadataBearer;
 
+/**
+ * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
+ */
 export class CreateDetectorVersionCommand extends $Command<
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDetectorVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

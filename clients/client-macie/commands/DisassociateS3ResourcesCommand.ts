@@ -20,6 +20,12 @@ import {
 export type DisassociateS3ResourcesCommandInput = DisassociateS3ResourcesRequest;
 export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult & __MetadataBearer;
 
+/**
+ * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If
+ *       memberAccountId isn't specified, the action removes specified S3 resources from Macie Classic
+ *       for the current master account. If memberAccountId is specified, the action removes specified
+ *       S3 resources from Macie Classic for the specified member account.</p>
+ */
 export class DisassociateS3ResourcesCommand extends $Command<
   DisassociateS3ResourcesCommandInput,
   DisassociateS3ResourcesCommandOutput,
@@ -34,6 +40,9 @@ export class DisassociateS3ResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

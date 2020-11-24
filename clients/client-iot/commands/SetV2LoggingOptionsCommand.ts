@@ -20,6 +20,9 @@ import {
 export type SetV2LoggingOptionsCommandInput = SetV2LoggingOptionsRequest;
 export type SetV2LoggingOptionsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Sets the logging options for the V2 logging service.</p>
+ */
 export class SetV2LoggingOptionsCommand extends $Command<
   SetV2LoggingOptionsCommandInput,
   SetV2LoggingOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class SetV2LoggingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

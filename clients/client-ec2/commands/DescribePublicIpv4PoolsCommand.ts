@@ -20,6 +20,9 @@ import {
 export type DescribePublicIpv4PoolsCommandInput = DescribePublicIpv4PoolsRequest;
 export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified IPv4 address pools.</p>
+ */
 export class DescribePublicIpv4PoolsCommand extends $Command<
   DescribePublicIpv4PoolsCommandInput,
   DescribePublicIpv4PoolsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

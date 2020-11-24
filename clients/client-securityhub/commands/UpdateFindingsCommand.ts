@@ -20,6 +20,14 @@ import {
 export type UpdateFindingsCommandInput = UpdateFindingsRequest;
 export type UpdateFindingsCommandOutput = UpdateFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>, use
+ *             <code>BatchUpdateFindings</code>.</p>
+ *          <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated
+ *          findings that the filter attributes specify. Any member account that can view the finding
+ *          also sees the update to the finding.</p>
+ */
 export class UpdateFindingsCommand extends $Command<
   UpdateFindingsCommandInput,
   UpdateFindingsCommandOutput,
@@ -34,6 +42,9 @@ export class UpdateFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

@@ -20,6 +20,24 @@ import {
 export type DeleteClusterCommandInput = DeleteClusterMessage;
 export type DeleteClusterCommandOutput = DeleteClusterResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
+ *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
+ *             operation cannot be canceled or reverted once submitted.
+ * For more information about managing clusters, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ *         <p>If you want to shut down the cluster and retain it for future use, set
+ *                 <i>SkipFinalClusterSnapshot</i> to <code>false</code> and specify a
+ *             name for <i>FinalClusterSnapshotIdentifier</i>. You can later restore this
+ *             snapshot to resume using the cluster. If a final cluster snapshot is requested, the
+ *             status of the cluster will be "final-snapshot" while the snapshot is being taken, then
+ *             it's "deleting" once Amazon Redshift begins deleting the cluster. </p>
+ *         <p>
+ * For more information about managing clusters, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -34,6 +52,9 @@ export class DeleteClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

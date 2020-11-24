@@ -20,6 +20,11 @@ import {
 export type DescribeActivationsCommandInput = DescribeActivationsRequest;
 export type DescribeActivationsCommandOutput = DescribeActivationsResult & __MetadataBearer;
 
+/**
+ * <p>Describes details about the activation, such as the date and time the activation was
+ *    created, its expiration date, the IAM role assigned to the instances in the activation, and the
+ *    number of instances registered by using this activation.</p>
+ */
 export class DescribeActivationsCommand extends $Command<
   DescribeActivationsCommandInput,
   DescribeActivationsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeActivationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

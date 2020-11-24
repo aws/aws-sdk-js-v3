@@ -24,6 +24,14 @@ import {
 export type DeregisterScalableTargetCommandInput = DeregisterScalableTargetRequest;
 export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse & __MetadataBearer;
 
+/**
+ * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
+ *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
+ *          <note>
+ *             <p>Deregistering a scalable target deletes the scaling policies and the scheduled
+ *             actions that are associated with it.</p>
+ *          </note>
+ */
 export class DeregisterScalableTargetCommand extends $Command<
   DeregisterScalableTargetCommandInput,
   DeregisterScalableTargetCommandOutput,
@@ -38,6 +46,9 @@ export class DeregisterScalableTargetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,

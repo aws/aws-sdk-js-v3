@@ -20,6 +20,10 @@ import {
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
 export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Modifies settings for an instance. You can change one or more database configuration
+ *             parameters by specifying these parameters and the new values in the request.</p>
+ */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
   ModifyDBInstanceCommandOutput,
@@ -34,6 +38,9 @@ export class ModifyDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,

@@ -17,6 +17,9 @@ import {
 export type GetDeviceCommandInput = GetDeviceRequest;
 export type GetDeviceCommandOutput = GetDeviceResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the details of a device by device ARN.</p>
+ */
 export class GetDeviceCommand extends $Command<
   GetDeviceCommandInput,
   GetDeviceCommandOutput,
@@ -31,6 +34,9 @@ export class GetDeviceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

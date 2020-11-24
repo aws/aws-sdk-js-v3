@@ -20,6 +20,9 @@ import {
 export type DeleteNodegroupCommandInput = DeleteNodegroupRequest;
 export type DeleteNodegroupCommandOutput = DeleteNodegroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon EKS node group for a cluster.</p>
+ */
 export class DeleteNodegroupCommand extends $Command<
   DeleteNodegroupCommandInput,
   DeleteNodegroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNodegroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,

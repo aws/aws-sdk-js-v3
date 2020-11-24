@@ -20,6 +20,13 @@ import {
 export type ListDomainsCommandInput = ListDomainsRequest;
 export type ListDomainsCommandOutput = ListDomainsResult & __MetadataBearer;
 
+/**
+ * <p> Returns a list of <code>
+ *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a>
+ *             </code> objects for all domains owned by the AWS account that makes
+ *       this call. Each returned <code>DomainSummary</code> object contains information about a
+ *       domain. </p>
+ */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,
   ListDomainsCommandOutput,
@@ -34,6 +41,9 @@ export class ListDomainsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

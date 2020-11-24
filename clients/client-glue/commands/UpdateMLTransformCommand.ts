@@ -20,6 +20,13 @@ import {
 export type UpdateMLTransformCommandInput = UpdateMLTransformRequest;
 export type UpdateMLTransformCommandOutput = UpdateMLTransformResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
+ *
+ *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
+ *       operation to assess how well your new parameters achieved your goals (such as improving the
+ *       quality of your machine learning transform, or making it more cost-effective).</p>
+ */
 export class UpdateMLTransformCommand extends $Command<
   UpdateMLTransformCommandInput,
   UpdateMLTransformCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateMLTransformCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

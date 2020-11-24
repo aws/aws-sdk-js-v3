@@ -20,6 +20,9 @@ import {
 export type DeleteSiteCommandInput = DeleteSiteRequest;
 export type DeleteSiteCommandOutput = DeleteSiteResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
+ */
 export class DeleteSiteCommand extends $Command<
   DeleteSiteCommandInput,
   DeleteSiteCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,

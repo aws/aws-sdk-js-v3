@@ -20,6 +20,13 @@ import {
 export type GetCommentsForPullRequestCommandInput = GetCommentsForPullRequestInput;
 export type GetCommentsForPullRequestCommandOutput = GetCommentsForPullRequestOutput & __MetadataBearer;
 
+/**
+ * <p>Returns comments made on a pull request.</p>
+ *         <note>
+ *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
+ *             reactions from active identities, use GetCommentReactions.</p>
+ *          </note>
+ */
 export class GetCommentsForPullRequestCommand extends $Command<
   GetCommentsForPullRequestCommandInput,
   GetCommentsForPullRequestCommandOutput,
@@ -34,6 +41,9 @@ export class GetCommentsForPullRequestCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

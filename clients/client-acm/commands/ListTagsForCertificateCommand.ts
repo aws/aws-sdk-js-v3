@@ -20,6 +20,11 @@ import {
 export type ListTagsForCertificateCommandInput = ListTagsForCertificateRequest;
 export type ListTagsForCertificateCommandOutput = ListTagsForCertificateResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
+ *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
+ *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
+ */
 export class ListTagsForCertificateCommand extends $Command<
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput,
@@ -34,6 +39,9 @@ export class ListTagsForCertificateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,

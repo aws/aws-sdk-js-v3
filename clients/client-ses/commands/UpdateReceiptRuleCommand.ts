@@ -20,6 +20,12 @@ import {
 export type UpdateReceiptRuleCommandInput = UpdateReceiptRuleRequest;
 export type UpdateReceiptRuleCommandOutput = UpdateReceiptRuleResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a receipt rule.</p>
+ *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *         <p>You can execute this operation no more than once per second.</p>
+ */
 export class UpdateReceiptRuleCommand extends $Command<
   UpdateReceiptRuleCommandInput,
   UpdateReceiptRuleCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateReceiptRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,

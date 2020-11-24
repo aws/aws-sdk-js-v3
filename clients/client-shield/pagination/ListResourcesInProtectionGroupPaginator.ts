@@ -8,6 +8,9 @@ import {
 import { ShieldPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ShieldClient,
   input: ListResourcesInProtectionGroupCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResourcesInProtectionGroupCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Shield,
   input: ListResourcesInProtectionGroupCommandInput,

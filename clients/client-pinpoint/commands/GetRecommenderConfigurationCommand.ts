@@ -20,6 +20,9 @@ import {
 export type GetRecommenderConfigurationCommandInput = GetRecommenderConfigurationRequest;
 export type GetRecommenderConfigurationCommandOutput = GetRecommenderConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
+ */
 export class GetRecommenderConfigurationCommand extends $Command<
   GetRecommenderConfigurationCommandInput,
   GetRecommenderConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetRecommenderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

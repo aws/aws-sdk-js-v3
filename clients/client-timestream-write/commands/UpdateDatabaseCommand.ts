@@ -20,6 +20,13 @@ import {
 export type UpdateDatabaseCommandInput = UpdateDatabaseRequest;
 export type UpdateDatabaseCommandOutput = UpdateDatabaseResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *     Modifies the KMS key for an existing database. While updating the database,
+ *     you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>).
+ *     If there are any concurrent <code>UpdateDatabase</code> requests, first writer wins.
+ *    </p>
+ */
 export class UpdateDatabaseCommand extends $Command<
   UpdateDatabaseCommandInput,
   UpdateDatabaseCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateDatabaseCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TimestreamWriteClientResolvedConfig,

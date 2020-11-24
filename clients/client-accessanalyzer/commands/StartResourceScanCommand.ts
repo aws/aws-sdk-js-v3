@@ -20,6 +20,9 @@ import {
 export type StartResourceScanCommandInput = StartResourceScanRequest;
 export type StartResourceScanCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
+ */
 export class StartResourceScanCommand extends $Command<
   StartResourceScanCommandInput,
   StartResourceScanCommandOutput,
@@ -34,6 +37,9 @@ export class StartResourceScanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

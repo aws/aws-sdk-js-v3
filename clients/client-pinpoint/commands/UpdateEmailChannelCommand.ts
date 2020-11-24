@@ -20,6 +20,9 @@ import {
 export type UpdateEmailChannelCommandInput = UpdateEmailChannelRequest;
 export type UpdateEmailChannelCommandOutput = UpdateEmailChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
+ */
 export class UpdateEmailChannelCommand extends $Command<
   UpdateEmailChannelCommandInput,
   UpdateEmailChannelCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateEmailChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

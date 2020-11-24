@@ -17,6 +17,10 @@ import {
 export type DeleteDomainCommandInput = DeleteDomainRequest;
 export type DeleteDomainCommandOutput = DeleteDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information,
+ *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html" target="_blank">Deleting a Search  Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+ */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

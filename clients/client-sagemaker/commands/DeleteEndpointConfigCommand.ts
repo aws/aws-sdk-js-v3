@@ -20,6 +20,17 @@ import {
 export type DeleteEndpointConfigCommandInput = DeleteEndpointConfigInput;
 export type DeleteEndpointConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
+ *             deletes only the specified configuration. It does not delete endpoints created using the
+ *             configuration. </p>
+ *         <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
+ *             live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
+ *             are being performed on the endpoint. If you delete the <code>EndpointConfig</code> of an
+ *             endpoint that is active or being created or updated you may lose visibility into the
+ *             instance type the endpoint is using. The endpoint must be deleted in order to stop
+ *             incurring charges.</p>
+ */
 export class DeleteEndpointConfigCommand extends $Command<
   DeleteEndpointConfigCommandInput,
   DeleteEndpointConfigCommandOutput,
@@ -34,6 +45,9 @@ export class DeleteEndpointConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

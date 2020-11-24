@@ -20,6 +20,9 @@ import {
 export type BatchGetApplicationRevisionsCommandInput = BatchGetApplicationRevisionsInput;
 export type BatchGetApplicationRevisionsCommandOutput = BatchGetApplicationRevisionsOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.</p>
+ */
 export class BatchGetApplicationRevisionsCommand extends $Command<
   BatchGetApplicationRevisionsCommandInput,
   BatchGetApplicationRevisionsCommandOutput,
@@ -34,6 +37,9 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

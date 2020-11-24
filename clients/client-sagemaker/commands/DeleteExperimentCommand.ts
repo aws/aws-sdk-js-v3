@@ -20,6 +20,11 @@ import {
 export type DeleteExperimentCommandInput = DeleteExperimentRequest;
 export type DeleteExperimentCommandOutput = DeleteExperimentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be deleted
+ *       first. Use the <a>ListTrials</a> API to get a list of the trials associated with
+ *       the experiment.</p>
+ */
 export class DeleteExperimentCommand extends $Command<
   DeleteExperimentCommandInput,
   DeleteExperimentCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteExperimentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

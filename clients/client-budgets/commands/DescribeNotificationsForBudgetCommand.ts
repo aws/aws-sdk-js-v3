@@ -20,6 +20,9 @@ import {
 export type DescribeNotificationsForBudgetCommandInput = DescribeNotificationsForBudgetRequest;
 export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the notifications that are associated with a budget.</p>
+ */
 export class DescribeNotificationsForBudgetCommand extends $Command<
   DescribeNotificationsForBudgetCommandInput,
   DescribeNotificationsForBudgetCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,

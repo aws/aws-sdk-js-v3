@@ -20,6 +20,15 @@ import {
 export type StopContactRecordingCommandInput = StopContactRecordingRequest;
 export type StopContactRecordingCommandOutput = StopContactRecordingResponse & __MetadataBearer;
 
+/**
+ * <p>When a contact is being recorded, this API stops recording the call. StopContactRecording is
+ *    a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't
+ *    use StartContactRecording to restart it. For scenarios where the recording has started and you
+ *    want to suspend it for sensitive information (for example, to collect a credit card number), and
+ *    then restart it, use SuspendContactRecording and ResumeContactRecording.</p>
+ *
+ *          <p>Only voice recordings are supported at this time.</p>
+ */
 export class StopContactRecordingCommand extends $Command<
   StopContactRecordingCommandInput,
   StopContactRecordingCommandOutput,
@@ -34,6 +43,9 @@ export class StopContactRecordingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

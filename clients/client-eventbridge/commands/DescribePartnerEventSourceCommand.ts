@@ -20,6 +20,12 @@ import {
 export type DescribePartnerEventSourceCommandInput = DescribePartnerEventSourceRequest;
 export type DescribePartnerEventSourceCommandOutput = DescribePartnerEventSourceResponse & __MetadataBearer;
 
+/**
+ * <p>An SaaS partner can use this operation to list details about a partner event source
+ *             that they have created. AWS customers do not use this operation. Instead, AWS customers
+ *             can use <a>DescribeEventSource</a> to see details about a partner event
+ *             source that is shared with them.</p>
+ */
 export class DescribePartnerEventSourceCommand extends $Command<
   DescribePartnerEventSourceCommandInput,
   DescribePartnerEventSourceCommandOutput,
@@ -34,6 +40,9 @@ export class DescribePartnerEventSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

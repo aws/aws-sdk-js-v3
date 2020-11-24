@@ -20,6 +20,9 @@ import {
 export type TerminateAppCommandInput = TerminateAppRequest;
 export type TerminateAppCommandOutput = TerminateAppResponse & __MetadataBearer;
 
+/**
+ * <p>Terminates the stack for the specified application.</p>
+ */
 export class TerminateAppCommand extends $Command<
   TerminateAppCommandInput,
   TerminateAppCommandOutput,
@@ -34,6 +37,9 @@ export class TerminateAppCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,

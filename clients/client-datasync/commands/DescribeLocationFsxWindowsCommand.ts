@@ -20,6 +20,9 @@ import {
 export type DescribeLocationFsxWindowsCommandInput = DescribeLocationFsxWindowsRequest;
 export type DescribeLocationFsxWindowsCommandOutput = DescribeLocationFsxWindowsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns metadata, such as the path information about an Amazon FSx for Windows location.</p>
+ */
 export class DescribeLocationFsxWindowsCommand extends $Command<
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

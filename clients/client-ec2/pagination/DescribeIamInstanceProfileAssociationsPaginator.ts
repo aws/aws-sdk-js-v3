@@ -8,6 +8,9 @@ import {
 import { EC2PaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: EC2Client,
   input: DescribeIamInstanceProfileAssociationsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeIamInstanceProfileAssociationsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: EC2,
   input: DescribeIamInstanceProfileAssociationsCommandInput,

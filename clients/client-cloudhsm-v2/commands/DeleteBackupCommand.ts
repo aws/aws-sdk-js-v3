@@ -20,6 +20,11 @@ import {
 export type DeleteBackupCommandInput = DeleteBackupRequest;
 export type DeleteBackupCommandOutput = DeleteBackupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
+ *             after the DeleteBackup request is made. For more information on restoring a backup, see
+ *                 <a>RestoreBackup</a>.</p>
+ */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

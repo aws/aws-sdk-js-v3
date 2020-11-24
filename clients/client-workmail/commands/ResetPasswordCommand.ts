@@ -20,6 +20,9 @@ import {
 export type ResetPasswordCommandInput = ResetPasswordRequest;
 export type ResetPasswordCommandOutput = ResetPasswordResponse & __MetadataBearer;
 
+/**
+ * <p>Allows the administrator to reset the password for a user.</p>
+ */
 export class ResetPasswordCommand extends $Command<
   ResetPasswordCommandInput,
   ResetPasswordCommandOutput,
@@ -34,6 +37,9 @@ export class ResetPasswordCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -25,6 +25,9 @@ import {
 export type DescribeUserPoolDomainCommandInput = DescribeUserPoolDomainRequest;
 export type DescribeUserPoolDomainCommandOutput = DescribeUserPoolDomainResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a domain.</p>
+ */
 export class DescribeUserPoolDomainCommand extends $Command<
   DescribeUserPoolDomainCommandInput,
   DescribeUserPoolDomainCommandOutput,
@@ -39,6 +42,9 @@ export class DescribeUserPoolDomainCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

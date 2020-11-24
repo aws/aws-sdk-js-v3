@@ -20,6 +20,9 @@ import {
 export type DetachStaticIpCommandInput = DetachStaticIpRequest;
 export type DetachStaticIpCommandOutput = DetachStaticIpResult & __MetadataBearer;
 
+/**
+ * <p>Detaches a static IP from the Amazon Lightsail instance to which it is attached.</p>
+ */
 export class DetachStaticIpCommand extends $Command<
   DetachStaticIpCommandInput,
   DetachStaticIpCommandOutput,
@@ -34,6 +37,9 @@ export class DetachStaticIpCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

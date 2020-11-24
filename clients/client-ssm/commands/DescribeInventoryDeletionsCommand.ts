@@ -20,6 +20,9 @@ import {
 export type DescribeInventoryDeletionsCommandInput = DescribeInventoryDeletionsRequest;
 export type DescribeInventoryDeletionsCommandOutput = DescribeInventoryDeletionsResult & __MetadataBearer;
 
+/**
+ * <p>Describes a specific delete inventory operation.</p>
+ */
 export class DescribeInventoryDeletionsCommand extends $Command<
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

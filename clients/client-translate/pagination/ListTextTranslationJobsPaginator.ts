@@ -8,6 +8,9 @@ import {
 import { TranslatePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: TranslateClient,
   input: ListTextTranslationJobsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTextTranslationJobsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Translate,
   input: ListTextTranslationJobsCommandInput,

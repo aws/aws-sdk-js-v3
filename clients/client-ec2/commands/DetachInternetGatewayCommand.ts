@@ -20,6 +20,11 @@ import {
 export type DetachInternetGatewayCommandInput = DetachInternetGatewayRequest;
 export type DetachInternetGatewayCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
+ * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
+ * 			public IPv4 addresses.</p>
+ */
 export class DetachInternetGatewayCommand extends $Command<
   DetachInternetGatewayCommandInput,
   DetachInternetGatewayCommandOutput,
@@ -34,6 +39,9 @@ export class DetachInternetGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

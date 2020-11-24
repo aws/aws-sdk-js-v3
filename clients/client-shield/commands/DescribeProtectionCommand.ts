@@ -20,6 +20,9 @@ import {
 export type DescribeProtectionCommandInput = DescribeProtectionRequest;
 export type DescribeProtectionCommandOutput = DescribeProtectionResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the details of a <a>Protection</a> object.</p>
+ */
 export class DescribeProtectionCommand extends $Command<
   DescribeProtectionCommandInput,
   DescribeProtectionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

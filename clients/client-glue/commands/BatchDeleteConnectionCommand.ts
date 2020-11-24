@@ -20,6 +20,9 @@ import {
 export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
 export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a list of connection definitions from the Data Catalog.</p>
+ */
 export class BatchDeleteConnectionCommand extends $Command<
   BatchDeleteConnectionCommandInput,
   BatchDeleteConnectionCommandOutput,
@@ -34,6 +37,9 @@ export class BatchDeleteConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

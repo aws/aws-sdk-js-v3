@@ -20,6 +20,9 @@ import {
 export type UpdateSimulationApplicationCommandInput = UpdateSimulationApplicationRequest;
 export type UpdateSimulationApplicationCommandOutput = UpdateSimulationApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a simulation application.</p>
+ */
 export class UpdateSimulationApplicationCommand extends $Command<
   UpdateSimulationApplicationCommandInput,
   UpdateSimulationApplicationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSimulationApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

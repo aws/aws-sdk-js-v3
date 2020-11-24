@@ -20,6 +20,10 @@ import {
 export type DescribeIdentityUsageCommandInput = DescribeIdentityUsageRequest;
 export type DescribeIdentityUsageCommandOutput = DescribeIdentityUsageResponse & __MetadataBearer;
 
+/**
+ * <p>Gets usage information for an identity, including number of datasets and data usage.</p>
+ *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+ */
 export class DescribeIdentityUsageCommand extends $Command<
   DescribeIdentityUsageCommandInput,
   DescribeIdentityUsageCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeIdentityUsageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type UpdateVocabularyCommandInput = UpdateVocabularyRequest;
 export type UpdateVocabularyCommandOutput = UpdateVocabularyResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
+ *             operation overwrites all of the existing information with the values that you provide in
+ *             the request. </p>
+ */
 export class UpdateVocabularyCommand extends $Command<
   UpdateVocabularyCommandInput,
   UpdateVocabularyCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateVocabularyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

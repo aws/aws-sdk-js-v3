@@ -17,6 +17,10 @@ import {
 export type GetTablesCommandInput = GetTablesRequest;
 export type GetTablesCommandOutput = GetTablesResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the definitions of some or all of the tables in a given
+ *       <code>Database</code>.</p>
+ */
 export class GetTablesCommand extends $Command<
   GetTablesCommandInput,
   GetTablesCommandOutput,
@@ -31,6 +35,9 @@ export class GetTablesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

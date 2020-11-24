@@ -20,6 +20,9 @@ import {
 export type CreatePullRequestApprovalRuleCommandInput = CreatePullRequestApprovalRuleInput;
 export type CreatePullRequestApprovalRuleCommandOutput = CreatePullRequestApprovalRuleOutput & __MetadataBearer;
 
+/**
+ * <p>Creates an approval rule for a pull request.</p>
+ */
 export class CreatePullRequestApprovalRuleCommand extends $Command<
   CreatePullRequestApprovalRuleCommandInput,
   CreatePullRequestApprovalRuleCommandOutput,
@@ -34,6 +37,9 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

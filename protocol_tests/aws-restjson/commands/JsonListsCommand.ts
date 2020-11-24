@@ -20,6 +20,15 @@ import {
 export type JsonListsCommandInput = JsonListsInputOutput;
 export type JsonListsCommandOutput = JsonListsInputOutput & __MetadataBearer;
 
+/**
+ * This test case serializes JSON lists for the following cases for both
+ * input and output:
+ *
+ * 1. Normal JSON lists.
+ * 2. Normal JSON sets.
+ * 3. JSON lists of lists.
+ * 4. Lists of structures.
+ */
 export class JsonListsCommand extends $Command<
   JsonListsCommandInput,
   JsonListsCommandOutput,
@@ -34,6 +43,9 @@ export class JsonListsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,

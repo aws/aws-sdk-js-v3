@@ -20,6 +20,9 @@ import {
 export type GetHealthCheckLastFailureReasonCommandInput = GetHealthCheckLastFailureReasonRequest;
 export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the reason that a specified health check failed most recently.</p>
+ */
 export class GetHealthCheckLastFailureReasonCommand extends $Command<
   GetHealthCheckLastFailureReasonCommandInput,
   GetHealthCheckLastFailureReasonCommandOutput,
@@ -34,6 +37,9 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,

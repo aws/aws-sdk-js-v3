@@ -20,6 +20,9 @@ import {
 export type DeleteUserHierarchyGroupCommandInput = DeleteUserHierarchyGroupRequest;
 export type DeleteUserHierarchyGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have any active child groups.</p>
+ */
 export class DeleteUserHierarchyGroupCommand extends $Command<
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

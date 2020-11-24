@@ -20,6 +20,9 @@ import {
 export type GetBasePathMappingsCommandInput = GetBasePathMappingsRequest;
 export type GetBasePathMappingsCommandOutput = BasePathMappings & __MetadataBearer;
 
+/**
+ * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
+ */
 export class GetBasePathMappingsCommand extends $Command<
   GetBasePathMappingsCommandInput,
   GetBasePathMappingsCommandOutput,
@@ -34,6 +37,9 @@ export class GetBasePathMappingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

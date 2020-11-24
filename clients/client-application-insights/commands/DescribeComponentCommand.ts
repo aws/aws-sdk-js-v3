@@ -24,6 +24,9 @@ import {
 export type DescribeComponentCommandInput = DescribeComponentRequest;
 export type DescribeComponentCommandOutput = DescribeComponentResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a component and lists the resources that are grouped together in a component.</p>
+ */
 export class DescribeComponentCommand extends $Command<
   DescribeComponentCommandInput,
   DescribeComponentCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeComponentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

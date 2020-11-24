@@ -20,6 +20,9 @@ import {
 export type GetVoiceConnectorTerminationCommandInput = GetVoiceConnectorTerminationRequest;
 export type GetVoiceConnectorTerminationCommandOutput = GetVoiceConnectorTerminationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class GetVoiceConnectorTerminationCommand extends $Command<
   GetVoiceConnectorTerminationCommandInput,
   GetVoiceConnectorTerminationCommandOutput,
@@ -34,6 +37,9 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

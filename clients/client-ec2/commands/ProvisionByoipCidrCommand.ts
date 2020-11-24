@@ -20,6 +20,20 @@ import {
 export type ProvisionByoipCidrCommandInput = ProvisionByoipCidrRequest;
 export type ProvisionByoipCidrCommandOutput = ProvisionByoipCidrResult & __MetadataBearer;
 
+/**
+ * <p>Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring your own IP
+ *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
+ *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
+ *          <p>AWS verifies that you own the address range and are authorized to advertise it.
+ *          You must ensure that the address range is registered to you and that you created an
+ *          RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>Provisioning an address range is an asynchronous operation, so the call returns immediately,
+ *          but the address range is not ready to use until its status changes from <code>pending-provision</code>
+ *          to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
+ *          To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
+ *          with either the specific address from the address pool or the ID of the address pool.</p>
+ */
 export class ProvisionByoipCidrCommand extends $Command<
   ProvisionByoipCidrCommandInput,
   ProvisionByoipCidrCommandOutput,
@@ -34,6 +48,9 @@ export class ProvisionByoipCidrCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

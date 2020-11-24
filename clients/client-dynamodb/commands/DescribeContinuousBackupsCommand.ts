@@ -20,6 +20,19 @@ import {
 export type DescribeContinuousBackupsCommandInput = DescribeContinuousBackupsInput;
 export type DescribeContinuousBackupsCommandOutput = DescribeContinuousBackupsOutput & __MetadataBearer;
 
+/**
+ * <p>Checks the status of continuous backups and point in time recovery on the specified table.
+ *       Continuous backups are <code>ENABLED</code> on all tables at table creation.
+ *       If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to ENABLED.</p>
+ *          <p> After continuous backups and point in time recovery are enabled, you can restore to any
+ *             point in time within <code>EarliestRestorableDateTime</code> and
+ *                 <code>LatestRestorableDateTime</code>. </p>
+ *          <p>
+ *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time. You can restore your table to any point
+ *        in time during the last 35 days.
+ *      </p>
+ *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per second.</p>
+ */
 export class DescribeContinuousBackupsCommand extends $Command<
   DescribeContinuousBackupsCommandInput,
   DescribeContinuousBackupsCommandOutput,
@@ -34,6 +47,9 @@ export class DescribeContinuousBackupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

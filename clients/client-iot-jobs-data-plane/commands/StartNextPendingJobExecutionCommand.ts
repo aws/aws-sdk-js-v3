@@ -20,6 +20,9 @@ import {
 export type StartNextPendingJobExecutionCommandInput = StartNextPendingJobExecutionRequest;
 export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse & __MetadataBearer;
 
+/**
+ * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
+ */
 export class StartNextPendingJobExecutionCommand extends $Command<
   StartNextPendingJobExecutionCommandInput,
   StartNextPendingJobExecutionCommandOutput,
@@ -34,6 +37,9 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,

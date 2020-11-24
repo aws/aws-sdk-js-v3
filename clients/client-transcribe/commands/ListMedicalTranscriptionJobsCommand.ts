@@ -20,6 +20,10 @@ import {
 export type ListMedicalTranscriptionJobsCommandInput = ListMedicalTranscriptionJobsRequest;
 export type ListMedicalTranscriptionJobsCommandOutput = ListMedicalTranscriptionJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists medical transcription jobs with a specified status or substring that matches
+ *             their names.</p>
+ */
 export class ListMedicalTranscriptionJobsCommand extends $Command<
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
@@ -34,6 +38,9 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

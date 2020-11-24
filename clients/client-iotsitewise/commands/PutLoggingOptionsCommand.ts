@@ -20,6 +20,9 @@ import {
 export type PutLoggingOptionsCommandInput = PutLoggingOptionsRequest;
 export type PutLoggingOptionsCommandOutput = PutLoggingOptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Sets logging options for AWS IoT SiteWise.</p>
+ */
 export class PutLoggingOptionsCommand extends $Command<
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class PutLoggingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

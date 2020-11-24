@@ -19,6 +19,9 @@ import {
 export type DeleteAccountPasswordPolicyCommandInput = {};
 export type DeleteAccountPasswordPolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the password policy for the AWS account. There are no parameters.</p>
+ */
 export class DeleteAccountPasswordPolicyCommand extends $Command<
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput,
@@ -33,6 +36,9 @@ export class DeleteAccountPasswordPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

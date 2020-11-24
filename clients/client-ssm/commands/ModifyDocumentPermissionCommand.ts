@@ -20,6 +20,11 @@ import {
 export type ModifyDocumentPermissionCommandInput = ModifyDocumentPermissionRequest;
 export type ModifyDocumentPermissionCommandOutput = ModifyDocumentPermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must
+ *    specify the AWS user account IDs for those people who can use the document. If you share a
+ *    document publicly, you must specify <i>All</i> as the account ID.</p>
+ */
 export class ModifyDocumentPermissionCommand extends $Command<
   ModifyDocumentPermissionCommandInput,
   ModifyDocumentPermissionCommandOutput,
@@ -34,6 +39,9 @@ export class ModifyDocumentPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

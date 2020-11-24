@@ -20,6 +20,9 @@ import {
 export type DescribeThingRegistrationTaskCommandInput = DescribeThingRegistrationTaskRequest;
 export type DescribeThingRegistrationTaskCommandOutput = DescribeThingRegistrationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a bulk thing provisioning task.</p>
+ */
 export class DescribeThingRegistrationTaskCommand extends $Command<
   DescribeThingRegistrationTaskCommandInput,
   DescribeThingRegistrationTaskCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

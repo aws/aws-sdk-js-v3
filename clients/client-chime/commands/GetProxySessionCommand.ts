@@ -20,6 +20,9 @@ import {
 export type GetProxySessionCommandInput = GetProxySessionRequest;
 export type GetProxySessionCommandOutput = GetProxySessionResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
+ */
 export class GetProxySessionCommand extends $Command<
   GetProxySessionCommandInput,
   GetProxySessionCommandOutput,
@@ -34,6 +37,9 @@ export class GetProxySessionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

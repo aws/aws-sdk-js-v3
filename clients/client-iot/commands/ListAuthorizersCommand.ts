@@ -20,6 +20,9 @@ import {
 export type ListAuthorizersCommandInput = ListAuthorizersRequest;
 export type ListAuthorizersCommandOutput = ListAuthorizersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the authorizers registered in your account.</p>
+ */
 export class ListAuthorizersCommand extends $Command<
   ListAuthorizersCommandInput,
   ListAuthorizersCommandOutput,
@@ -34,6 +37,9 @@ export class ListAuthorizersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

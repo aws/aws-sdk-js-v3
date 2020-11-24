@@ -21,6 +21,24 @@ import {
 export type PutPublicAccessBlockCommandInput = PutPublicAccessBlockRequest;
 export type PutPublicAccessBlockCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS account. For
+ *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
+ *             public access</a>.</p>
+ *          <p>Related actions include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html">GetPublicAccessBlock</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class PutPublicAccessBlockCommand extends $Command<
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
@@ -35,6 +53,9 @@ export class PutPublicAccessBlockCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

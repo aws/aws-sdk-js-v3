@@ -20,6 +20,45 @@ import {
 export type DescribeGameSessionQueuesCommandInput = DescribeGameSessionQueuesInput;
 export type DescribeGameSessionQueuesCommandOutput = DescribeGameSessionQueuesOutput & __MetadataBearer;
 
+/**
+ * <p>Retrieves the properties for one or more game session queues. When requesting
+ *             multiple queues, use the pagination parameters to retrieve results as a set of
+ *             sequential pages. If successful, a <a>GameSessionQueue</a> object is returned
+ *             for each requested queue. When specifying a list of queues, objects are returned only
+ *             for queues that currently exist in the Region.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
+ *            View Your Queues</a>
+ *         </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeGameSessionQueues</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteGameSessionQueue</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeGameSessionQueuesCommand extends $Command<
   DescribeGameSessionQueuesCommandInput,
   DescribeGameSessionQueuesCommandOutput,
@@ -34,6 +73,9 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

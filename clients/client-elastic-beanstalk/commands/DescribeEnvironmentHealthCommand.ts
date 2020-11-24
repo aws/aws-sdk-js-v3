@@ -20,6 +20,11 @@ import {
 export type DescribeEnvironmentHealthCommandInput = DescribeEnvironmentHealthRequest;
 export type DescribeEnvironmentHealthCommandOutput = DescribeEnvironmentHealthResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about the overall health of the specified environment. The
+ *         <b>DescribeEnvironmentHealth</b> operation is only available with
+ *       AWS Elastic Beanstalk Enhanced Health.</p>
+ */
 export class DescribeEnvironmentHealthCommand extends $Command<
   DescribeEnvironmentHealthCommandInput,
   DescribeEnvironmentHealthCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteScheduledAuditCommandInput = DeleteScheduledAuditRequest;
 export type DeleteScheduledAuditCommandOutput = DeleteScheduledAuditResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a scheduled audit.</p>
+ */
 export class DeleteScheduledAuditCommand extends $Command<
   DeleteScheduledAuditCommandInput,
   DeleteScheduledAuditCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteScheduledAuditCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

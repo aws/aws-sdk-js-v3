@@ -20,6 +20,9 @@ import {
 export type DeleteApiKeyCommandInput = DeleteApiKeyRequest;
 export type DeleteApiKeyCommandOutput = DeleteApiKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an API key.</p>
+ */
 export class DeleteApiKeyCommand extends $Command<
   DeleteApiKeyCommandInput,
   DeleteApiKeyCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteApiKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

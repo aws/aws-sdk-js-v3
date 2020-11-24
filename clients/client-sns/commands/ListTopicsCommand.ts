@@ -17,6 +17,13 @@ import {
 export type ListTopicsCommandInput = ListTopicsInput;
 export type ListTopicsCommandOutput = ListTopicsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
+ *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
+ *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
+ *             further results.</p>
+ *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ */
 export class ListTopicsCommand extends $Command<
   ListTopicsCommandInput,
   ListTopicsCommandOutput,
@@ -31,6 +38,9 @@ export class ListTopicsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DescribeResourceGroupsCommandInput = DescribeResourceGroupsRequest;
 export type DescribeResourceGroupsCommandOutput = DescribeResourceGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the resource groups that are specified by the ARNs of the resource
+ *          groups.</p>
+ */
 export class DescribeResourceGroupsCommand extends $Command<
   DescribeResourceGroupsCommandInput,
   DescribeResourceGroupsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeResourceGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

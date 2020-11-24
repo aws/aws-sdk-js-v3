@@ -20,6 +20,9 @@ import {
 export type DescribeSecurityGroupReferencesCommandInput = DescribeSecurityGroupReferencesRequest;
 export type DescribeSecurityGroupReferencesCommandOutput = DescribeSecurityGroupReferencesResult & __MetadataBearer;
 
+/**
+ * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ */
 export class DescribeSecurityGroupReferencesCommand extends $Command<
   DescribeSecurityGroupReferencesCommandInput,
   DescribeSecurityGroupReferencesCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

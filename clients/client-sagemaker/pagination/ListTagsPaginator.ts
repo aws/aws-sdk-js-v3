@@ -4,6 +4,9 @@ import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "..
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: SageMakerClient,
   input: ListTagsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: SageMaker,
   input: ListTagsCommandInput,

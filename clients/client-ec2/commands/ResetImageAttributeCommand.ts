@@ -20,6 +20,12 @@ import {
 export type ResetImageAttributeCommandInput = ResetImageAttributeRequest;
 export type ResetImageAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Resets an attribute of an AMI to its default value.</p>
+ *          <note>
+ *             <p>The productCodes attribute can't be reset.</p>
+ *          </note>
+ */
 export class ResetImageAttributeCommand extends $Command<
   ResetImageAttributeCommandInput,
   ResetImageAttributeCommandOutput,
@@ -34,6 +40,9 @@ export class ResetImageAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

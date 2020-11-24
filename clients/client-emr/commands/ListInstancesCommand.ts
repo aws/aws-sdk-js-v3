@@ -20,6 +20,9 @@ import {
 export type ListInstancesCommandInput = ListInstancesInput;
 export type ListInstancesCommandOutput = ListInstancesOutput & __MetadataBearer;
 
+/**
+ * <p>Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
+ */
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
@@ -34,6 +37,9 @@ export class ListInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteCustomDataIdentifierCommandInput = DeleteCustomDataIdentifierRequest;
 export type DeleteCustomDataIdentifierCommandOutput = DeleteCustomDataIdentifierResponse & __MetadataBearer;
 
+/**
+ * <p>Soft deletes a custom data identifier.</p>
+ */
 export class DeleteCustomDataIdentifierCommand extends $Command<
   DeleteCustomDataIdentifierCommandInput,
   DeleteCustomDataIdentifierCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

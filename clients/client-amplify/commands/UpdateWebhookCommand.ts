@@ -20,6 +20,9 @@ import {
 export type UpdateWebhookCommandInput = UpdateWebhookRequest;
 export type UpdateWebhookCommandOutput = UpdateWebhookResult & __MetadataBearer;
 
+/**
+ * <p> Updates a webhook. </p>
+ */
 export class UpdateWebhookCommand extends $Command<
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

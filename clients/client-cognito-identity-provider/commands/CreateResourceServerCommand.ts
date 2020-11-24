@@ -25,6 +25,9 @@ import {
 export type CreateResourceServerCommandInput = CreateResourceServerRequest;
 export type CreateResourceServerCommandOutput = CreateResourceServerResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
+ */
 export class CreateResourceServerCommand extends $Command<
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
@@ -39,6 +42,9 @@ export class CreateResourceServerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

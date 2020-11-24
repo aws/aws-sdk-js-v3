@@ -20,6 +20,12 @@ import {
 export type DescribeConfigurationOptionsCommandInput = DescribeConfigurationOptionsMessage;
 export type DescribeConfigurationOptionsCommandOutput = ConfigurationOptionsDescription & __MetadataBearer;
 
+/**
+ * <p>Describes the configuration options that are used in a particular configuration
+ *       template or environment, or that a specified solution stack defines. The description includes
+ *       the values the options, their default values, and an indication of the required action on a
+ *       running environment if an option value is changed.</p>
+ */
 export class DescribeConfigurationOptionsCommand extends $Command<
   DescribeConfigurationOptionsCommandInput,
   DescribeConfigurationOptionsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

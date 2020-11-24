@@ -20,6 +20,9 @@ import {
 export type DeleteVoiceConnectorStreamingConfigurationCommandInput = DeleteVoiceConnectorStreamingConfigurationRequest;
 export type DeleteVoiceConnectorStreamingConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
+ */
 export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
   DeleteVoiceConnectorStreamingConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,16 @@ import {
 export type DescribeDBClustersCommandInput = DescribeDBClustersMessage;
 export type DescribeDBClustersCommandOutput = DBClusterMessage & __MetadataBearer;
 
+/**
+ * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
+ *          </note>
+ */
 export class DescribeDBClustersCommand extends $Command<
   DescribeDBClustersCommandInput,
   DescribeDBClustersCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeDBClustersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

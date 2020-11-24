@@ -8,6 +8,9 @@ import {
 import { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: ElasticLoadBalancingV2Client,
   input: DescribeLoadBalancersCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeLoadBalancersCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: ElasticLoadBalancingV2,
   input: DescribeLoadBalancersCommandInput,

@@ -20,6 +20,9 @@ import {
 export type DeleteDetectorCommandInput = DeleteDetectorRequest;
 export type DeleteDetectorCommandOutput = DeleteDetectorResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
+ */
 export class DeleteDetectorCommand extends $Command<
   DeleteDetectorCommandInput,
   DeleteDetectorCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDetectorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

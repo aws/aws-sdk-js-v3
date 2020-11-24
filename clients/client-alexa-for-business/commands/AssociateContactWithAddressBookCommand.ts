@@ -20,6 +20,9 @@ import {
 export type AssociateContactWithAddressBookCommandInput = AssociateContactWithAddressBookRequest;
 export type AssociateContactWithAddressBookCommandOutput = AssociateContactWithAddressBookResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a contact with a given address book.</p>
+ */
 export class AssociateContactWithAddressBookCommand extends $Command<
   AssociateContactWithAddressBookCommandInput,
   AssociateContactWithAddressBookCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

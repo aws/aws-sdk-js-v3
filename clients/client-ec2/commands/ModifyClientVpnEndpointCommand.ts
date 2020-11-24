@@ -20,6 +20,9 @@ import {
 export type ModifyClientVpnEndpointCommandInput = ModifyClientVpnEndpointRequest;
 export type ModifyClientVpnEndpointCommandOutput = ModifyClientVpnEndpointResult & __MetadataBearer;
 
+/**
+ * <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
+ */
 export class ModifyClientVpnEndpointCommand extends $Command<
   ModifyClientVpnEndpointCommandInput,
   ModifyClientVpnEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyClientVpnEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

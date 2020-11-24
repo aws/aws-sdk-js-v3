@@ -20,6 +20,11 @@ import {
 export type DescribePlacementGroupsCommandInput = DescribePlacementGroupsRequest;
 export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified placement groups or all of your placement groups. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+ *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DescribePlacementGroupsCommand extends $Command<
   DescribePlacementGroupsCommandInput,
   DescribePlacementGroupsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribePlacementGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

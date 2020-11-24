@@ -20,6 +20,11 @@ import {
 export type ListTagsForVaultCommandInput = ListTagsForVaultInput;
 export type ListTagsForVaultCommandOutput = ListTagsForVaultOutput & __MetadataBearer;
 
+/**
+ * <p>This operation lists all the tags attached to a vault. The operation returns an empty
+ *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
+ *          Resources</a>.</p>
+ */
 export class ListTagsForVaultCommand extends $Command<
   ListTagsForVaultCommandInput,
   ListTagsForVaultCommandOutput,
@@ -34,6 +39,9 @@ export class ListTagsForVaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,

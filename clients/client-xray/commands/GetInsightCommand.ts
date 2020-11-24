@@ -20,6 +20,11 @@ import {
 export type GetInsightCommandInput = GetInsightRequest;
 export type GetInsightCommandOutput = GetInsightResult & __MetadataBearer;
 
+/**
+ * <p>Retrieves the summary information of an insight. This includes impact to clients and
+ *          root cause services, the top anomalous services, the category, the state of the insight,
+ *          and the start and end time of the insight.</p>
+ */
 export class GetInsightCommand extends $Command<
   GetInsightCommandInput,
   GetInsightCommandOutput,
@@ -34,6 +39,9 @@ export class GetInsightCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,

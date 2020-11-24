@@ -20,6 +20,9 @@ import {
 export type CreateDeploymentCommandInput = CreateDeploymentInput;
 export type CreateDeploymentCommandOutput = CreateDeploymentOutput & __MetadataBearer;
 
+/**
+ * <p>Deploys an application revision through the specified deployment group.</p>
+ */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,
   CreateDeploymentCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDeploymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetRequestValidatorCommandInput = GetRequestValidatorRequest;
 export type GetRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
 
+/**
+ * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ */
 export class GetRequestValidatorCommand extends $Command<
   GetRequestValidatorCommandInput,
   GetRequestValidatorCommandOutput,
@@ -34,6 +37,9 @@ export class GetRequestValidatorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteAssetCommandInput = DeleteAssetRequest;
 export type DeleteAssetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>This operation deletes an asset.</p>
+ */
 export class DeleteAssetCommand extends $Command<
   DeleteAssetCommandInput,
   DeleteAssetCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAssetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,

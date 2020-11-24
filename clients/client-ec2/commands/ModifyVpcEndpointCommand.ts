@@ -20,6 +20,12 @@ import {
 export type ModifyVpcEndpointCommandInput = ModifyVpcEndpointRequest;
 export type ModifyVpcEndpointCommandOutput = ModifyVpcEndpointResult & __MetadataBearer;
 
+/**
+ * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
+ *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see
+ *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
+ *                 Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
 export class ModifyVpcEndpointCommand extends $Command<
   ModifyVpcEndpointCommandInput,
   ModifyVpcEndpointCommandOutput,
@@ -34,6 +40,9 @@ export class ModifyVpcEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

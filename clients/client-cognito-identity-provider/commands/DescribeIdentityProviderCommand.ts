@@ -25,6 +25,9 @@ import {
 export type DescribeIdentityProviderCommandInput = DescribeIdentityProviderRequest;
 export type DescribeIdentityProviderCommandOutput = DescribeIdentityProviderResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specific identity provider.</p>
+ */
 export class DescribeIdentityProviderCommand extends $Command<
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
@@ -39,6 +42,9 @@ export class DescribeIdentityProviderCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

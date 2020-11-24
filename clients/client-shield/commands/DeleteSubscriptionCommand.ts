@@ -20,6 +20,9 @@ import {
 export type DeleteSubscriptionCommandInput = DeleteSubscriptionRequest;
 export type DeleteSubscriptionCommandOutput = DeleteSubscriptionResponse & __MetadataBearer;
 
+/**
+ * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
+ */
 export class DeleteSubscriptionCommand extends $Command<
   DeleteSubscriptionCommandInput,
   DeleteSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

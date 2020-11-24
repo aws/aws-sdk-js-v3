@@ -20,6 +20,9 @@ import {
 export type DescribeContributorInsightsCommandInput = DescribeContributorInsightsInput;
 export type DescribeContributorInsightsCommandOutput = DescribeContributorInsightsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about contributor insights, for a given table or global secondary index.</p>
+ */
 export class DescribeContributorInsightsCommand extends $Command<
   DescribeContributorInsightsCommandInput,
   DescribeContributorInsightsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeContributorInsightsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

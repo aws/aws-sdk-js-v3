@@ -20,6 +20,12 @@ import {
 export type GetDataSourceCommandInput = GetDataSourceInput;
 export type GetDataSourceCommandOutput = GetDataSourceOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
+ *         <p>
+ *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
+ *             adds the schema description and the list of files pointed to by the DataSource to the normal format.</p>
+ */
 export class GetDataSourceCommand extends $Command<
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
@@ -34,6 +40,9 @@ export class GetDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateOriginEndpointCommandInput = CreateOriginEndpointRequest;
 export type CreateOriginEndpointCommandOutput = CreateOriginEndpointResponse & __MetadataBearer;
 
+/**
+ * Creates a new OriginEndpoint record.
+ */
 export class CreateOriginEndpointCommand extends $Command<
   CreateOriginEndpointCommandInput,
   CreateOriginEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class CreateOriginEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

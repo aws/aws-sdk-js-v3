@@ -20,6 +20,9 @@ import {
 export type UpdateUserPhoneConfigCommandInput = UpdateUserPhoneConfigRequest;
 export type UpdateUserPhoneConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the phone configuration settings for the specified user.</p>
+ */
 export class UpdateUserPhoneConfigCommand extends $Command<
   UpdateUserPhoneConfigCommandInput,
   UpdateUserPhoneConfigCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

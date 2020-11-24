@@ -20,6 +20,9 @@ import {
 export type DescribeUpdateActionsCommandInput = DescribeUpdateActionsMessage;
 export type DescribeUpdateActionsCommandOutput = UpdateActionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns details of the update actions </p>
+ */
 export class DescribeUpdateActionsCommand extends $Command<
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeUpdateActionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

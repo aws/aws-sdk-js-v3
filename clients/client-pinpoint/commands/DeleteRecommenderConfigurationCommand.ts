@@ -20,6 +20,9 @@ import {
 export type DeleteRecommenderConfigurationCommandInput = DeleteRecommenderConfigurationRequest;
 export type DeleteRecommenderConfigurationCommandOutput = DeleteRecommenderConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
+ */
 export class DeleteRecommenderConfigurationCommand extends $Command<
   DeleteRecommenderConfigurationCommandInput,
   DeleteRecommenderConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

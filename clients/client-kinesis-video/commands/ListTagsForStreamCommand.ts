@@ -20,6 +20,11 @@ import {
 export type ListTagsForStreamCommandInput = ListTagsForStreamInput;
 export type ListTagsForStreamCommandOutput = ListTagsForStreamOutput & __MetadataBearer;
 
+/**
+ * <p>Returns a list of tags associated with the specified stream.</p>
+ *         <p>In the request, you must specify either the <code>StreamName</code> or the
+ *                 <code>StreamARN</code>. </p>
+ */
 export class ListTagsForStreamCommand extends $Command<
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
@@ -34,6 +39,9 @@ export class ListTagsForStreamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,

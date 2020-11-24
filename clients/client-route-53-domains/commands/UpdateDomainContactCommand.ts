@@ -20,6 +20,12 @@ import {
 export type UpdateDomainContactCommandInput = UpdateDomainContactRequest;
 export type UpdateDomainContactCommandOutput = UpdateDomainContactResponse & __MetadataBearer;
 
+/**
+ * <p>This operation updates the contact information for a particular domain. You must specify information for at least one contact:
+ * 			registrant, administrator, or technical.</p>
+ * 		       <p>If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action.
+ * 			If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ */
 export class UpdateDomainContactCommand extends $Command<
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput,
@@ -34,6 +40,9 @@ export class UpdateDomainContactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

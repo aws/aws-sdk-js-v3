@@ -20,6 +20,10 @@ import {
 export type DescribeFleetMetadataCommandInput = DescribeFleetMetadataRequest;
 export type DescribeFleetMetadataCommandOutput = DescribeFleetMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Provides basic information for the specified fleet, excluding identity provider,
+ *             networking, and device configuration details.</p>
+ */
 export class DescribeFleetMetadataCommand extends $Command<
   DescribeFleetMetadataCommandInput,
   DescribeFleetMetadataCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeFleetMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

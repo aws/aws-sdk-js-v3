@@ -20,6 +20,12 @@ import {
 export type RebootWorkspacesCommandInput = RebootWorkspacesRequest;
 export type RebootWorkspacesCommandOutput = RebootWorkspacesResult & __MetadataBearer;
 
+/**
+ * <p>Reboots the specified WorkSpaces.</p>
+ *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or
+ *             <code>UNHEALTHY</code>.</p>
+ *          <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
+ */
 export class RebootWorkspacesCommand extends $Command<
   RebootWorkspacesCommandInput,
   RebootWorkspacesCommandOutput,
@@ -34,6 +40,9 @@ export class RebootWorkspacesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

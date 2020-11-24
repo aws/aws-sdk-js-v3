@@ -20,6 +20,10 @@ import {
 export type GetDistributionLatestCacheResetCommandInput = GetDistributionLatestCacheResetRequest;
 export type GetDistributionLatestCacheResetCommandOutput = GetDistributionLatestCacheResetResult & __MetadataBearer;
 
+/**
+ * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
+ *       content delivery network (CDN) distribution.</p>
+ */
 export class GetDistributionLatestCacheResetCommand extends $Command<
   GetDistributionLatestCacheResetCommandInput,
   GetDistributionLatestCacheResetCommandOutput,
@@ -34,6 +38,9 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateFilterCommandInput = CreateFilterRequest;
 export type CreateFilterCommandOutput = CreateFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a filter using the specified finding criteria.</p>
+ */
 export class CreateFilterCommand extends $Command<
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
@@ -34,6 +37,9 @@ export class CreateFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

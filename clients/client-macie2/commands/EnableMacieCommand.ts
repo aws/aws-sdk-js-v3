@@ -20,6 +20,9 @@ import {
 export type EnableMacieCommandInput = EnableMacieRequest;
 export type EnableMacieCommandOutput = EnableMacieResponse & __MetadataBearer;
 
+/**
+ * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
+ */
 export class EnableMacieCommand extends $Command<
   EnableMacieCommandInput,
   EnableMacieCommandOutput,
@@ -34,6 +37,9 @@ export class EnableMacieCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

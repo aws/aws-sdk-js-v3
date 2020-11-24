@@ -20,6 +20,11 @@ import {
 export type DescribeMergeConflictsCommandInput = DescribeMergeConflictsInput;
 export type DescribeMergeConflictsCommandOutput = DescribeMergeConflictsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about one or more merge conflicts in the attempted merge of two
+ *             commit specifiers using the squash or three-way merge strategy. If the merge option for
+ *             the attempted merge is specified as FAST_FORWARD_MERGE, an exception is thrown.</p>
+ */
 export class DescribeMergeConflictsCommand extends $Command<
   DescribeMergeConflictsCommandInput,
   DescribeMergeConflictsCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeMergeConflictsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

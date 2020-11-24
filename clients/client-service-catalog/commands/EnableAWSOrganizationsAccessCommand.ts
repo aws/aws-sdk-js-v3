@@ -20,6 +20,14 @@ import {
 export type EnableAWSOrganizationsAccessCommandInput = EnableAWSOrganizationsAccessInput;
 export type EnableAWSOrganizationsAccessCommandOutput = EnableAWSOrganizationsAccessOutput & __MetadataBearer;
 
+/**
+ * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service
+ *          Catalog to receive updates on your organization in order to sync your shares with the
+ *          current structure. This API can only be called by the management  account in the
+ *          organization.</p>
+ *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
+ *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
+ */
 export class EnableAWSOrganizationsAccessCommand extends $Command<
   EnableAWSOrganizationsAccessCommandInput,
   EnableAWSOrganizationsAccessCommandOutput,
@@ -34,6 +42,9 @@ export class EnableAWSOrganizationsAccessCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

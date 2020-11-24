@@ -25,6 +25,10 @@ import {
 export type ListGroupsCommandInput = ListGroupsRequest;
 export type ListGroupsCommandOutput = ListGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the groups associated with a user pool.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,
   ListGroupsCommandOutput,
@@ -39,6 +43,9 @@ export class ListGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type DeleteBackupSelectionCommandInput = DeleteBackupSelectionInput;
 export type DeleteBackupSelectionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the resource selection associated with a backup plan that is specified by the
+ *             <code>SelectionId</code>.</p>
+ */
 export class DeleteBackupSelectionCommand extends $Command<
   DeleteBackupSelectionCommandInput,
   DeleteBackupSelectionCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteBackupSelectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

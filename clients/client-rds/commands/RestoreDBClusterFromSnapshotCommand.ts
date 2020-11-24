@@ -20,6 +20,28 @@ import {
 export type RestoreDBClusterFromSnapshotCommandInput = RestoreDBClusterFromSnapshotMessage;
 export type RestoreDBClusterFromSnapshotCommandOutput = RestoreDBClusterFromSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action
+ *             only applies to Aurora DB clusters.</p>
+ *         <p>The target DB cluster is created from the source snapshot with a default
+ *             configuration. If you don't specify a security group, the new DB cluster is
+ *             associated with the default security group.</p>
+ *          <note>
+ *             <p>This action only restores the DB cluster, not the DB instances for that DB
+ *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+ *                 instances for the restored DB cluster, specifying the identifier of the restored DB
+ *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+ *                 the <code>RestoreDBClusterFromSnapshot</code> action has completed and the DB
+ *                 cluster is available.</p>
+ *          </note>
+ *          <p>For more information on Amazon Aurora, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+ *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+ *          </p>
+ *          <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *          </note>
+ */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandInput,
   RestoreDBClusterFromSnapshotCommandOutput,
@@ -34,6 +56,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,19 @@ import {
 export type RemoveTargetsCommandInput = RemoveTargetsRequest;
 export type RemoveTargetsCommandOutput = RemoveTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Removes the specified targets from the specified rule. When the rule is triggered,
+ *             those targets are no longer be invoked.</p>
+ *
+ *         <p>When you remove a target, when the associated rule triggers, removed targets might
+ *             continue to be invoked. Allow a short period of time for changes to take
+ *             effect.</p>
+ *
+ *         <p>This action can partially fail if too many requests are made at the same time. If
+ *             that happens, <code>FailedEntryCount</code> is non-zero in the response and each entry
+ *             in <code>FailedEntries</code> provides the ID of the failed target and the error
+ *             code.</p>
+ */
 export class RemoveTargetsCommand extends $Command<
   RemoveTargetsCommandInput,
   RemoveTargetsCommandOutput,
@@ -34,6 +47,9 @@ export class RemoveTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,

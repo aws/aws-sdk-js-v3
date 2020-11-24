@@ -20,6 +20,9 @@ import {
 export type DescribeLoggingOptionsCommandInput = DescribeLoggingOptionsRequest;
 export type DescribeLoggingOptionsCommandOutput = DescribeLoggingOptionsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
+ */
 export class DescribeLoggingOptionsCommand extends $Command<
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeLoggingOptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

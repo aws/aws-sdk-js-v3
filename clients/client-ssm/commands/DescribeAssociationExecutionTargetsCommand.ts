@@ -24,6 +24,10 @@ export type DescribeAssociationExecutionTargetsCommandInput = DescribeAssociatio
 export type DescribeAssociationExecutionTargetsCommandOutput = DescribeAssociationExecutionTargetsResult &
   __MetadataBearer;
 
+/**
+ * <p>Use this API action to view information about a specific execution of a specific
+ *    association.</p>
+ */
 export class DescribeAssociationExecutionTargetsCommand extends $Command<
   DescribeAssociationExecutionTargetsCommandInput,
   DescribeAssociationExecutionTargetsCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

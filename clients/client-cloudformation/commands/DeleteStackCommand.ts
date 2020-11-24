@@ -17,6 +17,11 @@ import {
 export type DeleteStackCommandInput = DeleteStackInput;
 export type DeleteStackCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a specified stack. Once the call completes successfully, stack deletion
+ *          starts. Deleted stacks do not show up in the <a>DescribeStacks</a> API if the
+ *          deletion has been completed successfully.</p>
+ */
 export class DeleteStackCommand extends $Command<
   DeleteStackCommandInput,
   DeleteStackCommandOutput,
@@ -31,6 +36,9 @@ export class DeleteStackCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,

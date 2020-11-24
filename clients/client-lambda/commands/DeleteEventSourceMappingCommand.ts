@@ -20,6 +20,12 @@ import {
 export type DeleteEventSourceMappingCommandInput = DeleteEventSourceMappingRequest;
 export type DeleteEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
+/**
+ * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
+ *       mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+ *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
+ *       deleted for several seconds.</p>
+ */
 export class DeleteEventSourceMappingCommand extends $Command<
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteEventSourceMappingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

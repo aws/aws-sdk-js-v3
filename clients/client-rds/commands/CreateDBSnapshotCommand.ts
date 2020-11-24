@@ -20,6 +20,10 @@ import {
 export type CreateDBSnapshotCommandInput = CreateDBSnapshotMessage;
 export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult & __MetadataBearer;
 
+/**
+ * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
+ *                 <code>storage-optimization</code>state.</p>
+ */
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,
   CreateDBSnapshotCommandOutput,
@@ -34,6 +38,9 @@ export class CreateDBSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

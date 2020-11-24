@@ -17,6 +17,14 @@ import {
 export type ImportKeyPairCommandInput = ImportKeyPairRequest;
 export type ImportKeyPairCommandOutput = ImportKeyPairResult & __MetadataBearer;
 
+/**
+ * <p>Imports the public key from an RSA key pair that you created with a third-party tool.
+ *         Compare this with <a>CreateKeyPair</a>, in which AWS creates the key pair and gives the keys to you
+ *         (AWS keeps a copy of the public key). With ImportKeyPair, you create the key pair and give AWS just the public key.
+ *         The private key is never transferred between you and AWS.</p>
+ *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>
+ * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class ImportKeyPairCommand extends $Command<
   ImportKeyPairCommandInput,
   ImportKeyPairCommandOutput,
@@ -31,6 +39,9 @@ export class ImportKeyPairCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,17 @@ import {
 export type CreateConnectionCommandInput = CreateConnectionRequest;
 export type CreateConnectionCommandOutput = Connection & __MetadataBearer;
 
+/**
+ * <p>Creates a connection between a customer network and a specific AWS Direct Connect location.</p>
+ *
+ *          <p>A connection links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic
+ *       cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router.</p>
+ *          <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p>
+ *          <p>You can automatically add the new connection to a link aggregation group (LAG) by
+ *       specifying a LAG ID in the request. This ensures that the new connection is allocated on the
+ *       same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint,
+ *       the request fails and no connection is created.</p>
+ */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
@@ -34,6 +45,9 @@ export class CreateConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

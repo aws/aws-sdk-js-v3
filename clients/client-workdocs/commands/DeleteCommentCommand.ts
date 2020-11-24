@@ -20,6 +20,9 @@ import {
 export type DeleteCommentCommandInput = DeleteCommentRequest;
 export type DeleteCommentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified comment from the document version.</p>
+ */
 export class DeleteCommentCommand extends $Command<
   DeleteCommentCommandInput,
   DeleteCommentCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteCommentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

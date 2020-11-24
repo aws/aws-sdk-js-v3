@@ -24,6 +24,12 @@ import {
 export type DeletePresetCommandInput = DeletePresetRequest;
 export type DeletePresetCommandOutput = DeletePresetResponse & __MetadataBearer;
 
+/**
+ * <p>The DeletePreset operation removes a preset that you've added in an AWS region.</p>
+ *         <note>
+ *             <p>You can't delete the default presets that are included with Elastic Transcoder.</p>
+ *         </note>
+ */
 export class DeletePresetCommand extends $Command<
   DeletePresetCommandInput,
   DeletePresetCommandOutput,
@@ -38,6 +44,9 @@ export class DeletePresetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

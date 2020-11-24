@@ -20,6 +20,9 @@ import {
 export type DescribeOriginEndpointCommandInput = DescribeOriginEndpointRequest;
 export type DescribeOriginEndpointCommandOutput = DescribeOriginEndpointResponse & __MetadataBearer;
 
+/**
+ * Gets details about an existing OriginEndpoint.
+ */
 export class DescribeOriginEndpointCommand extends $Command<
   DescribeOriginEndpointCommandInput,
   DescribeOriginEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeOriginEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,

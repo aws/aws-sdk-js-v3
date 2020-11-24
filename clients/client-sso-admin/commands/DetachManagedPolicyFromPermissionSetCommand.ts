@@ -24,6 +24,9 @@ export type DetachManagedPolicyFromPermissionSetCommandInput = DetachManagedPoli
 export type DetachManagedPolicyFromPermissionSetCommandOutput = DetachManagedPolicyFromPermissionSetResponse &
   __MetadataBearer;
 
+/**
+ * <p>Detaches the attached IAM managed policy ARN from the specified permission set.</p>
+ */
 export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
@@ -38,6 +41,9 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

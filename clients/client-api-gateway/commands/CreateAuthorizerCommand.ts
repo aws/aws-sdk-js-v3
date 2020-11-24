@@ -20,6 +20,10 @@ import {
 export type CreateAuthorizerCommandInput = CreateAuthorizerRequest;
 export type CreateAuthorizerCommandOutput = Authorizer & __MetadataBearer;
 
+/**
+ * <p>Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.</p>
+ *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS CLI</a></div>
+ */
 export class CreateAuthorizerCommand extends $Command<
   CreateAuthorizerCommandInput,
   CreateAuthorizerCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAuthorizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

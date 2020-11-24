@@ -28,6 +28,9 @@ export type RejectInboundCrossClusterSearchConnectionCommandInput = RejectInboun
 export type RejectInboundCrossClusterSearchConnectionCommandOutput = RejectInboundCrossClusterSearchConnectionResponse &
   __MetadataBearer;
 
+/**
+ * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
+ */
 export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
   RejectInboundCrossClusterSearchConnectionCommandInput,
   RejectInboundCrossClusterSearchConnectionCommandOutput,
@@ -42,6 +45,9 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,

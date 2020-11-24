@@ -20,6 +20,12 @@ import {
 export type DeleteDomainConfigurationCommandInput = DeleteDomainConfigurationRequest;
 export type DeleteDomainConfigurationCommandOutput = DeleteDomainConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified domain configuration.</p>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ */
 export class DeleteDomainConfigurationCommand extends $Command<
   DeleteDomainConfigurationCommandInput,
   DeleteDomainConfigurationCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteDomainConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

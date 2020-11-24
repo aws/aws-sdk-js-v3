@@ -20,6 +20,9 @@ import {
 export type UpdateDatasetCommandInput = UpdateDatasetRequest;
 export type UpdateDatasetCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the settings of a data set.</p>
+ */
 export class UpdateDatasetCommand extends $Command<
   UpdateDatasetCommandInput,
   UpdateDatasetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDatasetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

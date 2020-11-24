@@ -20,6 +20,9 @@ import {
 export type CreateDeploymentConfigCommandInput = CreateDeploymentConfigInput;
 export type CreateDeploymentConfigCommandOutput = CreateDeploymentConfigOutput & __MetadataBearer;
 
+/**
+ * <p> Creates a deployment configuration. </p>
+ */
 export class CreateDeploymentConfigCommand extends $Command<
   CreateDeploymentConfigCommandInput,
   CreateDeploymentConfigCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDeploymentConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,

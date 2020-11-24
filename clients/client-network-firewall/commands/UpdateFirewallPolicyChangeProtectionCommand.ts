@@ -24,6 +24,9 @@ export type UpdateFirewallPolicyChangeProtectionCommandInput = UpdateFirewallPol
 export type UpdateFirewallPolicyChangeProtectionCommandOutput = UpdateFirewallPolicyChangeProtectionResponse &
   __MetadataBearer;
 
+/**
+ * <p></p>
+ */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
   UpdateFirewallPolicyChangeProtectionCommandInput,
   UpdateFirewallPolicyChangeProtectionCommandOutput,
@@ -38,6 +41,9 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkFirewallClientResolvedConfig,

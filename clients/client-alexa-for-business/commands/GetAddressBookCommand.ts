@@ -20,6 +20,9 @@ import {
 export type GetAddressBookCommandInput = GetAddressBookRequest;
 export type GetAddressBookCommandOutput = GetAddressBookResponse & __MetadataBearer;
 
+/**
+ * <p>Gets address the book details by the address book ARN.</p>
+ */
 export class GetAddressBookCommand extends $Command<
   GetAddressBookCommandInput,
   GetAddressBookCommandOutput,
@@ -34,6 +37,9 @@ export class GetAddressBookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

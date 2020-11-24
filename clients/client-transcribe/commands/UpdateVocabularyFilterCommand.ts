@@ -20,6 +20,9 @@ import {
 export type UpdateVocabularyFilterCommandInput = UpdateVocabularyFilterRequest;
 export type UpdateVocabularyFilterCommandOutput = UpdateVocabularyFilterResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a vocabulary filter with a new list of filtered words.</p>
+ */
 export class UpdateVocabularyFilterCommand extends $Command<
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateVocabularyFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

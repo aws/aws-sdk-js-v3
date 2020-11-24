@@ -20,6 +20,16 @@ import {
 export type AttachLoadBalancerTargetGroupsCommandInput = AttachLoadBalancerTargetGroupsType;
 export type AttachLoadBalancerTargetGroupsCommandOutput = AttachLoadBalancerTargetGroupsResultType & __MetadataBearer;
 
+/**
+ * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
+ *         <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
+ *             the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>
+ *         <p>With Application Load Balancers and Network Load Balancers, instances are registered
+ *             as targets with a target group. With Classic Load Balancers, instances are registered
+ *             with the load balancer. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching a load
+ *                 balancer to your Auto Scaling group</a> in the
+ *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class AttachLoadBalancerTargetGroupsCommand extends $Command<
   AttachLoadBalancerTargetGroupsCommandInput,
   AttachLoadBalancerTargetGroupsCommandOutput,
@@ -34,6 +44,9 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

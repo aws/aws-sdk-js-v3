@@ -24,6 +24,20 @@ import {
 export type AddApplicationVpcConfigurationCommandInput = AddApplicationVpcConfigurationRequest;
 export type AddApplicationVpcConfigurationCommandOutput = AddApplicationVpcConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store
+ *         and access resources securely.</p>
+ *          <p>Note the following about VPC configurations for Kinesis Data Analytics applications:</p>
+ *          <ul>
+ *             <li>
+ *                <p>VPC configurations are not supported for SQL applications.</p>
+ *             </li>
+ *             <li>
+ *                <p>When a VPC is added to a Kinesis Data Analytics application, the application can no longer be accessed from the
+ *            Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.</p>
+ *             </li>
+ *          </ul>
+ */
 export class AddApplicationVpcConfigurationCommand extends $Command<
   AddApplicationVpcConfigurationCommandInput,
   AddApplicationVpcConfigurationCommandOutput,
@@ -38,6 +52,9 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

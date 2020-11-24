@@ -20,6 +20,12 @@ import {
 export type DescribeTerminationPolicyTypesCommandInput = {};
 export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling which Auto Scaling
+ *                 instances terminate during scale in</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
 export class DescribeTerminationPolicyTypesCommand extends $Command<
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

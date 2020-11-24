@@ -20,6 +20,12 @@ import {
 export type ListPrincipalPoliciesCommandInput = ListPrincipalPoliciesRequest;
 export type ListPrincipalPoliciesCommandOutput = ListPrincipalPoliciesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the policies attached to the specified principal. If you use an Cognito
+ *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
+ *          <p>
+ *             <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+ */
 export class ListPrincipalPoliciesCommand extends $Command<
   ListPrincipalPoliciesCommandInput,
   ListPrincipalPoliciesCommandOutput,
@@ -34,6 +40,9 @@ export class ListPrincipalPoliciesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -21,6 +21,22 @@ import {
 export type GetAccessPointPolicyCommandInput = GetAccessPointPolicyRequest;
 export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult & __MetadataBearer;
 
+/**
+ * <p>Returns the access point policy associated with the specified access point.</p>
+ *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html">DeleteAccessPointPolicy</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetAccessPointPolicyCommand extends $Command<
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput,
@@ -35,6 +51,9 @@ export class GetAccessPointPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateProtectionCommandInput = CreateProtectionRequest;
 export type CreateProtectionCommandOutput = CreateProtectionResponse & __MetadataBearer;
 
+/**
+ * <p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon
+ *          CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>
+ *          <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href="https://console.aws.amazon.com/waf/">AWS WAF console</a>. For more information see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html">Getting Started with AWS Shield Advanced</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>
+ */
 export class CreateProtectionCommand extends $Command<
   CreateProtectionCommandInput,
   CreateProtectionCommandOutput,
@@ -34,6 +39,9 @@ export class CreateProtectionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

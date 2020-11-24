@@ -20,6 +20,10 @@ import {
 export type RebuildEnvironmentCommandInput = RebuildEnvironmentMessage;
 export type RebuildEnvironmentCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
+ *       load balancer, etc.) for a specified environment and forces a restart.</p>
+ */
 export class RebuildEnvironmentCommand extends $Command<
   RebuildEnvironmentCommandInput,
   RebuildEnvironmentCommandOutput,
@@ -34,6 +38,9 @@ export class RebuildEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

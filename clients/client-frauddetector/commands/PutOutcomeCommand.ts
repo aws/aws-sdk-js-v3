@@ -20,6 +20,9 @@ import {
 export type PutOutcomeCommandInput = PutOutcomeRequest;
 export type PutOutcomeCommandOutput = PutOutcomeResult & __MetadataBearer;
 
+/**
+ * <p>Creates or updates an outcome. </p>
+ */
 export class PutOutcomeCommand extends $Command<
   PutOutcomeCommandInput,
   PutOutcomeCommandOutput,
@@ -34,6 +37,9 @@ export class PutOutcomeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

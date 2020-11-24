@@ -20,6 +20,19 @@ import {
 export type UpdateStateMachineCommandInput = UpdateStateMachineInput;
 export type UpdateStateMachineCommandOutput = UpdateStateMachineOutput & __MetadataBearer;
 
+/**
+ * <p>Updates an existing state machine by modifying its <code>definition</code>,
+ *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
+ *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
+ *       least one of <code>definition</code> or <code>roleArn</code> or you will receive a
+ *         <code>MissingRequiredParameter</code> error.</p>
+ *          <note>
+ *             <p>All <code>StartExecution</code> calls within a few seconds will use the updated
+ *           <code>definition</code> and <code>roleArn</code>. Executions started immediately after
+ *         calling <code>UpdateStateMachine</code> may use the previous state machine
+ *           <code>definition</code> and <code>roleArn</code>. </p>
+ *          </note>
+ */
 export class UpdateStateMachineCommand extends $Command<
   UpdateStateMachineCommandInput,
   UpdateStateMachineCommandOutput,
@@ -34,6 +47,9 @@ export class UpdateStateMachineCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateOptionGroupCommandInput = CreateOptionGroupMessage;
 export type CreateOptionGroupCommandOutput = CreateOptionGroupResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new option group. You can create up to 20 option groups.</p>
+ */
 export class CreateOptionGroupCommand extends $Command<
   CreateOptionGroupCommandInput,
   CreateOptionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class CreateOptionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

@@ -20,6 +20,21 @@ import {
 export type ListAssetsCommandInput = ListAssetsRequest;
 export type ListAssetsCommandOutput = ListAssetsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a paginated list of asset summaries.</p>
+ *          <p>You can use this operation to do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>List assets based on a specific asset model.</p>
+ *             </li>
+ *             <li>
+ *                <p>List top-level assets.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can't use this operation to list all assets. To retrieve summaries for all of your
+ *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all
+ *       assets for each asset model.</p>
+ */
 export class ListAssetsCommand extends $Command<
   ListAssetsCommandInput,
   ListAssetsCommandOutput,
@@ -34,6 +49,9 @@ export class ListAssetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

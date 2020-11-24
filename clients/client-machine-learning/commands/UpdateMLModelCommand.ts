@@ -20,6 +20,10 @@ import {
 export type UpdateMLModelCommandInput = UpdateMLModelInput;
 export type UpdateMLModelCommandOutput = UpdateMLModelOutput & __MetadataBearer;
 
+/**
+ * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
+ *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
+ */
 export class UpdateMLModelCommand extends $Command<
   UpdateMLModelCommandInput,
   UpdateMLModelCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateMLModelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,

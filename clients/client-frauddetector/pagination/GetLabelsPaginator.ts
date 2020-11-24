@@ -4,6 +4,9 @@ import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from 
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: FraudDetectorClient,
   input: GetLabelsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetLabelsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: FraudDetector,
   input: GetLabelsCommandInput,

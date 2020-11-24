@@ -20,6 +20,9 @@ import {
 export type DeleteGatewayGroupCommandInput = DeleteGatewayGroupRequest;
 export type DeleteGatewayGroupCommandOutput = DeleteGatewayGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a gateway group.</p>
+ */
 export class DeleteGatewayGroupCommand extends $Command<
   DeleteGatewayGroupCommandInput,
   DeleteGatewayGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGatewayGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListMonitoringExecutionsCommandInput = ListMonitoringExecutionsRequest;
 export type ListMonitoringExecutionsCommandOutput = ListMonitoringExecutionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns list of all monitoring job executions.</p>
+ */
 export class ListMonitoringExecutionsCommand extends $Command<
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput,
@@ -34,6 +37,9 @@ export class ListMonitoringExecutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

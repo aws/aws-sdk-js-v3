@@ -20,6 +20,10 @@ import {
 export type UpdateDistributionCommandInput = UpdateDistributionRequest;
 export type UpdateDistributionCommandOutput = UpdateDistributionResult & __MetadataBearer;
 
+/**
+ * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
+ *          <p>Use this action to update the configuration of your existing distribution</p>
+ */
 export class UpdateDistributionCommand extends $Command<
   UpdateDistributionCommandInput,
   UpdateDistributionCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateDistributionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

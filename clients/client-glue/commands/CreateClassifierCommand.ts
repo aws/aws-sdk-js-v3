@@ -20,6 +20,11 @@ import {
 export type CreateClassifierCommandInput = CreateClassifierRequest;
 export type CreateClassifierCommandOutput = CreateClassifierResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
+ *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
+ *       depending on which field of the request is present.</p>
+ */
 export class CreateClassifierCommand extends $Command<
   CreateClassifierCommandInput,
   CreateClassifierCommandOutput,
@@ -34,6 +39,9 @@ export class CreateClassifierCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

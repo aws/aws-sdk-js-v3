@@ -20,6 +20,10 @@ import {
 export type ListMailboxExportJobsCommandInput = ListMailboxExportJobsRequest;
 export type ListMailboxExportJobsCommandOutput = ListMailboxExportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the mailbox export jobs started for the specified organization within the last
+ *          seven days.</p>
+ */
 export class ListMailboxExportJobsCommand extends $Command<
   ListMailboxExportJobsCommandInput,
   ListMailboxExportJobsCommandOutput,
@@ -34,6 +38,9 @@ export class ListMailboxExportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

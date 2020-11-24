@@ -24,6 +24,9 @@ export type ListLicenseSpecificationsForResourceCommandInput = ListLicenseSpecif
 export type ListLicenseSpecificationsForResourceCommandOutput = ListLicenseSpecificationsForResourceResponse &
   __MetadataBearer;
 
+/**
+ * <p>Describes the license configurations for the specified resource.</p>
+ */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<
   ListLicenseSpecificationsForResourceCommandInput,
   ListLicenseSpecificationsForResourceCommandOutput,
@@ -38,6 +41,9 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

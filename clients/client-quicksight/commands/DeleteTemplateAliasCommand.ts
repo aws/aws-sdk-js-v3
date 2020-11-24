@@ -20,6 +20,10 @@ import {
 export type DeleteTemplateAliasCommandInput = DeleteTemplateAliasRequest;
 export type DeleteTemplateAliasCommandOutput = DeleteTemplateAliasResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the item that the specified template alias points to. If you provide a specific
+ * 			alias, you delete the version of the template that the alias points to.</p>
+ */
 export class DeleteTemplateAliasCommand extends $Command<
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteTemplateAliasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

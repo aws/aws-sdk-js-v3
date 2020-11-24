@@ -25,6 +25,11 @@ import {
 export type GlobalSignOutCommandInput = GlobalSignOutRequest;
 export type GlobalSignOutCommandOutput = GlobalSignOutResponse & __MetadataBearer;
 
+/**
+ * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a
+ *             user. The user's current access and Id tokens remain valid until their expiry. Access
+ *             and Id tokens expire one hour after they are issued.</p>
+ */
 export class GlobalSignOutCommand extends $Command<
   GlobalSignOutCommandInput,
   GlobalSignOutCommandOutput,
@@ -39,6 +44,9 @@ export class GlobalSignOutCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

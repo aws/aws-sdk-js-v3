@@ -20,6 +20,10 @@ import {
 export type EnableSnapshotCopyCommandInput = EnableSnapshotCopyMessage;
 export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult & __MetadataBearer;
 
+/**
+ * <p>Enables the automatic copy of snapshots from one region to another region for a
+ *             specified cluster.</p>
+ */
 export class EnableSnapshotCopyCommand extends $Command<
   EnableSnapshotCopyCommandInput,
   EnableSnapshotCopyCommandOutput,
@@ -34,6 +38,9 @@ export class EnableSnapshotCopyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateUserHierarchyCommandInput = UpdateUserHierarchyRequest;
 export type UpdateUserHierarchyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Assigns the specified hierarchy group to the specified user.</p>
+ */
 export class UpdateUserHierarchyCommand extends $Command<
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserHierarchyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

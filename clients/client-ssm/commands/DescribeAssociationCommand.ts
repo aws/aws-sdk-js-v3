@@ -20,6 +20,13 @@ import {
 export type DescribeAssociationCommandInput = DescribeAssociationRequest;
 export type DescribeAssociationCommandOutput = DescribeAssociationResult & __MetadataBearer;
 
+/**
+ * <p>Describes the association for the specified target or instance. If you created the
+ *    association by using the <code>Targets</code> parameter, then you must retrieve the association
+ *    by using the association ID. If you created the association by specifying an instance ID and a
+ *    Systems Manager document, then you retrieve the association by specifying the document name and the
+ *    instance ID. </p>
+ */
 export class DescribeAssociationCommand extends $Command<
   DescribeAssociationCommandInput,
   DescribeAssociationCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeAssociationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

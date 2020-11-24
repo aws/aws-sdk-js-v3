@@ -20,6 +20,9 @@ import {
 export type CreateScriptCommandInput = CreateScriptRequest;
 export type CreateScriptCommandOutput = CreateScriptResponse & __MetadataBearer;
 
+/**
+ * <p>Transforms a directed acyclic graph (DAG) into code.</p>
+ */
 export class CreateScriptCommand extends $Command<
   CreateScriptCommandInput,
   CreateScriptCommandOutput,
@@ -34,6 +37,9 @@ export class CreateScriptCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

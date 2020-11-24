@@ -17,6 +17,10 @@ import {
 export type DeleteJobCommandInput = DeleteJobRequest;
 export type DeleteJobCommandOutput = DeleteJobResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified job definition. If the job definition
+ *       is not found, no exception is thrown.</p>
+ */
 export class DeleteJobCommand extends $Command<
   DeleteJobCommandInput,
   DeleteJobCommandOutput,
@@ -31,6 +35,9 @@ export class DeleteJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

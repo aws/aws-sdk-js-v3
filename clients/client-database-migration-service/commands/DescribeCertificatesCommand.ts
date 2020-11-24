@@ -24,6 +24,9 @@ import {
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
 export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a description of the certificate.</p>
+ */
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

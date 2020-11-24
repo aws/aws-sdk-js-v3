@@ -20,6 +20,9 @@ import {
 export type UnshareDirectoryCommandInput = UnshareDirectoryRequest;
 export type UnshareDirectoryCommandOutput = UnshareDirectoryResult & __MetadataBearer;
 
+/**
+ * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
+ */
 export class UnshareDirectoryCommand extends $Command<
   UnshareDirectoryCommandInput,
   UnshareDirectoryCommandOutput,
@@ -34,6 +37,9 @@ export class UnshareDirectoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

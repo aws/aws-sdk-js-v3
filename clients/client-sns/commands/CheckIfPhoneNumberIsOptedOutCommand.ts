@@ -20,6 +20,13 @@ import {
 export type CheckIfPhoneNumberIsOptedOutCommandInput = CheckIfPhoneNumberIsOptedOutInput;
 export type CheckIfPhoneNumberIsOptedOutCommandOutput = CheckIfPhoneNumberIsOptedOutResponse & __MetadataBearer;
 
+/**
+ * <p>Accepts a phone number and indicates whether the phone holder has opted out of
+ *             receiving SMS messages from your account. You cannot send SMS messages to a number that
+ *             is opted out.</p>
+ *         <p>To resume sending messages, you can opt in the number by using the
+ *                 <code>OptInPhoneNumber</code> action.</p>
+ */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
   CheckIfPhoneNumberIsOptedOutCommandInput,
   CheckIfPhoneNumberIsOptedOutCommandOutput,
@@ -34,6 +41,9 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RemoveIpRoutesCommandInput = RemoveIpRoutesRequest;
 export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult & __MetadataBearer;
 
+/**
+ * <p>Removes IP address blocks from a directory.</p>
+ */
 export class RemoveIpRoutesCommand extends $Command<
   RemoveIpRoutesCommandInput,
   RemoveIpRoutesCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveIpRoutesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

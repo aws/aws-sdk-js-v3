@@ -20,6 +20,9 @@ import {
 export type GetSegmentImportJobsCommandInput = GetSegmentImportJobsRequest;
 export type GetSegmentImportJobsCommandOutput = GetSegmentImportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
+ */
 export class GetSegmentImportJobsCommand extends $Command<
   GetSegmentImportJobsCommandInput,
   GetSegmentImportJobsCommandOutput,
@@ -34,6 +37,9 @@ export class GetSegmentImportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

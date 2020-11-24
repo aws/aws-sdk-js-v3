@@ -20,6 +20,9 @@ import {
 export type UpdateMultiplexCommandInput = UpdateMultiplexRequest;
 export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse & __MetadataBearer;
 
+/**
+ * Updates a multiplex.
+ */
 export class UpdateMultiplexCommand extends $Command<
   UpdateMultiplexCommandInput,
   UpdateMultiplexCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateMultiplexCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type ListApplicationVersionsCommandInput = ListApplicationVersionsRequest;
 export type ListApplicationVersionsCommandOutput = ListApplicationVersionsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists versions for the specified application.</p>
+ */
 export class ListApplicationVersionsCommand extends $Command<
   ListApplicationVersionsCommandInput,
   ListApplicationVersionsCommandOutput,
@@ -38,6 +41,9 @@ export class ListApplicationVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

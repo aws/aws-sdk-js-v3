@@ -20,6 +20,12 @@ import {
 export type IgnoresWrappingXmlNameCommandInput = {};
 export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput & __MetadataBearer;
 
+/**
+ * The xmlName trait on the output structure is ignored in AWS Query.
+ *
+ * The wrapping element is always operation name + "Response", and
+ * inside of that wrapper is another wrapper named operation name + "Result".
+ */
 export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandInput,
   IgnoresWrappingXmlNameCommandOutput,
@@ -34,6 +40,9 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,

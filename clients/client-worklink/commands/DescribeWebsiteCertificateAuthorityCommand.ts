@@ -24,6 +24,9 @@ export type DescribeWebsiteCertificateAuthorityCommandInput = DescribeWebsiteCer
 export type DescribeWebsiteCertificateAuthorityCommandOutput = DescribeWebsiteCertificateAuthorityResponse &
   __MetadataBearer;
 
+/**
+ * <p>Provides information about the certificate authority.</p>
+ */
 export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
   DescribeWebsiteCertificateAuthorityCommandInput,
   DescribeWebsiteCertificateAuthorityCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,

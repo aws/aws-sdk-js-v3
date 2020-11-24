@@ -20,6 +20,9 @@ import {
 export type DeleteTemplateCommandInput = DeleteTemplateRequest;
 export type DeleteTemplateCommandOutput = DeleteTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a template.</p>
+ */
 export class DeleteTemplateCommand extends $Command<
   DeleteTemplateCommandInput,
   DeleteTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteNotificationConfigurationCommandInput = DeleteNotificationConfigurationType;
 export type DeleteNotificationConfigurationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified notification.</p>
+ */
 export class DeleteNotificationConfigurationCommand extends $Command<
   DeleteNotificationConfigurationCommandInput,
   DeleteNotificationConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

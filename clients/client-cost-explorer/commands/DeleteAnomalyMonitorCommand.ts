@@ -20,6 +20,9 @@ import {
 export type DeleteAnomalyMonitorCommandInput = DeleteAnomalyMonitorRequest;
 export type DeleteAnomalyMonitorCommandOutput = DeleteAnomalyMonitorResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a cost anomaly monitor. </p>
+ */
 export class DeleteAnomalyMonitorCommand extends $Command<
   DeleteAnomalyMonitorCommandInput,
   DeleteAnomalyMonitorCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAnomalyMonitorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,

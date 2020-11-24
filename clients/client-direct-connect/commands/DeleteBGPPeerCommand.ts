@@ -20,6 +20,10 @@ import {
 export type DeleteBGPPeerCommandInput = DeleteBGPPeerRequest;
 export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
+ *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
+ */
 export class DeleteBGPPeerCommand extends $Command<
   DeleteBGPPeerCommandInput,
   DeleteBGPPeerCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteBGPPeerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

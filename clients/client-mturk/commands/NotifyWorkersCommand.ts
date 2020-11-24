@@ -20,6 +20,18 @@ import {
 export type NotifyWorkersCommandInput = NotifyWorkersRequest;
 export type NotifyWorkersCommandOutput = NotifyWorkersResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>NotifyWorkers</code>
+ *             operation sends an email to one or more Workers that you specify with
+ *             the Worker ID. You can specify up to 100 Worker IDs to send the same
+ *             message with a single call to the NotifyWorkers operation. The
+ *             NotifyWorkers operation will send a notification email to a Worker
+ *             only if you have previously approved or rejected work from the
+ *             Worker.
+ *         </p>
+ */
 export class NotifyWorkersCommand extends $Command<
   NotifyWorkersCommandInput,
   NotifyWorkersCommandOutput,
@@ -34,6 +46,9 @@ export class NotifyWorkersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

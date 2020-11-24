@@ -20,6 +20,10 @@ import {
 export type RejectInvitationCommandInput = RejectInvitationRequest;
 export type RejectInvitationCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
+ *          must be called by a member account that has the <code>INVITED</code> status.</p>
+ */
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,
   RejectInvitationCommandOutput,
@@ -34,6 +38,9 @@ export class RejectInvitationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type CreateIPSetCommandInput = CreateIPSetRequest;
 export type CreateIPSetCommandOutput = CreateIPSetResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
+ *       IPSet is a list of IP addresses that are trusted for secure communication with AWS
+ *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
+ *       included in IPSets. Only users from the master account can use this operation.</p>
+ */
 export class CreateIPSetCommand extends $Command<
   CreateIPSetCommandInput,
   CreateIPSetCommandOutput,
@@ -34,6 +40,9 @@ export class CreateIPSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

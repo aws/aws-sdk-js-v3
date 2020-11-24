@@ -24,6 +24,10 @@ import {
 export type ListTunnelsCommandInput = ListTunnelsRequest;
 export type ListTunnelsCommandOutput = ListTunnelsResponse & __MetadataBearer;
 
+/**
+ * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
+ * 			descending order, newer tunnels will be listed before older tunnels.</p>
+ */
 export class ListTunnelsCommand extends $Command<
   ListTunnelsCommandInput,
   ListTunnelsCommandOutput,
@@ -38,6 +42,9 @@ export class ListTunnelsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSecureTunnelingClientResolvedConfig,

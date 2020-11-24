@@ -20,6 +20,9 @@ import {
 export type CreateDBInstanceCommandInput = CreateDBInstanceMessage;
 export type CreateDBInstanceCommandOutput = CreateDBInstanceResult & __MetadataBearer;
 
+/**
+ * <p>Creates a new DB instance.</p>
+ */
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,
   CreateDBInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class CreateDBInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,

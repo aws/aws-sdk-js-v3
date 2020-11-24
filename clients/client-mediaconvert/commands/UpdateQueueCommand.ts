@@ -20,6 +20,9 @@ import {
 export type UpdateQueueCommandInput = UpdateQueueRequest;
 export type UpdateQueueCommandOutput = UpdateQueueResponse & __MetadataBearer;
 
+/**
+ * Modify one of your existing queues.
+ */
 export class UpdateQueueCommand extends $Command<
   UpdateQueueCommandInput,
   UpdateQueueCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateQueueCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

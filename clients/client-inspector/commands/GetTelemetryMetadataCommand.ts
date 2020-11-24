@@ -20,6 +20,10 @@ import {
 export type GetTelemetryMetadataCommandInput = GetTelemetryMetadataRequest;
 export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Information about the data that is collected for the specified assessment
+ *          run.</p>
+ */
 export class GetTelemetryMetadataCommand extends $Command<
   GetTelemetryMetadataCommandInput,
   GetTelemetryMetadataCommandOutput,
@@ -34,6 +38,9 @@ export class GetTelemetryMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

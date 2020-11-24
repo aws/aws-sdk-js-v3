@@ -20,6 +20,10 @@ import {
 export type GetNamedQueryCommandInput = GetNamedQueryInput;
 export type GetNamedQueryCommandOutput = GetNamedQueryOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a single query. Requires that you have access to the
+ *             workgroup in which the query was saved.</p>
+ */
 export class GetNamedQueryCommand extends $Command<
   GetNamedQueryCommandInput,
   GetNamedQueryCommandOutput,
@@ -34,6 +38,9 @@ export class GetNamedQueryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,

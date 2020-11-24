@@ -20,6 +20,9 @@ import {
 export type DescribeTemplateCommandInput = DescribeTemplateRequest;
 export type DescribeTemplateCommandOutput = DescribeTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a template's metadata.</p>
+ */
 export class DescribeTemplateCommand extends $Command<
   DescribeTemplateCommandInput,
   DescribeTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

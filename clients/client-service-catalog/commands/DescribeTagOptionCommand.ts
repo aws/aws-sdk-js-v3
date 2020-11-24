@@ -20,6 +20,9 @@ import {
 export type DescribeTagOptionCommandInput = DescribeTagOptionInput;
 export type DescribeTagOptionCommandOutput = DescribeTagOptionOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified TagOption.</p>
+ */
 export class DescribeTagOptionCommand extends $Command<
   DescribeTagOptionCommandInput,
   DescribeTagOptionCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTagOptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

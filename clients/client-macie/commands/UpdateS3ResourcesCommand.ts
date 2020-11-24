@@ -20,6 +20,13 @@ import {
 export type UpdateS3ResourcesCommandInput = UpdateS3ResourcesRequest;
 export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult & __MetadataBearer;
 
+/**
+ * <p>Updates the classification types for the specified S3 resources. If memberAccountId
+ *       isn't specified, the action updates the classification types of the S3 resources associated
+ *       with Amazon Macie Classic for the current master account. If memberAccountId is specified, the
+ *       action updates the classification types of the S3 resources associated with Amazon Macie
+ *       Classic for the specified member account. </p>
+ */
 export class UpdateS3ResourcesCommand extends $Command<
   UpdateS3ResourcesCommandInput,
   UpdateS3ResourcesCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateS3ResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,

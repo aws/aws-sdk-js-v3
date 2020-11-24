@@ -24,6 +24,14 @@ export type AttachManagedPolicyToPermissionSetCommandInput = AttachManagedPolicy
 export type AttachManagedPolicyToPermissionSetCommandOutput = AttachManagedPolicyToPermissionSetResponse &
   __MetadataBearer;
 
+/**
+ * <p>Attaches an IAM managed policy ARN to a permission set.</p>
+ *          <note>
+ *             <p>If the permission set is already referenced by one or more account assignments, you will need to call <code>
+ *                   <a>ProvisionPermissionSet</a>
+ *                </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p>
+ *          </note>
+ */
 export class AttachManagedPolicyToPermissionSetCommand extends $Command<
   AttachManagedPolicyToPermissionSetCommandInput,
   AttachManagedPolicyToPermissionSetCommandOutput,
@@ -38,6 +46,9 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

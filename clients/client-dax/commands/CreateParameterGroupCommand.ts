@@ -20,6 +20,10 @@ import {
 export type CreateParameterGroupCommandInput = CreateParameterGroupRequest;
 export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new parameter group. A parameter group is a collection of parameters that
+ *             you apply to all of the nodes in a DAX cluster.</p>
+ */
 export class CreateParameterGroupCommand extends $Command<
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput,
@@ -34,6 +38,9 @@ export class CreateParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,

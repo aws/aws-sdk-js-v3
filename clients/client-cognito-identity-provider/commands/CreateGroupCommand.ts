@@ -25,6 +25,10 @@ import {
 export type CreateGroupCommandInput = CreateGroupRequest;
 export type CreateGroupCommandOutput = CreateGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new group in the specified user pool.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,
   CreateGroupCommandOutput,
@@ -39,6 +43,9 @@ export class CreateGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

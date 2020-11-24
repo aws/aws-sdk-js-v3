@@ -20,6 +20,9 @@ import {
 export type DescribeDashboardPermissionsCommandInput = DescribeDashboardPermissionsRequest;
 export type DescribeDashboardPermissionsCommandOutput = DescribeDashboardPermissionsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes read and write permissions for a dashboard.</p>
+ */
 export class DescribeDashboardPermissionsCommand extends $Command<
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

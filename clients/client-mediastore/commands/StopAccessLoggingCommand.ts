@@ -20,6 +20,9 @@ import {
 export type StopAccessLoggingCommandInput = StopAccessLoggingInput;
 export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput & __MetadataBearer;
 
+/**
+ * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>
+ */
 export class StopAccessLoggingCommand extends $Command<
   StopAccessLoggingCommandInput,
   StopAccessLoggingCommandOutput,
@@ -34,6 +37,9 @@ export class StopAccessLoggingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeletePermissionSetCommandInput = DeletePermissionSetRequest;
 export type DeletePermissionSetCommandOutput = DeletePermissionSetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified permission set.</p>
+ */
 export class DeletePermissionSetCommand extends $Command<
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
@@ -34,6 +37,9 @@ export class DeletePermissionSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,

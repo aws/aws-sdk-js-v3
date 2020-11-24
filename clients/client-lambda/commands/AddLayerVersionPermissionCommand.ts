@@ -20,6 +20,14 @@ import {
 export type AddLayerVersionPermissionCommandInput = AddLayerVersionPermissionRequest;
 export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse & __MetadataBearer;
 
+/**
+ * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ *         layer</a>. Use this action to grant layer
+ *       usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all
+ *       accounts in an organization.</p>
+ *          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
+ *       specified when you added it.</p>
+ */
 export class AddLayerVersionPermissionCommand extends $Command<
   AddLayerVersionPermissionCommandInput,
   AddLayerVersionPermissionCommandOutput,
@@ -34,6 +42,9 @@ export class AddLayerVersionPermissionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

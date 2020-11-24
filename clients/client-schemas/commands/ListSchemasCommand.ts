@@ -20,6 +20,9 @@ import {
 export type ListSchemasCommandInput = ListSchemasRequest;
 export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>List the schemas.</p>
+ */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,
   ListSchemasCommandOutput,
@@ -34,6 +37,9 @@ export class ListSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

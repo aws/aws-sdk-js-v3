@@ -20,6 +20,9 @@ import {
 export type UpdateDataSourceCommandInput = UpdateDataSourceRequest;
 export type UpdateDataSourceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates an existing Amazon Kendra data source.</p>
+ */
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDataSourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,

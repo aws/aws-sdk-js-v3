@@ -20,6 +20,9 @@ import {
 export type GetRoomSkillParameterCommandInput = GetRoomSkillParameterRequest;
 export type GetRoomSkillParameterCommandOutput = GetRoomSkillParameterResponse & __MetadataBearer;
 
+/**
+ * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
+ */
 export class GetRoomSkillParameterCommand extends $Command<
   GetRoomSkillParameterCommandInput,
   GetRoomSkillParameterCommandOutput,
@@ -34,6 +37,9 @@ export class GetRoomSkillParameterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

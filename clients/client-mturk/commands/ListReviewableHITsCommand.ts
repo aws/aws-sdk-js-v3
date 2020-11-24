@@ -20,6 +20,12 @@ import {
 export type ListReviewableHITsCommandInput = ListReviewableHITsRequest;
 export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
+ *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
+ *         </p>
+ */
 export class ListReviewableHITsCommand extends $Command<
   ListReviewableHITsCommandInput,
   ListReviewableHITsCommandOutput,
@@ -34,6 +40,9 @@ export class ListReviewableHITsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListVocabularyFiltersCommandInput = ListVocabularyFiltersRequest;
 export type ListVocabularyFiltersCommandOutput = ListVocabularyFiltersResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about vocabulary filters.</p>
+ */
 export class ListVocabularyFiltersCommand extends $Command<
   ListVocabularyFiltersCommandInput,
   ListVocabularyFiltersCommandOutput,
@@ -34,6 +37,9 @@ export class ListVocabularyFiltersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,

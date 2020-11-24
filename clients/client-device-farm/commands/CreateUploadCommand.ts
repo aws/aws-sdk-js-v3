@@ -20,6 +20,9 @@ import {
 export type CreateUploadCommandInput = CreateUploadRequest;
 export type CreateUploadCommandOutput = CreateUploadResult & __MetadataBearer;
 
+/**
+ * <p>Uploads an app or test scripts.</p>
+ */
 export class CreateUploadCommand extends $Command<
   CreateUploadCommandInput,
   CreateUploadCommandOutput,
@@ -34,6 +37,9 @@ export class CreateUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

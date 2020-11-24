@@ -20,6 +20,36 @@ import {
 export type DescribeSecretCommandInput = DescribeSecretRequest;
 export type DescribeSecretCommandOutput = DescribeSecretResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details of a secret. It does not include the encrypted fields. Secrets
+ *       Manager only returns fields populated with a value in the response. </p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>secretsmanager:DescribeSecret</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>To create a secret, use <a>CreateSecret</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To modify a secret, use <a>UpdateSecret</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve the encrypted secret information in a version of the secret, use <a>GetSecretValue</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To list all of the secrets in the AWS account, use <a>ListSecrets</a>.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeSecretCommand extends $Command<
   DescribeSecretCommandInput,
   DescribeSecretCommandOutput,
@@ -34,6 +64,9 @@ export class DescribeSecretCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,

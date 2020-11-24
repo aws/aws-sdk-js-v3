@@ -20,6 +20,9 @@ import {
 export type GetRequestedServiceQuotaChangeCommandInput = GetRequestedServiceQuotaChangeRequest;
 export type GetRequestedServiceQuotaChangeCommandOutput = GetRequestedServiceQuotaChangeResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the details for a particular increase request. </p>
+ */
 export class GetRequestedServiceQuotaChangeCommand extends $Command<
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput,
@@ -34,6 +37,9 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,

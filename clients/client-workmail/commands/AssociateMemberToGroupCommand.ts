@@ -20,6 +20,9 @@ import {
 export type AssociateMemberToGroupCommandInput = AssociateMemberToGroupRequest;
 export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a member (user or group) to the group's set.</p>
+ */
 export class AssociateMemberToGroupCommand extends $Command<
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateMemberToGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

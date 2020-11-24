@@ -20,6 +20,9 @@ import {
 export type GetTypeCommandInput = GetTypeRequest;
 export type GetTypeCommandOutput = GetTypeResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves a <code>Type</code> object.</p>
+ */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -30,6 +33,9 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

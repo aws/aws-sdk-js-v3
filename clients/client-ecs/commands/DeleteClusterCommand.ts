@@ -20,6 +20,15 @@ import {
 export type DeleteClusterCommandInput = DeleteClusterRequest;
 export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the specified cluster. The cluster will transition to the
+ * 				<code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status may
+ * 			remain discoverable in your account for a period of time. However, this behavior is
+ * 			subject to change in the future, so you should not rely on <code>INACTIVE</code>
+ * 			clusters persisting.</p>
+ * 		       <p>You must deregister all container instances from this cluster before you may delete
+ * 			it. You can list the container instances in a cluster with <a>ListContainerInstances</a> and deregister them with <a>DeregisterContainerInstance</a>.</p>
+ */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,

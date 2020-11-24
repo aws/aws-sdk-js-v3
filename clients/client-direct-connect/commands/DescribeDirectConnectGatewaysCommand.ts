@@ -20,6 +20,9 @@ import {
 export type DescribeDirectConnectGatewaysCommandInput = DescribeDirectConnectGatewaysRequest;
 export type DescribeDirectConnectGatewaysCommandOutput = DescribeDirectConnectGatewaysResult & __MetadataBearer;
 
+/**
+ * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
+ */
 export class DescribeDirectConnectGatewaysCommand extends $Command<
   DescribeDirectConnectGatewaysCommandInput,
   DescribeDirectConnectGatewaysCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type DeleteFacetCommandInput = DeleteFacetRequest;
 export type DeleteFacetCommandOutput = DeleteFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
+ *       that are associated with the facet will be deleted. Only development schema facets are allowed
+ *       deletion.</p>
+ */
 export class DeleteFacetCommand extends $Command<
   DeleteFacetCommandInput,
   DeleteFacetCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

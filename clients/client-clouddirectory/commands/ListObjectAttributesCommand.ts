@@ -20,6 +20,10 @@ import {
 export type ListObjectAttributesCommandInput = ListObjectAttributesRequest;
 export type ListObjectAttributesCommandOutput = ListObjectAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all attributes that are associated with an object.
+ *       </p>
+ */
 export class ListObjectAttributesCommand extends $Command<
   ListObjectAttributesCommandInput,
   ListObjectAttributesCommandOutput,
@@ -34,6 +38,9 @@ export class ListObjectAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

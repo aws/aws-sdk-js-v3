@@ -20,6 +20,9 @@ import {
 export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
 export type DescribeExportTasksCommandOutput = DescribeExportTasksResult & __MetadataBearer;
 
+/**
+ * <p>Describes the specified export instance tasks or all of your export instance tasks.</p>
+ */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeExportTasksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type RemoveAttributesFromFindingsCommandInput = RemoveAttributesFromFindingsRequest;
 export type RemoveAttributesFromFindingsCommandOutput = RemoveAttributesFromFindingsResponse & __MetadataBearer;
 
+/**
+ * <p>Removes entire attributes (key and value pairs) from the findings that are specified
+ *          by the ARNs of the findings where an attribute with the specified key exists.</p>
+ */
 export class RemoveAttributesFromFindingsCommand extends $Command<
   RemoveAttributesFromFindingsCommandInput,
   RemoveAttributesFromFindingsCommandOutput,
@@ -34,6 +38,9 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

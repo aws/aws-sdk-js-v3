@@ -4,6 +4,9 @@ import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput }
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
   input: ListPortalsCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPortalsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: IoTSiteWise,
   input: ListPortalsCommandInput,

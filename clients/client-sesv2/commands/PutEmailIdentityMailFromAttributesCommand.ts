@@ -24,6 +24,10 @@ export type PutEmailIdentityMailFromAttributesCommandInput = PutEmailIdentityMai
 export type PutEmailIdentityMailFromAttributesCommandOutput = PutEmailIdentityMailFromAttributesResponse &
   __MetadataBearer;
 
+/**
+ * <p>Used to enable or disable the custom Mail-From domain configuration for an email
+ *             identity.</p>
+ */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command<
   PutEmailIdentityMailFromAttributesCommandInput,
   PutEmailIdentityMailFromAttributesCommandOutput,
@@ -38,6 +42,9 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

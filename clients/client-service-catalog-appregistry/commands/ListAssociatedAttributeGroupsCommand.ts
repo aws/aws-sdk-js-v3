@@ -24,6 +24,9 @@ import {
 export type ListAssociatedAttributeGroupsCommandInput = ListAssociatedAttributeGroupsRequest;
 export type ListAssociatedAttributeGroupsCommandOutput = ListAssociatedAttributeGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
+ */
 export class ListAssociatedAttributeGroupsCommand extends $Command<
   ListAssociatedAttributeGroupsCommandInput,
   ListAssociatedAttributeGroupsCommandOutput,
@@ -38,6 +41,9 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,

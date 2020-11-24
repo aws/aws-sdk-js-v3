@@ -20,6 +20,11 @@ import {
 export type DescribeWorkteamCommandInput = DescribeWorkteamRequest;
 export type DescribeWorkteamCommandOutput = DescribeWorkteamResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specific work team. You can see information such as the
+ *             create date, the last updated date, membership information, and the work team's Amazon
+ *             Resource Name (ARN).</p>
+ */
 export class DescribeWorkteamCommand extends $Command<
   DescribeWorkteamCommandInput,
   DescribeWorkteamCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeWorkteamCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

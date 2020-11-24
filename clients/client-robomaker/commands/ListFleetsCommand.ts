@@ -20,6 +20,10 @@ import {
 export type ListFleetsCommandInput = ListFleetsRequest;
 export type ListFleetsCommandOutput = ListFleetsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of fleets. You can optionally provide filters to retrieve
+ *          specific fleets. </p>
+ */
 export class ListFleetsCommand extends $Command<
   ListFleetsCommandInput,
   ListFleetsCommandOutput,
@@ -34,6 +38,9 @@ export class ListFleetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

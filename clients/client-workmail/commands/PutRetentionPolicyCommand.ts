@@ -20,6 +20,9 @@ import {
 export type PutRetentionPolicyCommandInput = PutRetentionPolicyRequest;
 export type PutRetentionPolicyCommandOutput = PutRetentionPolicyResponse & __MetadataBearer;
 
+/**
+ * <p>Puts a retention policy to the specified organization.</p>
+ */
 export class PutRetentionPolicyCommand extends $Command<
   PutRetentionPolicyCommandInput,
   PutRetentionPolicyCommandOutput,
@@ -34,6 +37,9 @@ export class PutRetentionPolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

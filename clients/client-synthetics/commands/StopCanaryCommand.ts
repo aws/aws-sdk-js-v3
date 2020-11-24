@@ -20,6 +20,14 @@ import {
 export type StopCanaryCommandInput = StopCanaryRequest;
 export type StopCanaryCommandOutput = StopCanaryResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the canary to prevent all future runs. If the canary is currently running,
+ *          Synthetics stops waiting for the current run of the specified canary to complete. The
+ *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
+ *          it is not recorded in Synthetics as a completed run.</p>
+ *          <p>You can use <code>StartCanary</code> to start it running again
+ *          with the canary’s current schedule at any point in the future.  </p>
+ */
 export class StopCanaryCommand extends $Command<
   StopCanaryCommandInput,
   StopCanaryCommandOutput,
@@ -34,6 +42,9 @@ export class StopCanaryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SyntheticsClientResolvedConfig,

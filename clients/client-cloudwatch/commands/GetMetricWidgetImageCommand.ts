@@ -20,6 +20,26 @@ import {
 export type GetMetricWidgetImageCommandInput = GetMetricWidgetImageInput;
 export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput & __MetadataBearer;
 
+/**
+ * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
+ * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
+ * 			image into your services and products, such as wiki pages, reports, and documents.
+ * 			You could also retrieve images regularly, such as every minute, and create your own
+ * 			custom live dashboard.</p>
+ *
+ * 		       <p>The graph you retrieve can include all CloudWatch metric graph features, including metric math
+ * 		and horizontal and vertical annotations.</p>
+ *
+ * 		       <p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>As many as 100 metrics in the graph.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Up to 100 KB uncompressed payload.</p>
+ * 			         </li>
+ *          </ul>
+ */
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
@@ -34,6 +54,9 @@ export class GetMetricWidgetImageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,

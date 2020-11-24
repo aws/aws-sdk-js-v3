@@ -24,6 +24,10 @@ import {
 export type ListDeviceEventsCommandInput = ListDeviceEventsRequest;
 export type ListDeviceEventsCommandOutput = ListDeviceEventsResponse & __MetadataBearer;
 
+/**
+ * <p>Using a device ID, returns a DeviceEventsResponse object containing an
+ *  array of events for the device.</p>
+ */
 export class ListDeviceEventsCommand extends $Command<
   ListDeviceEventsCommandInput,
   ListDeviceEventsCommandOutput,
@@ -38,6 +42,9 @@ export class ListDeviceEventsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

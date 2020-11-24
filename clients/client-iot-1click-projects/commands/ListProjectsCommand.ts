@@ -24,6 +24,9 @@ import {
 export type ListProjectsCommandInput = ListProjectsRequest;
 export type ListProjectsCommandOutput = ListProjectsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
+ */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
@@ -38,6 +41,9 @@ export class ListProjectsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

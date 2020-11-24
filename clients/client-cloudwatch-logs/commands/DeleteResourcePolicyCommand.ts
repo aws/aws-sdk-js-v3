@@ -20,6 +20,10 @@ import {
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
 export type DeleteResourcePolicyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a resource policy from this account. This revokes
+ *     the access of the identities in that policy to put log events to this account.</p>
+ */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -20,6 +20,23 @@ import {
 export type DeleteSnapshotScheduleCommandInput = DeleteSnapshotScheduleInput;
 export type DeleteSnapshotScheduleCommandOutput = DeleteSnapshotScheduleOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a snapshot of a volume.</p>
+ *
+ *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
+ *          action enables you to delete a snapshot schedule for a volume. For more information, see
+ *             <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing up your
+ *             volumes</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify the
+ *          volume by providing its Amazon Resource Name (ARN). This operation is only supported in
+ *          stored and cached volume gateway types.</p>
+ *
+ *          <note>
+ *
+ *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
+ *             go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
+ *             in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
+ *          </note>
+ */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput,
@@ -34,6 +51,9 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

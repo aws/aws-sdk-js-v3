@@ -20,6 +20,9 @@ import {
 export type DeleteSubscriptionFilterCommandInput = DeleteSubscriptionFilterRequest;
 export type DeleteSubscriptionFilterCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified subscription filter.</p>
+ */
 export class DeleteSubscriptionFilterCommand extends $Command<
   DeleteSubscriptionFilterCommandInput,
   DeleteSubscriptionFilterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSubscriptionFilterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

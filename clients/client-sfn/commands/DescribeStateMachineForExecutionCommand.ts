@@ -20,6 +20,13 @@ import {
 export type DescribeStateMachineForExecutionCommandInput = DescribeStateMachineForExecutionInput;
 export type DescribeStateMachineForExecutionCommandOutput = DescribeStateMachineForExecutionOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the state machine associated with a specific execution.</p>
+ *          <note>
+ *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
+ *          </note>
+ *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ */
 export class DescribeStateMachineForExecutionCommand extends $Command<
   DescribeStateMachineForExecutionCommandInput,
   DescribeStateMachineForExecutionCommandOutput,
@@ -34,6 +41,9 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,

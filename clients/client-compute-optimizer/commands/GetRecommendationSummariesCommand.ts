@@ -20,6 +20,12 @@ import {
 export type GetRecommendationSummariesCommandInput = GetRecommendationSummariesRequest;
 export type GetRecommendationSummariesCommandOutput = GetRecommendationSummariesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the optimization findings for an account.</p>
+ *         <p>For example, it returns the number of Amazon EC2 instances in an account that are
+ *             under-provisioned, over-provisioned, or optimized. It also returns the number of Auto Scaling
+ *             groups in an account that are not optimized, or optimized.</p>
+ */
 export class GetRecommendationSummariesCommand extends $Command<
   GetRecommendationSummariesCommandInput,
   GetRecommendationSummariesCommandOutput,
@@ -34,6 +40,9 @@ export class GetRecommendationSummariesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,

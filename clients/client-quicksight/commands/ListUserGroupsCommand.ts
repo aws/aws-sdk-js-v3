@@ -20,6 +20,9 @@ import {
 export type ListUserGroupsCommandInput = ListUserGroupsRequest;
 export type ListUserGroupsCommandOutput = ListUserGroupsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
+ */
 export class ListUserGroupsCommand extends $Command<
   ListUserGroupsCommandInput,
   ListUserGroupsCommandOutput,
@@ -34,6 +37,9 @@ export class ListUserGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,

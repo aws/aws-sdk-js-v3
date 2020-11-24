@@ -20,6 +20,10 @@ import {
 export type ListChangedBlocksCommandInput = ListChangedBlocksRequest;
 export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the blocks that are different between two
+ *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
+ */
 export class ListChangedBlocksCommand extends $Command<
   ListChangedBlocksCommandInput,
   ListChangedBlocksCommandOutput,
@@ -34,6 +38,9 @@ export class ListChangedBlocksCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EBSClientResolvedConfig,

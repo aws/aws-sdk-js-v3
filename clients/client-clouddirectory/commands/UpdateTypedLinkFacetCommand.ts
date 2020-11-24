@@ -20,6 +20,9 @@ import {
 export type UpdateTypedLinkFacetCommandInput = UpdateTypedLinkFacetRequest;
 export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ */
 export class UpdateTypedLinkFacetCommand extends $Command<
   UpdateTypedLinkFacetCommandInput,
   UpdateTypedLinkFacetCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

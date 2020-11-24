@@ -20,6 +20,9 @@ import {
 export type SendUsersMessagesCommandInput = SendUsersMessagesRequest;
 export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and sends a message to a list of users.</p>
+ */
 export class SendUsersMessagesCommand extends $Command<
   SendUsersMessagesCommandInput,
   SendUsersMessagesCommandOutput,
@@ -34,6 +37,9 @@ export class SendUsersMessagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

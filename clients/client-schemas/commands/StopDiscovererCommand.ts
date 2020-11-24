@@ -20,6 +20,9 @@ import {
 export type StopDiscovererCommandInput = StopDiscovererRequest;
 export type StopDiscovererCommandOutput = StopDiscovererResponse & __MetadataBearer;
 
+/**
+ * <p>Stops the discoverer</p>
+ */
 export class StopDiscovererCommand extends $Command<
   StopDiscovererCommandInput,
   StopDiscovererCommandOutput,
@@ -34,6 +37,9 @@ export class StopDiscovererCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SchemasClientResolvedConfig,

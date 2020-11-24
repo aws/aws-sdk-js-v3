@@ -20,6 +20,15 @@ import {
 export type CreateQualificationTypeCommandInput = CreateQualificationTypeRequest;
 export type CreateQualificationTypeCommandOutput = CreateQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The
+ *             <code>CreateQualificationType</code>
+ *             operation creates a new Qualification type, which is represented by a
+ *             <code>QualificationType</code>
+ *             data structure.
+ *         </p>
+ */
 export class CreateQualificationTypeCommand extends $Command<
   CreateQualificationTypeCommandInput,
   CreateQualificationTypeCommandOutput,
@@ -34,6 +43,9 @@ export class CreateQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

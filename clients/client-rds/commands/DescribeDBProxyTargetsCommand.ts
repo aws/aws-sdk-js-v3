@@ -20,6 +20,9 @@ import {
 export type DescribeDBProxyTargetsCommandInput = DescribeDBProxyTargetsRequest;
 export type DescribeDBProxyTargetsCommandOutput = DescribeDBProxyTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
+ */
 export class DescribeDBProxyTargetsCommand extends $Command<
   DescribeDBProxyTargetsCommandInput,
   DescribeDBProxyTargetsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeDBProxyTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,

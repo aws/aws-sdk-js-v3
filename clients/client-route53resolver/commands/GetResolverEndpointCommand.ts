@@ -20,6 +20,10 @@ import {
 export type GetResolverEndpointCommandInput = GetResolverEndpointRequest;
 export type GetResolverEndpointCommandOutput = GetResolverEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
+ * 			current status of the endpoint.</p>
+ */
 export class GetResolverEndpointCommand extends $Command<
   GetResolverEndpointCommandInput,
   GetResolverEndpointCommandOutput,
@@ -34,6 +38,9 @@ export class GetResolverEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,

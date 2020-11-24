@@ -20,6 +20,15 @@ import {
 export type DeleteEntityRecognizerCommandInput = DeleteEntityRecognizerRequest;
 export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an entity recognizer.</p>
+ *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
+ *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
+ *       returned.</p>
+ *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is
+ *       then removed by a background job. Once removed, the recognizer disappears from your account
+ *       and is no longer available for use. </p>
+ */
 export class DeleteEntityRecognizerCommand extends $Command<
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput,
@@ -34,6 +43,9 @@ export class DeleteEntityRecognizerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

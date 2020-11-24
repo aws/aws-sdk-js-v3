@@ -20,6 +20,10 @@ import {
 export type DescribeClusterCommandInput = DescribeClusterRequest;
 export type DescribeClusterCommandOutput = DescribeClusterResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specific cluster including shipping information, cluster
+ *       status, and other important metadata.</p>
+ */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,

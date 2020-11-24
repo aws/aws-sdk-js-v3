@@ -20,6 +20,9 @@ import {
 export type DeleteSuggesterCommandInput = DeleteSuggesterRequest;
 export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ */
 export class DeleteSuggesterCommand extends $Command<
   DeleteSuggesterCommandInput,
   DeleteSuggesterCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteSuggesterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,

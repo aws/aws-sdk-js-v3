@@ -20,6 +20,9 @@ import {
 export type DescribeWorldExportJobCommandInput = DescribeWorldExportJobRequest;
 export type DescribeWorldExportJobCommandOutput = DescribeWorldExportJobResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a world export job.</p>
+ */
 export class DescribeWorldExportJobCommand extends $Command<
   DescribeWorldExportJobCommandInput,
   DescribeWorldExportJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeWorldExportJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

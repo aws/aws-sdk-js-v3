@@ -20,6 +20,16 @@ import {
 export type DescribeOrganizationCommandInput = {};
 export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the organization that the user's account belongs
+ *             to.</p>
+ *         <p>This operation can be called from any account in the organization.</p>
+ *         <note>
+ *             <p>Even if a policy type is shown as available in the organization, you can disable
+ *                 it separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified
+ *                 root.</p>
+ *         </note>
+ */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
@@ -34,6 +44,9 @@ export class DescribeOrganizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

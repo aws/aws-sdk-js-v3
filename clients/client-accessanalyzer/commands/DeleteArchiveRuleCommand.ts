@@ -20,6 +20,9 @@ import {
 export type DeleteArchiveRuleCommandInput = DeleteArchiveRuleRequest;
 export type DeleteArchiveRuleCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified archive rule.</p>
+ */
 export class DeleteArchiveRuleCommand extends $Command<
   DeleteArchiveRuleCommandInput,
   DeleteArchiveRuleCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteArchiveRuleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,

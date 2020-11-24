@@ -20,6 +20,14 @@ import {
 export type DescribeTableRestoreStatusCommandInput = DescribeTableRestoreStatusMessage;
 export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage & __MetadataBearer;
 
+/**
+ * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
+ *             for the <code>TableRestoreRequestId</code> parameter, then
+ *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
+ *             requests ordered by the date and time of the request in ascending order. Otherwise
+ *                 <code>DescribeTableRestoreStatus</code> returns the status of the table specified by
+ *                 <code>TableRestoreRequestId</code>.</p>
+ */
 export class DescribeTableRestoreStatusCommand extends $Command<
   DescribeTableRestoreStatusCommandInput,
   DescribeTableRestoreStatusCommandOutput,
@@ -34,6 +42,9 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

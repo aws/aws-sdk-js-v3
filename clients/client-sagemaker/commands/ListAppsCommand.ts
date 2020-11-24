@@ -17,6 +17,9 @@ import {
 export type ListAppsCommandInput = ListAppsRequest;
 export type ListAppsCommandOutput = ListAppsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists apps.</p>
+ */
 export class ListAppsCommand extends $Command<
   ListAppsCommandInput,
   ListAppsCommandOutput,
@@ -31,6 +34,9 @@ export class ListAppsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type GetInstancesCommandInput = GetInstancesRequest;
 export type GetInstancesCommandOutput = GetInstancesResult & __MetadataBearer;
 
+/**
+ * <p>Returns information about all Amazon Lightsail virtual private servers, or
+ *         <i>instances</i>.</p>
+ */
 export class GetInstancesCommand extends $Command<
   GetInstancesCommandInput,
   GetInstancesCommandOutput,
@@ -34,6 +38,9 @@ export class GetInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

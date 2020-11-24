@@ -20,6 +20,9 @@ import {
 export type GetApprovalRuleTemplateCommandInput = GetApprovalRuleTemplateInput;
 export type GetApprovalRuleTemplateCommandOutput = GetApprovalRuleTemplateOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specified approval rule template.</p>
+ */
 export class GetApprovalRuleTemplateCommand extends $Command<
   GetApprovalRuleTemplateCommandInput,
   GetApprovalRuleTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

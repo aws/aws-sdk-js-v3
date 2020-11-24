@@ -20,6 +20,14 @@ import {
 export type GetKeyGroupConfigCommandInput = GetKeyGroupConfigRequest;
 export type GetKeyGroupConfigCommandOutput = GetKeyGroupConfigResult & __MetadataBearer;
 
+/**
+ * <p>Gets a key group configuration.</p>
+ * 		       <p>To get a key group configuration, you must provide the key group’s identifier. If the
+ * 			key group is referenced in a distribution’s cache behavior, you can get the key group’s
+ * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+ * 			key group is not referenced in a cache behavior, you can get the identifier using
+ * 			<code>ListKeyGroups</code>.</p>
+ */
 export class GetKeyGroupConfigCommand extends $Command<
   GetKeyGroupConfigCommandInput,
   GetKeyGroupConfigCommandOutput,
@@ -34,6 +42,9 @@ export class GetKeyGroupConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,

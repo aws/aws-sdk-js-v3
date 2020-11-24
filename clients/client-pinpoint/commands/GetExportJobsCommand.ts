@@ -20,6 +20,9 @@ import {
 export type GetExportJobsCommandInput = GetExportJobsRequest;
 export type GetExportJobsCommandOutput = GetExportJobsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
+ */
 export class GetExportJobsCommand extends $Command<
   GetExportJobsCommandInput,
   GetExportJobsCommandOutput,
@@ -34,6 +37,9 @@ export class GetExportJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

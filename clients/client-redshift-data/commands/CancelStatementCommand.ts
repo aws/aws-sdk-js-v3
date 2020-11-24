@@ -20,6 +20,9 @@ import {
 export type CancelStatementCommandInput = CancelStatementRequest;
 export type CancelStatementCommandOutput = CancelStatementResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a running query. To be canceled, a query must be running. </p>
+ */
 export class CancelStatementCommand extends $Command<
   CancelStatementCommandInput,
   CancelStatementCommandOutput,
@@ -34,6 +37,9 @@ export class CancelStatementCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftDataClientResolvedConfig,

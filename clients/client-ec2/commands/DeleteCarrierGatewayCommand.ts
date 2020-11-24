@@ -20,6 +20,14 @@ import {
 export type DeleteCarrierGatewayCommandInput = DeleteCarrierGatewayRequest;
 export type DeleteCarrierGatewayCommandOutput = DeleteCarrierGatewayResult & __MetadataBearer;
 
+/**
+ * <p>Deletes a carrier gateway.</p>
+ *         <important>
+ *             <p>If you do not delete the route that contains the carrier gateway as the
+ *                 Target, the route is a blackhole route. For information about how to delete a route, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html">DeleteRoute</a>.</p>
+ *         </important>
+ */
 export class DeleteCarrierGatewayCommand extends $Command<
   DeleteCarrierGatewayCommandInput,
   DeleteCarrierGatewayCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteCarrierGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

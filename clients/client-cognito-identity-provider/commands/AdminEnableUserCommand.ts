@@ -25,6 +25,10 @@ import {
 export type AdminEnableUserCommandInput = AdminEnableUserRequest;
 export type AdminEnableUserCommandOutput = AdminEnableUserResponse & __MetadataBearer;
 
+/**
+ * <p>Enables the specified user as an administrator. Works on any user.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminEnableUserCommand extends $Command<
   AdminEnableUserCommandInput,
   AdminEnableUserCommandOutput,
@@ -39,6 +43,9 @@ export class AdminEnableUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeProductAsAdminCommandInput = DescribeProductAsAdminInput;
 export type DescribeProductAsAdminCommandOutput = DescribeProductAsAdminOutput & __MetadataBearer;
 
+/**
+ * <p>Gets information about the specified product. This operation is run with administrator access.</p>
+ */
 export class DescribeProductAsAdminCommand extends $Command<
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProductAsAdminCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteContainerServiceCommandInput = DeleteContainerServiceRequest;
 export type DeleteContainerServiceCommandOutput = DeleteContainerServiceResult & __MetadataBearer;
 
+/**
+ * <p>Deletes your Amazon Lightsail container service.</p>
+ */
 export class DeleteContainerServiceCommand extends $Command<
   DeleteContainerServiceCommandInput,
   DeleteContainerServiceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteContainerServiceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

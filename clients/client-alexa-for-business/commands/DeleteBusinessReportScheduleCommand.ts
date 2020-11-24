@@ -20,6 +20,10 @@ import {
 export type DeleteBusinessReportScheduleCommandInput = DeleteBusinessReportScheduleRequest;
 export type DeleteBusinessReportScheduleCommandOutput = DeleteBusinessReportScheduleResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the recurring report delivery schedule with the specified schedule
+ *          ARN.</p>
+ */
 export class DeleteBusinessReportScheduleCommand extends $Command<
   DeleteBusinessReportScheduleCommandInput,
   DeleteBusinessReportScheduleCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,

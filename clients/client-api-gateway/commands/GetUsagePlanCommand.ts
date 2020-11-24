@@ -20,6 +20,9 @@ import {
 export type GetUsagePlanCommandInput = GetUsagePlanRequest;
 export type GetUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
 
+/**
+ * <p>Gets a usage plan of a given plan identifier.</p>
+ */
 export class GetUsagePlanCommand extends $Command<
   GetUsagePlanCommandInput,
   GetUsagePlanCommandOutput,
@@ -34,6 +37,9 @@ export class GetUsagePlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

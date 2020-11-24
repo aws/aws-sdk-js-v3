@@ -21,6 +21,10 @@ import {
 export type GetHostCommandInput = GetHostInput;
 export type GetHostCommandOutput = GetHostOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
+ *       applicable, the VPC configuration.</p>
+ */
 export class GetHostCommand extends $Command<
   GetHostCommandInput,
   GetHostCommandOutput,
@@ -35,6 +39,9 @@ export class GetHostCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarConnectionsClientResolvedConfig,

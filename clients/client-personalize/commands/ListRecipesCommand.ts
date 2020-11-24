@@ -20,6 +20,10 @@ import {
 export type ListRecipesCommandInput = ListRecipesRequest;
 export type ListRecipesCommandOutput = ListRecipesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of available recipes. The response provides the properties
+ *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
+ */
 export class ListRecipesCommand extends $Command<
   ListRecipesCommandInput,
   ListRecipesCommandOutput,
@@ -34,6 +38,9 @@ export class ListRecipesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

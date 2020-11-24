@@ -20,6 +20,12 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointInput;
 export type DeleteEndpointCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the
+ *             endpoint was created. </p>
+ *         <p>Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
+ *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -34,6 +40,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

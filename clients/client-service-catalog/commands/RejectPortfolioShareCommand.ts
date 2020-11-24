@@ -20,6 +20,9 @@ import {
 export type RejectPortfolioShareCommandInput = RejectPortfolioShareInput;
 export type RejectPortfolioShareCommandOutput = RejectPortfolioShareOutput & __MetadataBearer;
 
+/**
+ * <p>Rejects an offer to share the specified portfolio.</p>
+ */
 export class RejectPortfolioShareCommand extends $Command<
   RejectPortfolioShareCommandInput,
   RejectPortfolioShareCommandOutput,
@@ -34,6 +37,9 @@ export class RejectPortfolioShareCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

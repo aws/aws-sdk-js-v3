@@ -20,6 +20,10 @@ import {
 export type DeleteEndpointCommandInput = DeleteEndpointRequest;
 export type DeleteEndpointCommandOutput = DeleteEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
+ *       must be deleted in order for the model to be deleted.</p>
+ */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

@@ -20,6 +20,12 @@ import {
 export type ListSolutionsCommandInput = ListSolutionsRequest;
 export type ListSolutionsCommandOutput = ListSolutionsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of solutions that use the given dataset group.
+ *       When a dataset group is not specified, all the solutions associated with the account are listed.
+ *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
+ *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ */
 export class ListSolutionsCommand extends $Command<
   ListSolutionsCommandInput,
   ListSolutionsCommandOutput,
@@ -34,6 +40,9 @@ export class ListSolutionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

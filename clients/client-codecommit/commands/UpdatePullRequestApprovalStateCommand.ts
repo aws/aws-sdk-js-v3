@@ -20,6 +20,9 @@ import {
 export type UpdatePullRequestApprovalStateCommandInput = UpdatePullRequestApprovalStateInput;
 export type UpdatePullRequestApprovalStateCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
+ */
 export class UpdatePullRequestApprovalStateCommand extends $Command<
   UpdatePullRequestApprovalStateCommandInput,
   UpdatePullRequestApprovalStateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

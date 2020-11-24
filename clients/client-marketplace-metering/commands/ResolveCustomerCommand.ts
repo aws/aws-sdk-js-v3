@@ -24,6 +24,12 @@ import {
 export type ResolveCustomerCommandInput = ResolveCustomerRequest;
 export type ResolveCustomerCommandOutput = ResolveCustomerResult & __MetadataBearer;
 
+/**
+ * <p>ResolveCustomer is called by a SaaS application during the registration process.
+ *             When a buyer visits your website during the registration process, the buyer submits a
+ *             registration token through their browser. The registration token is resolved through
+ *             this API to obtain a CustomerIdentifier and product code.</p>
+ */
 export class ResolveCustomerCommand extends $Command<
   ResolveCustomerCommandInput,
   ResolveCustomerCommandOutput,
@@ -38,6 +44,9 @@ export class ResolveCustomerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceMeteringClientResolvedConfig,

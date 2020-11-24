@@ -20,6 +20,10 @@ import {
 export type GetFacetCommandInput = GetFacetRequest;
 export type GetFacetCommandOutput = GetFacetResponse & __MetadataBearer;
 
+/**
+ * <p>Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or <code>ObjectType</code>. You can call this on all kinds of schema
+ *       facets -- published, development, or applied.</p>
+ */
 export class GetFacetCommand extends $Command<
   GetFacetCommandInput,
   GetFacetCommandOutput,
@@ -34,6 +38,9 @@ export class GetFacetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

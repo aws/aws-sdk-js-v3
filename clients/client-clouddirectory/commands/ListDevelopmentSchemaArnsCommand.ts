@@ -20,6 +20,10 @@ import {
 export type ListDevelopmentSchemaArnsCommandInput = ListDevelopmentSchemaArnsRequest;
 export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
+ *       state.</p>
+ */
 export class ListDevelopmentSchemaArnsCommand extends $Command<
   ListDevelopmentSchemaArnsCommandInput,
   ListDevelopmentSchemaArnsCommandOutput,
@@ -34,6 +38,9 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,

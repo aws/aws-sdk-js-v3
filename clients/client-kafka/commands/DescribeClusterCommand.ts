@@ -20,6 +20,9 @@ import {
 export type DescribeClusterCommandInput = DescribeClusterRequest;
 export type DescribeClusterCommandOutput = DescribeClusterResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
+ */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeClusterCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,

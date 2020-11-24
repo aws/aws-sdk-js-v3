@@ -24,6 +24,9 @@ export type ListServiceActionsForProvisioningArtifactCommandInput = ListServiceA
 export type ListServiceActionsForProvisioningArtifactCommandOutput = ListServiceActionsForProvisioningArtifactOutput &
   __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
+ */
 export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
   ListServiceActionsForProvisioningArtifactCommandInput,
   ListServiceActionsForProvisioningArtifactCommandOutput,
@@ -38,6 +41,9 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

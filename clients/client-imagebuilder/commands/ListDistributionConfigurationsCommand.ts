@@ -20,6 +20,9 @@ import {
 export type ListDistributionConfigurationsCommandInput = ListDistributionConfigurationsRequest;
 export type ListDistributionConfigurationsCommandOutput = ListDistributionConfigurationsResponse & __MetadataBearer;
 
+/**
+ * <p> Returns a list of distribution configurations. </p>
+ */
 export class ListDistributionConfigurationsCommand extends $Command<
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class ListDistributionConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,

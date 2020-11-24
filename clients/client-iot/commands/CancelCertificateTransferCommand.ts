@@ -20,6 +20,16 @@ import {
 export type CancelCertificateTransferCommandInput = CancelCertificateTransferRequest;
 export type CancelCertificateTransferCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Cancels a pending transfer for the specified certificate.</p>
+ *          <p>
+ *             <b>Note</b> Only the transfer source account can use this
+ *          operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the
+ *          certificate to the source account in the INACTIVE state. After the destination account has
+ *          accepted the transfer, the transfer cannot be cancelled.</p>
+ *          <p>After a certificate transfer is cancelled, the status of the certificate changes from
+ *          PENDING_TRANSFER to INACTIVE.</p>
+ */
 export class CancelCertificateTransferCommand extends $Command<
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput,
@@ -34,6 +44,9 @@ export class CancelCertificateTransferCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type UpdateVoiceConnectorGroupCommandInput = UpdateVoiceConnectorGroupRequest;
 export type UpdateVoiceConnectorGroupCommandOutput = UpdateVoiceConnectorGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Updates details for the specified Amazon Chime Voice Connector group, such as the name
+ *       and Amazon Chime Voice Connector priority ranking.</p>
+ */
 export class UpdateVoiceConnectorGroupCommand extends $Command<
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
@@ -34,6 +38,9 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

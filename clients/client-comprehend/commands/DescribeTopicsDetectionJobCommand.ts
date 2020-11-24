@@ -20,6 +20,10 @@ import {
 export type DescribeTopicsDetectionJobCommandInput = DescribeTopicsDetectionJobRequest;
 export type DescribeTopicsDetectionJobCommandOutput = DescribeTopicsDetectionJobResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the properties associated with a topic detection job. Use this operation to get
+ *       the status of a detection job.</p>
+ */
 export class DescribeTopicsDetectionJobCommand extends $Command<
   DescribeTopicsDetectionJobCommandInput,
   DescribeTopicsDetectionJobCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,

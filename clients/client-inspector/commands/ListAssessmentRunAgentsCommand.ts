@@ -20,6 +20,10 @@ import {
 export type ListAssessmentRunAgentsCommandInput = ListAssessmentRunAgentsRequest;
 export type ListAssessmentRunAgentsCommandOutput = ListAssessmentRunAgentsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
+ *          assessment runs.</p>
+ */
 export class ListAssessmentRunAgentsCommand extends $Command<
   ListAssessmentRunAgentsCommandInput,
   ListAssessmentRunAgentsCommandOutput,
@@ -34,6 +38,9 @@ export class ListAssessmentRunAgentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -20,6 +20,18 @@ import {
 export type DescribeLifecycleHookTypesCommandInput = {};
 export type DescribeLifecycleHookTypesCommandOutput = DescribeLifecycleHookTypesAnswer & __MetadataBearer;
 
+/**
+ * <p>Describes the available types of lifecycle hooks.</p>
+ *         <p>The following hook types are supported:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>autoscaling:EC2_INSTANCE_LAUNCHING</p>
+ *             </li>
+ *             <li>
+ *                 <p>autoscaling:EC2_INSTANCE_TERMINATING</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribeLifecycleHookTypesCommand extends $Command<
   DescribeLifecycleHookTypesCommandInput,
   DescribeLifecycleHookTypesCommandOutput,
@@ -34,6 +46,9 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,

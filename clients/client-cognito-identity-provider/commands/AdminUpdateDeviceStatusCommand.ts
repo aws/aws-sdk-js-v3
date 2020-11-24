@@ -25,6 +25,10 @@ import {
 export type AdminUpdateDeviceStatusCommandInput = AdminUpdateDeviceStatusRequest;
 export type AdminUpdateDeviceStatusCommandOutput = AdminUpdateDeviceStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the device status as an administrator.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminUpdateDeviceStatusCommand extends $Command<
   AdminUpdateDeviceStatusCommandInput,
   AdminUpdateDeviceStatusCommandOutput,
@@ -39,6 +43,9 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type UpdateLicenseConfigurationCommandInput = UpdateLicenseConfigurationRequest;
 export type UpdateLicenseConfigurationCommandOutput = UpdateLicenseConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies the attributes of an existing license configuration.</p>
+ */
 export class UpdateLicenseConfigurationCommand extends $Command<
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetApplicationDateRangeKpiCommandInput = GetApplicationDateRangeKpiRequest;
 export type GetApplicationDateRangeKpiCommandOutput = GetApplicationDateRangeKpiResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
+ */
 export class GetApplicationDateRangeKpiCommand extends $Command<
   GetApplicationDateRangeKpiCommandInput,
   GetApplicationDateRangeKpiCommandOutput,
@@ -34,6 +37,9 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

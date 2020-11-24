@@ -24,6 +24,11 @@ import {
 export type DescribeSchemasCommandInput = DescribeSchemasMessage;
 export type DescribeSchemasCommandOutput = DescribeSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Returns information about the schema for the specified endpoint.</p>
+ *
+ *          <p></p>
+ */
 export class DescribeSchemasCommand extends $Command<
   DescribeSchemasCommandInput,
   DescribeSchemasCommandOutput,
@@ -38,6 +43,9 @@ export class DescribeSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

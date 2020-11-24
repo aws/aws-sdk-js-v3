@@ -24,6 +24,10 @@ import {
 export type OpenTunnelCommandInput = OpenTunnelRequest;
 export type OpenTunnelCommandOutput = OpenTunnelResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
+ * 			connect to the AWS IoT Secure Tunneling proxy server.</p>
+ */
 export class OpenTunnelCommand extends $Command<
   OpenTunnelCommandInput,
   OpenTunnelCommandOutput,
@@ -38,6 +42,9 @@ export class OpenTunnelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSecureTunnelingClientResolvedConfig,

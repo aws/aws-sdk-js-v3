@@ -20,6 +20,9 @@ import {
 export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
 export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse & __MetadataBearer;
 
+/**
+ * Permanently delete a job template you have created.
+ */
 export class DeleteJobTemplateCommand extends $Command<
   DeleteJobTemplateCommandInput,
   DeleteJobTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteJobTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,

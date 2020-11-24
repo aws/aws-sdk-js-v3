@@ -20,6 +20,9 @@ import {
 export type UpdateWorldTemplateCommandInput = UpdateWorldTemplateRequest;
 export type UpdateWorldTemplateCommandOutput = UpdateWorldTemplateResponse & __MetadataBearer;
 
+/**
+ * <p>Updates a world template.</p>
+ */
 export class UpdateWorldTemplateCommand extends $Command<
   UpdateWorldTemplateCommandInput,
   UpdateWorldTemplateCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateWorldTemplateCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

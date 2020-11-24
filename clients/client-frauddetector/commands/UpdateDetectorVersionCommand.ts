@@ -20,6 +20,9 @@ import {
 export type UpdateDetectorVersionCommandInput = UpdateDetectorVersionRequest;
 export type UpdateDetectorVersionCommandOutput = UpdateDetectorVersionResult & __MetadataBearer;
 
+/**
+ * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>
+ */
 export class UpdateDetectorVersionCommand extends $Command<
   UpdateDetectorVersionCommandInput,
   UpdateDetectorVersionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDetectorVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListJobsCommandInput = ListJobsRequest;
 export type ListJobsCommandOutput = ListJobsResult & __MetadataBearer;
 
+/**
+ * <p> Lists the jobs for a branch of an Amplify app. </p>
+ */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,
   ListJobsCommandOutput,
@@ -34,6 +37,9 @@ export class ListJobsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,

@@ -4,6 +4,9 @@ import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput }
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
   input: GetVpcLinksCommandInput,
@@ -12,6 +15,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetVpcLinksCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: APIGateway,
   input: GetVpcLinksCommandInput,

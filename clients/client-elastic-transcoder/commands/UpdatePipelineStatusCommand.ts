@@ -24,6 +24,14 @@ import {
 export type UpdatePipelineStatusCommandInput = UpdatePipelineStatusRequest;
 export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse & __MetadataBearer;
 
+/**
+ * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
+ *             stops or restarts the processing of jobs.</p>
+ *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
+ *             cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which
+ *             you submitted the jobs, you have more time to get the job IDs for the jobs that you want
+ *             to cancel, and to send a <a>CancelJob</a> request. </p>
+ */
 export class UpdatePipelineStatusCommand extends $Command<
   UpdatePipelineStatusCommandInput,
   UpdatePipelineStatusCommandOutput,
@@ -38,6 +46,9 @@ export class UpdatePipelineStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,

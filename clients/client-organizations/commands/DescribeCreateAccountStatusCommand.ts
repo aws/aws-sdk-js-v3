@@ -20,6 +20,11 @@ import {
 export type DescribeCreateAccountStatusCommandInput = DescribeCreateAccountStatusRequest;
 export type DescribeCreateAccountStatusCommandOutput = DescribeCreateAccountStatusResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current status of an asynchronous request to create an account.</p>
+ *         <p>This operation can be called only from the organization's
+ * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ */
 export class DescribeCreateAccountStatusCommand extends $Command<
   DescribeCreateAccountStatusCommandInput,
   DescribeCreateAccountStatusCommandOutput,
@@ -34,6 +39,9 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,

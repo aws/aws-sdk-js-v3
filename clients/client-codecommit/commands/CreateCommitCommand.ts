@@ -20,6 +20,9 @@ import {
 export type CreateCommitCommandInput = CreateCommitInput;
 export type CreateCommitCommandOutput = CreateCommitOutput & __MetadataBearer;
 
+/**
+ * <p>Creates a commit for a repository on the tip of a specified branch.</p>
+ */
 export class CreateCommitCommand extends $Command<
   CreateCommitCommandInput,
   CreateCommitCommandOutput,
@@ -34,6 +37,9 @@ export class CreateCommitCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

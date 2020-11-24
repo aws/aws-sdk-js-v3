@@ -20,6 +20,26 @@ import {
 export type DeleteBucketCommandInput = DeleteBucketRequest;
 export type DeleteBucketCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
+ *          the bucket must be deleted before the bucket itself can be deleted.</p>
+ *
+ *          <p class="title">
+ *             <b>Related Resources</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteBucketCommand extends $Command<
   DeleteBucketCommandInput,
   DeleteBucketCommandOutput,
@@ -34,6 +54,9 @@ export class DeleteBucketCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

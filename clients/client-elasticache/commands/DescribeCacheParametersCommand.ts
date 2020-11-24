@@ -20,6 +20,10 @@ import {
 export type DescribeCacheParametersCommandInput = DescribeCacheParametersMessage;
 export type DescribeCacheParametersCommandOutput = CacheParameterGroupDetails & __MetadataBearer;
 
+/**
+ * <p>Returns the detailed parameter list for a
+ *             particular cache parameter group.</p>
+ */
 export class DescribeCacheParametersCommand extends $Command<
   DescribeCacheParametersCommandInput,
   DescribeCacheParametersCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeCacheParametersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

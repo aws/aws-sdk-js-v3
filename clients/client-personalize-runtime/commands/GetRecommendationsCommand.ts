@@ -24,6 +24,23 @@ import {
 export type GetRecommendationsCommandInput = GetRecommendationsRequest;
 export type GetRecommendationsCommandOutput = GetRecommendationsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of recommended items. The required input depends on the recipe type used to
+ *       create the solution backing the campaign, as follows:</p>
+ *          <ul>
+ *             <li>
+ *                <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p>
+ *             </li>
+ *             <li>
+ *                <p>USER_PERSONALIZATION - <code>itemId</code> optional, <code>userId</code>
+ *           required</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Campaigns that are backed by a solution created using a recipe of type
+ *         PERSONALIZED_RANKING use the  API.</p>
+ *          </note>
+ */
 export class GetRecommendationsCommand extends $Command<
   GetRecommendationsCommandInput,
   GetRecommendationsCommandOutput,
@@ -38,6 +55,9 @@ export class GetRecommendationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeRuntimeClientResolvedConfig,

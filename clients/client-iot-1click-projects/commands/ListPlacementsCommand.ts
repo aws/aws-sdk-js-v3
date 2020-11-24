@@ -24,6 +24,9 @@ import {
 export type ListPlacementsCommandInput = ListPlacementsRequest;
 export type ListPlacementsCommandOutput = ListPlacementsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the placement(s) of a project.</p>
+ */
 export class ListPlacementsCommand extends $Command<
   ListPlacementsCommandInput,
   ListPlacementsCommandOutput,
@@ -38,6 +41,9 @@ export class ListPlacementsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,

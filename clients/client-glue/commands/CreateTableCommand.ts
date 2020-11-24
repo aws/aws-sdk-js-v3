@@ -20,6 +20,9 @@ import {
 export type CreateTableCommandInput = CreateTableRequest;
 export type CreateTableCommandOutput = CreateTableResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new table definition in the Data Catalog.</p>
+ */
 export class CreateTableCommand extends $Command<
   CreateTableCommandInput,
   CreateTableCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTableCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

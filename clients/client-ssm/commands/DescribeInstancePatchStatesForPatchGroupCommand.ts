@@ -24,6 +24,9 @@ export type DescribeInstancePatchStatesForPatchGroupCommandInput = DescribeInsta
 export type DescribeInstancePatchStatesForPatchGroupCommandOutput = DescribeInstancePatchStatesForPatchGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Retrieves the high-level patch state for the instances in the specified patch group.</p>
+ */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
   DescribeInstancePatchStatesForPatchGroupCommandInput,
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type CreateTypeCommandInput = CreateTypeRequest;
 export type CreateTypeCommandOutput = CreateTypeResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a <code>Type</code> object.</p>
+ */
 export class CreateTypeCommand extends $Command<
   CreateTypeCommandInput,
   CreateTypeCommandOutput,
@@ -34,6 +37,9 @@ export class CreateTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,

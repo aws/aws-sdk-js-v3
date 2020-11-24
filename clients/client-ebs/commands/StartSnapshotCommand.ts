@@ -20,6 +20,12 @@ import {
 export type StartSnapshotCommandInput = StartSnapshotRequest;
 export type StartSnapshotCommandOutput = StartSnapshotResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
+ *             after the request completes. </p>
+ *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
+ *             write blocks of data to the snapshot.</p>
+ */
 export class StartSnapshotCommand extends $Command<
   StartSnapshotCommandInput,
   StartSnapshotCommandOutput,
@@ -34,6 +40,9 @@ export class StartSnapshotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EBSClientResolvedConfig,

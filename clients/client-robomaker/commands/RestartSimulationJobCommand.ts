@@ -20,6 +20,9 @@ import {
 export type RestartSimulationJobCommandInput = RestartSimulationJobRequest;
 export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse & __MetadataBearer;
 
+/**
+ * <p>Restarts a running simulation job.</p>
+ */
 export class RestartSimulationJobCommand extends $Command<
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput,
@@ -34,6 +37,9 @@ export class RestartSimulationJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,

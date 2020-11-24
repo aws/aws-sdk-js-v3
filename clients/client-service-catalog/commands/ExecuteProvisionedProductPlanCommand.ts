@@ -20,6 +20,9 @@ import {
 export type ExecuteProvisionedProductPlanCommandInput = ExecuteProvisionedProductPlanInput;
 export type ExecuteProvisionedProductPlanCommandOutput = ExecuteProvisionedProductPlanOutput & __MetadataBearer;
 
+/**
+ * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
+ */
 export class ExecuteProvisionedProductPlanCommand extends $Command<
   ExecuteProvisionedProductPlanCommandInput,
   ExecuteProvisionedProductPlanCommandOutput,
@@ -34,6 +37,9 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

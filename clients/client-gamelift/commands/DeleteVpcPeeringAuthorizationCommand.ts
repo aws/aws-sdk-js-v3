@@ -20,6 +20,42 @@ import {
 export type DeleteVpcPeeringAuthorizationCommandInput = DeleteVpcPeeringAuthorizationInput;
 export type DeleteVpcPeeringAuthorizationCommandOutput = DeleteVpcPeeringAuthorizationOutput & __MetadataBearer;
 
+/**
+ * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
+ *             delete an existing VPC peering connection, call <a>DeleteVpcPeeringConnection</a>. </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringAuthorizations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringAuthorization</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeVpcPeeringConnections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteVpcPeeringConnection</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteVpcPeeringAuthorizationCommand extends $Command<
   DeleteVpcPeeringAuthorizationCommandInput,
   DeleteVpcPeeringAuthorizationCommandOutput,
@@ -34,6 +70,9 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

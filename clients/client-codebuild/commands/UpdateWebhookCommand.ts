@@ -20,6 +20,13 @@ import {
 export type UpdateWebhookCommandInput = UpdateWebhookInput;
 export type UpdateWebhookCommandOutput = UpdateWebhookOutput & __MetadataBearer;
 
+/**
+ * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
+ *          <note>
+ *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
+ *       </p>
+ *          </note>
+ */
 export class UpdateWebhookCommand extends $Command<
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateWebhookCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,

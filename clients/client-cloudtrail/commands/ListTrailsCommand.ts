@@ -20,6 +20,9 @@ import {
 export type ListTrailsCommandInput = ListTrailsRequest;
 export type ListTrailsCommandOutput = ListTrailsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists trails that are in the current account.</p>
+ */
 export class ListTrailsCommand extends $Command<
   ListTrailsCommandInput,
   ListTrailsCommandOutput,
@@ -34,6 +37,9 @@ export class ListTrailsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,

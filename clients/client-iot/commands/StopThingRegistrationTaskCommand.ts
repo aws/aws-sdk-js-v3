@@ -20,6 +20,9 @@ import {
 export type StopThingRegistrationTaskCommandInput = StopThingRegistrationTaskRequest;
 export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse & __MetadataBearer;
 
+/**
+ * <p>Cancels a bulk thing provisioning task.</p>
+ */
 export class StopThingRegistrationTaskCommand extends $Command<
   StopThingRegistrationTaskCommandInput,
   StopThingRegistrationTaskCommandOutput,
@@ -34,6 +37,9 @@ export class StopThingRegistrationTaskCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

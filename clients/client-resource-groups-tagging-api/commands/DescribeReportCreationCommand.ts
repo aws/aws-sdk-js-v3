@@ -24,6 +24,10 @@ import {
 export type DescribeReportCreationCommandInput = DescribeReportCreationInput;
 export type DescribeReportCreationCommandOutput = DescribeReportCreationOutput & __MetadataBearer;
 
+/**
+ * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
+ *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+ */
 export class DescribeReportCreationCommand extends $Command<
   DescribeReportCreationCommandInput,
   DescribeReportCreationCommandOutput,
@@ -38,6 +42,9 @@ export class DescribeReportCreationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

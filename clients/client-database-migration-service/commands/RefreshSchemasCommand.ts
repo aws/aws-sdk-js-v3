@@ -24,6 +24,11 @@ import {
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
 export type RefreshSchemasCommandOutput = RefreshSchemasResponse & __MetadataBearer;
 
+/**
+ * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
+ *          can take several minutes. You can check the status of this operation by calling the
+ *          DescribeRefreshSchemasStatus operation.</p>
+ */
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,
   RefreshSchemasCommandOutput,
@@ -38,6 +43,9 @@ export class RefreshSchemasCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,

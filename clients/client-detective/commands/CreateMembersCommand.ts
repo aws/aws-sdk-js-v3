@@ -20,6 +20,29 @@ import {
 export type CreateMembersCommandInput = CreateMembersRequest;
 export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBearer;
 
+/**
+ * <p>Sends a request to invite the specified AWS accounts to be member accounts in the
+ *          behavior graph. This operation can only be called by the master account for a behavior
+ *          graph. </p>
+ *          <p>
+ *             <code>CreateMembers</code> verifies the accounts and then sends invitations to the
+ *          verified accounts.</p>
+ *          <p>The request provides the behavior graph ARN and the list of accounts to invite.</p>
+ *          <p>The response separates the requested accounts into two lists:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The accounts that <code>CreateMembers</code> was able to start the verification
+ *                for. This list includes member accounts that are being verified, that have passed
+ *                verification and are being sent an invitation, and that have failed
+ *                verification.</p>
+ *             </li>
+ *             <li>
+ *                <p>The accounts that <code>CreateMembers</code> was unable to process. This list
+ *                includes accounts that were already invited to be member accounts in the behavior
+ *                graph.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,
   CreateMembersCommandOutput,
@@ -34,6 +57,9 @@ export class CreateMembersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,

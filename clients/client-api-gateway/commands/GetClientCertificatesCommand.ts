@@ -20,6 +20,9 @@ import {
 export type GetClientCertificatesCommandInput = GetClientCertificatesRequest;
 export type GetClientCertificatesCommandOutput = ClientCertificates & __MetadataBearer;
 
+/**
+ * <p>Gets a collection of <a>ClientCertificate</a> resources.</p>
+ */
 export class GetClientCertificatesCommand extends $Command<
   GetClientCertificatesCommandInput,
   GetClientCertificatesCommandOutput,
@@ -34,6 +37,9 @@ export class GetClientCertificatesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,

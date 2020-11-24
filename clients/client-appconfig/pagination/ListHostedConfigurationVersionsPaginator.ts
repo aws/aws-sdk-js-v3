@@ -8,6 +8,9 @@ import {
 import { AppConfigPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: AppConfigClient,
   input: ListHostedConfigurationVersionsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHostedConfigurationVersionsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: AppConfig,
   input: ListHostedConfigurationVersionsCommandInput,

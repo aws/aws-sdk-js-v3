@@ -24,6 +24,9 @@ import {
 export type ListDevicesCommandInput = ListDevicesRequest;
 export type ListDevicesCommandOutput = ListDevicesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the 1-Click compatible devices associated with your AWS account.</p>
+ */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,
   ListDevicesCommandOutput,
@@ -38,6 +41,9 @@ export class ListDevicesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,

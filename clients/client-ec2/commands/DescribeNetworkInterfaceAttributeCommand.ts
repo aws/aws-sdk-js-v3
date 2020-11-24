@@ -20,6 +20,9 @@ import {
 export type DescribeNetworkInterfaceAttributeCommandInput = DescribeNetworkInterfaceAttributeRequest;
 export type DescribeNetworkInterfaceAttributeCommandOutput = DescribeNetworkInterfaceAttributeResult & __MetadataBearer;
 
+/**
+ * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
+ */
 export class DescribeNetworkInterfaceAttributeCommand extends $Command<
   DescribeNetworkInterfaceAttributeCommandInput,
   DescribeNetworkInterfaceAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

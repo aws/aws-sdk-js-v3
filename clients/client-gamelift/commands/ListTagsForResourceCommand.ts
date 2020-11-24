@@ -20,6 +20,68 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             Retrieves all tags that are assigned to a GameLift resource.
+ *             Resource tags are used to organize AWS resources for a range of purposes.
+ *             This operation handles the permissions necessary to manage tags for the following
+ *             GameLift resource types:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Build</p>
+ *             </li>
+ *             <li>
+ *                 <p>Script</p>
+ *             </li>
+ *             <li>
+ *                 <p>Fleet</p>
+ *             </li>
+ *             <li>
+ *                 <p>Alias</p>
+ *             </li>
+ *             <li>
+ *                 <p>GameSessionQueue</p>
+ *             </li>
+ *             <li>
+ *                 <p>MatchmakingConfiguration</p>
+ *             </li>
+ *             <li>
+ *                 <p>MatchmakingRuleSet</p>
+ *             </li>
+ *          </ul>
+ *         <p>To list tags for a resource, specify the unique ARN value for the resource.</p>
+ *         <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> in the
+ *             <i>AWS General Reference</i>
+ *          </p>
+ *         <p>
+ *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
+ *             AWS Tagging Strategies</a>
+ *          </p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>TagResource</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UntagResource</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListTagsForResource</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -34,6 +96,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

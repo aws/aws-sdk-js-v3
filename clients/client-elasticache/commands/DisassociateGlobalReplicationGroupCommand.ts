@@ -24,6 +24,9 @@ export type DisassociateGlobalReplicationGroupCommandInput = DisassociateGlobalR
 export type DisassociateGlobalReplicationGroupCommandOutput = DisassociateGlobalReplicationGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Remove a secondary cluster from the Global Datastore using the Global Datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
+ */
 export class DisassociateGlobalReplicationGroupCommand extends $Command<
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

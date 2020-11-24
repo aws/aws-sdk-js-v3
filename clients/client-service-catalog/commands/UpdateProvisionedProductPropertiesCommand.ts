@@ -21,6 +21,9 @@ export type UpdateProvisionedProductPropertiesCommandInput = UpdateProvisionedPr
 export type UpdateProvisionedProductPropertiesCommandOutput = UpdateProvisionedProductPropertiesOutput &
   __MetadataBearer;
 
+/**
+ * <p>Requests updates to the properties of the specified provisioned product.</p>
+ */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<
   UpdateProvisionedProductPropertiesCommandInput,
   UpdateProvisionedProductPropertiesCommandOutput,
@@ -35,6 +38,9 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the tags associated with the specified AWS Direct Connect resources.</p>
+ */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,

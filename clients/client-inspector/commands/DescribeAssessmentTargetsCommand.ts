@@ -20,6 +20,10 @@ import {
 export type DescribeAssessmentTargetsCommandInput = DescribeAssessmentTargetsRequest;
 export type DescribeAssessmentTargetsCommandOutput = DescribeAssessmentTargetsResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the assessment targets that are specified by the ARNs of the assessment
+ *          targets.</p>
+ */
 export class DescribeAssessmentTargetsCommand extends $Command<
   DescribeAssessmentTargetsCommandInput,
   DescribeAssessmentTargetsCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteDatastoreCommandInput = DeleteDatastoreRequest;
 export type DeleteDatastoreCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified data store.</p>
+ */
 export class DeleteDatastoreCommand extends $Command<
   DeleteDatastoreCommandInput,
   DeleteDatastoreCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDatastoreCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,

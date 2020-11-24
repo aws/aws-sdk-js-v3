@@ -17,6 +17,13 @@ import {
 export type ListRolesCommandInput = ListRolesRequest;
 export type ListRolesCommandOutput = ListRolesResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
+ *          operation returns an empty list. For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
+ *             Roles</a>.</p>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          parameters.</p>
+ */
 export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
@@ -27,6 +34,9 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,

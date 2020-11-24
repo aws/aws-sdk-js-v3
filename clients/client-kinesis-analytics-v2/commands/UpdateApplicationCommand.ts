@@ -24,6 +24,17 @@ import {
 export type UpdateApplicationCommandInput = UpdateApplicationRequest;
 export type UpdateApplicationCommandOutput = UpdateApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing Kinesis Data Analytics application. Using this operation, you
+ *       can update application code, input configuration, and output configuration. </p>
+ *          <p>Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update
+ *       your application. </p>
+ *          <note>
+ *             <p>You cannot update the <code>RuntimeEnvironment</code> of an existing application. If you
+ *     need to update an application's <code>RuntimeEnvironment</code>, you must delete the application
+ *     and create it again.</p>
+ *          </note>
+ */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
@@ -38,6 +49,9 @@ export class UpdateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

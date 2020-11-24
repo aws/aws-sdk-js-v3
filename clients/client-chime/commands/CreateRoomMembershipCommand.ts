@@ -20,6 +20,9 @@ import {
 export type CreateRoomMembershipCommandInput = CreateRoomMembershipRequest;
 export type CreateRoomMembershipCommandOutput = CreateRoomMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
+ */
 export class CreateRoomMembershipCommand extends $Command<
   CreateRoomMembershipCommandInput,
   CreateRoomMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRoomMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

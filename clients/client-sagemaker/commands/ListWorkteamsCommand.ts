@@ -20,6 +20,11 @@ import {
 export type ListWorkteamsCommandInput = ListWorkteamsRequest;
 export type ListWorkteamsCommandOutput = ListWorkteamsResponse & __MetadataBearer;
 
+/**
+ * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
+ *             no work team satisfies the filter specified in the <code>NameContains</code>
+ *             parameter.</p>
+ */
 export class ListWorkteamsCommand extends $Command<
   ListWorkteamsCommandInput,
   ListWorkteamsCommandOutput,
@@ -34,6 +39,9 @@ export class ListWorkteamsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,

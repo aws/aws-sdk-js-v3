@@ -20,6 +20,28 @@ import {
 export type DisposePackageVersionsCommandInput = DisposePackageVersionsRequest;
 export type DisposePackageVersionsCommandOutput = DisposePackageVersionsResult & __MetadataBearer;
 
+/**
+ * <p>
+ *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
+ *       A disposed package version cannot be restored in your repository because its assets are deleted.
+ *     </p>
+ *
+ *          <p>
+ *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">
+ *                <code>ListPackageVersions</code>
+ *             </a> and set the
+ *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">
+ *                <code>status</code>
+ *             </a> parameter
+ *       to <code>Disposed</code>.
+ *     </p>
+ *
+ *          <p>
+ *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">
+ *                <code>DescribePackageVersion</code>
+ *             </a>..
+ *     </p>
+ */
 export class DisposePackageVersionsCommand extends $Command<
   DisposePackageVersionsCommandInput,
   DisposePackageVersionsCommandOutput,
@@ -34,6 +56,9 @@ export class DisposePackageVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeartifactClientResolvedConfig,

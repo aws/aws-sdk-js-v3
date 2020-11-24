@@ -20,6 +20,10 @@ import {
 export type DeleteComputeEnvironmentCommandInput = DeleteComputeEnvironmentRequest;
 export type DeleteComputeEnvironmentCommandOutput = DeleteComputeEnvironmentResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes an AWS Batch compute environment.</p>
+ *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.</p>
+ */
 export class DeleteComputeEnvironmentCommand extends $Command<
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
@@ -34,6 +38,9 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,

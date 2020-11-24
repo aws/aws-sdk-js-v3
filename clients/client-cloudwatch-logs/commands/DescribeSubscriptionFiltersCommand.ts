@@ -20,6 +20,10 @@ import {
 export type DescribeSubscriptionFiltersCommandInput = DescribeSubscriptionFiltersRequest;
 export type DescribeSubscriptionFiltersCommandOutput = DescribeSubscriptionFiltersResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
+ *       The results are ASCII-sorted by filter name.</p>
+ */
 export class DescribeSubscriptionFiltersCommand extends $Command<
   DescribeSubscriptionFiltersCommandInput,
   DescribeSubscriptionFiltersCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type SetTaskStatusCommandInput = SetTaskStatusInput;
 export type SetTaskStatusCommandOutput = SetTaskStatusOutput & __MetadataBearer;
 
+/**
+ * <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status.
+ *             A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for
+ *             tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>
+ */
 export class SetTaskStatusCommand extends $Command<
   SetTaskStatusCommandInput,
   SetTaskStatusCommandOutput,
@@ -34,6 +39,9 @@ export class SetTaskStatusCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,

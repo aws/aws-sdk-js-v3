@@ -20,6 +20,14 @@ import {
 export type DeleteRepositoryCommandInput = DeleteRepositoryInput;
 export type DeleteRepositoryCommandOutput = DeleteRepositoryOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes a repository. If a specified repository was already deleted, a null repository
+ *             ID is returned.</p>
+ *         <important>
+ *             <p>Deleting a repository also deletes all associated objects and metadata. After a repository is
+ *                 deleted, all future push calls to the deleted repository fail.</p>
+ *          </important>
+ */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,
   DeleteRepositoryCommandOutput,
@@ -34,6 +42,9 @@ export class DeleteRepositoryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,

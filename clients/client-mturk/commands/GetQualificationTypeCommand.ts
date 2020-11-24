@@ -20,6 +20,11 @@ import {
 export type GetQualificationTypeCommandInput = GetQualificationTypeRequest;
 export type GetQualificationTypeCommandOutput = GetQualificationTypeResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *             The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID.
+ *         </p>
+ */
 export class GetQualificationTypeCommand extends $Command<
   GetQualificationTypeCommandInput,
   GetQualificationTypeCommandOutput,
@@ -34,6 +39,9 @@ export class GetQualificationTypeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,

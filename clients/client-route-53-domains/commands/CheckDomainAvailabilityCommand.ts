@@ -20,6 +20,10 @@ import {
 export type CheckDomainAvailabilityCommandInput = CheckDomainAvailabilityRequest;
 export type CheckDomainAvailabilityCommandOutput = CheckDomainAvailabilityResponse & __MetadataBearer;
 
+/**
+ * <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must
+ * 			submit another request to determine the availability of the domain name.</p>
+ */
 export class CheckDomainAvailabilityCommand extends $Command<
   CheckDomainAvailabilityCommandInput,
   CheckDomainAvailabilityCommandOutput,
@@ -34,6 +38,9 @@ export class CheckDomainAvailabilityCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,

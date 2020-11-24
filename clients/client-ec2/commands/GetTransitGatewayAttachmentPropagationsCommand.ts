@@ -24,6 +24,9 @@ export type GetTransitGatewayAttachmentPropagationsCommandInput = GetTransitGate
 export type GetTransitGatewayAttachmentPropagationsCommandOutput = GetTransitGatewayAttachmentPropagationsResult &
   __MetadataBearer;
 
+/**
+ * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
+ */
 export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
@@ -38,6 +41,9 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

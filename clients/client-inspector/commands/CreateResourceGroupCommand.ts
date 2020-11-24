@@ -20,6 +20,12 @@ import {
 export type CreateResourceGroupCommandInput = CreateResourceGroupRequest;
 export type CreateResourceGroupCommandOutput = CreateResourceGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a resource group using the specified set of tags (key and value pairs) that
+ *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
+ *          target. The created resource group is then used to create an Amazon Inspector assessment
+ *          target. For more information, see <a>CreateAssessmentTarget</a>.</p>
+ */
 export class CreateResourceGroupCommand extends $Command<
   CreateResourceGroupCommandInput,
   CreateResourceGroupCommandOutput,
@@ -34,6 +40,9 @@ export class CreateResourceGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

@@ -8,6 +8,9 @@ import {
 import { BatchPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: BatchClient,
   input: DescribeComputeEnvironmentsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeComputeEnvironmentsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: Batch,
   input: DescribeComputeEnvironmentsCommandInput,

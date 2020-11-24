@@ -20,6 +20,12 @@ import {
 export type ModifyAvailabilityZoneGroupCommandInput = ModifyAvailabilityZoneGroupRequest;
 export type ModifyAvailabilityZoneGroupCommandOutput = ModifyAvailabilityZoneGroupResult & __MetadataBearer;
 
+/**
+ * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
+ *       account.</p>
+ *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
+ *   		DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>
+ */
 export class ModifyAvailabilityZoneGroupCommand extends $Command<
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
@@ -34,6 +40,9 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

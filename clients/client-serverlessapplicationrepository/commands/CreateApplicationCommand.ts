@@ -24,6 +24,9 @@ import {
 export type CreateApplicationCommandInput = CreateApplicationRequest;
 export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
+ */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
@@ -38,6 +41,9 @@ export class CreateApplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

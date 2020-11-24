@@ -20,6 +20,9 @@ import {
 export type DeleteGroupCommandInput = DeleteGroupRequest;
 export type DeleteGroupCommandOutput = DeleteGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a group from Amazon WorkMail.</p>
+ */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,
   DeleteGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,

@@ -20,6 +20,11 @@ import {
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a logical grouping of resources (images, Labels, models)
+ *          and operations (training, evaluation and detection).  </p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
+ */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -34,6 +39,9 @@ export class CreateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,

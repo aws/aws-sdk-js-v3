@@ -20,6 +20,23 @@ import {
 export type ListLunaClientsCommandInput = ListLunaClientsRequest;
 export type ListLunaClientsCommandOutput = ListLunaClientsResponse & __MetadataBearer;
 
+/**
+ * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+ *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
+ *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
+ *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
+ *          <p>
+ *             <b>For information about the current version of AWS
+ *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
+ *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
+ *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
+ *       Reference</a>.</p>
+ *          <p>Lists all of the clients.</p>
+ *          <p>This operation supports pagination with the use of the <code>NextToken</code> member.
+ *       If more results are available, the <code>NextToken</code> member of the response contains a
+ *       token that you pass in the next call to <code>ListLunaClients</code> to retrieve the next set
+ *       of items.</p>
+ */
 export class ListLunaClientsCommand extends $Command<
   ListLunaClientsCommandInput,
   ListLunaClientsCommandOutput,
@@ -34,6 +51,9 @@ export class ListLunaClientsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMClientResolvedConfig,

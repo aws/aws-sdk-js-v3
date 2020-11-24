@@ -20,6 +20,43 @@ import {
 export type DescribePredictorCommandInput = DescribePredictorRequest;
 export type DescribePredictorCommandOutput = DescribePredictorResponse & __MetadataBearer;
 
+/**
+ * <p>Describes a predictor created using the <a>CreatePredictor</a>
+ *       operation.</p>
+ *          <p>In addition to listing the properties provided in the <code>CreatePredictor</code>
+ *       request, this operation lists the following properties:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DatasetImportJobArns</code> - The dataset import jobs used to import training
+ *           data.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms that were
+ *           evaluated.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CreationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastModificationTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Status</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Message</code> - If an error occurred, information about the error.</p>
+ *             </li>
+ *          </ul>
+ */
 export class DescribePredictorCommand extends $Command<
   DescribePredictorCommandInput,
   DescribePredictorCommandOutput,
@@ -34,6 +71,9 @@ export class DescribePredictorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ForecastClientResolvedConfig,

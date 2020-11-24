@@ -20,6 +20,9 @@ import {
 export type LogoutUserCommandInput = LogoutUserRequest;
 export type LogoutUserCommandOutput = LogoutUserResponse & __MetadataBearer;
 
+/**
+ * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
+ */
 export class LogoutUserCommand extends $Command<
   LogoutUserCommandInput,
   LogoutUserCommandOutput,
@@ -34,6 +37,9 @@ export class LogoutUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

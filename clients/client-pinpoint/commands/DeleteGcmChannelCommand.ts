@@ -20,6 +20,9 @@ import {
 export type DeleteGcmChannelCommandInput = DeleteGcmChannelRequest;
 export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
+ */
 export class DeleteGcmChannelCommand extends $Command<
   DeleteGcmChannelCommandInput,
   DeleteGcmChannelCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteGcmChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

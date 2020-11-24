@@ -20,6 +20,11 @@ import {
 export type GetFunctionConfigurationCommandInput = GetFunctionConfigurationRequest;
 export type GetFunctionConfigurationCommandOutput = FunctionConfiguration & __MetadataBearer;
 
+/**
+ * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
+ *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
+ *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
+ */
 export class GetFunctionConfigurationCommand extends $Command<
   GetFunctionConfigurationCommandInput,
   GetFunctionConfigurationCommandOutput,
@@ -34,6 +39,9 @@ export class GetFunctionConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,

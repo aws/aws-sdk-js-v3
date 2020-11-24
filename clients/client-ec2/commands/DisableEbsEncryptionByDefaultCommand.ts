@@ -20,6 +20,15 @@ import {
 export type DisableEbsEncryptionByDefaultCommandInput = DisableEbsEncryptionByDefaultRequest;
 export type DisableEbsEncryptionByDefaultCommandOutput = DisableEbsEncryptionByDefaultResult & __MetadataBearer;
 
+/**
+ * <p>Disables EBS encryption by default for your account in the current Region.</p>
+ *          <p>After you disable encryption by default, you can still create encrypted volumes by
+ *       enabling encryption when you create each volume.</p>
+ *          <p>Disabling encryption by default does not change the encryption status of your
+ *       existing volumes.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+ *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class DisableEbsEncryptionByDefaultCommand extends $Command<
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
@@ -34,6 +43,9 @@ export class DisableEbsEncryptionByDefaultCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetGroupCertificateConfigurationCommandInput = GetGroupCertificateConfigurationRequest;
 export type GetGroupCertificateConfigurationCommandOutput = GetGroupCertificateConfigurationResponse & __MetadataBearer;
 
+/**
+ * Retrieves the current configuration for the CA used by the group.
+ */
 export class GetGroupCertificateConfigurationCommand extends $Command<
   GetGroupCertificateConfigurationCommandInput,
   GetGroupCertificateConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,

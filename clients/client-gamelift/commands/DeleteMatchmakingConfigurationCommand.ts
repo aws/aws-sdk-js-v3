@@ -20,6 +20,56 @@ import {
 export type DeleteMatchmakingConfigurationCommandInput = DeleteMatchmakingConfigurationInput;
 export type DeleteMatchmakingConfigurationCommandOutput = DeleteMatchmakingConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
+ *             configuration name. A matchmaking configuration cannot be deleted if it is being used in
+ *             any active matchmaking tickets.</p>
+ *         <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *         <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingConfigurations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingConfiguration</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMatchmakingRuleSets</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ValidateMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteMatchmakingRuleSet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class DeleteMatchmakingConfigurationCommand extends $Command<
   DeleteMatchmakingConfigurationCommandInput,
   DeleteMatchmakingConfigurationCommandOutput,
@@ -34,6 +84,9 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,

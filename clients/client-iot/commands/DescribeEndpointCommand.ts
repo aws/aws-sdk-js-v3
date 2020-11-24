@@ -20,6 +20,9 @@ import {
 export type DescribeEndpointCommandInput = DescribeEndpointRequest;
 export type DescribeEndpointCommandOutput = DescribeEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a unique endpoint specific to the AWS account making the call.</p>
+ */
 export class DescribeEndpointCommand extends $Command<
   DescribeEndpointCommandInput,
   DescribeEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

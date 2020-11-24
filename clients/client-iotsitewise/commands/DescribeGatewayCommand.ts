@@ -20,6 +20,9 @@ import {
 export type DescribeGatewayCommandInput = DescribeGatewayRequest;
 export type DescribeGatewayCommandOutput = DescribeGatewayResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about a gateway.</p>
+ */
 export class DescribeGatewayCommand extends $Command<
   DescribeGatewayCommandInput,
   DescribeGatewayCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeGatewayCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

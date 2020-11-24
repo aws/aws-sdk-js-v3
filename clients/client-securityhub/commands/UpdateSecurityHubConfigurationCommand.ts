@@ -20,6 +20,9 @@ import {
 export type UpdateSecurityHubConfigurationCommandInput = UpdateSecurityHubConfigurationRequest;
 export type UpdateSecurityHubConfigurationCommandOutput = UpdateSecurityHubConfigurationResponse & __MetadataBearer;
 
+/**
+ * <p>Updates configuration options for Security Hub.</p>
+ */
 export class UpdateSecurityHubConfigurationCommand extends $Command<
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,

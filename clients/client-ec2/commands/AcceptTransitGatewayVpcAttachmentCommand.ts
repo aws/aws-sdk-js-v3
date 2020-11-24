@@ -20,6 +20,12 @@ import {
 export type AcceptTransitGatewayVpcAttachmentCommandInput = AcceptTransitGatewayVpcAttachmentRequest;
 export type AcceptTransitGatewayVpcAttachmentCommandOutput = AcceptTransitGatewayVpcAttachmentResult & __MetadataBearer;
 
+/**
+ * <p>Accepts a request to attach a VPC to a transit gateway.</p>
+ *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
+ *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
+ *          Use <a>RejectTransitGatewayVpcAttachment</a> to reject a VPC attachment request.</p>
+ */
 export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
   AcceptTransitGatewayVpcAttachmentCommandInput,
   AcceptTransitGatewayVpcAttachmentCommandOutput,
@@ -34,6 +40,9 @@ export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

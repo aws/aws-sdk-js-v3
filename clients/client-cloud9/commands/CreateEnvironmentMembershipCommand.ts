@@ -20,6 +20,9 @@ import {
 export type CreateEnvironmentMembershipCommandInput = CreateEnvironmentMembershipRequest;
 export type CreateEnvironmentMembershipCommandOutput = CreateEnvironmentMembershipResult & __MetadataBearer;
 
+/**
+ * <p>Adds an environment member to an AWS Cloud9 development environment.</p>
+ */
 export class CreateEnvironmentMembershipCommand extends $Command<
   CreateEnvironmentMembershipCommandInput,
   CreateEnvironmentMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,

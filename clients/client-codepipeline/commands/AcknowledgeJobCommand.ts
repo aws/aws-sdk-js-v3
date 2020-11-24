@@ -20,6 +20,10 @@ import {
 export type AcknowledgeJobCommandInput = AcknowledgeJobInput;
 export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput & __MetadataBearer;
 
+/**
+ * <p>Returns information about a specified job and whether that job has been received by
+ *             the job worker. Used for custom actions only.</p>
+ */
 export class AcknowledgeJobCommand extends $Command<
   AcknowledgeJobCommandInput,
   AcknowledgeJobCommandOutput,
@@ -34,6 +38,9 @@ export class AcknowledgeJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,

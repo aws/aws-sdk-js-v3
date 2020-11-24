@@ -20,6 +20,12 @@ import {
 export type ConfirmTopicRuleDestinationCommandInput = ConfirmTopicRuleDestinationRequest;
 export type ConfirmTopicRuleDestinationCommandOutput = ConfirmTopicRuleDestinationResponse & __MetadataBearer;
 
+/**
+ * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
+ *          IoT sends a confirmation message to the endpoint or base address you specify. The message
+ *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
+ *          to confirm that you own or have access to the endpoint.</p>
+ */
 export class ConfirmTopicRuleDestinationCommand extends $Command<
   ConfirmTopicRuleDestinationCommandInput,
   ConfirmTopicRuleDestinationCommandOutput,
@@ -34,6 +40,9 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,

@@ -20,6 +20,13 @@ import {
 export type UpdateProvisionedProductCommandInput = UpdateProvisionedProductInput;
 export type UpdateProvisionedProductCommandOutput = UpdateProvisionedProductOutput & __MetadataBearer;
 
+/**
+ * <p>Requests updates to the configuration of the specified provisioned product.</p>
+ *          <p>If there are tags associated with the object, they cannot be updated or added.
+ *          Depending on the specific updates requested, this operation can update with no
+ *          interruption, with some interruption, or replace the provisioned product entirely.</p>
+ *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
+ */
 export class UpdateProvisionedProductCommand extends $Command<
   UpdateProvisionedProductCommandInput,
   UpdateProvisionedProductCommandOutput,
@@ -34,6 +41,9 @@ export class UpdateProvisionedProductCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RegenerateSecurityTokenCommandInput = RegenerateSecurityTokenRequest;
 export type RegenerateSecurityTokenCommandOutput = RegenerateSecurityTokenResponse & __MetadataBearer;
 
+/**
+ * <p>Regenerates the security token for a bot.</p>
+ */
 export class RegenerateSecurityTokenCommand extends $Command<
   RegenerateSecurityTokenCommandInput,
   RegenerateSecurityTokenCommandOutput,
@@ -34,6 +37,9 @@ export class RegenerateSecurityTokenCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

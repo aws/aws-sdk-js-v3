@@ -20,6 +20,9 @@ import {
 export type UpdateUserDefinedFunctionCommandInput = UpdateUserDefinedFunctionRequest;
 export type UpdateUserDefinedFunctionCommandOutput = UpdateUserDefinedFunctionResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing function definition in the Data Catalog.</p>
+ */
 export class UpdateUserDefinedFunctionCommand extends $Command<
   UpdateUserDefinedFunctionCommandInput,
   UpdateUserDefinedFunctionCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

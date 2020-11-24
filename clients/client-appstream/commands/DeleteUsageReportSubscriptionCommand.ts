@@ -20,6 +20,9 @@ import {
 export type DeleteUsageReportSubscriptionCommandInput = DeleteUsageReportSubscriptionRequest;
 export type DeleteUsageReportSubscriptionCommandOutput = DeleteUsageReportSubscriptionResult & __MetadataBearer;
 
+/**
+ * <p>Disables usage report generation.</p>
+ */
 export class DeleteUsageReportSubscriptionCommand extends $Command<
   DeleteUsageReportSubscriptionCommandInput,
   DeleteUsageReportSubscriptionCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,

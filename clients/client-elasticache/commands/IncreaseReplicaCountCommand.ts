@@ -20,6 +20,11 @@ import {
 export type IncreaseReplicaCountCommandInput = IncreaseReplicaCountMessage;
 export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult & __MetadataBearer;
 
+/**
+ * <p>Dynamically increases the number of replics in a Redis (cluster mode disabled) replication group or the number of
+ *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
+ *             is performed with no cluster down time.</p>
+ */
 export class IncreaseReplicaCountCommand extends $Command<
   IncreaseReplicaCountCommandInput,
   IncreaseReplicaCountCommandOutput,
@@ -34,6 +39,9 @@ export class IncreaseReplicaCountCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

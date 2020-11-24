@@ -20,6 +20,9 @@ import {
 export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsMessage;
 export type DescribeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
 
+/**
+ * <p>Returns descriptions for existing environments.</p>
+ */
 export class DescribeEnvironmentsCommand extends $Command<
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeEnvironmentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,

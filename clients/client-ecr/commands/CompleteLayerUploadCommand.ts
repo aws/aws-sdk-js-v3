@@ -20,6 +20,17 @@ import {
 export type CompleteLayerUploadCommandInput = CompleteLayerUploadRequest;
 export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse & __MetadataBearer;
 
+/**
+ * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
+ *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
+ *             of the image layer for data validation purposes.</p>
+ *         <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image
+ *             layer to verify that the upload has completed.</p>
+ *          <note>
+ *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
+ *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
+ *          </note>
+ */
 export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandInput,
   CompleteLayerUploadCommandOutput,
@@ -34,6 +45,9 @@ export class CompleteLayerUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,

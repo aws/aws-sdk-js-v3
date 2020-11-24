@@ -24,6 +24,36 @@ import {
 export type TagResourcesCommandInput = TagResourcesInput;
 export type TagResourcesCommandOutput = TagResourcesOutput & __MetadataBearer;
 
+/**
+ * <p>Applies one or more tags to the specified resources. Note the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Not all resources can have tags. For a list of services that support tagging,
+ *                     see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage
+ *                         Conventions</a> in the <i>AWS General
+ *                     Reference.</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>You can only tag resources that are located in the specified Region for the
+ *                     AWS account.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To add tags to a resource, you need the necessary permissions for the service
+ *                     that the resource belongs to as well as permissions for adding tags. For more
+ *                     information, see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *             </li>
+ *          </ul>
+ *         <important>
+ *             <p>Do not store personally identifiable information (PII) or other confidential or
+ *                 sensitive information in tags. We use tags to provide you with billing and
+ *                 administration services. Tags are not intended to be used for private or sensitive
+ *                 data.</p>
+ *         </important>
+ */
 export class TagResourcesCommand extends $Command<
   TagResourcesCommandInput,
   TagResourcesCommandOutput,
@@ -38,6 +68,9 @@ export class TagResourcesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type CommitTransactionCommandInput = CommitTransactionRequest;
 export type CommitTransactionCommandOutput = CommitTransactionResponse & __MetadataBearer;
 
+/**
+ * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
+ *             commits the changes.</p>
+ */
 export class CommitTransactionCommand extends $Command<
   CommitTransactionCommandInput,
   CommitTransactionCommandOutput,
@@ -34,6 +38,9 @@ export class CommitTransactionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceRequest;
 export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceResult & __MetadataBearer;
 
+/**
+ * <p>Removes tag keys from the specified resource.</p>
+ */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -34,6 +37,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

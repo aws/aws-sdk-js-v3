@@ -20,6 +20,10 @@ import {
 export type DescribeRulesPackagesCommandInput = DescribeRulesPackagesRequest;
 export type DescribeRulesPackagesCommandOutput = DescribeRulesPackagesResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the rules packages that are specified by the ARNs of the rules
+ *          packages.</p>
+ */
 export class DescribeRulesPackagesCommand extends $Command<
   DescribeRulesPackagesCommandInput,
   DescribeRulesPackagesCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeRulesPackagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

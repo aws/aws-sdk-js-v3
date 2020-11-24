@@ -24,6 +24,9 @@ export type DescribeNotificationSubscriptionsCommandInput = DescribeNotification
 export type DescribeNotificationSubscriptionsCommandOutput = DescribeNotificationSubscriptionsResponse &
   __MetadataBearer;
 
+/**
+ * <p>Lists the specified notification subscriptions.</p>
+ */
 export class DescribeNotificationSubscriptionsCommand extends $Command<
   DescribeNotificationSubscriptionsCommandInput,
   DescribeNotificationSubscriptionsCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,

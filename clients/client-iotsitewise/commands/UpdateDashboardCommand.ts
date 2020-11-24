@@ -20,6 +20,9 @@ import {
 export type UpdateDashboardCommandInput = UpdateDashboardRequest;
 export type UpdateDashboardCommandOutput = UpdateDashboardResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an AWS IoT SiteWise Monitor dashboard.</p>
+ */
 export class UpdateDashboardCommand extends $Command<
   UpdateDashboardCommandInput,
   UpdateDashboardCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateDashboardCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTSiteWiseClientResolvedConfig,

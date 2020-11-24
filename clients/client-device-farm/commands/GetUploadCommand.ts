@@ -17,6 +17,9 @@ import {
 export type GetUploadCommandInput = GetUploadRequest;
 export type GetUploadCommandOutput = GetUploadResult & __MetadataBearer;
 
+/**
+ * <p>Gets information about an upload.</p>
+ */
 export class GetUploadCommand extends $Command<
   GetUploadCommandInput,
   GetUploadCommandOutput,
@@ -31,6 +34,9 @@ export class GetUploadCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,

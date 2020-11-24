@@ -24,6 +24,14 @@ import {
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
+ *          application. A <i>tag</i> is a label that you optionally define and associate
+ *          with an application. Each tag consists of a required <i>tag key</i> and an
+ *          optional associated <i>tag value</i>. A tag key is a general label that
+ *          acts as a category for more specific tag values. A tag value acts as a descriptor within
+ *          a tag key.</p>
+ */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -38,6 +46,9 @@ export class ListTagsForResourceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,

@@ -24,6 +24,9 @@ import {
 export type CreateApplicationVersionCommandInput = CreateApplicationVersionRequest;
 export type CreateApplicationVersionCommandOutput = CreateApplicationVersionResponse & __MetadataBearer;
 
+/**
+ * <p>Creates an application version.</p>
+ */
 export class CreateApplicationVersionCommand extends $Command<
   CreateApplicationVersionCommandInput,
   CreateApplicationVersionCommandOutput,
@@ -38,6 +41,9 @@ export class CreateApplicationVersionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,

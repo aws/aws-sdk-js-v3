@@ -20,6 +20,9 @@ import {
 export type DeleteDevEndpointCommandInput = DeleteDevEndpointRequest;
 export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes a specified development endpoint.</p>
+ */
 export class DeleteDevEndpointCommand extends $Command<
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteDevEndpointCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

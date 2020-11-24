@@ -20,6 +20,10 @@ import {
 export type DescribeBackupCommandInput = DescribeBackupInput;
 export type DescribeBackupCommandOutput = DescribeBackupOutput & __MetadataBearer;
 
+/**
+ * <p>Describes an existing backup of a table.</p>
+ *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per second.</p>
+ */
 export class DescribeBackupCommand extends $Command<
   DescribeBackupCommandInput,
   DescribeBackupCommandOutput,
@@ -34,6 +38,9 @@ export class DescribeBackupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,

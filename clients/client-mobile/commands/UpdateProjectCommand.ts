@@ -20,6 +20,11 @@ import {
 export type UpdateProjectCommandInput = UpdateProjectRequest;
 export type UpdateProjectCommandOutput = UpdateProjectResult & __MetadataBearer;
 
+/**
+ * <p>
+ *             Update an existing project.
+ *         </p>
+ */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateProjectCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MobileClientResolvedConfig,

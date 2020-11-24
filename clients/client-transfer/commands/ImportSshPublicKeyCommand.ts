@@ -20,6 +20,14 @@ import {
 export type ImportSshPublicKeyCommandInput = ImportSshPublicKeyRequest;
 export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
+ *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
+ *       identified by <code>ServerId</code>.</p>
+ *
+ *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
+ *       the name of the <code>SshPublicKeyId</code>.</p>
+ */
 export class ImportSshPublicKeyCommand extends $Command<
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
@@ -34,6 +42,9 @@ export class ImportSshPublicKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,

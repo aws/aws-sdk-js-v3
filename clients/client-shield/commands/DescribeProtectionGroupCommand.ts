@@ -20,6 +20,9 @@ import {
 export type DescribeProtectionGroupCommandInput = DescribeProtectionGroupRequest;
 export type DescribeProtectionGroupCommandOutput = DescribeProtectionGroupResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the specification for the specified protection group.</p>
+ */
 export class DescribeProtectionGroupCommand extends $Command<
   DescribeProtectionGroupCommandInput,
   DescribeProtectionGroupCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeProtectionGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,

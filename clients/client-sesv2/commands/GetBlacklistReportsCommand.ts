@@ -20,6 +20,9 @@ import {
 export type GetBlacklistReportsCommandInput = GetBlacklistReportsRequest;
 export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
+ */
 export class GetBlacklistReportsCommand extends $Command<
   GetBlacklistReportsCommandInput,
   GetBlacklistReportsCommandOutput,
@@ -34,6 +37,9 @@ export class GetBlacklistReportsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeAlgorithmCommandInput = DescribeAlgorithmRequest;
 export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the given algorithm.</p>
+ */
 export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAlgorithmCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,

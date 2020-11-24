@@ -25,6 +25,10 @@ import {
 export type AdminAddUserToGroupCommandInput = AdminAddUserToGroupRequest;
 export type AdminAddUserToGroupCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds the specified user to the specified group.</p>
+ *         <p>Calling this action requires developer credentials.</p>
+ */
 export class AdminAddUserToGroupCommand extends $Command<
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput,
@@ -39,6 +43,9 @@ export class AdminAddUserToGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,

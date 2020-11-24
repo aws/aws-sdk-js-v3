@@ -20,6 +20,12 @@ import {
 export type DescribeCacheSecurityGroupsCommandInput = DescribeCacheSecurityGroupsMessage;
 export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage & __MetadataBearer;
 
+/**
+ * <p>Returns a list of cache security group
+ *             descriptions. If a cache security group name is specified, the list contains only
+ *             the description of that group. This applicable only when you have ElastiCache in Classic setup
+ *         </p>
+ */
 export class DescribeCacheSecurityGroupsCommand extends $Command<
   DescribeCacheSecurityGroupsCommandInput,
   DescribeCacheSecurityGroupsCommandOutput,
@@ -34,6 +40,9 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,

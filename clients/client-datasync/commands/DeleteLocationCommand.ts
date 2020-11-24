@@ -20,6 +20,9 @@ import {
 export type DeleteLocationCommandInput = DeleteLocationRequest;
 export type DeleteLocationCommandOutput = DeleteLocationResponse & __MetadataBearer;
 
+/**
+ * <p>Deletes the configuration of a location used by AWS DataSync. </p>
+ */
 export class DeleteLocationCommand extends $Command<
   DeleteLocationCommandInput,
   DeleteLocationCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteLocationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetThreatIntelSetCommandInput = GetThreatIntelSetRequest;
 export type GetThreatIntelSetCommandOutput = GetThreatIntelSetResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
+ */
 export class GetThreatIntelSetCommand extends $Command<
   GetThreatIntelSetCommandInput,
   GetThreatIntelSetCommandOutput,
@@ -34,6 +37,9 @@ export class GetThreatIntelSetCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,

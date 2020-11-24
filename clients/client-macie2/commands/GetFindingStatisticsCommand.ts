@@ -20,6 +20,9 @@ import {
 export type GetFindingStatisticsCommandInput = GetFindingStatisticsRequest;
 export type GetFindingStatisticsCommandOutput = GetFindingStatisticsResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves (queries) aggregated statistical data about findings.</p>
+ */
 export class GetFindingStatisticsCommand extends $Command<
   GetFindingStatisticsCommandInput,
   GetFindingStatisticsCommandOutput,
@@ -34,6 +37,9 @@ export class GetFindingStatisticsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,

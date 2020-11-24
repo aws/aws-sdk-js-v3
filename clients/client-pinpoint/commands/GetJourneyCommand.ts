@@ -20,6 +20,9 @@ import {
 export type GetJourneyCommandInput = GetJourneyRequest;
 export type GetJourneyCommandOutput = GetJourneyResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
+ */
 export class GetJourneyCommand extends $Command<
   GetJourneyCommandInput,
   GetJourneyCommandOutput,
@@ -34,6 +37,9 @@ export class GetJourneyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,

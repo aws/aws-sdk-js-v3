@@ -20,6 +20,9 @@ import {
 export type GetSubscriptionAttributesCommandInput = GetSubscriptionAttributesInput;
 export type GetSubscriptionAttributesCommandOutput = GetSubscriptionAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns all of the properties of a subscription.</p>
+ */
 export class GetSubscriptionAttributesCommand extends $Command<
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class GetSubscriptionAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,

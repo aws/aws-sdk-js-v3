@@ -20,6 +20,9 @@ import {
 export type ListOfferingsCommandInput = ListOfferingsRequest;
 export type ListOfferingsCommandOutput = ListOfferingsResponse & __MetadataBearer;
 
+/**
+ * Displays a list of all offerings that are available to this account in the current AWS Region. If you have an active reservation (which means you've purchased an offering that has already started and hasn't expired yet), your account isn't eligible for other offerings.
+ */
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
@@ -34,6 +37,9 @@ export class ListOfferingsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,

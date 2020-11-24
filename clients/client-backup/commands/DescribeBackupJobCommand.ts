@@ -20,6 +20,9 @@ import {
 export type DescribeBackupJobCommandInput = DescribeBackupJobInput;
 export type DescribeBackupJobCommandOutput = DescribeBackupJobOutput & __MetadataBearer;
 
+/**
+ * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>
+ */
 export class DescribeBackupJobCommand extends $Command<
   DescribeBackupJobCommandInput,
   DescribeBackupJobCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeBackupJobCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,

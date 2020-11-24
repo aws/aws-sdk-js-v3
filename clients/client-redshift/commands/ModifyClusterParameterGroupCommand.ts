@@ -21,6 +21,13 @@ import {
 export type ModifyClusterParameterGroupCommandInput = ModifyClusterParameterGroupMessage;
 export type ModifyClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage & __MetadataBearer;
 
+/**
+ * <p>Modifies the parameters of a parameter group.</p>
+ *         <p>
+ * For more information about parameters and parameter groups, go to
+ * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ */
 export class ModifyClusterParameterGroupCommand extends $Command<
   ModifyClusterParameterGroupCommandInput,
   ModifyClusterParameterGroupCommandOutput,
@@ -35,6 +42,9 @@ export class ModifyClusterParameterGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,

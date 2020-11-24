@@ -20,6 +20,11 @@ import {
 export type DeleteChapCredentialsCommandInput = DeleteChapCredentialsInput;
 export type DeleteChapCredentialsCommandOutput = DeleteChapCredentialsOutput & __MetadataBearer;
 
+/**
+ * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
+ *          iSCSI target and initiator pair. This operation is supported in volume and tape gateway
+ *          types.</p>
+ */
 export class DeleteChapCredentialsCommand extends $Command<
   DeleteChapCredentialsCommandInput,
   DeleteChapCredentialsCommandOutput,
@@ -34,6 +39,9 @@ export class DeleteChapCredentialsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,

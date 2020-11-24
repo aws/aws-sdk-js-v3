@@ -8,6 +8,9 @@ import {
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 import { Paginator } from "@aws-sdk/types";
 
+/**
+ * @private
+ */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
   input: ListOrganizationAdminAccountsCommandInput,
@@ -16,6 +19,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
+/**
+ * @private
+ */
 const makePagedRequest = async (
   client: GuardDuty,
   input: ListOrganizationAdminAccountsCommandInput,

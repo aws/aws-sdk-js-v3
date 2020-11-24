@@ -20,6 +20,9 @@ import {
 export type UntagMeetingCommandInput = UntagMeetingRequest;
 export type UntagMeetingCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
+ */
 export class UntagMeetingCommand extends $Command<
   UntagMeetingCommandInput,
   UntagMeetingCommandOutput,
@@ -34,6 +37,9 @@ export class UntagMeetingCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

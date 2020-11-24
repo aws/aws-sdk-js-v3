@@ -20,6 +20,10 @@ import {
 export type PreviewAgentsCommandInput = PreviewAgentsRequest;
 export type PreviewAgentsCommandOutput = PreviewAgentsResponse & __MetadataBearer;
 
+/**
+ * <p>Previews the agents installed on the EC2 instances that are part of the specified
+ *          assessment target.</p>
+ */
 export class PreviewAgentsCommand extends $Command<
   PreviewAgentsCommandInput,
   PreviewAgentsCommandOutput,
@@ -34,6 +38,9 @@ export class PreviewAgentsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,

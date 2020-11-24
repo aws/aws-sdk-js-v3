@@ -20,6 +20,10 @@ import {
 export type SendProjectSessionActionCommandInput = SendProjectSessionActionRequest;
 export type SendProjectSessionActionCommandOutput = SendProjectSessionActionResponse & __MetadataBearer;
 
+/**
+ * <p>Performs a recipe step within an interactive AWS Glue DataBrew session that's
+ *             currently open.</p>
+ */
 export class SendProjectSessionActionCommand extends $Command<
   SendProjectSessionActionCommandInput,
   SendProjectSessionActionCommandOutput,
@@ -34,6 +38,9 @@ export class SendProjectSessionActionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataBrewClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type GetProductsCommandInput = GetProductsRequest;
 export type GetProductsCommandOutput = GetProductsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of all products that match the filter criteria.</p>
+ */
 export class GetProductsCommand extends $Command<
   GetProductsCommandInput,
   GetProductsCommandOutput,
@@ -34,6 +37,9 @@ export class GetProductsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PricingClientResolvedConfig,

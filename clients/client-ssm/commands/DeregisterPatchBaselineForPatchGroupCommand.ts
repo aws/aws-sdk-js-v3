@@ -24,6 +24,9 @@ export type DeregisterPatchBaselineForPatchGroupCommandInput = DeregisterPatchBa
 export type DeregisterPatchBaselineForPatchGroupCommandOutput = DeregisterPatchBaselineForPatchGroupResult &
   __MetadataBearer;
 
+/**
+ * <p>Removes a patch group from a patch baseline.</p>
+ */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
   DeregisterPatchBaselineForPatchGroupCommandInput,
   DeregisterPatchBaselineForPatchGroupCommandOutput,
@@ -38,6 +41,9 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,

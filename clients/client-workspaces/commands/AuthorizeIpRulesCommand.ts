@@ -20,6 +20,11 @@ import {
 export type AuthorizeIpRulesCommandInput = AuthorizeIpRulesRequest;
 export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult & __MetadataBearer;
 
+/**
+ * <p>Adds one or more rules to the specified IP access control group.</p>
+ *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
+ *          ranges specified in the rules.</p>
+ */
 export class AuthorizeIpRulesCommand extends $Command<
   AuthorizeIpRulesCommandInput,
   AuthorizeIpRulesCommandOutput,
@@ -34,6 +39,9 @@ export class AuthorizeIpRulesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,

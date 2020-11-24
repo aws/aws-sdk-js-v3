@@ -20,6 +20,10 @@ import {
 export type GetBundlesCommandInput = GetBundlesRequest;
 export type GetBundlesCommandOutput = GetBundlesResult & __MetadataBearer;
 
+/**
+ * <p>Returns the list of bundles that are available for purchase. A bundle describes the specs
+ *       for your virtual private server (or <i>instance</i>).</p>
+ */
 export class GetBundlesCommand extends $Command<
   GetBundlesCommandInput,
   GetBundlesCommandOutput,
@@ -34,6 +38,9 @@ export class GetBundlesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,

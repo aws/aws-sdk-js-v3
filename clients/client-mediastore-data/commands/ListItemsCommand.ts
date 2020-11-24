@@ -20,6 +20,10 @@ import {
 export type ListItemsCommandInput = ListItemsRequest;
 export type ListItemsCommandOutput = ListItemsResponse & __MetadataBearer;
 
+/**
+ * <p>Provides a list of metadata entries about folders and objects in the specified
+ *          folder.</p>
+ */
 export class ListItemsCommand extends $Command<
   ListItemsCommandInput,
   ListItemsCommandOutput,
@@ -34,6 +38,9 @@ export class ListItemsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreDataClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListInputsCommandInput = ListInputsRequest;
 export type ListInputsCommandOutput = ListInputsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists the inputs you have created.</p>
+ */
 export class ListInputsCommand extends $Command<
   ListInputsCommandInput,
   ListInputsCommandOutput,
@@ -34,6 +37,9 @@ export class ListInputsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,

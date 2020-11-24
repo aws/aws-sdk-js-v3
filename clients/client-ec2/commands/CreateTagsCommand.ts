@@ -17,6 +17,18 @@ import {
 export type CreateTagsCommandInput = CreateTagsRequest;
 export type CreateTagsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
+ *          resources. When you specify an existing tag key, the value is overwritten with
+ *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
+ *          optional value. Tag keys must be unique per resource.</p>
+ *
+ *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the
+ *             <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
+ *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
+ *             Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon
+ *             Elastic Compute Cloud User Guide</i>.</p>
+ */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,
   CreateTagsCommandOutput,
@@ -31,6 +43,9 @@ export class CreateTagsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,

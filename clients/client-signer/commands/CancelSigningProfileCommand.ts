@@ -20,6 +20,12 @@ import {
 export type CancelSigningProfileCommandInput = CancelSigningProfileRequest;
 export type CancelSigningProfileCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
+ * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
+ * 			operation, but it cannot perform new signing jobs, and is deleted two years after
+ * 			cancelation.</p>
+ */
 export class CancelSigningProfileCommand extends $Command<
   CancelSigningProfileCommandInput,
   CancelSigningProfileCommandOutput,
@@ -34,6 +40,9 @@ export class CancelSigningProfileCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,
