@@ -5,6 +5,7 @@ import {
   serializeAws_queryGetAccessKeyInfoCommand,
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -63,6 +64,7 @@ export class GetAccessKeyInfoCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
