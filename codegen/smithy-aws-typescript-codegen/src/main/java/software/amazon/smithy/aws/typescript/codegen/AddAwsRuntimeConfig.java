@@ -150,7 +150,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("invalidAsyncFunction", "invalidAsyncFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write(
-                                    "credentialDefaultProvider: invalidAsyncFunction(\"Credential is missing\") as any,");
+                                    "credentialDefaultProvider: invalidAsyncFunction(\"Credential"
+                                    + "is missing\") as any,");
                         },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
