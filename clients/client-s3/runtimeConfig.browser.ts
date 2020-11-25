@@ -4,7 +4,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
-import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import { invalidAsyncFunction } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
@@ -24,12 +24,12 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: invalidFunction("Credential is missing") as any,
+  credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
   defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,
-  region: invalidFunction("Region is missing") as any,
+  region: invalidAsyncFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,
