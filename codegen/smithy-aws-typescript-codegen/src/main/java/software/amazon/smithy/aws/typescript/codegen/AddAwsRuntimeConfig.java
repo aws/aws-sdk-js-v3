@@ -141,16 +141,16 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 return MapUtils.of(
                         "region", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidFunction", "invalidFunction",
+                            writer.addImport("invalidAsyncFunction", "invalidAsyncFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("region: invalidFunction(\"Region is missing\") as any,");
+                            writer.write("region: invalidAsyncFunction(\"Region is missing\") as any,");
                         },
                         "credentialDefaultProvider", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidFunction", "invalidFunction",
+                            writer.addImport("invalidAsyncFunction", "invalidAsyncFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write(
-                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
+                                    "credentialDefaultProvider: invalidAsyncFunction(\"Credential is missing\") as any,");
                         },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
