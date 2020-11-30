@@ -5,6 +5,7 @@ import { NavigationPlugin } from "typedoc/dist/lib/output/plugins";
 @Component({ name: "SdkClientRemoveNavigator" })
 export class SdkClientRemoveNavigatorPlugin extends RendererComponent {
   private navigationPlugin: NavigationPlugin;
+
   initialize() {
     this.navigationPlugin = <any>this.owner.application.renderer.getComponent("navigation");
     this.listenTo(this.owner, {
