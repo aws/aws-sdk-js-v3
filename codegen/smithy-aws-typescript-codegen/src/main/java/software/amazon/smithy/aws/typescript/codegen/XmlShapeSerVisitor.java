@@ -293,7 +293,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 });
 
                 // Set the node explicitly for potentially correct cases.
-                writer.write("bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));");
+                writer.write("bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));");
             });
         });
 
