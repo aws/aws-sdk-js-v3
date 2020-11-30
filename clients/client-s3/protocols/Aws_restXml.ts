@@ -10152,7 +10152,7 @@ const serializeAws_restXmlAnalyticsFilter = (input: AnalyticsFilter, context: __
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
     },
   });
   return bodyNode;
@@ -11022,7 +11022,7 @@ const serializeAws_restXmlLifecycleRuleFilter = (input: LifecycleRuleFilter, con
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
     },
   });
   return bodyNode;
@@ -11130,7 +11130,7 @@ const serializeAws_restXmlMetricsFilter = (input: MetricsFilter, context: __Serd
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
     },
   });
   return bodyNode;
@@ -11572,7 +11572,7 @@ const serializeAws_restXmlReplicationRuleFilter = (input: ReplicationRuleFilter,
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(value).addChildNode(value));
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
     },
   });
   return bodyNode;
