@@ -23,7 +23,7 @@ export interface WaiterOptions {
 
   /**
    * The amount of time in seconds a user is willing to wait for a waiter to complete. This
-   * defaults to 300 (5 minutes), and assuming that requests complete in 0 seconds.
+   * defaults to 300 (5 minutes).
    */
   maxWaitTime?: number;
 
