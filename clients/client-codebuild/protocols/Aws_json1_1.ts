@@ -31,6 +31,10 @@ import {
   DescribeCodeCoveragesCommandOutput,
 } from "../commands/DescribeCodeCoveragesCommand";
 import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "../commands/DescribeTestCasesCommand";
+import {
+  GetReportGroupTrendCommandInput,
+  GetReportGroupTrendCommandOutput,
+} from "../commands/GetReportGroupTrendCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   ImportSourceCredentialsCommandInput,
@@ -139,6 +143,8 @@ import {
   EnvironmentPlatform,
   EnvironmentVariable,
   ExportedEnvironmentVariable,
+  GetReportGroupTrendInput,
+  GetReportGroupTrendOutput,
   GetResourcePolicyInput,
   GetResourcePolicyOutput,
   GitSubmodulesConfig,
@@ -192,6 +198,8 @@ import {
   ReportExportConfig,
   ReportFilter,
   ReportGroup,
+  ReportGroupTrendStats,
+  ReportWithRawData,
   ResolvedArtifact,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
@@ -466,6 +474,19 @@ export const serializeAws_json1_1DescribeTestCasesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTestCasesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetReportGroupTrendCommand = async (
+  input: GetReportGroupTrendCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.GetReportGroupTrend",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetReportGroupTrendInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1830,6 +1851,69 @@ const deserializeAws_json1_1DescribeTestCasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTestCasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codebuild#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetReportGroupTrendCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReportGroupTrendCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetReportGroupTrendCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetReportGroupTrendOutput(data, context);
+  const response: GetReportGroupTrendCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetReportGroupTrendCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReportGroupTrendCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3719,6 +3803,17 @@ const serializeAws_json1_1FilterGroups = (input: WebhookFilter[][], context: __S
   return input.map((entry) => serializeAws_json1_1FilterGroup(entry, context));
 };
 
+const serializeAws_json1_1GetReportGroupTrendInput = (
+  input: GetReportGroupTrendInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.numOfReports !== undefined && { numOfReports: input.numOfReports }),
+    ...(input.reportGroupArn !== undefined && { reportGroupArn: input.reportGroupArn }),
+    ...(input.trendField !== undefined && { trendField: input.trendField }),
+  };
+};
+
 const serializeAws_json1_1GetResourcePolicyInput = (input: GetResourcePolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -5042,6 +5137,22 @@ const deserializeAws_json1_1FilterGroups = (output: any, context: __SerdeContext
   return (output || []).map((entry: any) => deserializeAws_json1_1FilterGroup(entry, context));
 };
 
+const deserializeAws_json1_1GetReportGroupTrendOutput = (
+  output: any,
+  context: __SerdeContext
+): GetReportGroupTrendOutput => {
+  return {
+    rawData:
+      output.rawData !== undefined && output.rawData !== null
+        ? deserializeAws_json1_1ReportGroupTrendRawDataList(output.rawData, context)
+        : undefined,
+    stats:
+      output.stats !== undefined && output.stats !== null
+        ? deserializeAws_json1_1ReportGroupTrendStats(output.stats, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetResourcePolicyOutput = (
   output: any,
   context: __SerdeContext
@@ -5632,6 +5743,21 @@ const deserializeAws_json1_1ReportGroups = (output: any, context: __SerdeContext
   return (output || []).map((entry: any) => deserializeAws_json1_1ReportGroup(entry, context));
 };
 
+const deserializeAws_json1_1ReportGroupTrendRawDataList = (
+  output: any,
+  context: __SerdeContext
+): ReportWithRawData[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ReportWithRawData(entry, context));
+};
+
+const deserializeAws_json1_1ReportGroupTrendStats = (output: any, context: __SerdeContext): ReportGroupTrendStats => {
+  return {
+    average: output.average !== undefined && output.average !== null ? output.average : undefined,
+    max: output.max !== undefined && output.max !== null ? output.max : undefined,
+    min: output.min !== undefined && output.min !== null ? output.min : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Reports = (output: any, context: __SerdeContext): Report[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Report(entry, context));
 };
@@ -5644,6 +5770,13 @@ const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeC
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1ReportWithRawData = (output: any, context: __SerdeContext): ReportWithRawData => {
+  return {
+    data: output.data !== undefined && output.data !== null ? output.data : undefined,
+    reportArn: output.reportArn !== undefined && output.reportArn !== null ? output.reportArn : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResolvedArtifact = (output: any, context: __SerdeContext): ResolvedArtifact => {

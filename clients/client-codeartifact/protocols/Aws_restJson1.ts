@@ -146,10 +146,10 @@ export const serializeAws_restJson1AssociateExternalConnectionCommand = async (
   };
   let resolvedPath = "/v1/repository/external-connection";
   const query: any = {
-    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -174,13 +174,13 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/copy";
   const query: any = {
-    ...(input.sourceRepository !== undefined && { "source-repository": input.sourceRepository }),
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.sourceRepository !== undefined && { "source-repository": input.sourceRepository }),
     ...(input.destinationRepository !== undefined && { "destination-repository": input.destinationRepository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
   };
   let body: any;
   body = JSON.stringify({
@@ -244,9 +244,9 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
   body = JSON.stringify({
@@ -278,8 +278,8 @@ export const serializeAws_restJson1DeleteDomainCommand = async (
   };
   let resolvedPath = "/v1/domain";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -304,9 +304,9 @@ export const serializeAws_restJson1DeleteDomainPermissionsPolicyCommand = async 
   };
   let resolvedPath = "/v1/domain/permissions/policy";
   const query: any = {
-    ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -331,12 +331,12 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/delete";
   const query: any = {
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
   };
   let body: any;
   body = JSON.stringify({
@@ -367,8 +367,8 @@ export const serializeAws_restJson1DeleteRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
@@ -394,10 +394,10 @@ export const serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = as
   };
   let resolvedPath = "/v1/repository/permissions/policies";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -422,8 +422,8 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   };
   let resolvedPath = "/v1/domain";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -449,12 +449,12 @@ export const serializeAws_restJson1DescribePackageVersionCommand = async (
   let resolvedPath = "/v1/package/version";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -506,10 +506,10 @@ export const serializeAws_restJson1DisassociateExternalConnectionCommand = async
   };
   let resolvedPath = "/v1/repository/external-connection";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -534,12 +534,12 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/dispose";
   const query: any = {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.package !== undefined && { package: input.package }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   body = JSON.stringify({
@@ -573,8 +573,8 @@ export const serializeAws_restJson1GetAuthorizationTokenCommand = async (
   };
   let resolvedPath = "/v1/authorization-token";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.durationSeconds !== undefined && { duration: input.durationSeconds.toString() }),
   };
   let body: any;
@@ -628,13 +628,13 @@ export const serializeAws_restJson1GetPackageVersionAssetCommand = async (
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.packageVersionRevision !== undefined && { revision: input.packageVersionRevision }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.package !== undefined && { package: input.package }),
     ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.asset !== undefined && { asset: input.asset }),
+    ...(input.packageVersionRevision !== undefined && { revision: input.packageVersionRevision }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -659,13 +659,13 @@ export const serializeAws_restJson1GetPackageVersionReadmeCommand = async (
   };
   let resolvedPath = "/v1/package/version/readme";
   const query: any = {
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -690,10 +690,10 @@ export const serializeAws_restJson1GetRepositoryEndpointCommand = async (
   };
   let resolvedPath = "/v1/repository/endpoint";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -718,8 +718,8 @@ export const serializeAws_restJson1GetRepositoryPermissionsPolicyCommand = async
   };
   let resolvedPath = "/v1/repository/permissions/policy";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
@@ -770,14 +770,14 @@ export const serializeAws_restJson1ListPackagesCommand = async (
   };
   let resolvedPath = "/v1/packages";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.packagePrefix !== undefined && { "package-prefix": input.packagePrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -802,15 +802,15 @@ export const serializeAws_restJson1ListPackageVersionAssetsCommand = async (
   };
   let resolvedPath = "/v1/package/version/assets";
   const query: any = {
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.package !== undefined && { package: input.package }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -835,14 +835,14 @@ export const serializeAws_restJson1ListPackageVersionDependenciesCommand = async
   };
   let resolvedPath = "/v1/package/version/dependencies";
   const query: any = {
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.package !== undefined && { package: input.package }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -868,15 +868,15 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
   let resolvedPath = "/v1/package/versions";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.sortBy !== undefined && { sortBy: input.sortBy }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
-    ...(input.status !== undefined && { status: input.status }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.sortBy !== undefined && { sortBy: input.sortBy }),
+    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -901,9 +901,9 @@ export const serializeAws_restJson1ListRepositoriesCommand = async (
   };
   let resolvedPath = "/v1/repositories";
   const query: any = {
+    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -928,10 +928,10 @@ export const serializeAws_restJson1ListRepositoriesInDomainCommand = async (
   };
   let resolvedPath = "/v1/domain/repositories";
   const query: any = {
-    ...(input.administratorAccount !== undefined && { "administrator-account": input.administratorAccount }),
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.administratorAccount !== undefined && { "administrator-account": input.administratorAccount }),
+    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
@@ -1010,9 +1010,9 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   };
   let resolvedPath = "/v1/repository/permissions/policy";
   const query: any = {
+    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   body = JSON.stringify({
@@ -1098,11 +1098,11 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   let resolvedPath = "/v1/package/versions/update_status";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.package !== undefined && { package: input.package }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
   };
   let body: any;
   body = JSON.stringify({
@@ -2720,14 +2720,14 @@ export const deserializeAws_restJson1GetPackageVersionAssetCommand = async (
     packageVersion: undefined,
     packageVersionRevision: undefined,
   };
-  if (output.headers["x-packageversionrevision"] !== undefined) {
-    contents.packageVersionRevision = output.headers["x-packageversionrevision"];
-  }
   if (output.headers["x-assetname"] !== undefined) {
     contents.assetName = output.headers["x-assetname"];
   }
   if (output.headers["x-packageversion"] !== undefined) {
     contents.packageVersion = output.headers["x-packageversion"];
+  }
+  if (output.headers["x-packageversionrevision"] !== undefined) {
+    contents.packageVersionRevision = output.headers["x-packageversionrevision"];
   }
   const data: any = output.body;
   contents.asset = data;

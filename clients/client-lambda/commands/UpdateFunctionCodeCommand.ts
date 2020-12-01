@@ -21,7 +21,8 @@ export type UpdateFunctionCodeCommandInput = UpdateFunctionCodeRequest;
 export type UpdateFunctionCodeCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 /**
- * <p>Updates a Lambda function's code.</p>
+ * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed
+ *       by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p>
  *
  *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
  *       only the unpublished version.</p>

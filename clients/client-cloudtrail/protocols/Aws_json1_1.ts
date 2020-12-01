@@ -25,6 +25,8 @@ import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/U
 import {
   AddTagsRequest,
   AddTagsResponse,
+  AdvancedEventSelector,
+  AdvancedFieldSelector,
   CloudTrailARNInvalidException,
   CloudTrailAccessNotEnabledException,
   CloudWatchLogsDeliveryUnavailableException,
@@ -3050,6 +3052,37 @@ const serializeAws_json1_1AddTagsRequest = (input: AddTagsRequest, context: __Se
   };
 };
 
+const serializeAws_json1_1AdvancedEventSelector = (input: AdvancedEventSelector, context: __SerdeContext): any => {
+  return {
+    ...(input.FieldSelectors !== undefined && {
+      FieldSelectors: serializeAws_json1_1AdvancedFieldSelectors(input.FieldSelectors, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1AdvancedEventSelectors = (input: AdvancedEventSelector[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1AdvancedEventSelector(entry, context));
+};
+
+const serializeAws_json1_1AdvancedFieldSelector = (input: AdvancedFieldSelector, context: __SerdeContext): any => {
+  return {
+    ...(input.EndsWith !== undefined && { EndsWith: serializeAws_json1_1Operator(input.EndsWith, context) }),
+    ...(input.Equals !== undefined && { Equals: serializeAws_json1_1Operator(input.Equals, context) }),
+    ...(input.Field !== undefined && { Field: input.Field }),
+    ...(input.NotEndsWith !== undefined && { NotEndsWith: serializeAws_json1_1Operator(input.NotEndsWith, context) }),
+    ...(input.NotEquals !== undefined && { NotEquals: serializeAws_json1_1Operator(input.NotEquals, context) }),
+    ...(input.NotStartsWith !== undefined && {
+      NotStartsWith: serializeAws_json1_1Operator(input.NotStartsWith, context),
+    }),
+    ...(input.StartsWith !== undefined && { StartsWith: serializeAws_json1_1Operator(input.StartsWith, context) }),
+  };
+};
+
+const serializeAws_json1_1AdvancedFieldSelectors = (input: AdvancedFieldSelector[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1AdvancedFieldSelector(entry, context));
+};
+
 const serializeAws_json1_1CreateTrailRequest = (input: CreateTrailRequest, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLogsLogGroupArn !== undefined && {
@@ -3212,11 +3245,18 @@ const serializeAws_json1_1LookupEventsRequest = (input: LookupEventsRequest, con
   };
 };
 
+const serializeAws_json1_1Operator = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1PutEventSelectorsRequest = (
   input: PutEventSelectorsRequest,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AdvancedEventSelectors !== undefined && {
+      AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
+    }),
     ...(input.EventSelectors !== undefined && {
       EventSelectors: serializeAws_json1_1EventSelectors(input.EventSelectors, context),
     }),
@@ -3296,6 +3336,60 @@ const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, conte
 
 const deserializeAws_json1_1AddTagsResponse = (output: any, context: __SerdeContext): AddTagsResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1AdvancedEventSelector = (output: any, context: __SerdeContext): AdvancedEventSelector => {
+  return {
+    FieldSelectors:
+      output.FieldSelectors !== undefined && output.FieldSelectors !== null
+        ? deserializeAws_json1_1AdvancedFieldSelectors(output.FieldSelectors, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AdvancedEventSelectors = (
+  output: any,
+  context: __SerdeContext
+): AdvancedEventSelector[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AdvancedEventSelector(entry, context));
+};
+
+const deserializeAws_json1_1AdvancedFieldSelector = (output: any, context: __SerdeContext): AdvancedFieldSelector => {
+  return {
+    EndsWith:
+      output.EndsWith !== undefined && output.EndsWith !== null
+        ? deserializeAws_json1_1Operator(output.EndsWith, context)
+        : undefined,
+    Equals:
+      output.Equals !== undefined && output.Equals !== null
+        ? deserializeAws_json1_1Operator(output.Equals, context)
+        : undefined,
+    Field: output.Field !== undefined && output.Field !== null ? output.Field : undefined,
+    NotEndsWith:
+      output.NotEndsWith !== undefined && output.NotEndsWith !== null
+        ? deserializeAws_json1_1Operator(output.NotEndsWith, context)
+        : undefined,
+    NotEquals:
+      output.NotEquals !== undefined && output.NotEquals !== null
+        ? deserializeAws_json1_1Operator(output.NotEquals, context)
+        : undefined,
+    NotStartsWith:
+      output.NotStartsWith !== undefined && output.NotStartsWith !== null
+        ? deserializeAws_json1_1Operator(output.NotStartsWith, context)
+        : undefined,
+    StartsWith:
+      output.StartsWith !== undefined && output.StartsWith !== null
+        ? deserializeAws_json1_1Operator(output.StartsWith, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AdvancedFieldSelectors = (
+  output: any,
+  context: __SerdeContext
+): AdvancedFieldSelector[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AdvancedFieldSelector(entry, context));
 };
 
 const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
@@ -3449,6 +3543,10 @@ const deserializeAws_json1_1GetEventSelectorsResponse = (
   context: __SerdeContext
 ): GetEventSelectorsResponse => {
   return {
+    AdvancedEventSelectors:
+      output.AdvancedEventSelectors !== undefined && output.AdvancedEventSelectors !== null
+        ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
+        : undefined,
     EventSelectors:
       output.EventSelectors !== undefined && output.EventSelectors !== null
         ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)
@@ -3854,6 +3952,10 @@ const deserializeAws_json1_1OperationNotPermittedException = (
   } as any;
 };
 
+const deserializeAws_json1_1Operator = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   output: any,
   context: __SerdeContext
@@ -3896,6 +3998,10 @@ const deserializeAws_json1_1PutEventSelectorsResponse = (
   context: __SerdeContext
 ): PutEventSelectorsResponse => {
   return {
+    AdvancedEventSelectors:
+      output.AdvancedEventSelectors !== undefined && output.AdvancedEventSelectors !== null
+        ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
+        : undefined,
     EventSelectors:
       output.EventSelectors !== undefined && output.EventSelectors !== null
         ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)

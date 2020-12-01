@@ -7160,7 +7160,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
    * <p>The offering type filter value.
    *             Use this parameter to show only the available offerings matching the specified offering type.</p>
-   *         <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code>
+   *         <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization" |"All Upfront"|"Partial Upfront"| "No Upfront"</code>
    *          </p>
    */
   OfferingType?: string;

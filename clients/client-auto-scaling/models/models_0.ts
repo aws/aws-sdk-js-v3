@@ -279,7 +279,7 @@ export interface AttachLoadBalancerTargetGroupsType {
 
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
-   *             groups.</p>
+   *             groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   TargetGroupARNs: string[] | undefined;
 }
@@ -544,15 +544,17 @@ export namespace CompleteLifecycleActionType {
 export interface LaunchTemplateSpecification {
   /**
    * <p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created
-   *             using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. You must specify either a
-   *                 <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>
+   *             using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p>
+   *         <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a
+   *                 <code>LaunchTemplateName</code>.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created
-   *             using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. You must specify either a
-   *                 <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>
+   *             using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API. </p>
+   *         <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a
+   *                 <code>LaunchTemplateName</code>.</p>
    */
   LaunchTemplateName?: string;
 
@@ -715,29 +717,28 @@ export interface InstancesDistribution {
 
   /**
    * <p>Indicates how to allocate instances across Spot Instance pools. If the allocation
-   *             strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot
-   *             pools with the lowest price, and evenly allocates your instances across the number of
-   *             Spot pools that you specify. If the allocation strategy is
-   *                 <code>capacity-optimized</code>, the Auto Scaling group launches instances using Spot pools
-   *             that are optimally chosen based on the available Spot capacity. Defaults to
+   *             strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches
+   *             instances using Spot pools that are optimally chosen based on the available Spot
+   *             capacity. If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group
+   *             launches instances using the Spot pools with the lowest price, and evenly allocates your
+   *             instances across the number of Spot pools that you specify. Defaults to
    *                 <code>lowest-price</code> if not specified.</p>
    */
   SpotAllocationStrategy?: string;
 
   /**
    * <p>The number of Spot Instance pools across which to allocate your Spot Instances. The
-   *             Spot pools are determined from the different instance types in the overrides. Defaults
-   *             to 2 if not specified. Valid only when the Spot allocation strategy is
-   *                 <code>lowest-price</code>.</p>
-   *         <p>Valid Range: Minimum value of 1. Maximum value of 20.</p>
+   *             Spot pools are determined from the different instance types in the overrides. Valid only
+   *             when the Spot allocation strategy is <code>lowest-price</code>. Value must be in the
+   *             range of 1 to 20. Defaults to 2 if not specified.</p>
    */
   SpotInstancePools?: number;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If
-   *             you leave the value of this parameter blank (which is the default), the maximum Spot
-   *             price is set at the On-Demand price. To remove a value that you previously set, include
-   *             the parameter but leave the value blank.</p>
+   *             you leave the value at its default (empty), Amazon EC2 Auto Scaling uses the On-Demand price as the
+   *             maximum Spot price. To remove a value that you previously set, include the property but
+   *             specify an empty string ("") for the value.</p>
    */
   SpotMaxPrice?: string;
 }
@@ -769,8 +770,8 @@ export interface LaunchTemplateOverrides {
    *             fulfilled, even if this results in an overage. For example, if there are 2 units
    *             remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a
    *                 <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the
-   *             desired capacity is exceeded by 3 units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
-   *         <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>
+   *             desired capacity is exceeded by 3 units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *             Value must be in the range of 1 to 999.</p>
    */
   WeightedCapacity?: string;
 
@@ -930,9 +931,6 @@ export interface CreateAutoScalingGroupType {
    *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
    *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
    *                 Guide</i>.</p>
-   *         <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or
-   *                 <code>MixedInstancesPolicy</code>) or a launch configuration
-   *                 (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>
    */
   MixedInstancesPolicy?: MixedInstancesPolicy;
 
@@ -990,16 +988,16 @@ export interface CreateAutoScalingGroupType {
 
   /**
    * <p>A list of Classic Load Balancers associated with this Auto Scaling group. For
-   *             Application Load Balancers and Network Load Balancers, specify
-   *                 <code>TargetGroupARNs</code> instead.</p>
+   *             Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify
+   *             the <code>TargetGroupARNs</code> property instead.</p>
    */
   LoadBalancerNames?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.
    *             Instances are registered as targets in a target group, and traffic is routed to the
-   *             target group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load
-   *                 Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             target group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   TargetGroupARNs?: string[];
 
@@ -1488,7 +1486,7 @@ export interface CreateLaunchConfigurationType {
    *             parameter to <code>dedicated</code>.</p>
    *         <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for
    *                 <code>VPCZoneIdentifier</code> when you create your group.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *         <p>Valid Values: <code>default</code> | <code>dedicated</code>
    *         </p>
@@ -2803,11 +2801,10 @@ export namespace DescribeLoadBalancersRequest {
  *             balancer is <code>InService</code>.</p>
  *         <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is
  *                 <code>Adding</code>. The state transitions to <code>Added</code> after all instances
- *             in the group are registered with the load balancer. If Elastic Load Balancing health
- *             checks are enabled for the load balancer, the state transitions to
- *                 <code>InService</code> after at least one instance in the group passes the health
- *             check. If EC2 health checks are enabled instead, the load balancer remains in the
- *                 <code>Added</code> state.</p>
+ *             in the group are registered with the load balancer. If Elastic Load Balancing health checks are enabled
+ *             for the load balancer, the state transitions to <code>InService</code> after at least
+ *             one instance in the group passes the health check. If EC2 health checks are enabled
+ *             instead, the load balancer remains in the <code>Added</code> state.</p>
  */
 export interface LoadBalancerState {
   /**
@@ -2836,9 +2833,8 @@ export interface LoadBalancerState {
    *             <li>
    *                 <p>
    *                   <code>Removing</code> - The instances in the group are being deregistered from
-   *                     the load balancer. If connection draining is enabled, Elastic Load Balancing
-   *                     waits for in-flight requests to complete before deregistering the
-   *                     instances.</p>
+   *                     the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight
+   *                     requests to complete before deregistering the instances.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2906,10 +2902,10 @@ export namespace DescribeLoadBalancerTargetGroupsRequest {
  * <p>Describes the state of a target group.</p>
  *         <p>If you attach a target group to an existing Auto Scaling group, the initial state is
  *                 <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling
- *             instances are registered with the target group. If Elastic Load Balancing health checks
- *             are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling
- *             instance passes the health check. If EC2 health checks are enabled instead, the target
- *             group remains in the <code>Added</code> state.</p>
+ *             instances are registered with the target group. If Elastic Load Balancing health checks are enabled, the
+ *             state transitions to <code>InService</code> after at least one Auto Scaling instance passes the
+ *             health check. If EC2 health checks are enabled instead, the target group remains in the
+ *                 <code>Added</code> state.</p>
  */
 export interface LoadBalancerTargetGroupState {
   /**
@@ -2938,8 +2934,8 @@ export interface LoadBalancerTargetGroupState {
    *             <li>
    *                 <p>
    *                   <code>Removing</code> - The Auto Scaling instances are being deregistered from the
-   *                     target group. If connection draining is enabled, Elastic Load Balancing waits
-   *                     for in-flight requests to complete before deregistering the instances.</p>
+   *                     target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight
+   *                     requests to complete before deregistering the instances.</p>
    *             </li>
    *             <li>
    *                 <p>

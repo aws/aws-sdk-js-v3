@@ -27790,12 +27790,13 @@ const serializeAws_restJson1AssetPropertyValueList = (input: AssetPropertyValue[
 };
 
 const serializeAws_restJson1AssetPropertyVariant = (input: AssetPropertyVariant, context: __SerdeContext): any => {
-  return {
-    ...(input.booleanValue !== undefined && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue !== undefined && { doubleValue: input.doubleValue }),
-    ...(input.integerValue !== undefined && { integerValue: input.integerValue }),
-    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
-  };
+  return AssetPropertyVariant.visit(input, {
+    booleanValue: (value) => ({ booleanValue: value }),
+    doubleValue: (value) => ({ doubleValue: value }),
+    integerValue: (value) => ({ integerValue: value }),
+    stringValue: (value) => ({ stringValue: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1AttributePayload = (input: AttributePayload, context: __SerdeContext): any => {
@@ -28449,6 +28450,7 @@ const serializeAws_restJson1OTAUpdateFile = (input: OTAUpdateFile, context: __Se
       fileLocation: serializeAws_restJson1FileLocation(input.fileLocation, context),
     }),
     ...(input.fileName !== undefined && { fileName: input.fileName }),
+    ...(input.fileType !== undefined && { fileType: input.fileType }),
     ...(input.fileVersion !== undefined && { fileVersion: input.fileVersion }),
   };
 };
@@ -29141,12 +29143,27 @@ const deserializeAws_restJson1AssetPropertyValueList = (output: any, context: __
 };
 
 const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __SerdeContext): AssetPropertyVariant => {
-  return {
-    booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
-    doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
-    integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,
-    stringValue: output.stringValue !== undefined && output.stringValue !== null ? output.stringValue : undefined,
-  } as any;
+  if (output.booleanValue !== undefined && output.booleanValue !== null) {
+    return {
+      booleanValue: output.booleanValue,
+    };
+  }
+  if (output.doubleValue !== undefined && output.doubleValue !== null) {
+    return {
+      doubleValue: output.doubleValue,
+    };
+  }
+  if (output.integerValue !== undefined && output.integerValue !== null) {
+    return {
+      integerValue: output.integerValue,
+    };
+  }
+  if (output.stringValue !== undefined && output.stringValue !== null) {
+    return {
+      stringValue: output.stringValue,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1AttributePayload = (output: any, context: __SerdeContext): AttributePayload => {
@@ -30635,6 +30652,7 @@ const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1FileLocation(output.fileLocation, context)
         : undefined,
     fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined,
+    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
     fileVersion: output.fileVersion !== undefined && output.fileVersion !== null ? output.fileVersion : undefined,
   } as any;
 };

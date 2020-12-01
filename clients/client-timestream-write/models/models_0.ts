@@ -41,17 +41,17 @@ export namespace ConflictException {
 export interface Tag {
   /**
    * <p>
-   * The value of the tag. Tag values are case-sensitive and can be null.
-   * </p>
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>
    * The key of the tag. Tag keys are case sensitive.
    * </p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>
+   * The value of the tag. Tag values are case-sensitive and can be null.
+   * </p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -62,11 +62,9 @@ export namespace Tag {
 
 export interface CreateDatabaseRequest {
   /**
-   * <p>
-   *       A list of key-value pairs to label the table.
-   *    </p>
+   * <p>The name of the Timestream database.</p>
    */
-  Tags?: Tag[];
+  DatabaseName: string | undefined;
 
   /**
    * <p>The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream
@@ -75,9 +73,11 @@ export interface CreateDatabaseRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>The name of the Timestream database.</p>
+   * <p>
+   *       A list of key-value pairs to label the table.
+   *    </p>
    */
-  DatabaseName: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateDatabaseRequest {
@@ -93,6 +93,11 @@ export namespace CreateDatabaseRequest {
  */
 export interface Database {
   /**
+   * <p>The Amazon Resource Name that uniquely identifies this database.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The name of the Timestream database.</p>
    */
   DatabaseName?: string;
@@ -103,19 +108,14 @@ export interface Database {
   TableCount?: number;
 
   /**
-   * <p>The time when the database was created, calculated from the Unix epoch time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
    * <p>The identifier of the KMS key used to encrypt the data stored in the database.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The Amazon Resource Name that uniquely identifies this database.</p>
+   * <p>The time when the database was created, calculated from the Unix epoch time.</p>
    */
-  Arn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>
@@ -225,14 +225,14 @@ export namespace ValidationException {
  */
 export interface RetentionProperties {
   /**
-   * <p>The duration for which data must be stored in the magnetic store. </p>
-   */
-  MagneticStoreRetentionPeriodInDays: number | undefined;
-
-  /**
    * <p>The duration for which data must be stored in the memory store. </p>
    */
   MemoryStoreRetentionPeriodInHours: number | undefined;
+
+  /**
+   * <p>The duration for which data must be stored in the magnetic store. </p>
+   */
+  MagneticStoreRetentionPeriodInDays: number | undefined;
 }
 
 export namespace RetentionProperties {
@@ -242,6 +242,16 @@ export namespace RetentionProperties {
 }
 
 export interface CreateTableRequest {
+  /**
+   * <p>The name of the Timestream database.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the Timestream table.</p>
+   */
+  TableName: string | undefined;
+
   /**
    * <p>The duration for which your time series data must be stored in the memory store and the magnetic store.</p>
    */
@@ -253,16 +263,6 @@ export interface CreateTableRequest {
    *    </p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The name of the Timestream table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The name of the Timestream database.</p>
-   */
-  DatabaseName: string | undefined;
 }
 
 export namespace CreateTableRequest {
@@ -287,9 +287,14 @@ export interface Table {
   Arn?: string;
 
   /**
-   * <p>The retention duration for the memory store and magnetic store.</p>
+   * <p>The name of the Timestream table.</p>
    */
-  RetentionProperties?: RetentionProperties;
+  TableName?: string;
+
+  /**
+   * <p>The name of the Timestream database that contains this table.</p>
+   */
+  DatabaseName?: string;
 
   /**
    * <p>The current state of the table:</p>
@@ -307,14 +312,9 @@ export interface Table {
   TableStatus?: TableStatus | string;
 
   /**
-   * <p>The time when the Timestream table was last updated.</p>
+   * <p>The retention duration for the memory store and magnetic store.</p>
    */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>The name of the Timestream table.</p>
-   */
-  TableName?: string;
+  RetentionProperties?: RetentionProperties;
 
   /**
    * <p>The time when the Timestream table was created. </p>
@@ -322,9 +322,9 @@ export interface Table {
   CreationTime?: Date;
 
   /**
-   * <p>The name of the Timestream database that contains this table.</p>
+   * <p>The time when the Timestream table was last updated.</p>
    */
-  DatabaseName?: string;
+  LastUpdatedTime?: Date;
 }
 
 export namespace Table {
@@ -376,14 +376,14 @@ export namespace DeleteDatabaseRequest {
 
 export interface DeleteTableRequest {
   /**
-   * <p>The name of the Timestream table to be deleted.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>The name of the database where the Timestream database is to be deleted.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the Timestream table to be deleted.</p>
+   */
+  TableName: string | undefined;
 }
 
 export namespace DeleteTableRequest {
@@ -431,14 +431,14 @@ export namespace DescribeEndpointsRequest {
  */
 export interface Endpoint {
   /**
-   * <p>The TTL for the endpoint, in minutes.</p>
-   */
-  CachePeriodInMinutes: number | undefined;
-
-  /**
    * <p>An endpoint address.</p>
    */
   Address: string | undefined;
+
+  /**
+   * <p>The TTL for the endpoint, in minutes.</p>
+   */
+  CachePeriodInMinutes: number | undefined;
 }
 
 export namespace Endpoint {
@@ -500,19 +500,21 @@ export enum DimensionValueType {
  */
 export interface Dimension {
   /**
-   * <p>The value of the dimension.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>
    *          Dimension represents the meta data attributes of the time series.
    *          For example, the name and availability zone of an EC2 instance or
    *          the name of the manufacturer of a wind turbine are dimensions.
-   *          <i>Dimension names can only contain alphanumeric characters and underscores. Dimension names cannot end with an underscore.</i>
-   *          </p>
+   *
+   *       </p>
+   *          <p>For constraints on Dimension names,
+   *          see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming">Naming Constraints</a>.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension.</p>
+   */
+  Value: string | undefined;
 
   /**
    * <p>The data type of the dimension for the time series data point.</p>
@@ -546,14 +548,14 @@ export namespace ListDatabasesRequest {
 
 export interface ListDatabasesResponse {
   /**
-   * <p>The pagination token. This parameter is returned when the response is truncated.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of database names.</p>
    */
   Databases?: Database[];
+
+  /**
+   * <p>The pagination token. This parameter is returned when the response is truncated.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDatabasesResponse {
@@ -569,14 +571,14 @@ export interface ListTablesRequest {
   DatabaseName?: string;
 
   /**
-   * <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTablesRequest {
@@ -661,11 +663,21 @@ export enum TimeUnit {
  */
 export interface _Record {
   /**
+   * <p>Contains the list of dimensions for time series data points.</p>
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>Measure represents the data attribute of the time series. For example, the CPU utilization of an EC2 instance or the RPM of a wind turbine are measures. </p>
+   */
+  MeasureName?: string;
+
+  /**
    * <p>
-   * The granularity of the timestamp unit. It indicates if the time value is in seconds, milliseconds, nanoseconds or other supported values.
+   * Contains the measure value for the time series data point.
    * </p>
    */
-  TimeUnit?: TimeUnit | string;
+  MeasureValue?: string;
 
   /**
    * <p>
@@ -677,26 +689,26 @@ export interface _Record {
   /**
    * <p>
    * Contains the time at which the measure value for the data point was collected.
+   * The time value plus the unit provides the time elapsed since the epoch.
+   * For example, if the time value is <code>12345</code> and the unit is <code>ms</code>,
+   *    then <code>12345 ms</code> have elapsed since the epoch.
    * </p>
    */
   Time?: string;
 
   /**
-   * <p>Measure represents the data attribute of the time series. For example, the CPU utilization of an EC2 instance or the RPM of a wind turbine are measures. </p>
-   */
-  MeasureName?: string;
-
-  /**
-   * <p>Contains the list of dimensions for time series data points.</p>
-   */
-  Dimensions?: Dimension[];
-
-  /**
    * <p>
-   * Contains the measure value for the time series data point.
+   * The granularity of the timestamp unit. It indicates if the time value is in seconds, milliseconds, nanoseconds or other supported values.
    * </p>
    */
-  MeasureValue?: string;
+  TimeUnit?: TimeUnit | string;
+
+  /**
+   * <p>64-bit attribute used for record updates.
+   *          Write requests for duplicate data with a higher version number will update the existing measure value and version.
+   *          In cases where the measure value is the same, <code>Version</code> will still be updated . Default value is to 1.</p>
+   */
+  Version?: number;
 }
 
 export namespace _Record {
@@ -734,6 +746,18 @@ export interface RejectedRecord {
    *                <p>
    *                  Records with timestamps that lie outside the retention duration of the memory store
    *                </p>
+   *                <note>
+   *                   <p>When the retention window is updated, you will receive a <code>RejectedRecords</code> exception
+   *                   if you immediately try to ingest data within the new window.
+   *                   To avoid a <code>RejectedRecords</code> exception,
+   *                   wait until the duration of the new window to ingest new data.
+   *                   For further information,
+   *                   see
+   *                   <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/best-practices.html#configuration">
+   *                      Best Practices for Configuring Timestream</a>
+   *                   and
+   *                   <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html">the explanation of how storage works in Timestream</a>.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>
@@ -746,6 +770,12 @@ export interface RejectedRecord {
    *          </p>
    */
   Reason?: string;
+
+  /**
+   * <p>The existing version of the record.
+   *          This value is populated in scenarios where an identical record exists with a higher version than the version in the write request.</p>
+   */
+  ExistingVersion?: number;
 }
 
 export namespace RejectedRecord {
@@ -859,6 +889,13 @@ export namespace UntagResourceResponse {
 export interface UpdateDatabaseRequest {
   /**
    * <p>
+   *      The name of the database.
+   *    </p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>
    *       The identifier of the new KMS key (<code>KmsKeyId</code>) to be used to encrypt the data stored in the database.
    *       If the <code>KmsKeyId</code> currently registered with the database is the same as the <code>KmsKeyId</code> in the
    *       request, there will not be any update.
@@ -884,13 +921,6 @@ export interface UpdateDatabaseRequest {
    *          </ul>
    */
   KmsKeyId: string | undefined;
-
-  /**
-   * <p>
-   *      The name of the database.
-   *    </p>
-   */
-  DatabaseName: string | undefined;
 }
 
 export namespace UpdateDatabaseRequest {
@@ -916,6 +946,11 @@ export namespace UpdateDatabaseResponse {
 
 export interface UpdateTableRequest {
   /**
+   * <p>The name of the Timestream database.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
    * <p>The name of the Timesream table.</p>
    */
   TableName: string | undefined;
@@ -924,11 +959,6 @@ export interface UpdateTableRequest {
    * <p>The retention duration of the memory store and the magnetic store.</p>
    */
   RetentionProperties: RetentionProperties | undefined;
-
-  /**
-   * <p>The name of the Timestream database.</p>
-   */
-  DatabaseName: string | undefined;
 }
 
 export namespace UpdateTableRequest {
@@ -952,6 +982,16 @@ export namespace UpdateTableResponse {
 
 export interface WriteRecordsRequest {
   /**
+   * <p>The name of the Timestream database.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the Timesream table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
    * <p>A record containing the common measure and dimension attributes
    *        shared across all the records in the request. The measure and dimension
    *        attributes specified in here will be merged with the measure and dimension
@@ -961,21 +1001,11 @@ export interface WriteRecordsRequest {
   CommonAttributes?: _Record;
 
   /**
-   * <p>The name of the Timesream table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>An array of records containing the unique dimension and measure
    *        attributes for each time series data point.
    *        </p>
    */
   Records: _Record[] | undefined;
-
-  /**
-   * <p>The name of the Timestream database.</p>
-   */
-  DatabaseName: string | undefined;
 }
 
 export namespace WriteRecordsRequest {

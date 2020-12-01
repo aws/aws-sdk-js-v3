@@ -38,11 +38,11 @@ export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput & __Met
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *             Add FlexMatch to a Game Client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
  *             Set Up FlexMatch Event Notification</a>
  *          </p>
  *         <p>

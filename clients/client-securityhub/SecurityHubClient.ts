@@ -28,6 +28,10 @@ import {
   DescribeActionTargetsCommandOutput,
 } from "./commands/DescribeActionTargetsCommand";
 import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
+import {
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "./commands/DescribeOrganizationConfigurationCommand";
 import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
 import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand";
 import {
@@ -38,6 +42,10 @@ import {
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput,
 } from "./commands/DisableImportFindingsForProductCommand";
+import {
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
 import {
   DisassociateFromMasterAccountCommandInput,
@@ -51,6 +59,10 @@ import {
   EnableImportFindingsForProductCommandInput,
   EnableImportFindingsForProductCommandOutput,
 } from "./commands/EnableImportFindingsForProductCommand";
+import {
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
 import {
   GetEnabledStandardsCommandInput,
@@ -73,6 +85,10 @@ import {
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "./commands/ListOrganizationAdminAccountsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -81,6 +97,10 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./command
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
 import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
+import {
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "./commands/UpdateOrganizationConfigurationCommand";
 import {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -154,14 +174,17 @@ export type ServiceInputTypes =
   | DeleteMembersCommandInput
   | DescribeActionTargetsCommandInput
   | DescribeHubCommandInput
+  | DescribeOrganizationConfigurationCommandInput
   | DescribeProductsCommandInput
   | DescribeStandardsCommandInput
   | DescribeStandardsControlsCommandInput
   | DisableImportFindingsForProductCommandInput
+  | DisableOrganizationAdminAccountCommandInput
   | DisableSecurityHubCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
   | EnableImportFindingsForProductCommandInput
+  | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingsCommandInput
@@ -174,12 +197,14 @@ export type ServiceInputTypes =
   | ListEnabledProductsForImportCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
+  | ListOrganizationAdminAccountsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
+  | UpdateOrganizationConfigurationCommandInput
   | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
@@ -199,14 +224,17 @@ export type ServiceOutputTypes =
   | DeleteMembersCommandOutput
   | DescribeActionTargetsCommandOutput
   | DescribeHubCommandOutput
+  | DescribeOrganizationConfigurationCommandOutput
   | DescribeProductsCommandOutput
   | DescribeStandardsCommandOutput
   | DescribeStandardsControlsCommandOutput
   | DisableImportFindingsForProductCommandOutput
+  | DisableOrganizationAdminAccountCommandOutput
   | DisableSecurityHubCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
   | EnableImportFindingsForProductCommandOutput
+  | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingsCommandOutput
@@ -219,12 +247,14 @@ export type ServiceOutputTypes =
   | ListEnabledProductsForImportCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
+  | ListOrganizationAdminAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
+  | UpdateOrganizationConfigurationCommandOutput
   | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 

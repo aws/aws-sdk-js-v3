@@ -21,7 +21,8 @@ export type DescribeClusterCommandInput = DescribeClusterInput;
 export type DescribeClusterCommandOutput = DescribeClusterOutput & __MetadataBearer;
 
 /**
- * <p>Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. </p>
+ * <p>Provides cluster-level details including status, hardware and software configuration,
+ *          VPC settings, and so on. </p>
  */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,

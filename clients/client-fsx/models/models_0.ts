@@ -616,8 +616,8 @@ export interface WindowsFileSystemConfiguration {
    * <p>An array of one or more DNS aliases that are currently associated with the Amazon FSx file system.
    *             Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system.
    *             You can associate up to 50 aliases with a file system at any time.
-   *             You can associate additional DNS aliases after you create the file system using the <a>AssociateFileSystemAliases</a> operation.
-   *             You can remove DNS aliases from the file system after it is created using the <a>DisassociateFileSystemAliases</a> operation.
+   *             You can associate additional DNS aliases after you create the file system using the AssociateFileSystemAliases operation.
+   *             You can remove DNS aliases from the file system after it is created using the DisassociateFileSystemAliases operation.
    *             You only need to specify the alias name in the request payload. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">DNS aliases</a>.</p>
    */
@@ -948,6 +948,7 @@ export enum BackupLifecycle {
   CREATING = "CREATING",
   DELETED = "DELETED",
   FAILED = "FAILED",
+  PENDING = "PENDING",
   TRANSFERRING = "TRANSFERRING",
 }
 
@@ -1651,8 +1652,8 @@ export interface CreateFileSystemWindowsConfiguration {
    * <p>An array of one or more DNS alias names that you want to associate with the Amazon FSx file system.
    *             Aliases allow you to use existing DNS names to access the data in your Amazon FSx file system.
    *             You can associate up to 50 aliases with a file system at any time.
-   *         You can associate additional DNS aliases after you create the file system using the <a>AssociateFileSystemAliases</a> operation.
-   *             You can remove DNS aliases from the file system after it is created using the <a>DisassociateFileSystemAliases</a> operation.
+   *             You can associate additional DNS aliases after you create the file system using the AssociateFileSystemAliases operation.
+   *             You can remove DNS aliases from the file system after it is created using the DisassociateFileSystemAliases operation.
    *             You only need to specify the alias name in the request payload.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
    *         <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
@@ -2918,13 +2919,32 @@ export interface UpdateFileSystemRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File Server file system.
-   *       Specifies the storage capacity target value, GiB, for the file system you're updating.
-   *       The storage capacity target value must be at least 10 percent (%) greater than the current storage capacity value.
-   *       In order to increase storage capacity, the file system needs to have at least 16 MB/s of throughput capacity. You cannot
-   *       make a storage capacity increase request if there is an existing storage capacity increase request in progress.
-   *        For more information, see
-   *       <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing Storage Capacity</a>.</p>
+   * <p>Use this parameter to increase the storage capacity of an Amazon FSx file system.
+   *       Specifies the storage capacity target value, GiB, to increase the storage capacity for the
+   *       file system that you're updating. You cannot make a storage capacity increase request if
+   *       there is an existing storage capacity increase request in progress.</p>
+   *          <p>For Windows file systems, the storage capacity target value must be at least 10 percent
+   *       (%) greater than the current storage capacity value. In order to increase storage capacity,
+   *       the file system must have at least 16 MB/s of throughput capacity.</p>
+   *          <p>For Lustre file systems, the storage capacity target value can be the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid values
+   *           are in multiples of 2400 GiB. The value must be greater than the current storage capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB for
+   *           12 MB/s/TiB file systems and multiples of 1800 GiB for 40 MB/s/TiB file systems. The values must be greater
+   *           than the current storage capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SCRATCH_1</code> file systems, you cannot increase the storage capacity.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
+   *         capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>
+   *       and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput capacity</a> in the <i>Amazon FSx for Lustre
+   *         User Guide</i>.</p>
    */
   StorageCapacity?: number;
 
@@ -2950,7 +2970,8 @@ export namespace UpdateFileSystemRequest {
 }
 
 /**
- * <p>Describes a specific Amazon FSx Administrative Action for the current Windows file system.</p>
+ * <p>Describes a specific Amazon FSx administrative action for the current Windows or
+ *             Lustre file system.</p>
  */
 export interface AdministrativeAction {
   /**
@@ -2965,13 +2986,27 @@ export interface AdministrativeAction {
    *                 <p>
    *                   <code>STORAGE_OPTIMIZATION</code> - Once the <code>FILE_SYSTEM_UPDATE</code>
    *                     task to increase a file system's storage capacity completes successfully, a
-   *                     <code>STORAGE_OPTIMIZATION</code> task starts. Storage optimization is the process
-   *                     of migrating the file system data to the new, larger disks. You can track the
-   *                     storage migration progress using the <code>ProgressPercent</code> property. When
-   *                     <code>STORAGE_OPTIMIZATION</code> completes successfully, the parent <code>FILE_SYSTEM_UPDATE</code>
-   *                     action status changes to <code>COMPLETED</code>. For more information, see
-   *                     <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing Storage Capacity</a>.
+   *                     <code>STORAGE_OPTIMIZATION</code> task starts.
    *                     </p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>For Windows, storage optimization is the process of migrating the file system data
+   *                         to the new, larger disks.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For Lustre, storage optimization consists of rebalancing the data across the existing and
+   *                             newly added file servers.</p>
+   *                   </li>
+   *                </ul>
+   *                 <p>You can track the storage optimization progress using the
+   *                         <code>ProgressPercent</code> property. When
+   *                         <code>STORAGE_OPTIMIZATION</code> completes successfully, the parent
+   *                         <code>FILE_SYSTEM_UPDATE</code> action status changes to
+   *                         <code>COMPLETED</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+   *                         storage capacity</a> in the <i>Amazon FSx for Windows File Server
+   *                         User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage
+   *                         and throughput capacity</a> in the <i>Amazon FSx for Lustre User
+   *                         Guide</i>. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -3020,9 +3055,14 @@ export interface AdministrativeAction {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATED_OPTIMIZING</code> - For a storage capacity increase update, Amazon FSx has updated the file system
-   *                 with the new storage capacity, and is now performing the storage optimization process.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing Storage Capacity</a>.</p>
+   *                   <code>UPDATED_OPTIMIZING</code> - For a storage capacity increase update, Amazon FSx has
+   *                     updated the file system with the new storage capacity, and is now performing the
+   *                     storage optimization process. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+   *                         storage capacity</a> in the <i>Amazon FSx for Windows File Server
+   *                         User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage
+   *                         and throughput capacity</a> in the <i>Amazon FSx for Lustre User
+   *                         Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -3114,7 +3154,7 @@ export interface FileSystem {
   FailureDetails?: FileSystemFailureDetails;
 
   /**
-   * <p>The storage capacity of the file system in gigabytes (GB).</p>
+   * <p>The storage capacity of the file system in gibibytes (GiB).</p>
    */
   StorageCapacity?: number;
 
@@ -3208,7 +3248,19 @@ export namespace FileSystem {
 }
 
 /**
- * <p>A backup of an Amazon FSx for file system.</p>
+ * <p>A backup of an Amazon FSx file system. For more information see:</p>
+ *             <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with backups for Windows file systems</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with backups for Lustre file systems</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface Backup {
   /**
@@ -3225,15 +3277,19 @@ export interface Backup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code> - FSx is creating the backup.</p>
+   *                   <code>PENDING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx has not started creating the backup.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TRANSFERRING</code> - For Lustre file systems only; FSx is transferring the backup to S3.</p>
+   *                   <code>CREATING</code> - Amazon FSx is creating the backup.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code> - The backup was deleted is no longer available.</p>
+   *                   <code>TRANSFERRING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx is transferring the backup to S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - Amazon FSx deleted the backup and it is no longer available.</p>
    *             </li>
    *             <li>
    *                <p>

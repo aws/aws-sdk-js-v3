@@ -56,6 +56,10 @@ import {
   DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand";
 import {
+  DescribeEventsDetectionJobCommandInput,
+  DescribeEventsDetectionJobCommandOutput,
+} from "./commands/DescribeEventsDetectionJobCommand";
+import {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand";
@@ -102,6 +106,10 @@ import {
   ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand";
 import {
+  ListEventsDetectionJobsCommandInput,
+  ListEventsDetectionJobsCommandOutput,
+} from "./commands/ListEventsDetectionJobsCommand";
+import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand";
@@ -134,6 +142,10 @@ import {
   StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand";
 import {
+  StartEventsDetectionJobCommandInput,
+  StartEventsDetectionJobCommandOutput,
+} from "./commands/StartEventsDetectionJobCommand";
+import {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand";
@@ -157,6 +169,10 @@ import {
   StopEntitiesDetectionJobCommandInput,
   StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand";
+import {
+  StopEventsDetectionJobCommandInput,
+  StopEventsDetectionJobCommandOutput,
+} from "./commands/StopEventsDetectionJobCommand";
 import {
   StopKeyPhrasesDetectionJobCommandInput,
   StopKeyPhrasesDetectionJobCommandOutput,
@@ -248,6 +264,7 @@ export type ServiceInputTypes =
   | DescribeEndpointCommandInput
   | DescribeEntitiesDetectionJobCommandInput
   | DescribeEntityRecognizerCommandInput
+  | DescribeEventsDetectionJobCommandInput
   | DescribeKeyPhrasesDetectionJobCommandInput
   | DescribePiiEntitiesDetectionJobCommandInput
   | DescribeSentimentDetectionJobCommandInput
@@ -264,6 +281,7 @@ export type ServiceInputTypes =
   | ListEndpointsCommandInput
   | ListEntitiesDetectionJobsCommandInput
   | ListEntityRecognizersCommandInput
+  | ListEventsDetectionJobsCommandInput
   | ListKeyPhrasesDetectionJobsCommandInput
   | ListPiiEntitiesDetectionJobsCommandInput
   | ListSentimentDetectionJobsCommandInput
@@ -272,12 +290,14 @@ export type ServiceInputTypes =
   | StartDocumentClassificationJobCommandInput
   | StartDominantLanguageDetectionJobCommandInput
   | StartEntitiesDetectionJobCommandInput
+  | StartEventsDetectionJobCommandInput
   | StartKeyPhrasesDetectionJobCommandInput
   | StartPiiEntitiesDetectionJobCommandInput
   | StartSentimentDetectionJobCommandInput
   | StartTopicsDetectionJobCommandInput
   | StopDominantLanguageDetectionJobCommandInput
   | StopEntitiesDetectionJobCommandInput
+  | StopEventsDetectionJobCommandInput
   | StopKeyPhrasesDetectionJobCommandInput
   | StopPiiEntitiesDetectionJobCommandInput
   | StopSentimentDetectionJobCommandInput
@@ -306,6 +326,7 @@ export type ServiceOutputTypes =
   | DescribeEndpointCommandOutput
   | DescribeEntitiesDetectionJobCommandOutput
   | DescribeEntityRecognizerCommandOutput
+  | DescribeEventsDetectionJobCommandOutput
   | DescribeKeyPhrasesDetectionJobCommandOutput
   | DescribePiiEntitiesDetectionJobCommandOutput
   | DescribeSentimentDetectionJobCommandOutput
@@ -322,6 +343,7 @@ export type ServiceOutputTypes =
   | ListEndpointsCommandOutput
   | ListEntitiesDetectionJobsCommandOutput
   | ListEntityRecognizersCommandOutput
+  | ListEventsDetectionJobsCommandOutput
   | ListKeyPhrasesDetectionJobsCommandOutput
   | ListPiiEntitiesDetectionJobsCommandOutput
   | ListSentimentDetectionJobsCommandOutput
@@ -330,12 +352,14 @@ export type ServiceOutputTypes =
   | StartDocumentClassificationJobCommandOutput
   | StartDominantLanguageDetectionJobCommandOutput
   | StartEntitiesDetectionJobCommandOutput
+  | StartEventsDetectionJobCommandOutput
   | StartKeyPhrasesDetectionJobCommandOutput
   | StartPiiEntitiesDetectionJobCommandOutput
   | StartSentimentDetectionJobCommandOutput
   | StartTopicsDetectionJobCommandOutput
   | StopDominantLanguageDetectionJobCommandOutput
   | StopEntitiesDetectionJobCommandOutput
+  | StopEventsDetectionJobCommandOutput
   | StopKeyPhrasesDetectionJobCommandOutput
   | StopPiiEntitiesDetectionJobCommandOutput
   | StopSentimentDetectionJobCommandOutput

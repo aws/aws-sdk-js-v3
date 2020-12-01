@@ -465,7 +465,7 @@ export class CloudTrail extends CloudTrailClient {
    *          maximum of 50 possible. The response includes a token that you can use to get the next page
    *          of results.</p>
    *          <important>
-   *             <p>The rate of lookup requests is limited to two per second per account. If this
+   *             <p>The rate of lookup requests is limited to two per second, per account, per region. If this
    *             limit is exceeded, a throttling error occurs.</p>
    *          </important>
    */

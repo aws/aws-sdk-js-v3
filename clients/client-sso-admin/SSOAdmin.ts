@@ -10,6 +10,11 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
 import {
+  CreateInstanceAccessControlAttributeConfigurationCommand,
+  CreateInstanceAccessControlAttributeConfigurationCommandInput,
+  CreateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import {
   CreatePermissionSetCommand,
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
@@ -25,6 +30,11 @@ import {
   DeleteInlinePolicyFromPermissionSetCommandOutput,
 } from "./commands/DeleteInlinePolicyFromPermissionSetCommand";
 import {
+  DeleteInstanceAccessControlAttributeConfigurationCommand,
+  DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+  DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
+import {
   DeletePermissionSetCommand,
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
@@ -39,6 +49,11 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandInput,
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
+import {
+  DescribeInstanceAccessControlAttributeConfigurationCommand,
+  DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+  DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
 import {
   DescribePermissionSetCommand,
   DescribePermissionSetCommandInput,
@@ -126,6 +141,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateInstanceAccessControlAttributeConfigurationCommand,
+  UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+  UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
+import {
   UpdatePermissionSetCommand,
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
@@ -201,6 +221,40 @@ export class SSOAdmin extends SSOAdminClient {
     cb?: (err: any, data?: CreateAccountAssignmentCommandOutput) => void
   ): Promise<CreateAccountAssignmentCommandOutput> | void {
     const command = new CreateAccountAssignmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables the attributes-based access control (ABAC) feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+   */
+  public createInstanceAccessControlAttributeConfiguration(
+    args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput>;
+  public createInstanceAccessControlAttributeConfiguration(
+    args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
+    cb: (err: any, data?: CreateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public createInstanceAccessControlAttributeConfiguration(
+    args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public createInstanceAccessControlAttributeConfiguration(
+    args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateInstanceAccessControlAttributeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> | void {
+    const command = new CreateInstanceAccessControlAttributeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -314,6 +368,40 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * <p>Disables the attributes-based access control (ABAC) feature for the specified AWS SSO instance and deletes all of the attribute mappings that have been configured. Once deleted, any attributes that are received from an identity source and any custom attributes you have previously configured will not be passed. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+   */
+  public deleteInstanceAccessControlAttributeConfiguration(
+    args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput>;
+  public deleteInstanceAccessControlAttributeConfiguration(
+    args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+    cb: (err: any, data?: DeleteInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public deleteInstanceAccessControlAttributeConfiguration(
+    args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public deleteInstanceAccessControlAttributeConfiguration(
+    args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteInstanceAccessControlAttributeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> | void {
+    const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified permission set.</p>
    */
   public deletePermissionSet(
@@ -403,6 +491,40 @@ export class SSOAdmin extends SSOAdminClient {
     cb?: (err: any, data?: DescribeAccountAssignmentDeletionStatusCommandOutput) => void
   ): Promise<DescribeAccountAssignmentDeletionStatusCommandOutput> | void {
     const command = new DescribeAccountAssignmentDeletionStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the list of AWS SSO identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified AWS SSO instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+   */
+  public describeInstanceAccessControlAttributeConfiguration(
+    args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput>;
+  public describeInstanceAccessControlAttributeConfiguration(
+    args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+    cb: (err: any, data?: DescribeInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public describeInstanceAccessControlAttributeConfiguration(
+    args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public describeInstanceAccessControlAttributeConfiguration(
+    args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeInstanceAccessControlAttributeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput> | void {
+    const command = new DescribeInstanceAccessControlAttributeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -988,6 +1110,40 @@ export class SSOAdmin extends SSOAdminClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the AWS SSO identity store attributes to use with the AWS SSO instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+   */
+  public updateInstanceAccessControlAttributeConfiguration(
+    args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput>;
+  public updateInstanceAccessControlAttributeConfiguration(
+    args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+    cb: (err: any, data?: UpdateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public updateInstanceAccessControlAttributeConfiguration(
+    args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): void;
+  public updateInstanceAccessControlAttributeConfiguration(
+    args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateInstanceAccessControlAttributeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceAccessControlAttributeConfigurationCommandOutput) => void
+  ): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput> | void {
+    const command = new UpdateInstanceAccessControlAttributeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

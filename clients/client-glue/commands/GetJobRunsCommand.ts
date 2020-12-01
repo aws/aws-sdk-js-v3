@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_0";
+import { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetJobRunsCommand,
   serializeAws_json1_1GetJobRunsCommand,

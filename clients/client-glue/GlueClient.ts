@@ -42,6 +42,10 @@ import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from ".
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
 import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand";
+import {
+  CreatePartitionIndexCommandInput,
+  CreatePartitionIndexCommandOutput,
+} from "./commands/CreatePartitionIndexCommand";
 import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand";
@@ -72,6 +76,10 @@ import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from ".
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
 import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand";
+import {
+  DeletePartitionIndexCommandInput,
+  DeletePartitionIndexCommandOutput,
+} from "./commands/DeletePartitionIndexCommand";
 import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
 import {
   DeleteResourcePolicyCommandInput,
@@ -361,6 +369,7 @@ export type ServiceInputTypes =
   | CreateJobCommandInput
   | CreateMLTransformCommandInput
   | CreatePartitionCommandInput
+  | CreatePartitionIndexCommandInput
   | CreateRegistryCommandInput
   | CreateSchemaCommandInput
   | CreateScriptCommandInput
@@ -379,6 +388,7 @@ export type ServiceInputTypes =
   | DeleteJobCommandInput
   | DeleteMLTransformCommandInput
   | DeletePartitionCommandInput
+  | DeletePartitionIndexCommandInput
   | DeleteRegistryCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteSchemaCommandInput
@@ -518,6 +528,7 @@ export type ServiceOutputTypes =
   | CreateJobCommandOutput
   | CreateMLTransformCommandOutput
   | CreatePartitionCommandOutput
+  | CreatePartitionIndexCommandOutput
   | CreateRegistryCommandOutput
   | CreateSchemaCommandOutput
   | CreateScriptCommandOutput
@@ -536,6 +547,7 @@ export type ServiceOutputTypes =
   | DeleteJobCommandOutput
   | DeleteMLTransformCommandOutput
   | DeletePartitionCommandOutput
+  | DeletePartitionIndexCommandOutput
   | DeleteRegistryCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteSchemaCommandOutput

@@ -344,6 +344,7 @@ import {
   TransformOperation,
   TwitterParameters,
   UIColorPalette,
+  UnsupportedPricingPlanException,
   UnsupportedUserEditionException,
   UploadSettings,
   User,
@@ -2684,6 +2685,10 @@ export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
       "state-persistence-enabled": input.StatePersistenceEnabled.toString(),
     }),
     ...(input.UserArn !== undefined && { "user-arn": input.UserArn }),
+    ...(input.Namespace !== undefined && { namespace: input.Namespace }),
+    ...(input.AdditionalDashboardIds !== undefined && {
+      "additional-dashboard-ids": (input.AdditionalDashboardIds || []).map((_entry) => _entry),
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -10410,6 +10415,14 @@ const deserializeAws_restJson1GetDashboardEmbedUrlCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedPricingPlanExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnsupportedUserEditionException":
     case "com.amazonaws.quicksight#UnsupportedUserEditionException":
       response = {
@@ -15894,6 +15907,27 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1UnsupportedPricingPlanExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedPricingPlanException> => {
+  const contents: UnsupportedPricingPlanException = {
+    name: "UnsupportedPricingPlanException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    RequestId: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = data.RequestId;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1UnsupportedUserEditionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16210,77 +16244,43 @@ const serializeAws_restJson1DataSourceCredentials = (input: DataSourceCredential
 };
 
 const serializeAws_restJson1DataSourceParameters = (input: DataSourceParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.AmazonElasticsearchParameters !== undefined && {
-      AmazonElasticsearchParameters: serializeAws_restJson1AmazonElasticsearchParameters(
-        input.AmazonElasticsearchParameters,
-        context
-      ),
+  return DataSourceParameters.visit(input, {
+    AmazonElasticsearchParameters: (value) => ({
+      AmazonElasticsearchParameters: serializeAws_restJson1AmazonElasticsearchParameters(value, context),
     }),
-    ...(input.AthenaParameters !== undefined && {
-      AthenaParameters: serializeAws_restJson1AthenaParameters(input.AthenaParameters, context),
+    AthenaParameters: (value) => ({ AthenaParameters: serializeAws_restJson1AthenaParameters(value, context) }),
+    AuroraParameters: (value) => ({ AuroraParameters: serializeAws_restJson1AuroraParameters(value, context) }),
+    AuroraPostgreSqlParameters: (value) => ({
+      AuroraPostgreSqlParameters: serializeAws_restJson1AuroraPostgreSqlParameters(value, context),
     }),
-    ...(input.AuroraParameters !== undefined && {
-      AuroraParameters: serializeAws_restJson1AuroraParameters(input.AuroraParameters, context),
+    AwsIotAnalyticsParameters: (value) => ({
+      AwsIotAnalyticsParameters: serializeAws_restJson1AwsIotAnalyticsParameters(value, context),
     }),
-    ...(input.AuroraPostgreSqlParameters !== undefined && {
-      AuroraPostgreSqlParameters: serializeAws_restJson1AuroraPostgreSqlParameters(
-        input.AuroraPostgreSqlParameters,
-        context
-      ),
+    JiraParameters: (value) => ({ JiraParameters: serializeAws_restJson1JiraParameters(value, context) }),
+    MariaDbParameters: (value) => ({ MariaDbParameters: serializeAws_restJson1MariaDbParameters(value, context) }),
+    MySqlParameters: (value) => ({ MySqlParameters: serializeAws_restJson1MySqlParameters(value, context) }),
+    OracleParameters: (value) => ({ OracleParameters: serializeAws_restJson1OracleParameters(value, context) }),
+    PostgreSqlParameters: (value) => ({
+      PostgreSqlParameters: serializeAws_restJson1PostgreSqlParameters(value, context),
     }),
-    ...(input.AwsIotAnalyticsParameters !== undefined && {
-      AwsIotAnalyticsParameters: serializeAws_restJson1AwsIotAnalyticsParameters(
-        input.AwsIotAnalyticsParameters,
-        context
-      ),
+    PrestoParameters: (value) => ({ PrestoParameters: serializeAws_restJson1PrestoParameters(value, context) }),
+    RdsParameters: (value) => ({ RdsParameters: serializeAws_restJson1RdsParameters(value, context) }),
+    RedshiftParameters: (value) => ({ RedshiftParameters: serializeAws_restJson1RedshiftParameters(value, context) }),
+    S3Parameters: (value) => ({ S3Parameters: serializeAws_restJson1S3Parameters(value, context) }),
+    ServiceNowParameters: (value) => ({
+      ServiceNowParameters: serializeAws_restJson1ServiceNowParameters(value, context),
     }),
-    ...(input.JiraParameters !== undefined && {
-      JiraParameters: serializeAws_restJson1JiraParameters(input.JiraParameters, context),
+    SnowflakeParameters: (value) => ({
+      SnowflakeParameters: serializeAws_restJson1SnowflakeParameters(value, context),
     }),
-    ...(input.MariaDbParameters !== undefined && {
-      MariaDbParameters: serializeAws_restJson1MariaDbParameters(input.MariaDbParameters, context),
+    SparkParameters: (value) => ({ SparkParameters: serializeAws_restJson1SparkParameters(value, context) }),
+    SqlServerParameters: (value) => ({
+      SqlServerParameters: serializeAws_restJson1SqlServerParameters(value, context),
     }),
-    ...(input.MySqlParameters !== undefined && {
-      MySqlParameters: serializeAws_restJson1MySqlParameters(input.MySqlParameters, context),
-    }),
-    ...(input.OracleParameters !== undefined && {
-      OracleParameters: serializeAws_restJson1OracleParameters(input.OracleParameters, context),
-    }),
-    ...(input.PostgreSqlParameters !== undefined && {
-      PostgreSqlParameters: serializeAws_restJson1PostgreSqlParameters(input.PostgreSqlParameters, context),
-    }),
-    ...(input.PrestoParameters !== undefined && {
-      PrestoParameters: serializeAws_restJson1PrestoParameters(input.PrestoParameters, context),
-    }),
-    ...(input.RdsParameters !== undefined && {
-      RdsParameters: serializeAws_restJson1RdsParameters(input.RdsParameters, context),
-    }),
-    ...(input.RedshiftParameters !== undefined && {
-      RedshiftParameters: serializeAws_restJson1RedshiftParameters(input.RedshiftParameters, context),
-    }),
-    ...(input.S3Parameters !== undefined && {
-      S3Parameters: serializeAws_restJson1S3Parameters(input.S3Parameters, context),
-    }),
-    ...(input.ServiceNowParameters !== undefined && {
-      ServiceNowParameters: serializeAws_restJson1ServiceNowParameters(input.ServiceNowParameters, context),
-    }),
-    ...(input.SnowflakeParameters !== undefined && {
-      SnowflakeParameters: serializeAws_restJson1SnowflakeParameters(input.SnowflakeParameters, context),
-    }),
-    ...(input.SparkParameters !== undefined && {
-      SparkParameters: serializeAws_restJson1SparkParameters(input.SparkParameters, context),
-    }),
-    ...(input.SqlServerParameters !== undefined && {
-      SqlServerParameters: serializeAws_restJson1SqlServerParameters(input.SqlServerParameters, context),
-    }),
-    ...(input.TeradataParameters !== undefined && {
-      TeradataParameters: serializeAws_restJson1TeradataParameters(input.TeradataParameters, context),
-    }),
-    ...(input.TwitterParameters !== undefined && {
-      TwitterParameters: serializeAws_restJson1TwitterParameters(input.TwitterParameters, context),
-    }),
-  };
+    TeradataParameters: (value) => ({ TeradataParameters: serializeAws_restJson1TeradataParameters(value, context) }),
+    TwitterParameters: (value) => ({ TwitterParameters: serializeAws_restJson1TwitterParameters(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1DataSourceParametersList = (
@@ -16484,13 +16484,12 @@ const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeC
 };
 
 const serializeAws_restJson1PhysicalTable = (input: PhysicalTable, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomSql !== undefined && { CustomSql: serializeAws_restJson1CustomSql(input.CustomSql, context) }),
-    ...(input.RelationalTable !== undefined && {
-      RelationalTable: serializeAws_restJson1RelationalTable(input.RelationalTable, context),
-    }),
-    ...(input.S3Source !== undefined && { S3Source: serializeAws_restJson1S3Source(input.S3Source, context) }),
-  };
+  return PhysicalTable.visit(input, {
+    CustomSql: (value) => ({ CustomSql: serializeAws_restJson1CustomSql(value, context) }),
+    RelationalTable: (value) => ({ RelationalTable: serializeAws_restJson1RelationalTable(value, context) }),
+    S3Source: (value) => ({ S3Source: serializeAws_restJson1S3Source(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1PhysicalTableMap = (
@@ -16761,26 +16760,21 @@ const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeCont
 };
 
 const serializeAws_restJson1TransformOperation = (input: TransformOperation, context: __SerdeContext): any => {
-  return {
-    ...(input.CastColumnTypeOperation !== undefined && {
-      CastColumnTypeOperation: serializeAws_restJson1CastColumnTypeOperation(input.CastColumnTypeOperation, context),
+  return TransformOperation.visit(input, {
+    CastColumnTypeOperation: (value) => ({
+      CastColumnTypeOperation: serializeAws_restJson1CastColumnTypeOperation(value, context),
     }),
-    ...(input.CreateColumnsOperation !== undefined && {
-      CreateColumnsOperation: serializeAws_restJson1CreateColumnsOperation(input.CreateColumnsOperation, context),
+    CreateColumnsOperation: (value) => ({
+      CreateColumnsOperation: serializeAws_restJson1CreateColumnsOperation(value, context),
     }),
-    ...(input.FilterOperation !== undefined && {
-      FilterOperation: serializeAws_restJson1FilterOperation(input.FilterOperation, context),
+    FilterOperation: (value) => ({ FilterOperation: serializeAws_restJson1FilterOperation(value, context) }),
+    ProjectOperation: (value) => ({ ProjectOperation: serializeAws_restJson1ProjectOperation(value, context) }),
+    RenameColumnOperation: (value) => ({
+      RenameColumnOperation: serializeAws_restJson1RenameColumnOperation(value, context),
     }),
-    ...(input.ProjectOperation !== undefined && {
-      ProjectOperation: serializeAws_restJson1ProjectOperation(input.ProjectOperation, context),
-    }),
-    ...(input.RenameColumnOperation !== undefined && {
-      RenameColumnOperation: serializeAws_restJson1RenameColumnOperation(input.RenameColumnOperation, context),
-    }),
-    ...(input.TagColumnOperation !== undefined && {
-      TagColumnOperation: serializeAws_restJson1TagColumnOperation(input.TagColumnOperation, context),
-    }),
-  };
+    TagColumnOperation: (value) => ({ TagColumnOperation: serializeAws_restJson1TagColumnOperation(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1TransformOperationList = (input: TransformOperation[], context: __SerdeContext): any => {
@@ -17447,88 +17441,116 @@ const deserializeAws_restJson1DataSourceList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1DataSourceParameters = (output: any, context: __SerdeContext): DataSourceParameters => {
-  return {
-    AmazonElasticsearchParameters:
-      output.AmazonElasticsearchParameters !== undefined && output.AmazonElasticsearchParameters !== null
-        ? deserializeAws_restJson1AmazonElasticsearchParameters(output.AmazonElasticsearchParameters, context)
-        : undefined,
-    AthenaParameters:
-      output.AthenaParameters !== undefined && output.AthenaParameters !== null
-        ? deserializeAws_restJson1AthenaParameters(output.AthenaParameters, context)
-        : undefined,
-    AuroraParameters:
-      output.AuroraParameters !== undefined && output.AuroraParameters !== null
-        ? deserializeAws_restJson1AuroraParameters(output.AuroraParameters, context)
-        : undefined,
-    AuroraPostgreSqlParameters:
-      output.AuroraPostgreSqlParameters !== undefined && output.AuroraPostgreSqlParameters !== null
-        ? deserializeAws_restJson1AuroraPostgreSqlParameters(output.AuroraPostgreSqlParameters, context)
-        : undefined,
-    AwsIotAnalyticsParameters:
-      output.AwsIotAnalyticsParameters !== undefined && output.AwsIotAnalyticsParameters !== null
-        ? deserializeAws_restJson1AwsIotAnalyticsParameters(output.AwsIotAnalyticsParameters, context)
-        : undefined,
-    JiraParameters:
-      output.JiraParameters !== undefined && output.JiraParameters !== null
-        ? deserializeAws_restJson1JiraParameters(output.JiraParameters, context)
-        : undefined,
-    MariaDbParameters:
-      output.MariaDbParameters !== undefined && output.MariaDbParameters !== null
-        ? deserializeAws_restJson1MariaDbParameters(output.MariaDbParameters, context)
-        : undefined,
-    MySqlParameters:
-      output.MySqlParameters !== undefined && output.MySqlParameters !== null
-        ? deserializeAws_restJson1MySqlParameters(output.MySqlParameters, context)
-        : undefined,
-    OracleParameters:
-      output.OracleParameters !== undefined && output.OracleParameters !== null
-        ? deserializeAws_restJson1OracleParameters(output.OracleParameters, context)
-        : undefined,
-    PostgreSqlParameters:
-      output.PostgreSqlParameters !== undefined && output.PostgreSqlParameters !== null
-        ? deserializeAws_restJson1PostgreSqlParameters(output.PostgreSqlParameters, context)
-        : undefined,
-    PrestoParameters:
-      output.PrestoParameters !== undefined && output.PrestoParameters !== null
-        ? deserializeAws_restJson1PrestoParameters(output.PrestoParameters, context)
-        : undefined,
-    RdsParameters:
-      output.RdsParameters !== undefined && output.RdsParameters !== null
-        ? deserializeAws_restJson1RdsParameters(output.RdsParameters, context)
-        : undefined,
-    RedshiftParameters:
-      output.RedshiftParameters !== undefined && output.RedshiftParameters !== null
-        ? deserializeAws_restJson1RedshiftParameters(output.RedshiftParameters, context)
-        : undefined,
-    S3Parameters:
-      output.S3Parameters !== undefined && output.S3Parameters !== null
-        ? deserializeAws_restJson1S3Parameters(output.S3Parameters, context)
-        : undefined,
-    ServiceNowParameters:
-      output.ServiceNowParameters !== undefined && output.ServiceNowParameters !== null
-        ? deserializeAws_restJson1ServiceNowParameters(output.ServiceNowParameters, context)
-        : undefined,
-    SnowflakeParameters:
-      output.SnowflakeParameters !== undefined && output.SnowflakeParameters !== null
-        ? deserializeAws_restJson1SnowflakeParameters(output.SnowflakeParameters, context)
-        : undefined,
-    SparkParameters:
-      output.SparkParameters !== undefined && output.SparkParameters !== null
-        ? deserializeAws_restJson1SparkParameters(output.SparkParameters, context)
-        : undefined,
-    SqlServerParameters:
-      output.SqlServerParameters !== undefined && output.SqlServerParameters !== null
-        ? deserializeAws_restJson1SqlServerParameters(output.SqlServerParameters, context)
-        : undefined,
-    TeradataParameters:
-      output.TeradataParameters !== undefined && output.TeradataParameters !== null
-        ? deserializeAws_restJson1TeradataParameters(output.TeradataParameters, context)
-        : undefined,
-    TwitterParameters:
-      output.TwitterParameters !== undefined && output.TwitterParameters !== null
-        ? deserializeAws_restJson1TwitterParameters(output.TwitterParameters, context)
-        : undefined,
-  } as any;
+  if (output.AmazonElasticsearchParameters !== undefined && output.AmazonElasticsearchParameters !== null) {
+    return {
+      AmazonElasticsearchParameters: deserializeAws_restJson1AmazonElasticsearchParameters(
+        output.AmazonElasticsearchParameters,
+        context
+      ),
+    };
+  }
+  if (output.AthenaParameters !== undefined && output.AthenaParameters !== null) {
+    return {
+      AthenaParameters: deserializeAws_restJson1AthenaParameters(output.AthenaParameters, context),
+    };
+  }
+  if (output.AuroraParameters !== undefined && output.AuroraParameters !== null) {
+    return {
+      AuroraParameters: deserializeAws_restJson1AuroraParameters(output.AuroraParameters, context),
+    };
+  }
+  if (output.AuroraPostgreSqlParameters !== undefined && output.AuroraPostgreSqlParameters !== null) {
+    return {
+      AuroraPostgreSqlParameters: deserializeAws_restJson1AuroraPostgreSqlParameters(
+        output.AuroraPostgreSqlParameters,
+        context
+      ),
+    };
+  }
+  if (output.AwsIotAnalyticsParameters !== undefined && output.AwsIotAnalyticsParameters !== null) {
+    return {
+      AwsIotAnalyticsParameters: deserializeAws_restJson1AwsIotAnalyticsParameters(
+        output.AwsIotAnalyticsParameters,
+        context
+      ),
+    };
+  }
+  if (output.JiraParameters !== undefined && output.JiraParameters !== null) {
+    return {
+      JiraParameters: deserializeAws_restJson1JiraParameters(output.JiraParameters, context),
+    };
+  }
+  if (output.MariaDbParameters !== undefined && output.MariaDbParameters !== null) {
+    return {
+      MariaDbParameters: deserializeAws_restJson1MariaDbParameters(output.MariaDbParameters, context),
+    };
+  }
+  if (output.MySqlParameters !== undefined && output.MySqlParameters !== null) {
+    return {
+      MySqlParameters: deserializeAws_restJson1MySqlParameters(output.MySqlParameters, context),
+    };
+  }
+  if (output.OracleParameters !== undefined && output.OracleParameters !== null) {
+    return {
+      OracleParameters: deserializeAws_restJson1OracleParameters(output.OracleParameters, context),
+    };
+  }
+  if (output.PostgreSqlParameters !== undefined && output.PostgreSqlParameters !== null) {
+    return {
+      PostgreSqlParameters: deserializeAws_restJson1PostgreSqlParameters(output.PostgreSqlParameters, context),
+    };
+  }
+  if (output.PrestoParameters !== undefined && output.PrestoParameters !== null) {
+    return {
+      PrestoParameters: deserializeAws_restJson1PrestoParameters(output.PrestoParameters, context),
+    };
+  }
+  if (output.RdsParameters !== undefined && output.RdsParameters !== null) {
+    return {
+      RdsParameters: deserializeAws_restJson1RdsParameters(output.RdsParameters, context),
+    };
+  }
+  if (output.RedshiftParameters !== undefined && output.RedshiftParameters !== null) {
+    return {
+      RedshiftParameters: deserializeAws_restJson1RedshiftParameters(output.RedshiftParameters, context),
+    };
+  }
+  if (output.S3Parameters !== undefined && output.S3Parameters !== null) {
+    return {
+      S3Parameters: deserializeAws_restJson1S3Parameters(output.S3Parameters, context),
+    };
+  }
+  if (output.ServiceNowParameters !== undefined && output.ServiceNowParameters !== null) {
+    return {
+      ServiceNowParameters: deserializeAws_restJson1ServiceNowParameters(output.ServiceNowParameters, context),
+    };
+  }
+  if (output.SnowflakeParameters !== undefined && output.SnowflakeParameters !== null) {
+    return {
+      SnowflakeParameters: deserializeAws_restJson1SnowflakeParameters(output.SnowflakeParameters, context),
+    };
+  }
+  if (output.SparkParameters !== undefined && output.SparkParameters !== null) {
+    return {
+      SparkParameters: deserializeAws_restJson1SparkParameters(output.SparkParameters, context),
+    };
+  }
+  if (output.SqlServerParameters !== undefined && output.SqlServerParameters !== null) {
+    return {
+      SqlServerParameters: deserializeAws_restJson1SqlServerParameters(output.SqlServerParameters, context),
+    };
+  }
+  if (output.TeradataParameters !== undefined && output.TeradataParameters !== null) {
+    return {
+      TeradataParameters: deserializeAws_restJson1TeradataParameters(output.TeradataParameters, context),
+    };
+  }
+  if (output.TwitterParameters !== undefined && output.TwitterParameters !== null) {
+    return {
+      TwitterParameters: deserializeAws_restJson1TwitterParameters(output.TwitterParameters, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1DataSourceParametersList = (
@@ -17826,20 +17848,22 @@ const deserializeAws_restJson1OutputColumnList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PhysicalTable = (output: any, context: __SerdeContext): PhysicalTable => {
-  return {
-    CustomSql:
-      output.CustomSql !== undefined && output.CustomSql !== null
-        ? deserializeAws_restJson1CustomSql(output.CustomSql, context)
-        : undefined,
-    RelationalTable:
-      output.RelationalTable !== undefined && output.RelationalTable !== null
-        ? deserializeAws_restJson1RelationalTable(output.RelationalTable, context)
-        : undefined,
-    S3Source:
-      output.S3Source !== undefined && output.S3Source !== null
-        ? deserializeAws_restJson1S3Source(output.S3Source, context)
-        : undefined,
-  } as any;
+  if (output.CustomSql !== undefined && output.CustomSql !== null) {
+    return {
+      CustomSql: deserializeAws_restJson1CustomSql(output.CustomSql, context),
+    };
+  }
+  if (output.RelationalTable !== undefined && output.RelationalTable !== null) {
+    return {
+      RelationalTable: deserializeAws_restJson1RelationalTable(output.RelationalTable, context),
+    };
+  }
+  if (output.S3Source !== undefined && output.S3Source !== null) {
+    return {
+      S3Source: deserializeAws_restJson1S3Source(output.S3Source, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1PhysicalTableMap = (
@@ -18358,32 +18382,37 @@ const deserializeAws_restJson1TileStyle = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1TransformOperation = (output: any, context: __SerdeContext): TransformOperation => {
-  return {
-    CastColumnTypeOperation:
-      output.CastColumnTypeOperation !== undefined && output.CastColumnTypeOperation !== null
-        ? deserializeAws_restJson1CastColumnTypeOperation(output.CastColumnTypeOperation, context)
-        : undefined,
-    CreateColumnsOperation:
-      output.CreateColumnsOperation !== undefined && output.CreateColumnsOperation !== null
-        ? deserializeAws_restJson1CreateColumnsOperation(output.CreateColumnsOperation, context)
-        : undefined,
-    FilterOperation:
-      output.FilterOperation !== undefined && output.FilterOperation !== null
-        ? deserializeAws_restJson1FilterOperation(output.FilterOperation, context)
-        : undefined,
-    ProjectOperation:
-      output.ProjectOperation !== undefined && output.ProjectOperation !== null
-        ? deserializeAws_restJson1ProjectOperation(output.ProjectOperation, context)
-        : undefined,
-    RenameColumnOperation:
-      output.RenameColumnOperation !== undefined && output.RenameColumnOperation !== null
-        ? deserializeAws_restJson1RenameColumnOperation(output.RenameColumnOperation, context)
-        : undefined,
-    TagColumnOperation:
-      output.TagColumnOperation !== undefined && output.TagColumnOperation !== null
-        ? deserializeAws_restJson1TagColumnOperation(output.TagColumnOperation, context)
-        : undefined,
-  } as any;
+  if (output.CastColumnTypeOperation !== undefined && output.CastColumnTypeOperation !== null) {
+    return {
+      CastColumnTypeOperation: deserializeAws_restJson1CastColumnTypeOperation(output.CastColumnTypeOperation, context),
+    };
+  }
+  if (output.CreateColumnsOperation !== undefined && output.CreateColumnsOperation !== null) {
+    return {
+      CreateColumnsOperation: deserializeAws_restJson1CreateColumnsOperation(output.CreateColumnsOperation, context),
+    };
+  }
+  if (output.FilterOperation !== undefined && output.FilterOperation !== null) {
+    return {
+      FilterOperation: deserializeAws_restJson1FilterOperation(output.FilterOperation, context),
+    };
+  }
+  if (output.ProjectOperation !== undefined && output.ProjectOperation !== null) {
+    return {
+      ProjectOperation: deserializeAws_restJson1ProjectOperation(output.ProjectOperation, context),
+    };
+  }
+  if (output.RenameColumnOperation !== undefined && output.RenameColumnOperation !== null) {
+    return {
+      RenameColumnOperation: deserializeAws_restJson1RenameColumnOperation(output.RenameColumnOperation, context),
+    };
+  }
+  if (output.TagColumnOperation !== undefined && output.TagColumnOperation !== null) {
+    return {
+      TagColumnOperation: deserializeAws_restJson1TagColumnOperation(output.TagColumnOperation, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1TransformOperationList = (output: any, context: __SerdeContext): TransformOperation[] => {

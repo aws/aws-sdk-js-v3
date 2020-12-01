@@ -50,6 +50,7 @@ import {
 } from "../commands/UpdateComponentConfigurationCommand";
 import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "../commands/UpdateLogPatternCommand";
 import {
+  AccessDeniedException,
   ApplicationComponent,
   ApplicationInfo,
   BadRequestException,
@@ -109,6 +110,7 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   TagsAlreadyExistException,
+  Tier,
   TooManyTagsException,
   UntagResourceRequest,
   UntagResourceResponse,
@@ -513,6 +515,14 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.applicationinsights#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.applicationinsights#InternalServerException":
       response = {
@@ -2440,6 +2450,21 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2825,11 +2850,24 @@ const serializeAws_json1_1UpdateLogPatternRequest = (input: UpdateLogPatternRequ
   };
 };
 
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ApplicationComponent = (output: any, context: __SerdeContext): ApplicationComponent => {
   return {
     ComponentName:
       output.ComponentName !== undefined && output.ComponentName !== null ? output.ComponentName : undefined,
+    ComponentRemarks:
+      output.ComponentRemarks !== undefined && output.ComponentRemarks !== null ? output.ComponentRemarks : undefined,
+    DetectedWorkload:
+      output.DetectedWorkload !== undefined && output.DetectedWorkload !== null
+        ? deserializeAws_json1_1DetectedWorkload(output.DetectedWorkload, context)
+        : undefined,
     Monitor: output.Monitor !== undefined && output.Monitor !== null ? output.Monitor : undefined,
+    OsType: output.OsType !== undefined && output.OsType !== null ? output.OsType : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
     Tier: output.Tier !== undefined && output.Tier !== null ? output.Tier : undefined,
   } as any;
@@ -3062,6 +3100,19 @@ const deserializeAws_json1_1DescribeProblemResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetectedWorkload = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: { [key: string]: string } } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [Tier | string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1WorkloadMetaData(value, context),
+    }),
+    {}
+  );
+};
+
 const deserializeAws_json1_1Feedback = (
   output: any,
   context: __SerdeContext
@@ -3226,6 +3277,10 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
         : undefined,
     CodeDeployState:
       output.CodeDeployState !== undefined && output.CodeDeployState !== null ? output.CodeDeployState : undefined,
+    EbsCause: output.EbsCause !== undefined && output.EbsCause !== null ? output.EbsCause : undefined,
+    EbsEvent: output.EbsEvent !== undefined && output.EbsEvent !== null ? output.EbsEvent : undefined,
+    EbsRequestId: output.EbsRequestId !== undefined && output.EbsRequestId !== null ? output.EbsRequestId : undefined,
+    EbsResult: output.EbsResult !== undefined && output.EbsResult !== null ? output.EbsResult : undefined,
     Ec2State: output.Ec2State !== undefined && output.Ec2State !== null ? output.Ec2State : undefined,
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
@@ -3256,12 +3311,26 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
     MetricNamespace:
       output.MetricNamespace !== undefined && output.MetricNamespace !== null ? output.MetricNamespace : undefined,
+    RdsEventCategories:
+      output.RdsEventCategories !== undefined && output.RdsEventCategories !== null
+        ? output.RdsEventCategories
+        : undefined,
+    RdsEventMessage:
+      output.RdsEventMessage !== undefined && output.RdsEventMessage !== null ? output.RdsEventMessage : undefined,
+    S3EventName: output.S3EventName !== undefined && output.S3EventName !== null ? output.S3EventName : undefined,
     SourceARN: output.SourceARN !== undefined && output.SourceARN !== null ? output.SourceARN : undefined,
     SourceType: output.SourceType !== undefined && output.SourceType !== null ? output.SourceType : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
+    StatesArn: output.StatesArn !== undefined && output.StatesArn !== null ? output.StatesArn : undefined,
+    StatesExecutionArn:
+      output.StatesExecutionArn !== undefined && output.StatesExecutionArn !== null
+        ? output.StatesExecutionArn
+        : undefined,
+    StatesInput: output.StatesInput !== undefined && output.StatesInput !== null ? output.StatesInput : undefined,
+    StatesStatus: output.StatesStatus !== undefined && output.StatesStatus !== null ? output.StatesStatus : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
     XRayErrorPercent:
@@ -3427,6 +3496,16 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

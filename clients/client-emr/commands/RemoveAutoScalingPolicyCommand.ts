@@ -21,7 +21,8 @@ export type RemoveAutoScalingPolicyCommandInput = RemoveAutoScalingPolicyInput;
 export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput & __MetadataBearer;
 
 /**
- * <p>Removes an automatic scaling policy from a specified instance group within an EMR cluster.</p>
+ * <p>Removes an automatic scaling policy from a specified instance group within an EMR
+ *          cluster.</p>
  */
 export class RemoveAutoScalingPolicyCommand extends $Command<
   RemoveAutoScalingPolicyCommandInput,

@@ -83,23 +83,22 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <p>AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for
  *    developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the
- *       undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar
- *       to users of traditional batch computing software. This service can efficiently provision resources in response to
- *       jobs submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results
- *       quickly.</p>
+ *    undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar to
+ *    users of traditional batch computing software. This service can efficiently provision resources in response to jobs
+ *    submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.</p>
  *          <p>As a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing
  *    workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution
- *       based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch
- *       computing software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces
- *       operational complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and
- *       engineers to run their batch jobs in the AWS Cloud.</p>
+ *    based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing
+ *    software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational
+ *    complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run
+ *    their batch jobs in the AWS Cloud.</p>
  */
 export class Batch extends BatchClient {
   /**
    * <p>Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or
    *     <code>RUNNABLE</code> state are cancelled. Jobs that have progressed to <code>STARTING</code> or
-   *         <code>RUNNING</code> are not cancelled (but the API operation still succeeds, even if no job is cancelled);
-   *       these jobs must be terminated with the <a>TerminateJob</a> operation.</p>
+   *     <code>RUNNING</code> are not cancelled (but the API operation still succeeds, even if no job is cancelled); these
+   *    jobs must be terminated with the <a>TerminateJob</a> operation.</p>
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
   public cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
@@ -129,9 +128,9 @@ export class Batch extends BatchClient {
    *    environments.</p>
    *          <p>In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources
    *    within the environment. This is based on the compute resource specification that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a> that you
-   *       specify when you create the compute environment. You can choose to use Amazon EC2 On-Demand Instances or Spot Instances
-   *       in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch
-   *       when the Spot Instance price is below a specified percentage of the On-Demand price.</p>
+   *    specify when you create the compute environment. You can choose to use Amazon EC2 On-Demand Instances or Spot Instances in
+   *    your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the
+   *    Spot Instance price is below a specified percentage of the On-Demand price.</p>
    *          <note>
    *             <p>Multi-node parallel jobs are not supported on Spot Instances.</p>
    *          </note>
@@ -139,9 +138,9 @@ export class Batch extends BatchClient {
    *    resource configuration options, such as using a custom AMI, but you must ensure that your AMI meets the Amazon ECS
    *    container instance AMI specification. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container Instance AMIs</a> in the
    *     <i>Amazon Elastic Container Service Developer Guide</i>. After you have created your unmanaged compute environment, you can use the
-   *         <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that is associated with it.
-   *       Then, manually launch your container instances into that Amazon ECS cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon
-   *         ECS Container Instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *     <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that is associated with it. Then,
+   *    manually launch your container instances into that Amazon ECS cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon ECS
+   *     Container Instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <note>
    *             <p>AWS Batch does not upgrade the AMIs in a compute environment after it is created (for example, when a newer
    *     version of the Amazon ECS-optimized AMI is available). You are responsible for the management of the guest operating
@@ -193,11 +192,11 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Creates an AWS Batch job queue. When you create a job queue, you associate one or more compute environments to
-   *       the queue and assign an order of preference for the compute environments.</p>
+   * <p>Creates an AWS Batch job queue. When you create a job queue, you associate one or more compute environments to the
+   *    queue and assign an order of preference for the compute environments.</p>
    *          <p>You also set a priority to the job queue that determines the order in which the AWS Batch scheduler places jobs
-   *       onto its associated compute environments. For example, if a compute environment is associated with more than one
-   *       job queue, the job queue with a higher priority is given preference for scheduling jobs to that compute
+   *    onto its associated compute environments. For example, if a compute environment is associated with more than one job
+   *    queue, the job queue with a higher priority is given preference for scheduling jobs to that compute
    *    environment.</p>
    */
   public createJobQueue(
@@ -365,8 +364,8 @@ export class Batch extends BatchClient {
   }
 
   /**
-   * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to
-   *       only return job definitions that match that status.</p>
+   * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
+   *    return job definitions that match that status.</p>
    */
   public describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
@@ -592,8 +591,8 @@ export class Batch extends BatchClient {
 
   /**
    * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a
-   *       resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags
-   *       associated with that resource are deleted as well. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
+   *    resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags
+   *    associated with that resource are deleted as well. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
    *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;

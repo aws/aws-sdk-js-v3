@@ -2340,7 +2340,6 @@ import {
   GetDefaultCreditSpecificationResult,
   GetEbsDefaultKmsKeyIdRequest,
   GetEbsDefaultKmsKeyIdResult,
-  GetEbsEncryptionByDefaultRequest,
   HistoryRecord,
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
@@ -2358,6 +2357,7 @@ import {
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
+  PrivateDnsDetails,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
   RecurringCharge,
@@ -2421,6 +2421,7 @@ import {
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
+  GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
   GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
@@ -58556,6 +58557,20 @@ const deserializeAws_ec2PrincipalIdFormatList = (output: any, context: __SerdeCo
   return (output || []).map((entry: any) => deserializeAws_ec2PrincipalIdFormat(entry, context));
 };
 
+const deserializeAws_ec2PrivateDnsDetails = (output: any, context: __SerdeContext): PrivateDnsDetails => {
+  let contents: any = {
+    PrivateDnsName: undefined,
+  };
+  if (output["privateDnsName"] !== undefined) {
+    contents.PrivateDnsName = output["privateDnsName"];
+  }
+  return contents;
+};
+
+const deserializeAws_ec2PrivateDnsDetailsSet = (output: any, context: __SerdeContext): PrivateDnsDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_ec2PrivateDnsDetails(entry, context));
+};
+
 const deserializeAws_ec2PrivateDnsNameConfiguration = (
   output: any,
   context: __SerdeContext
@@ -60631,6 +60646,7 @@ const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): 
     Owner: undefined,
     BaseEndpointDnsNames: undefined,
     PrivateDnsName: undefined,
+    PrivateDnsNames: undefined,
     VpcEndpointPolicySupported: undefined,
     AcceptanceRequired: undefined,
     ManagesVpcEndpoints: undefined,
@@ -60675,6 +60691,15 @@ const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): 
   }
   if (output["privateDnsName"] !== undefined) {
     contents.PrivateDnsName = output["privateDnsName"];
+  }
+  if (output.privateDnsNameSet === "") {
+    contents.PrivateDnsNames = [];
+  }
+  if (output["privateDnsNameSet"] !== undefined && output["privateDnsNameSet"]["item"] !== undefined) {
+    contents.PrivateDnsNames = deserializeAws_ec2PrivateDnsDetailsSet(
+      __getArrayIfSingleItem(output["privateDnsNameSet"]["item"]),
+      context
+    );
   }
   if (output["vpcEndpointPolicySupported"] !== undefined) {
     contents.VpcEndpointPolicySupported = output["vpcEndpointPolicySupported"] == "true";

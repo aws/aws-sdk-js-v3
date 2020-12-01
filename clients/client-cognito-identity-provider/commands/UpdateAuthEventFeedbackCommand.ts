@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/models_0";
+import { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
   serializeAws_json1_1UpdateAuthEventFeedbackCommand,

@@ -378,12 +378,9 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role
- *       that Amazon Forecast can assume to access the file(s). Optionally, includes
- *       an AWS Key Management Service (KMS) key. This object is part of the <a>DataSource</a> object that
- *       is submitted in the <a>CreateDatasetImportJob</a> request, and part of the
- *       <a>DataDestination</a> object that is submitted in the
- *       <a>CreateForecastExportJob</a> request.</p>
+ * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
+ *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+ *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
  */
 export interface S3Config {
   /**
@@ -593,9 +590,8 @@ export namespace CreateForecastResponse {
 }
 
 /**
- * <p>The destination for an exported forecast, an AWS Identity and Access Management (IAM) role that allows
- *       Amazon Forecast to access the location and, optionally, an AWS Key Management Service (KMS) key. This object is
- *       submitted in the <a>CreateForecastExportJob</a> request.</p>
+ * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+ *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
  */
 export interface DataDestination {
   /**
@@ -1538,6 +1534,80 @@ export namespace CreatePredictorResponse {
   });
 }
 
+export interface CreatePredictorBacktestExportJobRequest {
+  /**
+   * <p>The name for the backtest export job.</p>
+   */
+  PredictorBacktestExportJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor that you want to export.</p>
+   */
+  PredictorArn: string | undefined;
+
+  /**
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
+   */
+  Destination: DataDestination | undefined;
+
+  /**
+   * <p>Optional metadata to help you categorize and organize your backtests. Each tag consists
+   *             of a key and an optional value, both of which you define. Tag keys and values are case
+   *             sensitive.</p>
+   *         <p>The following restrictions apply to tags:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                     value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum number of tags per resource: 50.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and +
+   *                     - = . _ : / @. If your tagging schema is used across other services and resources,
+   *                     the character restrictions of those services also apply. </p>
+   *             </li>
+   *             <li>
+   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                     <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag
+   *                     value has <code>aws</code> as its prefix but the key does not, Forecast considers it
+   *                     to be a user tag and will count against the limit of 50 tags. Tags with only the key
+   *                     prefix of <code>aws</code> do not count against your tags per resource limit. You
+   *                     cannot edit or delete tag keys with this prefix.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreatePredictorBacktestExportJobRequest {
+  export const filterSensitiveLog = (obj: CreatePredictorBacktestExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePredictorBacktestExportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job that you want to
+   *             export.</p>
+   */
+  PredictorBacktestExportJobArn?: string;
+}
+
+export namespace CreatePredictorBacktestExportJobResponse {
+  export const filterSensitiveLog = (obj: CreatePredictorBacktestExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
@@ -1612,6 +1682,19 @@ export interface DeletePredictorRequest {
 
 export namespace DeletePredictorRequest {
   export const filterSensitiveLog = (obj: DeletePredictorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePredictorBacktestExportJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
+   */
+  PredictorBacktestExportJobArn: string | undefined;
+}
+
+export namespace DeletePredictorBacktestExportJobRequest {
+  export const filterSensitiveLog = (obj: DeletePredictorBacktestExportJobRequest): any => ({
     ...obj,
   });
 }
@@ -2430,6 +2513,105 @@ export namespace DescribePredictorResponse {
   });
 }
 
+export interface DescribePredictorBacktestExportJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobArn: string | undefined;
+}
+
+export namespace DescribePredictorBacktestExportJobRequest {
+  export const filterSensitiveLog = (obj: DescribePredictorBacktestExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePredictorBacktestExportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobArn?: string;
+
+  /**
+   * <p>The name of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor.</p>
+   */
+  PredictorArn?: string;
+
+  /**
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>Information about any errors that may have occurred during the backtest export.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The status of the predictor backtest export job. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_PENDING</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_IN_PROGRESS</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_FAILED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_PENDING</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_IN_PROGRESS</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_FAILED</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>When the predictor backtest export job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>When the last successful export job finished.</p>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace DescribePredictorBacktestExportJobResponse {
+  export const filterSensitiveLog = (obj: DescribePredictorBacktestExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetAccuracyMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
@@ -2457,7 +2639,7 @@ export enum EvaluationType {
 export interface ErrorMetric {
   /**
    * <p>
-   *       Forecast types can be quantiles from 0.01 to 0.99 (by increments of 0.01), and the mean.
+   *       The Forecast type used to compute WAPE and RMSE.
    *     </p>
    */
   ForecastType?: string;
@@ -3290,6 +3472,161 @@ export interface ListForecastsResponse {
 
 export namespace ListForecastsResponse {
   export const filterSensitiveLog = (obj: ListForecastsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPredictorBacktestExportJobsRequest {
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a NextToken.
+   *             To retrieve the next set of results, use the token in the next request. Tokens expire after
+   *             24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An array of filters. For each filter, provide a condition and a match statement. The
+   *                 condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
+   *                 include or exclude the predictor backtest export jobs that match the statement from the
+   *                 list. The match statement consists of a key and a value.</p>
+   *             <p>
+   *                 <b>Filter properties</b>
+   *             </p>
+   *             <ul>
+   *             <li>
+   *                     <p>
+   *                   <code>Condition</code> - The condition to apply. Valid values are
+   *                         <code>IS</code> and <code>IS_NOT</code>. To include the predictor backtest
+   *                         export jobs that match the statement, specify <code>IS</code>. To exclude matching
+   *                         predictor backtest export jobs, specify <code>IS_NOT</code>.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>
+   *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
+   *                         <code>PredictorBacktestExportJobArn</code> and <code>Status</code>.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>
+   *                   <code>Value</code> - The value to match.</p>
+   *                 </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListPredictorBacktestExportJobsRequest {
+  export const filterSensitiveLog = (obj: ListPredictorBacktestExportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a summary of the predictor backtest export job properties used in the <a>ListPredictorBacktestExportJobs</a> operation. To get a complete set of properties, call
+ *             the <a>DescribePredictorBacktestExportJob</a> operation, and provide the listed
+ *             <code>PredictorBacktestExportJobArn</code>.</p>
+ */
+export interface PredictorBacktestExportJobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobArn?: string;
+
+  /**
+   * <p>The name of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobName?: string;
+
+  /**
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>The status of the predictor backtest export job. States include: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ACTIVE</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_PENDING</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_IN_PROGRESS</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_FAILED</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_PENDING</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_IN_PROGRESS</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DELETE_FAILED</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>Information about any errors that may have occurred during the backtest export.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>When the predictor backtest export job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>When the last successful export job finished.</p>
+   */
+  LastModificationTime?: Date;
+}
+
+export namespace PredictorBacktestExportJobSummary {
+  export const filterSensitiveLog = (obj: PredictorBacktestExportJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPredictorBacktestExportJobsResponse {
+  /**
+   * <p>An array of objects that summarize the properties of each predictor backtest export
+   *             job.</p>
+   */
+  PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[];
+
+  /**
+   * <p>Returns this token if the response is truncated. To retrieve the next
+   *             set of results, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPredictorBacktestExportJobsResponse {
+  export const filterSensitiveLog = (obj: ListPredictorBacktestExportJobsResponse): any => ({
     ...obj,
   });
 }

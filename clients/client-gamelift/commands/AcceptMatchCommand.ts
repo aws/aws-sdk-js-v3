@@ -44,11 +44,11 @@ export type AcceptMatchCommandOutput = AcceptMatchOutput & __MetadataBearer;
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *                 Add FlexMatch to a Game Client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-events.html"> FlexMatch Events Reference</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html"> FlexMatch Events Reference</a>
  *          </p>
  *         <p>
  *             <b>Related operations</b>

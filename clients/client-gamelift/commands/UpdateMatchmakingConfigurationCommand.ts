@@ -28,7 +28,7 @@ export type UpdateMatchmakingConfigurationCommandOutput = UpdateMatchmakingConfi
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
  *             Design a FlexMatch Matchmaker</a>
  *          </p>
  *         <p>

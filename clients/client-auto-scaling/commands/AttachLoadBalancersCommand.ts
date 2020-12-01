@@ -22,15 +22,16 @@ export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType & _
 
 /**
  * <note>
- *             <p>To attach an Application Load Balancer or a Network Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p>
+ *             <p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load
+ *                 Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation
+ *                 instead.</p>
  *         </note>
  *         <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling
  *             registers the running instances with these Classic Load Balancers.</p>
  *         <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach the load balancer from the Auto Scaling
  *             group, call the <a>DetachLoadBalancers</a> API.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching a load
- *                 balancer to your Auto Scaling group</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
+ *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  */
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,

@@ -7,6 +7,10 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "../commands/CreateAccountAssignmentCommand";
 import {
+  CreateInstanceAccessControlAttributeConfigurationCommandInput,
+  CreateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "../commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import {
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "../commands/CreatePermissionSetCommand";
@@ -19,6 +23,10 @@ import {
   DeleteInlinePolicyFromPermissionSetCommandOutput,
 } from "../commands/DeleteInlinePolicyFromPermissionSetCommand";
 import {
+  DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+  DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "../commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
+import {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "../commands/DeletePermissionSetCommand";
@@ -30,6 +38,10 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandInput,
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "../commands/DescribeAccountAssignmentDeletionStatusCommand";
+import {
+  DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+  DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "../commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
 import {
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
@@ -91,10 +103,16 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+  UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "../commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
+import {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "../commands/UpdatePermissionSetCommand";
 import {
+  AccessControlAttribute,
+  AccessControlAttributeValue,
   AccessDeniedException,
   AccountAssignment,
   AccountAssignmentOperationStatus,
@@ -105,18 +123,24 @@ import {
   ConflictException,
   CreateAccountAssignmentRequest,
   CreateAccountAssignmentResponse,
+  CreateInstanceAccessControlAttributeConfigurationRequest,
+  CreateInstanceAccessControlAttributeConfigurationResponse,
   CreatePermissionSetRequest,
   CreatePermissionSetResponse,
   DeleteAccountAssignmentRequest,
   DeleteAccountAssignmentResponse,
   DeleteInlinePolicyFromPermissionSetRequest,
   DeleteInlinePolicyFromPermissionSetResponse,
+  DeleteInstanceAccessControlAttributeConfigurationRequest,
+  DeleteInstanceAccessControlAttributeConfigurationResponse,
   DeletePermissionSetRequest,
   DeletePermissionSetResponse,
   DescribeAccountAssignmentCreationStatusRequest,
   DescribeAccountAssignmentCreationStatusResponse,
   DescribeAccountAssignmentDeletionStatusRequest,
   DescribeAccountAssignmentDeletionStatusResponse,
+  DescribeInstanceAccessControlAttributeConfigurationRequest,
+  DescribeInstanceAccessControlAttributeConfigurationResponse,
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
   DescribePermissionSetRequest,
@@ -125,6 +149,7 @@ import {
   DetachManagedPolicyFromPermissionSetResponse,
   GetInlinePolicyForPermissionSetRequest,
   GetInlinePolicyForPermissionSetResponse,
+  InstanceAccessControlAttributeConfiguration,
   InstanceMetadata,
   InternalServerException,
   ListAccountAssignmentCreationStatusRequest,
@@ -163,6 +188,8 @@ import {
   ThrottlingException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateInstanceAccessControlAttributeConfigurationRequest,
+  UpdateInstanceAccessControlAttributeConfigurationResponse,
   UpdatePermissionSetRequest,
   UpdatePermissionSetResponse,
   ValidationException,
@@ -200,6 +227,19 @@ export const serializeAws_json1_1CreateAccountAssignmentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAccountAssignmentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand = async (
+  input: CreateInstanceAccessControlAttributeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,6 +282,19 @@ export const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommand = as
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand = async (
+  input: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeletePermissionSetCommand = async (
   input: DeletePermissionSetCommandInput,
   context: __SerdeContext
@@ -278,6 +331,19 @@ export const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand = async (
+  input: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,6 +581,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand = async (
+  input: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdatePermissionSetCommand = async (
   input: UpdatePermissionSetCommandInput,
   context: __SerdeContext
@@ -697,6 +776,101 @@ const deserializeAws_json1_1CreateAccountAssignmentCommandError = async (
     case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationResponse(data, context);
+  const response: CreateInstanceAccessControlAttributeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1027,6 +1201,101 @@ const deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommandError = as
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationResponse(data, context);
+  const response: DeleteInstanceAccessControlAttributeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeletePermissionSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1230,6 +1499,93 @@ const deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommandError 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAssignmentDeletionStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationResponse(data, context);
+  const response: DescribeInstanceAccessControlAttributeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2910,6 +3266,101 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationResponse(data, context);
+  const response: UpdateInstanceAccessControlAttributeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdatePermissionSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3110,6 +3561,35 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AccessControlAttribute = (input: AccessControlAttribute, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: serializeAws_json1_1AccessControlAttributeValue(input.Value, context) }),
+  };
+};
+
+const serializeAws_json1_1AccessControlAttributeList = (
+  input: AccessControlAttribute[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1AccessControlAttribute(entry, context));
+};
+
+const serializeAws_json1_1AccessControlAttributeValue = (
+  input: AccessControlAttributeValue,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Source !== undefined && {
+      Source: serializeAws_json1_1AccessControlAttributeValueSourceList(input.Source, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AccessControlAttributeValueSourceList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest = (
   input: AttachManagedPolicyToPermissionSetRequest,
   context: __SerdeContext
@@ -3132,6 +3612,21 @@ const serializeAws_json1_1CreateAccountAssignmentRequest = (
     ...(input.PrincipalType !== undefined && { PrincipalType: input.PrincipalType }),
     ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
     ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
+  };
+};
+
+const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationRequest = (
+  input: CreateInstanceAccessControlAttributeConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceAccessControlAttributeConfiguration !== undefined && {
+      InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
+        input.InstanceAccessControlAttributeConfiguration,
+        context
+      ),
+    }),
+    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3173,6 +3668,15 @@ const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationRequest = (
+  input: DeleteInstanceAccessControlAttributeConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+  };
+};
+
 const serializeAws_json1_1DeletePermissionSetRequest = (
   input: DeletePermissionSetRequest,
   context: __SerdeContext
@@ -3203,6 +3707,15 @@ const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest = (
     ...(input.AccountAssignmentDeletionRequestId !== undefined && {
       AccountAssignmentDeletionRequestId: input.AccountAssignmentDeletionRequestId,
     }),
+    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationRequest = (
+  input: DescribeInstanceAccessControlAttributeConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
   };
 };
@@ -3247,6 +3760,17 @@ const serializeAws_json1_1GetInlinePolicyForPermissionSetRequest = (
   return {
     ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
     ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+  };
+};
+
+const serializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
+  input: InstanceAccessControlAttributeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessControlAttributes !== undefined && {
+      AccessControlAttributes: serializeAws_json1_1AccessControlAttributeList(input.AccessControlAttributes, context),
+    }),
   };
 };
 
@@ -3426,6 +3950,21 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationRequest = (
+  input: UpdateInstanceAccessControlAttributeConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceAccessControlAttributeConfiguration !== undefined && {
+      InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
+        input.InstanceAccessControlAttributeConfiguration,
+        context
+      ),
+    }),
+    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+  };
+};
+
 const serializeAws_json1_1UpdatePermissionSetRequest = (
   input: UpdatePermissionSetRequest,
   context: __SerdeContext
@@ -3437,6 +3976,42 @@ const serializeAws_json1_1UpdatePermissionSetRequest = (
     ...(input.RelayState !== undefined && { RelayState: input.RelayState }),
     ...(input.SessionDuration !== undefined && { SessionDuration: input.SessionDuration }),
   };
+};
+
+const deserializeAws_json1_1AccessControlAttribute = (output: any, context: __SerdeContext): AccessControlAttribute => {
+  return {
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_json1_1AccessControlAttributeValue(output.Value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AccessControlAttributeList = (
+  output: any,
+  context: __SerdeContext
+): AccessControlAttribute[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AccessControlAttribute(entry, context));
+};
+
+const deserializeAws_json1_1AccessControlAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): AccessControlAttributeValue => {
+  return {
+    Source:
+      output.Source !== undefined && output.Source !== null
+        ? deserializeAws_json1_1AccessControlAttributeValueSourceList(output.Source, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AccessControlAttributeValueSourceList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -3549,6 +4124,13 @@ const deserializeAws_json1_1CreateAccountAssignmentResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateInstanceAccessControlAttributeConfigurationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1CreatePermissionSetResponse = (
   output: any,
   context: __SerdeContext
@@ -3580,6 +4162,13 @@ const deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteInstanceAccessControlAttributeConfigurationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeletePermissionSetResponse = (
   output: any,
   context: __SerdeContext
@@ -3608,6 +4197,24 @@ const deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusResponse = (
       output.AccountAssignmentDeletionStatus !== undefined && output.AccountAssignmentDeletionStatus !== null
         ? deserializeAws_json1_1AccountAssignmentOperationStatus(output.AccountAssignmentDeletionStatus, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstanceAccessControlAttributeConfigurationResponse => {
+  return {
+    InstanceAccessControlAttributeConfiguration:
+      output.InstanceAccessControlAttributeConfiguration !== undefined &&
+      output.InstanceAccessControlAttributeConfiguration !== null
+        ? deserializeAws_json1_1InstanceAccessControlAttributeConfiguration(
+            output.InstanceAccessControlAttributeConfiguration,
+            context
+          )
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
   } as any;
 };
 
@@ -3648,6 +4255,18 @@ const deserializeAws_json1_1GetInlinePolicyForPermissionSetResponse = (
 ): GetInlinePolicyForPermissionSetResponse => {
   return {
     InlinePolicy: output.InlinePolicy !== undefined && output.InlinePolicy !== null ? output.InlinePolicy : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): InstanceAccessControlAttributeConfiguration => {
+  return {
+    AccessControlAttributes:
+      output.AccessControlAttributes !== undefined && output.AccessControlAttributes !== null
+        ? deserializeAws_json1_1AccessControlAttributeList(output.AccessControlAttributes, context)
+        : undefined,
   } as any;
 };
 
@@ -3920,6 +4539,13 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateInstanceAccessControlAttributeConfigurationResponse => {
   return {} as any;
 };
 

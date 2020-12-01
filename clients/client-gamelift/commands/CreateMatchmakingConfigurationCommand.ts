@@ -21,28 +21,36 @@ export type CreateMatchmakingConfigurationCommandInput = CreateMatchmakingConfig
 export type CreateMatchmakingConfigurationCommandOutput = CreateMatchmakingConfigurationOutput & __MetadataBearer;
 
 /**
- * <p>Defines a new matchmaking configuration for use with FlexMatch. A matchmaking
- *             configuration sets out guidelines for matching players and getting the matches into
- *             games. You can set up multiple matchmaking configurations to handle the scenarios needed
- *             for your game. Each matchmaking ticket (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) specifies a configuration for the match and provides
- *             player attributes to support the configuration being used. </p>
- *         <p>To create a matchmaking configuration, at a minimum you must specify the following:
- *             configuration name; a rule set that governs how to evaluate players and find acceptable
- *             matches; a game session queue to use when placing a new game session for the match; and
- *             the maximum time allowed for a matchmaking attempt.</p>
- *         <p>To track the progress of matchmaking tickets, set up an Amazon Simple Notification Service (SNS) to receive
- *             notifications, and provide the topic ARN in the matchmaking configuration. An
- *             alternative method, continuously poling ticket status with <a>DescribeMatchmaking</a>, should only be used for games in development with
- *             low matchmaking usage.</p>
+ * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
+ *             FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
+ *             configuration sets out rules for matching players and forming teams. If you're also
+ *             using GameLift hosting, it defines how to start game sessions for each match. Your
+ *             matchmaking system can use multiple configurations to handle different game scenarios.
+ *             All matchmaking requests (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) identify the matchmaking configuration to use and
+ *             provide player attributes consistent with that configuration. </p>
+ *         <p>To create a matchmaking configuration, you must provide the following: configuration
+ *             name and FlexMatch mode (with or without GameLift hosting); a rule set that specifies how
+ *             to evaluate players and find acceptable matches; whether player acceptance is required;
+ *             and the maximum time allowed for a matchmaking attempt. When using FlexMatch with GameLift
+ *             hosting, you also need to identify the game session queue to use when starting a game
+ *             session for the match.</p>
+ *         <p>In addition, you must set up an Amazon Simple Notification Service (SNS) to receive matchmaking notifications, and
+ *             provide the topic ARN in the matchmaking configuration. An alternative method,
+ *             continuously polling ticket status with <a>DescribeMatchmaking</a>, is only
+ *             suitable for games in development with low matchmaking usage.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
+ *             FlexMatch Developer Guide</a>
+ *          </p>
+ *         <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
  *                 Design a FlexMatch Matchmaker</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
  *             Set Up FlexMatch Event Notification</a>
  *          </p>
  *         <p>

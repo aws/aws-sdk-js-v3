@@ -725,35 +725,92 @@ export namespace AssetPropertyTimestamp {
 /**
  * <p>Contains an asset property value (of a single type).</p>
  */
-export interface AssetPropertyVariant {
+export type AssetPropertyVariant =
+  | AssetPropertyVariant.BooleanValueMember
+  | AssetPropertyVariant.DoubleValueMember
+  | AssetPropertyVariant.IntegerValueMember
+  | AssetPropertyVariant.StringValueMember
+  | AssetPropertyVariant.$UnknownMember;
+
+export namespace AssetPropertyVariant {
   /**
    * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
    */
-  stringValue?: string;
+  export interface StringValueMember {
+    stringValue: string;
+    integerValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Optional. A string that contains the integer value of the value entry. Accepts
    *       substitution templates.</p>
    */
-  integerValue?: string;
+  export interface IntegerValueMember {
+    stringValue?: never;
+    integerValue: string;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Optional. A string that contains the double value of the value entry. Accepts substitution
    *       templates.</p>
    */
-  doubleValue?: string;
+  export interface DoubleValueMember {
+    stringValue?: never;
+    integerValue?: never;
+    doubleValue: string;
+    booleanValue?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Optional. A string that contains the boolean value (<code>true</code> or
    *         <code>false</code>) of the value entry. Accepts substitution templates.</p>
    */
-  booleanValue?: string;
-}
+  export interface BooleanValueMember {
+    stringValue?: never;
+    integerValue?: never;
+    doubleValue?: never;
+    booleanValue: string;
+    $unknown?: never;
+  }
 
-export namespace AssetPropertyVariant {
-  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    stringValue?: never;
+    integerValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    integerValue: (value: string) => T;
+    doubleValue: (value: string) => T;
+    booleanValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AssetPropertyVariant, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => {
+    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
+    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -780,6 +837,7 @@ export interface AssetPropertyValue {
 export namespace AssetPropertyValue {
   export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
     ...obj,
+    ...(obj.value && { value: AssetPropertyVariant.filterSensitiveLog(obj.value) }),
   });
 }
 
@@ -825,6 +883,9 @@ export interface PutAssetPropertyValueEntry {
 export namespace PutAssetPropertyValueEntry {
   export const filterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
     ...obj,
+    ...(obj.propertyValues && {
+      propertyValues: obj.propertyValues.map((item) => AssetPropertyValue.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -4483,6 +4544,12 @@ export interface OTAUpdateFile {
    * <p>The name of the file.</p>
    */
   fileName?: string;
+
+  /**
+   * <p>An integer value you can include in the job document to allow your devices to identify the type of file received
+   *             from the cloud.</p>
+   */
+  fileType?: number;
 
   /**
    * <p>The file version.</p>

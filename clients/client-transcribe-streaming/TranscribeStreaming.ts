@@ -1,5 +1,10 @@
 import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 import {
+  StartMedicalStreamTranscriptionCommand,
+  StartMedicalStreamTranscriptionCommandInput,
+  StartMedicalStreamTranscriptionCommandOutput,
+} from "./commands/StartMedicalStreamTranscriptionCommand";
+import {
   StartStreamTranscriptionCommand,
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
@@ -10,6 +15,39 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <p>Operations and objects for transcribing streaming speech to text.</p>
  */
 export class TranscribeStreaming extends TranscribeStreamingClient {
+  /**
+   * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the transcription
+   *             results are streamed to your application.</p>
+   */
+  public startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMedicalStreamTranscriptionCommandOutput>;
+  public startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
+  ): void;
+  public startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
+  ): void;
+  public startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void),
+    cb?: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
+  ): Promise<StartMedicalStreamTranscriptionCommandOutput> | void {
+    const command = new StartMedicalStreamTranscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription
    *       results are streamed to your application.</p>

@@ -7,6 +7,10 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
 import {
+  CreateInstanceAccessControlAttributeConfigurationCommandInput,
+  CreateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import {
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "./commands/CreatePermissionSetCommand";
@@ -19,6 +23,10 @@ import {
   DeleteInlinePolicyFromPermissionSetCommandOutput,
 } from "./commands/DeleteInlinePolicyFromPermissionSetCommand";
 import {
+  DeleteInstanceAccessControlAttributeConfigurationCommandInput,
+  DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
+import {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
@@ -30,6 +38,10 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandInput,
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
+import {
+  DescribeInstanceAccessControlAttributeConfigurationCommandInput,
+  DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
 import {
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
@@ -91,6 +103,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateInstanceAccessControlAttributeConfigurationCommandInput,
+  UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
+} from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
+import {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
@@ -146,12 +162,15 @@ import {
 export type ServiceInputTypes =
   | AttachManagedPolicyToPermissionSetCommandInput
   | CreateAccountAssignmentCommandInput
+  | CreateInstanceAccessControlAttributeConfigurationCommandInput
   | CreatePermissionSetCommandInput
   | DeleteAccountAssignmentCommandInput
   | DeleteInlinePolicyFromPermissionSetCommandInput
+  | DeleteInstanceAccessControlAttributeConfigurationCommandInput
   | DeletePermissionSetCommandInput
   | DescribeAccountAssignmentCreationStatusCommandInput
   | DescribeAccountAssignmentDeletionStatusCommandInput
+  | DescribeInstanceAccessControlAttributeConfigurationCommandInput
   | DescribePermissionSetCommandInput
   | DescribePermissionSetProvisioningStatusCommandInput
   | DetachManagedPolicyFromPermissionSetCommandInput
@@ -170,17 +189,21 @@ export type ServiceInputTypes =
   | PutInlinePolicyToPermissionSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateInstanceAccessControlAttributeConfigurationCommandInput
   | UpdatePermissionSetCommandInput;
 
 export type ServiceOutputTypes =
   | AttachManagedPolicyToPermissionSetCommandOutput
   | CreateAccountAssignmentCommandOutput
+  | CreateInstanceAccessControlAttributeConfigurationCommandOutput
   | CreatePermissionSetCommandOutput
   | DeleteAccountAssignmentCommandOutput
   | DeleteInlinePolicyFromPermissionSetCommandOutput
+  | DeleteInstanceAccessControlAttributeConfigurationCommandOutput
   | DeletePermissionSetCommandOutput
   | DescribeAccountAssignmentCreationStatusCommandOutput
   | DescribeAccountAssignmentDeletionStatusCommandOutput
+  | DescribeInstanceAccessControlAttributeConfigurationCommandOutput
   | DescribePermissionSetCommandOutput
   | DescribePermissionSetProvisioningStatusCommandOutput
   | DetachManagedPolicyFromPermissionSetCommandOutput
@@ -199,6 +222,7 @@ export type ServiceOutputTypes =
   | PutInlinePolicyToPermissionSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateInstanceAccessControlAttributeConfigurationCommandOutput
   | UpdatePermissionSetCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

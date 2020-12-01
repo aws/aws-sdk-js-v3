@@ -119,6 +119,21 @@ import {
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export interface GetEbsEncryptionByDefaultRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetEbsEncryptionByDefaultRequest {
+  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface GetEbsEncryptionByDefaultResult {
   /**
    * <p>Indicates whether encryption by default is enabled.</p>

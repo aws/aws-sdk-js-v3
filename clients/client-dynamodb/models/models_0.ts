@@ -947,6 +947,80 @@ export enum BackupTypeFilter {
   USER = "USER",
 }
 
+export enum BatchStatementErrorCodeEnum {
+  AccessDenied = "AccessDenied",
+  ConditionalCheckFailed = "ConditionalCheckFailed",
+  DuplicateItem = "DuplicateItem",
+  InternalServerError = "InternalServerError",
+  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
+  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
+  RequestLimitExceeded = "RequestLimitExceeded",
+  ResourceNotFound = "ResourceNotFound",
+  ThrottlingError = "ThrottlingError",
+  TransactionConflict = "TransactionConflict",
+  ValidationError = "ValidationError",
+}
+
+/**
+ * <p>
+ * An error associated with a statement in a PartiQL batch that was run.
+ * </p>
+ */
+export interface BatchStatementError {
+  /**
+   * <p>
+   * The error code associated with the failed PartiQL batch statement.
+   * </p>
+   */
+  Code?: BatchStatementErrorCodeEnum | string;
+
+  /**
+   * <p>
+   * The error message associated with the PartiQL batch resposne.
+   * </p>
+   */
+  Message?: string;
+}
+
+export namespace BatchStatementError {
+  export const filterSensitiveLog = (obj: BatchStatementError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An error occurred on the server side.</p>
+ */
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   * <p>The server encountered an internal error trying to fulfill the request.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Throughput exceeds the current throughput quota for your account. Please contact AWS Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota increase.</p>
+ */
+export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
+  name: "RequestLimitExceeded";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace RequestLimitExceeded {
+  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
+    ...obj,
+  });
+}
+
 export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
 
 /**
@@ -1025,24 +1099,6 @@ export namespace ConsumedCapacity {
   });
 }
 
-/**
- * <p>An error occurred on the server side.</p>
- */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   * <p>The server encountered an internal error trying to fulfill the request.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
@@ -1073,21 +1129,6 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
 
 export namespace ProvisionedThroughputExceededException {
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Throughput exceeds the current throughput quota for your account. Please contact AWS Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota increase.</p>
- */
-export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "RequestLimitExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace RequestLimitExceeded {
-  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
     ...obj,
   });
 }
@@ -3551,6 +3592,65 @@ export namespace DescribeGlobalTableSettingsOutput {
   });
 }
 
+export interface DescribeKinesisStreamingDestinationInput {
+  /**
+   * <p>The name of the table being described.</p>
+   */
+  TableName: string | undefined;
+}
+
+export namespace DescribeKinesisStreamingDestinationInput {
+  export const filterSensitiveLog = (obj: DescribeKinesisStreamingDestinationInput): any => ({
+    ...obj,
+  });
+}
+
+export type DestinationStatus = "ACTIVE" | "DISABLED" | "DISABLING" | "ENABLE_FAILED" | "ENABLING";
+
+/**
+ * <p>Describes a Kinesis data stream destination.</p>
+ */
+export interface KinesisDataStreamDestination {
+  /**
+   * <p>The ARN for a specific Kinesis data stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>The current status of replication.</p>
+   */
+  DestinationStatus?: DestinationStatus | string;
+
+  /**
+   * <p>The human-readable string that corresponds to the replica status.</p>
+   */
+  DestinationStatusDescription?: string;
+}
+
+export namespace KinesisDataStreamDestination {
+  export const filterSensitiveLog = (obj: KinesisDataStreamDestination): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeKinesisStreamingDestinationOutput {
+  /**
+   * <p>The name of the table being described.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The list of replica structures for the table being described.</p>
+   */
+  KinesisDataStreamDestinations?: KinesisDataStreamDestination[];
+}
+
+export namespace DescribeKinesisStreamingDestinationOutput {
+  export const filterSensitiveLog = (obj: DescribeKinesisStreamingDestinationOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Represents the input of a <code>DescribeLimits</code> operation. Has no content.</p>
  */
@@ -3830,6 +3930,95 @@ export interface DescribeTimeToLiveOutput {
 
 export namespace DescribeTimeToLiveOutput {
   export const filterSensitiveLog = (obj: DescribeTimeToLiveOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface KinesisStreamingDestinationInput {
+  /**
+   * <p>The name of the DynamoDB table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The ARN for a Kinesis data stream.</p>
+   */
+  StreamArn: string | undefined;
+}
+
+export namespace KinesisStreamingDestinationInput {
+  export const filterSensitiveLog = (obj: KinesisStreamingDestinationInput): any => ({
+    ...obj,
+  });
+}
+
+export interface KinesisStreamingDestinationOutput {
+  /**
+   * <p>The name of the table being modified.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The ARN for the specific Kinesis data stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>The current status of the replication.</p>
+   */
+  DestinationStatus?: DestinationStatus | string;
+}
+
+export namespace KinesisStreamingDestinationOutput {
+  export const filterSensitiveLog = (obj: KinesisStreamingDestinationOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * There was an attempt to insert an item with the same primary key as an item that already exists in the DynamoDB table.
+ * </p>
+ */
+export interface DuplicateItemException extends __SmithyException, $MetadataBearer {
+  name: "DuplicateItemException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DuplicateItemException {
+  export const filterSensitiveLog = (obj: DuplicateItemException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>DynamoDB rejected the request because you retried a request with a different payload but
+ *       with an idempotent token that was already used.</p>
+ */
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
+  name: "IdempotentParameterMismatchException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IdempotentParameterMismatchException {
+  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The transaction with the given request token is already in progress.</p>
+ */
+export interface TransactionInProgressException extends __SmithyException, $MetadataBearer {
+  name: "TransactionInProgressException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TransactionInProgressException {
+  export const filterSensitiveLog = (obj: TransactionInProgressException): any => ({
     ...obj,
   });
 }
@@ -4500,37 +4689,6 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>DynamoDB rejected the request because you retried a request with a different payload but
- *       with an idempotent token that was already used.</p>
- */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace IdempotentParameterMismatchException {
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The transaction with the given request token is already in progress.</p>
- */
-export interface TransactionInProgressException extends __SmithyException, $MetadataBearer {
-  name: "TransactionInProgressException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TransactionInProgressException {
-  export const filterSensitiveLog = (obj: TransactionInProgressException): any => ({
     ...obj,
   });
 }
@@ -5364,14 +5522,39 @@ export namespace UpdateTimeToLiveOutput {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
  *                              <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
-export interface AttributeValue {
+export type AttributeValue =
+  | AttributeValue.BMember
+  | AttributeValue.BOOLMember
+  | AttributeValue.BSMember
+  | AttributeValue.LMember
+  | AttributeValue.MMember
+  | AttributeValue.NMember
+  | AttributeValue.NSMember
+  | AttributeValue.NULLMember
+  | AttributeValue.SMember
+  | AttributeValue.SSMember
+  | AttributeValue.$UnknownMember;
+
+export namespace AttributeValue {
   /**
    * <p>An attribute of type  String. For example:</p>
    *          <p>
    *             <code>"S": "Hello"</code>
    *          </p>
    */
-  S?: string;
+  export interface SMember {
+    S: string;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Number.  For example:</p>
@@ -5380,7 +5563,19 @@ export interface AttributeValue {
    *          </p>
    *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  N?: string;
+  export interface NMember {
+    S?: never;
+    N: string;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Binary.  For example:</p>
@@ -5388,7 +5583,19 @@ export interface AttributeValue {
    *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
    *          </p>
    */
-  B?: Uint8Array;
+  export interface BMember {
+    S?: never;
+    N?: never;
+    B: Uint8Array;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type String Set.  For example:</p>
@@ -5396,7 +5603,19 @@ export interface AttributeValue {
    *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
    *          </p>
    */
-  SS?: string[];
+  export interface SSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS: string[];
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Number Set.  For example:</p>
@@ -5405,7 +5624,19 @@ export interface AttributeValue {
    *          </p>
    *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  NS?: string[];
+  export interface NSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS: string[];
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Binary Set.  For example:</p>
@@ -5413,7 +5644,19 @@ export interface AttributeValue {
    *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
    *          </p>
    */
-  BS?: Uint8Array[];
+  export interface BSMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS: Uint8Array[];
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Map.  For example:</p>
@@ -5421,7 +5664,19 @@ export interface AttributeValue {
    *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
    *          </p>
    */
-  M?: { [key: string]: AttributeValue };
+  export interface MMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M: { [key: string]: AttributeValue };
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type List.  For example:</p>
@@ -5429,7 +5684,19 @@ export interface AttributeValue {
    *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
    *          </p>
    */
-  L?: AttributeValue[];
+  export interface LMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L: AttributeValue[];
+    NULL?: never;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Null.  For example:</p>
@@ -5437,7 +5704,19 @@ export interface AttributeValue {
    *             <code>"NULL": true</code>
    *          </p>
    */
-  NULL?: boolean;
+  export interface NULLMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL: boolean;
+    BOOL?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An attribute of type Boolean.  For example:</p>
@@ -5445,13 +5724,84 @@ export interface AttributeValue {
    *             <code>"BOOL": true</code>
    *          </p>
    */
-  BOOL?: boolean;
-}
+  export interface BOOLMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL: boolean;
+    $unknown?: never;
+  }
 
-export namespace AttributeValue {
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    S?: never;
+    N?: never;
+    B?: never;
+    SS?: never;
+    NS?: never;
+    BS?: never;
+    M?: never;
+    L?: never;
+    NULL?: never;
+    BOOL?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S: (value: string) => T;
+    N: (value: string) => T;
+    B: (value: Uint8Array) => T;
+    SS: (value: string[]) => T;
+    NS: (value: string[]) => T;
+    BS: (value: Uint8Array[]) => T;
+    M: (value: { [key: string]: AttributeValue }) => T;
+    L: (value: AttributeValue[]) => T;
+    NULL: (value: boolean) => T;
+    BOOL: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AttributeValue, visitor: Visitor<T>): T => {
+    if (value.S !== undefined) return visitor.S(value.S);
+    if (value.N !== undefined) return visitor.N(value.N);
+    if (value.B !== undefined) return visitor.B(value.B);
+    if (value.SS !== undefined) return visitor.SS(value.SS);
+    if (value.NS !== undefined) return visitor.NS(value.NS);
+    if (value.BS !== undefined) return visitor.BS(value.BS);
+    if (value.M !== undefined) return visitor.M(value.M);
+    if (value.L !== undefined) return visitor.L(value.L);
+    if (value.NULL !== undefined) return visitor.NULL(value.NULL);
+    if (value.BOOL !== undefined) return visitor.BOOL(value.BOOL);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AttributeValue): any => {
+    if (obj.S !== undefined) return { S: obj.S };
+    if (obj.N !== undefined) return { N: obj.N };
+    if (obj.B !== undefined) return { B: obj.B };
+    if (obj.SS !== undefined) return { SS: obj.SS };
+    if (obj.NS !== undefined) return { NS: obj.NS };
+    if (obj.BS !== undefined) return { BS: obj.BS };
+    if (obj.M !== undefined)
+      return {
+        M: Object.entries(obj.M).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        ),
+      };
+    if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValue.filterSensitiveLog(item)) };
+    if (obj.NULL !== undefined) return { NULL: obj.NULL };
+    if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -5570,6 +5920,85 @@ export interface AttributeValueUpdate {
 export namespace AttributeValueUpdate {
   export const filterSensitiveLog = (obj: AttributeValueUpdate): any => ({
     ...obj,
+    ...(obj.Value && { Value: AttributeValue.filterSensitiveLog(obj.Value) }),
+  });
+}
+
+/**
+ * <p>
+ * A PartiQL batch statement request.
+ * </p>
+ */
+export interface BatchStatementRequest {
+  /**
+   * <p>
+   * A valid PartiQL statement.
+   * </p>
+   */
+  Statement: string | undefined;
+
+  /**
+   * <p>
+   * The parameters associated with a PartiQL statement in the batch request.
+   * </p>
+   */
+  Parameters?: AttributeValue[];
+
+  /**
+   * <p>
+   * The read consistency of the PartiQL batch request.
+   * </p>
+   */
+  ConsistentRead?: boolean;
+}
+
+export namespace BatchStatementRequest {
+  export const filterSensitiveLog = (obj: BatchStatementRequest): any => ({
+    ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
+  });
+}
+
+/**
+ * <p>
+ * A PartiQL batch statement response..
+ * </p>
+ */
+export interface BatchStatementResponse {
+  /**
+   * <p>
+   * The error associated with a failed PartiQL batch statement.
+   * </p>
+   */
+  Error?: BatchStatementError;
+
+  /**
+   * <p>
+   * The table name associated with a failed PartiQL batch statement.
+   * </p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>
+   * A DynamoDB item associated with a BatchStatementResponse
+   * </p>
+   */
+  Item?: { [key: string]: AttributeValue };
+}
+
+export namespace BatchStatementResponse {
+  export const filterSensitiveLog = (obj: BatchStatementResponse): any => ({
+    ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -5600,6 +6029,15 @@ export interface CancellationReason {
 export namespace CancellationReason {
   export const filterSensitiveLog = (obj: CancellationReason): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -5791,6 +6229,9 @@ export interface Condition {
 export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
+    ...(obj.AttributeValueList && {
+      AttributeValueList: obj.AttributeValueList.map((item) => AttributeValue.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -5807,6 +6248,52 @@ export interface DeleteRequest {
 export namespace DeleteRequest {
   export const filterSensitiveLog = (obj: DeleteRequest): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+  });
+}
+
+export interface ExecuteStatementInput {
+  /**
+   * <p>
+   * The PartiQL statement representing the operation to run.
+   * </p>
+   */
+  Statement: string | undefined;
+
+  /**
+   * <p>
+   * The parameters for the PartiQL statement, if any.
+   * </p>
+   */
+  Parameters?: AttributeValue[];
+
+  /**
+   * <p>
+   * The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+   * </p>
+   */
+  ConsistentRead?: boolean;
+
+  /**
+   * <p>
+   * Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.
+   * </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ExecuteStatementInput {
+  export const filterSensitiveLog = (obj: ExecuteStatementInput): any => ({
+    ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
   });
 }
 
@@ -5845,6 +6332,15 @@ export interface Get {
 export namespace Get {
   export const filterSensitiveLog = (obj: Get): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -5953,6 +6449,15 @@ export interface GetItemInput {
 export namespace GetItemInput {
   export const filterSensitiveLog = (obj: GetItemInput): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -5980,6 +6485,15 @@ export interface GetItemOutput {
 export namespace GetItemOutput {
   export const filterSensitiveLog = (obj: GetItemOutput): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -6004,6 +6518,15 @@ export interface ItemCollectionMetrics {
 export namespace ItemCollectionMetrics {
   export const filterSensitiveLog = (obj: ItemCollectionMetrics): any => ({
     ...obj,
+    ...(obj.ItemCollectionKey && {
+      ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -6020,6 +6543,43 @@ export interface ItemResponse {
 export namespace ItemResponse {
   export const filterSensitiveLog = (obj: ItemResponse): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+  });
+}
+
+/**
+ * <p>
+ * Represents a PartiQL statment that uses parameters.
+ * </p>
+ */
+export interface ParameterizedStatement {
+  /**
+   * <p>
+   * A PartiQL statment that uses parameters.
+   * </p>
+   */
+  Statement: string | undefined;
+
+  /**
+   * <p>
+   * The parameter values.
+   * </p>
+   */
+  Parameters?: AttributeValue[];
+}
+
+export namespace ParameterizedStatement {
+  export const filterSensitiveLog = (obj: ParameterizedStatement): any => ({
+    ...obj,
+    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
   });
 }
 
@@ -6040,6 +6600,48 @@ export interface PutRequest {
 export namespace PutRequest {
   export const filterSensitiveLog = (obj: PutRequest): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+  });
+}
+
+export interface ExecuteStatementOutput {
+  /**
+   * <p>
+   * If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty.
+   * </p>
+   */
+  Items?: { [key: string]: AttributeValue }[];
+
+  /**
+   * <p>
+   * If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.
+   * </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ExecuteStatementOutput {
+  export const filterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
+    ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map((item) =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        )
+      ),
+    }),
   });
 }
 
@@ -6124,6 +6726,17 @@ export interface KeysAndAttributes {
 export namespace KeysAndAttributes {
   export const filterSensitiveLog = (obj: KeysAndAttributes): any => ({
     ...obj,
+    ...(obj.Keys && {
+      Keys: obj.Keys.map((item) =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        )
+      ),
+    }),
   });
 }
 
@@ -6142,6 +6755,76 @@ export interface TransactGetItem {
 export namespace TransactGetItem {
   export const filterSensitiveLog = (obj: TransactGetItem): any => ({
     ...obj,
+    ...(obj.Get && { Get: Get.filterSensitiveLog(obj.Get) }),
+  });
+}
+
+export interface BatchExecuteStatementInput {
+  /**
+   * <p>
+   * The list of PartiQL statements representing the batch to run.
+   * </p>
+   */
+  Statements: BatchStatementRequest[] | undefined;
+}
+
+export namespace BatchExecuteStatementInput {
+  export const filterSensitiveLog = (obj: BatchExecuteStatementInput): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchExecuteStatementOutput {
+  /**
+   * <p>
+   * The response to each PartiQL statement in the batch.
+   * </p>
+   */
+  Responses?: BatchStatementResponse[];
+}
+
+export namespace BatchExecuteStatementOutput {
+  export const filterSensitiveLog = (obj: BatchExecuteStatementOutput): any => ({
+    ...obj,
+    ...(obj.Responses && { Responses: obj.Responses.map((item) => BatchStatementResponse.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ExecuteTransactionInput {
+  /**
+   * <p>
+   * The list of PartiQL statements representing the transaction to run.
+   * </p>
+   */
+  TransactStatements: ParameterizedStatement[] | undefined;
+
+  /**
+   * <p>
+   * Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.
+   * </p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace ExecuteTransactionInput {
+  export const filterSensitiveLog = (obj: ExecuteTransactionInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ExecuteTransactionOutput {
+  /**
+   * <p>
+   * The response to a PartiQL transaction.
+   * </p>
+   */
+  Responses?: ItemResponse[];
+}
+
+export namespace ExecuteTransactionOutput {
+  export const filterSensitiveLog = (obj: ExecuteTransactionOutput): any => ({
+    ...obj,
+    ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponse.filterSensitiveLog(item)) }),
   });
 }
 
@@ -6171,6 +6854,7 @@ export interface TransactGetItemsOutput {
 export namespace TransactGetItemsOutput {
   export const filterSensitiveLog = (obj: TransactGetItemsOutput): any => ({
     ...obj,
+    ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponse.filterSensitiveLog(item)) }),
   });
 }
 
@@ -6392,6 +7076,9 @@ export interface TransactionCanceledException extends __SmithyException, $Metada
 export namespace TransactionCanceledException {
   export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
     ...obj,
+    ...(obj.CancellationReasons && {
+      CancellationReasons: obj.CancellationReasons.map((item) => CancellationReason.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -6745,6 +7432,10 @@ export interface ExpectedAttributeValue {
 export namespace ExpectedAttributeValue {
   export const filterSensitiveLog = (obj: ExpectedAttributeValue): any => ({
     ...obj,
+    ...(obj.Value && { Value: AttributeValue.filterSensitiveLog(obj.Value) }),
+    ...(obj.AttributeValueList && {
+      AttributeValueList: obj.AttributeValueList.map((item) => AttributeValue.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -6766,6 +7457,9 @@ export interface TransactGetItemsInput {
 export namespace TransactGetItemsInput {
   export const filterSensitiveLog = (obj: TransactGetItemsInput): any => ({
     ...obj,
+    ...(obj.TransactItems && {
+      TransactItems: obj.TransactItems.map((item) => TransactGetItem.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -6836,6 +7530,24 @@ export interface ConditionCheck {
 export namespace ConditionCheck {
   export const filterSensitiveLog = (obj: ConditionCheck): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -6881,6 +7593,24 @@ export interface Delete {
 export namespace Delete {
   export const filterSensitiveLog = (obj: Delete): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -6929,6 +7659,24 @@ export interface Put {
 export namespace Put {
   export const filterSensitiveLog = (obj: Put): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -6981,6 +7729,24 @@ export interface Update {
 export namespace Update {
   export const filterSensitiveLog = (obj: Update): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -7039,6 +7805,18 @@ export interface DeleteItemOutput {
 export namespace DeleteItemOutput {
   export const filterSensitiveLog = (obj: DeleteItemOutput): any => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: ItemCollectionMetrics.filterSensitiveLog(obj.ItemCollectionMetrics),
+    }),
   });
 }
 
@@ -7095,6 +7873,18 @@ export interface PutItemOutput {
 export namespace PutItemOutput {
   export const filterSensitiveLog = (obj: PutItemOutput): any => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: ItemCollectionMetrics.filterSensitiveLog(obj.ItemCollectionMetrics),
+    }),
   });
 }
 
@@ -7148,6 +7938,26 @@ export interface QueryOutput {
 export namespace QueryOutput {
   export const filterSensitiveLog = (obj: QueryOutput): any => ({
     ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map((item) =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        )
+      ),
+    }),
+    ...(obj.LastEvaluatedKey && {
+      LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -7206,6 +8016,26 @@ export interface ScanOutput {
 export namespace ScanOutput {
   export const filterSensitiveLog = (obj: ScanOutput): any => ({
     ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map((item) =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        )
+      ),
+    }),
+    ...(obj.LastEvaluatedKey && {
+      LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -7264,6 +8094,18 @@ export interface UpdateItemOutput {
 export namespace UpdateItemOutput {
   export const filterSensitiveLog = (obj: UpdateItemOutput): any => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: ItemCollectionMetrics.filterSensitiveLog(obj.ItemCollectionMetrics),
+    }),
   });
 }
 
@@ -7288,6 +8130,8 @@ export interface WriteRequest {
 export namespace WriteRequest {
   export const filterSensitiveLog = (obj: WriteRequest): any => ({
     ...obj,
+    ...(obj.PutRequest && { PutRequest: PutRequest.filterSensitiveLog(obj.PutRequest) }),
+    ...(obj.DeleteRequest && { DeleteRequest: DeleteRequest.filterSensitiveLog(obj.DeleteRequest) }),
   });
 }
 
@@ -7626,6 +8470,33 @@ export interface ScanInput {
 export namespace ScanInput {
   export const filterSensitiveLog = (obj: ScanInput): any => ({
     ...obj,
+    ...(obj.ScanFilter && {
+      ScanFilter: Object.entries(obj.ScanFilter).reduce(
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExclusiveStartKey && {
+      ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -7878,6 +8749,33 @@ export interface DeleteItemInput {
 export namespace DeleteItemInput {
   export const filterSensitiveLog = (obj: DeleteItemInput): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8058,6 +8956,33 @@ export interface PutItemInput {
 export namespace PutItemInput {
   export const filterSensitiveLog = (obj: PutItemInput): any => ({
     ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8424,6 +9349,42 @@ export interface QueryInput {
 export namespace QueryInput {
   export const filterSensitiveLog = (obj: QueryInput): any => ({
     ...obj,
+    ...(obj.KeyConditions && {
+      KeyConditions: Object.entries(obj.KeyConditions).reduce(
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.QueryFilter && {
+      QueryFilter: Object.entries(obj.QueryFilter).reduce(
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExclusiveStartKey && {
+      ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8805,6 +9766,42 @@ export interface UpdateItemInput {
 export namespace UpdateItemInput {
   export const filterSensitiveLog = (obj: UpdateItemInput): any => ({
     ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.AttributeUpdates && {
+      AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
+        (acc: any, [key, value]: [string, AttributeValueUpdate]) => ({
+          ...acc,
+          [key]: AttributeValueUpdate.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8836,6 +9833,10 @@ export interface TransactWriteItem {
 export namespace TransactWriteItem {
   export const filterSensitiveLog = (obj: TransactWriteItem): any => ({
     ...obj,
+    ...(obj.ConditionCheck && { ConditionCheck: ConditionCheck.filterSensitiveLog(obj.ConditionCheck) }),
+    ...(obj.Put && { Put: Put.filterSensitiveLog(obj.Put) }),
+    ...(obj.Delete && { Delete: Delete.filterSensitiveLog(obj.Delete) }),
+    ...(obj.Update && { Update: Update.filterSensitiveLog(obj.Update) }),
   });
 }
 
@@ -8902,5 +9903,8 @@ export interface TransactWriteItemsInput {
 export namespace TransactWriteItemsInput {
   export const filterSensitiveLog = (obj: TransactWriteItemsInput): any => ({
     ...obj,
+    ...(obj.TransactItems && {
+      TransactItems: obj.TransactItems.map((item) => TransactWriteItem.filterSensitiveLog(item)),
+    }),
   });
 }

@@ -41,6 +41,10 @@ import {
 } from "../commands/DescribeAssetPropertyCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
 import {
+  DescribeDefaultEncryptionConfigurationCommandInput,
+  DescribeDefaultEncryptionConfigurationCommandOutput,
+} from "../commands/DescribeDefaultEncryptionConfigurationCommand";
+import {
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
 } from "../commands/DescribeGatewayCapabilityConfigurationCommand";
@@ -80,6 +84,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PutDefaultEncryptionConfigurationCommandInput,
+  PutDefaultEncryptionConfigurationCommandOutput,
+} from "../commands/PutDefaultEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -118,6 +126,8 @@ import {
   Attribute,
   BatchPutAssetPropertyError,
   BatchPutAssetPropertyErrorEntry,
+  ConfigurationErrorDetails,
+  ConfigurationStatus,
   ConflictingOperationException,
   DashboardSummary,
   ErrorDetails,
@@ -1115,6 +1125,28 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand = async (
+  input: DescribeDefaultEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/configuration/account/encryption";
+  let body: any;
+  body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeGatewayCommand = async (
   input: DescribeGatewayCommandInput,
   context: __SerdeContext
@@ -1806,6 +1838,31 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutDefaultEncryptionConfigurationCommand = async (
+  input: PutDefaultEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/configuration/account/encryption";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.encryptionType !== undefined && { encryptionType: input.encryptionType }),
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -4503,6 +4560,85 @@ const deserializeAws_restJson1DescribeDashboardCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommandError(output, context);
+  }
+  const contents: DescribeDefaultEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configurationStatus: undefined,
+    encryptionType: undefined,
+    kmsKeyArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
+    contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.encryptionType !== undefined && data.encryptionType !== null) {
+    contents.encryptionType = data.encryptionType;
+  }
+  if (data.kmsKeyArn !== undefined && data.kmsKeyArn !== null) {
+    contents.kmsKeyArn = data.kmsKeyArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6105,6 +6241,101 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDefaultEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutDefaultEncryptionConfigurationCommandError(output, context);
+  }
+  const contents: PutDefaultEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configurationStatus: undefined,
+    encryptionType: undefined,
+    kmsKeyArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
+    contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.encryptionType !== undefined && data.encryptionType !== null) {
+    contents.encryptionType = data.encryptionType;
+  }
+  if (data.kmsKeyArn !== undefined && data.kmsKeyArn !== null) {
+    contents.kmsKeyArn = data.kmsKeyArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDefaultEncryptionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7917,6 +8148,26 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   context: __SerdeContext
 ): BatchPutAssetPropertyError[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1BatchPutAssetPropertyError(entry, context));
+};
+
+const deserializeAws_restJson1ConfigurationErrorDetails = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationErrorDetails => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConfigurationStatus = (output: any, context: __SerdeContext): ConfigurationStatus => {
+  return {
+    error:
+      output.error !== undefined && output.error !== null
+        ? deserializeAws_restJson1ConfigurationErrorDetails(output.error, context)
+        : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1DashboardSummaries = (output: any, context: __SerdeContext): DashboardSummary[] => {

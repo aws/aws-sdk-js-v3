@@ -59,8 +59,8 @@ export namespace UserIdentity {
 /**
  * <p>Contains an identity that can access an AWS IoT SiteWise Monitor resource.</p>
  *          <note>
- *             <p>Currently, you can't use AWS APIs to retrieve AWS SSO identity IDs. You can find the AWS SSO
- *         identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">AWS SSO console</a>.</p>
+ *             <p>Currently, you can't use AWS APIs to retrieve AWS SSO identity IDs. You can find the
+ *         AWS SSO identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">AWS SSO console</a>.</p>
  *          </note>
  */
 export interface Identity {
@@ -1866,14 +1866,15 @@ export interface CreatePortalRequest {
    *                   <code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage
    *           user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO.
    *           For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling AWS SSO</a> in the
-   *           <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other
-   *           than the China Regions.</p>
+   *             <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other than
+   *           the China Regions.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage
    *           user permissions. IAM users must have the
-   *         <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. This option is only available in the China Regions.</p>
+   *         <code>iotsitewise:CreatePresignedPortalUrl</code> permission to sign in to the portal. This option is only available in the
+   *           China Regions.</p>
    *             </li>
    *          </ul>
    *          <p>You can't change this value after you create a portal.</p>
@@ -1992,7 +1993,7 @@ export interface CreatePresignedPortalUrlRequest {
 
   /**
    * <p>The duration (in seconds) for which the session at the URL is valid.</p>
-   *          <p>Default: 900 seconds (15 minutes)</p>
+   *          <p>Default: 43,200 seconds (12 hours)</p>
    */
   sessionDurationSeconds?: number;
 }
@@ -2005,10 +2006,10 @@ export namespace CreatePresignedPortalUrlRequest {
 
 export interface CreatePresignedPortalUrlResponse {
   /**
-   * <p>The pre-signed URL to the portal. The URL contains the portal ID and a session token that
-   *       lets you access the portal. The URL has the following format.</p>
+   * <p>The pre-signed URL to the portal. The URL contains the portal ID and an authentication
+   *       token that lets you access the portal. The URL has the following format.</p>
    *          <p>
-   *             <code>https://<portal-id>.app.iotsitewise.aws/auth?token=<encrypted-token></code>
+   *             <code>https://<portal-id>.app.iotsitewise.aws/iam?token=<encrypted-token></code>
    *          </p>
    */
   presignedPortalUrl: string | undefined;
@@ -2622,6 +2623,93 @@ export interface DescribeDashboardResponse {
 
 export namespace DescribeDashboardResponse {
   export const filterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDefaultEncryptionConfigurationRequest {}
+
+export namespace DescribeDefaultEncryptionConfigurationRequest {
+  export const filterSensitiveLog = (obj: DescribeDefaultEncryptionConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ConfigurationErrorDetails {
+  /**
+   * <p></p>
+   */
+  code: ErrorCode | string | undefined;
+
+  /**
+   * <p></p>
+   */
+  message: string | undefined;
+}
+
+export namespace ConfigurationErrorDetails {
+  export const filterSensitiveLog = (obj: ConfigurationErrorDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfigurationState {
+  ACTIVE = "ACTIVE",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+}
+
+/**
+ * <p></p>
+ */
+export interface ConfigurationStatus {
+  /**
+   * <p></p>
+   */
+  state: ConfigurationState | string | undefined;
+
+  /**
+   * <p></p>
+   */
+  error?: ConfigurationErrorDetails;
+}
+
+export namespace ConfigurationStatus {
+  export const filterSensitiveLog = (obj: ConfigurationStatus): any => ({
+    ...obj,
+  });
+}
+
+export enum EncryptionType {
+  KMS_BASED_ENCRYPTION = "KMS_BASED_ENCRYPTION",
+  SITEWISE_DEFAULT_ENCRYPTION = "SITEWISE_DEFAULT_ENCRYPTION",
+}
+
+export interface DescribeDefaultEncryptionConfigurationResponse {
+  /**
+   * <p>The type of encryption used for the encryption configuration.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
+
+  /**
+   * <p>The key ARN of the customer managed customer master key (CMK) used for AWS KMS encryption
+   *       if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The status of the account configuration. This contains the
+   *       <code>ConfigurationState</code>. If
+   *       there's an error, it also contains the <code>ErrorDetails</code>.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+}
+
+export namespace DescribeDefaultEncryptionConfigurationResponse {
+  export const filterSensitiveLog = (obj: DescribeDefaultEncryptionConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -3906,6 +3994,51 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface PutDefaultEncryptionConfigurationRequest {
+  /**
+   * <p>The type of encryption used for the encryption configuration.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
+
+  /**
+   * <p>The Key ID of the customer managed customer master key (CMK) used for AWS KMS encryption. This is required if you use
+   *       <code>KMS_BASED_ENCRYPTION</code>.</p>
+   */
+  kmsKeyId?: string;
+}
+
+export namespace PutDefaultEncryptionConfigurationRequest {
+  export const filterSensitiveLog = (obj: PutDefaultEncryptionConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutDefaultEncryptionConfigurationResponse {
+  /**
+   * <p>The type of encryption used for the encryption configuration.</p>
+   */
+  encryptionType: EncryptionType | string | undefined;
+
+  /**
+   * <p>The Key ARN of the AWS KMS CMK used for AWS KMS encryption if you use
+   *       <code>KMS_BASED_ENCRYPTION</code>.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The status of the account configuration. This contains the
+   *       <code>ConfigurationState</code>. If there is an error, it also contains the
+   *         <code>ErrorDetails</code>.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+}
+
+export namespace PutDefaultEncryptionConfigurationResponse {
+  export const filterSensitiveLog = (obj: PutDefaultEncryptionConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PutLoggingOptionsRequest {
   /**
    * <p>The logging options to set.</p>
@@ -4289,9 +4422,8 @@ export interface UpdateGatewayCapabilityConfigurationResponse {
    *                   <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>
    *             </li>
    *          </ul>
-   *          <p>After you update a capability configuration, its sync status is
-   *         <code>OUT_OF_SYNC</code> until the gateway receives and applies or rejects the updated
-   *       configuration.</p>
+   *          <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>
+   *       until the gateway receives and applies or rejects the updated configuration.</p>
    */
   capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
 }

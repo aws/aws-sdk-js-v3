@@ -19,11 +19,6 @@ import {
   H264CodecLevel,
   H264CodecProfile,
   H264DynamicSubGop,
-  H264EntropyEncoding,
-  H264FieldEncoding,
-  H264FlickerAdaptiveQuantization,
-  H264FramerateControl,
-  H264FramerateConversionAlgorithm,
   Hdr10Metadata,
   HopDestination,
   Id3Insertion,
@@ -44,6 +39,32 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export enum H264EntropyEncoding {
+  CABAC = "CABAC",
+  CAVLC = "CAVLC",
+}
+
+export enum H264FieldEncoding {
+  FORCE_FIELD = "FORCE_FIELD",
+  PAFF = "PAFF",
+}
+
+export enum H264FlickerAdaptiveQuantization {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum H264FramerateControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
+}
+
+export enum H264FramerateConversionAlgorithm {
+  DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
+  INTERPOLATE = "INTERPOLATE",
+}
 
 export enum H264GopBReference {
   DISABLED = "DISABLED",
@@ -2924,12 +2945,12 @@ export interface CreateJobRequest {
   StatusUpdateInterval?: StatusUpdateInterval | string;
 
   /**
-   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
    */
   Tags?: { [key: string]: string };
 
   /**
-   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
+   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
    */
   UserMetadata?: { [key: string]: string };
 }

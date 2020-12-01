@@ -60,6 +60,11 @@ export enum LicenseCountingType {
  */
 export interface ProductInformationFilter {
   /**
+   * <p>Filter name.</p>
+   */
+  ProductInformationFilterName: string | undefined;
+
+  /**
    * <p>Filter value.</p>
    */
   ProductInformationFilterValue: string[] | undefined;
@@ -68,11 +73,6 @@ export interface ProductInformationFilter {
    * <p>Logical operator.</p>
    */
   ProductInformationFilterComparator: string | undefined;
-
-  /**
-   * <p>Filter name.</p>
-   */
-  ProductInformationFilterName: string | undefined;
 }
 
 export namespace ProductInformationFilter {
@@ -86,68 +86,64 @@ export namespace ProductInformationFilter {
  */
 export interface ProductInformation {
   /**
-   * <p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>
+   * <p>Resource type. The possible values are <code>SSM_MANAGED</code> |
+   *          <code>RDS</code>.</p>
    */
   ResourceType: string | undefined;
 
   /**
    * <p>Product information filters.</p>
-   *          <p>The following filters and logical operators are supported when the resource type
-   *          is <code>SSM_MANAGED</code>:</p>
+   *          <p>The following filters and logical operators are supported when the resource type is
+   *             <code>SSM_MANAGED</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Application Name</code> - The name of the application.
-   *               Logical operator is <code>EQUALS</code>.</p>
+   *                   <code>Application Name</code> - The name of the application. Logical operator is
+   *                   <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Application Publisher</code> - The publisher of the application.
-   *                Logical operator is <code>EQUALS</code>.</p>
+   *                   <code>Application Publisher</code> - The publisher of the application. Logical
+   *                operator is <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Application Version</code> - The version of the application.
-   *                Logical operator is <code>EQUALS</code>.</p>
+   *                   <code>Application Version</code> - The version of the application. Logical
+   *                operator is <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Platform Name</code> - The name of the platform.
-   *                Logical operator is <code>EQUALS</code>.</p>
+   *                   <code>Platform Name</code> - The name of the platform. Logical operator is
+   *                   <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Platform Type</code> - The platform type.
-   *                Logical operator is <code>EQUALS</code>.</p>
+   *                   <code>Platform Type</code> - The platform type. Logical operator is
+   *                   <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>License Included</code> - The type of license included.
-   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
-   *                Possible values are: <code>sql-server-enterprise</code> |
-   *                <code>sql-server-standard</code> |
-   *                <code>sql-server-web</code> |
-   *                <code>windows-server-datacenter</code>.</p>
+   *                   <code>License Included</code> - The type of license included. Logical operators
+   *                are <code>EQUALS</code> and <code>NOT_EQUALS</code>. Possible values are:
+   *                   <code>sql-server-enterprise</code> | <code>sql-server-standard</code> |
+   *                   <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>The following filters and logical operators are supported when the resource type
-   *          is <code>RDS</code>:</p>
+   *          <p>The following filters and logical operators are supported when the resource type is
+   *             <code>RDS</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Engine Edition</code> - The edition of the database engine.
-   *                Logical operator is <code>EQUALS</code>.
-   *                Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>
+   *                   <code>Engine Edition</code> - The edition of the database engine. Logical operator
+   *                is <code>EQUALS</code>. Possible values are: <code>oracle-ee</code> |
+   *                   <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>License Pack</code> - The license pack.
-   *                Logical operator is <code>EQUALS</code>.
-   *                Possible values are: <code>data guard</code> |
-   *                <code>diagnostic pack sqlt</code> |
-   *                <code>tuning pack sqlt</code> |
-   *                <code>ols</code> |
-   *                <code>olap</code>.</p>
+   *                   <code>License Pack</code> - The license pack. Logical operator is
+   *                   <code>EQUALS</code>. Possible values are: <code>data guard</code> |
+   *                   <code>diagnostic pack sqlt</code> | <code>tuning pack sqlt</code> |
+   *                   <code>ols</code> | <code>olap</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -183,20 +179,14 @@ export namespace Tag {
 
 export interface CreateLicenseConfigurationRequest {
   /**
+   * <p>Name of the license configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>Description of the license configuration.</p>
    */
   Description?: string;
-
-  /**
-   * <p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit
-   *          blocks the launch of new instances.</p>
-   */
-  LicenseCountHardLimit?: boolean;
-
-  /**
-   * <p>Product information.</p>
-   */
-  ProductInformationList?: ProductInformation[];
 
   /**
    * <p>Dimension used to track the license inventory.</p>
@@ -209,9 +199,53 @@ export interface CreateLicenseConfigurationRequest {
   LicenseCount?: number;
 
   /**
-   * <p>Name of the license configuration.</p>
+   * <p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit
+   *          blocks the launch of new instances.</p>
    */
-  Name: string | undefined;
+  LicenseCountHardLimit?: boolean;
+
+  /**
+   * <p>License rules. The syntax is #name=value (for example,
+   *          #allowedTenancy=EC2-DedicatedHost). The available rules vary by dimension, as
+   *          follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Cores</code> dimension: <code>allowedTenancy</code> |
+   *                   <code>licenseAffinityToHost</code> | <code>maximumCores</code> |
+   *                   <code>minimumCores</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Instances</code> dimension: <code>allowedTenancy</code> |
+   *                   <code>maximumCores</code> | <code>minimumCores</code> |
+   *                   <code>maximumSockets</code> | <code>minimumSockets</code> |
+   *                   <code>maximumVcpus</code> | <code>minimumVcpus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sockets</code> dimension: <code>allowedTenancy</code> |
+   *                   <code>licenseAffinityToHost</code> | <code>maximumSockets</code> |
+   *                   <code>minimumSockets</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vCPUs</code> dimension: <code>allowedTenancy</code> |
+   *                   <code>honorVcpuOptimization</code> | <code>maximumVcpus</code> |
+   *                   <code>minimumVcpus</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180. The
+   *          possible values for <code>allowedTenancy</code> are <code>EC2-Default</code>,
+   *             <code>EC2-DedicatedHost</code>, and <code>EC2-DedicatedInstance</code>. The possible
+   *          values for <code>honorVcpuOptimization</code> are <code>True</code> and
+   *          <code>False</code>.</p>
+   */
+  LicenseRules?: string[];
 
   /**
    * <p>Tags to add to the license configuration.</p>
@@ -219,45 +253,9 @@ export interface CreateLicenseConfigurationRequest {
   Tags?: Tag[];
 
   /**
-   * <p>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost). The available rules
-   *          vary by dimension, as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Cores</code> dimension: <code>allowedTenancy</code> |
-   *                <code>licenseAffinityToHost</code> |
-   *                <code>maximumCores</code> | <code>minimumCores</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Instances</code> dimension: <code>allowedTenancy</code> |
-   *                <code>maximumCores</code> | <code>minimumCores</code> |
-   *                <code>maximumSockets</code> | <code>minimumSockets</code> |
-   *                <code>maximumVcpus</code> | <code>minimumVcpus</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Sockets</code> dimension: <code>allowedTenancy</code> |
-   *                <code>licenseAffinityToHost</code> |
-   *                <code>maximumSockets</code> | <code>minimumSockets</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vCPUs</code> dimension: <code>allowedTenancy</code> |
-   *                <code>honorVcpuOptimization</code> |
-   *                <code>maximumVcpus</code> | <code>minimumVcpus</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The unit for <code>licenseAffinityToHost</code> is days and the range is 1 to 180. The possible
-   *          values for <code>allowedTenancy</code> are <code>EC2-Default</code>, <code>EC2-DedicatedHost</code>, and
-   *          <code>EC2-DedicatedInstance</code>. The possible values for <code>honorVcpuOptimization</code> are
-   *          <code>True</code> and <code>False</code>.</p>
+   * <p>Product information.</p>
    */
-  LicenseRules?: string[];
+  ProductInformationList?: ProductInformation[];
 }
 
 export namespace CreateLicenseConfigurationRequest {
@@ -425,74 +423,9 @@ export namespace ManagedResourceSummary {
 
 export interface GetLicenseConfigurationResponse {
   /**
-   * <p>Product information.</p>
-   */
-  ProductInformationList?: ProductInformation[];
-
-  /**
-   * <p>Account ID of the owner of the license configuration.</p>
-   */
-  OwnerAccountId?: string;
-
-  /**
    * <p>Unique ID for the license configuration.</p>
    */
   LicenseConfigurationId?: string;
-
-  /**
-   * <p>Name of the license configuration.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Summaries of the managed resources.</p>
-   */
-  ManagedResourceSummaryList?: ManagedResourceSummary[];
-
-  /**
-   * <p>Dimension on which the licenses are counted.</p>
-   */
-  LicenseCountingType?: LicenseCountingType | string;
-
-  /**
-   * <p>Tags for the license configuration.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Automated discovery information.</p>
-   */
-  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
-
-  /**
-   * <p>Number of available licenses.</p>
-   */
-  LicenseCount?: number;
-
-  /**
-   * <p>License rules.</p>
-   */
-  LicenseRules?: string[];
-
-  /**
-   * <p>Sets the number of available licenses as a hard limit.</p>
-   */
-  LicenseCountHardLimit?: boolean;
-
-  /**
-   * <p>Description of the license configuration.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>License configuration status.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Number of licenses assigned to resources.</p>
-   */
-  ConsumedLicenses?: number;
 
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -500,9 +433,74 @@ export interface GetLicenseConfigurationResponse {
   LicenseConfigurationArn?: string;
 
   /**
+   * <p>Name of the license configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Description of the license configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Dimension on which the licenses are counted.</p>
+   */
+  LicenseCountingType?: LicenseCountingType | string;
+
+  /**
+   * <p>License rules.</p>
+   */
+  LicenseRules?: string[];
+
+  /**
+   * <p>Number of available licenses.</p>
+   */
+  LicenseCount?: number;
+
+  /**
+   * <p>Sets the number of available licenses as a hard limit.</p>
+   */
+  LicenseCountHardLimit?: boolean;
+
+  /**
+   * <p>Number of licenses assigned to resources.</p>
+   */
+  ConsumedLicenses?: number;
+
+  /**
+   * <p>License configuration status.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Account ID of the owner of the license configuration.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
    * <p>Summaries of the licenses consumed by resources.</p>
    */
   ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
+
+  /**
+   * <p>Summaries of the managed resources.</p>
+   */
+  ManagedResourceSummaryList?: ManagedResourceSummary[];
+
+  /**
+   * <p>Tags for the license configuration.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Product information.</p>
+   */
+  ProductInformationList?: ProductInformation[];
+
+  /**
+   * <p>Automated discovery information.</p>
+   */
+  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
 }
 
 export namespace GetLicenseConfigurationResponse {
@@ -537,22 +535,21 @@ export namespace OrganizationConfiguration {
 
 export interface GetServiceSettingsResponse {
   /**
-   * <p>Indicates whether AWS Organizations has been integrated with License Manager for
-   *          cross-account discovery.</p>
-   */
-  OrganizationConfiguration?: OrganizationConfiguration;
-
-  /**
    * <p>Regional S3 bucket path for storing reports, license trail event data, discovery data,
    *          and so on.</p>
    */
   S3BucketArn?: string;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account will provide member
-   *          accounts with access to this share.</p>
+   * <p>SNS topic configured to receive notifications from License Manager.</p>
    */
-  LicenseManagerResourceShareArn?: string;
+  SnsTopicArn?: string;
+
+  /**
+   * <p>Indicates whether AWS Organizations has been integrated with License Manager for
+   *          cross-account discovery.</p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
 
   /**
    * <p>Indicates whether cross-account discovery has been enabled.</p>
@@ -560,9 +557,10 @@ export interface GetServiceSettingsResponse {
   EnableCrossAccountsDiscovery?: boolean;
 
   /**
-   * <p>SNS topic configured to receive notifications from License Manager.</p>
+   * <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account
+   *          will provide member accounts with access to this share.</p>
    */
-  SnsTopicArn?: string;
+  LicenseManagerResourceShareArn?: string;
 }
 
 export namespace GetServiceSettingsResponse {
@@ -619,6 +617,11 @@ export interface LicenseConfigurationAssociation {
   ResourceArn?: string;
 
   /**
+   * <p>Type of server resource.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
    * <p>ID of the AWS account that owns the resource consuming licenses.</p>
    */
   ResourceOwnerId?: string;
@@ -629,9 +632,9 @@ export interface LicenseConfigurationAssociation {
   AssociationTime?: Date;
 
   /**
-   * <p>Type of server resource.</p>
+   * <p>Scope of AMI associations.</p>
    */
-  ResourceType?: ResourceType | string;
+  AmiAssociationScope?: string;
 }
 
 export namespace LicenseConfigurationAssociation {
@@ -665,14 +668,14 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
   LicenseConfigurationArn: string | undefined;
 
   /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
@@ -688,12 +691,12 @@ export interface Metadata {
   /**
    * <p>Reserved.</p>
    */
-  Value?: string;
+  Name?: string;
 
   /**
    * <p>Reserved.</p>
    */
-  Name?: string;
+  Value?: string;
 }
 
 export namespace Metadata {
@@ -707,19 +710,14 @@ export namespace Metadata {
  */
 export interface LicenseOperationFailure {
   /**
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
    * <p>Resource type.</p>
    */
   ResourceType?: ResourceType | string;
-
-  /**
-   * <p>Name of the operation.</p>
-   */
-  OperationName?: string;
-
-  /**
-   * <p>The requester is "License Manager Automated Discovery".</p>
-   */
-  OperationRequestedBy?: string;
 
   /**
    * <p>Error message.</p>
@@ -727,24 +725,29 @@ export interface LicenseOperationFailure {
   ErrorMessage?: string;
 
   /**
-   * <p>Reserved.</p>
-   */
-  MetadataList?: Metadata[];
-
-  /**
    * <p>Failure time.</p>
    */
   FailureTime?: Date;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the resource.</p>
+   * <p>Name of the operation.</p>
    */
-  ResourceArn?: string;
+  OperationName?: string;
 
   /**
    * <p>ID of the AWS account that owns the resource.</p>
    */
   ResourceOwnerId?: string;
+
+  /**
+   * <p>The requester is "License Manager Automated Discovery".</p>
+   */
+  OperationRequestedBy?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  MetadataList?: Metadata[];
 }
 
 export namespace LicenseOperationFailure {
@@ -796,30 +799,6 @@ export namespace Filter {
 
 export interface ListLicenseConfigurationsRequest {
   /**
-   * <p>Filters to scope the results. The following filters and logical operators
-   *         are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>licenseCountingType</code> - The dimension on which licenses are counted.
-   *                Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>Amazon Resource Names (ARN) of the license configurations.</p>
    */
   LicenseConfigurationArns?: string[];
@@ -833,6 +812,33 @@ export interface ListLicenseConfigurationsRequest {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Filters to scope the results. The following filters and logical operators are
+   *          supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>licenseCountingType</code> - The dimension on which licenses are counted.
+   *                Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> |
+   *                   <code>Socket</code>. Logical operators are <code>EQUALS</code> |
+   *                   <code>NOT_EQUALS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard
+   *                license enforcement is used. Logical operators are <code>EQUALS</code> |
+   *                   <code>NOT_EQUALS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usagelimitExceeded</code> - A Boolean value that indicates whether the
+   *                available licenses have been exceeded. Logical operators are <code>EQUALS</code> |
+   *                   <code>NOT_EQUALS</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
 }
 
 export namespace ListLicenseConfigurationsRequest {
@@ -845,69 +851,14 @@ export namespace ListLicenseConfigurationsRequest {
  * <p>A license configuration is an abstraction of a customer license agreement that can be
  *          consumed and enforced by License Manager. Components include specifications for the license
  *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
- *          Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM
- *          must be associated with a host), and the number of licenses purchased and used.</p>
+ *          Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM must be
+ *          associated with a host), and the number of licenses purchased and used.</p>
  */
 export interface LicenseConfiguration {
-  /**
-   * <p>Number of licenses managed by the license configuration.</p>
-   */
-  LicenseCount?: number;
-
-  /**
-   * <p>Automated discovery information.</p>
-   */
-  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
-
-  /**
-   * <p>Status of the license configuration.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Number of available licenses as a hard limit.</p>
-   */
-  LicenseCountHardLimit?: boolean;
-
-  /**
-   * <p>Product information.</p>
-   */
-  ProductInformationList?: ProductInformation[];
-
-  /**
-   * <p>License rules.</p>
-   */
-  LicenseRules?: string[];
-
   /**
    * <p>Unique ID of the license configuration.</p>
    */
   LicenseConfigurationId?: string;
-
-  /**
-   * <p>Account ID of the license configuration's owner.</p>
-   */
-  OwnerAccountId?: string;
-
-  /**
-   * <p>Summaries for managed resources.</p>
-   */
-  ManagedResourceSummaryList?: ManagedResourceSummary[];
-
-  /**
-   * <p>Name of the license configuration.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Dimension to use to track the license inventory.</p>
-   */
-  LicenseCountingType?: LicenseCountingType | string;
-
-  /**
-   * <p>Number of licenses consumed. </p>
-   */
-  ConsumedLicenses?: number;
 
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -915,14 +866,69 @@ export interface LicenseConfiguration {
   LicenseConfigurationArn?: string;
 
   /**
-   * <p>Summaries for licenses consumed by various resources.</p>
+   * <p>Name of the license configuration.</p>
    */
-  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
+  Name?: string;
 
   /**
    * <p>Description of the license configuration.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Dimension to use to track the license inventory.</p>
+   */
+  LicenseCountingType?: LicenseCountingType | string;
+
+  /**
+   * <p>License rules.</p>
+   */
+  LicenseRules?: string[];
+
+  /**
+   * <p>Number of licenses managed by the license configuration.</p>
+   */
+  LicenseCount?: number;
+
+  /**
+   * <p>Number of available licenses as a hard limit.</p>
+   */
+  LicenseCountHardLimit?: boolean;
+
+  /**
+   * <p>Number of licenses consumed. </p>
+   */
+  ConsumedLicenses?: number;
+
+  /**
+   * <p>Status of the license configuration.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Account ID of the license configuration's owner.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>Summaries for licenses consumed by various resources.</p>
+   */
+  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
+
+  /**
+   * <p>Summaries for managed resources.</p>
+   */
+  ManagedResourceSummaryList?: ManagedResourceSummary[];
+
+  /**
+   * <p>Product information.</p>
+   */
+  ProductInformationList?: ProductInformation[];
+
+  /**
+   * <p>Automated discovery information.</p>
+   */
+  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
 }
 
 export namespace LicenseConfiguration {
@@ -933,14 +939,14 @@ export namespace LicenseConfiguration {
 
 export interface ListLicenseConfigurationsResponse {
   /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the license configurations.</p>
    */
   LicenseConfigurations?: LicenseConfiguration[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListLicenseConfigurationsResponse {
@@ -951,7 +957,8 @@ export namespace ListLicenseConfigurationsResponse {
 
 export interface ListLicenseSpecificationsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
+   * <p>Amazon Resource Name (ARN) of a resource that has an associated license
+   *          configuration.</p>
    */
   ResourceArn: string | undefined;
 
@@ -980,6 +987,11 @@ export interface LicenseSpecification {
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn: string | undefined;
+
+  /**
+   * <p>Scope of AMI associations.</p>
+   */
+  AmiAssociationScope?: string;
 }
 
 export namespace LicenseSpecification {
@@ -990,14 +1002,14 @@ export namespace LicenseSpecification {
 
 export interface ListLicenseSpecificationsForResourceResponse {
   /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>License configurations associated with a resource.</p>
    */
   LicenseSpecifications?: LicenseSpecification[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListLicenseSpecificationsForResourceResponse {
@@ -1033,9 +1045,9 @@ export enum InventoryFilterCondition {
  */
 export interface InventoryFilter {
   /**
-   * <p>Value of the filter.</p>
+   * <p>Name of the filter.</p>
    */
-  Value?: string;
+  Name: string | undefined;
 
   /**
    * <p>Condition of the filter.</p>
@@ -1043,9 +1055,9 @@ export interface InventoryFilter {
   Condition: InventoryFilterCondition | string | undefined;
 
   /**
-   * <p>Name of the filter.</p>
+   * <p>Value of the filter.</p>
    */
-  Name: string | undefined;
+  Value?: string;
 }
 
 export namespace InventoryFilter {
@@ -1061,8 +1073,13 @@ export interface ListResourceInventoryRequest {
   MaxResults?: number;
 
   /**
-   * <p>Filters to scope the results. The following filters and logical operators
-   *         are supported:</p>
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Filters to scope the results. The following filters and logical operators are
+   *          supported:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1071,36 +1088,29 @@ export interface ListResourceInventoryRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>application_name</code> - The name of the application.
-   *                Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>
+   *                   <code>application_name</code> - The name of the application. Logical operators are
+   *                   <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>license_included</code> - The type of license included.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.
-   *                Possible values are <code>sql-server-enterprise</code> |
-   *                <code>sql-server-standard</code> |
-   *                <code>sql-server-web</code> |
-   *                <code>windows-server-datacenter</code>.</p>
+   *                   <code>license_included</code> - The type of license included. Logical operators
+   *                are <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are
+   *                   <code>sql-server-enterprise</code> | <code>sql-server-standard</code> |
+   *                   <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>platform</code> - The platform of the resource.
-   *                Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>
+   *                   <code>platform</code> - The platform of the resource. Logical operators are
+   *                   <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resource_id</code> - The ID of the resource.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resource_id</code> - The ID of the resource. Logical operators are
+   *                   <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
    *             </li>
    *          </ul>
    */
   Filters?: InventoryFilter[];
-
-  /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListResourceInventoryRequest {
@@ -1114,24 +1124,14 @@ export namespace ListResourceInventoryRequest {
  */
 export interface ResourceInventory {
   /**
-   * <p>Type of resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>ID of the resource.</p>
    */
   ResourceId?: string;
 
   /**
-   * <p>Platform of the resource.</p>
+   * <p>Type of resource.</p>
    */
-  Platform?: string;
-
-  /**
-   * <p>ID of the account that owns the resource.</p>
-   */
-  ResourceOwningAccountId?: string;
+  ResourceType?: ResourceType | string;
 
   /**
    * <p>Amazon Resource Name (ARN) of the resource.</p>
@@ -1139,9 +1139,19 @@ export interface ResourceInventory {
   ResourceArn?: string;
 
   /**
+   * <p>Platform of the resource.</p>
+   */
+  Platform?: string;
+
+  /**
    * <p>Platform version of the resource in the inventory.</p>
    */
   PlatformVersion?: string;
+
+  /**
+   * <p>ID of the account that owns the resource.</p>
+   */
+  ResourceOwningAccountId?: string;
 }
 
 export namespace ResourceInventory {
@@ -1201,23 +1211,29 @@ export interface ListUsageForLicenseConfigurationRequest {
   LicenseConfigurationArn: string | undefined;
 
   /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Filters to scope the results. The following filters and logical operators
-   *         are supported:</p>
+   * <p>Filters to scope the results. The following filters and logical operators are
+   *          supported:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>resourceArn</code> - The ARN of the license configuration resource.
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resourceArn</code> - The ARN of the license configuration resource. Logical
+   *                operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI | SYSTEMS_MANAGER_MANAGED_INSTANCE).
-   *                Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>
+   *                   <code>resourceType</code> - The resource type (EC2_INSTANCE | EC2_HOST | EC2_AMI |
+   *                SYSTEMS_MANAGER_MANAGED_INSTANCE). Logical operators are <code>EQUALS</code> |
+   *                   <code>NOT_EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1227,11 +1243,6 @@ export interface ListUsageForLicenseConfigurationRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListUsageForLicenseConfigurationRequest {
@@ -1244,21 +1255,6 @@ export namespace ListUsageForLicenseConfigurationRequest {
  * <p>Details about the usage of a resource associated with a license configuration.</p>
  */
 export interface LicenseConfigurationUsage {
-  /**
-   * <p>Time when the license configuration was initially associated with the resource.</p>
-   */
-  AssociationTime?: Date;
-
-  /**
-   * <p>Number of licenses consumed by the resource.</p>
-   */
-  ConsumedLicenses?: number;
-
-  /**
-   * <p>ID of the account that owns the resource.</p>
-   */
-  ResourceOwnerId?: string;
-
   /**
    * <p>Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -1273,6 +1269,21 @@ export interface LicenseConfigurationUsage {
    * <p>Status of the resource.</p>
    */
   ResourceStatus?: string;
+
+  /**
+   * <p>ID of the account that owns the resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>Time when the license configuration was initially associated with the resource.</p>
+   */
+  AssociationTime?: Date;
+
+  /**
+   * <p>Number of licenses consumed by the resource.</p>
+   */
+  ConsumedLicenses?: number;
 }
 
 export namespace LicenseConfigurationUsage {
@@ -1283,14 +1294,14 @@ export namespace LicenseConfigurationUsage {
 
 export interface ListUsageForLicenseConfigurationResponse {
   /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the license configurations.</p>
    */
   LicenseConfigurationUsageList?: LicenseConfigurationUsage[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListUsageForLicenseConfigurationResponse {
@@ -1327,14 +1338,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>Keys identifying the tags to remove.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Keys identifying the tags to remove.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1358,32 +1369,6 @@ export enum LicenseConfigurationStatus {
 
 export interface UpdateLicenseConfigurationRequest {
   /**
-   * <p>New description of the license configuration.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>New hard limit of the number of available licenses.</p>
-   */
-  LicenseCountHardLimit?: boolean;
-
-  /**
-   * <p>New product information.</p>
-   */
-  ProductInformationList?: ProductInformation[];
-
-  /**
-   * <p>New license rule. The only rule that you can add after you create a license
-   *           configuration is licenseAffinityToHost.</p>
-   */
-  LicenseRules?: string[];
-
-  /**
-   * <p>New number of licenses managed by the license configuration.</p>
-   */
-  LicenseCount?: number;
-
-  /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn: string | undefined;
@@ -1394,9 +1379,35 @@ export interface UpdateLicenseConfigurationRequest {
   LicenseConfigurationStatus?: LicenseConfigurationStatus | string;
 
   /**
+   * <p>New license rule. The only rule that you can add after you create a license
+   *          configuration is licenseAffinityToHost.</p>
+   */
+  LicenseRules?: string[];
+
+  /**
+   * <p>New number of licenses managed by the license configuration.</p>
+   */
+  LicenseCount?: number;
+
+  /**
+   * <p>New hard limit of the number of available licenses.</p>
+   */
+  LicenseCountHardLimit?: boolean;
+
+  /**
    * <p>New name of the license configuration.</p>
    */
   Name?: string;
+
+  /**
+   * <p>New description of the license configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>New product information.</p>
+   */
+  ProductInformationList?: ProductInformation[];
 }
 
 export namespace UpdateLicenseConfigurationRequest {
@@ -1447,14 +1458,14 @@ export namespace LicenseUsageException {
 
 export interface UpdateLicenseSpecificationsForResourceRequest {
   /**
-   * <p>ARNs of the license configurations to add.</p>
-   */
-  AddLicenseSpecifications?: LicenseSpecification[];
-
-  /**
    * <p>Amazon Resource Name (ARN) of the AWS resource.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>ARNs of the license configurations to add.</p>
+   */
+  AddLicenseSpecifications?: LicenseSpecification[];
 
   /**
    * <p>ARNs of the license configurations to remove.</p>
@@ -1478,7 +1489,8 @@ export namespace UpdateLicenseSpecificationsForResourceResponse {
 
 export interface UpdateServiceSettingsRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>
+   * <p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is
+   *          stored.</p>
    */
   S3BucketArn?: string;
 

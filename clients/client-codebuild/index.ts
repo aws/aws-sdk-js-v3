@@ -20,6 +20,7 @@ export * from "./commands/DescribeCodeCoveragesCommand";
 export * from "./pagination/DescribeCodeCoveragesPaginator";
 export * from "./commands/DescribeTestCasesCommand";
 export * from "./pagination/DescribeTestCasesPaginator";
+export * from "./commands/GetReportGroupTrendCommand";
 export * from "./commands/GetResourcePolicyCommand";
 export * from "./commands/ImportSourceCredentialsCommand";
 export * from "./commands/InvalidateProjectCacheCommand";

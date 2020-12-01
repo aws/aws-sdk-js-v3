@@ -195,6 +195,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCapacityProviderCommand,
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
+import {
   UpdateClusterSettingsCommand,
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
@@ -1928,6 +1933,38 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the parameters for a capacity provider.</p>
+   */
+  public updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityProviderCommandOutput>;
+  public updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): void;
+  public updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): void;
+  public updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCapacityProviderCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): Promise<UpdateCapacityProviderCommandOutput> | void {
+    const command = new UpdateCapacityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -7,10 +7,20 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
+import { CreateStudioCommandInput, CreateStudioCommandOutput } from "./commands/CreateStudioCommand";
+import {
+  CreateStudioSessionMappingCommandInput,
+  CreateStudioSessionMappingCommandOutput,
+} from "./commands/CreateStudioSessionMappingCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
+import { DeleteStudioCommandInput, DeleteStudioCommandOutput } from "./commands/DeleteStudioCommand";
+import {
+  DeleteStudioSessionMappingCommandInput,
+  DeleteStudioSessionMappingCommandOutput,
+} from "./commands/DeleteStudioSessionMappingCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand";
 import {
@@ -22,6 +32,7 @@ import {
   DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
 import { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand";
+import { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "./commands/DescribeStudioCommand";
 import {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
@@ -30,6 +41,10 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
+import {
+  GetStudioSessionMappingCommandInput,
+  GetStudioSessionMappingCommandOutput,
+} from "./commands/GetStudioSessionMappingCommand";
 import {
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
@@ -47,6 +62,11 @@ import {
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
 import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import {
+  ListStudioSessionMappingsCommandInput,
+  ListStudioSessionMappingsCommandOutput,
+} from "./commands/ListStudioSessionMappingsCommand";
+import { ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommandInput,
@@ -95,6 +115,10 @@ import {
   StopNotebookExecutionCommandOutput,
 } from "./commands/StopNotebookExecutionCommand";
 import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand";
+import {
+  UpdateStudioSessionMappingCommandInput,
+  UpdateStudioSessionMappingCommandOutput,
+} from "./commands/UpdateStudioSessionMappingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -151,14 +175,20 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | CancelStepsCommandInput
   | CreateSecurityConfigurationCommandInput
+  | CreateStudioCommandInput
+  | CreateStudioSessionMappingCommandInput
   | DeleteSecurityConfigurationCommandInput
+  | DeleteStudioCommandInput
+  | DeleteStudioSessionMappingCommandInput
   | DescribeClusterCommandInput
   | DescribeJobFlowsCommandInput
   | DescribeNotebookExecutionCommandInput
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
+  | DescribeStudioCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
   | GetManagedScalingPolicyCommandInput
+  | GetStudioSessionMappingCommandInput
   | ListBootstrapActionsCommandInput
   | ListClustersCommandInput
   | ListInstanceFleetsCommandInput
@@ -167,6 +197,8 @@ export type ServiceInputTypes =
   | ListNotebookExecutionsCommandInput
   | ListSecurityConfigurationsCommandInput
   | ListStepsCommandInput
+  | ListStudioSessionMappingsCommandInput
+  | ListStudiosCommandInput
   | ModifyClusterCommandInput
   | ModifyInstanceFleetCommandInput
   | ModifyInstanceGroupsCommandInput
@@ -181,7 +213,8 @@ export type ServiceInputTypes =
   | SetVisibleToAllUsersCommandInput
   | StartNotebookExecutionCommandInput
   | StopNotebookExecutionCommandInput
-  | TerminateJobFlowsCommandInput;
+  | TerminateJobFlowsCommandInput
+  | UpdateStudioSessionMappingCommandInput;
 
 export type ServiceOutputTypes =
   | AddInstanceFleetCommandOutput
@@ -190,14 +223,20 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | CancelStepsCommandOutput
   | CreateSecurityConfigurationCommandOutput
+  | CreateStudioCommandOutput
+  | CreateStudioSessionMappingCommandOutput
   | DeleteSecurityConfigurationCommandOutput
+  | DeleteStudioCommandOutput
+  | DeleteStudioSessionMappingCommandOutput
   | DescribeClusterCommandOutput
   | DescribeJobFlowsCommandOutput
   | DescribeNotebookExecutionCommandOutput
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
+  | DescribeStudioCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
   | GetManagedScalingPolicyCommandOutput
+  | GetStudioSessionMappingCommandOutput
   | ListBootstrapActionsCommandOutput
   | ListClustersCommandOutput
   | ListInstanceFleetsCommandOutput
@@ -206,6 +245,8 @@ export type ServiceOutputTypes =
   | ListNotebookExecutionsCommandOutput
   | ListSecurityConfigurationsCommandOutput
   | ListStepsCommandOutput
+  | ListStudioSessionMappingsCommandOutput
+  | ListStudiosCommandOutput
   | ModifyClusterCommandOutput
   | ModifyInstanceFleetCommandOutput
   | ModifyInstanceGroupsCommandOutput
@@ -220,7 +261,8 @@ export type ServiceOutputTypes =
   | SetVisibleToAllUsersCommandOutput
   | StartNotebookExecutionCommandOutput
   | StopNotebookExecutionCommandOutput
-  | TerminateJobFlowsCommandOutput;
+  | TerminateJobFlowsCommandOutput
+  | UpdateStudioSessionMappingCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -335,7 +377,10 @@ export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon EMR is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.</p>
+ * <p>Amazon EMR is a web service that makes it easier to process large amounts of data
+ *          efficiently. Amazon EMR uses Hadoop processing combined with several AWS services to do
+ *          tasks such as web indexing, data mining, log file analysis, machine learning, scientific
+ *          simulation, and data warehouse management.</p>
  */
 export class EMRClient extends __Client<
   __HttpHandlerOptions,

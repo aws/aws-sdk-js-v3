@@ -1,4 +1,8 @@
 import {
+  StartMedicalStreamTranscriptionCommandInput,
+  StartMedicalStreamTranscriptionCommandOutput,
+} from "./commands/StartMedicalStreamTranscriptionCommand";
+import {
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
 } from "./commands/StartStreamTranscriptionCommand";
@@ -69,9 +73,9 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = StartStreamTranscriptionCommandInput;
+export type ServiceInputTypes = StartMedicalStreamTranscriptionCommandInput | StartStreamTranscriptionCommandInput;
 
-export type ServiceOutputTypes = StartStreamTranscriptionCommandOutput;
+export type ServiceOutputTypes = StartMedicalStreamTranscriptionCommandOutput | StartStreamTranscriptionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

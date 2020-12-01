@@ -1,3 +1,7 @@
+import {
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "../commands/BatchExecuteStatementCommand";
 import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "../commands/BatchGetItemCommand";
 import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "../commands/BatchWriteItemCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
@@ -25,6 +29,10 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput,
 } from "../commands/DescribeGlobalTableSettingsCommand";
+import {
+  DescribeKinesisStreamingDestinationCommandInput,
+  DescribeKinesisStreamingDestinationCommandOutput,
+} from "../commands/DescribeKinesisStreamingDestinationCommand";
 import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "../commands/DescribeLimitsCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
 import {
@@ -32,6 +40,16 @@ import {
   DescribeTableReplicaAutoScalingCommandOutput,
 } from "../commands/DescribeTableReplicaAutoScalingCommand";
 import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "../commands/DescribeTimeToLiveCommand";
+import {
+  DisableKinesisStreamingDestinationCommandInput,
+  DisableKinesisStreamingDestinationCommandOutput,
+} from "../commands/DisableKinesisStreamingDestinationCommand";
+import {
+  EnableKinesisStreamingDestinationCommandInput,
+  EnableKinesisStreamingDestinationCommandOutput,
+} from "../commands/EnableKinesisStreamingDestinationCommand";
+import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "../commands/ExecuteStatementCommand";
+import { ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput } from "../commands/ExecuteTransactionCommand";
 import {
   ExportTableToPointInTimeCommandInput,
   ExportTableToPointInTimeCommandOutput,
@@ -97,8 +115,13 @@ import {
   BackupInUseException,
   BackupNotFoundException,
   BackupSummary,
+  BatchExecuteStatementInput,
+  BatchExecuteStatementOutput,
   BatchGetItemInput,
   BatchGetItemOutput,
+  BatchStatementError,
+  BatchStatementRequest,
+  BatchStatementResponse,
   BatchWriteItemInput,
   BatchWriteItemOutput,
   BillingModeSummary,
@@ -145,6 +168,8 @@ import {
   DescribeGlobalTableOutput,
   DescribeGlobalTableSettingsInput,
   DescribeGlobalTableSettingsOutput,
+  DescribeKinesisStreamingDestinationInput,
+  DescribeKinesisStreamingDestinationOutput,
   DescribeLimitsInput,
   DescribeLimitsOutput,
   DescribeTableInput,
@@ -153,7 +178,12 @@ import {
   DescribeTableReplicaAutoScalingOutput,
   DescribeTimeToLiveInput,
   DescribeTimeToLiveOutput,
+  DuplicateItemException,
   Endpoint,
+  ExecuteStatementInput,
+  ExecuteStatementOutput,
+  ExecuteTransactionInput,
+  ExecuteTransactionOutput,
   ExpectedAttributeValue,
   ExportConflictException,
   ExportDescription,
@@ -186,6 +216,9 @@ import {
   ItemResponse,
   KeySchemaElement,
   KeysAndAttributes,
+  KinesisDataStreamDestination,
+  KinesisStreamingDestinationInput,
+  KinesisStreamingDestinationOutput,
   LimitExceededException,
   ListBackupsInput,
   ListBackupsOutput,
@@ -202,6 +235,7 @@ import {
   LocalSecondaryIndex,
   LocalSecondaryIndexDescription,
   LocalSecondaryIndexInfo,
+  ParameterizedStatement,
   PointInTimeRecoveryDescription,
   PointInTimeRecoverySpecification,
   PointInTimeRecoveryUnavailableException,
@@ -297,6 +331,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_json1_0BatchExecuteStatementCommand = async (
+  input: BatchExecuteStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.BatchExecuteStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0BatchExecuteStatementInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_0BatchGetItemCommand = async (
   input: BatchGetItemCommandInput,
@@ -493,6 +540,19 @@ export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeKinesisStreamingDestinationCommand = async (
+  input: DescribeKinesisStreamingDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeKinesisStreamingDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeKinesisStreamingDestinationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeLimitsCommand = async (
   input: DescribeLimitsCommandInput,
   context: __SerdeContext
@@ -542,6 +602,58 @@ export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTimeToLiveInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DisableKinesisStreamingDestinationCommand = async (
+  input: DisableKinesisStreamingDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DisableKinesisStreamingDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0KinesisStreamingDestinationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0EnableKinesisStreamingDestinationCommand = async (
+  input: EnableKinesisStreamingDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.EnableKinesisStreamingDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0KinesisStreamingDestinationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ExecuteStatementCommand = async (
+  input: ExecuteStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ExecuteStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExecuteStatementInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ExecuteTransactionCommand = async (
+  input: ExecuteTransactionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ExecuteTransaction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExecuteTransactionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -868,6 +980,69 @@ export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTimeToLiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_0BatchExecuteStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchExecuteStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0BatchExecuteStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0BatchExecuteStatementOutput(data, context);
+  const response: BatchExecuteStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0BatchExecuteStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchExecuteStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0BatchGetItemCommand = async (
@@ -2071,6 +2246,77 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKinesisStreamingDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeKinesisStreamingDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeKinesisStreamingDestinationOutput(data, context);
+  const response: DescribeKinesisStreamingDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeKinesisStreamingDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKinesisStreamingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DescribeLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2318,6 +2564,394 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0DisableKinesisStreamingDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableKinesisStreamingDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DisableKinesisStreamingDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0KinesisStreamingDestinationOutput(data, context);
+  const response: DisableKinesisStreamingDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DisableKinesisStreamingDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableKinesisStreamingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0EnableKinesisStreamingDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableKinesisStreamingDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0EnableKinesisStreamingDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0KinesisStreamingDestinationOutput(data, context);
+  const response: EnableKinesisStreamingDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0EnableKinesisStreamingDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableKinesisStreamingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ExecuteStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExecuteStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExecuteStatementOutput(data, context);
+  const response: ExecuteStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExecuteStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConditionalCheckFailedException":
+    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
+      response = {
+        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DuplicateItemException":
+    case "com.amazonaws.dynamodb#DuplicateItemException":
+      response = {
+        ...(await deserializeAws_json1_0DuplicateItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TransactionConflictException":
+    case "com.amazonaws.dynamodb#TransactionConflictException":
+      response = {
+        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ExecuteTransactionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteTransactionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExecuteTransactionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExecuteTransactionOutput(data, context);
+  const response: ExecuteTransactionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExecuteTransactionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteTransactionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TransactionCanceledException":
+    case "com.amazonaws.dynamodb#TransactionCanceledException":
+      response = {
+        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TransactionInProgressException":
+    case "com.amazonaws.dynamodb#TransactionInProgressException":
+      response = {
+        ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4544,6 +5178,21 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
   return contents;
 };
 
+const deserializeAws_json1_0DuplicateItemExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DuplicateItemException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0DuplicateItemException(body, context);
+  const contents: DuplicateItemException = {
+    name: "DuplicateItemException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_0ExportConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4948,18 +5597,19 @@ const serializeAws_json1_0AttributeUpdates = (
 };
 
 const serializeAws_json1_0AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
-  return {
-    ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
-    ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
-    ...(input.BS !== undefined && { BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context) }),
-    ...(input.L !== undefined && { L: serializeAws_json1_0ListAttributeValue(input.L, context) }),
-    ...(input.M !== undefined && { M: serializeAws_json1_0MapAttributeValue(input.M, context) }),
-    ...(input.N !== undefined && { N: input.N }),
-    ...(input.NS !== undefined && { NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context) }),
-    ...(input.NULL !== undefined && { NULL: input.NULL }),
-    ...(input.S !== undefined && { S: input.S }),
-    ...(input.SS !== undefined && { SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context) }),
-  };
+  return AttributeValue.visit(input, {
+    B: (value) => ({ B: context.base64Encoder(value) }),
+    BOOL: (value) => ({ BOOL: value }),
+    BS: (value) => ({ BS: serializeAws_json1_0BinarySetAttributeValue(value, context) }),
+    L: (value) => ({ L: serializeAws_json1_0ListAttributeValue(value, context) }),
+    M: (value) => ({ M: serializeAws_json1_0MapAttributeValue(value, context) }),
+    N: (value) => ({ N: value }),
+    NS: (value) => ({ NS: serializeAws_json1_0NumberSetAttributeValue(value, context) }),
+    NULL: (value) => ({ NULL: value }),
+    S: (value) => ({ S: value }),
+    SS: (value) => ({ SS: serializeAws_json1_0StringSetAttributeValue(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_json1_0AttributeValueList = (input: AttributeValue[], context: __SerdeContext): any => {
@@ -5012,6 +5662,17 @@ const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpd
   };
 };
 
+const serializeAws_json1_0BatchExecuteStatementInput = (
+  input: BatchExecuteStatementInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Statements !== undefined && {
+      Statements: serializeAws_json1_0PartiQLBatchRequest(input.Statements, context),
+    }),
+  };
+};
+
 const serializeAws_json1_0BatchGetItemInput = (input: BatchGetItemInput, context: __SerdeContext): any => {
   return {
     ...(input.RequestItems !== undefined && {
@@ -5032,6 +5693,16 @@ const serializeAws_json1_0BatchGetRequestMap = (
     }),
     {}
   );
+};
+
+const serializeAws_json1_0BatchStatementRequest = (input: BatchStatementRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_0PreparedStatementParameters(input.Parameters, context),
+    }),
+    ...(input.Statement !== undefined && { Statement: input.Statement }),
+  };
 };
 
 const serializeAws_json1_0BatchWriteItemInput = (input: BatchWriteItemInput, context: __SerdeContext): any => {
@@ -5321,6 +5992,15 @@ const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   };
 };
 
+const serializeAws_json1_0DescribeKinesisStreamingDestinationInput = (
+  input: DescribeKinesisStreamingDestinationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
 const serializeAws_json1_0DescribeLimitsInput = (input: DescribeLimitsInput, context: __SerdeContext): any => {
   return {};
 };
@@ -5343,6 +6023,26 @@ const serializeAws_json1_0DescribeTableReplicaAutoScalingInput = (
 const serializeAws_json1_0DescribeTimeToLiveInput = (input: DescribeTimeToLiveInput, context: __SerdeContext): any => {
   return {
     ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_0ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ConsistentRead !== undefined && { ConsistentRead: input.ConsistentRead }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_0PreparedStatementParameters(input.Parameters, context),
+    }),
+    ...(input.Statement !== undefined && { Statement: input.Statement }),
+  };
+};
+
+const serializeAws_json1_0ExecuteTransactionInput = (input: ExecuteTransactionInput, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.TransactStatements !== undefined && {
+      TransactStatements: serializeAws_json1_0ParameterizedStatements(input.TransactStatements, context),
+    }),
   };
 };
 
@@ -5585,6 +6285,16 @@ const serializeAws_json1_0KeySchemaElement = (input: KeySchemaElement, context: 
   };
 };
 
+const serializeAws_json1_0KinesisStreamingDestinationInput = (
+  input: KinesisStreamingDestinationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
 const serializeAws_json1_0ListAttributeValue = (input: AttributeValue[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_0AttributeValue(entry, context));
 };
@@ -5680,6 +6390,23 @@ const serializeAws_json1_0NumberSetAttributeValue = (input: string[], context: _
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_0ParameterizedStatement = (input: ParameterizedStatement, context: __SerdeContext): any => {
+  return {
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_0PreparedStatementParameters(input.Parameters, context),
+    }),
+    ...(input.Statement !== undefined && { Statement: input.Statement }),
+  };
+};
+
+const serializeAws_json1_0ParameterizedStatements = (input: ParameterizedStatement[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_0ParameterizedStatement(entry, context));
+};
+
+const serializeAws_json1_0PartiQLBatchRequest = (input: BatchStatementRequest[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_0BatchStatementRequest(entry, context));
+};
+
 const serializeAws_json1_0PointInTimeRecoverySpecification = (
   input: PointInTimeRecoverySpecification,
   context: __SerdeContext
@@ -5689,6 +6416,10 @@ const serializeAws_json1_0PointInTimeRecoverySpecification = (
       PointInTimeRecoveryEnabled: input.PointInTimeRecoveryEnabled,
     }),
   };
+};
+
+const serializeAws_json1_0PreparedStatementParameters = (input: AttributeValue[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0Projection = (input: Projection, context: __SerdeContext): any => {
@@ -6458,33 +7189,57 @@ const deserializeAws_json1_0AttributeNameList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  return {
-    B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
-    BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
-    BS:
-      output.BS !== undefined && output.BS !== null
-        ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
-        : undefined,
-    L:
-      output.L !== undefined && output.L !== null
-        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
-        : undefined,
-    M:
-      output.M !== undefined && output.M !== null
-        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
-        : undefined,
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    NS:
-      output.NS !== undefined && output.NS !== null
-        ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
-        : undefined,
-    NULL: output.NULL !== undefined && output.NULL !== null ? output.NULL : undefined,
-    S: output.S !== undefined && output.S !== null ? output.S : undefined,
-    SS:
-      output.SS !== undefined && output.SS !== null
-        ? deserializeAws_json1_0StringSetAttributeValue(output.SS, context)
-        : undefined,
-  } as any;
+  if (output.B !== undefined && output.B !== null) {
+    return {
+      B: context.base64Decoder(output.B),
+    };
+  }
+  if (output.BOOL !== undefined && output.BOOL !== null) {
+    return {
+      BOOL: output.BOOL,
+    };
+  }
+  if (output.BS !== undefined && output.BS !== null) {
+    return {
+      BS: deserializeAws_json1_0BinarySetAttributeValue(output.BS, context),
+    };
+  }
+  if (output.L !== undefined && output.L !== null) {
+    return {
+      L: deserializeAws_json1_0ListAttributeValue(output.L, context),
+    };
+  }
+  if (output.M !== undefined && output.M !== null) {
+    return {
+      M: deserializeAws_json1_0MapAttributeValue(output.M, context),
+    };
+  }
+  if (output.N !== undefined && output.N !== null) {
+    return {
+      N: output.N,
+    };
+  }
+  if (output.NS !== undefined && output.NS !== null) {
+    return {
+      NS: deserializeAws_json1_0NumberSetAttributeValue(output.NS, context),
+    };
+  }
+  if (output.NULL !== undefined && output.NULL !== null) {
+    return {
+      NULL: output.NULL,
+    };
+  }
+  if (output.S !== undefined && output.S !== null) {
+    return {
+      S: output.S,
+    };
+  }
+  if (output.SS !== undefined && output.SS !== null) {
+    return {
+      SS: deserializeAws_json1_0StringSetAttributeValue(output.SS, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_0AutoScalingPolicyDescription = (
@@ -6625,6 +7380,18 @@ const deserializeAws_json1_0BackupSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_0BatchExecuteStatementOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchExecuteStatementOutput => {
+  return {
+    Responses:
+      output.Responses !== undefined && output.Responses !== null
+        ? deserializeAws_json1_0PartiQLBatchResponse(output.Responses, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0BatchGetItemOutput = (output: any, context: __SerdeContext): BatchGetItemOutput => {
   return {
     ConsumedCapacity:
@@ -6666,6 +7433,27 @@ const deserializeAws_json1_0BatchGetResponseMap = (
     }),
     {}
   );
+};
+
+const deserializeAws_json1_0BatchStatementError = (output: any, context: __SerdeContext): BatchStatementError => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0BatchStatementResponse = (output: any, context: __SerdeContext): BatchStatementResponse => {
+  return {
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? deserializeAws_json1_0BatchStatementError(output.Error, context)
+        : undefined,
+    Item:
+      output.Item !== undefined && output.Item !== null
+        ? deserializeAws_json1_0AttributeMap(output.Item, context)
+        : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0BatchWriteItemOutput = (output: any, context: __SerdeContext): BatchWriteItemOutput => {
@@ -6998,6 +7786,19 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeKinesisStreamingDestinationOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeKinesisStreamingDestinationOutput => {
+  return {
+    KinesisDataStreamDestinations:
+      output.KinesisDataStreamDestinations !== undefined && output.KinesisDataStreamDestinations !== null
+        ? deserializeAws_json1_0KinesisDataStreamDestinations(output.KinesisDataStreamDestinations, context)
+        : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
     AccountMaxReadCapacityUnits:
@@ -7052,6 +7853,12 @@ const deserializeAws_json1_0DescribeTimeToLiveOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0DuplicateItemException = (output: any, context: __SerdeContext): DuplicateItemException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
@@ -7064,6 +7871,28 @@ const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): E
 
 const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_0Endpoint(entry, context));
+};
+
+const deserializeAws_json1_0ExecuteStatementOutput = (output: any, context: __SerdeContext): ExecuteStatementOutput => {
+  return {
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_json1_0ItemList(output.Items, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExecuteTransactionOutput = (
+  output: any,
+  context: __SerdeContext
+): ExecuteTransactionOutput => {
+  return {
+    Responses:
+      output.Responses !== undefined && output.Responses !== null
+        ? deserializeAws_json1_0ItemResponseList(output.Responses, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0ExportConflictException = (
@@ -7470,6 +8299,44 @@ const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_0KinesisDataStreamDestination = (
+  output: any,
+  context: __SerdeContext
+): KinesisDataStreamDestination => {
+  return {
+    DestinationStatus:
+      output.DestinationStatus !== undefined && output.DestinationStatus !== null
+        ? output.DestinationStatus
+        : undefined,
+    DestinationStatusDescription:
+      output.DestinationStatusDescription !== undefined && output.DestinationStatusDescription !== null
+        ? output.DestinationStatusDescription
+        : undefined,
+    StreamArn: output.StreamArn !== undefined && output.StreamArn !== null ? output.StreamArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0KinesisDataStreamDestinations = (
+  output: any,
+  context: __SerdeContext
+): KinesisDataStreamDestination[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0KinesisDataStreamDestination(entry, context));
+};
+
+const deserializeAws_json1_0KinesisStreamingDestinationOutput = (
+  output: any,
+  context: __SerdeContext
+): KinesisStreamingDestinationOutput => {
+  return {
+    DestinationStatus:
+      output.DestinationStatus !== undefined && output.DestinationStatus !== null
+        ? output.DestinationStatus
+        : undefined,
+    StreamArn: output.StreamArn !== undefined && output.StreamArn !== null ? output.StreamArn : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -7626,6 +8493,10 @@ const deserializeAws_json1_0NonKeyAttributeNameList = (output: any, context: __S
 
 const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_0PartiQLBatchResponse = (output: any, context: __SerdeContext): BatchStatementResponse[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0BatchStatementResponse(entry, context));
 };
 
 const deserializeAws_json1_0PointInTimeRecoveryDescription = (

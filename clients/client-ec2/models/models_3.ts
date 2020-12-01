@@ -8110,6 +8110,22 @@ export namespace DescribeVpcEndpointServicesRequest {
 }
 
 /**
+ * <p>Information about the Private DNS name for interface endpoints.</p>
+ */
+export interface PrivateDnsDetails {
+  /**
+   * <p>The private DNS name assigned to the VPC endpoint service.</p>
+   */
+  PrivateDnsName?: string;
+}
+
+export namespace PrivateDnsDetails {
+  export const filterSensitiveLog = (obj: PrivateDnsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a VPC endpoint service.</p>
  */
 export interface ServiceDetail {
@@ -8147,6 +8163,11 @@ export interface ServiceDetail {
    * <p>The private DNS name for the service.</p>
    */
   PrivateDnsName?: string;
+
+  /**
+   * <p>The private DNS names assigned to the VPC endpoint service. </p>
+   */
+  PrivateDnsNames?: PrivateDnsDetails[];
 
   /**
    * <p>Indicates whether the service supports endpoint policies.</p>
@@ -10689,21 +10710,6 @@ export interface GetEbsDefaultKmsKeyIdResult {
 
 export namespace GetEbsDefaultKmsKeyIdResult {
   export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetEbsEncryptionByDefaultRequest {
-  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
     ...obj,
   });
 }

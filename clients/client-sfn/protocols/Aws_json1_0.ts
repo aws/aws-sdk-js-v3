@@ -28,6 +28,7 @@ import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "../co
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "../commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "../commands/SendTaskSuccessCommand";
 import { StartExecutionCommandInput, StartExecutionCommandOutput } from "../commands/StartExecutionCommand";
+import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "../commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "../commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -43,6 +44,7 @@ import {
   ActivitySucceededEventDetails,
   ActivityTimedOutEventDetails,
   ActivityWorkerLimitExceeded,
+  BillingDetails,
   CloudWatchEventsExecutionDataDetails,
   CloudWatchLogsLogGroup,
   CreateActivityInput,
@@ -112,6 +114,8 @@ import {
   SendTaskSuccessOutput,
   StartExecutionInput,
   StartExecutionOutput,
+  StartSyncExecutionInput,
+  StartSyncExecutionOutput,
   StateEnteredEventDetails,
   StateExitedEventDetails,
   StateMachineAlreadyExists,
@@ -142,7 +146,11 @@ import {
   UpdateStateMachineInput,
   UpdateStateMachineOutput,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -384,6 +392,26 @@ export const serializeAws_json1_0StartExecutionCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_0StartExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0StartSyncExecutionCommand = async (
+  input: StartSyncExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.StartSyncExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0StartSyncExecutionInput(input, context));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "sync-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 export const serializeAws_json1_0StopExecutionCommand = async (
@@ -1716,6 +1744,101 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0StartSyncExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSyncExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0StartSyncExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0StartSyncExecutionOutput(data, context);
+  const response: StartSyncExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0StartSyncExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSyncExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      response = {
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidExecutionInput":
+    case "com.amazonaws.sfn#InvalidExecutionInput":
+      response = {
+        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidName":
+    case "com.amazonaws.sfn#InvalidName":
+      response = {
+        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StateMachineDoesNotExist":
+    case "com.amazonaws.sfn#StateMachineDoesNotExist":
+      response = {
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "StateMachineTypeNotSupported":
+    case "com.amazonaws.sfn#StateMachineTypeNotSupported":
+      response = {
+        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0StopExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2551,6 +2674,15 @@ const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, con
   };
 };
 
+const serializeAws_json1_0StartSyncExecutionInput = (input: StartSyncExecutionInput, context: __SerdeContext): any => {
+  return {
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.traceHeader !== undefined && { traceHeader: input.traceHeader }),
+  };
+};
+
 const serializeAws_json1_0StopExecutionInput = (input: StopExecutionInput, context: __SerdeContext): any => {
   return {
     ...(input.cause !== undefined && { cause: input.cause }),
@@ -2713,6 +2845,19 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 ): ActivityWorkerLimitExceeded => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0BillingDetails = (output: any, context: __SerdeContext): BillingDetails => {
+  return {
+    billedDurationInMilliseconds:
+      output.billedDurationInMilliseconds !== undefined && output.billedDurationInMilliseconds !== null
+        ? output.billedDurationInMilliseconds
+        : undefined,
+    billedMemoryUsedInMB:
+      output.billedMemoryUsedInMB !== undefined && output.billedMemoryUsedInMB !== null
+        ? output.billedMemoryUsedInMB
+        : undefined,
   } as any;
 };
 
@@ -3392,6 +3537,44 @@ const deserializeAws_json1_0StartExecutionOutput = (output: any, context: __Serd
       output.startDate !== undefined && output.startDate !== null
         ? new Date(Math.round(output.startDate * 1000))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0StartSyncExecutionOutput = (
+  output: any,
+  context: __SerdeContext
+): StartSyncExecutionOutput => {
+  return {
+    billingDetails:
+      output.billingDetails !== undefined && output.billingDetails !== null
+        ? deserializeAws_json1_0BillingDetails(output.billingDetails, context)
+        : undefined,
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
+    executionArn: output.executionArn !== undefined && output.executionArn !== null ? output.executionArn : undefined,
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.outputDetails, context)
+        : undefined,
+    startDate:
+      output.startDate !== undefined && output.startDate !== null
+        ? new Date(Math.round(output.startDate * 1000))
+        : undefined,
+    stateMachineArn:
+      output.stateMachineArn !== undefined && output.stateMachineArn !== null ? output.stateMachineArn : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    stopDate:
+      output.stopDate !== undefined && output.stopDate !== null
+        ? new Date(Math.round(output.stopDate * 1000))
+        : undefined,
+    traceHeader: output.traceHeader !== undefined && output.traceHeader !== null ? output.traceHeader : undefined,
   } as any;
 };
 

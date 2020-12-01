@@ -45,6 +45,7 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -877,6 +878,16 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
   return {
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
@@ -906,6 +917,10 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
     OutpostId: output.OutpostId !== undefined && output.OutpostId !== null ? output.OutpostId : undefined,
     OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 
@@ -919,11 +934,25 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1siteListDefinition = (output: any, context: __SerdeContext): Site[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Site(entry, context));
+};
+
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

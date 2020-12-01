@@ -43,6 +43,11 @@ export interface CreateOutpostInput {
    *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
+
+  /**
+   * <p>The tags to apply to the Outpost.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateOutpostInput {
@@ -101,6 +106,11 @@ export interface Outpost {
    *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
+
+  /**
+   * <p>The Outpost tags.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace Outpost {
@@ -394,6 +404,11 @@ export interface Site {
    * <p>The description of the site.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The site tags.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace Site {

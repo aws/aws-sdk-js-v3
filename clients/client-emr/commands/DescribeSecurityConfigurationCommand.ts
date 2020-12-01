@@ -21,7 +21,8 @@ export type DescribeSecurityConfigurationCommandInput = DescribeSecurityConfigur
 export type DescribeSecurityConfigurationCommandOutput = DescribeSecurityConfigurationOutput & __MetadataBearer;
 
 /**
- * <p>Provides the details of a security configuration by returning the configuration JSON.</p>
+ * <p>Provides the details of a security configuration by returning the configuration
+ *          JSON.</p>
  */
 export class DescribeSecurityConfigurationCommand extends $Command<
   DescribeSecurityConfigurationCommandInput,

@@ -27,6 +27,9 @@ export type DeleteDatabaseCommandOutput = __MetadataBearer;
  *
  *          <p>All tables in the database must be deleted first, or a ValidationException error will be thrown.
  *       </p>
+ *
+ *          <p>Due to the nature of distributed retries,
+ *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
  */
 export class DeleteDatabaseCommand extends $Command<
   DeleteDatabaseCommandInput,

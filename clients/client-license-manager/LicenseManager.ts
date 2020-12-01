@@ -88,8 +88,9 @@ export class LicenseManager extends LicenseManagerClient {
    *          <p>A license configuration is an abstraction of a customer license agreement that can be
    *          consumed and enforced by License Manager. Components include specifications for the license
    *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
-   *          Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a
-   *          license must be associated with a host), and the number of licenses purchased and used.</p>
+   *          Dedicated Instance, Dedicated Host, or all of these), license affinity to host (how long a
+   *          license must be associated with a host), and the number of licenses purchased and
+   *          used.</p>
    */
   public createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
@@ -219,9 +220,9 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * <p>Lists the resource associations for the specified license configuration.</p>
-   *          <p>Resource associations need not consume licenses from a license configuration.
-   *          For example, an AMI or a stopped instance might not consume a license (depending on
-   *          the license rules).</p>
+   *          <p>Resource associations need not consume licenses from a license configuration. For
+   *          example, an AMI or a stopped instance might not consume a license (depending on the license
+   *          rules).</p>
    */
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
@@ -541,10 +542,11 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   * <p>Adds or removes the specified license configurations for the specified AWS resource.</p>
-   *          <p>You can update the license specifications of AMIs, instances, and hosts.
-   *          You cannot update the license specifications for launch templates and AWS CloudFormation templates,
-   *          as they send license configurations to the operation that creates the resource.</p>
+   * <p>Adds or removes the specified license configurations for the specified AWS
+   *          resource.</p>
+   *          <p>You can update the license specifications of AMIs, instances, and hosts. You cannot
+   *          update the license specifications for launch templates and AWS CloudFormation templates, as
+   *          they send license configurations to the operation that creates the resource.</p>
    */
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,

@@ -8,6 +8,12 @@ export type AcceptanceType = "ACCEPT" | "REJECT";
  */
 export interface AcceptMatchInput {
   /**
+   * <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this
+   *             request will fail.</p>
+   */
+  TicketId: string | undefined;
+
+  /**
    * <p>A unique identifier for a player delivering the response. This parameter can include one or multiple
    *             player IDs.</p>
    */
@@ -17,12 +23,6 @@ export interface AcceptMatchInput {
    * <p>Player response to the proposed match.</p>
    */
   AcceptanceType: AcceptanceType | string | undefined;
-
-  /**
-   * <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this
-   *             request will fail.</p>
-   */
-  TicketId: string | undefined;
 }
 
 export namespace AcceptMatchInput {
@@ -217,14 +217,19 @@ export namespace RoutingStrategy {
  */
 export interface Alias {
   /**
+   * <p>A unique identifier for an alias. Alias IDs are unique within a Region.</p>
+   */
+  AliasId?: string;
+
+  /**
    * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
    */
   Name?: string;
 
   /**
-   * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.</p>
    */
-  CreationTime?: Date;
+  AliasArn?: string;
 
   /**
    * <p>A human-readable description of an alias.</p>
@@ -232,24 +237,19 @@ export interface Alias {
   Description?: string;
 
   /**
-   * <p>The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
    * <p>The routing configuration, including routing type and fleet target, for the alias. </p>
    */
   RoutingStrategy?: RoutingStrategy;
 
   /**
-   * <p>A unique identifier for an alias. Alias IDs are unique within a Region.</p>
+   * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
-  AliasId?: string;
+  CreationTime?: Date;
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.</p>
+   * <p>The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
-  AliasArn?: string;
+  LastUpdatedTime?: Date;
 }
 
 export namespace Alias {
@@ -266,10 +266,9 @@ export namespace Alias {
  */
 export interface AttributeValue {
   /**
-   * <p>For a map of up to 10 data type:value pairs. Maximum length for each string value
-   *             is 100 characters. </p>
+   * <p>For single string values. Maximum string length is 100 characters.</p>
    */
-  SDM?: { [key: string]: number };
+  S?: string;
 
   /**
    * <p>For number values, expressed as double.</p>
@@ -277,16 +276,17 @@ export interface AttributeValue {
   N?: number;
 
   /**
-   * <p>For single string values. Maximum string length is 100 characters.</p>
-   */
-  S?: string;
-
-  /**
    * <p>For a list of up to 10 strings. Maximum length for each string is 100 characters.
    *             Duplicate values are not recognized; all occurrences of the repeated value after the
    *             first of a repeated value are ignored.</p>
    */
   SL?: string[];
+
+  /**
+   * <p>For a map of up to 10 data type:value pairs. Maximum length for each string value
+   *             is 100 characters. </p>
+   */
+  SDM?: { [key: string]: number };
 }
 
 export namespace AttributeValue {
@@ -382,15 +382,25 @@ export enum BuildStatus {
  */
 export interface Build {
   /**
-   * <p>Operating system that the game server binaries are built to run on. This value
-   *             determines the type of fleet resources that you can use for this build.</p>
-   */
-  OperatingSystem?: OperatingSystem | string;
-
-  /**
    * <p>A unique identifier for a build.</p>
    */
   BuildId?: string;
+
+  /**
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the
+   *                 <i>BuildId</i> value.</p>
+   */
+  BuildArn?: string;
+
+  /**
+   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. It can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique. This value can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.</p>
+   */
+  Version?: string;
 
   /**
    * <p>Current status of the build.</p>
@@ -418,31 +428,21 @@ export interface Build {
   Status?: BuildStatus | string;
 
   /**
-   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Version information that is associated with a build or script. Version strings do not need to be unique. This value can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the
-   *                 <i>BuildId</i> value.</p>
-   */
-  BuildArn?: string;
-
-  /**
    * <p>File size of the uploaded game build, expressed in bytes. When the build status is
    *                 <code>INITIALIZED</code>, this value is 0.</p>
    */
   SizeOnDisk?: number;
 
   /**
-   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. It can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.</p>
+   * <p>Operating system that the game server binaries are built to run on. This value
+   *             determines the type of fleet resources that you can use for this build.</p>
    */
-  Name?: string;
+  OperatingSystem?: OperatingSystem | string;
+
+  /**
+   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace Build {
@@ -487,18 +487,18 @@ export interface ClaimGameServerInput {
   GameServerGroupName: string | undefined;
 
   /**
-   * <p>A set of custom game server properties, formatted as a single string value. This data
-   *             is passed to a game client or service when it requests information on game servers using
-   *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
-   */
-  GameServerData?: string;
-
-  /**
    * <p>A custom string that uniquely identifies the game server to claim. If this parameter
    *             is left empty, GameLift FleetIQ searches for an available game server in the specified game
    *             server group.</p>
    */
   GameServerId?: string;
+
+  /**
+   * <p>A set of custom game server properties, formatted as a single string value. This data
+   *             is passed to a game client or service when it requests information on game servers using
+   *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
+   */
+  GameServerData?: string;
 }
 
 export namespace ClaimGameServerInput {
@@ -559,40 +559,15 @@ export enum GameServerUtilizationStatus {
  */
 export interface GameServer {
   /**
-   * <p>Timestamp that indicates when the game server was created with a <a>RegisterGameServer</a> request. The format is a number expressed in Unix
-   *             time as milliseconds (for example <code>"1469498468.057"</code>).</p>
+   * <p>A unique identifier for the game server group where the game server is running.
+   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
-  RegistrationTime?: Date;
-
-  /**
-   * <p>Indicates whether the game server is currently available for new games or is busy. Possible statuses include:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The game server is available to be claimed. A game server that has
-   *                     been claimed remains in this status until it reports game hosting activity. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UTILIZED</code> - The game server is currently hosting a game session with players. </p>
-   *             </li>
-   *          </ul>
-   */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  GameServerGroupName?: string;
 
   /**
    * <p>The ARN identifier for the game server group where the game server is located.</p>
    */
   GameServerGroupArn?: string;
-
-  /**
-   * <p>Timestamp that indicates the last time the game server was updated with health status
-   *             using an <a>UpdateGameServer</a> request. The format is a number expressed in
-   *             Unix time as milliseconds (for example <code>"1469498468.057"</code>). After game server
-   *             registration, this property is only changed when a game server update specifies a health
-   *             check value.</p>
-   */
-  LastHealthCheckTime?: Date;
 
   /**
    * <p>A custom string that uniquely identifies the game server. Game server IDs are
@@ -602,10 +577,16 @@ export interface GameServer {
   GameServerId?: string;
 
   /**
-   * <p>A unique identifier for the game server group where the game server is running.
-   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
+   * <p>The unique identifier for the instance where the game server is running. This ID is
+   *             available in the instance metadata. EC2 instance IDs
+   *             use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
    */
-  GameServerGroupName?: string;
+  InstanceId?: string;
+
+  /**
+   * <p>The port and IP address that must be used to establish a client connection to the game server.</p>
+   */
+  ConnectionInfo?: string;
 
   /**
    * <p>A set of custom game server properties, formatted as a single string value. This data
@@ -625,9 +606,26 @@ export interface GameServer {
   ClaimStatus?: GameServerClaimStatus | string;
 
   /**
-   * <p>The port and IP address that must be used to establish a client connection to the game server.</p>
+   * <p>Indicates whether the game server is currently available for new games or is busy. Possible statuses include:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The game server is available to be claimed. A game server that has
+   *                     been claimed remains in this status until it reports game hosting activity. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UTILIZED</code> - The game server is currently hosting a game session with players. </p>
+   *             </li>
+   *          </ul>
    */
-  ConnectionInfo?: string;
+  UtilizationStatus?: GameServerUtilizationStatus | string;
+
+  /**
+   * <p>Timestamp that indicates when the game server was created with a <a>RegisterGameServer</a> request. The format is a number expressed in Unix
+   *             time as milliseconds (for example <code>"1469498468.057"</code>).</p>
+   */
+  RegistrationTime?: Date;
 
   /**
    * <p>Timestamp that indicates the last time the game server was claimed with a <a>ClaimGameServer</a> request. The format is a number expressed in Unix time
@@ -637,11 +635,13 @@ export interface GameServer {
   LastClaimTime?: Date;
 
   /**
-   * <p>The unique identifier for the instance where the game server is running. This ID is
-   *             available in the instance metadata. EC2 instance IDs
-   *             use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
+   * <p>Timestamp that indicates the last time the game server was updated with health status
+   *             using an <a>UpdateGameServer</a> request. The format is a number expressed in
+   *             Unix time as milliseconds (for example <code>"1469498468.057"</code>). After game server
+   *             registration, this property is only changed when a game server update specifies a health
+   *             check value.</p>
    */
-  InstanceId?: string;
+  LastHealthCheckTime?: Date;
 }
 
 export namespace GameServer {
@@ -760,17 +760,17 @@ export enum ComparisonOperatorType {
 export interface Tag {
   /**
    * <p>
-   *             The value for a developer-defined key:value pair for tagging an AWS resource.
-   *         </p>
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>
    *             The key for a developer-defined key:value pair for tagging an AWS resource.
    *         </p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>
+   *             The value for a developer-defined key:value pair for tagging an AWS resource.
+   *         </p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -789,6 +789,16 @@ export interface CreateAliasInput {
   Name: string | undefined;
 
   /**
+   * <p>A human-readable description of the alias.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The routing configuration, including routing type and fleet target, for the alias. </p>
+   */
+  RoutingStrategy: RoutingStrategy | undefined;
+
+  /**
    * <p>A list of labels to assign to the new alias resource. Tags are developer-defined
    *             key-value pairs. Tagging
    *             AWS resources are useful for resource management, access management and cost allocation.
@@ -800,16 +810,6 @@ export interface CreateAliasInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A human-readable description of the alias.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The routing configuration, including routing type and fleet target, for the alias. </p>
-   */
-  RoutingStrategy: RoutingStrategy | undefined;
 }
 
 export namespace CreateAliasInput {
@@ -883,12 +883,9 @@ export interface S3Location {
   Bucket?: string;
 
   /**
-   * <p>The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses
-   *             this information when retrieving files from an S3 bucket that you own. Use this
-   *             parameter to specify a specific version of the file. If not set, the latest version of
-   *             the file is retrieved. </p>
+   * <p>The name of the zip file that contains the build files or script files. </p>
    */
-  ObjectVersion?: string;
+  Key?: string;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
@@ -897,9 +894,12 @@ export interface S3Location {
   RoleArn?: string;
 
   /**
-   * <p>The name of the zip file that contains the build files or script files. </p>
+   * <p>The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses
+   *             this information when retrieving files from an S3 bucket that you own. Use this
+   *             parameter to specify a specific version of the file. If not set, the latest version of
+   *             the file is retrieved. </p>
    */
-  Key?: string;
+  ObjectVersion?: string;
 }
 
 export namespace S3Location {
@@ -913,11 +913,26 @@ export namespace S3Location {
  */
 export interface CreateBuildInput {
   /**
-   * <p>Information indicating where your game build files are stored. Use this parameter only
-   *             when creating a build with files stored in an S3 bucket that you own. The storage
-   *             location must specify an S3 bucket name and key. The location must also specify a role
-   *             ARN that you set up to allow Amazon GameLift to access your S3 bucket. The S3 bucket and your
-   *             new build must be in the same Region.</p>
+   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. You can use <a>UpdateBuild</a> to change this value later.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique. You can use <a>UpdateBuild</a> to change this value later.
+   *         </p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The location where your game build files are stored. Use this parameter only when
+   *             creating a build using files that are stored in an S3 bucket that you own. Identify an
+   *             S3 bucket name and key, which must in the same Region where you're creating a build.
+   *             This parameter must also specify the ARN for an IAM role that you've set up to give
+   *             Amazon GameLift access your S3 bucket. To call this operation with a storage location, you must
+   *             have IAM PassRole permission. For more details on IAM roles and PassRole permissions,
+   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">
+   *                 Set up a role for GameLift access</a>. </p>
    */
   StorageLocation?: S3Location;
 
@@ -931,12 +946,6 @@ export interface CreateBuildInput {
   OperatingSystem?: OperatingSystem | string;
 
   /**
-   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. You can use <a>UpdateBuild</a> to change this value later.
-   *         </p>
-   */
-  Name?: string;
-
-  /**
    * <p>A list of labels to assign to the new build resource. Tags are developer-defined
    *             key-value pairs. Tagging
    *             AWS resources are useful for resource management, access management and cost allocation.
@@ -948,12 +957,6 @@ export interface CreateBuildInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>Version information that is associated with a build or script. Version strings do not need to be unique. You can use <a>UpdateBuild</a> to change this value later.
-   *         </p>
-   */
-  Version?: string;
 }
 
 export namespace CreateBuildInput {
@@ -967,17 +970,17 @@ export namespace CreateBuildInput {
  */
 export interface CreateBuildOutput {
   /**
+   * <p>The newly created build resource, including a unique build IDs and status. </p>
+   */
+  Build?: Build;
+
+  /**
    * <p>This element is returned only when the operation is called without a storage
    *             location. It contains credentials to use when you are uploading a build file to an S3
    *             bucket that is owned by Amazon GameLift. Credentials have a limited life span. To refresh these
    *             credentials, call <a>RequestUploadCredentials</a>. </p>
    */
   UploadCredentials?: AwsCredentials;
-
-  /**
-   * <p>The newly created build resource, including a unique build IDs and status. </p>
-   */
-  Build?: Build;
 
   /**
    * <p>Amazon S3 location for your game build file, including bucket name and
@@ -1008,11 +1011,9 @@ export enum IpProtocol {
  */
 export interface IpPermission {
   /**
-   * <p>A range of allowed IP addresses. This value must be expressed in CIDR notation.
-   *             Example: "<code>000.000.000.000/[subnet mask]</code>" or optionally the shortened
-   *             version "<code>0.0.0.0/[subnet mask]</code>".</p>
+   * <p>A starting value for a range of allowed port numbers.</p>
    */
-  IpRange: string | undefined;
+  FromPort: number | undefined;
 
   /**
    * <p>An ending value for a range of allowed port numbers. Port numbers are end-inclusive.
@@ -1021,14 +1022,16 @@ export interface IpPermission {
   ToPort: number | undefined;
 
   /**
+   * <p>A range of allowed IP addresses. This value must be expressed in CIDR notation.
+   *             Example: "<code>000.000.000.000/[subnet mask]</code>" or optionally the shortened
+   *             version "<code>0.0.0.0/[subnet mask]</code>".</p>
+   */
+  IpRange: string | undefined;
+
+  /**
    * <p>The network communication protocol used by the fleet.</p>
    */
   Protocol: IpProtocol | string | undefined;
-
-  /**
-   * <p>A starting value for a range of allowed port numbers.</p>
-   */
-  FromPort: number | undefined;
 }
 
 export namespace IpPermission {
@@ -1056,6 +1059,14 @@ export type EC2InstanceType =
   | "c5.9xlarge"
   | "c5.large"
   | "c5.xlarge"
+  | "c5a.12xlarge"
+  | "c5a.16xlarge"
+  | "c5a.24xlarge"
+  | "c5a.2xlarge"
+  | "c5a.4xlarge"
+  | "c5a.8xlarge"
+  | "c5a.large"
+  | "c5a.xlarge"
   | "m3.2xlarge"
   | "m3.large"
   | "m3.medium"
@@ -1073,6 +1084,14 @@ export type EC2InstanceType =
   | "m5.8xlarge"
   | "m5.large"
   | "m5.xlarge"
+  | "m5a.12xlarge"
+  | "m5a.16xlarge"
+  | "m5a.24xlarge"
+  | "m5a.2xlarge"
+  | "m5a.4xlarge"
+  | "m5a.8xlarge"
+  | "m5a.large"
+  | "m5a.xlarge"
   | "r3.2xlarge"
   | "r3.4xlarge"
   | "r3.8xlarge"
@@ -1092,6 +1111,14 @@ export type EC2InstanceType =
   | "r5.8xlarge"
   | "r5.large"
   | "r5.xlarge"
+  | "r5a.12xlarge"
+  | "r5a.16xlarge"
+  | "r5a.24xlarge"
+  | "r5a.2xlarge"
+  | "r5a.4xlarge"
+  | "r5a.8xlarge"
+  | "r5a.large"
+  | "r5a.xlarge"
   | "t2.large"
   | "t2.medium"
   | "t2.micro"
@@ -1233,17 +1260,17 @@ export namespace ServerProcess {
  */
 export interface RuntimeConfiguration {
   /**
+   * <p>A collection of server process configurations that describe which server processes to
+   *             run on each instance in a fleet.</p>
+   */
+  ServerProcesses?: ServerProcess[];
+
+  /**
    * <p>The maximum number of game sessions with status <code>ACTIVATING</code> to allow on an
    *             instance simultaneously. This setting limits the amount of instance resources that can
    *             be used for new game activations at any one time.</p>
    */
   MaxConcurrentGameSessionActivations?: number;
-
-  /**
-   * <p>A collection of server process configurations that describe which server processes to
-   *             run on each instance in a fleet.</p>
-   */
-  ServerProcesses?: ServerProcess[];
 
   /**
    * <p>The maximum amount of time (in seconds) that a game session can remain in status
@@ -1265,12 +1292,155 @@ export namespace RuntimeConfiguration {
  */
 export interface CreateFleetInput {
   /**
+   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A human-readable description of a fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A unique identifier for a build to be deployed on the new fleet. You can use either the build ID or ARN value.
+   *             The custom game server build must have been successfully uploaded to Amazon GameLift and be in a
+   *                 <code>READY</code> status. This fleet setting cannot be changed once the fleet is
+   *             created. </p>
+   */
+  BuildId?: string;
+
+  /**
+   * <p>A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value.
+   *             The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting
+   *             cannot be changed once the fleet is created.</p>
+   */
+  ScriptId?: string;
+
+  /**
+   * <p>This parameter is no longer used. Instead, specify a server launch path using the
+   *                 <code>RuntimeConfiguration</code> parameter. Requests that specify a server launch
+   *             path and launch parameters instead of a runtime configuration will continue to
+   *             work.</p>
+   */
+  ServerLaunchPath?: string;
+
+  /**
    * <p>This parameter is no longer used. Instead, specify server launch parameters in the
    *                 <code>RuntimeConfiguration</code> parameter. (Requests that specify a server launch
    *             path and launch parameters instead of a runtime configuration will continue to
    *             work.)</p>
    */
   ServerLaunchParameters?: string;
+
+  /**
+   * <p>This parameter is no longer used. Instead, to specify where Amazon GameLift should store log
+   *             files once a server process shuts down, use the Amazon GameLift server API
+   *                 <code>ProcessReady()</code> and specify one or more directory paths in
+   *                 <code>logParameters</code>. See more information in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server API Reference</a>. </p>
+   */
+  LogPaths?: string[];
+
+  /**
+   * <p>The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type
+   *             determines the computing resources of each instance in the fleet, including CPU, memory,
+   *             storage, and networking capacity. Amazon GameLift supports the following EC2 instance types.
+   *             See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
+   *             for detailed descriptions.</p>
+   */
+  EC2InstanceType: EC2InstanceType | string | undefined;
+
+  /**
+   * <p>Range of IP addresses and port settings that permit inbound traffic to access game
+   *             sessions that are running on the fleet. For fleets using a custom game build, this
+   *             parameter is required before game sessions running on the fleet can accept connections.
+   *             For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime
+   *             servers. You can specify multiple permission settings or add more by updating the
+   *             fleet.</p>
+   */
+  EC2InboundPermissions?: IpPermission[];
+
+  /**
+   * <p>A game session protection policy to apply to all instances in this fleet. If this
+   *             parameter is not set, instances in this fleet default to no protection. You can change a
+   *             fleet's protection policy using <a>UpdateFleetAttributes</a>, but this change
+   *             will only affect sessions created after the policy change. You can also set protection
+   *             for individual instances using <a>UpdateGameSession</a>.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <b>NoProtection</b> - The game session can be
+   *                     terminated during a scale-down event.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <b>FullProtection</b> - If the game session is in an
+   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
+   *                     event.</p>
+   *             </li>
+   *          </ul>
+   */
+  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+
+  /**
+   * <p>Instructions for launching server processes on each instance in the fleet. Server
+   *             processes run either a custom game build executable or a Realtime script. The runtime
+   *             configuration defines the server executables or launch script file, launch parameters,
+   *             and the number of processes to run concurrently on each instance. When creating a fleet,
+   *             the runtime configuration must have at least one server process configuration; otherwise
+   *             the request fails with an invalid request exception.  (This parameter replaces the
+   *             parameters <code>ServerLaunchPath</code> and <code>ServerLaunchParameters</code>,
+   *             although requests that contain values for these parameters instead of a runtime
+   *             configuration will continue to work.) This parameter is required unless the parameters
+   *             <code>ServerLaunchPath</code> and <code>ServerLaunchParameters</code> are defined. Runtime
+   *             configuration replaced these parameters, but fleets that use them will continue to work. </p>
+   */
+  RuntimeConfiguration?: RuntimeConfiguration;
+
+  /**
+   * <p>A policy that limits the number of game sessions an individual player can create over
+   *             a span of time for this fleet.</p>
+   */
+  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
+
+  /**
+   * <p>The name of an Amazon CloudWatch metric group to add this fleet to. A metric group
+   *             aggregates the metrics for all fleets in the group. Specify an existing metric group
+   *             name, or provide a new name to create a new metric group. A fleet can only be included
+   *             in one metric group at a time. </p>
+   */
+  MetricGroups?: string[];
+
+  /**
+   * <p>A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift
+   *             fleet with. You can find your account ID in the AWS Management Console under account settings. </p>
+   */
+  PeerVpcAwsAccountId?: string;
+
+  /**
+   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
+   *             VPC must be in the same Region as your fleet. To look up a VPC ID, use the
+   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
+   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>. </p>
+   */
+  PeerVpcId?: string;
+
+  /**
+   * <p>Indicates whether to use On-Demand instances or Spot instances for this fleet. If
+   *             empty, the default is <code>ON_DEMAND</code>. Both categories of instances use identical
+   *             hardware and configurations based on the instance type selected for this fleet. Learn
+   *             more about <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. </p>
+   */
+  FleetType?: FleetType | string;
+
+  /**
+   * <p>A unique identifier for an AWS IAM role that manages access to your AWS services.
+   *         Fleets with an instance role ARN allow applications that are running on the fleet's instances to assume the role.
+   *         Learn more about using on-box credentials for your game servers at
+   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+   *         Access external resources from a game server</a>. To call this operation with instance role ARN, you must have IAM PassRole
+   *             permissions. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">IAM policy examples for GameLift</a>.  </p>
+   */
+  InstanceRoleArn?: string;
 
   /**
    * <p>Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS
@@ -1299,50 +1469,6 @@ export interface CreateFleetInput {
   CertificateConfiguration?: CertificateConfiguration;
 
   /**
-   * <p>This parameter is no longer used. Instead, specify a server launch path using the
-   *                 <code>RuntimeConfiguration</code> parameter. Requests that specify a server launch
-   *             path and launch parameters instead of a runtime configuration will continue to
-   *             work.</p>
-   */
-  ServerLaunchPath?: string;
-
-  /**
-   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
-   *             VPC must be in the same Region as your fleet. To look up a VPC ID, use the
-   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
-   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>. </p>
-   */
-  PeerVpcId?: string;
-
-  /**
-   * <p>This parameter is no longer used. Instead, to specify where Amazon GameLift should store log
-   *             files once a server process shuts down, use the Amazon GameLift server API
-   *                 <code>ProcessReady()</code> and specify one or more directory paths in
-   *                 <code>logParameters</code>. See more information in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server API Reference</a>. </p>
-   */
-  LogPaths?: string[];
-
-  /**
-   * <p>Instructions for launching server processes on each instance in the fleet. Server
-   *             processes run either a custom game build executable or a Realtime script. The runtime
-   *             configuration defines the server executables or launch script file, launch parameters,
-   *             and the number of processes to run concurrently on each instance. When creating a fleet,
-   *             the runtime configuration must have at least one server process configuration; otherwise
-   *             the request fails with an invalid request exception.  (This parameter replaces the
-   *             parameters <code>ServerLaunchPath</code> and <code>ServerLaunchParameters</code>,
-   *             although requests that contain values for these parameters instead of a runtime
-   *             configuration will continue to work.) This parameter is required unless the parameters
-   *             <code>ServerLaunchPath</code> and <code>ServerLaunchParameters</code> are defined. Runtime
-   *             configuration replaced these parameters, but fleets that use them will continue to work. </p>
-   */
-  RuntimeConfiguration?: RuntimeConfiguration;
-
-  /**
    * <p>A list of labels to assign to the new fleet resource. Tags are developer-defined
    *             key-value pairs. Tagging
    *             AWS resources are useful for resource management, access management and cost allocation.
@@ -1354,106 +1480,6 @@ export interface CreateFleetInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A unique identifier for an AWS IAM role that manages access to your AWS services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN from the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS Management Console.
-   *         Learn more about using on-box credentials for your game servers at
-   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>.</p>
-   */
-  InstanceRoleArn?: string;
-
-  /**
-   * <p>A policy that limits the number of game sessions an individual player can create over
-   *             a span of time for this fleet.</p>
-   */
-  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
-
-  /**
-   * <p>A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value.
-   *             The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting
-   *             cannot be changed once the fleet is created.</p>
-   */
-  ScriptId?: string;
-
-  /**
-   * <p>A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift
-   *             fleet with. You can find your account ID in the AWS Management Console under account settings. </p>
-   */
-  PeerVpcAwsAccountId?: string;
-
-  /**
-   * <p>The name of an Amazon CloudWatch metric group to add this fleet to. A metric group
-   *             aggregates the metrics for all fleets in the group. Specify an existing metric group
-   *             name, or provide a new name to create a new metric group. A fleet can only be included
-   *             in one metric group at a time. </p>
-   */
-  MetricGroups?: string[];
-
-  /**
-   * <p>A unique identifier for a build to be deployed on the new fleet. You can use either the build ID or ARN value.
-   *             The custom game server build must have been successfully uploaded to Amazon GameLift and be in a
-   *                 <code>READY</code> status. This fleet setting cannot be changed once the fleet is
-   *             created. </p>
-   */
-  BuildId?: string;
-
-  /**
-   * <p>A game session protection policy to apply to all instances in this fleet. If this
-   *             parameter is not set, instances in this fleet default to no protection. You can change a
-   *             fleet's protection policy using <a>UpdateFleetAttributes</a>, but this change
-   *             will only affect sessions created after the policy change. You can also set protection
-   *             for individual instances using <a>UpdateGameSession</a>.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <b>NoProtection</b> - The game session can be
-   *                     terminated during a scale-down event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>FullProtection</b> - If the game session is in an
-   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
-   *                     event.</p>
-   *             </li>
-   *          </ul>
-   */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
-
-  /**
-   * <p>Indicates whether to use On-Demand instances or Spot instances for this fleet. If
-   *             empty, the default is <code>ON_DEMAND</code>. Both categories of instances use identical
-   *             hardware and configurations based on the instance type selected for this fleet. Learn
-   *             more about <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. </p>
-   */
-  FleetType?: FleetType | string;
-
-  /**
-   * <p>Range of IP addresses and port settings that permit inbound traffic to access game
-   *             sessions that are running on the fleet. For fleets using a custom game build, this
-   *             parameter is required before game sessions running on the fleet can accept connections.
-   *             For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime
-   *             servers. You can specify multiple permission settings or add more by updating the
-   *             fleet.</p>
-   */
-  EC2InboundPermissions?: IpPermission[];
-
-  /**
-   * <p>A human-readable description of a fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type
-   *             determines the computing resources of each instance in the fleet, including CPU, memory,
-   *             storage, and networking capacity. Amazon GameLift supports the following EC2 instance types.
-   *             See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
-   *             for detailed descriptions.</p>
-   */
-  EC2InstanceType: EC2InstanceType | string | undefined;
 }
 
 export namespace CreateFleetInput {
@@ -1515,38 +1541,21 @@ export enum FleetAction {
  */
 export interface FleetAttributes {
   /**
-   * <p>Names of metric groups that this fleet is included in. In Amazon CloudWatch, you
-   *             can view metrics for an individual fleet or aggregated metrics for fleets that are in a
-   *             fleet metric group. A fleet can be included in only one metric group at a
-   *             time.</p>
-   */
-  MetricGroups?: string[];
-
-  /**
-   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  TerminationTime?: Date;
-
-  /**
-   * <p>A unique identifier for an AWS IAM role that manages access to your AWS services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN from the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS Management Console.
-   *         Learn more about using on-box credentials for your game servers at
-   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>.</p>
-   */
-  InstanceRoleArn?: string;
-
-  /**
-   * <p>Indicates whether a TLS/SSL certificate was generated for the fleet. </p>
-   */
-  CertificateConfiguration?: CertificateConfiguration;
-
-  /**
    * <p>A unique identifier for a fleet.</p>
    */
   FleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the
+   *                 <i>FleetId</i> value.</p>
+   */
+  FleetArn?: string;
+
+  /**
+   * <p>Indicates whether the fleet uses on-demand or spot instances. A spot instance in use
+   *             may be interrupted with a two-minute notification.</p>
+   */
+  FleetType?: FleetType | string;
 
   /**
    * <p>EC2 instance type indicating the computing resources of each instance in the
@@ -1556,29 +1565,14 @@ export interface FleetAttributes {
   InstanceType?: EC2InstanceType | string;
 
   /**
-   * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift build resource that is deployed on instances
-   *             in this fleet.  In a GameLift build ARN, the resource ID matches the
-   *                 <i>BuildId</i> value.</p>
+   * <p>Human-readable description of the fleet.</p>
    */
-  BuildArn?: string;
+  Description?: string;
 
   /**
-   * <p>A unique identifier for a build.</p>
+   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
    */
-  BuildId?: string;
-
-  /**
-   * <p>Game server launch parameters specified for fleets created before 2016-08-04 (or
-   *             AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are
-   *             specified in the fleet's <a>RuntimeConfiguration</a>.</p>
-   */
-  ServerLaunchParameters?: string;
-
-  /**
-   * <p>Operating system of the fleet's computing resources. A fleet's operating system
-   *             depends on the OS specified for the build that is deployed on this fleet.</p>
-   */
-  OperatingSystem?: OperatingSystem | string;
+  Name?: string;
 
   /**
    * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
@@ -1586,15 +1580,9 @@ export interface FleetAttributes {
   CreationTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the
-   *                 <i>FleetId</i> value.</p>
+   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
-  FleetArn?: string;
-
-  /**
-   * <p>List of fleet activity that have been suspended using <a>StopFleetActions</a>. This includes auto-scaling.</p>
-   */
-  StoppedActions?: (FleetAction | string)[];
+  TerminationTime?: Date;
 
   /**
    * <p>Current status of the fleet.</p>
@@ -1636,9 +1624,21 @@ export interface FleetAttributes {
   Status?: FleetStatus | string;
 
   /**
-   * <p>Human-readable description of the fleet.</p>
+   * <p>A unique identifier for a build.</p>
    */
-  Description?: string;
+  BuildId?: string;
+
+  /**
+   * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift build resource that is deployed on instances
+   *             in this fleet.  In a GameLift build ARN, the resource ID matches the
+   *                 <i>BuildId</i> value.</p>
+   */
+  BuildArn?: string;
+
+  /**
+   * <p>A unique identifier for a Realtime script.</p>
+   */
+  ScriptId?: string;
 
   /**
    * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift script resource that is deployed on instances
@@ -1648,21 +1648,28 @@ export interface FleetAttributes {
   ScriptArn?: string;
 
   /**
-   * <p>Indicates whether the fleet uses on-demand or spot instances. A spot instance in use
-   *             may be interrupted with a two-minute notification.</p>
+   * <p>Path to a game server executable in the fleet's build, specified for fleets created
+   *             before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after
+   *             this date are specified in the fleet's <a>RuntimeConfiguration</a>.</p>
    */
-  FleetType?: FleetType | string;
+  ServerLaunchPath?: string;
 
   /**
-   * <p>Fleet policy to limit the number of game sessions an individual player can create
-   *             over a span of time.</p>
+   * <p>Game server launch parameters specified for fleets created before 2016-08-04 (or
+   *             AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are
+   *             specified in the fleet's <a>RuntimeConfiguration</a>.</p>
    */
-  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
+  ServerLaunchParameters?: string;
 
   /**
-   * <p>A unique identifier for a Realtime script.</p>
+   * <p>Location of default log files. When a server process is shut down, Amazon GameLift captures
+   *             and stores any log files in this location. These logs are in addition to game session
+   *             logs; see more on game session logs in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon GameLift Developer Guide</a>. If no default log path for a fleet is specified,
+   *             Amazon GameLift automatically uploads logs that are stored on each instance at
+   *                 <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
+   *             Linux). Use the Amazon GameLift console to access stored logs. </p>
    */
-  ScriptId?: string;
+  LogPaths?: string[];
 
   /**
    * <p>The type of game session protection to set for all new instances started in the
@@ -1684,26 +1691,39 @@ export interface FleetAttributes {
   NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
 
   /**
-   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
+   * <p>Operating system of the fleet's computing resources. A fleet's operating system
+   *             depends on the OS specified for the build that is deployed on this fleet.</p>
    */
-  Name?: string;
+  OperatingSystem?: OperatingSystem | string;
 
   /**
-   * <p>Path to a game server executable in the fleet's build, specified for fleets created
-   *             before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after
-   *             this date are specified in the fleet's <a>RuntimeConfiguration</a>.</p>
+   * <p>Fleet policy to limit the number of game sessions an individual player can create
+   *             over a span of time.</p>
    */
-  ServerLaunchPath?: string;
+  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
 
   /**
-   * <p>Location of default log files. When a server process is shut down, Amazon GameLift captures
-   *             and stores any log files in this location. These logs are in addition to game session
-   *             logs; see more on game session logs in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon GameLift Developer Guide</a>. If no default log path for a fleet is specified,
-   *             Amazon GameLift automatically uploads logs that are stored on each instance at
-   *                 <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
-   *             Linux). Use the Amazon GameLift console to access stored logs. </p>
+   * <p>Names of metric groups that this fleet is included in. In Amazon CloudWatch, you
+   *             can view metrics for an individual fleet or aggregated metrics for fleets that are in a
+   *             fleet metric group. A fleet can be included in only one metric group at a
+   *             time.</p>
    */
-  LogPaths?: string[];
+  MetricGroups?: string[];
+
+  /**
+   * <p>List of fleet activity that have been suspended using <a>StopFleetActions</a>. This includes auto-scaling.</p>
+   */
+  StoppedActions?: (FleetAction | string)[];
+
+  /**
+   * <p>A unique identifier for an AWS IAM role that manages access to your AWS services.</p>
+   */
+  InstanceRoleArn?: string;
+
+  /**
+   * <p>Indicates whether a TLS/SSL certificate was generated for the fleet. </p>
+   */
+  CertificateConfiguration?: CertificateConfiguration;
 }
 
 export namespace FleetAttributes {
@@ -1845,6 +1865,11 @@ export type GameServerGroupInstanceType =
  */
 export interface InstanceDefinition {
   /**
+   * <p>An EC2 instance type designation.</p>
+   */
+  InstanceType: GameServerGroupInstanceType | string | undefined;
+
+  /**
    * <p>Instance weighting that indicates how much this instance type contributes to the total
    *             capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the
    *             instance type's cost per unit hour and better identify the most cost-effective options.
@@ -1853,11 +1878,6 @@ export interface InstanceDefinition {
    *             Default value is "1".</p>
    */
   WeightedCapacity?: string;
-
-  /**
-   * <p>An EC2 instance type designation.</p>
-   */
-  InstanceType: GameServerGroupInstanceType | string | undefined;
 }
 
 export namespace InstanceDefinition {
@@ -1881,16 +1901,16 @@ export interface LaunchTemplateSpecification {
   LaunchTemplateId?: string;
 
   /**
+   * <p>A readable identifier for an existing EC2 launch template. </p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
    * <p>The version of the EC2 launch template to use. If no version is specified, the
    *             default version will be used. With Amazon EC2, you can specify a default version for a
    *             launch template. If none is set, the default is the first version created.</p>
    */
   Version?: string;
-
-  /**
-   * <p>A readable identifier for an existing EC2 launch template. </p>
-   */
-  LaunchTemplateName?: string;
 }
 
 export namespace LaunchTemplateSpecification {
@@ -1901,10 +1921,26 @@ export namespace LaunchTemplateSpecification {
 
 export interface CreateGameServerGroupInput {
   /**
+   * <p>An identifier for the new game server group. This value is used to generate unique ARN
+   *             identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name
+   *             must be unique per Region per AWS account.</p>
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
    *             allows Amazon GameLift to access your EC2 Auto Scaling groups.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The minimum number of instances allowed in the EC2 Auto Scaling group. During
+   *             automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this
+   *             minimum. In production, this value should be set to at least 1. After the Auto Scaling
+   *             group is created, update this value directly in the Auto Scaling group using the AWS
+   *             console or APIs.</p>
+   */
+  MinSize: number | undefined;
 
   /**
    * <p>The maximum number of instances allowed in the EC2 Auto Scaling group. During
@@ -1915,25 +1951,15 @@ export interface CreateGameServerGroupInput {
   MaxSize: number | undefined;
 
   /**
-   * <p>Configuration settings to define a scaling policy for the Auto Scaling group that is
-   *             optimized for game hosting. The scaling policy uses the metric
-   *                 <code>"PercentUtilizedGameServers"</code> to maintain a buffer of idle game servers
-   *             that can immediately accommodate new games and players. After the Auto Scaling group is
-   *             created, update this value directly in the Auto Scaling group using the AWS console or
-   *             APIs.</p>
+   * <p>The EC2 launch template that contains configuration settings and game server code to
+   *             be deployed to all instances in the game server group. You can specify the template
+   *             using either the template name or ID. For help with creating a launch template, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a Launch
+   *                 Template for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
+   *                 User Guide</i>. After the Auto Scaling group is created, update this value
+   *             directly in the Auto Scaling group using the AWS console or APIs.</p>
    */
-  AutoScalingPolicy?: GameServerGroupAutoScalingPolicy;
-
-  /**
-   * <p>A list of labels to assign to the new game server group resource. Tags are
-   *             developer-defined key-value pairs. Tagging AWS resources is useful for resource
-   *             management, access management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging AWS
-   *                 Resources</a> in the <i>AWS General Reference</i>. Once the
-   *             resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a> to add, remove,
-   *             and view tags, respectively. The maximum tag limit may be lower than stated. See the
-   *             AWS General Reference for actual tagging limits.</p>
-   */
-  Tags?: Tag[];
+  LaunchTemplate: LaunchTemplateSpecification | undefined;
 
   /**
    * <p>The EC2 instance types and sizes to use in the Auto Scaling group. The instance
@@ -1948,11 +1974,14 @@ export interface CreateGameServerGroupInput {
   InstanceDefinitions: InstanceDefinition[] | undefined;
 
   /**
-   * <p>An identifier for the new game server group. This value is used to generate unique ARN
-   *             identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name
-   *             must be unique per Region per AWS account.</p>
+   * <p>Configuration settings to define a scaling policy for the Auto Scaling group that is
+   *             optimized for game hosting. The scaling policy uses the metric
+   *                 <code>"PercentUtilizedGameServers"</code> to maintain a buffer of idle game servers
+   *             that can immediately accommodate new games and players. After the Auto Scaling group is
+   *             created, update this value directly in the Auto Scaling group using the AWS console or
+   *             APIs.</p>
    */
-  GameServerGroupName: string | undefined;
+  AutoScalingPolicy?: GameServerGroupAutoScalingPolicy;
 
   /**
    * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
@@ -1985,36 +2014,6 @@ export interface CreateGameServerGroupInput {
   BalancingStrategy?: BalancingStrategy | string;
 
   /**
-   * <p>A list of virtual private cloud (VPC) subnets to use with instances in the game server
-   *             group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this
-   *             parameter to specify VPCs that you've set up.  This property cannot be updated after the
-   *             game server group is created, and the corresponding Auto Scaling group will always use
-   *             the property value that is set with this request, even if the Auto Scaling group is
-   *             updated directly</p>
-   */
-  VpcSubnets?: string[];
-
-  /**
-   * <p>The EC2 launch template that contains configuration settings and game server code to
-   *             be deployed to all instances in the game server group. You can specify the template
-   *             using either the template name or ID. For help with creating a launch template, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a Launch
-   *                 Template for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
-   *                 User Guide</i>. After the Auto Scaling group is created, update this value
-   *             directly in the Auto Scaling group using the AWS console or APIs.</p>
-   */
-  LaunchTemplate: LaunchTemplateSpecification | undefined;
-
-  /**
-   * <p>The minimum number of instances allowed in the EC2 Auto Scaling group. During
-   *             automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this
-   *             minimum. In production, this value should be set to at least 1. After the Auto Scaling
-   *             group is created, update this value directly in the Auto Scaling group using the AWS
-   *             console or APIs.</p>
-   */
-  MinSize: number | undefined;
-
-  /**
    * <p>A flag that indicates whether instances in the game server group are protected
    *             from early termination. Unprotected instances that have active game servers running might
    *             be terminated during a scale-down event, causing players to be dropped from the game.
@@ -2023,6 +2022,27 @@ export interface CreateGameServerGroupInput {
    *             Instances, which can be terminated by AWS regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
   GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+
+  /**
+   * <p>A list of virtual private cloud (VPC) subnets to use with instances in the game server
+   *             group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this
+   *             parameter to specify VPCs that you've set up. This property cannot be updated after the
+   *             game server group is created, and the corresponding Auto Scaling group will always use
+   *             the property value that is set with this request, even if the Auto Scaling group is
+   *             updated directly.</p>
+   */
+  VpcSubnets?: string[];
+
+  /**
+   * <p>A list of labels to assign to the new game server group resource. Tags are
+   *             developer-defined key-value pairs. Tagging AWS resources is useful for resource
+   *             management, access management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging AWS
+   *                 Resources</a> in the <i>AWS General Reference</i>. Once the
+   *             resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a> to add, remove,
+   *             and view tags, respectively. The maximum tag limit may be lower than stated. See the
+   *             AWS General Reference for actual tagging limits.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateGameServerGroupInput {
@@ -2101,14 +2121,57 @@ export enum GameServerGroupAction {
  */
 export interface GameServerGroup {
   /**
-   * <p>A timestamp that indicates when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
+   * <p>A developer-defined identifier for the game server group. The name is unique for each
+   *             Region in each AWS account.</p>
    */
-  CreationTime?: Date;
+  GameServerGroupName?: string;
 
   /**
    * <p>A generated unique ID for the game server group.</p>
    */
   GameServerGroupArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
+   *             allows Amazon GameLift to access your EC2 Auto Scaling groups.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The set of EC2 instance types that GameLift FleetIQ can use when balancing and automatically
+   *             scaling instances in the corresponding Auto Scaling group. </p>
+   */
+  InstanceDefinitions?: InstanceDefinition[];
+
+  /**
+   * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
+   *             game server group. Method options include the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot
+   *                     Instances are unavailable or not viable for game hosting, the game server group
+   *                     provides no hosting capacity until Spot Instances can again be used. Until then,
+   *                     no new instances are started, and the existing nonviable Spot Instances are
+   *                     terminated (after current gameplay ends) and are not replaced.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in
+   *                     the game server group. If Spot Instances are unavailable, the game server group
+   *                     continues to provide hosting capacity by falling back to On-Demand Instances.
+   *                     Existing nonviable Spot Instances are terminated (after current gameplay ends)
+   *                     and are replaced with new On-Demand Instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game
+   *                     server group. No Spot Instances are used, even when available, while this
+   *                     balancing strategy is in force.</p>
+   *             </li>
+   *          </ul>
+   */
+  BalancingStrategy?: BalancingStrategy | string;
 
   /**
    * <p>A flag that indicates whether instances in the game server group are protected
@@ -2119,23 +2182,6 @@ export interface GameServerGroup {
    *             Instances, which can be terminated by AWS regardless of protection status. </p>
    */
   GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
-
-  /**
-   * <p>A timestamp that indicates when this game server group was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>A developer-defined identifier for the game server group. The name is unique for each
-   *             Region in each AWS account.</p>
-   */
-  GameServerGroupName?: string;
-
-  /**
-   * <p>Additional information about the current game server group status. This information
-   *             might provide additional insight on groups that are in <code>ERROR</code> status.</p>
-   */
-  StatusReason?: string;
 
   /**
    * <p>A generated unique ID for the EC2 Auto Scaling group that is associated with this
@@ -2186,34 +2232,10 @@ export interface GameServerGroup {
   Status?: GameServerGroupStatus | string;
 
   /**
-   * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
-   *             game server group. Method options include the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot
-   *                     Instances are unavailable or not viable for game hosting, the game server group
-   *                     provides no hosting capacity until Spot Instances can again be used. Until then,
-   *                     no new instances are started, and the existing nonviable Spot Instances are
-   *                     terminated (after current gameplay ends) and are not replaced.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in
-   *                     the game server group. If Spot Instances are unavailable, the game server group
-   *                     continues to provide hosting capacity by falling back to On-Demand Instances.
-   *                     Existing nonviable Spot Instances are terminated (after current gameplay ends)
-   *                     and are replaced with new On-Demand Instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game
-   *                     server group. No Spot Instances are used, even when available, while this
-   *                     balancing strategy is in force.</p>
-   *             </li>
-   *          </ul>
+   * <p>Additional information about the current game server group status. This information
+   *             might provide additional insight on groups that are in <code>ERROR</code> status.</p>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  StatusReason?: string;
 
   /**
    * <p>A list of activities that are currently suspended for this game server group.
@@ -2222,16 +2244,14 @@ export interface GameServerGroup {
   SuspendedActions?: (GameServerGroupAction | string)[];
 
   /**
-   * <p>The set of EC2 instance types that GameLift FleetIQ can use when balancing and automatically
-   *             scaling instances in the corresponding Auto Scaling group. </p>
+   * <p>A timestamp that indicates when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
    */
-  InstanceDefinitions?: InstanceDefinition[];
+  CreationTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
-   *             allows Amazon GameLift to access your EC2 Auto Scaling groups.</p>
+   * <p>A timestamp that indicates when this game server group was last updated.</p>
    */
-  RoleArn?: string;
+  LastUpdatedTime?: Date;
 }
 
 export namespace GameServerGroup {
@@ -2265,14 +2285,14 @@ export namespace CreateGameServerGroupOutput {
  */
 export interface GameProperty {
   /**
-   * <p>The game property value.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The game property identifier.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The game property value.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace GameProperty {
@@ -2285,6 +2305,12 @@ export namespace GameProperty {
  * <p>Represents the input for a request operation.</p>
  */
 export interface CreateGameSessionInput {
+  /**
+   * <p>A unique identifier for a fleet to create a game session in. You can use either the fleet ID or ARN value. Each
+   *             request must reference either a fleet ID or alias ID, but not both.</p>
+   */
+  FleetId?: string;
+
   /**
    * <p>A unique identifier for an alias associated with the fleet to create a game session in. You can use either the
    *             alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but
@@ -2303,23 +2329,17 @@ export interface CreateGameSessionInput {
   Name?: string;
 
   /**
+   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   */
+  GameProperties?: GameProperty[];
+
+  /**
    * <p>A unique identifier for a player or entity creating the game session. This ID is used to enforce a
    *             resource protection policy (if one exists) that limits the number of concurrent active
    *             game sessions one player can have.</p>
    */
   CreatorId?: string;
-
-  /**
-   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameSessionData?: string;
-
-  /**
-   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameProperties?: GameProperty[];
 
   /**
    * <p>
@@ -2342,10 +2362,10 @@ export interface CreateGameSessionInput {
   IdempotencyToken?: string;
 
   /**
-   * <p>A unique identifier for a fleet to create a game session in. You can use either the fleet ID or ARN value. Each
-   *             request must reference either a fleet ID or alias ID, but not both.</p>
+   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
    */
-  FleetId?: string;
+  GameSessionData?: string;
 }
 
 export namespace CreateGameSessionInput {
@@ -2433,25 +2453,15 @@ export enum GameSessionStatusReason {
  */
 export interface GameSession {
   /**
-   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
-   */
-  MaximumPlayerSessionCount?: number;
-
-  /**
    * <p>A unique identifier for the game session. A game session ARN has the following format:
    *     <code>arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
    */
   GameSessionId?: string;
 
   /**
-   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
    */
-  TerminationTime?: Date;
-
-  /**
-   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  CreationTime?: Date;
+  Name?: string;
 
   /**
    * <p>A unique identifier for a fleet that the game session is running on.</p>
@@ -2459,20 +2469,37 @@ export interface GameSession {
   FleetId?: string;
 
   /**
-   * <p>A unique identifier for a player. This ID is used to enforce a resource protection policy (if one
-   *             exists), that limits the number of game sessions a player can create.</p>
+   * <p>
+   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet that this game session is running on.
+   *         </p>
    */
-  CreatorId?: string;
+  FleetArn?: string;
 
   /**
-   * <p>Indicates whether or not the game session is accepting new players.</p>
+   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  CreationTime?: Date;
 
   /**
-   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.</p>
+   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
-  Port?: number;
+  TerminationTime?: Date;
+
+  /**
+   * <p>Number of players currently in the game session.</p>
+   */
+  CurrentPlayerSessionCount?: number;
+
+  /**
+   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
+   */
+  MaximumPlayerSessionCount?: number;
+
+  /**
+   * <p>Current status of the game session. A game session must have an <code>ACTIVE</code>
+   *             status to have player sessions.</p>
+   */
+  Status?: GameSessionStatus | string;
 
   /**
    * <p>Provides additional information about game session status. <code>INTERRUPTED</code>
@@ -2482,17 +2509,6 @@ export interface GameSession {
   StatusReason?: GameSessionStatusReason | string;
 
   /**
-   * <p>Current status of the game session. A game session must have an <code>ACTIVE</code>
-   *             status to have player sessions.</p>
-   */
-  Status?: GameSessionStatus | string;
-
-  /**
-   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
-   */
-  IpAddress?: string;
-
-  /**
    * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
    *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). You can search for active game sessions based on this custom data
    *             with <a>SearchGameSessions</a>.</p>
@@ -2500,11 +2516,9 @@ export interface GameSession {
   GameProperties?: GameProperty[];
 
   /**
-   * <p>
-   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet that this game session is running on.
-   *         </p>
+   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
    */
-  FleetArn?: string;
+  IpAddress?: string;
 
   /**
    * <p>DNS identifier assigned to the instance that is running the game session. Values have
@@ -2523,6 +2537,22 @@ export interface GameSession {
   DnsName?: string;
 
   /**
+   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Indicates whether or not the game session is accepting new players.</p>
+   */
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+
+  /**
+   * <p>A unique identifier for a player. This ID is used to enforce a resource protection policy (if one
+   *             exists), that limits the number of game sessions a player can create.</p>
+   */
+  CreatorId?: string;
+
+  /**
    * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
    *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
    */
@@ -2532,21 +2562,11 @@ export interface GameSession {
    * <p>Information about the matchmaking process that was used to create the game session.
    *             It is in JSON syntax, formatted as a string. In addition the matchmaking configuration
    *             used, it contains data on all players assigned to the match, including player attributes
-   *             and team assignments. For more details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">Match
+   *             and team assignments. For more details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">Match
    *                 Data</a>. Matchmaker data is useful when requesting match backfills, and is
    *             updated whenever new players are added during a successful backfill (see <a>StartMatchBackfill</a>). </p>
    */
   MatchmakerData?: string;
-
-  /**
-   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Number of players currently in the game session.</p>
-   */
-  CurrentPlayerSessionCount?: number;
 }
 
 export namespace GameSession {
@@ -2737,6 +2757,16 @@ export namespace PlayerLatencyPolicy {
  */
 export interface CreateGameSessionQueueInput {
   /**
+   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   */
+  TimeoutInSeconds?: number;
+
+  /**
    * <p>A collection of latency policies to apply when processing game sessions placement requests with
    *             player latency information. Multiple policies are evaluated in order of the maximum latency value,
    *             starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session
@@ -2755,11 +2785,6 @@ export interface CreateGameSessionQueueInput {
   Destinations?: GameSessionQueueDestination[];
 
   /**
-   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A list of labels to assign to the new game session queue resource. Tags are developer-defined
    *             key-value pairs. Tagging
    *             AWS resources are useful for resource management, access management and cost allocation.
@@ -2771,11 +2796,6 @@ export interface CreateGameSessionQueueInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
-   */
-  TimeoutInSeconds?: number;
 }
 
 export namespace CreateGameSessionQueueInput {
@@ -2830,15 +2850,20 @@ export namespace CreateGameSessionQueueInput {
  */
 export interface GameSessionQueue {
   /**
-   * <p>A list of fleets that can be used to fulfill game session placement requests in the queue.
-   *     Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.</p>
-   */
-  Destinations?: GameSessionQueueDestination[];
-
-  /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions.   In a GameLift game session queue ARN, the resource ID matches the
+   *                 <i>Name</i> value.</p>
+   */
+  GameSessionQueueArn?: string;
+
+  /**
+   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   */
+  TimeoutInSeconds?: number;
 
   /**
    * <p>A collection of latency policies to apply when processing game sessions placement requests with
@@ -2851,15 +2876,10 @@ export interface GameSessionQueue {
   PlayerLatencyPolicies?: PlayerLatencyPolicy[];
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions.   In a GameLift game session queue ARN, the resource ID matches the
-   *                 <i>Name</i> value.</p>
+   * <p>A list of fleets that can be used to fulfill game session placement requests in the queue.
+   *     Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.</p>
    */
-  GameSessionQueueArn?: string;
-
-  /**
-   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
-   */
-  TimeoutInSeconds?: number;
+  Destinations?: GameSessionQueueDestination[];
 }
 
 export namespace GameSessionQueue {
@@ -2884,10 +2904,34 @@ export namespace CreateGameSessionQueueOutput {
   });
 }
 
+export enum FlexMatchMode {
+  STANDALONE = "STANDALONE",
+  WITH_QUEUE = "WITH_QUEUE",
+}
+
 /**
  * <p>Represents the input for a request operation.</p>
  */
 export interface CreateMatchmakingConfigurationInput {
+  /**
+   * <p>A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a
+   *             matchmaking request or ticket.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the matchmaking configuration. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new
+   *             GameLift-hosted game sessions for matches that are created with this matchmaking
+   *             configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not
+   *             set this parameter.  </p>
+   */
+  GameSessionQueueArns?: string[];
+
   /**
    * <p>The maximum duration, in seconds, that a matchmaking ticket can remain in process
    *             before timing out. Requests that fail due to timing out can be resubmitted as
@@ -2896,19 +2940,19 @@ export interface CreateMatchmakingConfigurationInput {
   RequestTimeoutSeconds: number | undefined;
 
   /**
-   * <p>The method used to backfill game sessions that are created with this matchmaking
-   *             configuration. Specify <code>MANUAL</code> when your game manages backfill requests
-   *             manually or does not use the match backfill feature. Specify <code>AUTOMATIC</code> to
-   *             have GameLift create a <a>StartMatchBackfill</a> request whenever a game
-   *             session has one or more open slots. Learn more about manual and automatic backfill in
-   *                 <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html"> Backfill Existing Games with FlexMatch</a>. </p>
+   * <p>The length of time (in seconds) to wait for players to accept a proposed match, if
+   *             acceptance is required. If any player rejects the match or fails to accept before the
+   *             timeout, the tickets are returned to the ticket pool and continue to be evaluated for an
+   *             acceptable match.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  AcceptanceTimeoutSeconds?: number;
 
   /**
    * <p>A flag that determines whether a match that was created with this configuration must
-   *             be accepted by the matched players. To require acceptance, set to
-   *             <code>TRUE</code>.</p>
+   *             be accepted by the matched players. To require acceptance, set to <code>TRUE</code>.
+   *             With this option enabled, matchmaking tickets use the status
+   *                 <code>REQUIRES_ACCEPTANCE</code> to indicate when a completed potential match is
+   *             waiting for player acceptance. </p>
    */
   AcceptanceRequired: boolean | undefined;
 
@@ -2920,24 +2964,70 @@ export interface CreateMatchmakingConfigurationInput {
   RuleSetName: string | undefined;
 
   /**
-   * <p>The length of time (in seconds) to wait for players to accept a proposed match. If any
-   *             player rejects the match or fails to accept before the timeout, the ticket continues to
-   *             look for an acceptable match.</p>
+   * <p>An SNS topic ARN that is set up to receive matchmaking notifications.</p>
    */
-  AcceptanceTimeoutSeconds?: number;
+  NotificationTarget?: string;
 
   /**
    * <p>The number of player slots in a match to keep open for future players. For example,
    *             assume that the configuration's rule set specifies a match for a single 12-person team. If
-   *             the additional player count is set to 2, only 10 players are initially selected for the match.</p>
+   *             the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used if <code>FlexMatchMode</code> is set to
+   *                 <code>STANDALONE</code>.</p>
    */
   AdditionalPlayerCount?: number;
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. These queues are used when placing game sessions for matches that are created
-   *             with this matchmaking configuration. Queues can be located in any Region.</p>
+   * <p>Information to be added to all events related to this matchmaking configuration.
+   *         </p>
    */
-  GameSessionQueueArns: string[] | undefined;
+  CustomEventData?: string;
+
+  /**
+   * <p>A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
+   *             object that is created for a successful match. This parameter is not used if
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   */
+  GameProperties?: GameProperty[];
+
+  /**
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object
+   *             that is created for a successful match. This parameter is not used if
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   */
+  GameSessionData?: string;
+
+  /**
+   * <p>The method used to backfill game sessions that are created with this matchmaking
+   *             configuration. Specify <code>MANUAL</code> when your game manages backfill requests
+   *             manually or does not use the match backfill feature. Specify <code>AUTOMATIC</code> to
+   *             have GameLift create a <a>StartMatchBackfill</a> request whenever a game
+   *             session has one or more open slots. Learn more about manual and automatic backfill in
+   *                 <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html"> Backfill Existing Games with FlexMatch</a>. Automatic backfill is not
+   *             available when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   */
+  BackfillMode?: BackfillMode | string;
+
+  /**
+   * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
+   *             as a standalone matchmaking solution. </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STANDALONE</b> - FlexMatch forms matches and returns
+   *             match information, including players and team assignments, in a
+   *                 <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded">
+   *                     MatchmakingSucceeded</a> event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue to
+   *             start a game session for the match. </p>
+   *             </li>
+   *          </ul>
+   */
+  FlexMatchMode?: FlexMatchMode | string;
 
   /**
    * <p>A list of labels to assign to the new matchmaking configuration resource. Tags are developer-defined
@@ -2951,41 +3041,6 @@ export interface CreateMatchmakingConfigurationInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A human-readable description of the matchmaking configuration. </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
-   *             object that is created for a successful match.</p>
-   */
-  GameSessionData?: string;
-
-  /**
-   * <p>A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object that is created for a successful match. </p>
-   */
-  GameProperties?: GameProperty[];
-
-  /**
-   * <p>An SNS topic ARN that is set up to receive matchmaking notifications.</p>
-   */
-  NotificationTarget?: string;
-
-  /**
-   * <p>A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a
-   *             matchmaking request or ticket.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Information to be added to all events related to this matchmaking configuration.
-   *         </p>
-   */
-  CustomEventData?: string;
 }
 
 export namespace CreateMatchmakingConfigurationInput {
@@ -3000,59 +3055,14 @@ export namespace CreateMatchmakingConfigurationInput {
  */
 export interface MatchmakingConfiguration {
   /**
-   * <p>A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object that is created for a successful match. </p>
-   */
-  GameProperties?: GameProperty[];
-
-  /**
-   * <p>The length of time (in seconds) to wait for players to accept a proposed match. If any
-   *             player rejects the match or fails to accept before the timeout, the ticket continues to
-   *             look for an acceptable match.</p>
-   */
-  AcceptanceTimeoutSeconds?: number;
-
-  /**
    * <p>A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a
    *             matchmaking request or ticket.</p>
    */
   Name?: string;
 
   /**
-   * <p>The maximum duration, in seconds, that a matchmaking ticket can remain in process
-   *             before timing out. Requests that fail due to timing out can be resubmitted as
-   *             needed.</p>
-   */
-  RequestTimeoutSeconds?: number;
-
-  /**
-   * <p>Information to attach to all events related to the matchmaking configuration. </p>
-   */
-  CustomEventData?: string;
-
-  /**
-   * <p>An SNS topic ARN that is set up to receive matchmaking notifications.</p>
-   */
-  NotificationTarget?: string;
-
-  /**
-   * <p>A flag that indicates whether a match that was created with this configuration must be
-   *             accepted by the matched players. To require acceptance, set to TRUE.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>The method used to backfill game sessions created with this matchmaking configuration.
-   *             MANUAL indicates that the game makes backfill requests or does not use the match
-   *             backfill feature. AUTOMATIC indicates that GameLift creates <a>StartMatchBackfill</a> requests whenever a game session has one or more open
-   *             slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">Backfill Existing Games
-   *                 with FlexMatch</a>.</p>
-   */
-  BackfillMode?: BackfillMode | string;
-
-  /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift matchmaking configuration resource and uniquely identifies it. ARNs are unique across all Regions.  In a GameLift configuration ARN, the resource ID matches the
-   *                 <i>Name</i> value.</p>
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift matchmaking configuration resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift configuration ARN, the resource ID matches the
+   *                 <i>Name</i> value. </p>
    */
   ConfigurationArn?: string;
 
@@ -3062,22 +3072,64 @@ export interface MatchmakingConfiguration {
   Description?: string;
 
   /**
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new
+   *             GameLift-hosted game sessions for matches that are created with this matchmaking
+   *             configuration. Thais property is not set when <code>FlexMatchMode</code> is set to
+   *                 <code>STANDALONE</code>.</p>
+   */
+  GameSessionQueueArns?: string[];
+
+  /**
+   * <p>The maximum duration, in seconds, that a matchmaking ticket can remain in process
+   *             before timing out. Requests that fail due to timing out can be resubmitted as
+   *             needed.</p>
+   */
+  RequestTimeoutSeconds?: number;
+
+  /**
+   * <p>The length of time (in seconds) to wait for players to accept a proposed match, if
+   *             acceptance is required. If any player rejects the match or fails to accept before the
+   *             timeout, the tickets are returned to the ticket pool and continue to be evaluated for an
+   *             acceptable match.</p>
+   */
+  AcceptanceTimeoutSeconds?: number;
+
+  /**
+   * <p>A flag that indicates whether a match that was created with this configuration must be
+   *             accepted by the matched players. To require acceptance, set to TRUE. When this option is
+   *             enabled, matchmaking tickets use the status <code>REQUIRES_ACCEPTANCE</code> to indicate
+   *             when a completed potential match is waiting for player acceptance.</p>
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>A unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use
+   *             rule sets that are defined in the same Region.</p>
+   */
+  RuleSetName?: string;
+
+  /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift matchmaking rule set resource that this configuration uses.</p>
    */
   RuleSetArn?: string;
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. GameLift uses the listed queues when placing game sessions for matches that are
-   *             created with this matchmaking configuration. Queues can be located in any Region.</p>
+   * <p>An SNS topic ARN that is set up to receive matchmaking notifications.</p>
    */
-  GameSessionQueueArns?: string[];
+  NotificationTarget?: string;
 
   /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
-   *             object that is created for a successful match. </p>
+   * <p>The number of player slots in a match to keep open for future players. For example,
+   *             assume that the configuration's rule set specifies a match for a single 12-person team. If
+   *             the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used when <code>FlexMatchMode</code> is set to
+   *                 <code>STANDALONE</code>.</p>
    */
-  GameSessionData?: string;
+  AdditionalPlayerCount?: number;
+
+  /**
+   * <p>Information to attach to all events related to the matchmaking configuration. </p>
+   */
+  CustomEventData?: string;
 
   /**
    * <p>The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
@@ -3085,17 +3137,50 @@ export interface MatchmakingConfiguration {
   CreationTime?: Date;
 
   /**
-   * <p>The number of player slots in a match to keep open for future players. For example,
-   *             assume that the configuration's rule set specifies a match for a single 12-person team. If
-   *             the additional player count is set to 2, only 10 players are initially selected for the match.</p>
+   * <p>A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
+   *             object that is created for a successful match. This parameter is not used when
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  AdditionalPlayerCount?: number;
+  GameProperties?: GameProperty[];
 
   /**
-   * <p>A unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use
-   *             rule sets that are defined in the same Region.</p>
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object
+   *             that is created for a successful match. This parameter is not used when
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  RuleSetName?: string;
+  GameSessionData?: string;
+
+  /**
+   * <p>The method used to backfill game sessions created with this matchmaking configuration.
+   *             MANUAL indicates that the game makes backfill requests or does not use the match
+   *             backfill feature. AUTOMATIC indicates that GameLift creates <a>StartMatchBackfill</a> requests whenever a game session has one or more open
+   *             slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill Existing Games
+   *                 with FlexMatch</a>. Automatic backfill is not available when
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   */
+  BackfillMode?: BackfillMode | string;
+
+  /**
+   * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
+   *             as a standalone matchmaking solution. </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STANDALONE</b> - FlexMatch forms matches and returns
+   *                 match information, including players and team assignments, in a
+   *                 <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded">
+   *                     MatchmakingSucceeded</a> event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue to
+   *                 start a game session for the match. </p>
+   *             </li>
+   *          </ul>
+   */
+  FlexMatchMode?: FlexMatchMode | string;
 }
 
 export namespace MatchmakingConfiguration {
@@ -3125,6 +3210,13 @@ export namespace CreateMatchmakingConfigurationOutput {
  */
 export interface CreateMatchmakingRuleSetInput {
   /**
+   * <p>A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name
+   *             value. Note that the rule set name is different from the optional <code>name</code>
+   *             field in the rule set body.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>A collection of matchmaking rules, formatted as a JSON string. Comments are not
    *             allowed in JSON, but most elements support a description field.</p>
    */
@@ -3142,13 +3234,6 @@ export interface CreateMatchmakingRuleSetInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name
-   *             value. Note that the rule set name is different from the optional <code>name</code>
-   *             field in the rule set body.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreateMatchmakingRuleSetInput {
@@ -3162,7 +3247,7 @@ export namespace CreateMatchmakingRuleSetInput {
  *             matches. Each rule set describes a type of group to be created and defines the
  *             parameters for acceptable player matches. Rule sets are used in <a>MatchmakingConfiguration</a> objects.</p>
  *         <p>A rule set may define the following elements for a match. For detailed information
- *             and examples showing how to construct a rule set, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a FlexMatch Rule
+ *             and examples showing how to construct a rule set, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a FlexMatch Rule
  *                 Set</a>. </p>
  *         <ul>
  *             <li>
@@ -3252,14 +3337,14 @@ export interface CreatePlayerSessionInput {
   GameSessionId: string | undefined;
 
   /**
-   * <p>Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.</p>
-   */
-  PlayerData?: string;
-
-  /**
    * <p>A unique identifier for a player. Player IDs are developer-defined.</p>
    */
   PlayerId: string | undefined;
+
+  /**
+   * <p>Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.</p>
+   */
+  PlayerData?: string;
 }
 
 export namespace CreatePlayerSessionInput {
@@ -3326,9 +3411,41 @@ export enum PlayerSessionStatus {
  */
 export interface PlayerSession {
   /**
+   * <p>A unique identifier for a player session.</p>
+   */
+  PlayerSessionId?: string;
+
+  /**
+   * <p>A unique identifier for a player that is associated with this player session.</p>
+   */
+  PlayerId?: string;
+
+  /**
    * <p>A unique identifier for the game session that the player session is connected to.</p>
    */
   GameSessionId?: string;
+
+  /**
+   * <p>A unique identifier for a fleet that the player's game session is running on.</p>
+   */
+  FleetId?: string;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet that the player's game session is running on.
+   *         </p>
+   */
+  FleetArn?: string;
+
+  /**
+   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  TerminationTime?: Date;
 
   /**
    * <p>Current status of the player session.</p>
@@ -3361,14 +3478,9 @@ export interface PlayerSession {
   Status?: PlayerSessionStatus | string;
 
   /**
-   * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
    */
-  TerminationTime?: Date;
-
-  /**
-   * <p>A unique identifier for a player session.</p>
-   */
-  PlayerSessionId?: string;
+  IpAddress?: string;
 
   /**
    * <p>DNS identifier assigned to the instance that is running the game session. Values have
@@ -3387,37 +3499,10 @@ export interface PlayerSession {
   DnsName?: string;
 
   /**
-   * <p>A unique identifier for a player that is associated with this player session.</p>
-   */
-  PlayerId?: string;
-
-  /**
    * <p>Port number for the game session. To connect to a Amazon GameLift server process, an app
    *         needs both the IP address and port number.</p>
    */
   Port?: number;
-
-  /**
-   * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A unique identifier for a fleet that the player's game session is running on.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet that the player's game session is running on.
-   *         </p>
-   */
-  FleetArn?: string;
-
-  /**
-   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
-   */
-  IpAddress?: string;
 
   /**
    * <p>Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game. </p>
@@ -3490,17 +3575,17 @@ export interface CreatePlayerSessionsInput {
   GameSessionId: string | undefined;
 
   /**
+   * <p>List of unique identifiers for the players to be added.</p>
+   */
+  PlayerIds: string[] | undefined;
+
+  /**
    * <p>Map of string pairs, each specifying a player ID and a set of developer-defined
    *         information related to the player. Amazon GameLift does not use this data, so it can be formatted
    *         as needed for use in the game. Player data strings for player IDs not included in the
    *         <code>PlayerIds</code> parameter are ignored. </p>
    */
   PlayerDataMap?: { [key: string]: string };
-
-  /**
-   * <p>List of unique identifiers for the players to be added.</p>
-   */
-  PlayerIds: string[] | undefined;
 }
 
 export namespace CreatePlayerSessionsInput {
@@ -3527,10 +3612,29 @@ export namespace CreatePlayerSessionsOutput {
 
 export interface CreateScriptInput {
   /**
+   * <p>A descriptive label that is associated with a script. Script names do not need to be unique. You can use <a>UpdateScript</a> to change this value later.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
    * <p>The version that is associated with a build or script. Version strings do not need to be unique. You can use <a>UpdateScript</a> to change this value later.
    *         </p>
    */
   Version?: string;
+
+  /**
+   * <p>The Amazon S3 location of your Realtime scripts. The storage location must specify the S3
+   *             bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to
+   *             access the S3 storage location. The S3 bucket must be in the same Region where you are
+   *             creating a new script. By default, Amazon GameLift uploads the latest version of the zip file; if
+   *             you have S3 object versioning turned on, you can use the <code>ObjectVersion</code>
+   *             parameter to specify an earlier version. To call this operation with a storage location,
+   *             you must have IAM PassRole permission. For more details on IAM roles and PassRole
+   *             permissions, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html"> Set up a role for
+   *                 GameLift access</a>. </p>
+   */
+  StorageLocation?: S3Location;
 
   /**
    * <p>A data object containing your Realtime scripts and dependencies as a zip file. The zip
@@ -3552,23 +3656,6 @@ export interface CreateScriptInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A descriptive label that is associated with a script. Script names do not need to be unique. You can use <a>UpdateScript</a> to change this value later.
-   *         </p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is
-   *             stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the
-   *             "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3
-   *             bucket must be in the same Region where you want to create a new script. By default,
-   *             Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning
-   *             turned on, you can use the <code>ObjectVersion</code> parameter to specify an earlier
-   *             version. </p>
-   */
-  StorageLocation?: S3Location;
 }
 
 export namespace CreateScriptInput {
@@ -3612,22 +3699,20 @@ export namespace CreateScriptInput {
  */
 export interface Script {
   /**
-   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
+   * <p>A unique identifier for a Realtime script</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The location in S3 where build or script files are stored for access by Amazon GameLift. This
-   *             location is specified in <a>CreateBuild</a>, <a>CreateScript</a>,
-   *             and <a>UpdateScript</a> requests. </p>
-   */
-  StorageLocation?: S3Location;
+  ScriptId?: string;
 
   /**
    * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions.  In a GameLift script ARN, the resource ID matches the
    *                 <i>ScriptId</i> value.</p>
    */
   ScriptArn?: string;
+
+  /**
+   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The version that is associated with a build or script. Version strings do not need to be unique.</p>
@@ -3646,9 +3731,11 @@ export interface Script {
   CreationTime?: Date;
 
   /**
-   * <p>A unique identifier for a Realtime script</p>
+   * <p>The location in S3 where build or script files are stored for access by Amazon GameLift. This
+   *             location is specified in <a>CreateBuild</a>, <a>CreateScript</a>,
+   *             and <a>UpdateScript</a> requests. </p>
    */
-  ScriptId?: string;
+  StorageLocation?: S3Location;
 }
 
 export namespace Script {
@@ -3740,9 +3827,23 @@ export namespace CreateVpcPeeringAuthorizationInput {
  */
 export interface VpcPeeringAuthorization {
   /**
+   * <p>A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet.
+   *             You can find your Account ID in the AWS Management Console under account settings.</p>
+   */
+  GameLiftAwsAccountId?: string;
+
+  /**
    * <p></p>
    */
   PeerVpcAwsAccountId?: string;
+
+  /**
+   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
+   *             VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the
+   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
+   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
+   */
+  PeerVpcId?: string;
 
   /**
    * <p>Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
@@ -3754,20 +3855,6 @@ export interface VpcPeeringAuthorization {
    *             Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
   ExpirationTime?: Date;
-
-  /**
-   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
-   *             VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the
-   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
-   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
-   */
-  PeerVpcId?: string;
-
-  /**
-   * <p>A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet.
-   *             You can find your Account ID in the AWS Management Console under account settings.</p>
-   */
-  GameLiftAwsAccountId?: string;
 }
 
 export namespace VpcPeeringAuthorization {
@@ -3797,12 +3884,10 @@ export namespace CreateVpcPeeringAuthorizationOutput {
  */
 export interface CreateVpcPeeringConnectionInput {
   /**
-   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
-   *             VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the
-   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
-   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
+   * <p>A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
+   *             VPC to peer with. </p>
    */
-  PeerVpcId: string | undefined;
+  FleetId: string | undefined;
 
   /**
    * <p>A unique identifier for the AWS account with the VPC that you want to peer your
@@ -3812,10 +3897,12 @@ export interface CreateVpcPeeringConnectionInput {
   PeerVpcAwsAccountId: string | undefined;
 
   /**
-   * <p>A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
-   *             VPC to peer with. </p>
+   * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
+   *             VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the
+   *             <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management Console.
+   *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
    */
-  FleetId: string | undefined;
+  PeerVpcId: string | undefined;
 }
 
 export namespace CreateVpcPeeringConnectionInput {
@@ -3889,13 +3976,18 @@ export enum GameServerGroupDeleteOption {
 
 export interface DeleteGameServerGroupInput {
   /**
+   * <p>A unique identifier for the game server group. Use either the <a>GameServerGroup</a> name or ARN value.</p>
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
    * <p>The type of delete to perform. Options include the following:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>SAFE_DELETE</code> – Terminates the game server group and EC2 Auto
-   *                     Scaling group only when it has no game servers that are in <code>UTILIZED</code>
-   *                     status.</p>
+   *                   <code>SAFE_DELETE</code> – (default) Terminates the game server group and
+   *                     EC2 Auto Scaling group only when it has no game servers that are in
+   *                         <code>UTILIZED</code> status.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3911,11 +4003,6 @@ export interface DeleteGameServerGroupInput {
    *          </ul>
    */
   DeleteOption?: GameServerGroupDeleteOption | string;
-
-  /**
-   * <p>A unique identifier for the game server group. Use either the <a>GameServerGroup</a> name or ARN value.</p>
-   */
-  GameServerGroupName: string | undefined;
 }
 
 export namespace DeleteGameServerGroupInput {
@@ -4113,15 +4200,15 @@ export namespace DeleteVpcPeeringConnectionOutput {
 
 export interface DeregisterGameServerInput {
   /**
-   * <p>A custom string that uniquely identifies the game server to deregister.</p>
-   */
-  GameServerId: string | undefined;
-
-  /**
    * <p>A unique identifier for the game server group where the game server is running.
    *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
   GameServerGroupName: string | undefined;
+
+  /**
+   * <p>A custom string that uniquely identifies the game server to deregister.</p>
+   */
+  GameServerId: string | undefined;
 }
 
 export namespace DeregisterGameServerInput {
@@ -4222,12 +4309,6 @@ export namespace DescribeEC2InstanceLimitsInput {
  */
 export interface EC2InstanceLimit {
   /**
-   * <p>Number of instances of the specified type that are currently in use by this AWS
-   *             account.</p>
-   */
-  CurrentInstances?: number;
-
-  /**
    * <p>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type
    *             determines the computing resources of each instance in the fleet, including CPU, memory,
    *             storage, and networking capacity. Amazon GameLift supports the following EC2 instance types.
@@ -4235,6 +4316,12 @@ export interface EC2InstanceLimit {
    *             for detailed descriptions.</p>
    */
   EC2InstanceType?: EC2InstanceType | string;
+
+  /**
+   * <p>Number of instances of the specified type that are currently in use by this AWS
+   *             account.</p>
+   */
+  CurrentInstances?: number;
 
   /**
    * <p>Number of instances allowed.</p>
@@ -4270,10 +4357,12 @@ export namespace DescribeEC2InstanceLimitsOutput {
  */
 export interface DescribeFleetAttributesInput {
   /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet
-   *             IDs.</p>
+   * <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the
+   *             fleet ID or ARN value. To retrieve attributes for all current fleets, do not include
+   *             this parameter. If the list of fleet identifiers includes fleets that don't currently
+   *             exist, the request succeeds but no attributes for that fleet are returned.</p>
    */
-  NextToken?: string;
+  FleetIds?: string[];
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet
@@ -4282,12 +4371,10 @@ export interface DescribeFleetAttributesInput {
   Limit?: number;
 
   /**
-   * <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the
-   *             fleet ID or ARN value. To retrieve attributes for all current fleets, do not include
-   *             this parameter. If the list of fleet identifiers includes fleets that don't currently
-   *             exist, the request succeeds but no attributes for that fleet are returned.</p>
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet
+   *             IDs.</p>
    */
-  FleetIds?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeFleetAttributesInput {
@@ -4323,16 +4410,16 @@ export namespace DescribeFleetAttributesOutput {
  */
 export interface DescribeFleetCapacityInput {
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet
-   *             IDs.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>A unique identifier for a fleet(s) to retrieve capacity information for.  You can use either the fleet ID or ARN
    *             value.</p>
    */
   FleetIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet
+   *             IDs.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet
@@ -4387,10 +4474,24 @@ export namespace DescribeFleetCapacityInput {
  */
 export interface EC2InstanceCounts {
   /**
-   * <p>Number of instances in the fleet that are no longer active but haven't yet been
-   *             terminated.</p>
+   * <p>Ideal number of active instances in the fleet.</p>
    */
-  TERMINATING?: number;
+  DESIRED?: number;
+
+  /**
+   * <p>The minimum value allowed for the fleet's instance count.</p>
+   */
+  MINIMUM?: number;
+
+  /**
+   * <p>The maximum value allowed for the fleet's instance count.</p>
+   */
+  MAXIMUM?: number;
+
+  /**
+   * <p>Number of instances in the fleet that are starting but not yet active.</p>
+   */
+  PENDING?: number;
 
   /**
    * <p>Actual number of active instances in the fleet.</p>
@@ -4404,24 +4505,10 @@ export interface EC2InstanceCounts {
   IDLE?: number;
 
   /**
-   * <p>Number of instances in the fleet that are starting but not yet active.</p>
+   * <p>Number of instances in the fleet that are no longer active but haven't yet been
+   *             terminated.</p>
    */
-  PENDING?: number;
-
-  /**
-   * <p>Ideal number of active instances in the fleet.</p>
-   */
-  DESIRED?: number;
-
-  /**
-   * <p>The maximum value allowed for the fleet's instance count.</p>
-   */
-  MAXIMUM?: number;
-
-  /**
-   * <p>The minimum value allowed for the fleet's instance count.</p>
-   */
-  MINIMUM?: number;
+  TERMINATING?: number;
 }
 
 export namespace EC2InstanceCounts {
@@ -4470,9 +4557,9 @@ export namespace EC2InstanceCounts {
  */
 export interface FleetCapacity {
   /**
-   * <p>Current status of fleet capacity.</p>
+   * <p>A unique identifier for a fleet.</p>
    */
-  InstanceCounts?: EC2InstanceCounts;
+  FleetId?: string;
 
   /**
    * <p>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type
@@ -4484,9 +4571,9 @@ export interface FleetCapacity {
   InstanceType?: EC2InstanceType | string;
 
   /**
-   * <p>A unique identifier for a fleet.</p>
+   * <p>Current status of fleet capacity.</p>
    */
-  FleetId?: string;
+  InstanceCounts?: EC2InstanceCounts;
 }
 
 export namespace FleetCapacity {
@@ -4522,9 +4609,9 @@ export namespace DescribeFleetCapacityOutput {
  */
 export interface DescribeFleetEventsInput {
   /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * <p>A unique identifier for a fleet to get event logs for.  You can use either the fleet ID or ARN value.</p>
    */
-  NextToken?: string;
+  FleetId: string | undefined;
 
   /**
    * <p>Earliest date to retrieve event logs for. If no start time is specified, this call
@@ -4535,9 +4622,11 @@ export interface DescribeFleetEventsInput {
   StartTime?: Date;
 
   /**
-   * <p>A unique identifier for a fleet to get event logs for.  You can use either the fleet ID or ARN value.</p>
+   * <p>Most recent date to retrieve event logs for. If no end time is specified, this call
+   *             returns entries from the specified start time up to the present. Format is a number
+   *             expressed in Unix time as milliseconds (ex: "1469498468.057").</p>
    */
-  FleetId: string | undefined;
+  EndTime?: Date;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -4545,11 +4634,9 @@ export interface DescribeFleetEventsInput {
   Limit?: number;
 
   /**
-   * <p>Most recent date to retrieve event logs for. If no end time is specified, this call
-   *             returns entries from the specified start time up to the present. Format is a number
-   *             expressed in Unix time as milliseconds (ex: "1469498468.057").</p>
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
-  EndTime?: Date;
+  NextToken?: string;
 }
 
 export namespace DescribeFleetEventsInput {
@@ -4606,26 +4693,9 @@ export interface Event {
   EventId?: string;
 
   /**
-   * <p>Location of stored logs with additional detail that is related to the event. This
-   *             is useful for debugging issues. The URL is valid for 15 minutes. You can also access
-   *             fleet creation logs through the Amazon GameLift console.</p>
-   */
-  PreSignedLogUrl?: string;
-
-  /**
-   * <p>Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  EventTime?: Date;
-
-  /**
    * <p>A unique identifier for an event resource, such as a fleet ID.</p>
    */
   ResourceId?: string;
-
-  /**
-   * <p>Additional information related to the event.</p>
-   */
-  Message?: string;
 
   /**
    * <p>The type of event being logged. </p>
@@ -4765,6 +4835,23 @@ export interface Event {
    *          </ul>
    */
   EventCode?: EventCode | string;
+
+  /**
+   * <p>Additional information related to the event.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  EventTime?: Date;
+
+  /**
+   * <p>Location of stored logs with additional detail that is related to the event. This
+   *             is useful for debugging issues. The URL is valid for 15 minutes. You can also access
+   *             fleet creation logs through the Amazon GameLift console.</p>
+   */
+  PreSignedLogUrl?: string;
 }
 
 export namespace Event {
@@ -4778,15 +4865,15 @@ export namespace Event {
  */
 export interface DescribeFleetEventsOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects containing event log entries for the specified
    *             fleet.</p>
    */
   Events?: Event[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeFleetEventsOutput {
@@ -4897,10 +4984,15 @@ export namespace DescribeFleetUtilizationInput {
  */
 export interface FleetUtilization {
   /**
-   * <p>The maximum number of players allowed across all game sessions currently being hosted on all
-   *             instances in the fleet.</p>
+   * <p>A unique identifier for a fleet.</p>
    */
-  MaximumPlayerSessionCount?: number;
+  FleetId?: string;
+
+  /**
+   * <p>Number of server processes in an <code>ACTIVE</code> status currently running
+   *             across all instances in the fleet</p>
+   */
+  ActiveServerProcessCount?: number;
 
   /**
    * <p>Number of active game sessions currently being hosted on all instances in the
@@ -4915,15 +5007,10 @@ export interface FleetUtilization {
   CurrentPlayerSessionCount?: number;
 
   /**
-   * <p>A unique identifier for a fleet.</p>
+   * <p>The maximum number of players allowed across all game sessions currently being hosted on all
+   *             instances in the fleet.</p>
    */
-  FleetId?: string;
-
-  /**
-   * <p>Number of server processes in an <code>ACTIVE</code> status currently running
-   *             across all instances in the fleet</p>
-   */
-  ActiveServerProcessCount?: number;
+  MaximumPlayerSessionCount?: number;
 }
 
 export namespace FleetUtilization {
@@ -4937,15 +5024,15 @@ export namespace FleetUtilization {
  */
 export interface DescribeFleetUtilizationOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects containing utilization information for each requested fleet
    *             ID.</p>
    */
   FleetUtilization?: FleetUtilization[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeFleetUtilizationOutput {
@@ -4956,15 +5043,15 @@ export namespace DescribeFleetUtilizationOutput {
 
 export interface DescribeGameServerInput {
   /**
-   * <p>A custom string that uniquely identifies the game server information to be retrieved.</p>
-   */
-  GameServerId: string | undefined;
-
-  /**
    * <p>A unique identifier for the game server group where the game server is running.
    *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
   GameServerGroupName: string | undefined;
+
+  /**
+   * <p>A custom string that uniquely identifies the game server information to be retrieved.</p>
+   */
+  GameServerId: string | undefined;
 }
 
 export namespace DescribeGameServerInput {
@@ -5019,11 +5106,11 @@ export interface DescribeGameServerInstancesInput {
   GameServerGroupName: string | undefined;
 
   /**
-   * <p>
-   *             A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
-   *         </p>
+   * <p>The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a
+   *             17-character format, for example: <code>i-1234567890abcdef0</code>. To retrieve all
+   *             instances in the game server group, leave this parameter empty. </p>
    */
-  NextToken?: string;
+  InstanceIds?: string[];
 
   /**
    * <p>
@@ -5033,11 +5120,11 @@ export interface DescribeGameServerInstancesInput {
   Limit?: number;
 
   /**
-   * <p>The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a
-   *             17-character format, for example: <code>i-1234567890abcdef0</code>. To retrieve all
-   *             instances in the game server group, leave this parameter empty. </p>
+   * <p>
+   *             A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
+   *         </p>
    */
-  InstanceIds?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeGameServerInstancesInput {
@@ -5113,6 +5200,19 @@ export interface GameServerInstance {
   GameServerGroupName?: string;
 
   /**
+   * <p>A generated unique identifier for the game server group that includes the game
+   *             server instance. </p>
+   */
+  GameServerGroupArn?: string;
+
+  /**
+   * <p>The unique identifier for the instance where the game server is running. This ID is
+   *             available in the instance metadata. EC2 instance IDs
+   *             use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>
    *                 Current status of the game server instance.
    *             </p>
@@ -5140,19 +5240,6 @@ export interface GameServerInstance {
    *          </ul>
    */
   InstanceStatus?: GameServerInstanceStatus | string;
-
-  /**
-   * <p>A generated unique identifier for the game server group that includes the game
-   *             server instance. </p>
-   */
-  GameServerGroupArn?: string;
-
-  /**
-   * <p>The unique identifier for the instance where the game server is running. This ID is
-   *             available in the instance metadata. EC2 instance IDs
-   *             use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
-   */
-  InstanceId?: string;
 }
 
 export namespace GameServerInstance {
@@ -5164,17 +5251,17 @@ export namespace GameServerInstance {
 export interface DescribeGameServerInstancesOutput {
   /**
    * <p>
-   *             A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-   *         </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>
    *             The collection of requested game server instances.
    *         </p>
    */
   GameServerInstances?: GameServerInstance[];
+
+  /**
+   * <p>
+   *             A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+   *         </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGameServerInstancesOutput {
@@ -5194,16 +5281,9 @@ export interface DescribeGameSessionDetailsInput {
   FleetId?: string;
 
   /**
-   * <p>Game session status to filter results on. Possible game session statuses include
-   *                 <code>ACTIVE</code>, <code>TERMINATED</code>, <code>ACTIVATING</code> and
-   *                 <code>TERMINATING</code> (the last two are transitory). </p>
+   * <p>A unique identifier for the game session to retrieve. </p>
    */
-  StatusFilter?: string;
-
-  /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
+  GameSessionId?: string;
 
   /**
    * <p>A unique identifier for an alias associated with the fleet to retrieve all game sessions for. You can use either
@@ -5212,14 +5292,21 @@ export interface DescribeGameSessionDetailsInput {
   AliasId?: string;
 
   /**
+   * <p>Game session status to filter results on. Possible game session statuses include
+   *                 <code>ACTIVE</code>, <code>TERMINATED</code>, <code>ACTIVATING</code> and
+   *                 <code>TERMINATING</code> (the last two are transitory). </p>
+   */
+  StatusFilter?: string;
+
+  /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
   Limit?: number;
 
   /**
-   * <p>A unique identifier for the game session to retrieve. </p>
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
-  GameSessionId?: string;
+  NextToken?: string;
 }
 
 export namespace DescribeGameSessionDetailsInput {
@@ -5268,15 +5355,15 @@ export namespace GameSessionDetail {
  */
 export interface DescribeGameSessionDetailsOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects containing game session properties and the protection policy
    *             currently in force for each session matching the request.</p>
    */
   GameSessionDetails?: GameSessionDetail[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGameSessionDetailsOutput {
@@ -5375,15 +5462,15 @@ export interface PlayerLatency {
   PlayerId?: string;
 
   /**
+   * <p>Name of the Region that is associated with the latency value.</p>
+   */
+  RegionIdentifier?: string;
+
+  /**
    * <p>Amount of time that represents the time lag experienced by the player when
    *         connected to the specified Region.</p>
    */
   LatencyInMilliseconds?: number;
-
-  /**
-   * <p>Name of the Region that is associated with the latency value.</p>
-   */
-  RegionIdentifier?: string;
 }
 
 export namespace PlayerLatency {
@@ -5425,119 +5512,14 @@ export enum GameSessionPlacementState {
  */
 export interface GameSessionPlacement {
   /**
-   * <p>Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameSessionData?: string;
-
-  /**
-   * <p>A collection of information on player sessions created in response to the game
-   *         session placement request. These player sessions are created only once a new game
-   *         session is successfully placed (placement status is <code>FULFILLED</code>). This
-   *         information includes the player ID (as provided in the placement request) and the
-   *         corresponding player session ID. Retrieve full player sessions by calling <a>DescribePlayerSessions</a> with the player session ID.</p>
-   */
-  PlacedPlayerSessions?: PlacedPlayerSession[];
-
-  /**
-   * <p>Time stamp indicating when this request was completed, canceled, or timed
-   *         out.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.</p>
-   */
-  PlayerLatencies?: PlayerLatency[];
-
-  /**
-   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is
-   *         <code>FULFILLED</code>). </p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
-   */
-  GameSessionQueueName?: string;
-
-  /**
-   * <p>Information on the matchmaking process for this game. Data is in JSON syntax,
-   *         formatted as a string. It identifies the matchmaking configuration used to create the
-   *         match, and contains data on all players assigned to the match, including player
-   *         attributes and team assignments. For more details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">Match
-   *             Data</a>.</p>
-   */
-  MatchmakerData?: string;
-
-  /**
-   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
-   */
-  MaximumPlayerSessionCount?: number;
-
-  /**
-   * <p>A unique identifier for the game session. This value is set once the new game session is placed (placement status is
-   *         <code>FULFILLED</code>).</p>
-   */
-  GameSessionId?: string;
-
-  /**
-   * <p>Identifier for the game session created by this placement request. This value is
-   *         set once the new game session is placed (placement status is <code>FULFILLED</code>).
-   *         This identifier is unique across all Regions. You can use this value as a
-   *         <code>GameSessionId</code> value as needed.</p>
-   */
-  GameSessionArn?: string;
-
-  /**
    * <p>A unique identifier for a game session placement.</p>
    */
   PlacementId?: string;
 
   /**
-   * <p>DNS identifier assigned to the instance that is running the game session. Values have
-   *             the following format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon EC2 Instance IP Addressing</a>.)</p>
-   *             </li>
-   *          </ul>
-   *             <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>
+   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
    */
-  DnsName?: string;
-
-  /**
-   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameProperties?: GameProperty[];
-
-  /**
-   * <p>Name of the Region where the game session created by this placement request is
-   *         running. This value is set once the new game session is placed (placement status is
-   *         <code>FULFILLED</code>).</p>
-   */
-  GameSessionRegion?: string;
-
-  /**
-   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
-   */
-  GameSessionName?: string;
-
-  /**
-   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is
-   *         <code>FULFILLED</code>).</p>
-   */
-  Port?: number;
+  GameSessionQueueName?: string;
 
   /**
    * <p>Current status of the game session placement request.</p>
@@ -5575,6 +5557,111 @@ export interface GameSessionPlacement {
    *          </ul>
    */
   Status?: GameSessionPlacementState | string;
+
+  /**
+   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   */
+  GameProperties?: GameProperty[];
+
+  /**
+   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
+   */
+  MaximumPlayerSessionCount?: number;
+
+  /**
+   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
+   */
+  GameSessionName?: string;
+
+  /**
+   * <p>A unique identifier for the game session. This value is set once the new game session is placed (placement status is
+   *         <code>FULFILLED</code>).</p>
+   */
+  GameSessionId?: string;
+
+  /**
+   * <p>Identifier for the game session created by this placement request. This value is
+   *         set once the new game session is placed (placement status is <code>FULFILLED</code>).
+   *         This identifier is unique across all Regions. You can use this value as a
+   *         <code>GameSessionId</code> value as needed.</p>
+   */
+  GameSessionArn?: string;
+
+  /**
+   * <p>Name of the Region where the game session created by this placement request is
+   *         running. This value is set once the new game session is placed (placement status is
+   *         <code>FULFILLED</code>).</p>
+   */
+  GameSessionRegion?: string;
+
+  /**
+   * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.</p>
+   */
+  PlayerLatencies?: PlayerLatency[];
+
+  /**
+   * <p>Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Time stamp indicating when this request was completed, canceled, or timed
+   *         out.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is
+   *         <code>FULFILLED</code>). </p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>DNS identifier assigned to the instance that is running the game session. Values have
+   *             the following format:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon EC2 Instance IP Addressing</a>.)</p>
+   *             </li>
+   *          </ul>
+   *             <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is
+   *         <code>FULFILLED</code>).</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>A collection of information on player sessions created in response to the game
+   *         session placement request. These player sessions are created only once a new game
+   *         session is successfully placed (placement status is <code>FULFILLED</code>). This
+   *         information includes the player ID (as provided in the placement request) and the
+   *         corresponding player session ID. Retrieve full player sessions by calling <a>DescribePlayerSessions</a> with the player session ID.</p>
+   */
+  PlacedPlayerSessions?: PlacedPlayerSession[];
+
+  /**
+   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   */
+  GameSessionData?: string;
+
+  /**
+   * <p>Information on the matchmaking process for this game. Data is in JSON syntax,
+   *         formatted as a string. It identifies the matchmaking configuration used to create the
+   *         match, and contains data on all players assigned to the match, including player
+   *         attributes and team assignments. For more details on matchmaker data, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">Match
+   *             Data</a>.</p>
+   */
+  MatchmakerData?: string;
 }
 
 export namespace GameSessionPlacement {
@@ -5631,14 +5718,14 @@ export namespace DescribeGameSessionQueuesInput {
  */
 export interface DescribeGameSessionQueuesOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects that describe the requested game session queues.</p>
    */
   GameSessionQueues?: GameSessionQueue[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGameSessionQueuesOutput {
@@ -5657,19 +5744,15 @@ export interface DescribeGameSessionsInput {
   FleetId?: string;
 
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A unique identifier for the game session to retrieve. </p>
    */
   GameSessionId?: string;
+
+  /**
+   * <p>A unique identifier for an alias associated with the fleet to retrieve all game sessions for.  You can use either
+   *             the alias ID or ARN value.</p>
+   */
+  AliasId?: string;
 
   /**
    * <p>Game session status to filter results on. Possible game session statuses include
@@ -5679,10 +5762,14 @@ export interface DescribeGameSessionsInput {
   StatusFilter?: string;
 
   /**
-   * <p>A unique identifier for an alias associated with the fleet to retrieve all game sessions for.  You can use either
-   *             the alias ID or ARN value.</p>
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
-  AliasId?: string;
+  Limit?: number;
+
+  /**
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGameSessionsInput {
@@ -5696,15 +5783,15 @@ export namespace DescribeGameSessionsInput {
  */
 export interface DescribeGameSessionsOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects containing game session properties for each session matching
    *             the request.</p>
    */
   GameSessions?: GameSession[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGameSessionsOutput {
@@ -5717,11 +5804,6 @@ export namespace DescribeGameSessionsOutput {
  * <p>Represents the input for a request operation.</p>
  */
 export interface DescribeInstancesInput {
-  /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>A unique identifier for a fleet to retrieve instance information for.  You can use either the fleet ID or ARN
    *             value.</p>
@@ -5738,6 +5820,11 @@ export interface DescribeInstancesInput {
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeInstancesInput {
@@ -5758,15 +5845,46 @@ export enum InstanceStatus {
  */
 export interface Instance {
   /**
-   * <p>EC2 instance type that defines the computing resources of this instance.
-   *     </p>
+   * <p>A unique identifier for a fleet that the instance is in.</p>
    */
-  Type?: EC2InstanceType | string;
+  FleetId?: string;
+
+  /**
+   * <p>A unique identifier for an instance.</p>
+   */
+  InstanceId?: string;
 
   /**
    * <p>IP address that is assigned to the instance.</p>
    */
   IpAddress?: string;
+
+  /**
+   * <p>DNS identifier assigned to the instance that is running the game session. Values have
+   *             the following format:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon EC2 Instance IP Addressing</a>.)</p>
+   *             </li>
+   *          </ul>
+   *             <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p>Operating system that is running on this instance. </p>
+   */
+  OperatingSystem?: OperatingSystem | string;
+
+  /**
+   * <p>EC2 instance type that defines the computing resources of this instance.
+   *     </p>
+   */
+  Type?: EC2InstanceType | string;
 
   /**
    * <p>Current status of the instance. Possible statuses include the following:</p>
@@ -5795,37 +5913,6 @@ export interface Instance {
   Status?: InstanceStatus | string;
 
   /**
-   * <p>DNS identifier assigned to the instance that is running the game session. Values have
-   *             the following format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>TLS-enabled fleets: <code><unique identifier>.<region identifier>.amazongamelift.com</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Non-TLS-enabled fleets: <code>ec2-<unique identifier>.compute.amazonaws.com</code>. (See
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses">Amazon EC2 Instance IP Addressing</a>.)</p>
-   *             </li>
-   *          </ul>
-   *             <p>When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.</p>
-   */
-  DnsName?: string;
-
-  /**
-   * <p>A unique identifier for a fleet that the instance is in.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>A unique identifier for an instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>Operating system that is running on this instance. </p>
-   */
-  OperatingSystem?: OperatingSystem | string;
-
-  /**
    * <p>Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
    */
   CreationTime?: Date;
@@ -5842,14 +5929,14 @@ export namespace Instance {
  */
 export interface DescribeInstancesOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of objects containing properties for each instance returned.</p>
    */
   Instances?: Instance[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeInstancesOutput {
@@ -5900,18 +5987,21 @@ export namespace MatchedPlayerSession {
 }
 
 /**
- * <p>Connection information for the new game session that is created with matchmaking.
- *             (with <a>StartMatchmaking</a>). Once a match is set, the FlexMatch engine
- *             places the match and creates a new game session for it. This information, including the
- *             game session endpoint and player sessions for each player in the original matchmaking
- *             request, is added to the <a>MatchmakingTicket</a>, which can be retrieved by
- *             calling <a>DescribeMatchmaking</a>.</p>
+ * <p>Connection information for a new game session that is created in response to a <a>StartMatchmaking</a> request. Once a match is made, the FlexMatch engine
+ *             creates a new game session for it. This information, including the game session endpoint
+ *             and player sessions for each player in the original matchmaking request, is added to the
+ *                 <a>MatchmakingTicket</a>, which can be retrieved by calling <a>DescribeMatchmaking</a>.</p>
  */
 export interface GameSessionConnectionInfo {
   /**
-   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.</p>
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a game session and uniquely identifies it.</p>
    */
-  Port?: number;
+  GameSessionArn?: string;
+
+  /**
+   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
+   */
+  IpAddress?: string;
 
   /**
    * <p>DNS identifier assigned to the instance that is running the game session. Values have
@@ -5930,14 +6020,9 @@ export interface GameSessionConnectionInfo {
   DnsName?: string;
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a game session and uniquely identifies it.</p>
+   * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.</p>
    */
-  GameSessionArn?: string;
-
-  /**
-   * <p>IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.</p>
-   */
-  IpAddress?: string;
+  Port?: number;
 
   /**
    * <p>A collection of player session IDs, one for each player ID that was included in the
@@ -5959,10 +6044,9 @@ export namespace GameSessionConnectionInfo {
  */
 export interface Player {
   /**
-   * <p>Name of the team that the player is assigned to in a match. Team names are defined
-   *             in a matchmaking rule set.</p>
+   * <p>A unique identifier for a player</p>
    */
-  Team?: string;
+  PlayerId?: string;
 
   /**
    * <p>A collection of key:value pairs containing player information for use in matchmaking.
@@ -5973,6 +6057,12 @@ export interface Player {
   PlayerAttributes?: { [key: string]: AttributeValue };
 
   /**
+   * <p>Name of the team that the player is assigned to in a match. Team names are defined
+   *             in a matchmaking rule set.</p>
+   */
+  Team?: string;
+
+  /**
    * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only
    *             in Regions for which latency is reported. </p>
    *         <p>If a matchmaker has a rule that evaluates player latency, players must report
@@ -5981,11 +6071,6 @@ export interface Player {
    *         </p>
    */
   LatencyInMs?: { [key: string]: number };
-
-  /**
-   * <p>A unique identifier for a player</p>
-   */
-  PlayerId?: string;
 }
 
 export namespace Player {
@@ -6012,61 +6097,16 @@ export type MatchmakingConfigurationStatus =
  */
 export interface MatchmakingTicket {
   /**
-   * <p>Name of the <a>MatchmakingConfiguration</a> that is used with this
-   *             ticket. Matchmaking configurations determine how players are grouped into a match and
-   *             how a new game session is created for the match.</p>
-   */
-  ConfigurationName?: string;
-
-  /**
-   * <p>A set of <code>Player</code> objects, each representing a player to find matches
-   *             for. Players are identified by a unique player ID and may include latency data for use
-   *             during matchmaking. If the ticket is in status <code>COMPLETED</code>, the
-   *             <code>Player</code> objects include the team the players were assigned to in the
-   *             resulting match.</p>
-   */
-  Players?: Player[];
-
-  /**
-   * <p>Identifier and connection information of the game session created for the match.
-   *             This information is added to the ticket only after the matchmaking request has been
-   *             successfully completed.</p>
-   */
-  GameSessionConnectionInfo?: GameSessionConnectionInfo;
-
-  /**
    * <p>A unique identifier for a matchmaking ticket.</p>
    */
   TicketId?: string;
 
   /**
-   * <p>Code to explain the current status. For example, a status reason may indicate when
-   *             a ticket has returned to <code>SEARCHING</code> status after a proposed match fails to
-   *             receive player acceptances.</p>
+   * <p>Name of the <a>MatchmakingConfiguration</a> that is used with this
+   *             ticket. Matchmaking configurations determine how players are grouped into a match and
+   *             how a new game session is created for the match.</p>
    */
-  StatusReason?: string;
-
-  /**
-   * <p>Average amount of time (in seconds) that players are currently waiting for a match.
-   *             If there is not enough recent data, this property may be empty.</p>
-   */
-  EstimatedWaitTime?: number;
-
-  /**
-   * <p>Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>Time stamp indicating when this matchmaking request stopped being processed due to
-   *             success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Additional information about the current status.</p>
-   */
-  StatusMessage?: string;
+  ConfigurationName?: string;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift matchmaking configuration resource that is used with this ticket.</p>
@@ -6129,6 +6169,52 @@ export interface MatchmakingTicket {
    *         </note>
    */
   Status?: MatchmakingConfigurationStatus | string;
+
+  /**
+   * <p>Code to explain the current status. For example, a status reason may indicate when
+   *             a ticket has returned to <code>SEARCHING</code> status after a proposed match fails to
+   *             receive player acceptances.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>Additional information about the current status.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Time stamp indicating when this matchmaking request stopped being processed due to
+   *             success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A set of <code>Player</code> objects, each representing a player to find matches
+   *             for. Players are identified by a unique player ID and may include latency data for use
+   *             during matchmaking. If the ticket is in status <code>COMPLETED</code>, the
+   *             <code>Player</code> objects include the team the players were assigned to in the
+   *             resulting match.</p>
+   */
+  Players?: Player[];
+
+  /**
+   * <p>Identifier and connection information of the game session created for the match. This
+   *             information is added to the ticket only after the matchmaking request has been
+   *             successfully completed. This parameter is not set when FlexMatch is being used without
+   *                 GameLift hosting.</p>
+   */
+  GameSessionConnectionInfo?: GameSessionConnectionInfo;
+
+  /**
+   * <p>Average amount of time (in seconds) that players are currently waiting for a match.
+   *             If there is not enough recent data, this property may be empty.</p>
+   */
+  EstimatedWaitTime?: number;
 }
 
 export namespace MatchmakingTicket {
@@ -6158,16 +6244,6 @@ export namespace DescribeMatchmakingOutput {
  */
 export interface DescribeMatchmakingConfigurationsInput {
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is limited to 10.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A unique identifier for a matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To
    *             request all existing configurations, leave this parameter empty.</p>
    */
@@ -6178,6 +6254,16 @@ export interface DescribeMatchmakingConfigurationsInput {
    *             retrieve all matchmaking configurations that use this rule set.</p>
    */
   RuleSetName?: string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is limited to 10.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeMatchmakingConfigurationsInput {
@@ -6191,14 +6277,14 @@ export namespace DescribeMatchmakingConfigurationsInput {
  */
 export interface DescribeMatchmakingConfigurationsOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of requested matchmaking configurations.</p>
    */
   Configurations?: MatchmakingConfiguration[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeMatchmakingConfigurationsOutput {
@@ -6219,14 +6305,14 @@ export interface DescribeMatchmakingRuleSetsInput {
   Names?: string[];
 
   /**
-   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeMatchmakingRuleSetsInput {
@@ -6240,14 +6326,14 @@ export namespace DescribeMatchmakingRuleSetsInput {
  */
 export interface DescribeMatchmakingRuleSetsOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of requested matchmaking rule set objects. </p>
    */
   RuleSets: MatchmakingRuleSet[] | undefined;
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeMatchmakingRuleSetsOutput {
@@ -6261,14 +6347,19 @@ export namespace DescribeMatchmakingRuleSetsOutput {
  */
 export interface DescribePlayerSessionsInput {
   /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.</p>
+   * <p>A unique identifier for the game session to retrieve player sessions for.</p>
    */
-  Limit?: number;
+  GameSessionId?: string;
 
   /**
    * <p>A unique identifier for a player to retrieve player sessions for.</p>
    */
   PlayerId?: string;
+
+  /**
+   * <p>A unique identifier for a player session to retrieve.</p>
+   */
+  PlayerSessionId?: string;
 
   /**
    * <p>Player session status to filter results on.</p>
@@ -6301,19 +6392,14 @@ export interface DescribePlayerSessionsInput {
   PlayerSessionStatusFilter?: string;
 
   /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A unique identifier for the game session to retrieve player sessions for.</p>
-   */
-  GameSessionId?: string;
-
-  /**
-   * <p>A unique identifier for a player session to retrieve.</p>
-   */
-  PlayerSessionId?: string;
 }
 
 export namespace DescribePlayerSessionsInput {
@@ -6393,20 +6479,10 @@ export enum ScalingStatusType {
  */
 export interface DescribeScalingPoliciesInput {
   /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN
    *             value.</p>
    */
   FleetId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   */
-  Limit?: number;
 
   /**
    * <p>Scaling policy status to filter results on. A scaling policy is only in force when
@@ -6450,6 +6526,16 @@ export interface DescribeScalingPoliciesInput {
    *          </ul>
    */
   StatusFilter?: ScalingStatusType | string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeScalingPoliciesInput {
@@ -6610,9 +6696,105 @@ export namespace TargetConfiguration {
  */
 export interface ScalingPolicy {
   /**
+   * <p>A unique identifier for a fleet that is associated with this scaling policy.</p>
+   */
+  FleetId?: string;
+
+  /**
+   * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Current status of the scaling policy. The scaling policy can be in force only when
+   *         in an <code>ACTIVE</code> status. Scaling policies can be suspended for individual
+   *         fleets (see <a>StopFleetActions</a>; if suspended for a fleet, the policy
+   *         status does not change. View a fleet's stopped actions by calling <a>DescribeFleetCapacity</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ACTIVE</b> -- The scaling policy can be used for
+   *                 auto-scaling a fleet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UPDATE_REQUESTED</b> -- A request to update the
+   *                 scaling policy has been received.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UPDATING</b> -- A change is being made to the
+   *                 scaling policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DELETE_REQUESTED</b> -- A request to delete the
+   *                 scaling policy has been received.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DELETING</b> -- The scaling policy is being
+   *                 deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DELETED</b> -- The scaling policy has been
+   *                 deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ERROR</b> -- An error occurred in creating the
+   *                 policy. It should be removed and recreated.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: ScalingStatusType | string;
+
+  /**
    * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
    */
   ScalingAdjustment?: number;
+
+  /**
+   * <p>The type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ChangeInCapacity</b> -- add (or subtract) the
+   *                 scaling adjustment value from the current instance count. Positive values scale
+   *                 up while negative values scale down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ExactCapacity</b> -- set the instance count to the
+   *                 scaling adjustment value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PercentChangeInCapacity</b> -- increase or reduce
+   *                 the current instance count by the scaling adjustment, read as a percentage.
+   *                 Positive values scale up while negative values scale down.</p>
+   *             </li>
+   *          </ul>
+   */
+  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+
+  /**
+   * <p>Comparison operator to use when measuring a metric against the threshold
+   *         value.</p>
+   */
+  ComparisonOperator?: ComparisonOperatorType | string;
+
+  /**
+   * <p>Metric value used to trigger a scaling event.</p>
+   */
+  Threshold?: number;
+
+  /**
+   * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
+   *         scaling event is triggered.</p>
+   */
+  EvaluationPeriods?: number;
 
   /**
    * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
@@ -6686,102 +6868,6 @@ export interface ScalingPolicy {
   MetricName?: MetricName | string;
 
   /**
-   * <p>Metric value used to trigger a scaling event.</p>
-   */
-  Threshold?: number;
-
-  /**
-   * <p>The type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>ChangeInCapacity</b> -- add (or subtract) the
-   *                 scaling adjustment value from the current instance count. Positive values scale
-   *                 up while negative values scale down.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ExactCapacity</b> -- set the instance count to the
-   *                 scaling adjustment value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PercentChangeInCapacity</b> -- increase or reduce
-   *                 the current instance count by the scaling adjustment, read as a percentage.
-   *                 Positive values scale up while negative values scale down.</p>
-   *             </li>
-   *          </ul>
-   */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
-
-  /**
-   * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
-   *         scaling event is triggered.</p>
-   */
-  EvaluationPeriods?: number;
-
-  /**
-   * <p>Comparison operator to use when measuring a metric against the threshold
-   *         value.</p>
-   */
-  ComparisonOperator?: ComparisonOperatorType | string;
-
-  /**
-   * <p>The settings for a target-based scaling policy.</p>
-   */
-  TargetConfiguration?: TargetConfiguration;
-
-  /**
-   * <p>Current status of the scaling policy. The scaling policy can be in force only when
-   *         in an <code>ACTIVE</code> status. Scaling policies can be suspended for individual
-   *         fleets (see <a>StopFleetActions</a>; if suspended for a fleet, the policy
-   *         status does not change. View a fleet's stopped actions by calling <a>DescribeFleetCapacity</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>ACTIVE</b> -- The scaling policy can be used for
-   *                 auto-scaling a fleet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>UPDATE_REQUESTED</b> -- A request to update the
-   *                 scaling policy has been received.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>UPDATING</b> -- A change is being made to the
-   *                 scaling policy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>DELETE_REQUESTED</b> -- A request to delete the
-   *                 scaling policy has been received.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>DELETING</b> -- The scaling policy is being
-   *                 deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>DELETED</b> -- The scaling policy has been
-   *                 deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ERROR</b> -- An error occurred in creating the
-   *                 policy. It should be removed and recreated.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: ScalingStatusType | string;
-
-  /**
    * <p>The type of scaling policy to create. For a target-based policy, set the parameter
    *                 <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a
    *                 <i>TargetConfiguration</i>. For a rule-based policy set the following
@@ -6793,9 +6879,9 @@ export interface ScalingPolicy {
   PolicyType?: PolicyType | string;
 
   /**
-   * <p>A unique identifier for a fleet that is associated with this scaling policy.</p>
+   * <p>The settings for a target-based scaling policy.</p>
    */
-  FleetId?: string;
+  TargetConfiguration?: TargetConfiguration;
 }
 
 export namespace ScalingPolicy {
@@ -6959,18 +7045,11 @@ export interface VpcPeeringConnection {
   FleetId?: string;
 
   /**
-   * <p>A unique identifier for the VPC that contains the Amazon GameLift fleet for this
-   *             connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
+   * <p>
+   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet resource for this connection.
    *         </p>
    */
-  GameLiftVpcId?: string;
-
-  /**
-   * <p>A unique identifier that is automatically assigned to the connection record. This ID
-   *             is referenced in VPC peering connection events, and is used when deleting a connection
-   *             with <a>DeleteVpcPeeringConnection</a>. </p>
-   */
-  VpcPeeringConnectionId?: string;
+  FleetArn?: string;
 
   /**
    * <p>CIDR block of IPv4 addresses assigned to the VPC peering connection for the
@@ -6980,17 +7059,17 @@ export interface VpcPeeringConnection {
   IpV4CidrBlock?: string;
 
   /**
+   * <p>A unique identifier that is automatically assigned to the connection record. This ID
+   *             is referenced in VPC peering connection events, and is used when deleting a connection
+   *             with <a>DeleteVpcPeeringConnection</a>. </p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
    * <p>The status information about the connection. Status indicates if a
    *             connection is pending, successful, or failed.</p>
    */
   Status?: VpcPeeringConnectionStatus;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) associated with the GameLift fleet resource for this connection.
-   *         </p>
-   */
-  FleetArn?: string;
 
   /**
    * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
@@ -6999,6 +7078,13 @@ export interface VpcPeeringConnection {
    *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
    */
   PeerVpcId?: string;
+
+  /**
+   * <p>A unique identifier for the VPC that contains the Amazon GameLift fleet for this
+   *             connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
+   *         </p>
+   */
+  GameLiftVpcId?: string;
 }
 
 export namespace VpcPeeringConnection {
@@ -7136,6 +7222,16 @@ export namespace InstanceCredentials {
  */
 export interface InstanceAccess {
   /**
+   * <p>A unique identifier for a fleet containing the instance being accessed.</p>
+   */
+  FleetId?: string;
+
+  /**
+   * <p>A unique identifier for an instance being accessed.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>IP address that is assigned to the instance.</p>
    */
   IpAddress?: string;
@@ -7144,16 +7240,6 @@ export interface InstanceAccess {
    * <p>Operating system that is running on the instance.</p>
    */
   OperatingSystem?: OperatingSystem | string;
-
-  /**
-   * <p>A unique identifier for an instance being accessed.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>A unique identifier for a fleet containing the instance being accessed.</p>
-   */
-  FleetId?: string;
 
   /**
    * <p>Credentials required to access the instance.</p>
@@ -7237,14 +7323,14 @@ export namespace ListAliasesInput {
  */
 export interface ListAliasesOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of alias resources that match the request parameters.</p>
    */
   Aliases?: Alias[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListAliasesOutput {
@@ -7326,18 +7412,18 @@ export namespace ListBuildsOutput {
  */
 export interface ListFleetsInput {
   /**
-   * <p>A unique identifier for a Realtime script to return fleets for. Use this parameter to return only fleets using a
-   *             specified script. Use either the script ID or ARN value. To retrieve all fleets, leave
-   *             this parameter empty.</p>
-   */
-  ScriptId?: string;
-
-  /**
    * <p>A unique identifier for a build to return fleets for. Use this parameter to return only fleets using a specified
    *             build. Use either the build ID or ARN value. To retrieve all fleets, do not include
    *             either a BuildId and ScriptID parameter.</p>
    */
   BuildId?: string;
+
+  /**
+   * <p>A unique identifier for a Realtime script to return fleets for. Use this parameter to return only fleets using a
+   *             specified script. Use either the script ID or ARN value. To retrieve all fleets, leave
+   *             this parameter empty.</p>
+   */
+  ScriptId?: string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -7361,16 +7447,16 @@ export namespace ListFleetsInput {
  */
 export interface ListFleetsOutput {
   /**
-   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Set of fleet IDs matching the list request. You can retrieve additional information
    *             about all returned fleets by passing this result set to a call to <a>DescribeFleetAttributes</a>, <a>DescribeFleetCapacity</a>, or
    *                 <a>DescribeFleetUtilization</a>.</p>
    */
   FleetIds?: string[];
+
+  /**
+   * <p>Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListFleetsOutput {
@@ -7399,14 +7485,14 @@ export namespace ListGameServerGroupsInput {
 
 export interface ListGameServerGroupsOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A collection of game server group objects that match the request.</p>
    */
   GameServerGroups?: GameServerGroup[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListGameServerGroupsOutput {
@@ -7422,9 +7508,10 @@ export enum SortOrder {
 
 export interface ListGameServersInput {
   /**
-   * <p>A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * <p>An identifier for the game server group to retrieve a list of game servers from.
+   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
-  NextToken?: string;
+  GameServerGroupName: string | undefined;
 
   /**
    * <p>Indicates how to sort the returned data based on game server registration timestamp.
@@ -7440,10 +7527,9 @@ export interface ListGameServersInput {
   Limit?: number;
 
   /**
-   * <p>An identifier for the game server group to retrieve a list of game servers from.
-   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
+   * <p>A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
-  GameServerGroupName: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListGameServersInput {
@@ -7490,14 +7576,14 @@ export namespace ListScriptsInput {
 
 export interface ListScriptsOutput {
   /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A set of properties describing the requested script.</p>
    */
   Scripts?: Script[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListScriptsOutput {
@@ -7544,25 +7630,20 @@ export namespace ListTagsForResourceResponse {
  */
 export interface PutScalingPolicyInput {
   /**
-   * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
-   */
-  ScalingAdjustment?: number;
-
-  /**
-   * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
-   *             scaling event is triggered.</p>
-   */
-  EvaluationPeriods?: number;
-
-  /**
-   * <p>Metric value used to trigger a scaling event.</p>
-   */
-  Threshold?: number;
-
-  /**
    * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for a fleet to apply this policy to. You can use either the fleet ID or ARN value. The fleet
+   *             cannot be in any of the following statuses: ERROR or DELETING.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
+   */
+  ScalingAdjustment?: number;
 
   /**
    * <p>The type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</p>
@@ -7590,26 +7671,21 @@ export interface PutScalingPolicyInput {
   ScalingAdjustmentType?: ScalingAdjustmentType | string;
 
   /**
-   * <p>The type of scaling policy to create. For a target-based policy, set the parameter
-   *                 <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a
-   *                 <i>TargetConfiguration</i>. For a rule-based policy set the following
-   *             parameters: <i>MetricName</i>, <i>ComparisonOperator</i>,
-   *                 <i>Threshold</i>, <i>EvaluationPeriods</i>,
-   *                 <i>ScalingAdjustmentType</i>, and
-   *                 <i>ScalingAdjustment</i>.</p>
+   * <p>Metric value used to trigger a scaling event.</p>
    */
-  PolicyType?: PolicyType | string;
-
-  /**
-   * <p>The settings for a target-based scaling policy.</p>
-   */
-  TargetConfiguration?: TargetConfiguration;
+  Threshold?: number;
 
   /**
    * <p>Comparison operator to use when measuring the metric against the threshold
    *             value.</p>
    */
   ComparisonOperator?: ComparisonOperatorType | string;
+
+  /**
+   * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
+   *             scaling event is triggered.</p>
+   */
+  EvaluationPeriods?: number;
 
   /**
    * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
@@ -7683,10 +7759,20 @@ export interface PutScalingPolicyInput {
   MetricName: MetricName | string | undefined;
 
   /**
-   * <p>A unique identifier for a fleet to apply this policy to. You can use either the fleet ID or ARN value. The fleet
-   *             cannot be in any of the following statuses: ERROR or DELETING.</p>
+   * <p>The type of scaling policy to create. For a target-based policy, set the parameter
+   *                 <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a
+   *                 <i>TargetConfiguration</i>. For a rule-based policy set the following
+   *             parameters: <i>MetricName</i>, <i>ComparisonOperator</i>,
+   *                 <i>Threshold</i>, <i>EvaluationPeriods</i>,
+   *                 <i>ScalingAdjustmentType</i>, and
+   *                 <i>ScalingAdjustment</i>.</p>
    */
-  FleetId: string | undefined;
+  PolicyType?: PolicyType | string;
+
+  /**
+   * <p>The settings for a target-based scaling policy.</p>
+   */
+  TargetConfiguration?: TargetConfiguration;
 }
 
 export namespace PutScalingPolicyInput {
@@ -7713,17 +7799,10 @@ export namespace PutScalingPolicyOutput {
 
 export interface RegisterGameServerInput {
   /**
-   * <p>Information that is needed to make inbound client connections to the game server. This
-   *             might include the IP address and port, DNS name, and other information.</p>
+   * <p>A unique identifier for the game server group where the game server is running.
+   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
-  ConnectionInfo?: string;
-
-  /**
-   * <p>A set of custom game server properties, formatted as a single string value. This data
-   *             is passed to a game client or service when it requests information on game servers using
-   *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
-   */
-  GameServerData?: string;
+  GameServerGroupName: string | undefined;
 
   /**
    * <p>A custom string that uniquely identifies the game server to register.
@@ -7739,10 +7818,17 @@ export interface RegisterGameServerInput {
   InstanceId: string | undefined;
 
   /**
-   * <p>A unique identifier for the game server group where the game server is running.
-   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
+   * <p>Information that is needed to make inbound client connections to the game server. This
+   *             might include the IP address and port, DNS name, and other information.</p>
    */
-  GameServerGroupName: string | undefined;
+  ConnectionInfo?: string;
+
+  /**
+   * <p>A set of custom game server properties, formatted as a single string value. This data
+   *             is passed to a game client or service when it requests information on game servers using
+   *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
+   */
+  GameServerData?: string;
 }
 
 export namespace RegisterGameServerInput {
@@ -7847,14 +7933,14 @@ export namespace ResolveAliasOutput {
 
 export interface ResumeGameServerGroupInput {
   /**
-   * <p>The activity to resume for this game server group.</p>
-   */
-  ResumeActions: (GameServerGroupAction | string)[] | undefined;
-
-  /**
    * <p>A unique identifier for the game server group. Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
   GameServerGroupName: string | undefined;
+
+  /**
+   * <p>The activity to resume for this game server group.</p>
+   */
+  ResumeActions: (GameServerGroupAction | string)[] | undefined;
 }
 
 export namespace ResumeGameServerGroupInput {
@@ -7883,34 +7969,17 @@ export namespace ResumeGameServerGroupOutput {
  */
 export interface SearchGameSessionsInput {
   /**
-   * <p>Instructions on how to sort the search results. If no sort expression is included,
-   *             the request returns results in random order. A sort expression consists of the following
-   *             elements:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <b>Operand</b> -- Name of a game session attribute.
-   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
-   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
-   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
-   *                         <code>hasAvailablePlayerSessions</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>Order</b> -- Valid sort orders are <code>ASC</code>
-   *                     (ascending) and <code>DESC</code> (descending).</p>
-   *             </li>
-   *          </ul>
-   *         <p>For example, this sort expression returns the oldest active sessions first:
-   *                 <code>"SortExpression": "creationTimeMillis ASC"</code>. Results with a null value
-   *             for the sort operand are returned at the end of the list.</p>
+   * <p>A unique identifier for a fleet to search for active game sessions. You can use either the fleet ID or ARN
+   *             value. Each request must reference either a fleet ID or alias ID, but not both.</p>
    */
-  SortExpression?: string;
+  FleetId?: string;
 
   /**
-   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * <p>A unique identifier for an alias associated with the fleet to search for active game sessions. You can use either
+   *             the alias ID or ARN value. Each request must reference either a fleet ID or alias ID,
+   *             but not both.</p>
    */
-  NextToken?: string;
+  AliasId?: string;
 
   /**
    * <p>String containing the search criteria for the session search. If no filter
@@ -7978,11 +8047,29 @@ export interface SearchGameSessionsInput {
   FilterExpression?: string;
 
   /**
-   * <p>A unique identifier for an alias associated with the fleet to search for active game sessions. You can use either
-   *             the alias ID or ARN value. Each request must reference either a fleet ID or alias ID,
-   *             but not both.</p>
+   * <p>Instructions on how to sort the search results. If no sort expression is included,
+   *             the request returns results in random order. A sort expression consists of the following
+   *             elements:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <b>Operand</b> -- Name of a game session attribute.
+   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
+   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
+   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
+   *                         <code>hasAvailablePlayerSessions</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <b>Order</b> -- Valid sort orders are <code>ASC</code>
+   *                     (ascending) and <code>DESC</code> (descending).</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, this sort expression returns the oldest active sessions first:
+   *                 <code>"SortExpression": "creationTimeMillis ASC"</code>. Results with a null value
+   *             for the sort operand are returned at the end of the list.</p>
    */
-  AliasId?: string;
+  SortExpression?: string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set
@@ -7991,10 +8078,9 @@ export interface SearchGameSessionsInput {
   Limit?: number;
 
   /**
-   * <p>A unique identifier for a fleet to search for active game sessions. You can use either the fleet ID or ARN
-   *             value. Each request must reference either a fleet ID or alias ID, but not both.</p>
+   * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
-  FleetId?: string;
+  NextToken?: string;
 }
 
 export namespace SearchGameSessionsInput {
@@ -8027,14 +8113,14 @@ export namespace SearchGameSessionsOutput {
 
 export interface StartFleetActionsInput {
   /**
-   * <p>List of actions to restart on the fleet.</p>
-   */
-  Actions: (FleetAction | string)[] | undefined;
-
-  /**
    * <p>A unique identifier for a fleet to start actions on.  You can use either the fleet ID or ARN value.</p>
    */
   FleetId: string | undefined;
+
+  /**
+   * <p>List of actions to restart on the fleet.</p>
+   */
+  Actions: (FleetAction | string)[] | undefined;
 }
 
 export namespace StartFleetActionsInput {
@@ -8056,27 +8142,11 @@ export namespace StartFleetActionsOutput {
  */
 export interface StartGameSessionPlacementInput {
   /**
-   * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. This information is used to try to place the new game session where
-   *         it can offer the best possible gameplay experience for the players. </p>
+   * <p>A unique identifier to assign to the new game session placement. This value is
+   *         developer-defined. The value must be unique across all Regions and cannot be reused
+   *         unless you are resubmitting a canceled or timed-out placement request.</p>
    */
-  PlayerLatencies?: PlayerLatency[];
-
-  /**
-   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameSessionData?: string;
-
-  /**
-   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   */
-  GameProperties?: GameProperty[];
-
-  /**
-   * <p>Set of information on each player to create a player session for.</p>
-   */
-  DesiredPlayerSessions?: DesiredPlayerSession[];
+  PlacementId: string | undefined;
 
   /**
    * <p>Name of the queue to use to place the new game session. You can use either the queue name
@@ -8085,9 +8155,10 @@ export interface StartGameSessionPlacementInput {
   GameSessionQueueName: string | undefined;
 
   /**
-   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
+   * <p>Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
    */
-  GameSessionName?: string;
+  GameProperties?: GameProperty[];
 
   /**
    * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
@@ -8095,11 +8166,26 @@ export interface StartGameSessionPlacementInput {
   MaximumPlayerSessionCount: number | undefined;
 
   /**
-   * <p>A unique identifier to assign to the new game session placement. This value is
-   *         developer-defined. The value must be unique across all Regions and cannot be reused
-   *         unless you are resubmitting a canceled or timed-out placement request.</p>
+   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
    */
-  PlacementId: string | undefined;
+  GameSessionName?: string;
+
+  /**
+   * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. This information is used to try to place the new game session where
+   *         it can offer the best possible gameplay experience for the players. </p>
+   */
+  PlayerLatencies?: PlayerLatency[];
+
+  /**
+   * <p>Set of information on each player to create a player session for.</p>
+   */
+  DesiredPlayerSessions?: DesiredPlayerSession[];
+
+  /**
+   * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   */
+  GameSessionData?: string;
 }
 
 export namespace StartGameSessionPlacementInput {
@@ -8131,6 +8217,26 @@ export namespace StartGameSessionPlacementOutput {
  */
 export interface StartMatchBackfillInput {
   /**
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
+   *             a UUID. Use this identifier to track the match backfill ticket status and retrieve match
+   *             results.</p>
+   */
+  TicketId?: string;
+
+  /**
+   * <p>Name of the matchmaker to use for this request. You can use either the configuration
+   *             name or ARN value. The ARN of the matchmaker that was used with the original game
+   *             session is listed in the <a>GameSession</a> object,
+   *                 <code>MatchmakerData</code> property.</p>
+   */
+  ConfigurationName: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a game session and uniquely identifies it. This is the same as the game session ID.</p>
+   */
+  GameSessionArn?: string;
+
+  /**
    * <p>Match information on all players that are currently assigned to the game session.
    *             This information is used by the matchmaker to find new players and add them to the
    *             existing game.</p>
@@ -8139,7 +8245,7 @@ export interface StartMatchBackfillInput {
    *                 <p>PlayerID, PlayerAttributes, Team -\\- This information is maintained in the
    *                     <a>GameSession</a> object, <code>MatchmakerData</code> property,
    *                     for all players who are currently assigned to the game session. The matchmaker
-   *                     data is in JSON syntax, formatted as a string. For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">
+   *                     data is in JSON syntax, formatted as a string. For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
    *                         Match Data</a>. </p>
    *             </li>
    *             <li>
@@ -8150,26 +8256,6 @@ export interface StartMatchBackfillInput {
    *          </ul>
    */
   Players: Player[] | undefined;
-
-  /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
-   *             a UUID. Use this identifier to track the match backfill ticket status and retrieve match
-   *             results.</p>
-   */
-  TicketId?: string;
-
-  /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a game session and uniquely identifies it. This is the same as the game session ID.</p>
-   */
-  GameSessionArn: string | undefined;
-
-  /**
-   * <p>Name of the matchmaker to use for this request. You can use either the configuration
-   *             name or ARN value. The ARN of the matchmaker that was used with the original game
-   *             session is listed in the <a>GameSession</a> object,
-   *                 <code>MatchmakerData</code> property.</p>
-   */
-  ConfigurationName: string | undefined;
 }
 
 export namespace StartMatchBackfillInput {
@@ -8201,12 +8287,11 @@ export namespace StartMatchBackfillOutput {
  */
 export interface StartMatchmakingInput {
   /**
-   * <p>Information on each player to be matched. This information must include a player
-   *             ID, and may contain player attributes and latency data to be used in the matchmaking
-   *             process. After a successful match, <code>Player</code> objects contain the name of the
-   *             team the player is assigned to.</p>
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
+   *             a UUID. Use this identifier to track the matchmaking ticket status and retrieve match
+   *             results.</p>
    */
-  Players: Player[] | undefined;
+  TicketId?: string;
 
   /**
    * <p>Name of the matchmaking configuration to use for this request. Matchmaking
@@ -8216,11 +8301,12 @@ export interface StartMatchmakingInput {
   ConfigurationName: string | undefined;
 
   /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
-   *             a UUID. Use this identifier to track the matchmaking ticket status and retrieve match
-   *             results.</p>
+   * <p>Information on each player to be matched. This information must include a player
+   *             ID, and may contain player attributes and latency data to be used in the matchmaking
+   *             process. After a successful match, <code>Player</code> objects contain the name of the
+   *             team the player is assigned to.</p>
    */
-  TicketId?: string;
+  Players: Player[] | undefined;
 }
 
 export namespace StartMatchmakingInput {
@@ -8365,14 +8451,6 @@ export namespace SuspendGameServerGroupOutput {
 
 export interface TagResourceRequest {
   /**
-   * <p>A list of one or more tags to assign to the specified GameLift resource.
-   *             Tags are developer-defined and structured as key-value pairs.
-   *             The maximum tag limit may be lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging AWS Resources</a>
-   *             for actual tagging limits.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>
    *             The Amazon Resource Name
    *             (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
@@ -8381,6 +8459,14 @@ export interface TagResourceRequest {
    *             can be retrieved by calling a List or Describe operation for the resource type. </p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of one or more tags to assign to the specified GameLift resource.
+   *             Tags are developer-defined and structured as key-value pairs.
+   *             The maximum tag limit may be lower than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging AWS Resources</a>
+   *             for actual tagging limits.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -8444,15 +8530,15 @@ export interface UpdateAliasInput {
   Name?: string;
 
   /**
+   * <p>A human-readable description of the alias.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The routing configuration, including routing type and fleet target, for the
    *             alias.</p>
    */
   RoutingStrategy?: RoutingStrategy;
-
-  /**
-   * <p>A human-readable description of the alias.</p>
-   */
-  Description?: string;
 }
 
 export namespace UpdateAliasInput {
@@ -8487,14 +8573,14 @@ export interface UpdateBuildInput {
   BuildId: string | undefined;
 
   /**
-   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
-   */
-  Version?: string;
-
-  /**
    * <p>A descriptive label that is associated with a build. Build names do not need to be unique. </p>
    */
   Name?: string;
+
+  /**
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
+   */
+  Version?: string;
 }
 
 export namespace UpdateBuildInput {
@@ -8524,23 +8610,20 @@ export namespace UpdateBuildOutput {
  */
 export interface UpdateFleetAttributesInput {
   /**
+   * <p>A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN
+   *             value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
    * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
    */
   Name?: string;
 
   /**
-   * <p>Policy that limits the number of game sessions an individual player can create over
-   *             a span of time. </p>
+   * <p>Human-readable description of a fleet.</p>
    */
-  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
-
-  /**
-   * <p>Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet
-   *             metric group is to aggregate metrics from multiple fleets. Use an existing metric group
-   *             name to add this fleet to the group. Or use a new name to create a new metric group. A
-   *             fleet can only be included in one metric group at a time.</p>
-   */
-  MetricGroups?: string[];
+  Description?: string;
 
   /**
    * <p>Game session protection policy to apply to all new instances created in this fleet.
@@ -8563,15 +8646,18 @@ export interface UpdateFleetAttributesInput {
   NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
 
   /**
-   * <p>A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN
-   *             value.</p>
+   * <p>Policy that limits the number of game sessions an individual player can create over
+   *             a span of time. </p>
    */
-  FleetId: string | undefined;
+  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
 
   /**
-   * <p>Human-readable description of a fleet.</p>
+   * <p>Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet
+   *             metric group is to aggregate metrics from multiple fleets. Use an existing metric group
+   *             name to add this fleet to the group. Or use a new name to create a new metric group. A
+   *             fleet can only be included in one metric group at a time.</p>
    */
-  Description?: string;
+  MetricGroups?: string[];
 }
 
 export namespace UpdateFleetAttributesInput {
@@ -8601,6 +8687,16 @@ export namespace UpdateFleetAttributesOutput {
  */
 export interface UpdateFleetCapacityInput {
   /**
+   * <p>A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>Number of EC2 instances you want this fleet to host.</p>
+   */
+  DesiredInstances?: number;
+
+  /**
    * <p>The minimum value allowed for the fleet's instance count. Default if not set is
    *             0.</p>
    */
@@ -8611,16 +8707,6 @@ export interface UpdateFleetCapacityInput {
    *             1.</p>
    */
   MaxSize?: number;
-
-  /**
-   * <p>A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>Number of EC2 instances you want this fleet to host.</p>
-   */
-  DesiredInstances?: number;
 }
 
 export namespace UpdateFleetCapacityInput {
@@ -8650,6 +8736,12 @@ export namespace UpdateFleetCapacityOutput {
  */
 export interface UpdateFleetPortSettingsInput {
   /**
+   * <p>A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN
+   *             value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
    * <p>A collection of port settings to be added to the fleet resource.</p>
    */
   InboundPermissionAuthorizations?: IpPermission[];
@@ -8658,12 +8750,6 @@ export interface UpdateFleetPortSettingsInput {
    * <p>A collection of port settings to be removed from the fleet resource.</p>
    */
   InboundPermissionRevocations?: IpPermission[];
-
-  /**
-   * <p>A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN
-   *             value.</p>
-   */
-  FleetId: string | undefined;
 }
 
 export namespace UpdateFleetPortSettingsInput {
@@ -8694,10 +8780,10 @@ export enum GameServerHealthCheck {
 
 export interface UpdateGameServerInput {
   /**
-   * <p>Indicates whether the game server is available or is currently hosting
-   *             gameplay.</p>
+   * <p>A unique identifier for the game server group where the game server is running.
+   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  GameServerGroupName: string | undefined;
 
   /**
    * <p>A custom string that uniquely identifies the game server to update.</p>
@@ -8705,23 +8791,23 @@ export interface UpdateGameServerInput {
   GameServerId: string | undefined;
 
   /**
-   * <p>Indicates health status of the game server. A request that includes this parameter
-   *             updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
-   */
-  HealthCheck?: GameServerHealthCheck | string;
-
-  /**
-   * <p>A unique identifier for the game server group where the game server is running.
-   *             Use either the <a>GameServerGroup</a> name or ARN value.</p>
-   */
-  GameServerGroupName: string | undefined;
-
-  /**
    * <p>A set of custom game server properties, formatted as a single string value. This data
    *             is passed to a game client or service when it requests information on game servers using
    *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
    */
   GameServerData?: string;
+
+  /**
+   * <p>Indicates whether the game server is available or is currently hosting
+   *             gameplay.</p>
+   */
+  UtilizationStatus?: GameServerUtilizationStatus | string;
+
+  /**
+   * <p>Indicates health status of the game server. A request that includes this parameter
+   *             updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
+   */
+  HealthCheck?: GameServerHealthCheck | string;
 }
 
 export namespace UpdateGameServerInput {
@@ -8744,36 +8830,6 @@ export namespace UpdateGameServerOutput {
 }
 
 export interface UpdateGameServerGroupInput {
-  /**
-   * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
-   *             game server group. Method options include the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot
-   *                     Instances are unavailable or not viable for game hosting, the game server group
-   *                     provides no hosting capacity until Spot Instances can again be used. Until then,
-   *                     no new instances are started, and the existing nonviable Spot Instances are
-   *                     terminated (after current gameplay ends) and are not replaced.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in
-   *                     the game server group. If Spot Instances are unavailable, the game server group
-   *                     continues to provide hosting capacity by falling back to On-Demand Instances.
-   *                     Existing nonviable Spot Instances are terminated (after current gameplay ends)
-   *                     and are replaced with new On-Demand Instances.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game
-   *                     server group. No Spot Instances are used, even when available, while this
-   *                     balancing strategy is in force.</p>
-   *             </li>
-   *          </ul>
-   */
-  BalancingStrategy?: BalancingStrategy | string;
-
   /**
    * <p>A unique identifier for the game server group. Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
@@ -8807,6 +8863,36 @@ export interface UpdateGameServerGroupInput {
    *             Instances, which can be terminated by AWS regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
   GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+
+  /**
+   * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
+   *             game server group. Method options include the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot
+   *                     Instances are unavailable or not viable for game hosting, the game server group
+   *                     provides no hosting capacity until Spot Instances can again be used. Until then,
+   *                     no new instances are started, and the existing nonviable Spot Instances are
+   *                     terminated (after current gameplay ends) and are not replaced.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in
+   *                     the game server group. If Spot Instances are unavailable, the game server group
+   *                     continues to provide hosting capacity by falling back to On-Demand Instances.
+   *                     Existing nonviable Spot Instances are terminated (after current gameplay ends)
+   *                     and are replaced with new On-Demand Instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game
+   *                     server group. No Spot Instances are used, even when available, while this
+   *                     balancing strategy is in force.</p>
+   *             </li>
+   *          </ul>
+   */
+  BalancingStrategy?: BalancingStrategy | string;
 }
 
 export namespace UpdateGameServerGroupInput {
@@ -8843,6 +8929,16 @@ export interface UpdateGameSessionInput {
   MaximumPlayerSessionCount?: number;
 
   /**
+   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Policy determining whether or not the game session accepts new players.</p>
+   */
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+
+  /**
    * <p>Game session protection policy to apply to this game session only.</p>
    *         <ul>
    *             <li>
@@ -8859,16 +8955,6 @@ export interface UpdateGameSessionInput {
    *          </ul>
    */
   ProtectionPolicy?: ProtectionPolicy | string;
-
-  /**
-   * <p>Policy determining whether or not the game session accepts new players.</p>
-   */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
-
-  /**
-   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
-   */
-  Name?: string;
 }
 
 export namespace UpdateGameSessionInput {
@@ -8898,6 +8984,16 @@ export namespace UpdateGameSessionOutput {
  */
 export interface UpdateGameSessionQueueInput {
   /**
+   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   */
+  TimeoutInSeconds?: number;
+
+  /**
    * <p>A collection of latency policies to apply when processing game sessions placement requests with
    *             player latency information. Multiple policies are evaluated in order of the maximum latency value,
    *             starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session
@@ -8909,20 +9005,10 @@ export interface UpdateGameSessionQueueInput {
   PlayerLatencyPolicies?: PlayerLatencyPolicy[];
 
   /**
-   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
-   */
-  TimeoutInSeconds?: number;
-
-  /**
    * <p>A list of fleets that can be used to fulfill game session placement requests in the queue.
    *     Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order. When updating this list, provide a complete list of destinations.</p>
    */
   Destinations?: GameSessionQueueDestination[];
-
-  /**
-   * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
-   */
-  Name: string | undefined;
 }
 
 export namespace UpdateGameSessionQueueInput {
@@ -8952,31 +9038,22 @@ export namespace UpdateGameSessionQueueOutput {
  */
 export interface UpdateMatchmakingConfigurationInput {
   /**
-   * <p>A flag that indicates whether a match that was created with this configuration must be
-   *             accepted by the matched players. To require acceptance, set to TRUE.</p>
+   * <p>A unique identifier for a matchmaking configuration to update. You can use either the configuration name or ARN value. </p>
    */
-  AcceptanceRequired?: boolean;
+  Name: string | undefined;
 
   /**
-   * <p>Information to add to all events related to the matchmaking configuration. </p>
+   * <p>A descriptive label that is associated with matchmaking configuration.</p>
    */
-  CustomEventData?: string;
+  Description?: string;
 
   /**
-   * <p>The method that is used to backfill game sessions created with this matchmaking
-   *             configuration. Specify MANUAL when your game manages backfill requests manually or does
-   *             not use the match backfill feature. Specify AUTOMATIC to have GameLift create a <a>StartMatchBackfill</a> request whenever a game session has one or more open
-   *             slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">Backfill Existing Games
-   *                 with FlexMatch</a>.</p>
+   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new
+   *             GameLift-hosted game sessions for matches that are created with this matchmaking
+   *             configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not
+   *             set this parameter.</p>
    */
-  BackfillMode?: BackfillMode | string;
-
-  /**
-   * <p>The number of player slots in a match to keep open for future players. For example,
-   *             assume that the configuration's rule set specifies a match for a single 12-person team. If
-   *             the additional player count is set to 2, only 10 players are initially selected for the match.</p>
-   */
-  AdditionalPlayerCount?: number;
+  GameSessionQueueArns?: string[];
 
   /**
    * <p>The maximum duration, in seconds, that a matchmaking ticket can remain in process
@@ -8986,17 +9063,20 @@ export interface UpdateMatchmakingConfigurationInput {
   RequestTimeoutSeconds?: number;
 
   /**
-   * <p>An SNS topic ARN that is set up to receive matchmaking notifications. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
-   *                 Setting up Notifications for Matchmaking</a> for more information.</p>
-   */
-  NotificationTarget?: string;
-
-  /**
-   * <p>The length of time (in seconds) to wait for players to accept a proposed match. If any
-   *             player rejects the match or fails to accept before the timeout, the ticket continues to
-   *             look for an acceptable match.</p>
+   * <p>The length of time (in seconds) to wait for players to accept a proposed match, if
+   *             acceptance is required. If any player rejects the match or fails to accept before the
+   *             timeout, the tickets are returned to the ticket pool and continue to be evaluated for an
+   *             acceptable match.</p>
    */
   AcceptanceTimeoutSeconds?: number;
+
+  /**
+   * <p>A flag that indicates whether a match that was created with this configuration must be
+   *             accepted by the matched players. To require acceptance, set to TRUE. With this option
+   *             enabled, matchmaking tickets use the status <code>REQUIRES_ACCEPTANCE</code> to indicate
+   *             when a completed potential match is waiting for player acceptance. </p>
+   */
+  AcceptanceRequired?: boolean;
 
   /**
    * <p>A unique identifier for a matchmaking rule set to use with this configuration. You can use either the rule set name or ARN
@@ -9006,34 +9086,69 @@ export interface UpdateMatchmakingConfigurationInput {
   RuleSetName?: string;
 
   /**
-   * <p>Amazon Resource Name (<a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. These queues are used when placing game sessions for matches that are
-   *             created with this matchmaking configuration. Queues can be located in any
-   *             Region.</p>
+   * <p>An SNS topic ARN that is set up to receive matchmaking notifications. See <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
+   *                 Setting up Notifications for Matchmaking</a> for more information.</p>
    */
-  GameSessionQueueArns?: string[];
+  NotificationTarget?: string;
 
   /**
-   * <p>A unique identifier for a matchmaking configuration to update. You can use either the configuration name or ARN value. </p>
+   * <p>The number of player slots in a match to keep open for future players. For example,
+   *             assume that the configuration's rule set specifies a match for a single 12-person team. If
+   *             the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used if <code>FlexMatchMode</code> is set to
+   *                 <code>STANDALONE</code>.</p>
    */
-  Name: string | undefined;
+  AdditionalPlayerCount?: number;
 
   /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
-   *             object that is created for a successful match. </p>
+   * <p>Information to add to all events related to the matchmaking configuration. </p>
    */
-  GameSessionData?: string;
+  CustomEventData?: string;
 
   /**
    * <p>A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the
-   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object that is created for a successful match. </p>
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a>
+   *             object that is created for a successful match.  This parameter is not used if
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
   GameProperties?: GameProperty[];
 
   /**
-   * <p>A descriptive label that is associated with matchmaking configuration.</p>
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <a>GameSession</a> object
+   *             that is created for a successful match.  This parameter is not used if
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  Description?: string;
+  GameSessionData?: string;
+
+  /**
+   * <p>The method that is used to backfill game sessions created with this matchmaking
+   *             configuration. Specify MANUAL when your game manages backfill requests manually or does
+   *             not use the match backfill feature. Specify AUTOMATIC to have GameLift create a <a>StartMatchBackfill</a> request whenever a game session has one or more open
+   *             slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill Existing Games
+   *                 with FlexMatch</a>. Automatic backfill is not available when
+   *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   */
+  BackfillMode?: BackfillMode | string;
+
+  /**
+   * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
+   *             as a standalone matchmaking solution. </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STANDALONE</b> - FlexMatch forms matches and returns
+   *                 match information, including players and team assignments, in a
+   *                 <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded">
+   *                     MatchmakingSucceeded</a> event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue to
+   *                 start a game session for the match. </p>
+   *             </li>
+   *          </ul>
+   */
+  FlexMatchMode?: FlexMatchMode | string;
 }
 
 export namespace UpdateMatchmakingConfigurationInput {
@@ -9063,6 +9178,12 @@ export namespace UpdateMatchmakingConfigurationOutput {
  */
 export interface UpdateRuntimeConfigurationInput {
   /**
+   * <p>A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN
+   *             value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
    * <p>Instructions for launching server processes on each instance in the fleet. Server
    *             processes run either a custom game build executable or a Realtime Servers script. The runtime
    *             configuration lists the types of server processes to run on an instance and includes the
@@ -9072,12 +9193,6 @@ export interface UpdateRuntimeConfigurationInput {
    *             process configuration.</p>
    */
   RuntimeConfiguration: RuntimeConfiguration | undefined;
-
-  /**
-   * <p>A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN
-   *             value.</p>
-   */
-  FleetId: string | undefined;
 }
 
 export namespace UpdateRuntimeConfigurationInput {
@@ -9105,20 +9220,32 @@ export namespace UpdateRuntimeConfigurationOutput {
 
 export interface UpdateScriptInput {
   /**
-   * <p>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is
-   *             stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the
-   *             "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3
-   *             bucket must be in the same Region where you want to create a new script. By default,
-   *             Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning
-   *             turned on, you can use the <code>ObjectVersion</code> parameter to specify an earlier
-   *             version. </p>
-   */
-  StorageLocation?: S3Location;
-
-  /**
    * <p>A unique identifier for a Realtime script to update. You can use either the script ID or ARN value.</p>
    */
   ScriptId: string | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The version that is associated with a build or script. Version strings do not need to be unique.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The Amazon S3 location of your Realtime scripts. The storage location must specify the S3
+   *             bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to
+   *             access the S3 storage location. The S3 bucket must be in the same Region as the script
+   *             you're updating. By default, Amazon GameLift uploads the latest version of the zip file; if you
+   *             have S3 object versioning turned on, you can use the <code>ObjectVersion</code>
+   *             parameter to specify an earlier version. To call this operation with a storage location,
+   *             you must have IAM PassRole permission. For more details on IAM roles and PassRole
+   *             permissions, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html"> Set up a role for
+   *                 GameLift access</a>. </p>
+   */
+  StorageLocation?: S3Location;
 
   /**
    * <p>A data object containing your Realtime scripts and dependencies as a zip file. The zip
@@ -9129,16 +9256,6 @@ export interface UpdateScriptInput {
    *             fileb://myRealtimeScript.zip</code>.</p>
    */
   ZipFile?: Uint8Array;
-
-  /**
-   * <p>The version that is associated with a build or script. Version strings do not need to be unique.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
-   */
-  Name?: string;
 }
 
 export namespace UpdateScriptInput {

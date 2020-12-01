@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetEbsEncryptionByDefaultRequest } from "../models/models_3";
-import { GetEbsEncryptionByDefaultResult } from "../models/models_4";
+import { GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetEbsEncryptionByDefaultCommand,
   serializeAws_ec2GetEbsEncryptionByDefaultCommand,

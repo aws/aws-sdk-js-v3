@@ -30,17 +30,17 @@ export namespace Term {
  */
 export interface AppliedTerminology {
   /**
+   * <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated
+   *       text response.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The specific terms of the custom terminology applied to the input text by Amazon Translate for the
    *       translated text response. A maximum of 250 terms will be returned, and the specific terms
    *       applied will be the first 250 terms in the source text. </p>
    */
   Terms?: Term[];
-
-  /**
-   * <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated
-   *       text response.</p>
-   */
-  Name?: string;
 }
 
 export namespace AppliedTerminology {
@@ -49,15 +49,133 @@ export namespace AppliedTerminology {
   });
 }
 
-export interface DeleteTerminologyRequest {
-  /**
-   * <p>The name of the custom terminology being deleted. </p>
-   */
-  Name: string | undefined;
+/**
+ * <p>There was a conflict processing the request. Try your request again.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
 }
 
-export namespace DeleteTerminologyRequest {
-  export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+export enum EncryptionKeyType {
+  KMS = "KMS",
+}
+
+/**
+ * <p>The encryption key used to encrypt this object.</p>
+ */
+export interface EncryptionKey {
+  /**
+   * <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
+   */
+  Type: EncryptionKeyType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
+   *       terminology.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace EncryptionKey {
+  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
+    ...obj,
+  });
+}
+
+export enum ParallelDataFormat {
+  CSV = "CSV",
+  TMX = "TMX",
+  TSV = "TSV",
+}
+
+/**
+ * <p>Specifies the format and S3 location of the parallel data input file.</p>
+ */
+export interface ParallelDataConfig {
+  /**
+   * <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder
+   *       must be in the same Region as the API endpoint you are calling.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The format of the parallel data input file.</p>
+   */
+  Format: ParallelDataFormat | string | undefined;
+}
+
+export namespace ParallelDataConfig {
+  export const filterSensitiveLog = (obj: ParallelDataConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateParallelDataRequest {
+  /**
+   * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
+   *       that is unique in the account and region.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A custom description for the parallel data resource in Amazon Translate.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies the format and S3 location of the parallel data input file.</p>
+   */
+  ParallelDataConfig: ParallelDataConfig | undefined;
+
+  /**
+   * <p>The encryption key used to encrypt this object.</p>
+   */
+  EncryptionKey?: EncryptionKey;
+
+  /**
+   * <p>A unique identifier for the request. This token is automatically generated when you use
+   *       Amazon Translate through an AWS SDK.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateParallelDataRequest {
+  export const filterSensitiveLog = (obj: CreateParallelDataRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ParallelDataStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING",
+}
+
+export interface CreateParallelDataResponse {
+  /**
+   * <p>The custom name that you assigned to the parallel data resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the parallel data resource. When the resource is ready for you to use, the
+   *       status is <code>ACTIVE</code>.</p>
+   */
+  Status?: ParallelDataStatus | string;
+}
+
+export namespace CreateParallelDataResponse {
+  export const filterSensitiveLog = (obj: CreateParallelDataResponse): any => ({
     ...obj,
   });
 }
@@ -94,18 +212,33 @@ export namespace InvalidParameterValueException {
 }
 
 /**
- * <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ * <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request. </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
+ *       below the stated limit.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -122,6 +255,83 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ */
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteParallelDataRequest {
+  /**
+   * <p>The name of the parallel data resource that is being deleted.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteParallelDataRequest {
+  export const filterSensitiveLog = (obj: DeleteParallelDataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteParallelDataResponse {
+  /**
+   * <p>The name of the parallel data resource that is being deleted.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the parallel data deletion.</p>
+   */
+  Status?: ParallelDataStatus | string;
+}
+
+export namespace DeleteParallelDataResponse {
+  export const filterSensitiveLog = (obj: DeleteParallelDataResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource you are looking for has not been found. Review the resource you're looking
+ *       for and see if a different resource will accomplish your needs before retrying the revised
+ *       request.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTerminologyRequest {
+  /**
+   * <p>The name of the custom terminology being deleted. </p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteTerminologyRequest {
+  export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
     ...obj,
   });
 }
@@ -144,6 +354,12 @@ export namespace DescribeTextTranslationJobRequest {
  * <p>The input configuration properties for requesting a batch translation job.</p>
  */
 export interface InputDataConfig {
+  /**
+   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
+   *       same Region as the API endpoint you are calling.</p>
+   */
+  S3Uri: string | undefined;
+
   /**
    * <p>Describes the format of the data that you submit to Amazon Translate as input. You can
    *       specify one of the following multipurpose internet mail extension (MIME) types:</p>
@@ -183,12 +399,6 @@ export interface InputDataConfig {
    *          </important>
    */
   ContentType: string | undefined;
-
-  /**
-   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
-   *       same Region as the API endpoint you are calling.</p>
-   */
-  S3Uri: string | undefined;
 }
 
 export namespace InputDataConfig {
@@ -203,6 +413,11 @@ export namespace InputDataConfig {
  */
 export interface JobDetails {
   /**
+   * <p>The number of documents successfully processed during a translation job.</p>
+   */
+  TranslatedDocumentsCount?: number;
+
+  /**
    * <p>The number of documents that could not be processed during a translation job.</p>
    */
   DocumentsWithErrorsCount?: number;
@@ -211,11 +426,6 @@ export interface JobDetails {
    * <p>The number of documents used as input in a translation job.</p>
    */
   InputDocumentsCount?: number;
-
-  /**
-   * <p>The number of documents successfully processed during a translation job.</p>
-   */
-  TranslatedDocumentsCount?: number;
 }
 
 export namespace JobDetails {
@@ -256,11 +466,6 @@ export namespace OutputDataConfig {
  */
 export interface TextTranslationJobProperties {
   /**
-   * <p>The status of the translation job.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
    * <p>The ID of the translation job.</p>
    */
   JobId?: string;
@@ -271,33 +476,9 @@ export interface TextTranslationJobProperties {
   JobName?: string;
 
   /**
-   * <p>A list containing the names of the terminologies applied to a translation job. Only one
-   *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
-   *       time.</p>
+   * <p>The status of the translation job.</p>
    */
-  TerminologyNames?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that granted Amazon Translate read access to the job's input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
-   * <p>The language code of the language of the source text. The language must be a language
-   *       supported by Amazon Translate.</p>
-   */
-  SourceLanguageCode?: string;
-
-  /**
-   * <p>An explanation of any errors that may have occured during the translation job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The output configuration properties that were specified when the job was requested.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>The number of documents successfully and unsuccessfully processed during the translation
@@ -306,15 +487,39 @@ export interface TextTranslationJobProperties {
   JobDetails?: JobDetails;
 
   /**
+   * <p>The language code of the language of the source text. The language must be a language
+   *       supported by Amazon Translate.</p>
+   */
+  SourceLanguageCode?: string;
+
+  /**
    * <p>The language code of the language of the target text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
   TargetLanguageCodes?: string[];
 
   /**
-   * <p>The input configuration properties that were specified when the job was requested.</p>
+   * <p>A list containing the names of the terminologies applied to a translation job. Only one
+   *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
+   *       time.</p>
    */
-  InputDataConfig?: InputDataConfig;
+  TerminologyNames?: string[];
+
+  /**
+   * <p>A list containing the names of the parallel data resources applied to the translation
+   *       job.</p>
+   */
+  ParallelDataNames?: string[];
+
+  /**
+   * <p>An explanation of any errors that may have occured during the translation job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The time at which the translation job was submitted.</p>
+   */
+  SubmittedTime?: Date;
 
   /**
    * <p>The time at which the translation job ended.</p>
@@ -322,9 +527,20 @@ export interface TextTranslationJobProperties {
   EndTime?: Date;
 
   /**
-   * <p>The time at which the translation job was submitted.</p>
+   * <p>The input configuration properties that were specified when the job was requested.</p>
    */
-  SubmittedTime?: Date;
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>The output configuration properties that were specified when the job was requested.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that granted Amazon Translate read access to the job's input data.</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export namespace TextTranslationJobProperties {
@@ -343,6 +559,181 @@ export interface DescribeTextTranslationJobResponse {
 
 export namespace DescribeTextTranslationJobResponse {
   export const filterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetParallelDataRequest {
+  /**
+   * <p>The name of the parallel data resource that is being retrieved.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetParallelDataRequest {
+  export const filterSensitiveLog = (obj: GetParallelDataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The location of the most recent parallel data input file that was successfully imported
+ *       into Amazon Translate.</p>
+ */
+export interface ParallelDataDataLocation {
+  /**
+   * <p>Describes the repository that contains the parallel data input file.</p>
+   */
+  RepositoryType: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location of the parallel data input file. The location is returned as a
+   *       presigned URL to that has a 30 minute expiration.</p>
+   */
+  Location: string | undefined;
+}
+
+export namespace ParallelDataDataLocation {
+  export const filterSensitiveLog = (obj: ParallelDataDataLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties of a parallel data resource.</p>
+ */
+export interface ParallelDataProperties {
+  /**
+   * <p>The custom name assigned to the parallel data resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the parallel data resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The description assigned to the parallel data resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
+   *       the status is <code>ACTIVE</code>.</p>
+   */
+  Status?: ParallelDataStatus | string;
+
+  /**
+   * <p>The source language of the translations in the parallel data file.</p>
+   */
+  SourceLanguageCode?: string;
+
+  /**
+   * <p>The language codes for the target languages available in the parallel data file. All
+   *       possible target languages are returned as an array.</p>
+   */
+  TargetLanguageCodes?: string[];
+
+  /**
+   * <p>Specifies the format and S3 location of the parallel data input file.</p>
+   */
+  ParallelDataConfig?: ParallelDataConfig;
+
+  /**
+   * <p>Additional information from Amazon Translate about the parallel data resource. </p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The number of UTF-8 characters that Amazon Translate imported from the parallel data input
+   *       file. This number includes only the characters in your translation examples. It does not
+   *       include characters that are used to format your file. For example, if you provided a
+   *       Translation Memory Exchange (.tmx) file, this number does not include the tags.</p>
+   */
+  ImportedDataSize?: number;
+
+  /**
+   * <p>The number of records successfully imported from the parallel data input file.</p>
+   */
+  ImportedRecordCount?: number;
+
+  /**
+   * <p>The number of records unsuccessfully imported from the parallel data input file.</p>
+   */
+  FailedRecordCount?: number;
+
+  /**
+   * <p>The number of items in the input file that Amazon Translate skipped when you created or
+   *       updated the parallel data resource. For example, Amazon Translate skips empty records, empty
+   *       target texts, and empty lines.</p>
+   */
+  SkippedRecordCount?: number;
+
+  /**
+   * <p>The encryption key used to encrypt this object.</p>
+   */
+  EncryptionKey?: EncryptionKey;
+
+  /**
+   * <p>The time at which the parallel data resource was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The time at which the parallel data resource was last updated.</p>
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The status of the most recent update attempt for the parallel data resource.</p>
+   */
+  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+
+  /**
+   * <p>The time that the most recent update was attempted.</p>
+   */
+  LatestUpdateAttemptAt?: Date;
+}
+
+export namespace ParallelDataProperties {
+  export const filterSensitiveLog = (obj: ParallelDataProperties): any => ({
+    ...obj,
+  });
+}
+
+export interface GetParallelDataResponse {
+  /**
+   * <p>The properties of the parallel data resource that is being retrieved.</p>
+   */
+  ParallelDataProperties?: ParallelDataProperties;
+
+  /**
+   * <p>The location of the most recent parallel data input file that was successfully imported
+   *       into Amazon Translate. The location is returned as a presigned URL that has a 30 minute
+   *       expiration.</p>
+   */
+  DataLocation?: ParallelDataDataLocation;
+
+  /**
+   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
+   *       by your input file. This file was created when Amazon Translate attempted to create a parallel
+   *       data resource. The location is returned as a presigned URL to that has a 30 minute
+   *       expiration.</p>
+   */
+  AuxiliaryDataLocation?: ParallelDataDataLocation;
+
+  /**
+   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
+   *       by your input file. This file was created when Amazon Translate attempted to update a parallel
+   *       data resource. The location is returned as a presigned URL to that has a 30 minute
+   *       expiration.</p>
+   */
+  LatestUpdateAttemptAuxiliaryDataLocation?: ParallelDataDataLocation;
+}
+
+export namespace GetParallelDataResponse {
+  export const filterSensitiveLog = (obj: GetParallelDataResponse): any => ({
     ...obj,
   });
 }
@@ -375,44 +766,18 @@ export namespace GetTerminologyRequest {
  */
 export interface TerminologyDataLocation {
   /**
-   * <p>The location of the custom terminology data.</p>
-   */
-  Location: string | undefined;
-
-  /**
    * <p>The repository type for the custom terminology data.</p>
    */
   RepositoryType: string | undefined;
+
+  /**
+   * <p>The location of the custom terminology data.</p>
+   */
+  Location: string | undefined;
 }
 
 export namespace TerminologyDataLocation {
   export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
-    ...obj,
-  });
-}
-
-export enum EncryptionKeyType {
-  KMS = "KMS",
-}
-
-/**
- * <p>The encryption key used to encrypt the custom terminologies used by Amazon Translate.</p>
- */
-export interface EncryptionKey {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
-   *       terminology.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
-   */
-  Type: EncryptionKeyType | string | undefined;
-}
-
-export namespace EncryptionKey {
-  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
     ...obj,
   });
 }
@@ -427,20 +792,9 @@ export interface TerminologyProperties {
   Name?: string;
 
   /**
-   * <p>The encryption key for the custom terminology.</p>
+   * <p>The description of the custom terminology properties.</p>
    */
-  EncryptionKey?: EncryptionKey;
-
-  /**
-   * <p>The size of the file used when importing a custom terminology.</p>
-   */
-  SizeBytes?: number;
-
-  /**
-   * <p>The language codes for the target languages available with the custom terminology file.
-   *       All possible target languages are returned in array.</p>
-   */
-  TargetLanguageCodes?: string[];
+  Description?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
@@ -454,9 +808,20 @@ export interface TerminologyProperties {
   SourceLanguageCode?: string;
 
   /**
-   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
+   * <p>The language codes for the target languages available with the custom terminology file.
+   *       All possible target languages are returned in array.</p>
    */
-  CreatedAt?: Date;
+  TargetLanguageCodes?: string[];
+
+  /**
+   * <p>The encryption key for the custom terminology.</p>
+   */
+  EncryptionKey?: EncryptionKey;
+
+  /**
+   * <p>The size of the file used when importing a custom terminology.</p>
+   */
+  SizeBytes?: number;
 
   /**
    * <p>The number of terms included in the custom terminology.</p>
@@ -464,9 +829,9 @@ export interface TerminologyProperties {
   TermCount?: number;
 
   /**
-   * <p>The description of the custom terminology properties.</p>
+   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
    */
-  Description?: string;
+  CreatedAt?: Date;
 
   /**
    * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
@@ -508,16 +873,16 @@ export enum MergeStrategy {
  */
 export interface TerminologyData {
   /**
-   * <p>The data format of the custom terminology. Either CSV or TMX.</p>
-   */
-  Format: TerminologyDataFormat | string | undefined;
-
-  /**
    * <p>The file containing the custom terminology data. Your version of the AWS SDK performs a
    *       Base64-encoding on this field before sending a request to the AWS service. Users of the SDK
    *       should not perform Base64-encoding themselves.</p>
    */
   File: Uint8Array | undefined;
+
+  /**
+   * <p>The data format of the custom terminology. Either CSV or TMX.</p>
+   */
+  Format: TerminologyDataFormat | string | undefined;
 }
 
 export namespace TerminologyData {
@@ -529,14 +894,21 @@ export namespace TerminologyData {
 
 export interface ImportTerminologyRequest {
   /**
-   * <p>The description of the custom terminology being imported.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the custom terminology being imported.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE
+   *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
+   *       terminology of the same name.</p>
+   */
+  MergeStrategy: MergeStrategy | string | undefined;
+
+  /**
+   * <p>The description of the custom terminology being imported.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The terminology data for the custom terminology being imported.</p>
@@ -547,13 +919,6 @@ export interface ImportTerminologyRequest {
    * <p>The encryption key for the custom terminology being imported.</p>
    */
   EncryptionKey?: EncryptionKey;
-
-  /**
-   * <p>The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE
-   *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
-   *       terminology of the same name.</p>
-   */
-  MergeStrategy: MergeStrategy | string | undefined;
 }
 
 export namespace ImportTerminologyRequest {
@@ -576,18 +941,39 @@ export namespace ImportTerminologyResponse {
   });
 }
 
-/**
- * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
+export interface ListParallelDataRequest {
+  /**
+   * <p>A string that specifies the next page of results to return in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of parallel data resources returned for each request.</p>
+   */
+  MaxResults?: number;
 }
 
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+export namespace ListParallelDataRequest {
+  export const filterSensitiveLog = (obj: ListParallelDataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListParallelDataResponse {
+  /**
+   * <p>The properties of the parallel data resources returned by this request.</p>
+   */
+  ParallelDataPropertiesList?: ParallelDataProperties[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated
+   *       response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListParallelDataResponse {
+  export const filterSensitiveLog = (obj: ListParallelDataResponse): any => ({
     ...obj,
   });
 }
@@ -613,15 +999,15 @@ export namespace ListTerminologiesRequest {
 
 export interface ListTerminologiesResponse {
   /**
+   * <p>The properties list of the custom terminologies returned on the list request.</p>
+   */
+  TerminologyPropertiesList?: TerminologyProperties[];
+
+  /**
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
    *       group of custom terminologies.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The properties list of the custom terminologies returned on the list request.</p>
-   */
-  TerminologyPropertiesList?: TerminologyProperties[];
 }
 
 export namespace ListTerminologiesResponse {
@@ -646,33 +1032,10 @@ export namespace InvalidFilterException {
 }
 
 /**
- * <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request. </p>
- */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Provides information for filtering a list of translation jobs. For more information, see
  *         <a>ListTextTranslationJobs</a>.</p>
  */
 export interface TextTranslationJobFilter {
-  /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
-   *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
-   *       order, oldest to newest.</p>
-   */
-  SubmittedBeforeTime?: Date;
-
   /**
    * <p>Filters the list of jobs by name.</p>
    */
@@ -682,6 +1045,13 @@ export interface TextTranslationJobFilter {
    * <p>Filters the list of jobs based by job status.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
+   *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
+   *       order, oldest to newest.</p>
+   */
+  SubmittedBeforeTime?: Date;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
@@ -699,15 +1069,15 @@ export namespace TextTranslationJobFilter {
 
 export interface ListTextTranslationJobsRequest {
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
    *       name, job status, and submission time. You can only set one filter at a time.</p>
    */
   Filter?: TextTranslationJobFilter;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in each page. The default value is 100.</p>
@@ -723,15 +1093,15 @@ export namespace ListTextTranslationJobsRequest {
 
 export interface ListTextTranslationJobsResponse {
   /**
+   * <p>A list containing the properties of each job that is returned.</p>
+   */
+  TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
+
+  /**
    * <p>The token to use to retreive the next page of results. This value is <code>null</code>
    *       when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list containing the properties of each job that is returned.</p>
-   */
-  TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
 }
 
 export namespace ListTextTranslationJobsResponse {
@@ -747,10 +1117,10 @@ export interface StartTextTranslationJobRequest {
   JobName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
+   * <p>Specifies the format and S3 location of the input documents for the translation
+   *       job.</p>
    */
-  DataAccessRoleArn: string | undefined;
+  InputDataConfig: InputDataConfig | undefined;
 
   /**
    * <p>Specifies the S3 folder to which your job output will be saved.
@@ -759,16 +1129,17 @@ export interface StartTextTranslationJobRequest {
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * <p>Specifies the format and S3 location of the input documents for the translation
-   *       job.</p>
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
    */
-  InputDataConfig: InputDataConfig | undefined;
+  DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
-   *       SDK.</p>
+   * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
+   *          <p>Amazon Translate does not automatically detect a source language during batch translation
+   *       jobs.</p>
    */
-  ClientToken?: string;
+  SourceLanguageCode: string | undefined;
 
   /**
    * <p>The language code of the output language.</p>
@@ -782,11 +1153,17 @@ export interface StartTextTranslationJobRequest {
   TerminologyNames?: string[];
 
   /**
-   * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
-   *          <p>Amazon Translate does not automatically detect a source language during batch translation
-   *       jobs.</p>
+   * <p>The names of the parallel data resources to use in the batch translation job. For a list
+   *       of available parallel data resources, use the <a>ListParallelData</a>
+   *       operation.</p>
    */
-  SourceLanguageCode: string | undefined;
+  ParallelDataNames?: string[];
+
+  /**
+   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
+   *       SDK.</p>
+   */
+  ClientToken?: string;
 }
 
 export namespace StartTextTranslationJobRequest {
@@ -888,15 +1265,15 @@ export namespace StopTextTranslationJobRequest {
 
 export interface StopTextTranslationJobResponse {
   /**
+   * <p>The job ID of the stopped batch translation job.</p>
+   */
+  JobId?: string;
+
+  /**
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
   JobStatus?: JobStatus | string;
-
-  /**
-   * <p>The job ID of the stopped batch translation job.</p>
-   */
-  JobId?: string;
 }
 
 export namespace StopTextTranslationJobResponse {
@@ -974,12 +1351,6 @@ export interface TranslateTextRequest {
   TerminologyNames?: string[];
 
   /**
-   * <p>The language code requested for the language of the target text. The language must be a
-   *       language supported by Amazon Translate.</p>
-   */
-  TargetLanguageCode: string | undefined;
-
-  /**
    * <p>The language code for the language of the source text. The language must be a language
    *       supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>
    *          <p>To have Amazon Translate determine the source language of your text, you can specify
@@ -988,6 +1359,12 @@ export interface TranslateTextRequest {
    *         Comprehend</a> to determine the source language.</p>
    */
   SourceLanguageCode: string | undefined;
+
+  /**
+   * <p>The language code requested for the language of the target text. The language must be a
+   *       language supported by Amazon Translate.</p>
+   */
+  TargetLanguageCode: string | undefined;
 }
 
 export namespace TranslateTextRequest {
@@ -998,9 +1375,9 @@ export namespace TranslateTextRequest {
 
 export interface TranslateTextResponse {
   /**
-   * <p>The language code for the language of the target text. </p>
+   * <p>The translated text.</p>
    */
-  TargetLanguageCode: string | undefined;
+  TranslatedText: string | undefined;
 
   /**
    * <p>The language code for the language of the source text.</p>
@@ -1008,9 +1385,9 @@ export interface TranslateTextResponse {
   SourceLanguageCode: string | undefined;
 
   /**
-   * <p>The translated text.</p>
+   * <p>The language code for the language of the target text. </p>
    */
-  TranslatedText: string | undefined;
+  TargetLanguageCode: string | undefined;
 
   /**
    * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
@@ -1021,6 +1398,66 @@ export interface TranslateTextResponse {
 
 export namespace TranslateTextResponse {
   export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateParallelDataRequest {
+  /**
+   * <p>The name of the parallel data resource being updated.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A custom description for the parallel data resource in Amazon Translate.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies the format and S3 location of the parallel data input file.</p>
+   */
+  ParallelDataConfig: ParallelDataConfig | undefined;
+
+  /**
+   * <p>A unique identifier for the request. This token is automatically generated when you use
+   *       Amazon Translate through an AWS SDK.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace UpdateParallelDataRequest {
+  export const filterSensitiveLog = (obj: UpdateParallelDataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateParallelDataResponse {
+  /**
+   * <p>The name of the parallel data resource being updated.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the parallel data resource that you are attempting to update. Your update
+   *       request is accepted only if this status is either <code>ACTIVE</code> or
+   *       <code>FAILED</code>.</p>
+   */
+  Status?: ParallelDataStatus | string;
+
+  /**
+   * <p>The status of the parallel data update attempt. When the updated parallel data resource is
+   *       ready for you to use, the status is <code>ACTIVE</code>.</p>
+   */
+  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+
+  /**
+   * <p>The time that the most recent update was attempted.</p>
+   */
+  LatestUpdateAttemptAt?: Date;
+}
+
+export namespace UpdateParallelDataResponse {
+  export const filterSensitiveLog = (obj: UpdateParallelDataResponse): any => ({
     ...obj,
   });
 }

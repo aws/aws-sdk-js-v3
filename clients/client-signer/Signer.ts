@@ -1,5 +1,10 @@
 import { SignerClient } from "./SignerClient";
 import {
+  AddProfilePermissionCommand,
+  AddProfilePermissionCommandInput,
+  AddProfilePermissionCommandOutput,
+} from "./commands/AddProfilePermissionCommand";
+import {
   CancelSigningProfileCommand,
   CancelSigningProfileCommandInput,
   CancelSigningProfileCommandOutput,
@@ -19,6 +24,11 @@ import {
   GetSigningProfileCommandInput,
   GetSigningProfileCommandOutput,
 } from "./commands/GetSigningProfileCommand";
+import {
+  ListProfilePermissionsCommand,
+  ListProfilePermissionsCommandInput,
+  ListProfilePermissionsCommandOutput,
+} from "./commands/ListProfilePermissionsCommand";
 import {
   ListSigningJobsCommand,
   ListSigningJobsCommandInput,
@@ -45,6 +55,21 @@ import {
   PutSigningProfileCommandOutput,
 } from "./commands/PutSigningProfileCommand";
 import {
+  RemoveProfilePermissionCommand,
+  RemoveProfilePermissionCommandInput,
+  RemoveProfilePermissionCommandOutput,
+} from "./commands/RemoveProfilePermissionCommand";
+import {
+  RevokeSignatureCommand,
+  RevokeSignatureCommandInput,
+  RevokeSignatureCommandOutput,
+} from "./commands/RevokeSignatureCommand";
+import {
+  RevokeSigningProfileCommand,
+  RevokeSigningProfileCommandInput,
+  RevokeSigningProfileCommandOutput,
+} from "./commands/RevokeSigningProfileCommand";
+import {
   StartSigningJobCommand,
   StartSigningJobCommandInput,
   StartSigningJobCommandOutput,
@@ -58,13 +83,57 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>With code signing for IoT, you can sign code that you create for any IoT device that is
- * 			supported by Amazon Web Services (AWS). Code signing is available through <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
- * 				(ACM)</a>. In order to sign code, you import a third-party code signing
- * 			certificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
- * 			general information about using code signing, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">Code Signing for IoT Developer Guide</a>.</p>
+ * <p>AWS Signer is a fully managed code signing service to help you ensure the trust and
+ * 			integrity of your code. </p>
+ * 		       <p>AWS Signer supports the following applications:</p>
+ *
+ * 		       <p>With <i>code signing for AWS Lambda</i>, you can sign AWS Lambda
+ * 			deployment packages. Integrated support is provided for Amazon S3, Amazon CloudWatch,
+ * 			and AWS CloudTrail. In order to sign code, you create a signing profile and then use
+ * 			Signer to sign Lambda zip files in S3. </p>
+ *
+ * 		       <p>With <i>code signing for IoT</i>, you can sign code for any IoT device that is
+ * 			supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is
+ * 			integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign
+ * 			code, you import a third-party code signing certificate using ACM, and use that to
+ * 			sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
+ * 		       <p>For more information about AWS Signer, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
+ *
+ * 		       <p></p>
  */
 export class Signer extends SignerClient {
+  /**
+   * <p>Adds cross-account permissions to a signing profile.</p>
+   */
+  public addProfilePermission(
+    args: AddProfilePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddProfilePermissionCommandOutput>;
+  public addProfilePermission(
+    args: AddProfilePermissionCommandInput,
+    cb: (err: any, data?: AddProfilePermissionCommandOutput) => void
+  ): void;
+  public addProfilePermission(
+    args: AddProfilePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddProfilePermissionCommandOutput) => void
+  ): void;
+  public addProfilePermission(
+    args: AddProfilePermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddProfilePermissionCommandOutput) => void),
+    cb?: (err: any, data?: AddProfilePermissionCommandOutput) => void
+  ): Promise<AddProfilePermissionCommandOutput> | void {
+    const command = new AddProfilePermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
    * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
@@ -188,6 +257,38 @@ export class Signer extends SignerClient {
     cb?: (err: any, data?: GetSigningProfileCommandOutput) => void
   ): Promise<GetSigningProfileCommandOutput> | void {
     const command = new GetSigningProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the cross-account permissions associated with a signing profile.</p>
+   */
+  public listProfilePermissions(
+    args: ListProfilePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfilePermissionsCommandOutput>;
+  public listProfilePermissions(
+    args: ListProfilePermissionsCommandInput,
+    cb: (err: any, data?: ListProfilePermissionsCommandOutput) => void
+  ): void;
+  public listProfilePermissions(
+    args: ListProfilePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfilePermissionsCommandOutput) => void
+  ): void;
+  public listProfilePermissions(
+    args: ListProfilePermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProfilePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ListProfilePermissionsCommandOutput) => void
+  ): Promise<ListProfilePermissionsCommandOutput> | void {
+    const command = new ListProfilePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -369,6 +470,105 @@ export class Signer extends SignerClient {
     cb?: (err: any, data?: PutSigningProfileCommandOutput) => void
   ): Promise<PutSigningProfileCommandOutput> | void {
     const command = new PutSigningProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes cross-account permissions from a signing profile.</p>
+   */
+  public removeProfilePermission(
+    args: RemoveProfilePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveProfilePermissionCommandOutput>;
+  public removeProfilePermission(
+    args: RemoveProfilePermissionCommandInput,
+    cb: (err: any, data?: RemoveProfilePermissionCommandOutput) => void
+  ): void;
+  public removeProfilePermission(
+    args: RemoveProfilePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveProfilePermissionCommandOutput) => void
+  ): void;
+  public removeProfilePermission(
+    args: RemoveProfilePermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveProfilePermissionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveProfilePermissionCommandOutput) => void
+  ): Promise<RemoveProfilePermissionCommandOutput> | void {
+    const command = new RemoveProfilePermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
+   * 			longer valid.</p>
+   */
+  public revokeSignature(
+    args: RevokeSignatureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeSignatureCommandOutput>;
+  public revokeSignature(
+    args: RevokeSignatureCommandInput,
+    cb: (err: any, data?: RevokeSignatureCommandOutput) => void
+  ): void;
+  public revokeSignature(
+    args: RevokeSignatureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeSignatureCommandOutput) => void
+  ): void;
+  public revokeSignature(
+    args: RevokeSignatureCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeSignatureCommandOutput) => void),
+    cb?: (err: any, data?: RevokeSignatureCommandOutput) => void
+  ): Promise<RevokeSignatureCommandOutput> | void {
+    const command = new RevokeSignatureCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
+   * 			generated using the signing profile after an effective start date are no longer
+   * 			valid.</p>
+   */
+  public revokeSigningProfile(
+    args: RevokeSigningProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeSigningProfileCommandOutput>;
+  public revokeSigningProfile(
+    args: RevokeSigningProfileCommandInput,
+    cb: (err: any, data?: RevokeSigningProfileCommandOutput) => void
+  ): void;
+  public revokeSigningProfile(
+    args: RevokeSigningProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeSigningProfileCommandOutput) => void
+  ): void;
+  public revokeSigningProfile(
+    args: RevokeSigningProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeSigningProfileCommandOutput) => void),
+    cb?: (err: any, data?: RevokeSigningProfileCommandOutput) => void
+  ): Promise<RevokeSigningProfileCommandOutput> | void {
+    const command = new RevokeSigningProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -859,6 +859,36 @@ export namespace LastCrawlInfo {
   });
 }
 
+export enum CrawlerLineageSettings {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE",
+}
+
+/**
+ * <p>Specifies data lineage configuration settings for the crawler.</p>
+ */
+export interface LineageConfiguration {
+  /**
+   * <p>Specifies whether data lineage is enabled for the crawler. Valid values are:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>ENABLE: enables data lineage for the crawler</p>
+   *             </li>
+   *             <li>
+   *                <p>DISABLE: disables data lineage for the crawler</p>
+   *             </li>
+   *          </ul>
+   */
+  CrawlerLineageSettings?: CrawlerLineageSettings | string;
+}
+
+export namespace LineageConfiguration {
+  export const filterSensitiveLog = (obj: LineageConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum RecrawlBehavior {
   CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
   CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
@@ -1167,6 +1197,11 @@ export interface Crawler {
    * <p>The policy that specifies update and delete behaviors for the crawler.</p>
    */
   SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   * <p>A configuration that specifies whether data lineage is enabled for the crawler.</p>
+   */
+  LineageConfiguration?: LineageConfiguration;
 
   /**
    * <p>Indicates whether the crawler is running, or whether a run is pending.</p>
@@ -3270,6 +3305,11 @@ export interface CreateCrawlerRequest {
   RecrawlPolicy?: RecrawlPolicy;
 
   /**
+   * <p>Specifies data lineage configuration settings for the crawler.</p>
+   */
+  LineageConfiguration?: LineageConfiguration;
+
+  /**
    * <p>Crawler configuration information. This versioned JSON
    *       string allows users to specify aspects of a crawler's behavior.
    *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
@@ -4276,6 +4316,63 @@ export namespace CreatePartitionResponse {
   });
 }
 
+/**
+ * <p>A structure for a partition index.</p>
+ */
+export interface PartitionIndex {
+  /**
+   * <p>The keys for the partition index.</p>
+   */
+  Keys: string[] | undefined;
+
+  /**
+   * <p>The name of the partition index.</p>
+   */
+  IndexName: string | undefined;
+}
+
+export namespace PartitionIndex {
+  export const filterSensitiveLog = (obj: PartitionIndex): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePartitionIndexRequest {
+  /**
+   * <p>The catalog ID where the table resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>Specifies the name of a database in which you want to create a partition index.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Specifies the name of a table in which you want to create a partition index.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>
+   */
+  PartitionIndex: PartitionIndex | undefined;
+}
+
+export namespace CreatePartitionIndexRequest {
+  export const filterSensitiveLog = (obj: CreatePartitionIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePartitionIndexResponse {}
+
+export namespace CreatePartitionIndexResponse {
+  export const filterSensitiveLog = (obj: CreatePartitionIndexResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateRegistryInput {
   /**
    * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
@@ -4794,27 +4891,6 @@ export interface CreateSecurityConfigurationResponse {
 
 export namespace CreateSecurityConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateSecurityConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A structure for a partition index.</p>
- */
-export interface PartitionIndex {
-  /**
-   * <p>The keys for the partition index.</p>
-   */
-  Keys: string[] | undefined;
-
-  /**
-   * <p>The name of the partition index.</p>
-   */
-  IndexName: string | undefined;
-}
-
-export namespace PartitionIndex {
-  export const filterSensitiveLog = (obj: PartitionIndex): any => ({
     ...obj,
   });
 }
@@ -5510,6 +5586,60 @@ export interface DeletePartitionResponse {}
 
 export namespace DeletePartitionResponse {
   export const filterSensitiveLog = (obj: DeletePartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePartitionIndexRequest {
+  /**
+   * <p>The catalog ID where the table resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>Specifies the name of a database from which you want to delete a partition index.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Specifies the name of a table from which you want to delete a partition index.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the partition index to be deleted.</p>
+   */
+  IndexName: string | undefined;
+}
+
+export namespace DeletePartitionIndexRequest {
+  export const filterSensitiveLog = (obj: DeletePartitionIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePartitionIndexResponse {}
+
+export namespace DeletePartitionIndexResponse {
+  export const filterSensitiveLog = (obj: DeletePartitionIndexResponse): any => ({
     ...obj,
   });
 }
@@ -7557,132 +7687,6 @@ export interface JobBookmarkEntry {
 
 export namespace JobBookmarkEntry {
   export const filterSensitiveLog = (obj: JobBookmarkEntry): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobBookmarkResponse {
-  /**
-   * <p>A structure that defines a point that a job can resume processing.</p>
-   */
-  JobBookmarkEntry?: JobBookmarkEntry;
-}
-
-export namespace GetJobBookmarkResponse {
-  export const filterSensitiveLog = (obj: GetJobBookmarkResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobRunRequest {
-  /**
-   * <p>Name of the job definition being run.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The ID of the job run.</p>
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>True if a list of predecessor runs should be returned.</p>
-   */
-  PredecessorsIncluded?: boolean;
-}
-
-export namespace GetJobRunRequest {
-  export const filterSensitiveLog = (obj: GetJobRunRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobRunResponse {
-  /**
-   * <p>The requested job-run metadata.</p>
-   */
-  JobRun?: JobRun;
-}
-
-export namespace GetJobRunResponse {
-  export const filterSensitiveLog = (obj: GetJobRunResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobRunsRequest {
-  /**
-   * <p>The name of the job definition for which to retrieve all job runs.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace GetJobRunsRequest {
-  export const filterSensitiveLog = (obj: GetJobRunsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobRunsResponse {
-  /**
-   * <p>A list of job-run metadata objects.</p>
-   */
-  JobRuns?: JobRun[];
-
-  /**
-   * <p>A continuation token, if not all requested job runs have been returned.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobRunsResponse {
-  export const filterSensitiveLog = (obj: GetJobRunsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobsRequest {
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace GetJobsRequest {
-  export const filterSensitiveLog = (obj: GetJobsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobsResponse {
-  /**
-   * <p>A list of job definitions.</p>
-   */
-  Jobs?: Job[];
-
-  /**
-   * <p>A continuation token, if not all job definitions have yet been returned.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobsResponse {
-  export const filterSensitiveLog = (obj: GetJobsResponse): any => ({
     ...obj,
   });
 }

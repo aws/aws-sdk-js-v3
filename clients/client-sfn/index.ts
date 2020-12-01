@@ -22,6 +22,7 @@ export * from "./commands/SendTaskFailureCommand";
 export * from "./commands/SendTaskHeartbeatCommand";
 export * from "./commands/SendTaskSuccessCommand";
 export * from "./commands/StartExecutionCommand";
+export * from "./commands/StartSyncExecutionCommand";
 export * from "./commands/StopExecutionCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";

@@ -7,10 +7,20 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "../commands/CreateSecurityConfigurationCommand";
+import { CreateStudioCommandInput, CreateStudioCommandOutput } from "../commands/CreateStudioCommand";
+import {
+  CreateStudioSessionMappingCommandInput,
+  CreateStudioSessionMappingCommandOutput,
+} from "../commands/CreateStudioSessionMappingCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "../commands/DeleteSecurityConfigurationCommand";
+import { DeleteStudioCommandInput, DeleteStudioCommandOutput } from "../commands/DeleteStudioCommand";
+import {
+  DeleteStudioSessionMappingCommandInput,
+  DeleteStudioSessionMappingCommandOutput,
+} from "../commands/DeleteStudioSessionMappingCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "../commands/DescribeJobFlowsCommand";
 import {
@@ -22,6 +32,7 @@ import {
   DescribeSecurityConfigurationCommandOutput,
 } from "../commands/DescribeSecurityConfigurationCommand";
 import { DescribeStepCommandInput, DescribeStepCommandOutput } from "../commands/DescribeStepCommand";
+import { DescribeStudioCommandInput, DescribeStudioCommandOutput } from "../commands/DescribeStudioCommand";
 import {
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
@@ -30,6 +41,10 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "../commands/GetManagedScalingPolicyCommand";
+import {
+  GetStudioSessionMappingCommandInput,
+  GetStudioSessionMappingCommandOutput,
+} from "../commands/GetStudioSessionMappingCommand";
 import {
   ListBootstrapActionsCommandInput,
   ListBootstrapActionsCommandOutput,
@@ -47,6 +62,11 @@ import {
   ListSecurityConfigurationsCommandOutput,
 } from "../commands/ListSecurityConfigurationsCommand";
 import { ListStepsCommandInput, ListStepsCommandOutput } from "../commands/ListStepsCommand";
+import {
+  ListStudioSessionMappingsCommandInput,
+  ListStudioSessionMappingsCommandOutput,
+} from "../commands/ListStudioSessionMappingsCommand";
+import { ListStudiosCommandInput, ListStudiosCommandOutput } from "../commands/ListStudiosCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "../commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommandInput,
@@ -96,6 +116,10 @@ import {
 } from "../commands/StopNotebookExecutionCommand";
 import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "../commands/TerminateJobFlowsCommand";
 import {
+  UpdateStudioSessionMappingCommandInput,
+  UpdateStudioSessionMappingCommandOutput,
+} from "../commands/UpdateStudioSessionMappingCommand";
+import {
   AddInstanceFleetInput,
   AddInstanceFleetOutput,
   AddInstanceGroupsInput,
@@ -128,8 +152,13 @@ import {
   Configuration,
   CreateSecurityConfigurationInput,
   CreateSecurityConfigurationOutput,
+  CreateStudioInput,
+  CreateStudioOutput,
+  CreateStudioSessionMappingInput,
   DeleteSecurityConfigurationInput,
   DeleteSecurityConfigurationOutput,
+  DeleteStudioInput,
+  DeleteStudioSessionMappingInput,
   DescribeClusterInput,
   DescribeClusterOutput,
   DescribeJobFlowsInput,
@@ -140,6 +169,8 @@ import {
   DescribeSecurityConfigurationOutput,
   DescribeStepInput,
   DescribeStepOutput,
+  DescribeStudioInput,
+  DescribeStudioOutput,
   EbsBlockDevice,
   EbsBlockDeviceConfig,
   EbsConfiguration,
@@ -151,6 +182,8 @@ import {
   GetBlockPublicAccessConfigurationOutput,
   GetManagedScalingPolicyInput,
   GetManagedScalingPolicyOutput,
+  GetStudioSessionMappingInput,
+  GetStudioSessionMappingOutput,
   HadoopJarStepConfig,
   HadoopStepConfig,
   Instance,
@@ -202,6 +235,10 @@ import {
   ListSecurityConfigurationsOutput,
   ListStepsInput,
   ListStepsOutput,
+  ListStudioSessionMappingsInput,
+  ListStudioSessionMappingsOutput,
+  ListStudiosInput,
+  ListStudiosOutput,
   ManagedScalingPolicy,
   MetricDimension,
   ModifyClusterInput,
@@ -234,6 +271,8 @@ import {
   ScalingTrigger,
   ScriptBootstrapActionConfig,
   SecurityConfigurationSummary,
+  SessionMappingDetail,
+  SessionMappingSummary,
   SetTerminationProtectionInput,
   SetVisibleToAllUsersInput,
   ShrinkPolicy,
@@ -251,9 +290,12 @@ import {
   StepSummary,
   StepTimeline,
   StopNotebookExecutionInput,
+  Studio,
+  StudioSummary,
   SupportedProductConfig,
   Tag,
   TerminateJobFlowsInput,
+  UpdateStudioSessionMappingInput,
   VolumeSpecification,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -344,6 +386,32 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateStudioCommand = async (
+  input: CreateStudioCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.CreateStudio",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateStudioInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateStudioSessionMappingCommand = async (
+  input: CreateStudioSessionMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.CreateStudioSessionMapping",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateStudioSessionMappingInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   input: DeleteSecurityConfigurationCommandInput,
   context: __SerdeContext
@@ -354,6 +422,32 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteStudioCommand = async (
+  input: DeleteStudioCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.DeleteStudio",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteStudioInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteStudioSessionMappingCommand = async (
+  input: DeleteStudioSessionMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.DeleteStudioSessionMapping",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,6 +516,19 @@ export const serializeAws_json1_1DescribeStepCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeStudioCommand = async (
+  input: DescribeStudioCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.DescribeStudio",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeStudioInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
   input: GetBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
@@ -445,6 +552,19 @@ export const serializeAws_json1_1GetManagedScalingPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetManagedScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetStudioSessionMappingCommand = async (
+  input: GetStudioSessionMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.GetStudioSessionMapping",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -549,6 +669,32 @@ export const serializeAws_json1_1ListStepsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStepsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListStudiosCommand = async (
+  input: ListStudiosCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.ListStudios",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListStudiosInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListStudioSessionMappingsCommand = async (
+  input: ListStudioSessionMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.ListStudioSessionMappings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListStudioSessionMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -744,6 +890,19 @@ export const serializeAws_json1_1TerminateJobFlowsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TerminateJobFlowsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateStudioSessionMappingCommand = async (
+  input: UpdateStudioSessionMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.UpdateStudioSessionMapping",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1109,6 +1268,129 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateStudioCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateStudioCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateStudioOutput(data, context);
+  const response: CreateStudioCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateStudioCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateStudioSessionMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioSessionMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateStudioSessionMappingCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: CreateStudioSessionMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateStudioSessionMappingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStudioSessionMappingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1143,6 +1425,126 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteStudioCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteStudioCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteStudioCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteStudioCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteStudioSessionMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioSessionMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteStudioSessionMappingCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteStudioSessionMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteStudioSessionMappingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStudioSessionMappingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1479,6 +1881,69 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeStudioCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStudioCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeStudioCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeStudioOutput(data, context);
+  const response: DescribeStudioCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeStudioCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStudioCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1572,6 +2037,69 @@ const deserializeAws_json1_1GetManagedScalingPolicyCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetStudioSessionMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStudioSessionMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetStudioSessionMappingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetStudioSessionMappingOutput(data, context);
+  const response: GetStudioSessionMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetStudioSessionMappingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStudioSessionMappingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2064,6 +2592,132 @@ const deserializeAws_json1_1ListStepsCommandError = async (
     case "com.amazonaws.emr#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListStudiosCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudiosCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListStudiosCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListStudiosOutput(data, context);
+  const response: ListStudiosCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListStudiosCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudiosCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListStudioSessionMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudioSessionMappingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListStudioSessionMappingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListStudioSessionMappingsOutput(data, context);
+  const response: ListStudioSessionMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListStudioSessionMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStudioSessionMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2916,6 +3570,66 @@ const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateStudioSessionMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStudioSessionMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateStudioSessionMappingCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateStudioSessionMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateStudioSessionMappingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStudioSessionMappingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1InternalServerErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3122,12 +3836,59 @@ const serializeAws_json1_1CreateSecurityConfigurationInput = (
   };
 };
 
+const serializeAws_json1_1CreateStudioInput = (input: CreateStudioInput, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthMode !== undefined && { AuthMode: input.AuthMode }),
+    ...(input.DefaultS3Location !== undefined && { DefaultS3Location: input.DefaultS3Location }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.EngineSecurityGroupId !== undefined && { EngineSecurityGroupId: input.EngineSecurityGroupId }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ServiceRole !== undefined && { ServiceRole: input.ServiceRole }),
+    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserRole !== undefined && { UserRole: input.UserRole }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+    ...(input.WorkspaceSecurityGroupId !== undefined && { WorkspaceSecurityGroupId: input.WorkspaceSecurityGroupId }),
+  };
+};
+
+const serializeAws_json1_1CreateStudioSessionMappingInput = (
+  input: CreateStudioSessionMappingInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
+    ...(input.IdentityName !== undefined && { IdentityName: input.IdentityName }),
+    ...(input.IdentityType !== undefined && { IdentityType: input.IdentityType }),
+    ...(input.SessionPolicyArn !== undefined && { SessionPolicyArn: input.SessionPolicyArn }),
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
+  };
+};
+
 const serializeAws_json1_1DeleteSecurityConfigurationInput = (
   input: DeleteSecurityConfigurationInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeleteStudioInput = (input: DeleteStudioInput, context: __SerdeContext): any => {
+  return {
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
+  };
+};
+
+const serializeAws_json1_1DeleteStudioSessionMappingInput = (
+  input: DeleteStudioSessionMappingInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
+    ...(input.IdentityName !== undefined && { IdentityName: input.IdentityName }),
+    ...(input.IdentityType !== undefined && { IdentityType: input.IdentityType }),
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
   };
 };
 
@@ -3170,6 +3931,12 @@ const serializeAws_json1_1DescribeStepInput = (input: DescribeStepInput, context
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.StepId !== undefined && { StepId: input.StepId }),
+  };
+};
+
+const serializeAws_json1_1DescribeStudioInput = (input: DescribeStudioInput, context: __SerdeContext): any => {
+  return {
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
   };
 };
 
@@ -3226,6 +3993,18 @@ const serializeAws_json1_1GetManagedScalingPolicyInput = (
 ): any => {
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+  };
+};
+
+const serializeAws_json1_1GetStudioSessionMappingInput = (
+  input: GetStudioSessionMappingInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
+    ...(input.IdentityName !== undefined && { IdentityName: input.IdentityName }),
+    ...(input.IdentityType !== undefined && { IdentityType: input.IdentityType }),
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
   };
 };
 
@@ -3542,6 +4321,23 @@ const serializeAws_json1_1ListStepsInput = (input: ListStepsInput, context: __Se
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.StepIds !== undefined && { StepIds: serializeAws_json1_1XmlStringList(input.StepIds, context) }),
     ...(input.StepStates !== undefined && { StepStates: serializeAws_json1_1StepStateList(input.StepStates, context) }),
+  };
+};
+
+const serializeAws_json1_1ListStudioSessionMappingsInput = (
+  input: ListStudioSessionMappingsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityType !== undefined && { IdentityType: input.IdentityType }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
+  };
+};
+
+const serializeAws_json1_1ListStudiosInput = (input: ListStudiosInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
 };
 
@@ -3931,6 +4727,10 @@ const serializeAws_json1_1StringMap = (input: { [key: string]: string }, context
   );
 };
 
+const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1SupportedProductConfig = (input: SupportedProductConfig, context: __SerdeContext): any => {
   return {
     ...(input.Args !== undefined && { Args: serializeAws_json1_1XmlStringList(input.Args, context) }),
@@ -3956,6 +4756,19 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 const serializeAws_json1_1TerminateJobFlowsInput = (input: TerminateJobFlowsInput, context: __SerdeContext): any => {
   return {
     ...(input.JobFlowIds !== undefined && { JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateStudioSessionMappingInput = (
+  input: UpdateStudioSessionMappingInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityId !== undefined && { IdentityId: input.IdentityId }),
+    ...(input.IdentityName !== undefined && { IdentityName: input.IdentityName }),
+    ...(input.IdentityType !== undefined && { IdentityType: input.IdentityType }),
+    ...(input.SessionPolicyArn !== undefined && { SessionPolicyArn: input.SessionPolicyArn }),
+    ...(input.StudioId !== undefined && { StudioId: input.StudioId }),
   };
 };
 
@@ -4414,6 +5227,13 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateStudioOutput = (output: any, context: __SerdeContext): CreateStudioOutput => {
+  return {
+    StudioId: output.StudioId !== undefined && output.StudioId !== null ? output.StudioId : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -4472,6 +5292,15 @@ const deserializeAws_json1_1DescribeStepOutput = (output: any, context: __SerdeC
   return {
     Step:
       output.Step !== undefined && output.Step !== null ? deserializeAws_json1_1Step(output.Step, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeStudioOutput = (output: any, context: __SerdeContext): DescribeStudioOutput => {
+  return {
+    Studio:
+      output.Studio !== undefined && output.Studio !== null
+        ? deserializeAws_json1_1Studio(output.Studio, context)
+        : undefined,
   } as any;
 };
 
@@ -4594,6 +5423,18 @@ const deserializeAws_json1_1GetManagedScalingPolicyOutput = (
     ManagedScalingPolicy:
       output.ManagedScalingPolicy !== undefined && output.ManagedScalingPolicy !== null
         ? deserializeAws_json1_1ManagedScalingPolicy(output.ManagedScalingPolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetStudioSessionMappingOutput = (
+  output: any,
+  context: __SerdeContext
+): GetStudioSessionMappingOutput => {
+  return {
+    SessionMapping:
+      output.SessionMapping !== undefined && output.SessionMapping !== null
+        ? deserializeAws_json1_1SessionMappingDetail(output.SessionMapping, context)
         : undefined,
   } as any;
 };
@@ -5273,6 +6114,29 @@ const deserializeAws_json1_1ListStepsOutput = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1ListStudioSessionMappingsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListStudioSessionMappingsOutput => {
+  return {
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    SessionMappings:
+      output.SessionMappings !== undefined && output.SessionMappings !== null
+        ? deserializeAws_json1_1SessionMappingSummaryList(output.SessionMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListStudiosOutput = (output: any, context: __SerdeContext): ListStudiosOutput => {
+  return {
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Studios:
+      output.Studios !== undefined && output.Studios !== null
+        ? deserializeAws_json1_1StudioSummaryList(output.Studios, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ManagedScalingPolicy = (output: any, context: __SerdeContext): ManagedScalingPolicy => {
   return {
     ComputeLimits:
@@ -5561,6 +6425,47 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   } as any;
 };
 
+const deserializeAws_json1_1SessionMappingDetail = (output: any, context: __SerdeContext): SessionMappingDetail => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
+    IdentityName: output.IdentityName !== undefined && output.IdentityName !== null ? output.IdentityName : undefined,
+    IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    SessionPolicyArn:
+      output.SessionPolicyArn !== undefined && output.SessionPolicyArn !== null ? output.SessionPolicyArn : undefined,
+    StudioId: output.StudioId !== undefined && output.StudioId !== null ? output.StudioId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SessionMappingSummary = (output: any, context: __SerdeContext): SessionMappingSummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
+    IdentityName: output.IdentityName !== undefined && output.IdentityName !== null ? output.IdentityName : undefined,
+    IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
+    SessionPolicyArn:
+      output.SessionPolicyArn !== undefined && output.SessionPolicyArn !== null ? output.SessionPolicyArn : undefined,
+    StudioId: output.StudioId !== undefined && output.StudioId !== null ? output.StudioId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SessionMappingSummaryList = (
+  output: any,
+  context: __SerdeContext
+): SessionMappingSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SessionMappingSummary(entry, context));
+};
+
 const deserializeAws_json1_1ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
   return {
     DecommissionTimeout:
@@ -5773,6 +6678,66 @@ const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): 
     }),
     {}
   );
+};
+
+const deserializeAws_json1_1Studio = (output: any, context: __SerdeContext): Studio => {
+  return {
+    AuthMode: output.AuthMode !== undefined && output.AuthMode !== null ? output.AuthMode : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    DefaultS3Location:
+      output.DefaultS3Location !== undefined && output.DefaultS3Location !== null
+        ? output.DefaultS3Location
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    EngineSecurityGroupId:
+      output.EngineSecurityGroupId !== undefined && output.EngineSecurityGroupId !== null
+        ? output.EngineSecurityGroupId
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ServiceRole: output.ServiceRole !== undefined && output.ServiceRole !== null ? output.ServiceRole : undefined,
+    StudioArn: output.StudioArn !== undefined && output.StudioArn !== null ? output.StudioArn : undefined,
+    StudioId: output.StudioId !== undefined && output.StudioId !== null ? output.StudioId : undefined,
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
+    UserRole: output.UserRole !== undefined && output.UserRole !== null ? output.UserRole : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    WorkspaceSecurityGroupId:
+      output.WorkspaceSecurityGroupId !== undefined && output.WorkspaceSecurityGroupId !== null
+        ? output.WorkspaceSecurityGroupId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StudioSummary = (output: any, context: __SerdeContext): StudioSummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    StudioId: output.StudioId !== undefined && output.StudioId !== null ? output.StudioId : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StudioSummaryList = (output: any, context: __SerdeContext): StudioSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StudioSummary(entry, context));
+};
+
+const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SupportedProductsList = (output: any, context: __SerdeContext): string[] => {

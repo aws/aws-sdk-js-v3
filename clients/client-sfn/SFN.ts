@@ -90,6 +90,11 @@ import {
   StartExecutionCommandOutput,
 } from "./commands/StartExecutionCommand";
 import {
+  StartSyncExecutionCommand,
+  StartSyncExecutionCommandInput,
+  StartSyncExecutionCommandOutput,
+} from "./commands/StartSyncExecutionCommand";
+import {
   StopExecutionCommand,
   StopExecutionCommandInput,
   StopExecutionCommandOutput,
@@ -806,6 +811,38 @@ export class SFN extends SFNClient {
     cb?: (err: any, data?: StartExecutionCommandOutput) => void
   ): Promise<StartExecutionCommandOutput> | void {
     const command = new StartExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a Synchronous Express state machine execution.</p>
+   */
+  public startSyncExecution(
+    args: StartSyncExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSyncExecutionCommandOutput>;
+  public startSyncExecution(
+    args: StartSyncExecutionCommandInput,
+    cb: (err: any, data?: StartSyncExecutionCommandOutput) => void
+  ): void;
+  public startSyncExecution(
+    args: StartSyncExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSyncExecutionCommandOutput) => void
+  ): void;
+  public startSyncExecution(
+    args: StartSyncExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSyncExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartSyncExecutionCommandOutput) => void
+  ): Promise<StartSyncExecutionCommandOutput> | void {
+    const command = new StartSyncExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

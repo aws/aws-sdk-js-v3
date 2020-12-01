@@ -1,4 +1,8 @@
 import {
+  StartMedicalStreamTranscriptionCommandInput,
+  StartMedicalStreamTranscriptionCommandOutput,
+} from "../commands/StartMedicalStreamTranscriptionCommand";
+import {
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
 } from "../commands/StartStreamTranscriptionCommand";
@@ -11,6 +15,12 @@ import {
   InternalFailureException,
   Item,
   LimitExceededException,
+  MedicalAlternative,
+  MedicalItem,
+  MedicalResult,
+  MedicalTranscript,
+  MedicalTranscriptEvent,
+  MedicalTranscriptResultStream,
   Result,
   ServiceUnavailableException,
   Transcript,
@@ -28,35 +38,81 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = async (
+  input: StartMedicalStreamTranscriptionCommandInput,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
+    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
+      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
+    ...(isSerializableHeaderValue(input.VocabularyName) && {
+      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    }),
+    ...(isSerializableHeaderValue(input.Specialty) && { "x-amzn-transcribe-specialty": input.Specialty! }),
+    ...(isSerializableHeaderValue(input.Type) && { "x-amzn-transcribe-type": input.Type! }),
+    ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
+      "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
+    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
+      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
+      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
+    }),
+  };
+  let resolvedPath = "/medical-stream-transcription";
+  let body: any;
+  if (input.AudioStream !== undefined) {
+    body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
+      serializeAws_restJson1AudioStream_event(event, context)
+    );
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
+    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
+      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
+    }),
     ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
+    ...(isSerializableHeaderValue(input.VocabularyName) && {
+      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    }),
+    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
+      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
+    }),
     ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
       "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
     }),
     ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
       "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
-    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
-      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
-    ...(isSerializableHeaderValue(input.VocabularyName) && {
-      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    }),
     ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
       "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
-      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
-    }),
-    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
-      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
+    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
+      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
     }),
   };
   let resolvedPath = "/stream-transcription";
@@ -76,6 +132,149 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<StartMedicalStreamTranscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError(output, context);
+  }
+  const contents: StartMedicalStreamTranscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EnableChannelIdentification: undefined,
+    LanguageCode: undefined,
+    MediaEncoding: undefined,
+    MediaSampleRateHertz: undefined,
+    NumberOfChannels: undefined,
+    RequestId: undefined,
+    SessionId: undefined,
+    ShowSpeakerLabel: undefined,
+    Specialty: undefined,
+    TranscriptResultStream: undefined,
+    Type: undefined,
+    VocabularyName: undefined,
+  };
+  if (output.headers["x-amzn-request-id"] !== undefined) {
+    contents.RequestId = output.headers["x-amzn-request-id"];
+  }
+  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
+    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
+  }
+  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
+    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
+    contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
+  }
+  if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
+    contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
+  }
+  if (output.headers["x-amzn-transcribe-specialty"] !== undefined) {
+    contents.Specialty = output.headers["x-amzn-transcribe-specialty"];
+  }
+  if (output.headers["x-amzn-transcribe-type"] !== undefined) {
+    contents.Type = output.headers["x-amzn-transcribe-type"];
+  }
+  if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
+    contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
+  }
+  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
+    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
+  }
+  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
+    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
+  }
+  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
+    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
+    const eventName = Object.keys(event)[0];
+    const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
+      accummulator[curr[0]] = curr[1].value;
+      return accummulator;
+    }, {} as { [key: string]: any });
+    const eventMessage = {
+      headers: eventHeaders,
+      body: event[eventName].body,
+    };
+    const parsedEvent = {
+      [eventName]: eventMessage,
+    };
+    return await deserializeAws_restJson1MedicalTranscriptResultStream_event(parsedEvent, context);
+  });
+  contents.TranscriptResultStream = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMedicalStreamTranscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribestreaming#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.transcribestreaming#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribestreaming#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribestreaming#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transcribestreaming#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
@@ -100,8 +299,14 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     VocabularyFilterName: undefined,
     VocabularyName: undefined,
   };
-  if (output.headers["x-amzn-transcribe-vocabulary-filter-name"] !== undefined) {
-    contents.VocabularyFilterName = output.headers["x-amzn-transcribe-vocabulary-filter-name"];
+  if (output.headers["x-amzn-request-id"] !== undefined) {
+    contents.RequestId = output.headers["x-amzn-request-id"];
+  }
+  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
+    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
+  }
+  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
+    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
   }
   if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
     contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
@@ -109,29 +314,23 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.headers["x-amzn-transcribe-vocabulary-name"] !== undefined) {
     contents.VocabularyName = output.headers["x-amzn-transcribe-vocabulary-name"];
   }
+  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
+    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
+  }
+  if (output.headers["x-amzn-transcribe-vocabulary-filter-name"] !== undefined) {
+    contents.VocabularyFilterName = output.headers["x-amzn-transcribe-vocabulary-filter-name"];
+  }
   if (output.headers["x-amzn-transcribe-vocabulary-filter-method"] !== undefined) {
     contents.VocabularyFilterMethod = output.headers["x-amzn-transcribe-vocabulary-filter-method"];
-  }
-  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
-    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
   if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
     contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
   }
-  if (output.headers["x-amzn-request-id"] !== undefined) {
-    contents.RequestId = output.headers["x-amzn-request-id"];
+  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
+    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
-  }
-  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
-    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
-  }
-  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
-  }
-  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -227,10 +426,15 @@ const serializeAws_restJson1AudioStream_event = (input: any, context: __SerdeCon
     _: (value) => value as any,
   });
 };
-const deserializeAws_restJson1TranscriptResultStream_event = async (
+const deserializeAws_restJson1MedicalTranscriptResultStream_event = async (
   output: any,
   context: __SerdeContext
-): Promise<TranscriptResultStream> => {
+): Promise<MedicalTranscriptResultStream> => {
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1MedicalTranscriptEvent_event(output["TranscriptEvent"], context),
+    };
+  }
   if (output["BadRequestException"] !== undefined) {
     return {
       BadRequestException: await deserializeAws_restJson1BadRequestException_event(
@@ -239,9 +443,12 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
       ),
     };
   }
-  if (output["TranscriptEvent"] !== undefined) {
+  if (output["LimitExceededException"] !== undefined) {
     return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
+      LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
+        output["LimitExceededException"],
+        context
+      ),
     };
   }
   if (output["InternalFailureException"] !== undefined) {
@@ -265,10 +472,50 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
       ),
     };
   }
+  return { $unknown: output };
+};
+const deserializeAws_restJson1TranscriptResultStream_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TranscriptResultStream> => {
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
+    };
+  }
+  if (output["BadRequestException"] !== undefined) {
+    return {
+      BadRequestException: await deserializeAws_restJson1BadRequestException_event(
+        output["BadRequestException"],
+        context
+      ),
+    };
+  }
   if (output["LimitExceededException"] !== undefined) {
     return {
       LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
         output["LimitExceededException"],
+        context
+      ),
+    };
+  }
+  if (output["InternalFailureException"] !== undefined) {
+    return {
+      InternalFailureException: await deserializeAws_restJson1InternalFailureException_event(
+        output["InternalFailureException"],
+        context
+      ),
+    };
+  }
+  if (output["ConflictException"] !== undefined) {
+    return {
+      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
+    };
+  }
+  if (output["ServiceUnavailableException"] !== undefined) {
+    return {
+      ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
+        output["ServiceUnavailableException"],
         context
       ),
     };
@@ -325,6 +572,18 @@ const deserializeAws_restJson1LimitExceededException_event = async (
     body: await parseBody(output.body, context),
   };
   return deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1MedicalTranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MedicalTranscriptEvent> => {
+  let contents: MedicalTranscriptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  contents = {
+    ...contents,
+    ...deserializeAws_restJson1MedicalTranscriptEvent(data, context),
+  } as any;
+  return contents;
 };
 const deserializeAws_restJson1ServiceUnavailableException_event = async (
   output: any,
@@ -476,6 +735,74 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
+};
+
+const deserializeAws_restJson1MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
+  return {
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_restJson1MedicalItemList(output.Items, context)
+        : undefined,
+    Transcript: output.Transcript !== undefined && output.Transcript !== null ? output.Transcript : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __SerdeContext): MedicalAlternative[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalAlternative(entry, context));
+};
+
+const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
+  return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
+    Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
+    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MedicalItemList = (output: any, context: __SerdeContext): MedicalItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalItem(entry, context));
+};
+
+const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeContext): MedicalResult => {
+  return {
+    Alternatives:
+      output.Alternatives !== undefined && output.Alternatives !== null
+        ? deserializeAws_restJson1MedicalAlternativeList(output.Alternatives, context)
+        : undefined,
+    ChannelId: output.ChannelId !== undefined && output.ChannelId !== null ? output.ChannelId : undefined,
+    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
+    IsPartial: output.IsPartial !== undefined && output.IsPartial !== null ? output.IsPartial : undefined,
+    ResultId: output.ResultId !== undefined && output.ResultId !== null ? output.ResultId : undefined,
+    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MedicalResultList = (output: any, context: __SerdeContext): MedicalResult[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MedicalResult(entry, context));
+};
+
+const deserializeAws_restJson1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
+  return {
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_restJson1MedicalResultList(output.Results, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MedicalTranscriptEvent = (
+  output: any,
+  context: __SerdeContext
+): MedicalTranscriptEvent => {
+  return {
+    Transcript:
+      output.Transcript !== undefined && output.Transcript !== null
+        ? deserializeAws_restJson1MedicalTranscript(output.Transcript, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {

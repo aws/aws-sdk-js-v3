@@ -12,7 +12,9 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateHostCommandInput, UpdateHostCommandOutput } from "../commands/UpdateHostCommand";
 import {
+  ConflictException,
   Connection,
   CreateConnectionInput,
   CreateConnectionOutput,
@@ -39,8 +41,11 @@ import {
   Tag,
   TagResourceInput,
   TagResourceOutput,
+  UnsupportedOperationException,
   UntagResourceInput,
   UntagResourceOutput,
+  UpdateHostInput,
+  UpdateHostOutput,
   VpcConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -193,6 +198,19 @@ export const serializeAws_json1_0UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateHostCommand = async (
+  input: UpdateHostCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.UpdateHost",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,6 +559,14 @@ const deserializeAws_json1_0GetHostCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -825,6 +851,100 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0UpdateHostCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateHostCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateHostOutput(data, context);
+  const response: UpdateHostCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateHostCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHostCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codestarconnections#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.codestarconnections#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_0UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_json1_0ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -863,6 +983,21 @@ const deserializeAws_json1_0ResourceUnavailableExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_0ResourceUnavailableException(body, context);
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_0UnsupportedOperationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedOperationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0UnsupportedOperationException(body, context);
+  const contents: UnsupportedOperationException = {
+    name: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -976,6 +1111,16 @@ const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, conte
   };
 };
 
+const serializeAws_json1_0UpdateHostInput = (input: UpdateHostInput, context: __SerdeContext): any => {
+  return {
+    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
+    ...(input.ProviderEndpoint !== undefined && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.VpcConfiguration !== undefined && {
+      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+    }),
+  };
+};
+
 const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.SecurityGroupIds !== undefined && {
@@ -985,6 +1130,12 @@ const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: 
     ...(input.TlsCertificate !== undefined && { TlsCertificate: input.TlsCertificate }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
   };
+};
+
+const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext): Connection => {
@@ -1154,7 +1305,20 @@ const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_0UnsupportedOperationException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedOperationException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
+  return {} as any;
+};
+
+const deserializeAws_json1_0UpdateHostOutput = (output: any, context: __SerdeContext): UpdateHostOutput => {
   return {} as any;
 };
 

@@ -28,6 +28,7 @@ import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./com
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
 import { StartExecutionCommandInput, StartExecutionCommandOutput } from "./commands/StartExecutionCommand";
+import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "./commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -100,6 +101,7 @@ export type ServiceInputTypes =
   | SendTaskHeartbeatCommandInput
   | SendTaskSuccessCommandInput
   | StartExecutionCommandInput
+  | StartSyncExecutionCommandInput
   | StopExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -124,6 +126,7 @@ export type ServiceOutputTypes =
   | SendTaskHeartbeatCommandOutput
   | SendTaskSuccessCommandOutput
   | StartExecutionCommandOutput
+  | StartSyncExecutionCommandOutput
   | StopExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

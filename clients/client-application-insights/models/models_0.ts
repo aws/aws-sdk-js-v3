@@ -1,7 +1,38 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type Tier = "DEFAULT" | "DOT_NET_CORE" | "DOT_NET_WEB" | "DOT_NET_WORKER" | "SQL_SERVER";
+/**
+ * <p>
+ *             User does not have permissions to perform this action.
+ *          </p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
+export type Tier =
+  | "CUSTOM"
+  | "DEFAULT"
+  | "DOT_NET_CORE"
+  | "DOT_NET_WEB"
+  | "DOT_NET_WEB_TIER"
+  | "DOT_NET_WORKER"
+  | "JAVA_JMX"
+  | "MYSQL"
+  | "ORACLE"
+  | "POSTGRESQL"
+  | "SQL_SERVER"
+  | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP";
+
+export type OsType = "LINUX" | "WINDOWS";
 
 /**
  * <p>Describes a standalone resource or similarly grouped resources that the application is made
@@ -14,9 +45,11 @@ export interface ApplicationComponent {
   ComponentName?: string;
 
   /**
-   * <p>The stack tier of the application component.</p>
+   * <p>
+   *          If logging is supported for the resource type, indicates whether the component has configured logs to be monitored.
+   *       </p>
    */
-  Tier?: Tier | string;
+  ComponentRemarks?: string;
 
   /**
    * <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>
@@ -24,9 +57,28 @@ export interface ApplicationComponent {
   ResourceType?: string;
 
   /**
+   * <p>
+   *          The operating system of the component.
+   *       </p>
+   */
+  OsType?: OsType | string;
+
+  /**
+   * <p>The stack tier of the application component.</p>
+   */
+  Tier?: Tier | string;
+
+  /**
    * <p>Indicates whether the application component is monitored. </p>
    */
   Monitor?: boolean;
+
+  /**
+   * <p>
+   *          Workloads detected in the application component.
+   *       </p>
+   */
+  DetectedWorkload?: { [key: string]: { [key: string]: string } };
 }
 
 export namespace ApplicationComponent {
@@ -45,12 +97,32 @@ export interface ApplicationInfo {
   ResourceGroupName?: string;
 
   /**
+   * <p>The lifecycle of the application. </p>
+   */
+  LifeCycle?: string;
+
+  /**
+   * <p>
+   *          The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications
+   *          for opsItem updates.
+   *       </p>
+   */
+  OpsItemSNSTopicArn?: string;
+
+  /**
    * <p>
    *          Indicates whether Application Insights will create opsItems for any problem detected by Application
    *          Insights for an application.
    *       </p>
    */
   OpsCenterEnabled?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
+   *       </p>
+   */
+  CWEMonitorEnabled?: boolean;
 
   /**
    * <p>The issues on the user side that block Application Insights from successfully monitoring
@@ -65,26 +137,6 @@ export interface ApplicationInfo {
    *          </ul>
    */
   Remarks?: string;
-
-  /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
-   */
-  CWEMonitorEnabled?: boolean;
-
-  /**
-   * <p>
-   *          The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications
-   *          for opsItem updates.
-   *       </p>
-   */
-  OpsItemSNSTopicArn?: string;
-
-  /**
-   * <p>The lifecycle of the application. </p>
-   */
-  LifeCycle?: string;
 }
 
 export namespace ApplicationInfo {
@@ -108,9 +160,13 @@ export namespace BadRequestException {
   });
 }
 
-export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH";
+export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH" | "RDS";
 
-export type ConfigurationEventResourceType = "CLOUDFORMATION" | "CLOUDWATCH_ALARM" | "SSM_ASSOCIATION";
+export type ConfigurationEventResourceType =
+  | "CLOUDFORMATION"
+  | "CLOUDWATCH_ALARM"
+  | "CLOUDWATCH_LOG"
+  | "SSM_ASSOCIATION";
 
 export type ConfigurationEventStatus = "ERROR" | "INFO" | "WARN";
 
@@ -122,10 +178,17 @@ export type ConfigurationEventStatus = "ERROR" | "INFO" | "WARN";
 export interface ConfigurationEvent {
   /**
    * <p>
-   *          The name of the resource Application Insights attempted to configure.
+   *          The resource monitored by Application Insights.
    *       </p>
    */
-  EventResourceName?: string;
+  MonitoredResourceARN?: string;
+
+  /**
+   * <p>
+   *          The status of the configuration update event. Possible values include INFO, WARN, and ERROR.
+   *       </p>
+   */
+  EventStatus?: ConfigurationEventStatus | string;
 
   /**
    * <p>
@@ -150,17 +213,10 @@ export interface ConfigurationEvent {
 
   /**
    * <p>
-   *          The resource monitored by Application Insights.
+   *          The name of the resource Application Insights attempted to configure.
    *       </p>
    */
-  MonitoredResourceARN?: string;
-
-  /**
-   * <p>
-   *          The status of the configuration update event. Possible values include INFO, WARN, and ERROR.
-   *       </p>
-   */
-  EventStatus?: ConfigurationEventStatus | string;
+  EventResourceName?: string;
 }
 
 export namespace ConfigurationEvent {
@@ -198,17 +254,17 @@ export namespace ConfigurationEvent {
  */
 export interface Tag {
   /**
+   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
+   *          128 characters. The minimum length is 1 character.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
    *          value is 256 characters. The minimum length is 0 characters. If you don't want an
    *          application to have a specific tag value, don't specify a value for this parameter.</p>
    */
   Value: string | undefined;
-
-  /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *          128 characters. The minimum length is 1 character.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -219,11 +275,9 @@ export namespace Tag {
 
 export interface CreateApplicationRequest {
   /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
+   * <p>The name of the resource group.</p>
    */
-  CWEMonitorEnabled?: boolean;
+  ResourceGroupName: string | undefined;
 
   /**
    * <p>
@@ -234,16 +288,18 @@ export interface CreateApplicationRequest {
 
   /**
    * <p>
+   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
+   *       </p>
+   */
+  CWEMonitorEnabled?: boolean;
+
+  /**
+   * <p>
    *          The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to
    *          receive notifications for updates to the opsItem.
    *       </p>
    */
   OpsItemSNSTopicArn?: string;
-
-  /**
-   * <p>The name of the resource group.</p>
-   */
-  ResourceGroupName: string | undefined;
 
   /**
    * <p>List of tags to add to the application.
@@ -350,14 +406,14 @@ export namespace ValidationException {
 
 export interface CreateComponentRequest {
   /**
-   * <p>The name of the component.</p>
-   */
-  ComponentName: string | undefined;
-
-  /**
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName: string | undefined;
 
   /**
    * <p>The list of resource ARNs that belong to the component.</p>
@@ -381,9 +437,9 @@ export namespace CreateComponentResponse {
 
 export interface CreateLogPatternRequest {
   /**
-   * <p>The log pattern.</p>
+   * <p>The name of the resource group.</p>
    */
-  Pattern: string | undefined;
+  ResourceGroupName: string | undefined;
 
   /**
    * <p>The name of the log pattern set.</p>
@@ -391,19 +447,21 @@ export interface CreateLogPatternRequest {
   PatternSetName: string | undefined;
 
   /**
-   * <p>Rank of the log pattern.</p>
-   */
-  Rank: number | undefined;
-
-  /**
    * <p>The name of the log pattern.</p>
    */
   PatternName: string | undefined;
 
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
    */
-  ResourceGroupName: string | undefined;
+  Pattern: string | undefined;
+
+  /**
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
+   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
+   *       </p>
+   */
+  Rank: number | undefined;
 }
 
 export namespace CreateLogPatternRequest {
@@ -417,27 +475,29 @@ export namespace CreateLogPatternRequest {
  */
 export interface LogPattern {
   /**
-   * <p>The name of the log pattern. A log pattern name can contains at many as 50 characters, and it cannot
-   *          be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>
+   * <p>The name of the log pattern. A log pattern name can contain as many as 30 characters, and it cannot
+   *          be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
+   */
+  PatternSetName?: string;
+
+  /**
+   * <p>The name of the log pattern. A log pattern name can contain as many as 50 characters, and it cannot
+   *          be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore.</p>
    */
   PatternName?: string;
 
   /**
-   * <p>Rank of the log pattern.</p>
-   */
-  Rank?: number;
-
-  /**
-   * <p>A regular expression that defines the log pattern. A log pattern can contains at many as 50 characters, and it cannot
-   *          be empty.</p>
+   * <p>A regular expression that defines the log pattern. A log pattern can contain as many as 50 characters, and it cannot
+   *          be empty. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
    */
   Pattern?: string;
 
   /**
-   * <p>The name of the log pattern. A log pattern name can contains at many as 30 characters, and it cannot
-   *          be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
+   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
+   *       </p>
    */
-  PatternSetName?: string;
+  Rank?: number;
 }
 
 export namespace LogPattern {
@@ -513,6 +573,11 @@ export namespace DeleteComponentResponse {
 
 export interface DeleteLogPatternRequest {
   /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
    * <p>The name of the log pattern set.</p>
    */
   PatternSetName: string | undefined;
@@ -521,11 +586,6 @@ export interface DeleteLogPatternRequest {
    * <p>The name of the log pattern.</p>
    */
   PatternName: string | undefined;
-
-  /**
-   * <p>The name of the resource group.</p>
-   */
-  ResourceGroupName: string | undefined;
 }
 
 export namespace DeleteLogPatternRequest {
@@ -588,15 +648,15 @@ export namespace DescribeComponentRequest {
 
 export interface DescribeComponentResponse {
   /**
-   * <p>The list of resource ARNs that belong to the component.</p>
-   */
-  ResourceList?: string[];
-
-  /**
    * <p>Describes a standalone resource or similarly grouped resources that the application is made
    *          up of.</p>
    */
   ApplicationComponent?: ApplicationComponent;
+
+  /**
+   * <p>The list of resource ARNs that belong to the component.</p>
+   */
+  ResourceList?: string[];
 }
 
 export namespace DescribeComponentResponse {
@@ -625,11 +685,6 @@ export namespace DescribeComponentConfigurationRequest {
 
 export interface DescribeComponentConfigurationResponse {
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>
-   */
-  ComponentConfiguration?: string;
-
-  /**
    * <p>Indicates whether the application component is monitored.</p>
    */
   Monitor?: boolean;
@@ -641,6 +696,11 @@ export interface DescribeComponentConfigurationResponse {
    *          </p>
    */
   Tier?: Tier | string;
+
+  /**
+   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>
+   */
+  ComponentConfiguration?: string;
 }
 
 export namespace DescribeComponentConfigurationResponse {
@@ -651,13 +711,6 @@ export namespace DescribeComponentConfigurationResponse {
 
 export interface DescribeComponentConfigurationRecommendationRequest {
   /**
-   * <p>The tier of the application component. Supported tiers include
-   *          <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,
-   *          and <code>DEFAULT</code>.</p>
-   */
-  Tier: Tier | string | undefined;
-
-  /**
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName: string | undefined;
@@ -666,6 +719,13 @@ export interface DescribeComponentConfigurationRecommendationRequest {
    * <p>The name of the component.</p>
    */
   ComponentName: string | undefined;
+
+  /**
+   * <p>The tier of the application component. Supported tiers include
+   *          <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,
+   *          and <code>DEFAULT</code>.</p>
+   */
+  Tier: Tier | string | undefined;
 }
 
 export namespace DescribeComponentConfigurationRecommendationRequest {
@@ -689,6 +749,11 @@ export namespace DescribeComponentConfigurationRecommendationResponse {
 
 export interface DescribeLogPatternRequest {
   /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
    * <p>The name of the log pattern set.</p>
    */
   PatternSetName: string | undefined;
@@ -697,11 +762,6 @@ export interface DescribeLogPatternRequest {
    * <p>The name of the log pattern.</p>
    */
   PatternName: string | undefined;
-
-  /**
-   * <p>The name of the resource group.</p>
-   */
-  ResourceGroupName: string | undefined;
 }
 
 export namespace DescribeLogPatternRequest {
@@ -748,14 +808,123 @@ export type LogFilter = "ERROR" | "INFO" | "WARN";
  */
 export interface Observation {
   /**
+   * <p>The ID of the observation type.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The time when the observation was  first detected, in epoch seconds.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time when the observation ended, in epoch seconds.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The source type of the observation.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The source resource ARN of the observation.</p>
+   */
+  SourceARN?: string;
+
+  /**
+   * <p>The log group name.</p>
+   */
+  LogGroup?: string;
+
+  /**
    * <p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>
    */
   LineTime?: Date;
 
   /**
+   * <p>The log text of the observation.</p>
+   */
+  LogText?: string;
+
+  /**
+   * <p>The log filter of the observation.</p>
+   */
+  LogFilter?: LogFilter | string;
+
+  /**
+   * <p>The namespace of the observation metric.</p>
+   */
+  MetricNamespace?: string;
+
+  /**
+   * <p>The name of the observation metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The unit of the source observation metric.</p>
+   */
+  Unit?: string;
+
+  /**
+   * <p>The value of the source observation metric.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>
+   */
+  CloudWatchEventId?: string;
+
+  /**
+   * <p> The source of the CloudWatch Event. </p>
+   */
+  CloudWatchEventSource?: CloudWatchEventSource | string;
+
+  /**
+   * <p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2
+   *             Instance State-change Notification</code>. </p>
+   */
+  CloudWatchEventDetailType?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the AWS Health Event-based observation.</p>
+   */
+  HealthEventArn?: string;
+
+  /**
    * <p> The service to which the AWS Health Event belongs, such as EC2. </p>
    */
   HealthService?: string;
+
+  /**
+   * <p> The type of the AWS Health event, for example,
+   *             <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>
+   */
+  HealthEventTypeCode?: string;
+
+  /**
+   * <p> The category of the AWS Health event, such as <code>issue</code>. </p>
+   */
+  HealthEventTypeCategory?: string;
+
+  /**
+   * <p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>
+   */
+  HealthEventDescription?: string;
+
+  /**
+   * <p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>
+   */
+  CodeDeployDeploymentId?: string;
+
+  /**
+   * <p>
+   *          The deployment group to which the CodeDeploy deployment belongs.
+   *       </p>
+   */
+  CodeDeployDeploymentGroup?: string;
 
   /**
    * <p>
@@ -765,158 +934,11 @@ export interface Observation {
   CodeDeployState?: string;
 
   /**
-   * <p> The deployment ID of the CodeDeploy-based observation related to the detected problem. </p>
-   */
-  CodeDeployDeploymentId?: string;
-
-  /**
-   * <p>
-   *          The X-Ray request fault percentage for this node.
-   *       </p>
-   */
-  XRayFaultPercent?: number;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the AWS Health Event-based observation.</p>
-   */
-  HealthEventArn?: string;
-
-  /**
-   * <p>The name of the observation metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>
-   *          The X-Ray request count for this node.
-   *       </p>
-   */
-  XRayRequestCount?: number;
-
-  /**
-   * <p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2
-   *             Instance State-change Notification</code>. </p>
-   */
-  CloudWatchEventDetailType?: string;
-
-  /**
-   * <p>The source type of the observation.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>
-   *          The X-Ray request error percentage for this node.
-   *       </p>
-   */
-  XRayErrorPercent?: number;
-
-  /**
-   * <p> The category of the AWS Health event, such as <code>issue</code>. </p>
-   */
-  HealthEventTypeCategory?: string;
-
-  /**
-   * <p>
-   *          The X-Ray node request average latency for this node.
-   *       </p>
-   */
-  XRayRequestAverageLatency?: number;
-
-  /**
-   * <p>The namespace of the observation metric.</p>
-   */
-  MetricNamespace?: string;
-
-  /**
-   * <p>
-   *          The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.
-   *       </p>
-   */
-  Ec2State?: string;
-
-  /**
-   * <p> The ID of the CloudWatch Event-based observation related to the detected problem. </p>
-   */
-  CloudWatchEventId?: string;
-
-  /**
-   * <p>
-   *          The X-Ray request throttle percentage for this node.
-   *       </p>
-   */
-  XRayThrottlePercent?: number;
-
-  /**
-   * <p>The time when the observation was  first detected, in epoch seconds.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The value of the source observation metric.</p>
-   */
-  Value?: number;
-
-  /**
-   * <p>
-   *          The type of the  X-Ray node.      </p>
-   */
-  XRayNodeType?: string;
-
-  /**
-   * <p>The source resource ARN of the observation.</p>
-   */
-  SourceARN?: string;
-
-  /**
-   * <p>The log text of the observation.</p>
-   */
-  LogText?: string;
-
-  /**
-   * <p>The ID of the observation type.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p> The description of the AWS Health event provided by the service, such as Amazon EC2. </p>
-   */
-  HealthEventDescription?: string;
-
-  /**
-   * <p> The type of the AWS Health event, for example,
-   *             <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. </p>
-   */
-  HealthEventTypeCode?: string;
-
-  /**
-   * <p>
-   *          The name of the X-Ray node.
-   *       </p>
-   */
-  XRayNodeName?: string;
-
-  /**
-   * <p>The time when the observation ended, in epoch seconds.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The unit of the source observation metric.</p>
-   */
-  Unit?: string;
-
-  /**
    * <p>
    *          The CodeDeploy application to which the deployment belongs.
    *       </p>
    */
   CodeDeployApplication?: string;
-
-  /**
-   * <p>The log filter of the observation.</p>
-   */
-  LogFilter?: LogFilter | string;
 
   /**
    * <p>
@@ -926,21 +948,136 @@ export interface Observation {
   CodeDeployInstanceGroupId?: string;
 
   /**
-   * <p> The source of the CloudWatch Event. </p>
+   * <p>
+   *          The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>.
+   *       </p>
    */
-  CloudWatchEventSource?: CloudWatchEventSource | string;
-
-  /**
-   * <p>The log group name.</p>
-   */
-  LogGroup?: string;
+  Ec2State?: string;
 
   /**
    * <p>
-   *          The deployment group to which the CodeDeploy deployment belongs.
+   *          The category of an RDS event.
    *       </p>
    */
-  CodeDeployDeploymentGroup?: string;
+  RdsEventCategories?: string;
+
+  /**
+   * <p>
+   *          The message of an RDS event.
+   *       </p>
+   */
+  RdsEventMessage?: string;
+
+  /**
+   * <p>
+   *          The name of the S3 CloudWatch Event-based observation.
+   *       </p>
+   */
+  S3EventName?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the step function execution-based observation.
+   *       </p>
+   */
+  StatesExecutionArn?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN)  of the step function-based observation.
+   *       </p>
+   */
+  StatesArn?: string;
+
+  /**
+   * <p>
+   *          The status of the step function-related observation.
+   *       </p>
+   */
+  StatesStatus?: string;
+
+  /**
+   * <p>
+   *          The input to the step function-based observation.
+   *       </p>
+   */
+  StatesInput?: string;
+
+  /**
+   * <p>
+   *          The type of EBS CloudWatch event, such as <code>createVolume</code>, <code>deleteVolume</code> or <code>attachVolume</code>.
+   *       </p>
+   */
+  EbsEvent?: string;
+
+  /**
+   * <p>
+   *          The result of an EBS CloudWatch event, such as <code>failed</code> or <code>succeeded</code>.
+   *       </p>
+   */
+  EbsResult?: string;
+
+  /**
+   * <p>
+   *          The cause of an EBS CloudWatch event.
+   *       </p>
+   */
+  EbsCause?: string;
+
+  /**
+   * <p>
+   *             The request ID of an EBS CloudWatch event.
+   *          </p>
+   */
+  EbsRequestId?: string;
+
+  /**
+   * <p>
+   *          The X-Ray request fault percentage for this node.
+   *       </p>
+   */
+  XRayFaultPercent?: number;
+
+  /**
+   * <p>
+   *          The X-Ray request throttle percentage for this node.
+   *       </p>
+   */
+  XRayThrottlePercent?: number;
+
+  /**
+   * <p>
+   *          The X-Ray request error percentage for this node.
+   *       </p>
+   */
+  XRayErrorPercent?: number;
+
+  /**
+   * <p>
+   *          The X-Ray request count for this node.
+   *       </p>
+   */
+  XRayRequestCount?: number;
+
+  /**
+   * <p>
+   *          The X-Ray node request average latency for this node.
+   *       </p>
+   */
+  XRayRequestAverageLatency?: number;
+
+  /**
+   * <p>
+   *          The name of the X-Ray node.
+   *       </p>
+   */
+  XRayNodeName?: string;
+
+  /**
+   * <p>
+   *          The type of the  X-Ray node.      </p>
+   */
+  XRayNodeType?: string;
 }
 
 export namespace Observation {
@@ -988,9 +1125,39 @@ export type Status = "IGNORE" | "PENDING" | "RESOLVED";
  */
 export interface Problem {
   /**
+   * <p>The ID of the problem.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The name of the problem.</p>
    */
   Title?: string;
+
+  /**
+   * <p>A detailed analysis of the problem using machine learning.</p>
+   */
+  Insights?: string;
+
+  /**
+   * <p>The status of the problem.</p>
+   */
+  Status?: Status | string;
+
+  /**
+   * <p>The resource affected by the problem.</p>
+   */
+  AffectedResource?: string;
+
+  /**
+   * <p>The time when the problem started, in epoch seconds.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time when the problem ended, in epoch seconds.</p>
+   */
+  EndTime?: Date;
 
   /**
    * <p>A measure of the level of impact of the problem.</p>
@@ -1003,39 +1170,9 @@ export interface Problem {
   ResourceGroupName?: string;
 
   /**
-   * <p>The status of the problem.</p>
-   */
-  Status?: Status | string;
-
-  /**
-   * <p>The time when the problem ended, in epoch seconds.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The ID of the problem.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>A detailed analysis of the problem using machine learning.</p>
-   */
-  Insights?: string;
-
-  /**
    * <p>Feedback provided by the user about the problem.</p>
    */
   Feedback?: { [key: string]: FeedbackValue | string };
-
-  /**
-   * <p>The time when the problem started, in epoch seconds.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The resource affected by the problem.</p>
-   */
-  AffectedResource?: string;
 }
 
 export namespace Problem {
@@ -1101,15 +1238,15 @@ export namespace DescribeProblemObservationsResponse {
 
 export interface ListApplicationsRequest {
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *          results, make another call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListApplicationsRequest {
@@ -1139,9 +1276,9 @@ export namespace ListApplicationsResponse {
 
 export interface ListComponentsRequest {
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The name of the resource group.</p>
    */
-  NextToken?: string;
+  ResourceGroupName: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -1150,9 +1287,9 @@ export interface ListComponentsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The token to request the next page of results.</p>
    */
-  ResourceGroupName: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListComponentsRequest {
@@ -1163,14 +1300,14 @@ export namespace ListComponentsRequest {
 
 export interface ListComponentsResponse {
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The list of application components.</p>
    */
   ApplicationComponentList?: ApplicationComponent[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListComponentsResponse {
@@ -1181,17 +1318,24 @@ export namespace ListComponentsResponse {
 
 export interface ListConfigurationHistoryRequest {
   /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where
-   *          <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination
-   *          continues from the end of the previous results that returned the <code>NextToken</code> value. This
-   *          value is <code>null</code> when there are no more results to return.</p>
+   * <p>Resource group to which the application belongs. </p>
    */
-  NextToken?: string;
+  ResourceGroupName?: string;
 
   /**
    * <p>The start time of the event. </p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The end time of the event.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>
+   */
+  EventStatus?: ConfigurationEventStatus | string;
 
   /**
    * <p> The maximum number of results returned by <code>ListConfigurationHistory</code> in
@@ -1205,19 +1349,12 @@ export interface ListConfigurationHistoryRequest {
   MaxResults?: number;
 
   /**
-   * <p>The end time of the event.</p>
+   * <p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where
+   *          <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination
+   *          continues from the end of the previous results that returned the <code>NextToken</code> value. This
+   *          value is <code>null</code> when there are no more results to return.</p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>
-   */
-  EventStatus?: ConfigurationEventStatus | string;
-
-  /**
-   * <p>Resource group to which the application belongs. </p>
-   */
-  ResourceGroupName?: string;
+  NextToken?: string;
 }
 
 export namespace ListConfigurationHistoryRequest {
@@ -1228,6 +1365,11 @@ export namespace ListConfigurationHistoryRequest {
 
 export interface ListConfigurationHistoryResponse {
   /**
+   * <p> The list of configuration events and their corresponding details. </p>
+   */
+  EventList?: ConfigurationEvent[];
+
+  /**
    * <p>The <code>NextToken</code> value to include in a future
    *             <code>ListConfigurationHistory</code> request. When the results of a
    *             <code>ListConfigurationHistory</code> request exceed <code>MaxResults</code>, this value
@@ -1235,11 +1377,6 @@ export interface ListConfigurationHistoryResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p> The list of configuration events and their corresponding details. </p>
-   */
-  EventList?: ConfigurationEvent[];
 }
 
 export namespace ListConfigurationHistoryResponse {
@@ -1250,14 +1387,14 @@ export namespace ListConfigurationHistoryResponse {
 
 export interface ListLogPatternsRequest {
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the log pattern set.</p>
+   */
+  PatternSetName?: string;
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -1266,9 +1403,9 @@ export interface ListLogPatternsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * <p>The token to request the next page of results.</p>
    */
-  PatternSetName?: string;
+  NextToken?: string;
 }
 
 export namespace ListLogPatternsRequest {
@@ -1284,15 +1421,15 @@ export interface ListLogPatternsResponse {
   ResourceGroupName?: string;
 
   /**
+   * <p>The list of log patterns.</p>
+   */
+  LogPatterns?: LogPattern[];
+
+  /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
    *          when there are no more results to return. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of log patterns.</p>
-   */
-  LogPatterns?: LogPattern[];
 }
 
 export namespace ListLogPatternsResponse {
@@ -1303,9 +1440,9 @@ export namespace ListLogPatternsResponse {
 
 export interface ListLogPatternSetsRequest {
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The name of the resource group.</p>
    */
-  NextToken?: string;
+  ResourceGroupName: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -1314,9 +1451,9 @@ export interface ListLogPatternSetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The token to request the next page of results.</p>
    */
-  ResourceGroupName: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListLogPatternSetsRequest {
@@ -1332,15 +1469,15 @@ export interface ListLogPatternSetsResponse {
   ResourceGroupName?: string;
 
   /**
+   * <p>The list of log pattern sets.</p>
+   */
+  LogPatternSets?: string[];
+
+  /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
    *          when there are no more results to return. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of log pattern sets.</p>
-   */
-  LogPatternSets?: string[];
 }
 
 export namespace ListLogPatternSetsResponse {
@@ -1350,17 +1487,6 @@ export namespace ListLogPatternSetsResponse {
 }
 
 export interface ListProblemsRequest {
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The name of the resource group.</p>
    */
@@ -1377,6 +1503,17 @@ export interface ListProblemsRequest {
    *          past seven days are returned.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *          results, make another call with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProblemsRequest {
@@ -1435,17 +1572,17 @@ export namespace ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
    * <p>A list of tags that to add to the application. A tag consists of a required
    *          tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
    *          length of a tag key is 128 characters. The maximum length of a tag value is 256
    *          characters.</p>
    */
   Tags: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>
-   */
-  ResourceARN: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1514,11 +1651,23 @@ export namespace UntagResourceResponse {
 
 export interface UpdateApplicationRequest {
   /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
    * <p>
    *          When set to <code>true</code>, creates opsItems for any problems detected on an application.
    *       </p>
    */
   OpsCenterEnabled?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
+   *       </p>
+   */
+  CWEMonitorEnabled?: boolean;
 
   /**
    * <p>
@@ -1532,18 +1681,6 @@ export interface UpdateApplicationRequest {
    *          Disassociates the SNS topic from the opsItem created for detected problems.</p>
    */
   RemoveSNSTopic?: boolean;
-
-  /**
-   * <p>
-   *          Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others.
-   *       </p>
-   */
-  CWEMonitorEnabled?: boolean;
-
-  /**
-   * <p>The name of the resource group.</p>
-   */
-  ResourceGroupName: string | undefined;
 }
 
 export namespace UpdateApplicationRequest {
@@ -1567,14 +1704,14 @@ export namespace UpdateApplicationResponse {
 
 export interface UpdateComponentRequest {
   /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
    * <p>The name of the component.</p>
    */
   ComponentName: string | undefined;
-
-  /**
-   * <p>The list of resource ARNs that belong to the component.</p>
-   */
-  ResourceList?: string[];
 
   /**
    * <p>The new name of the component.</p>
@@ -1582,9 +1719,9 @@ export interface UpdateComponentRequest {
   NewComponentName?: string;
 
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The list of resource ARNs that belong to the component.</p>
    */
-  ResourceGroupName: string | undefined;
+  ResourceList?: string[];
 }
 
 export namespace UpdateComponentRequest {
@@ -1603,6 +1740,11 @@ export namespace UpdateComponentResponse {
 
 export interface UpdateComponentConfigurationRequest {
   /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
    * <p>The name of the component.</p>
    */
   ComponentName: string | undefined;
@@ -1613,23 +1755,18 @@ export interface UpdateComponentConfigurationRequest {
   Monitor?: boolean;
 
   /**
-   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For
-   *          more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>.
-   *          You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete
-   *          format of the component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
-   */
-  ComponentConfiguration?: string;
-
-  /**
    * <p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,
    *          <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>
    */
   Tier?: Tier | string;
 
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For
+   *          more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working with JSON</a>.
+   *          You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete
+   *          format of the component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
    */
-  ResourceGroupName: string | undefined;
+  ComponentConfiguration?: string;
 }
 
 export namespace UpdateComponentConfigurationRequest {
@@ -1653,14 +1790,9 @@ export interface UpdateLogPatternRequest {
   ResourceGroupName: string | undefined;
 
   /**
-   * <p>Rank of the log pattern.</p>
+   * <p>The name of the log pattern set.</p>
    */
-  Rank?: number;
-
-  /**
-   * <p>The log pattern.</p>
-   */
-  Pattern?: string;
+  PatternSetName: string | undefined;
 
   /**
    * <p>The name of the log pattern.</p>
@@ -1668,9 +1800,16 @@ export interface UpdateLogPatternRequest {
   PatternName: string | undefined;
 
   /**
-   * <p>The name of the log pattern set.</p>
+   * <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
    */
-  PatternSetName: string | undefined;
+  Pattern?: string;
+
+  /**
+   * <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank.
+   *          Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns.
+   *       </p>
+   */
+  Rank?: number;
 }
 
 export namespace UpdateLogPatternRequest {
@@ -1681,14 +1820,14 @@ export namespace UpdateLogPatternRequest {
 
 export interface UpdateLogPatternResponse {
   /**
-   * <p>The successfully created log pattern.</p>
-   */
-  LogPattern?: LogPattern;
-
-  /**
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName?: string;
+
+  /**
+   * <p>The successfully created log pattern.</p>
+   */
+  LogPattern?: LogPattern;
 }
 
 export namespace UpdateLogPatternResponse {

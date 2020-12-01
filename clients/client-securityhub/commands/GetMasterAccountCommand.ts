@@ -21,7 +21,9 @@ export type GetMasterAccountCommandInput = GetMasterAccountRequest;
 export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
 
 /**
- * <p>Provides the details for the Security Hub master account for the current member account. </p>
+ * <p>Provides the details for the Security Hub master account for the current member account.</p>
+ *          <p>Can be used by both member accounts that are in an organization and accounts that were
+ *          invited manually.</p>
  */
 export class GetMasterAccountCommand extends $Command<
   GetMasterAccountCommandInput,

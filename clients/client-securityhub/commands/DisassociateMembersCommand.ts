@@ -22,6 +22,8 @@ export type DisassociateMembersCommandOutput = DisassociateMembersResponse & __M
 
 /**
  * <p>Disassociates the specified member accounts from the associated master account.</p>
+ *          <p>Can be used to disassociate both accounts that are in an organization and accounts that
+ *          were invited manually.</p>
  */
 export class DisassociateMembersCommand extends $Command<
   DisassociateMembersCommandInput,

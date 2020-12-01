@@ -1,10 +1,14 @@
+import { CreateParallelDataCommandInput, CreateParallelDataCommandOutput } from "./commands/CreateParallelDataCommand";
+import { DeleteParallelDataCommandInput, DeleteParallelDataCommandOutput } from "./commands/DeleteParallelDataCommand";
 import { DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput } from "./commands/DeleteTerminologyCommand";
 import {
   DescribeTextTranslationJobCommandInput,
   DescribeTextTranslationJobCommandOutput,
 } from "./commands/DescribeTextTranslationJobCommand";
+import { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "./commands/GetParallelDataCommand";
 import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./commands/GetTerminologyCommand";
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "./commands/ImportTerminologyCommand";
+import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "./commands/ListParallelDataCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "./commands/ListTerminologiesCommand";
 import {
   ListTextTranslationJobsCommandInput,
@@ -19,6 +23,7 @@ import {
   StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
+import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "./commands/UpdateParallelDataCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,26 +74,36 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateParallelDataCommandInput
+  | DeleteParallelDataCommandInput
   | DeleteTerminologyCommandInput
   | DescribeTextTranslationJobCommandInput
+  | GetParallelDataCommandInput
   | GetTerminologyCommandInput
   | ImportTerminologyCommandInput
+  | ListParallelDataCommandInput
   | ListTerminologiesCommandInput
   | ListTextTranslationJobsCommandInput
   | StartTextTranslationJobCommandInput
   | StopTextTranslationJobCommandInput
-  | TranslateTextCommandInput;
+  | TranslateTextCommandInput
+  | UpdateParallelDataCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateParallelDataCommandOutput
+  | DeleteParallelDataCommandOutput
   | DeleteTerminologyCommandOutput
   | DescribeTextTranslationJobCommandOutput
+  | GetParallelDataCommandOutput
   | GetTerminologyCommandOutput
   | ImportTerminologyCommandOutput
+  | ListParallelDataCommandOutput
   | ListTerminologiesCommandOutput
   | ListTextTranslationJobsCommandOutput
   | StartTextTranslationJobCommandOutput
   | StopTextTranslationJobCommandOutput
-  | TranslateTextCommandOutput;
+  | TranslateTextCommandOutput
+  | UpdateParallelDataCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -135,6 +135,9 @@ export class TimestreamWrite extends TimestreamWriteClient {
    *
    *          <p>All tables in the database must be deleted first, or a ValidationException error will be thrown.
    *       </p>
+   *
+   *          <p>Due to the nature of distributed retries,
+   *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
    */
   public deleteDatabase(
     args: DeleteDatabaseCommandInput,
@@ -170,6 +173,8 @@ export class TimestreamWrite extends TimestreamWriteClient {
    *        After a Timestream database table is deleted, the time series data stored in
    *        the table cannot be recovered.
    *        </p>
+   *          <p>Due to the nature of distributed retries,
+   *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
    */
   public deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
   public deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
@@ -547,7 +552,8 @@ export class TimestreamWrite extends TimestreamWriteClient {
    *       the query results might not reflect the results of a recently completed write
    *       operation. The results may also include some stale data. If you repeat the
    *       query request after a short time, the results should return the latest data.
-   *       Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+   *       Service quotas apply. For more information,
+   *       see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
    *         </p>
    */
   public writeRecords(

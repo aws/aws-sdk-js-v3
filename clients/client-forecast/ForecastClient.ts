@@ -9,6 +9,10 @@ import {
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput,
 } from "./commands/CreateForecastExportJobCommand";
+import {
+  CreatePredictorBacktestExportJobCommandInput,
+  CreatePredictorBacktestExportJobCommandOutput,
+} from "./commands/CreatePredictorBacktestExportJobCommand";
 import { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "./commands/CreatePredictorCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
@@ -21,6 +25,10 @@ import {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
 } from "./commands/DeleteForecastExportJobCommand";
+import {
+  DeletePredictorBacktestExportJobCommandInput,
+  DeletePredictorBacktestExportJobCommandOutput,
+} from "./commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
@@ -36,6 +44,10 @@ import {
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput,
 } from "./commands/DescribeForecastExportJobCommand";
+import {
+  DescribePredictorBacktestExportJobCommandInput,
+  DescribePredictorBacktestExportJobCommandOutput,
+} from "./commands/DescribePredictorBacktestExportJobCommand";
 import { DescribePredictorCommandInput, DescribePredictorCommandOutput } from "./commands/DescribePredictorCommand";
 import { GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput } from "./commands/GetAccuracyMetricsCommand";
 import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
@@ -49,6 +61,10 @@ import {
   ListForecastExportJobsCommandOutput,
 } from "./commands/ListForecastExportJobsCommand";
 import { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
+import {
+  ListPredictorBacktestExportJobsCommandInput,
+  ListPredictorBacktestExportJobsCommandOutput,
+} from "./commands/ListPredictorBacktestExportJobsCommand";
 import { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "./commands/ListPredictorsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -112,18 +128,21 @@ export type ServiceInputTypes =
   | CreateDatasetImportJobCommandInput
   | CreateForecastCommandInput
   | CreateForecastExportJobCommandInput
+  | CreatePredictorBacktestExportJobCommandInput
   | CreatePredictorCommandInput
   | DeleteDatasetCommandInput
   | DeleteDatasetGroupCommandInput
   | DeleteDatasetImportJobCommandInput
   | DeleteForecastCommandInput
   | DeleteForecastExportJobCommandInput
+  | DeletePredictorBacktestExportJobCommandInput
   | DeletePredictorCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetGroupCommandInput
   | DescribeDatasetImportJobCommandInput
   | DescribeForecastCommandInput
   | DescribeForecastExportJobCommandInput
+  | DescribePredictorBacktestExportJobCommandInput
   | DescribePredictorCommandInput
   | GetAccuracyMetricsCommandInput
   | ListDatasetGroupsCommandInput
@@ -131,6 +150,7 @@ export type ServiceInputTypes =
   | ListDatasetsCommandInput
   | ListForecastExportJobsCommandInput
   | ListForecastsCommandInput
+  | ListPredictorBacktestExportJobsCommandInput
   | ListPredictorsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -143,18 +163,21 @@ export type ServiceOutputTypes =
   | CreateDatasetImportJobCommandOutput
   | CreateForecastCommandOutput
   | CreateForecastExportJobCommandOutput
+  | CreatePredictorBacktestExportJobCommandOutput
   | CreatePredictorCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteDatasetGroupCommandOutput
   | DeleteDatasetImportJobCommandOutput
   | DeleteForecastCommandOutput
   | DeleteForecastExportJobCommandOutput
+  | DeletePredictorBacktestExportJobCommandOutput
   | DeletePredictorCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetGroupCommandOutput
   | DescribeDatasetImportJobCommandOutput
   | DescribeForecastCommandOutput
   | DescribeForecastExportJobCommandOutput
+  | DescribePredictorBacktestExportJobCommandOutput
   | DescribePredictorCommandOutput
   | GetAccuracyMetricsCommandOutput
   | ListDatasetGroupsCommandOutput
@@ -162,6 +185,7 @@ export type ServiceOutputTypes =
   | ListDatasetsCommandOutput
   | ListForecastExportJobsCommandOutput
   | ListForecastsCommandOutput
+  | ListPredictorBacktestExportJobsCommandOutput
   | ListPredictorsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput

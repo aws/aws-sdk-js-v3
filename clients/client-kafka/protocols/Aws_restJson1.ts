@@ -445,15 +445,6 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     "Content-Type": "",
   };
   let resolvedPath = "/v1/configurations/{Arn}/revisions/{Revision}";
-  if (input.Revision !== undefined) {
-    const labelValue: string = input.Revision.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Revision.");
-    }
-    resolvedPath = resolvedPath.replace("{Revision}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Revision.");
-  }
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -462,6 +453,15 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     resolvedPath = resolvedPath.replace("{Arn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
+  }
+  if (input.Revision !== undefined) {
+    const labelValue: string = input.Revision.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Revision.");
+    }
+    resolvedPath = resolvedPath.replace("{Revision}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Revision.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -575,9 +575,9 @@ export const serializeAws_restJson1ListClustersCommand = async (
   };
   let resolvedPath = "/v1/clusters";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -611,8 +611,8 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -637,8 +637,8 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -733,8 +733,8 @@ export const serializeAws_restJson1ListScramSecretsCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

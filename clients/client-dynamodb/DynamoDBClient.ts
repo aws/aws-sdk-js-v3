@@ -1,3 +1,7 @@
+import {
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "./commands/BatchExecuteStatementCommand";
 import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "./commands/BatchGetItemCommand";
 import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "./commands/BatchWriteItemCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
@@ -25,6 +29,10 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
+import {
+  DescribeKinesisStreamingDestinationCommandInput,
+  DescribeKinesisStreamingDestinationCommandOutput,
+} from "./commands/DescribeKinesisStreamingDestinationCommand";
 import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
 import {
@@ -32,6 +40,16 @@ import {
   DescribeTableReplicaAutoScalingCommandOutput,
 } from "./commands/DescribeTableReplicaAutoScalingCommand";
 import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "./commands/DescribeTimeToLiveCommand";
+import {
+  DisableKinesisStreamingDestinationCommandInput,
+  DisableKinesisStreamingDestinationCommandOutput,
+} from "./commands/DisableKinesisStreamingDestinationCommand";
+import {
+  EnableKinesisStreamingDestinationCommandInput,
+  EnableKinesisStreamingDestinationCommandOutput,
+} from "./commands/EnableKinesisStreamingDestinationCommand";
+import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
+import { ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput } from "./commands/ExecuteTransactionCommand";
 import {
   ExportTableToPointInTimeCommandInput,
   ExportTableToPointInTimeCommandOutput,
@@ -131,6 +149,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | BatchExecuteStatementCommandInput
   | BatchGetItemCommandInput
   | BatchWriteItemCommandInput
   | CreateBackupCommandInput
@@ -146,10 +165,15 @@ export type ServiceInputTypes =
   | DescribeExportCommandInput
   | DescribeGlobalTableCommandInput
   | DescribeGlobalTableSettingsCommandInput
+  | DescribeKinesisStreamingDestinationCommandInput
   | DescribeLimitsCommandInput
   | DescribeTableCommandInput
   | DescribeTableReplicaAutoScalingCommandInput
   | DescribeTimeToLiveCommandInput
+  | DisableKinesisStreamingDestinationCommandInput
+  | EnableKinesisStreamingDestinationCommandInput
+  | ExecuteStatementCommandInput
+  | ExecuteTransactionCommandInput
   | ExportTableToPointInTimeCommandInput
   | GetItemCommandInput
   | ListBackupsCommandInput
@@ -177,6 +201,7 @@ export type ServiceInputTypes =
   | UpdateTimeToLiveCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchExecuteStatementCommandOutput
   | BatchGetItemCommandOutput
   | BatchWriteItemCommandOutput
   | CreateBackupCommandOutput
@@ -192,10 +217,15 @@ export type ServiceOutputTypes =
   | DescribeExportCommandOutput
   | DescribeGlobalTableCommandOutput
   | DescribeGlobalTableSettingsCommandOutput
+  | DescribeKinesisStreamingDestinationCommandOutput
   | DescribeLimitsCommandOutput
   | DescribeTableCommandOutput
   | DescribeTableReplicaAutoScalingCommandOutput
   | DescribeTimeToLiveCommandOutput
+  | DisableKinesisStreamingDestinationCommandOutput
+  | EnableKinesisStreamingDestinationCommandOutput
+  | ExecuteStatementCommandOutput
+  | ExecuteTransactionCommandOutput
   | ExportTableToPointInTimeCommandOutput
   | GetItemCommandOutput
   | ListBackupsCommandOutput

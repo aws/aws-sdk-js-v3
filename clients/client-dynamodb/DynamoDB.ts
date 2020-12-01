@@ -1,5 +1,10 @@
 import { DynamoDBClient } from "./DynamoDBClient";
 import {
+  BatchExecuteStatementCommand,
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "./commands/BatchExecuteStatementCommand";
+import {
   BatchGetItemCommand,
   BatchGetItemCommandInput,
   BatchGetItemCommandOutput,
@@ -63,6 +68,11 @@ import {
   DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand";
 import {
+  DescribeKinesisStreamingDestinationCommand,
+  DescribeKinesisStreamingDestinationCommandInput,
+  DescribeKinesisStreamingDestinationCommandOutput,
+} from "./commands/DescribeKinesisStreamingDestinationCommand";
+import {
   DescribeLimitsCommand,
   DescribeLimitsCommandInput,
   DescribeLimitsCommandOutput,
@@ -82,6 +92,26 @@ import {
   DescribeTimeToLiveCommandInput,
   DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand";
+import {
+  DisableKinesisStreamingDestinationCommand,
+  DisableKinesisStreamingDestinationCommandInput,
+  DisableKinesisStreamingDestinationCommandOutput,
+} from "./commands/DisableKinesisStreamingDestinationCommand";
+import {
+  EnableKinesisStreamingDestinationCommand,
+  EnableKinesisStreamingDestinationCommandInput,
+  EnableKinesisStreamingDestinationCommandOutput,
+} from "./commands/EnableKinesisStreamingDestinationCommand";
+import {
+  ExecuteStatementCommand,
+  ExecuteStatementCommandInput,
+  ExecuteStatementCommandOutput,
+} from "./commands/ExecuteStatementCommand";
+import {
+  ExecuteTransactionCommand,
+  ExecuteTransactionCommandInput,
+  ExecuteTransactionCommandOutput,
+} from "./commands/ExecuteTransactionCommand";
 import {
   ExportTableToPointInTimeCommand,
   ExportTableToPointInTimeCommandInput,
@@ -191,6 +221,40 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       built-in high availability and data durability. </p>
  */
 export class DynamoDB extends DynamoDBClient {
+  /**
+   * <p>
+   * This operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL.
+   * </p>
+   */
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchExecuteStatementCommandOutput>;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): void;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): void;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
+    cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): Promise<BatchExecuteStatementCommandOutput> | void {
+    const command = new BatchExecuteStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items from one or
    *       more tables. You identify requested items by primary key.</p>
@@ -912,6 +976,38 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>Returns information about the status of Kinesis streaming.</p>
+   */
+  public describeKinesisStreamingDestination(
+    args: DescribeKinesisStreamingDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKinesisStreamingDestinationCommandOutput>;
+  public describeKinesisStreamingDestination(
+    args: DescribeKinesisStreamingDestinationCommandInput,
+    cb: (err: any, data?: DescribeKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public describeKinesisStreamingDestination(
+    args: DescribeKinesisStreamingDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public describeKinesisStreamingDestination(
+    args: DescribeKinesisStreamingDestinationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKinesisStreamingDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeKinesisStreamingDestinationCommandOutput) => void
+  ): Promise<DescribeKinesisStreamingDestinationCommandOutput> | void {
+    const command = new DescribeKinesisStreamingDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the current provisioned-capacity quotas for your AWS account in a Region, both
    *             for the Region as a whole and for any one DynamoDB table that you create there.</p>
    *          <p>When you establish an AWS account, the account has initial quotas on the maximum read
@@ -1101,6 +1197,142 @@ export class DynamoDB extends DynamoDBClient {
     cb?: (err: any, data?: DescribeTimeToLiveCommandOutput) => void
   ): Promise<DescribeTimeToLiveCommandOutput> | void {
     const command = new DescribeTimeToLiveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
+   *             without deleting either of the resources.</p>
+   */
+  public disableKinesisStreamingDestination(
+    args: DisableKinesisStreamingDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableKinesisStreamingDestinationCommandOutput>;
+  public disableKinesisStreamingDestination(
+    args: DisableKinesisStreamingDestinationCommandInput,
+    cb: (err: any, data?: DisableKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public disableKinesisStreamingDestination(
+    args: DisableKinesisStreamingDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public disableKinesisStreamingDestination(
+    args: DisableKinesisStreamingDestinationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKinesisStreamingDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DisableKinesisStreamingDestinationCommandOutput) => void
+  ): Promise<DisableKinesisStreamingDestinationCommandOutput> | void {
+    const command = new DisableKinesisStreamingDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen
+   *             during the enable workflow. If this operation doesn't return results immediately, use
+   *             DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is
+   *             ACTIVE.</p>
+   */
+  public enableKinesisStreamingDestination(
+    args: EnableKinesisStreamingDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableKinesisStreamingDestinationCommandOutput>;
+  public enableKinesisStreamingDestination(
+    args: EnableKinesisStreamingDestinationCommandInput,
+    cb: (err: any, data?: EnableKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public enableKinesisStreamingDestination(
+    args: EnableKinesisStreamingDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  public enableKinesisStreamingDestination(
+    args: EnableKinesisStreamingDestinationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKinesisStreamingDestinationCommandOutput) => void),
+    cb?: (err: any, data?: EnableKinesisStreamingDestinationCommandOutput) => void
+  ): Promise<EnableKinesisStreamingDestinationCommandOutput> | void {
+    const command = new EnableKinesisStreamingDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.
+   * </p>
+   */
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteStatementCommandOutput>;
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
+    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
+  ): void;
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
+  ): void;
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteStatementCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
+  ): Promise<ExecuteStatementCommandOutput> | void {
+    const command = new ExecuteStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * This operation allows you to perform transactional reads or writes on data stored in DynamoDB, using PartiQL.
+   * </p>
+   */
+  public executeTransaction(
+    args: ExecuteTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteTransactionCommandOutput>;
+  public executeTransaction(
+    args: ExecuteTransactionCommandInput,
+    cb: (err: any, data?: ExecuteTransactionCommandOutput) => void
+  ): void;
+  public executeTransaction(
+    args: ExecuteTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteTransactionCommandOutput) => void
+  ): void;
+  public executeTransaction(
+    args: ExecuteTransactionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteTransactionCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteTransactionCommandOutput) => void
+  ): Promise<ExecuteTransactionCommandOutput> | void {
+    const command = new ExecuteTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

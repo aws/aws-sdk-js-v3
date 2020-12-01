@@ -9474,6 +9474,7 @@ const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
     ...(input.BackfillMode !== undefined && { BackfillMode: input.BackfillMode }),
     ...(input.CustomEventData !== undefined && { CustomEventData: input.CustomEventData }),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FlexMatchMode !== undefined && { FlexMatchMode: input.FlexMatchMode }),
     ...(input.GameProperties !== undefined && {
       GameProperties: serializeAws_json1_1GamePropertyList(input.GameProperties, context),
     }),
@@ -10603,6 +10604,7 @@ const serializeAws_json1_1UpdateMatchmakingConfigurationInput = (
     ...(input.BackfillMode !== undefined && { BackfillMode: input.BackfillMode }),
     ...(input.CustomEventData !== undefined && { CustomEventData: input.CustomEventData }),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FlexMatchMode !== undefined && { FlexMatchMode: input.FlexMatchMode }),
     ...(input.GameProperties !== undefined && {
       GameProperties: serializeAws_json1_1GamePropertyList(input.GameProperties, context),
     }),
@@ -11987,6 +11989,8 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     CustomEventData:
       output.CustomEventData !== undefined && output.CustomEventData !== null ? output.CustomEventData : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    FlexMatchMode:
+      output.FlexMatchMode !== undefined && output.FlexMatchMode !== null ? output.FlexMatchMode : undefined,
     GameProperties:
       output.GameProperties !== undefined && output.GameProperties !== null
         ? deserializeAws_json1_1GamePropertyList(output.GameProperties, context)

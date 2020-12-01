@@ -21,7 +21,8 @@ export type CreateSecurityConfigurationCommandInput = CreateSecurityConfiguratio
 export type CreateSecurityConfigurationCommandOutput = CreateSecurityConfigurationOutput & __MetadataBearer;
 
 /**
- * <p>Creates a security configuration, which is stored in the service and can be specified when a cluster is created.</p>
+ * <p>Creates a security configuration, which is stored in the service and can be specified
+ *          when a cluster is created.</p>
  */
 export class CreateSecurityConfigurationCommand extends $Command<
   CreateSecurityConfigurationCommandInput,

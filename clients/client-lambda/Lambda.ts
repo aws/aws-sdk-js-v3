@@ -11,6 +11,11 @@ import {
 } from "./commands/AddPermissionCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  CreateCodeSigningConfigCommand,
+  CreateCodeSigningConfigCommandInput,
+  CreateCodeSigningConfigCommandOutput,
+} from "./commands/CreateCodeSigningConfigCommand";
+import {
   CreateEventSourceMappingCommand,
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput,
@@ -22,10 +27,20 @@ import {
 } from "./commands/CreateFunctionCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
+  DeleteCodeSigningConfigCommand,
+  DeleteCodeSigningConfigCommandInput,
+  DeleteCodeSigningConfigCommandOutput,
+} from "./commands/DeleteCodeSigningConfigCommand";
+import {
   DeleteEventSourceMappingCommand,
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand";
+import {
+  DeleteFunctionCodeSigningConfigCommand,
+  DeleteFunctionCodeSigningConfigCommandInput,
+  DeleteFunctionCodeSigningConfigCommandOutput,
+} from "./commands/DeleteFunctionCodeSigningConfigCommand";
 import {
   DeleteFunctionCommand,
   DeleteFunctionCommandInput,
@@ -58,10 +73,20 @@ import {
 } from "./commands/GetAccountSettingsCommand";
 import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCodeSigningConfigCommand,
+  GetCodeSigningConfigCommandInput,
+  GetCodeSigningConfigCommandOutput,
+} from "./commands/GetCodeSigningConfigCommand";
+import {
   GetEventSourceMappingCommand,
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand";
+import {
+  GetFunctionCodeSigningConfigCommand,
+  GetFunctionCodeSigningConfigCommandInput,
+  GetFunctionCodeSigningConfigCommandOutput,
+} from "./commands/GetFunctionCodeSigningConfigCommand";
 import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetFunctionConcurrencyCommand,
@@ -103,6 +128,11 @@ import { InvokeAsyncCommand, InvokeAsyncCommandInput, InvokeAsyncCommandOutput }
 import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListCodeSigningConfigsCommand,
+  ListCodeSigningConfigsCommandInput,
+  ListCodeSigningConfigsCommandOutput,
+} from "./commands/ListCodeSigningConfigsCommand";
+import {
   ListEventSourceMappingsCommand,
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
@@ -112,6 +142,11 @@ import {
   ListFunctionEventInvokeConfigsCommandInput,
   ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand";
+import {
+  ListFunctionsByCodeSigningConfigCommand,
+  ListFunctionsByCodeSigningConfigCommandInput,
+  ListFunctionsByCodeSigningConfigCommandOutput,
+} from "./commands/ListFunctionsByCodeSigningConfigCommand";
 import {
   ListFunctionsCommand,
   ListFunctionsCommandInput,
@@ -145,6 +180,11 @@ import {
   PublishVersionCommandOutput,
 } from "./commands/PublishVersionCommand";
 import {
+  PutFunctionCodeSigningConfigCommand,
+  PutFunctionCodeSigningConfigCommandInput,
+  PutFunctionCodeSigningConfigCommandOutput,
+} from "./commands/PutFunctionCodeSigningConfigCommand";
+import {
   PutFunctionConcurrencyCommand,
   PutFunctionConcurrencyCommandInput,
   PutFunctionConcurrencyCommandOutput,
@@ -176,6 +216,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  UpdateCodeSigningConfigCommand,
+  UpdateCodeSigningConfigCommandInput,
+  UpdateCodeSigningConfigCommandOutput,
+} from "./commands/UpdateCodeSigningConfigCommand";
 import {
   UpdateEventSourceMappingCommand,
   UpdateEventSourceMappingCommandInput,
@@ -320,6 +365,40 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of
+   *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
+   *       validation checks fail). </p>
+   */
+  public createCodeSigningConfig(
+    args: CreateCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCodeSigningConfigCommandOutput>;
+  public createCodeSigningConfig(
+    args: CreateCodeSigningConfigCommandInput,
+    cb: (err: any, data?: CreateCodeSigningConfigCommandOutput) => void
+  ): void;
+  public createCodeSigningConfig(
+    args: CreateCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCodeSigningConfigCommandOutput) => void
+  ): void;
+  public createCodeSigningConfig(
+    args: CreateCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateCodeSigningConfigCommandOutput) => void
+  ): Promise<CreateCodeSigningConfigCommandOutput> | void {
+    const command = new CreateCodeSigningConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
    *       and triggers the function.</p>
    *          <p>For details about each event source type, see the following topics.</p>
@@ -431,6 +510,11 @@ export class Lambda extends LambdaClient {
    *       to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)
    *       and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>
    *
+   *          <p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user
+   *       attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code
+   *       package has a valid signature from a trusted publisher. The code-signing configuration
+   *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
+   *
    *          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
    *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
    *       or on an alias.</p>
@@ -484,6 +568,39 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is
+   *       using it. </p>
+   */
+  public deleteCodeSigningConfig(
+    args: DeleteCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCodeSigningConfigCommandOutput>;
+  public deleteCodeSigningConfig(
+    args: DeleteCodeSigningConfigCommandInput,
+    cb: (err: any, data?: DeleteCodeSigningConfigCommandOutput) => void
+  ): void;
+  public deleteCodeSigningConfig(
+    args: DeleteCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCodeSigningConfigCommandOutput) => void
+  ): void;
+  public deleteCodeSigningConfig(
+    args: DeleteCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCodeSigningConfigCommandOutput) => void
+  ): Promise<DeleteCodeSigningConfigCommandOutput> | void {
+    const command = new DeleteCodeSigningConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -556,6 +673,38 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): Promise<DeleteFunctionCommandOutput> | void {
     const command = new DeleteFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the code signing configuration from the function.</p>
+   */
+  public deleteFunctionCodeSigningConfig(
+    args: DeleteFunctionCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFunctionCodeSigningConfigCommandOutput>;
+  public deleteFunctionCodeSigningConfig(
+    args: DeleteFunctionCodeSigningConfigCommandInput,
+    cb: (err: any, data?: DeleteFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public deleteFunctionCodeSigningConfig(
+    args: DeleteFunctionCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public deleteFunctionCodeSigningConfig(
+    args: DeleteFunctionCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFunctionCodeSigningConfigCommandOutput) => void
+  ): Promise<DeleteFunctionCodeSigningConfigCommandOutput> | void {
+    const command = new DeleteFunctionCodeSigningConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -756,6 +905,38 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Returns information about the specified code signing configuration.</p>
+   */
+  public getCodeSigningConfig(
+    args: GetCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCodeSigningConfigCommandOutput>;
+  public getCodeSigningConfig(
+    args: GetCodeSigningConfigCommandInput,
+    cb: (err: any, data?: GetCodeSigningConfigCommandOutput) => void
+  ): void;
+  public getCodeSigningConfig(
+    args: GetCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCodeSigningConfigCommandOutput) => void
+  ): void;
+  public getCodeSigningConfig(
+    args: GetCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetCodeSigningConfigCommandOutput) => void
+  ): Promise<GetCodeSigningConfigCommandOutput> | void {
+    const command = new GetCodeSigningConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
    *       <a>ListEventSourceMappings</a>.</p>
    */
@@ -806,6 +987,38 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: GetFunctionCommandOutput) => void
   ): Promise<GetFunctionCommandOutput> | void {
     const command = new GetFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the code signing configuration for the specified function.</p>
+   */
+  public getFunctionCodeSigningConfig(
+    args: GetFunctionCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionCodeSigningConfigCommandOutput>;
+  public getFunctionCodeSigningConfig(
+    args: GetFunctionCodeSigningConfigCommandInput,
+    cb: (err: any, data?: GetFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public getFunctionCodeSigningConfig(
+    args: GetFunctionCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public getFunctionCodeSigningConfig(
+    args: GetFunctionCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetFunctionCodeSigningConfigCommandOutput) => void
+  ): Promise<GetFunctionCodeSigningConfigCommandOutput> | void {
+    const command = new GetFunctionCodeSigningConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1184,6 +1397,40 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
+   *         signing configurations</a> for the specified function. A request returns up to 10,000 configurations per
+   *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
+   */
+  public listCodeSigningConfigs(
+    args: ListCodeSigningConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeSigningConfigsCommandOutput>;
+  public listCodeSigningConfigs(
+    args: ListCodeSigningConfigsCommandInput,
+    cb: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
+  ): void;
+  public listCodeSigningConfigs(
+    args: ListCodeSigningConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
+  ): void;
+  public listCodeSigningConfigs(
+    args: ListCodeSigningConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCodeSigningConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
+  ): Promise<ListCodeSigningConfigsCommandOutput> | void {
+    const command = new ListCodeSigningConfigsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a
    *       single event source.</p>
    */
@@ -1274,6 +1521,39 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: ListFunctionsCommandOutput) => void
   ): Promise<ListFunctionsCommandOutput> | void {
     const command = new ListFunctionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
+   *       code signing configuration, to verify that no functions are using it.</p>
+   */
+  public listFunctionsByCodeSigningConfig(
+    args: ListFunctionsByCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionsByCodeSigningConfigCommandOutput>;
+  public listFunctionsByCodeSigningConfig(
+    args: ListFunctionsByCodeSigningConfigCommandInput,
+    cb: (err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void
+  ): void;
+  public listFunctionsByCodeSigningConfig(
+    args: ListFunctionsByCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void
+  ): void;
+  public listFunctionsByCodeSigningConfig(
+    args: ListFunctionsByCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void
+  ): Promise<ListFunctionsByCodeSigningConfigCommandOutput> | void {
+    const command = new ListFunctionsByCodeSigningConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1503,6 +1783,39 @@ export class Lambda extends LambdaClient {
     cb?: (err: any, data?: PublishVersionCommandOutput) => void
   ): Promise<PublishVersionCommandOutput> | void {
     const command = new PublishVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the
+   *       next time a user tries to deploy a code package to the function. </p>
+   */
+  public putFunctionCodeSigningConfig(
+    args: PutFunctionCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFunctionCodeSigningConfigCommandOutput>;
+  public putFunctionCodeSigningConfig(
+    args: PutFunctionCodeSigningConfigCommandInput,
+    cb: (err: any, data?: PutFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public putFunctionCodeSigningConfig(
+    args: PutFunctionCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFunctionCodeSigningConfigCommandOutput) => void
+  ): void;
+  public putFunctionCodeSigningConfig(
+    args: PutFunctionCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFunctionCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: PutFunctionCodeSigningConfigCommandOutput) => void
+  ): Promise<PutFunctionCodeSigningConfigCommandOutput> | void {
+    const command = new PutFunctionCodeSigningConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1779,6 +2092,39 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
+   *       user tries to deploy a code package to the function. </p>
+   */
+  public updateCodeSigningConfig(
+    args: UpdateCodeSigningConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCodeSigningConfigCommandOutput>;
+  public updateCodeSigningConfig(
+    args: UpdateCodeSigningConfigCommandInput,
+    cb: (err: any, data?: UpdateCodeSigningConfigCommandOutput) => void
+  ): void;
+  public updateCodeSigningConfig(
+    args: UpdateCodeSigningConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCodeSigningConfigCommandOutput) => void
+  ): void;
+  public updateCodeSigningConfig(
+    args: UpdateCodeSigningConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCodeSigningConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCodeSigningConfigCommandOutput) => void
+  ): Promise<UpdateCodeSigningConfigCommandOutput> | void {
+    const command = new UpdateCodeSigningConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and
    *       resume later from the same location.</p>
    *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
@@ -1835,7 +2181,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Updates a Lambda function's code.</p>
+   * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed
+   *       by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p>
    *
    *          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
    *       only the unpublished version.</p>

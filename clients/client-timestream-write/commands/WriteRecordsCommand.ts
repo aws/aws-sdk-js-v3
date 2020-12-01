@@ -32,7 +32,8 @@ export type WriteRecordsCommandOutput = __MetadataBearer;
  *       the query results might not reflect the results of a recently completed write
  *       operation. The results may also include some stale data. If you repeat the
  *       query request after a short time, the results should return the latest data.
- *       Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
+ *       Service quotas apply. For more information,
+ *       see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.
  *         </p>
  */
 export class WriteRecordsCommand extends $Command<

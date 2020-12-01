@@ -41,6 +41,10 @@ import {
 } from "./commands/DescribeAssetPropertyCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
+  DescribeDefaultEncryptionConfigurationCommandInput,
+  DescribeDefaultEncryptionConfigurationCommandOutput,
+} from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import {
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/DescribeGatewayCapabilityConfigurationCommand";
@@ -80,6 +84,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutDefaultEncryptionConfigurationCommandInput,
+  PutDefaultEncryptionConfigurationCommandOutput,
+} from "./commands/PutDefaultEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -172,6 +180,7 @@ export type ServiceInputTypes =
   | DescribeAssetModelCommandInput
   | DescribeAssetPropertyCommandInput
   | DescribeDashboardCommandInput
+  | DescribeDefaultEncryptionConfigurationCommandInput
   | DescribeGatewayCapabilityConfigurationCommandInput
   | DescribeGatewayCommandInput
   | DescribeLoggingOptionsCommandInput
@@ -191,6 +200,7 @@ export type ServiceInputTypes =
   | ListProjectAssetsCommandInput
   | ListProjectsCommandInput
   | ListTagsForResourceCommandInput
+  | PutDefaultEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -229,6 +239,7 @@ export type ServiceOutputTypes =
   | DescribeAssetModelCommandOutput
   | DescribeAssetPropertyCommandOutput
   | DescribeDashboardCommandOutput
+  | DescribeDefaultEncryptionConfigurationCommandOutput
   | DescribeGatewayCapabilityConfigurationCommandOutput
   | DescribeGatewayCommandOutput
   | DescribeLoggingOptionsCommandOutput
@@ -248,6 +259,7 @@ export type ServiceOutputTypes =
   | ListProjectAssetsCommandOutput
   | ListProjectsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutDefaultEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

@@ -5,15 +5,27 @@ import {
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
+  CreateCodeSigningConfigCommandInput,
+  CreateCodeSigningConfigCommandOutput,
+} from "./commands/CreateCodeSigningConfigCommand";
+import {
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
+  DeleteCodeSigningConfigCommandInput,
+  DeleteCodeSigningConfigCommandOutput,
+} from "./commands/DeleteCodeSigningConfigCommand";
+import {
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand";
+import {
+  DeleteFunctionCodeSigningConfigCommandInput,
+  DeleteFunctionCodeSigningConfigCommandOutput,
+} from "./commands/DeleteFunctionCodeSigningConfigCommand";
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
 import {
   DeleteFunctionConcurrencyCommandInput,
@@ -31,9 +43,17 @@ import {
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
+  GetCodeSigningConfigCommandInput,
+  GetCodeSigningConfigCommandOutput,
+} from "./commands/GetCodeSigningConfigCommand";
+import {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand";
+import {
+  GetFunctionCodeSigningConfigCommandInput,
+  GetFunctionCodeSigningConfigCommandOutput,
+} from "./commands/GetFunctionCodeSigningConfigCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetFunctionConcurrencyCommandInput,
@@ -65,6 +85,10 @@ import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/In
 import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
+  ListCodeSigningConfigsCommandInput,
+  ListCodeSigningConfigsCommandOutput,
+} from "./commands/ListCodeSigningConfigsCommand";
+import {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
 } from "./commands/ListEventSourceMappingsCommand";
@@ -72,6 +96,10 @@ import {
   ListFunctionEventInvokeConfigsCommandInput,
   ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand";
+import {
+  ListFunctionsByCodeSigningConfigCommandInput,
+  ListFunctionsByCodeSigningConfigCommandOutput,
+} from "./commands/ListFunctionsByCodeSigningConfigCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
@@ -89,6 +117,10 @@ import {
   PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand";
 import { PublishVersionCommandInput, PublishVersionCommandOutput } from "./commands/PublishVersionCommand";
+import {
+  PutFunctionCodeSigningConfigCommandInput,
+  PutFunctionCodeSigningConfigCommandOutput,
+} from "./commands/PutFunctionCodeSigningConfigCommand";
 import {
   PutFunctionConcurrencyCommandInput,
   PutFunctionConcurrencyCommandOutput,
@@ -109,6 +141,10 @@ import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import {
+  UpdateCodeSigningConfigCommandInput,
+  UpdateCodeSigningConfigCommandOutput,
+} from "./commands/UpdateCodeSigningConfigCommand";
 import {
   UpdateEventSourceMappingCommandInput,
   UpdateEventSourceMappingCommandOutput,
@@ -175,10 +211,13 @@ export type ServiceInputTypes =
   | AddLayerVersionPermissionCommandInput
   | AddPermissionCommandInput
   | CreateAliasCommandInput
+  | CreateCodeSigningConfigCommandInput
   | CreateEventSourceMappingCommandInput
   | CreateFunctionCommandInput
   | DeleteAliasCommandInput
+  | DeleteCodeSigningConfigCommandInput
   | DeleteEventSourceMappingCommandInput
+  | DeleteFunctionCodeSigningConfigCommandInput
   | DeleteFunctionCommandInput
   | DeleteFunctionConcurrencyCommandInput
   | DeleteFunctionEventInvokeConfigCommandInput
@@ -186,7 +225,9 @@ export type ServiceInputTypes =
   | DeleteProvisionedConcurrencyConfigCommandInput
   | GetAccountSettingsCommandInput
   | GetAliasCommandInput
+  | GetCodeSigningConfigCommandInput
   | GetEventSourceMappingCommandInput
+  | GetFunctionCodeSigningConfigCommandInput
   | GetFunctionCommandInput
   | GetFunctionConcurrencyCommandInput
   | GetFunctionConfigurationCommandInput
@@ -199,8 +240,10 @@ export type ServiceInputTypes =
   | InvokeAsyncCommandInput
   | InvokeCommandInput
   | ListAliasesCommandInput
+  | ListCodeSigningConfigsCommandInput
   | ListEventSourceMappingsCommandInput
   | ListFunctionEventInvokeConfigsCommandInput
+  | ListFunctionsByCodeSigningConfigCommandInput
   | ListFunctionsCommandInput
   | ListLayerVersionsCommandInput
   | ListLayersCommandInput
@@ -209,6 +252,7 @@ export type ServiceInputTypes =
   | ListVersionsByFunctionCommandInput
   | PublishLayerVersionCommandInput
   | PublishVersionCommandInput
+  | PutFunctionCodeSigningConfigCommandInput
   | PutFunctionConcurrencyCommandInput
   | PutFunctionEventInvokeConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
@@ -217,6 +261,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
+  | UpdateCodeSigningConfigCommandInput
   | UpdateEventSourceMappingCommandInput
   | UpdateFunctionCodeCommandInput
   | UpdateFunctionConfigurationCommandInput
@@ -226,10 +271,13 @@ export type ServiceOutputTypes =
   | AddLayerVersionPermissionCommandOutput
   | AddPermissionCommandOutput
   | CreateAliasCommandOutput
+  | CreateCodeSigningConfigCommandOutput
   | CreateEventSourceMappingCommandOutput
   | CreateFunctionCommandOutput
   | DeleteAliasCommandOutput
+  | DeleteCodeSigningConfigCommandOutput
   | DeleteEventSourceMappingCommandOutput
+  | DeleteFunctionCodeSigningConfigCommandOutput
   | DeleteFunctionCommandOutput
   | DeleteFunctionConcurrencyCommandOutput
   | DeleteFunctionEventInvokeConfigCommandOutput
@@ -237,7 +285,9 @@ export type ServiceOutputTypes =
   | DeleteProvisionedConcurrencyConfigCommandOutput
   | GetAccountSettingsCommandOutput
   | GetAliasCommandOutput
+  | GetCodeSigningConfigCommandOutput
   | GetEventSourceMappingCommandOutput
+  | GetFunctionCodeSigningConfigCommandOutput
   | GetFunctionCommandOutput
   | GetFunctionConcurrencyCommandOutput
   | GetFunctionConfigurationCommandOutput
@@ -250,8 +300,10 @@ export type ServiceOutputTypes =
   | InvokeAsyncCommandOutput
   | InvokeCommandOutput
   | ListAliasesCommandOutput
+  | ListCodeSigningConfigsCommandOutput
   | ListEventSourceMappingsCommandOutput
   | ListFunctionEventInvokeConfigsCommandOutput
+  | ListFunctionsByCodeSigningConfigCommandOutput
   | ListFunctionsCommandOutput
   | ListLayerVersionsCommandOutput
   | ListLayersCommandOutput
@@ -260,6 +312,7 @@ export type ServiceOutputTypes =
   | ListVersionsByFunctionCommandOutput
   | PublishLayerVersionCommandOutput
   | PublishVersionCommandOutput
+  | PutFunctionCodeSigningConfigCommandOutput
   | PutFunctionConcurrencyCommandOutput
   | PutFunctionEventInvokeConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
@@ -268,6 +321,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
+  | UpdateCodeSigningConfigCommandOutput
   | UpdateEventSourceMappingCommandOutput
   | UpdateFunctionCodeCommandOutput
   | UpdateFunctionConfigurationCommandOutput

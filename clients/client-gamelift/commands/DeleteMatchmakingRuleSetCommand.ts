@@ -30,7 +30,7 @@ export type DeleteMatchmakingRuleSetCommandOutput = DeleteMatchmakingRuleSetOutp
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a Rule
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a Rule
  *                         Set</a>
  *                </p>
  *             </li>
