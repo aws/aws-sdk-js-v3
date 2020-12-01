@@ -56,6 +56,10 @@ import {
   DescribeEntityRecognizerCommandOutput,
 } from "../commands/DescribeEntityRecognizerCommand";
 import {
+  DescribeEventsDetectionJobCommandInput,
+  DescribeEventsDetectionJobCommandOutput,
+} from "../commands/DescribeEventsDetectionJobCommand";
+import {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "../commands/DescribeKeyPhrasesDetectionJobCommand";
@@ -102,6 +106,10 @@ import {
   ListEntityRecognizersCommandOutput,
 } from "../commands/ListEntityRecognizersCommand";
 import {
+  ListEventsDetectionJobsCommandInput,
+  ListEventsDetectionJobsCommandOutput,
+} from "../commands/ListEventsDetectionJobsCommand";
+import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "../commands/ListKeyPhrasesDetectionJobsCommand";
@@ -134,6 +142,10 @@ import {
   StartEntitiesDetectionJobCommandOutput,
 } from "../commands/StartEntitiesDetectionJobCommand";
 import {
+  StartEventsDetectionJobCommandInput,
+  StartEventsDetectionJobCommandOutput,
+} from "../commands/StartEventsDetectionJobCommand";
+import {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "../commands/StartKeyPhrasesDetectionJobCommand";
@@ -157,6 +169,10 @@ import {
   StopEntitiesDetectionJobCommandInput,
   StopEntitiesDetectionJobCommandOutput,
 } from "../commands/StopEntitiesDetectionJobCommand";
+import {
+  StopEventsDetectionJobCommandInput,
+  StopEventsDetectionJobCommandOutput,
+} from "../commands/StopEventsDetectionJobCommand";
 import {
   StopKeyPhrasesDetectionJobCommandInput,
   StopKeyPhrasesDetectionJobCommandOutput,
@@ -228,6 +244,8 @@ import {
   DescribeEntitiesDetectionJobResponse,
   DescribeEntityRecognizerRequest,
   DescribeEntityRecognizerResponse,
+  DescribeEventsDetectionJobRequest,
+  DescribeEventsDetectionJobResponse,
   DescribeKeyPhrasesDetectionJobRequest,
   DescribeKeyPhrasesDetectionJobResponse,
   DescribePiiEntitiesDetectionJobRequest,
@@ -275,6 +293,8 @@ import {
   EntityRecognizerProperties,
   EntityTypesEvaluationMetrics,
   EntityTypesListItem,
+  EventsDetectionJobFilter,
+  EventsDetectionJobProperties,
   InputDataConfig,
   InternalServerException,
   InvalidFilterException,
@@ -296,6 +316,8 @@ import {
   ListEntitiesDetectionJobsResponse,
   ListEntityRecognizersRequest,
   ListEntityRecognizersResponse,
+  ListEventsDetectionJobsRequest,
+  ListEventsDetectionJobsResponse,
   ListKeyPhrasesDetectionJobsRequest,
   ListKeyPhrasesDetectionJobsResponse,
   ListPiiEntitiesDetectionJobsRequest,
@@ -327,6 +349,8 @@ import {
   StartDominantLanguageDetectionJobResponse,
   StartEntitiesDetectionJobRequest,
   StartEntitiesDetectionJobResponse,
+  StartEventsDetectionJobRequest,
+  StartEventsDetectionJobResponse,
   StartKeyPhrasesDetectionJobRequest,
   StartKeyPhrasesDetectionJobResponse,
   StartPiiEntitiesDetectionJobRequest,
@@ -339,6 +363,8 @@ import {
   StopDominantLanguageDetectionJobResponse,
   StopEntitiesDetectionJobRequest,
   StopEntitiesDetectionJobResponse,
+  StopEventsDetectionJobRequest,
+  StopEventsDetectionJobResponse,
   StopKeyPhrasesDetectionJobRequest,
   StopKeyPhrasesDetectionJobResponse,
   StopPiiEntitiesDetectionJobRequest,
@@ -611,6 +637,19 @@ export const serializeAws_json1_1DescribeEntityRecognizerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeEventsDetectionJobCommand = async (
+  input: DescribeEventsDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEventsDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeEventsDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
   input: DescribeKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
@@ -819,6 +858,19 @@ export const serializeAws_json1_1ListEntityRecognizersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListEventsDetectionJobsCommand = async (
+  input: ListEventsDetectionJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEventsDetectionJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEventsDetectionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   input: ListKeyPhrasesDetectionJobsCommandInput,
   context: __SerdeContext
@@ -923,6 +975,19 @@ export const serializeAws_json1_1StartEntitiesDetectionJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartEventsDetectionJobCommand = async (
+  input: StartEventsDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartEventsDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartEventsDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   input: StartKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
@@ -998,6 +1063,19 @@ export const serializeAws_json1_1StopEntitiesDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopEntitiesDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopEventsDetectionJobCommand = async (
+  input: StopEventsDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopEventsDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopEventsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2695,6 +2773,85 @@ const deserializeAws_json1_1DescribeEntityRecognizerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeEventsDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEventsDetectionJobResponse(data, context);
+  const response: DescribeEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEventsDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "JobNotFoundException":
+    case "com.amazonaws.comprehend#JobNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3951,6 +4108,85 @@ const deserializeAws_json1_1ListEntityRecognizersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListEventsDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventsDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEventsDetectionJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEventsDetectionJobsResponse(data, context);
+  const response: ListEventsDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEventsDetectionJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventsDetectionJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidFilterException":
+    case "com.amazonaws.comprehend#InvalidFilterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4607,6 +4843,85 @@ const deserializeAws_json1_1StartEntitiesDetectionJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartEventsDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartEventsDetectionJobResponse(data, context);
+  const response: StartEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartEventsDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEventsDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KmsKeyValidationException":
+    case "com.amazonaws.comprehend#KmsKeyValidationException":
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5015,6 +5330,77 @@ const deserializeAws_json1_1StopEntitiesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEntitiesDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "JobNotFoundException":
+    case "com.amazonaws.comprehend#JobNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopEventsDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopEventsDetectionJobResponse(data, context);
+  const response: StopEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopEventsDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEventsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6164,6 +6550,15 @@ const serializeAws_json1_1DescribeEntityRecognizerRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeEventsDetectionJobRequest = (
+  input: DescribeEventsDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest = (
   input: DescribeKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
@@ -6428,6 +6823,20 @@ const serializeAws_json1_1EntityTypesListItem = (input: EntityTypesListItem, con
   };
 };
 
+const serializeAws_json1_1EventsDetectionJobFilter = (
+  input: EventsDetectionJobFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName !== undefined && { JobName: input.JobName }),
+    ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
+    ...(input.SubmitTimeAfter !== undefined && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore !== undefined && {
+      SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000),
+    }),
+  };
+};
+
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
     ...(input.InputFormat !== undefined && { InputFormat: input.InputFormat }),
@@ -6513,6 +6922,17 @@ const serializeAws_json1_1ListEntityRecognizersRequest = (
 ): any => {
   return {
     ...(input.Filter !== undefined && { Filter: serializeAws_json1_1EntityRecognizerFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListEventsDetectionJobsRequest = (
+  input: ListEventsDetectionJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1EventsDetectionJobFilter(input.Filter, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -6690,6 +7110,27 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
   };
 };
 
+const serializeAws_json1_1StartEventsDetectionJobRequest = (
+  input: StartEventsDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig !== undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName !== undefined && { JobName: input.JobName }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.OutputDataConfig !== undefined && {
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+    }),
+    ...(input.TargetEventTypes !== undefined && {
+      TargetEventTypes: serializeAws_json1_1TargetEventTypes(input.TargetEventTypes, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
   input: StartKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
@@ -6790,6 +7231,15 @@ const serializeAws_json1_1StopEntitiesDetectionJobRequest = (
   };
 };
 
+const serializeAws_json1_1StopEventsDetectionJobRequest = (
+  input: StopEventsDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1StopKeyPhrasesDetectionJobRequest = (
   input: StopKeyPhrasesDetectionJobRequest,
   context: __SerdeContext
@@ -6859,6 +7309,10 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
+};
+
+const serializeAws_json1_1TargetEventTypes = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1TopicsDetectionJobFilter = (
@@ -7263,6 +7717,18 @@ const deserializeAws_json1_1DescribeEntityRecognizerResponse = (
     EntityRecognizerProperties:
       output.EntityRecognizerProperties !== undefined && output.EntityRecognizerProperties !== null
         ? deserializeAws_json1_1EntityRecognizerProperties(output.EntityRecognizerProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeEventsDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEventsDetectionJobResponse => {
+  return {
+    EventsDetectionJobProperties:
+      output.EventsDetectionJobProperties !== undefined && output.EventsDetectionJobProperties !== null
+        ? deserializeAws_json1_1EventsDetectionJobProperties(output.EventsDetectionJobProperties, context)
         : undefined,
   } as any;
 };
@@ -7873,6 +8339,48 @@ const deserializeAws_json1_1EntityTypesListItem = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1EventsDetectionJobProperties = (
+  output: any,
+  context: __SerdeContext
+): EventsDetectionJobProperties => {
+  return {
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    InputDataConfig:
+      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
+        : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    OutputDataConfig:
+      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+        ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
+        : undefined,
+    SubmitTime:
+      output.SubmitTime !== undefined && output.SubmitTime !== null
+        ? new Date(Math.round(output.SubmitTime * 1000))
+        : undefined,
+    TargetEventTypes:
+      output.TargetEventTypes !== undefined && output.TargetEventTypes !== null
+        ? deserializeAws_json1_1TargetEventTypes(output.TargetEventTypes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): EventsDetectionJobProperties[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EventsDetectionJobProperties(entry, context));
+};
+
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
     InputFormat: output.InputFormat !== undefined && output.InputFormat !== null ? output.InputFormat : undefined,
@@ -8050,6 +8558,19 @@ const deserializeAws_json1_1ListEntityRecognizersResponse = (
     EntityRecognizerPropertiesList:
       output.EntityRecognizerPropertiesList !== undefined && output.EntityRecognizerPropertiesList !== null
         ? deserializeAws_json1_1EntityRecognizerPropertiesList(output.EntityRecognizerPropertiesList, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListEventsDetectionJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListEventsDetectionJobsResponse => {
+  return {
+    EventsDetectionJobPropertiesList:
+      output.EventsDetectionJobPropertiesList !== undefined && output.EventsDetectionJobPropertiesList !== null
+        ? deserializeAws_json1_1EventsDetectionJobPropertiesList(output.EventsDetectionJobPropertiesList, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
@@ -8404,6 +8925,16 @@ const deserializeAws_json1_1StartEntitiesDetectionJobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartEventsDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StartEventsDetectionJobResponse => {
+  return {
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse = (
   output: any,
   context: __SerdeContext
@@ -8458,6 +8989,16 @@ const deserializeAws_json1_1StopEntitiesDetectionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StopEntitiesDetectionJobResponse => {
+  return {
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StopEventsDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StopEventsDetectionJobResponse => {
   return {
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
@@ -8538,6 +9079,10 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededException = (

@@ -1,5 +1,191 @@
-import { AwsSecurityFindingFilters, ControlStatus, NoteUpdate, RecordState, Result } from "./models_0";
+import {
+  AdminAccount,
+  AwsSecurityFinding,
+  AwsSecurityFindingFilters,
+  ControlStatus,
+  NoteUpdate,
+  RecordState,
+  Result,
+} from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface GetFindingsResponse {
+  /**
+   * <p>The findings that matched the filters specified in the request.</p>
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetFindingsResponse {
+  export const filterSensitiveLog = (obj: GetFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightResultsRequest {
+  /**
+   * <p>The ARN of the insight for which to return results.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace GetInsightResultsRequest {
+  export const filterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The insight result values returned by the <code>GetInsightResults</code>
+ *          operation.</p>
+ */
+export interface InsightResultValue {
+  /**
+   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>The value of the attribute that the findings are grouped by for the insight whose
+   *          results are returned by the <code>GetInsightResults</code> operation.</p>
+   */
+  GroupByAttributeValue: string | undefined;
+}
+
+export namespace InsightResultValue {
+  export const filterSensitiveLog = (obj: InsightResultValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
+ */
+export interface InsightResults {
+  /**
+   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The attribute that the findings are grouped by for the insight whose results are
+   *          returned by the <code>GetInsightResults</code> operation.</p>
+   */
+  GroupByAttribute: string | undefined;
+
+  /**
+   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   */
+  ResultValues: InsightResultValue[] | undefined;
+}
+
+export namespace InsightResults {
+  export const filterSensitiveLog = (obj: InsightResults): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightResultsResponse {
+  /**
+   * <p>The insight results returned by the operation.</p>
+   */
+  InsightResults: InsightResults | undefined;
+}
+
+export namespace GetInsightResultsResponse {
+  export const filterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsRequest {
+  /**
+   * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
+   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
+   *          managed insights.</p>
+   */
+  InsightArns?: string[];
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetInsights</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetInsightsRequest {
+  export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a Security Hub insight.</p>
+ */
+export interface Insight {
+  /**
+   * <p>The ARN of a Security Hub insight.</p>
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The name of a Security Hub insight.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
+   *          findings, and identifies the type of item that the insight applies to. For example, if an
+   *          insight is grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
+}
+
+export namespace Insight {
+  export const filterSensitiveLog = (obj: Insight): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInsightsResponse {
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The insights returned by the operation.</p>
+   */
+  Insights: Insight[] | undefined;
+}
+
+export namespace GetInsightsResponse {
+  export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetInvitationsCountRequest {}
 
@@ -41,14 +227,14 @@ export interface Invitation {
   InvitedAt?: Date;
 
   /**
-   * <p>The current status of the association between the member and master accounts.</p>
-   */
-  MemberStatus?: string;
-
-  /**
    * <p>The ID of the invitation sent to the member account.</p>
    */
   InvitationId?: string;
+
+  /**
+   * <p>The current status of the association between the member and master accounts.</p>
+   */
+  MemberStatus?: string;
 
   /**
    * <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
@@ -94,20 +280,25 @@ export namespace GetMembersRequest {
  */
 export interface Member {
   /**
-   * <p>The email address of the member account.</p>
+   * <p>The AWS account ID of the member account.</p>
    */
-  Email?: string;
+  AccountId?: string;
 
   /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
+   * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
    */
-  UpdatedAt?: Date;
+  MasterId?: string;
 
   /**
    * <p>A timestamp for the date and time when the invitation was sent to the member
    *          account.</p>
    */
   InvitedAt?: Date;
+
+  /**
+   * <p>The timestamp for the date and time when the member account was updated.</p>
+   */
+  UpdatedAt?: Date;
 
   /**
    * <p>The status of the relationship between the member account and its master account.
@@ -126,7 +317,8 @@ export interface Member {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ASSOCIATED</code> - Indicates that the member account accepted the
+   *                   <code>ENABLED</code> - Indicates that the member account is currently active. For
+   *                manually invited member accounts, indicates that the member account accepted the
    *                invitation.</p>
    *             </li>
    *             <li>
@@ -149,14 +341,9 @@ export interface Member {
   MemberStatus?: string;
 
   /**
-   * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
+   * <p>The email address of the member account.</p>
    */
-  MasterId?: string;
-
-  /**
-   * <p>The AWS account ID of the member account.</p>
-   */
-  AccountId?: string;
+  Email?: string;
 }
 
 export namespace Member {
@@ -167,15 +354,15 @@ export namespace Member {
 
 export interface GetMembersResponse {
   /**
+   * <p>The list of details about the Security Hub member accounts.</p>
+   */
+  Members?: Member[];
+
+  /**
    * <p>The list of AWS accounts that could not be processed. For each account, the list
    *          includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-
-  /**
-   * <p>The list of details about the Security Hub member accounts.</p>
-   */
-  Members?: Member[];
 }
 
 export namespace GetMembersResponse {
@@ -188,7 +375,7 @@ export interface InviteMembersRequest {
   /**
    * <p>The list of account IDs of the AWS accounts to invite to Security Hub as members. </p>
    */
-  AccountIds?: string[];
+  AccountIds: string[] | undefined;
 }
 
 export namespace InviteMembersRequest {
@@ -213,6 +400,11 @@ export namespace InviteMembersResponse {
 
 export interface ListEnabledProductsForImportRequest {
   /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -220,11 +412,6 @@ export interface ListEnabledProductsForImportRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListEnabledProductsForImportRequest {
@@ -253,6 +440,11 @@ export namespace ListEnabledProductsForImportResponse {
 
 export interface ListInvitationsRequest {
   /**
+   * <p>The maximum number of items to return in the response. </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListInvitations</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -260,11 +452,6 @@ export interface ListInvitationsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListInvitationsRequest {
@@ -275,14 +462,14 @@ export namespace ListInvitationsRequest {
 
 export interface ListInvitationsResponse {
   /**
-   * <p>The details of the invitations returned by the operation.</p>
-   */
-  Invitations?: Invitation[];
-
-  /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The details of the invitations returned by the operation.</p>
+   */
+  Invitations?: Invitation[];
 }
 
 export namespace ListInvitationsResponse {
@@ -298,17 +485,6 @@ export interface ListMembersRequest {
   MaxResults?: number;
 
   /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the master account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the master is set to <code>ENABLED</code> or
-   *             <code>DISABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   */
-  OnlyAssociated?: boolean;
-
-  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListMembers</code> operation, set the value of this parameter to
    *          <code>NULL</code>.</p>
@@ -316,6 +492,16 @@ export interface ListMembersRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the master account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   */
+  OnlyAssociated?: boolean;
 }
 
 export namespace ListMembersRequest {
@@ -326,18 +512,57 @@ export namespace ListMembersRequest {
 
 export interface ListMembersResponse {
   /**
-   * <p>Member details returned by the operation.</p>
-   */
-  Members?: Member[];
-
-  /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Member details returned by the operation.</p>
+   */
+  Members?: Member[];
 }
 
 export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+   *          the value of this parameter to the value returned from the previous response. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOrganizationAdminAccountsRequest {
+  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of Security Hub administrator accounts.</p>
+   */
+  AdminAccounts?: AdminAccount[];
+}
+
+export namespace ListOrganizationAdminAccountsResponse {
+  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsResponse): any => ({
     ...obj,
   });
 }
@@ -370,14 +595,14 @@ export namespace ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The tags to add to the resource.</p>
-   */
-  Tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>The ARN of the resource to apply the tags to.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -396,14 +621,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to remove the tags from.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tag keys associated with the tags to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource to remove the tags from.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -422,11 +647,6 @@ export namespace UntagResourceResponse {
 
 export interface UpdateActionTargetRequest {
   /**
-   * <p>The updated name of the custom action target.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ARN of the custom action target to update.</p>
    */
   ActionTargetArn: string | undefined;
@@ -435,6 +655,11 @@ export interface UpdateActionTargetRequest {
    * <p>The updated description for the custom action target.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The updated name of the custom action target.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateActionTargetRequest {
@@ -453,9 +678,9 @@ export namespace UpdateActionTargetResponse {
 
 export interface UpdateFindingsRequest {
   /**
-   * <p>A collection of attributes that specify which findings you want to update.</p>
+   * <p>The updated note for the finding.</p>
    */
-  Filters: AwsSecurityFindingFilters | undefined;
+  Note?: NoteUpdate;
 
   /**
    * <p>The updated record state for the finding.</p>
@@ -463,9 +688,9 @@ export interface UpdateFindingsRequest {
   RecordState?: RecordState | string;
 
   /**
-   * <p>The updated note for the finding.</p>
+   * <p>A collection of attributes that specify which findings you want to update.</p>
    */
-  Note?: NoteUpdate;
+  Filters: AwsSecurityFindingFilters | undefined;
 }
 
 export namespace UpdateFindingsRequest {
@@ -484,14 +709,9 @@ export namespace UpdateFindingsResponse {
 
 export interface UpdateInsightRequest {
   /**
-   * <p>The ARN of the insight that you want to update.</p>
+   * <p>The updated name for the insight.</p>
    */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The updated filters that define this insight.</p>
-   */
-  Filters?: AwsSecurityFindingFilters;
+  Name?: string;
 
   /**
    * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
@@ -499,9 +719,14 @@ export interface UpdateInsightRequest {
   GroupByAttribute?: string;
 
   /**
-   * <p>The updated name for the insight.</p>
+   * <p>The updated filters that define this insight.</p>
    */
-  Name?: string;
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   * <p>The ARN of the insight that you want to update.</p>
+   */
+  InsightArn: string | undefined;
 }
 
 export namespace UpdateInsightRequest {
@@ -514,6 +739,30 @@ export interface UpdateInsightResponse {}
 
 export namespace UpdateInsightResponse {
   export const filterSensitiveLog = (obj: UpdateInsightResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOrganizationConfigurationRequest {
+  /**
+   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
+   *          <p>By default, this is <code>false</code>, and new accounts are not added
+   *          automatically.</p>
+   *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
+   */
+  AutoEnable: boolean | undefined;
+}
+
+export namespace UpdateOrganizationConfigurationRequest {
+  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOrganizationConfigurationResponse {}
+
+export namespace UpdateOrganizationConfigurationResponse {
+  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -550,15 +799,15 @@ export interface UpdateStandardsControlRequest {
   StandardsControlArn: string | undefined;
 
   /**
+   * <p>The updated status of the security standard control.</p>
+   */
+  ControlStatus?: ControlStatus | string;
+
+  /**
    * <p>A description of the reason why you are disabling a security standard control. If you
    *          are disabling a control, then this is required.</p>
    */
   DisabledReason?: string;
-
-  /**
-   * <p>The updated status of the security standard control.</p>
-   */
-  ControlStatus?: ControlStatus | string;
 }
 
 export namespace UpdateStandardsControlRequest {

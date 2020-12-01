@@ -1691,44 +1691,142 @@ export namespace TagColumnOperation {
  * <p>A data transformation on a logical table. This is a variant type structure. For this
  *             structure to be valid, only one of the attributes can be non-null.</p>
  */
-export interface TransformOperation {
+export type TransformOperation =
+  | TransformOperation.CastColumnTypeOperationMember
+  | TransformOperation.CreateColumnsOperationMember
+  | TransformOperation.FilterOperationMember
+  | TransformOperation.ProjectOperationMember
+  | TransformOperation.RenameColumnOperationMember
+  | TransformOperation.TagColumnOperationMember
+  | TransformOperation.$UnknownMember;
+
+export namespace TransformOperation {
   /**
    * <p>An operation that projects columns. Operations that come after a projection can only
    *             refer to projected columns.</p>
    */
-  ProjectOperation?: ProjectOperation;
+  export interface ProjectOperationMember {
+    ProjectOperation: ProjectOperation;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An operation that filters rows based on some condition.</p>
    */
-  FilterOperation?: FilterOperation;
+  export interface FilterOperationMember {
+    ProjectOperation?: never;
+    FilterOperation: FilterOperation;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An operation that creates calculated columns. Columns created in one such operation
    *             form a lexical closure.</p>
    */
-  CreateColumnsOperation?: CreateColumnsOperation;
+  export interface CreateColumnsOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation: CreateColumnsOperation;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An operation that renames a column.</p>
    */
-  RenameColumnOperation?: RenameColumnOperation;
+  export interface RenameColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation: RenameColumnOperation;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A transform operation that casts a column to a different type.</p>
    */
-  CastColumnTypeOperation?: CastColumnTypeOperation;
+  export interface CastColumnTypeOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation: CastColumnTypeOperation;
+    TagColumnOperation?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>An operation that tags a column with additional information.</p>
    */
-  TagColumnOperation?: TagColumnOperation;
-}
+  export interface TagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation: TagColumnOperation;
+    $unknown?: never;
+  }
 
-export namespace TransformOperation {
-  export const filterSensitiveLog = (obj: TransformOperation): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ProjectOperation: (value: ProjectOperation) => T;
+    FilterOperation: (value: FilterOperation) => T;
+    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
+    RenameColumnOperation: (value: RenameColumnOperation) => T;
+    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
+    TagColumnOperation: (value: TagColumnOperation) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TransformOperation, visitor: Visitor<T>): T => {
+    if (value.ProjectOperation !== undefined) return visitor.ProjectOperation(value.ProjectOperation);
+    if (value.FilterOperation !== undefined) return visitor.FilterOperation(value.FilterOperation);
+    if (value.CreateColumnsOperation !== undefined) return visitor.CreateColumnsOperation(value.CreateColumnsOperation);
+    if (value.RenameColumnOperation !== undefined) return visitor.RenameColumnOperation(value.RenameColumnOperation);
+    if (value.CastColumnTypeOperation !== undefined)
+      return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
+    if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: TransformOperation): any => {
+    if (obj.ProjectOperation !== undefined)
+      return { ProjectOperation: ProjectOperation.filterSensitiveLog(obj.ProjectOperation) };
+    if (obj.FilterOperation !== undefined)
+      return { FilterOperation: FilterOperation.filterSensitiveLog(obj.FilterOperation) };
+    if (obj.CreateColumnsOperation !== undefined)
+      return { CreateColumnsOperation: CreateColumnsOperation.filterSensitiveLog(obj.CreateColumnsOperation) };
+    if (obj.RenameColumnOperation !== undefined)
+      return { RenameColumnOperation: RenameColumnOperation.filterSensitiveLog(obj.RenameColumnOperation) };
+    if (obj.CastColumnTypeOperation !== undefined)
+      return { CastColumnTypeOperation: CastColumnTypeOperation.filterSensitiveLog(obj.CastColumnTypeOperation) };
+    if (obj.TagColumnOperation !== undefined)
+      return { TagColumnOperation: TagColumnOperation.filterSensitiveLog(obj.TagColumnOperation) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export enum JoinType {
@@ -1817,6 +1915,9 @@ export interface LogicalTable {
 export namespace LogicalTable {
   export const filterSensitiveLog = (obj: LogicalTable): any => ({
     ...obj,
+    ...(obj.DataTransforms && {
+      DataTransforms: obj.DataTransforms.map((item) => TransformOperation.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -1994,27 +2095,71 @@ export namespace S3Source {
  *             underlying source. This is a variant type structure. For this structure to be valid,
  *             only one of the attributes can be non-null.</p>
  */
-export interface PhysicalTable {
+export type PhysicalTable =
+  | PhysicalTable.CustomSqlMember
+  | PhysicalTable.RelationalTableMember
+  | PhysicalTable.S3SourceMember
+  | PhysicalTable.$UnknownMember;
+
+export namespace PhysicalTable {
   /**
    * <p>A physical table type for relational data sources.</p>
    */
-  RelationalTable?: RelationalTable;
+  export interface RelationalTableMember {
+    RelationalTable: RelationalTable;
+    CustomSql?: never;
+    S3Source?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A physical table type built from the results of the custom SQL query.</p>
    */
-  CustomSql?: CustomSql;
+  export interface CustomSqlMember {
+    RelationalTable?: never;
+    CustomSql: CustomSql;
+    S3Source?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>A physical table type for as S3 data source.</p>
    */
-  S3Source?: S3Source;
-}
+  export interface S3SourceMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source: S3Source;
+    $unknown?: never;
+  }
 
-export namespace PhysicalTable {
-  export const filterSensitiveLog = (obj: PhysicalTable): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    RelationalTable: (value: RelationalTable) => T;
+    CustomSql: (value: CustomSql) => T;
+    S3Source: (value: S3Source) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PhysicalTable, visitor: Visitor<T>): T => {
+    if (value.RelationalTable !== undefined) return visitor.RelationalTable(value.RelationalTable);
+    if (value.CustomSql !== undefined) return visitor.CustomSql(value.CustomSql);
+    if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: PhysicalTable): any => {
+    if (obj.RelationalTable !== undefined)
+      return { RelationalTable: RelationalTable.filterSensitiveLog(obj.RelationalTable) };
+    if (obj.CustomSql !== undefined) return { CustomSql: CustomSql.filterSensitiveLog(obj.CustomSql) };
+    if (obj.S3Source !== undefined) return { S3Source: S3Source.filterSensitiveLog(obj.S3Source) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export enum RowLevelPermissionPolicy {
@@ -2110,6 +2255,24 @@ export interface CreateDataSetRequest {
 export namespace CreateDataSetRequest {
   export const filterSensitiveLog = (obj: CreateDataSetRequest): any => ({
     ...obj,
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -2557,112 +2720,692 @@ export namespace TwitterParameters {
  *             This is a variant type structure. For this structure to be valid, only one of the
  *             attributes can be non-null.</p>
  */
-export interface DataSourceParameters {
+export type DataSourceParameters =
+  | DataSourceParameters.AmazonElasticsearchParametersMember
+  | DataSourceParameters.AthenaParametersMember
+  | DataSourceParameters.AuroraParametersMember
+  | DataSourceParameters.AuroraPostgreSqlParametersMember
+  | DataSourceParameters.AwsIotAnalyticsParametersMember
+  | DataSourceParameters.JiraParametersMember
+  | DataSourceParameters.MariaDbParametersMember
+  | DataSourceParameters.MySqlParametersMember
+  | DataSourceParameters.OracleParametersMember
+  | DataSourceParameters.PostgreSqlParametersMember
+  | DataSourceParameters.PrestoParametersMember
+  | DataSourceParameters.RdsParametersMember
+  | DataSourceParameters.RedshiftParametersMember
+  | DataSourceParameters.S3ParametersMember
+  | DataSourceParameters.ServiceNowParametersMember
+  | DataSourceParameters.SnowflakeParametersMember
+  | DataSourceParameters.SparkParametersMember
+  | DataSourceParameters.SqlServerParametersMember
+  | DataSourceParameters.TeradataParametersMember
+  | DataSourceParameters.TwitterParametersMember
+  | DataSourceParameters.$UnknownMember;
+
+export namespace DataSourceParameters {
   /**
    * <p>Amazon Elasticsearch Service parameters.</p>
    */
-  AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
+  export interface AmazonElasticsearchParametersMember {
+    AmazonElasticsearchParameters: AmazonElasticsearchParameters;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Amazon Athena parameters.</p>
    */
-  AthenaParameters?: AthenaParameters;
+  export interface AthenaParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters: AthenaParameters;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Amazon Aurora MySQL parameters.</p>
    */
-  AuroraParameters?: AuroraParameters;
+  export interface AuroraParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters: AuroraParameters;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Aurora PostgreSQL parameters.</p>
    */
-  AuroraPostgreSqlParameters?: AuroraPostgreSqlParameters;
+  export interface AuroraPostgreSqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters: AuroraPostgreSqlParameters;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>AWS IoT Analytics parameters.</p>
    */
-  AwsIotAnalyticsParameters?: AwsIotAnalyticsParameters;
+  export interface AwsIotAnalyticsParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters: AwsIotAnalyticsParameters;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Jira parameters.</p>
    */
-  JiraParameters?: JiraParameters;
+  export interface JiraParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters: JiraParameters;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>MariaDB parameters.</p>
    */
-  MariaDbParameters?: MariaDbParameters;
+  export interface MariaDbParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters: MariaDbParameters;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>MySQL parameters.</p>
    */
-  MySqlParameters?: MySqlParameters;
+  export interface MySqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters: MySqlParameters;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Oracle parameters.</p>
    */
-  OracleParameters?: OracleParameters;
+  export interface OracleParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters: OracleParameters;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>PostgreSQL parameters.</p>
    */
-  PostgreSqlParameters?: PostgreSqlParameters;
+  export interface PostgreSqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters: PostgreSqlParameters;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Presto parameters.</p>
    */
-  PrestoParameters?: PrestoParameters;
+  export interface PrestoParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters: PrestoParameters;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Amazon RDS parameters.</p>
    */
-  RdsParameters?: RdsParameters;
+  export interface RdsParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters: RdsParameters;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Amazon Redshift parameters.</p>
    */
-  RedshiftParameters?: RedshiftParameters;
+  export interface RedshiftParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters: RedshiftParameters;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>S3 parameters.</p>
    */
-  S3Parameters?: S3Parameters;
+  export interface S3ParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters: S3Parameters;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>ServiceNow parameters.</p>
    */
-  ServiceNowParameters?: ServiceNowParameters;
+  export interface ServiceNowParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters: ServiceNowParameters;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Snowflake parameters.</p>
    */
-  SnowflakeParameters?: SnowflakeParameters;
+  export interface SnowflakeParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters: SnowflakeParameters;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Spark parameters.</p>
    */
-  SparkParameters?: SparkParameters;
+  export interface SparkParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters: SparkParameters;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>SQL Server parameters.</p>
    */
-  SqlServerParameters?: SqlServerParameters;
+  export interface SqlServerParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters: SqlServerParameters;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Teradata parameters.</p>
    */
-  TeradataParameters?: TeradataParameters;
+  export interface TeradataParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters: TeradataParameters;
+    TwitterParameters?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Twitter parameters.</p>
    */
-  TwitterParameters?: TwitterParameters;
-}
+  export interface TwitterParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters: TwitterParameters;
+    $unknown?: never;
+  }
 
-export namespace DataSourceParameters {
-  export const filterSensitiveLog = (obj: DataSourceParameters): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AmazonElasticsearchParameters: (value: AmazonElasticsearchParameters) => T;
+    AthenaParameters: (value: AthenaParameters) => T;
+    AuroraParameters: (value: AuroraParameters) => T;
+    AuroraPostgreSqlParameters: (value: AuroraPostgreSqlParameters) => T;
+    AwsIotAnalyticsParameters: (value: AwsIotAnalyticsParameters) => T;
+    JiraParameters: (value: JiraParameters) => T;
+    MariaDbParameters: (value: MariaDbParameters) => T;
+    MySqlParameters: (value: MySqlParameters) => T;
+    OracleParameters: (value: OracleParameters) => T;
+    PostgreSqlParameters: (value: PostgreSqlParameters) => T;
+    PrestoParameters: (value: PrestoParameters) => T;
+    RdsParameters: (value: RdsParameters) => T;
+    RedshiftParameters: (value: RedshiftParameters) => T;
+    S3Parameters: (value: S3Parameters) => T;
+    ServiceNowParameters: (value: ServiceNowParameters) => T;
+    SnowflakeParameters: (value: SnowflakeParameters) => T;
+    SparkParameters: (value: SparkParameters) => T;
+    SqlServerParameters: (value: SqlServerParameters) => T;
+    TeradataParameters: (value: TeradataParameters) => T;
+    TwitterParameters: (value: TwitterParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataSourceParameters, visitor: Visitor<T>): T => {
+    if (value.AmazonElasticsearchParameters !== undefined)
+      return visitor.AmazonElasticsearchParameters(value.AmazonElasticsearchParameters);
+    if (value.AthenaParameters !== undefined) return visitor.AthenaParameters(value.AthenaParameters);
+    if (value.AuroraParameters !== undefined) return visitor.AuroraParameters(value.AuroraParameters);
+    if (value.AuroraPostgreSqlParameters !== undefined)
+      return visitor.AuroraPostgreSqlParameters(value.AuroraPostgreSqlParameters);
+    if (value.AwsIotAnalyticsParameters !== undefined)
+      return visitor.AwsIotAnalyticsParameters(value.AwsIotAnalyticsParameters);
+    if (value.JiraParameters !== undefined) return visitor.JiraParameters(value.JiraParameters);
+    if (value.MariaDbParameters !== undefined) return visitor.MariaDbParameters(value.MariaDbParameters);
+    if (value.MySqlParameters !== undefined) return visitor.MySqlParameters(value.MySqlParameters);
+    if (value.OracleParameters !== undefined) return visitor.OracleParameters(value.OracleParameters);
+    if (value.PostgreSqlParameters !== undefined) return visitor.PostgreSqlParameters(value.PostgreSqlParameters);
+    if (value.PrestoParameters !== undefined) return visitor.PrestoParameters(value.PrestoParameters);
+    if (value.RdsParameters !== undefined) return visitor.RdsParameters(value.RdsParameters);
+    if (value.RedshiftParameters !== undefined) return visitor.RedshiftParameters(value.RedshiftParameters);
+    if (value.S3Parameters !== undefined) return visitor.S3Parameters(value.S3Parameters);
+    if (value.ServiceNowParameters !== undefined) return visitor.ServiceNowParameters(value.ServiceNowParameters);
+    if (value.SnowflakeParameters !== undefined) return visitor.SnowflakeParameters(value.SnowflakeParameters);
+    if (value.SparkParameters !== undefined) return visitor.SparkParameters(value.SparkParameters);
+    if (value.SqlServerParameters !== undefined) return visitor.SqlServerParameters(value.SqlServerParameters);
+    if (value.TeradataParameters !== undefined) return visitor.TeradataParameters(value.TeradataParameters);
+    if (value.TwitterParameters !== undefined) return visitor.TwitterParameters(value.TwitterParameters);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: DataSourceParameters): any => {
+    if (obj.AmazonElasticsearchParameters !== undefined)
+      return {
+        AmazonElasticsearchParameters: AmazonElasticsearchParameters.filterSensitiveLog(
+          obj.AmazonElasticsearchParameters
+        ),
+      };
+    if (obj.AthenaParameters !== undefined)
+      return { AthenaParameters: AthenaParameters.filterSensitiveLog(obj.AthenaParameters) };
+    if (obj.AuroraParameters !== undefined)
+      return { AuroraParameters: AuroraParameters.filterSensitiveLog(obj.AuroraParameters) };
+    if (obj.AuroraPostgreSqlParameters !== undefined)
+      return {
+        AuroraPostgreSqlParameters: AuroraPostgreSqlParameters.filterSensitiveLog(obj.AuroraPostgreSqlParameters),
+      };
+    if (obj.AwsIotAnalyticsParameters !== undefined)
+      return { AwsIotAnalyticsParameters: AwsIotAnalyticsParameters.filterSensitiveLog(obj.AwsIotAnalyticsParameters) };
+    if (obj.JiraParameters !== undefined)
+      return { JiraParameters: JiraParameters.filterSensitiveLog(obj.JiraParameters) };
+    if (obj.MariaDbParameters !== undefined)
+      return { MariaDbParameters: MariaDbParameters.filterSensitiveLog(obj.MariaDbParameters) };
+    if (obj.MySqlParameters !== undefined)
+      return { MySqlParameters: MySqlParameters.filterSensitiveLog(obj.MySqlParameters) };
+    if (obj.OracleParameters !== undefined)
+      return { OracleParameters: OracleParameters.filterSensitiveLog(obj.OracleParameters) };
+    if (obj.PostgreSqlParameters !== undefined)
+      return { PostgreSqlParameters: PostgreSqlParameters.filterSensitiveLog(obj.PostgreSqlParameters) };
+    if (obj.PrestoParameters !== undefined)
+      return { PrestoParameters: PrestoParameters.filterSensitiveLog(obj.PrestoParameters) };
+    if (obj.RdsParameters !== undefined) return { RdsParameters: RdsParameters.filterSensitiveLog(obj.RdsParameters) };
+    if (obj.RedshiftParameters !== undefined)
+      return { RedshiftParameters: RedshiftParameters.filterSensitiveLog(obj.RedshiftParameters) };
+    if (obj.S3Parameters !== undefined) return { S3Parameters: S3Parameters.filterSensitiveLog(obj.S3Parameters) };
+    if (obj.ServiceNowParameters !== undefined)
+      return { ServiceNowParameters: ServiceNowParameters.filterSensitiveLog(obj.ServiceNowParameters) };
+    if (obj.SnowflakeParameters !== undefined)
+      return { SnowflakeParameters: SnowflakeParameters.filterSensitiveLog(obj.SnowflakeParameters) };
+    if (obj.SparkParameters !== undefined)
+      return { SparkParameters: SparkParameters.filterSensitiveLog(obj.SparkParameters) };
+    if (obj.SqlServerParameters !== undefined)
+      return { SqlServerParameters: SqlServerParameters.filterSensitiveLog(obj.SqlServerParameters) };
+    if (obj.TeradataParameters !== undefined)
+      return { TeradataParameters: TeradataParameters.filterSensitiveLog(obj.TeradataParameters) };
+    if (obj.TwitterParameters !== undefined)
+      return { TwitterParameters: TwitterParameters.filterSensitiveLog(obj.TwitterParameters) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 /**
@@ -2696,6 +3439,11 @@ export interface CredentialPair {
 export namespace CredentialPair {
   export const filterSensitiveLog = (obj: CredentialPair): any => ({
     ...obj,
+    ...(obj.AlternateDataSourceParameters && {
+      AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
+        DataSourceParameters.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
@@ -2721,6 +3469,7 @@ export interface DataSourceCredentials {
 export namespace DataSourceCredentials {
   export const filterSensitiveLog = (obj: DataSourceCredentials): any => ({
     ...obj,
+    ...(obj.CredentialPair && { CredentialPair: CredentialPair.filterSensitiveLog(obj.CredentialPair) }),
   });
 }
 
@@ -2844,6 +3593,9 @@ export interface CreateDataSourceRequest {
 export namespace CreateDataSourceRequest {
   export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
     ...obj,
+    ...(obj.DataSourceParameters && {
+      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
+    }),
     ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
   });
 }
@@ -4363,6 +5115,24 @@ export interface DataSet {
 export namespace DataSet {
   export const filterSensitiveLog = (obj: DataSet): any => ({
     ...obj,
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -4449,7 +5219,7 @@ export interface DataSetSummary {
 
   /**
    * <p>Indicates if the dataset has column level permission
-   *             configured. </p>
+   *             configured.</p>
    */
   ColumnLevelPermissionRulesApplied?: boolean;
 }
@@ -4574,6 +5344,14 @@ export interface DataSource {
 export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
+    ...(obj.DataSourceParameters && {
+      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
+    }),
+    ...(obj.AlternateDataSourceParameters && {
+      AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
+        DataSourceParameters.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
@@ -5654,6 +6432,7 @@ export interface DescribeDataSetResponse {
 export namespace DescribeDataSetResponse {
   export const filterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
     ...obj,
+    ...(obj.DataSet && { DataSet: DataSet.filterSensitiveLog(obj.DataSet) }),
   });
 }
 
@@ -5746,6 +6525,7 @@ export interface DescribeDataSourceResponse {
 export namespace DescribeDataSourceResponse {
   export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
     ...obj,
+    ...(obj.DataSource && { DataSource: DataSource.filterSensitiveLog(obj.DataSource) }),
   });
 }
 
@@ -7029,6 +7809,15 @@ export namespace DomainNotWhitelistedException {
   });
 }
 
+export enum EmbeddingIdentityType {
+  ANONYMOUS = "ANONYMOUS",
+  IAM = "IAM",
+  QUICKSIGHT = "QUICKSIGHT",
+}
+
+/**
+ * <p>Parameter input for the <code>GetDashboardEmbedUrl</code> operation.</p>
+ */
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
@@ -7043,7 +7832,7 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The authentication method that the user uses to sign in.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: EmbeddingIdentityType | string | undefined;
 
   /**
    * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
@@ -7092,6 +7881,24 @@ export interface GetDashboardEmbedUrlRequest {
    *             role-based sessions.</p>
    */
   UserArn?: string;
+
+  /**
+   * <p>The QuickSight namespace that contains the dashboard IDs in this request.
+   *     	   If you're not using a custom namespace, set this to
+   *     	    "<code>default</code>".</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>A list of one or more dashboard ids that you want to add to a session that
+   *             includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS
+   *             for this to work, because other other identity types authenticate as QuickSight users.
+   *             For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
+   *             dash_id3 identity-type ANONYMOUS</code>", the session can access all
+   *             three dashboards.
+   *         </p>
+   */
+  AdditionalDashboardIds?: string[];
 }
 
 export namespace GetDashboardEmbedUrlRequest {
@@ -7100,6 +7907,9 @@ export namespace GetDashboardEmbedUrlRequest {
   });
 }
 
+/**
+ * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
+ */
 export interface GetDashboardEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side webpage to embed your
@@ -7184,6 +7994,33 @@ export interface SessionLifetimeInMinutesInvalidException extends __SmithyExcept
 
 export namespace SessionLifetimeInMinutesInvalidException {
   export const filterSensitiveLog = (obj: SessionLifetimeInMinutesInvalidException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
+ * 			without the required pricing plan on your AWS account. Before you can use anonymous
+ * 			embedding, a QuickSight administrator needs to add capacity pricing to QuickSight. You
+ * 		    can do this on the <b>Manage QuickSight</b> page. </p>
+ *         <p>After capacity pricing is added, you can enable anonymous embedding by using the
+ *             <code>
+ *                <a>GetDashboardEmbedUrl</a>
+ *             </code> API operation with the
+ *             <code>--identity-type ANONYMOUS</code> option.</p>
+ */
+export interface UnsupportedPricingPlanException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedPricingPlanException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace UnsupportedPricingPlanException {
+  export const filterSensitiveLog = (obj: UnsupportedPricingPlanException): any => ({
     ...obj,
   });
 }
@@ -7573,6 +8410,7 @@ export interface ListDataSourcesResponse {
 export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
     ...obj,
+    ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSource.filterSensitiveLog(item)) }),
   });
 }
 
@@ -7892,49 +8730,6 @@ export interface ListNamespacesRequest {
 
 export namespace ListNamespacesRequest {
   export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListNamespacesResponse {
-  /**
-   * <p>The information about the namespaces in this AWS account. The response includes
-   *         the namespace ARN, name, AWS Region, notification email address, creation status, and
-   *         identity store.</p>
-   */
-  Namespaces?: NamespaceInfoV2[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListNamespacesResponse {
-  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
 }

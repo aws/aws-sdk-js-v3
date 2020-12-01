@@ -23,8 +23,8 @@ export type CreatePresignedPortalUrlCommandOutput = CreatePresignedPortalUrlResp
 /**
  * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
  *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
- *       to get a URL to that portal. The URL contains a session token that lets the IAM user access
- *       the portal.</p>
+ *       to get a URL to that portal. The URL contains an authentication token that lets the IAM user
+ *       access the portal.</p>
  */
 export class CreatePresignedPortalUrlCommand extends $Command<
   CreatePresignedPortalUrlCommandInput,

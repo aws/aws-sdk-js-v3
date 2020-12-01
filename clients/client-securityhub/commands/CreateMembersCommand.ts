@@ -22,20 +22,38 @@ export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBeare
 
 /**
  * <p>Creates a member association in Security Hub between the specified accounts and the account
- *          used to make the request, which is the master account. To successfully create a member, you
- *          must use this action from an account that already has Security Hub enabled. To enable Security Hub, you
+ *          used to make the request, which is the master account. If you are integrated with
+ *          Organizations, then the master account is the Security Hub administrator account that is
+ *          designated by the organization management account.</p>
+ *          <p>
+ *             <code>CreateMembers</code> is always used to add accounts that are not organization
+ *          members.</p>
+ *          <p>For accounts that are part of an organization, <code>CreateMembers</code> is only used
+ *          in the following cases:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Security Hub is not configured to automatically add new accounts in an
+ *                organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>The account was disassociated or deleted in Security Hub.</p>
+ *             </li>
+ *          </ul>
+ *          <p>This action can only be used by an account that has Security Hub enabled. To enable Security Hub, you
  *          can use the <code>
  *                <a>EnableSecurityHub</a>
  *             </code> operation.</p>
- *          <p>After you use <code>CreateMembers</code> to create member account associations in Security Hub,
- *          you must use the <code>
+ *          <p>For accounts that are not organization members, you create the account association and
+ *          then send an invitation to the member account. To send the invitation, you use the
+ *                <code>
  *                <a>InviteMembers</a>
- *             </code> operation to invite the
- *          accounts to enable Security Hub and become member accounts in Security Hub.</p>
- *          <p>If the account owner accepts the invitation, the account becomes a member account in
- *          Security Hub. A permissions policy is added that permits the master account to view the findings
- *          generated in the member account. When Security Hub is enabled in the invited account, findings
- *          start to be sent to both the member and master accounts.</p>
+ *             </code> operation. If the account owner accepts
+ *          the invitation, the account becomes a member account in Security Hub.</p>
+ *          <p>Accounts that are part of an organization do not receive an invitation. They
+ *          automatically become a member account in Security Hub.</p>
+ *          <p>A permissions policy is added that permits the master account to view the findings
+ *          generated in the member account. When Security Hub is enabled in a member account, findings are
+ *          sent to both the member and master accounts. </p>
  *          <p>To remove the association between the master and member accounts, use the <code>
  *                <a>DisassociateFromMasterAccount</a>
  *             </code> or <code>

@@ -1,6 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListTagsForResourceRequest } from "../models/models_0";
-import { ListTagsForResourceResponse } from "../models/models_1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

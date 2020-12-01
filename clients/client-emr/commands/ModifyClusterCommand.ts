@@ -21,7 +21,8 @@ export type ModifyClusterCommandInput = ModifyClusterInput;
 export type ModifyClusterCommandOutput = ModifyClusterOutput & __MetadataBearer;
 
 /**
- * <p>Modifies the number of steps that can be executed concurrently for the cluster specified using ClusterID.</p>
+ * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
+ *          using ClusterID.</p>
  */
 export class ModifyClusterCommand extends $Command<
   ModifyClusterCommandInput,

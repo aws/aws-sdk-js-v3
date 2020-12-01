@@ -112,6 +112,11 @@ import {
   DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
 import {
+  DescribeDefaultEncryptionConfigurationCommand,
+  DescribeDefaultEncryptionConfigurationCommandInput,
+  DescribeDefaultEncryptionConfigurationCommandOutput,
+} from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import {
   DescribeGatewayCapabilityConfigurationCommand,
   DescribeGatewayCapabilityConfigurationCommandInput,
   DescribeGatewayCapabilityConfigurationCommandOutput,
@@ -198,6 +203,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutDefaultEncryptionConfigurationCommand,
+  PutDefaultEncryptionConfigurationCommandInput,
+  PutDefaultEncryptionConfigurationCommandOutput,
+} from "./commands/PutDefaultEncryptionConfigurationCommand";
 import {
   PutLoggingOptionsCommand,
   PutLoggingOptionsCommandInput,
@@ -611,8 +621,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   /**
    * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
    *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
-   *       to get a URL to that portal. The URL contains a session token that lets the IAM user access
-   *       the portal.</p>
+   *       to get a URL to that portal. The URL contains an authentication token that lets the IAM user
+   *       access the portal.</p>
    */
   public createPresignedPortalUrl(
     args: CreatePresignedPortalUrlCommandInput,
@@ -1061,6 +1071,42 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
   ): Promise<DescribeDashboardCommandOutput> | void {
     const command = new DescribeDashboardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about the default encryption configuration for the
+   *       AWS account in the default or specified region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
+   *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  public describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput>;
+  public describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  public describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  public describeDefaultEncryptionConfiguration(
+    args: DescribeDefaultEncryptionConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> | void {
+    const command = new DescribeDefaultEncryptionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1713,6 +1759,40 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the default encryption configuration for the AWS
+   *       account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
+   *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  public putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDefaultEncryptionConfigurationCommandOutput>;
+  public putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  public putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+  public putDefaultEncryptionConfiguration(
+    args: PutDefaultEncryptionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
+  ): Promise<PutDefaultEncryptionConfigurationCommandOutput> | void {
+    const command = new PutDefaultEncryptionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

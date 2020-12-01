@@ -5573,6 +5573,7 @@ export type _InstanceType =
   | "m6gd.medium"
   | "m6gd.metal"
   | "m6gd.xlarge"
+  | "mac1.metal"
   | "p2.16xlarge"
   | "p2.8xlarge"
   | "p2.xlarge"

@@ -286,7 +286,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Attaches one or more target groups to the specified Auto Scaling group.</p>\n        <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from\n            the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>\n        <p>With Application Load Balancers and Network Load Balancers, instances are registered\n            as targets with a target group. With Classic Load Balancers, instances are registered\n            with the load balancer. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html\">Attaching a load\n                balancer to your Auto Scaling group</a> in the\n            <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Attaches one or more target groups to the specified Auto Scaling group.</p>\n        <p>This operation is used with the following load balancer types: </p>\n        <ul>\n            <li>\n                <p> Application Load Balancer - Operates at the application layer (layer 7) and\n                    supports HTTP and HTTPS. </p>\n            </li>\n            <li>\n                <p> Network Load Balancer - Operates at the transport layer (layer 4) and\n                    supports TCP, TLS, and UDP. </p>\n            </li>\n            <li>\n                <p> Gateway Load Balancer - Operates at the network layer (layer 3).</p>\n            </li>\n         </ul>\n        <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from\n            the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Elastic Load Balancing and\n                Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
       }
     },
     "com.amazonaws.autoscaling#AttachLoadBalancerTargetGroupsResultType": {
@@ -306,7 +306,7 @@
         "TargetGroupARNs": {
           "target": "com.amazonaws.autoscaling#TargetGroupARNs",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target\n            groups.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target\n            groups. To get the ARN of a target group, use the Elastic Load Balancing <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html\">DescribeTargetGroups</a> API operation.</p>",
             "smithy.api#required": {}
           }
         }
@@ -329,7 +329,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<note>\n            <p>To attach an Application Load Balancer or a Network Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.</p>\n        </note>\n        <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling\n            registers the running instances with these Classic Load Balancers.</p>\n        <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach the load balancer from the Auto Scaling\n            group, call the <a>DetachLoadBalancers</a> API.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html\">Attaching a load\n                balancer to your Auto Scaling group</a> in the\n            <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        "smithy.api#documentation": "<note>\n            <p>To attach an Application Load Balancer, Network Load Balancer, or Gateway Load\n                Balancer, use the <a>AttachLoadBalancerTargetGroups</a> API operation\n                instead.</p>\n        </note>\n        <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling\n            registers the running instances with these Classic Load Balancers.</p>\n        <p>To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a> API. To detach the load balancer from the Auto Scaling\n            group, call the <a>DetachLoadBalancers</a> API.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Elastic Load Balancing and\n                Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
       }
     },
     "com.amazonaws.autoscaling#AttachLoadBalancersResultType": {
@@ -1263,7 +1263,7 @@
         "MixedInstancesPolicy": {
           "target": "com.amazonaws.autoscaling#MixedInstancesPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>An embedded object that specifies a mixed instances policy. The required parameters\n            must be specified. If optional parameters are unspecified, their default values are\n            used.</p>\n        <p>The policy includes parameters that not only define the distribution of On-Demand\n            Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the\n            Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also\n            the parameters that specify the instance configuration information—the launch template\n            and instance types. The policy can also include a weight for each instance type and\n            different launch templates for individual instance types. For more information, see\n                <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html\">Auto Scaling groups with multiple\n                instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User\n                Guide</i>.</p>\n        <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or\n                <code>MixedInstancesPolicy</code>) or a launch configuration\n                (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>"
+            "smithy.api#documentation": "<p>An embedded object that specifies a mixed instances policy. The required parameters\n            must be specified. If optional parameters are unspecified, their default values are\n            used.</p>\n        <p>The policy includes parameters that not only define the distribution of On-Demand\n            Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the\n            Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also\n            the parameters that specify the instance configuration information—the launch template\n            and instance types. The policy can also include a weight for each instance type and\n            different launch templates for individual instance types. For more information, see\n                <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html\">Auto Scaling groups with multiple\n                instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User\n                Guide</i>.</p>"
           }
         },
         "InstanceId": {
@@ -1307,13 +1307,13 @@
         "LoadBalancerNames": {
           "target": "com.amazonaws.autoscaling#LoadBalancerNames",
           "traits": {
-            "smithy.api#documentation": "<p>A list of Classic Load Balancers associated with this Auto Scaling group. For\n            Application Load Balancers and Network Load Balancers, specify\n                <code>TargetGroupARNs</code> instead.</p>"
+            "smithy.api#documentation": "<p>A list of Classic Load Balancers associated with this Auto Scaling group. For\n            Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify\n            the <code>TargetGroupARNs</code> property instead.</p>"
           }
         },
         "TargetGroupARNs": {
           "target": "com.amazonaws.autoscaling#TargetGroupARNs",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.\n            Instances are registered as targets in a target group, and traffic is routed to the\n            target group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Elastic Load\n                Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.\n            Instances are registered as targets in a target group, and traffic is routed to the\n            target group. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html\">Elastic Load Balancing and\n                Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
           }
         },
         "HealthCheckType": {
@@ -1513,7 +1513,7 @@
         "PlacementTenancy": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen64",
           "traits": {
-            "smithy.api#documentation": "<p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on\n            isolated, single-tenant hardware and can only be launched into a VPC.</p>\n        <p>To launch dedicated instances into a shared tenancy VPC (a VPC with the instance\n            placement tenancy attribute set to <code>default</code>), you must set the value of this\n            parameter to <code>dedicated</code>.</p>\n        <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for\n                <code>VPCZoneIdentifier</code> when you create your group.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n        <p>Valid Values: <code>default</code> | <code>dedicated</code>\n        </p>"
+            "smithy.api#documentation": "<p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on\n            isolated, single-tenant hardware and can only be launched into a VPC.</p>\n        <p>To launch dedicated instances into a shared tenancy VPC (a VPC with the instance\n            placement tenancy attribute set to <code>default</code>), you must set the value of this\n            parameter to <code>dedicated</code>.</p>\n        <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for\n                <code>VPCZoneIdentifier</code> when you create your group.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html\">Configuring instance tenancy with Amazon EC2 Auto Scaling</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n        <p>Valid Values: <code>default</code> | <code>dedicated</code>\n        </p>"
           }
         },
         "MetadataOptions": {
@@ -2229,7 +2229,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the load balancers for the specified Auto Scaling group.</p>\n        <p>This operation describes only Classic Load Balancers. If you have Application Load\n            Balancers or Network Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>"
+        "smithy.api#documentation": "<p>Describes the load balancers for the specified Auto Scaling group.</p>\n        <p>This operation describes only Classic Load Balancers. If you have Application Load\n            Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>"
       }
     },
     "com.amazonaws.autoscaling#DescribeLoadBalancersRequest": {
@@ -2752,7 +2752,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>\n        <p>This operation detaches only Classic Load Balancers. If you have Application Load\n            Balancers or Network Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>\n        <p>When you detach a load balancer, it enters the <code>Removing</code> state while\n            deregistering the instances in the group. When all instances are deregistered, then you\n            can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>"
+        "smithy.api#documentation": "<p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>\n        <p>This operation detaches only Classic Load Balancers. If you have Application Load\n            Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>\n        <p>When you detach a load balancer, it enters the <code>Removing</code> state while\n            deregistering the instances in the group. When all instances are deregistered, then you\n            can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>"
       }
     },
     "com.amazonaws.autoscaling#DetachLoadBalancersResultType": {
@@ -3479,19 +3479,19 @@
         "SpotAllocationStrategy": {
           "target": "com.amazonaws.autoscaling#XmlString",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates how to allocate instances across Spot Instance pools. If the allocation\n            strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot\n            pools with the lowest price, and evenly allocates your instances across the number of\n            Spot pools that you specify. If the allocation strategy is\n                <code>capacity-optimized</code>, the Auto Scaling group launches instances using Spot pools\n            that are optimally chosen based on the available Spot capacity. Defaults to\n                <code>lowest-price</code> if not specified.</p>"
+            "smithy.api#documentation": "<p>Indicates how to allocate instances across Spot Instance pools. If the allocation\n            strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches\n            instances using Spot pools that are optimally chosen based on the available Spot\n            capacity. If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group\n            launches instances using the Spot pools with the lowest price, and evenly allocates your\n            instances across the number of Spot pools that you specify. Defaults to\n                <code>lowest-price</code> if not specified.</p>"
           }
         },
         "SpotInstancePools": {
           "target": "com.amazonaws.autoscaling#SpotInstancePools",
           "traits": {
-            "smithy.api#documentation": "<p>The number of Spot Instance pools across which to allocate your Spot Instances. The\n            Spot pools are determined from the different instance types in the overrides. Defaults\n            to 2 if not specified. Valid only when the Spot allocation strategy is\n                <code>lowest-price</code>.</p>\n        <p>Valid Range: Minimum value of 1. Maximum value of 20.</p>"
+            "smithy.api#documentation": "<p>The number of Spot Instance pools across which to allocate your Spot Instances. The\n            Spot pools are determined from the different instance types in the overrides. Valid only\n            when the Spot allocation strategy is <code>lowest-price</code>. Value must be in the\n            range of 1 to 20. Defaults to 2 if not specified.</p>"
           }
         },
         "SpotMaxPrice": {
           "target": "com.amazonaws.autoscaling#MixedInstanceSpotPrice",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If\n            you leave the value of this parameter blank (which is the default), the maximum Spot\n            price is set at the On-Demand price. To remove a value that you previously set, include\n            the parameter but leave the value blank.</p>"
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If\n            you leave the value at its default (empty), Amazon EC2 Auto Scaling uses the On-Demand price as the\n            maximum Spot price. To remove a value that you previously set, include the property but\n            specify an empty string (\"\") for the value.</p>"
           }
         }
       },
@@ -3773,7 +3773,7 @@
         "WeightedCapacity": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen32",
           "traits": {
-            "smithy.api#documentation": "<p>The number of capacity units provided by the specified instance type in terms of\n            virtual CPUs, memory, storage, throughput, or other relative performance characteristic.\n            When a Spot or On-Demand Instance is provisioned, the capacity units count toward the\n            desired capacity. Amazon EC2 Auto Scaling provisions instances until the desired capacity is totally\n            fulfilled, even if this results in an overage. For example, if there are 2 units\n            remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a\n                <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the\n            desired capacity is exceeded by 3 units. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html\">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>\n        <p>Valid Range: Minimum value of 1. Maximum value of 999.</p>"
+            "smithy.api#documentation": "<p>The number of capacity units provided by the specified instance type in terms of\n            virtual CPUs, memory, storage, throughput, or other relative performance characteristic.\n            When a Spot or On-Demand Instance is provisioned, the capacity units count toward the\n            desired capacity. Amazon EC2 Auto Scaling provisions instances until the desired capacity is totally\n            fulfilled, even if this results in an overage. For example, if there are 2 units\n            remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a\n                <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the\n            desired capacity is exceeded by 3 units. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html\">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.\n            Value must be in the range of 1 to 999.</p>"
           }
         },
         "LaunchTemplateSpecification": {
@@ -3793,13 +3793,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html\">DescribeLaunchTemplates</a> API operation. New launch templates can be created\n            using the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html\">CreateLaunchTemplate</a> API. You must specify either a\n                <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html\">DescribeLaunchTemplates</a> API operation. New launch templates can be created\n            using the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html\">CreateLaunchTemplate</a> API. </p>\n        <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a\n                <code>LaunchTemplateName</code>.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.autoscaling#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html\">DescribeLaunchTemplates</a> API operation. New launch templates can be created\n            using the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html\">CreateLaunchTemplate</a> API. You must specify either a\n                <code>LaunchTemplateId</code> or a <code>LaunchTemplateName</code>.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template. To get the template name, use the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html\">DescribeLaunchTemplates</a> API operation. New launch templates can be created\n            using the Amazon EC2 <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html\">CreateLaunchTemplate</a> API. </p>\n        <p>Conditional: You must specify either a <code>LaunchTemplateId</code> or a\n                <code>LaunchTemplateName</code>.</p>"
           }
         },
         "Version": {
@@ -4059,12 +4059,12 @@
         "State": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>One of the following load balancer states:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Adding</code> - The instances in the group are being registered with the\n                    load balancer.</p>\n            </li>\n            <li>\n                <p>\n                    <code>Added</code> - All instances in the group are registered with the load\n                    balancer.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InService</code> - At least one instance in the group passed an ELB\n                    health check.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removing</code> - The instances in the group are being deregistered from\n                    the load balancer. If connection draining is enabled, Elastic Load Balancing\n                    waits for in-flight requests to complete before deregistering the\n                    instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removed</code> - All instances in the group are deregistered from the\n                    load balancer.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>One of the following load balancer states:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Adding</code> - The instances in the group are being registered with the\n                    load balancer.</p>\n            </li>\n            <li>\n                <p>\n                    <code>Added</code> - All instances in the group are registered with the load\n                    balancer.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InService</code> - At least one instance in the group passed an ELB\n                    health check.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removing</code> - The instances in the group are being deregistered from\n                    the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight\n                    requests to complete before deregistering the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removed</code> - All instances in the group are deregistered from the\n                    load balancer.</p>\n            </li>\n         </ul>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the state of a Classic Load Balancer.</p>\n        <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load\n            balancer is <code>InService</code>.</p>\n        <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is\n                <code>Adding</code>. The state transitions to <code>Added</code> after all instances\n            in the group are registered with the load balancer. If Elastic Load Balancing health\n            checks are enabled for the load balancer, the state transitions to\n                <code>InService</code> after at least one instance in the group passes the health\n            check. If EC2 health checks are enabled instead, the load balancer remains in the\n                <code>Added</code> state.</p>"
+        "smithy.api#documentation": "<p>Describes the state of a Classic Load Balancer.</p>\n        <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load\n            balancer is <code>InService</code>.</p>\n        <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is\n                <code>Adding</code>. The state transitions to <code>Added</code> after all instances\n            in the group are registered with the load balancer. If Elastic Load Balancing health checks are enabled\n            for the load balancer, the state transitions to <code>InService</code> after at least\n            one instance in the group passes the health check. If EC2 health checks are enabled\n            instead, the load balancer remains in the <code>Added</code> state.</p>"
       }
     },
     "com.amazonaws.autoscaling#LoadBalancerStates": {
@@ -4085,12 +4085,12 @@
         "State": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>The state of the target group.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Adding</code> - The Auto Scaling instances are being registered with the target\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Added</code> - All Auto Scaling instances are registered with the target\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InService</code> - At least one Auto Scaling instance passed an ELB health\n                    check.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removing</code> - The Auto Scaling instances are being deregistered from the\n                    target group. If connection draining is enabled, Elastic Load Balancing waits\n                    for in-flight requests to complete before deregistering the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removed</code> - All Auto Scaling instances are deregistered from the target\n                    group.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The state of the target group.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Adding</code> - The Auto Scaling instances are being registered with the target\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Added</code> - All Auto Scaling instances are registered with the target\n                    group.</p>\n            </li>\n            <li>\n                <p>\n                  <code>InService</code> - At least one Auto Scaling instance passed an ELB health\n                    check.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removing</code> - The Auto Scaling instances are being deregistered from the\n                    target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight\n                    requests to complete before deregistering the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Removed</code> - All Auto Scaling instances are deregistered from the target\n                    group.</p>\n            </li>\n         </ul>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the state of a target group.</p>\n        <p>If you attach a target group to an existing Auto Scaling group, the initial state is\n                <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling\n            instances are registered with the target group. If Elastic Load Balancing health checks\n            are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling\n            instance passes the health check. If EC2 health checks are enabled instead, the target\n            group remains in the <code>Added</code> state.</p>"
+        "smithy.api#documentation": "<p>Describes the state of a target group.</p>\n        <p>If you attach a target group to an existing Auto Scaling group, the initial state is\n                <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling\n            instances are registered with the target group. If Elastic Load Balancing health checks are enabled, the\n            state transitions to <code>InService</code> after at least one Auto Scaling instance passes the\n            health check. If EC2 health checks are enabled instead, the target group remains in the\n                <code>Added</code> state.</p>"
       }
     },
     "com.amazonaws.autoscaling#LoadBalancerTargetGroupStates": {

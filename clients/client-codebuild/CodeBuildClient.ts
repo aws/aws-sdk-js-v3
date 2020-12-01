@@ -31,6 +31,10 @@ import {
   DescribeCodeCoveragesCommandOutput,
 } from "./commands/DescribeCodeCoveragesCommand";
 import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "./commands/DescribeTestCasesCommand";
+import {
+  GetReportGroupTrendCommandInput,
+  GetReportGroupTrendCommandOutput,
+} from "./commands/GetReportGroupTrendCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ImportSourceCredentialsCommandInput,
@@ -148,6 +152,7 @@ export type ServiceInputTypes =
   | DeleteWebhookCommandInput
   | DescribeCodeCoveragesCommandInput
   | DescribeTestCasesCommandInput
+  | GetReportGroupTrendCommandInput
   | GetResourcePolicyCommandInput
   | ImportSourceCredentialsCommandInput
   | InvalidateProjectCacheCommandInput
@@ -193,6 +198,7 @@ export type ServiceOutputTypes =
   | DeleteWebhookCommandOutput
   | DescribeCodeCoveragesCommandOutput
   | DescribeTestCasesCommandOutput
+  | GetReportGroupTrendCommandOutput
   | GetResourcePolicyCommandOutput
   | ImportSourceCredentialsCommandOutput
   | InvalidateProjectCacheCommandOutput

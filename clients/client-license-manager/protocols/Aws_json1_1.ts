@@ -2003,6 +2003,7 @@ const serializeAws_json1_1InventoryFilterList = (input: InventoryFilter[], conte
 
 const serializeAws_json1_1LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
   return {
+    ...(input.AmiAssociationScope !== undefined && { AmiAssociationScope: input.AmiAssociationScope }),
     ...(input.LicenseConfigurationArn !== undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
@@ -2457,6 +2458,10 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   context: __SerdeContext
 ): LicenseConfigurationAssociation => {
   return {
+    AmiAssociationScope:
+      output.AmiAssociationScope !== undefined && output.AmiAssociationScope !== null
+        ? output.AmiAssociationScope
+        : undefined,
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
@@ -2542,6 +2547,10 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
 
 const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
   return {
+    AmiAssociationScope:
+      output.AmiAssociationScope !== undefined && output.AmiAssociationScope !== null
+        ? output.AmiAssociationScope
+        : undefined,
     LicenseConfigurationArn:
       output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
         ? output.LicenseConfigurationArn

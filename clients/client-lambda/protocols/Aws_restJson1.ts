@@ -5,15 +5,27 @@ import {
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "../commands/AddPermissionCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand";
 import {
+  CreateCodeSigningConfigCommandInput,
+  CreateCodeSigningConfigCommandOutput,
+} from "../commands/CreateCodeSigningConfigCommand";
+import {
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput,
 } from "../commands/CreateEventSourceMappingCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../commands/CreateFunctionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
 import {
+  DeleteCodeSigningConfigCommandInput,
+  DeleteCodeSigningConfigCommandOutput,
+} from "../commands/DeleteCodeSigningConfigCommand";
+import {
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput,
 } from "../commands/DeleteEventSourceMappingCommand";
+import {
+  DeleteFunctionCodeSigningConfigCommandInput,
+  DeleteFunctionCodeSigningConfigCommandOutput,
+} from "../commands/DeleteFunctionCodeSigningConfigCommand";
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "../commands/DeleteFunctionCommand";
 import {
   DeleteFunctionConcurrencyCommandInput,
@@ -31,9 +43,17 @@ import {
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "../commands/GetAliasCommand";
 import {
+  GetCodeSigningConfigCommandInput,
+  GetCodeSigningConfigCommandOutput,
+} from "../commands/GetCodeSigningConfigCommand";
+import {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput,
 } from "../commands/GetEventSourceMappingCommand";
+import {
+  GetFunctionCodeSigningConfigCommandInput,
+  GetFunctionCodeSigningConfigCommandOutput,
+} from "../commands/GetFunctionCodeSigningConfigCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "../commands/GetFunctionCommand";
 import {
   GetFunctionConcurrencyCommandInput,
@@ -65,6 +85,10 @@ import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "../commands/I
 import { InvokeCommandInput, InvokeCommandOutput } from "../commands/InvokeCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import {
+  ListCodeSigningConfigsCommandInput,
+  ListCodeSigningConfigsCommandOutput,
+} from "../commands/ListCodeSigningConfigsCommand";
+import {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput,
 } from "../commands/ListEventSourceMappingsCommand";
@@ -72,6 +96,10 @@ import {
   ListFunctionEventInvokeConfigsCommandInput,
   ListFunctionEventInvokeConfigsCommandOutput,
 } from "../commands/ListFunctionEventInvokeConfigsCommand";
+import {
+  ListFunctionsByCodeSigningConfigCommandInput,
+  ListFunctionsByCodeSigningConfigCommandOutput,
+} from "../commands/ListFunctionsByCodeSigningConfigCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "../commands/ListLayerVersionsCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "../commands/ListLayersCommand";
@@ -89,6 +117,10 @@ import {
   PublishLayerVersionCommandOutput,
 } from "../commands/PublishLayerVersionCommand";
 import { PublishVersionCommandInput, PublishVersionCommandOutput } from "../commands/PublishVersionCommand";
+import {
+  PutFunctionCodeSigningConfigCommandInput,
+  PutFunctionCodeSigningConfigCommandOutput,
+} from "../commands/PutFunctionCodeSigningConfigCommand";
 import {
   PutFunctionConcurrencyCommandInput,
   PutFunctionConcurrencyCommandOutput,
@@ -110,6 +142,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "../commands/UpdateAliasCommand";
 import {
+  UpdateCodeSigningConfigCommandInput,
+  UpdateCodeSigningConfigCommandOutput,
+} from "../commands/UpdateCodeSigningConfigCommand";
+import {
   UpdateEventSourceMappingCommandInput,
   UpdateEventSourceMappingCommandOutput,
 } from "../commands/UpdateEventSourceMappingCommand";
@@ -127,7 +163,12 @@ import {
   AccountUsage,
   AliasConfiguration,
   AliasRoutingConfiguration,
+  AllowedPublishers,
+  CodeSigningConfig,
+  CodeSigningConfigNotFoundException,
+  CodeSigningPolicies,
   CodeStorageExceededException,
+  CodeVerificationFailedException,
   Concurrency,
   DeadLetterConfig,
   DestinationConfig,
@@ -148,6 +189,7 @@ import {
   FunctionCodeLocation,
   FunctionConfiguration,
   FunctionEventInvokeConfig,
+  InvalidCodeSignatureException,
   InvalidParameterValueException,
   InvalidRequestContentException,
   InvalidRuntimeException,
@@ -327,6 +369,36 @@ export const serializeAws_restJson1CreateAliasCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateCodeSigningConfigCommand = async (
+  input: CreateCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AllowedPublishers !== undefined && {
+      AllowedPublishers: serializeAws_restJson1AllowedPublishers(input.AllowedPublishers, context),
+    }),
+    ...(input.CodeSigningPolicies !== undefined && {
+      CodeSigningPolicies: serializeAws_restJson1CodeSigningPolicies(input.CodeSigningPolicies, context),
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
   input: CreateEventSourceMappingCommandInput,
   context: __SerdeContext
@@ -391,6 +463,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Code !== undefined && { Code: serializeAws_restJson1FunctionCode(input.Code, context) }),
+    ...(input.CodeSigningConfigArn !== undefined && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
     ...(input.DeadLetterConfig !== undefined && {
       DeadLetterConfig: serializeAws_restJson1DeadLetterConfig(input.DeadLetterConfig, context),
     }),
@@ -467,6 +540,36 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteCodeSigningConfigCommand = async (
+  input: DeleteCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  if (input.CodeSigningConfigArn !== undefined) {
+    const labelValue: string = input.CodeSigningConfigArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+    }
+    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteEventSourceMappingCommand = async (
   input: DeleteEventSourceMappingCommandInput,
   context: __SerdeContext
@@ -527,6 +630,36 @@ export const serializeAws_restJson1DeleteFunctionCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = async (
+  input: DeleteFunctionCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -729,6 +862,36 @@ export const serializeAws_restJson1GetAliasCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetCodeSigningConfigCommand = async (
+  input: GetCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  if (input.CodeSigningConfigArn !== undefined) {
+    const labelValue: string = input.CodeSigningConfigArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+    }
+    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetEventSourceMappingCommand = async (
   input: GetEventSourceMappingCommandInput,
   context: __SerdeContext
@@ -789,6 +952,36 @@ export const serializeAws_restJson1GetFunctionCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
+  input: GetFunctionCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1172,6 +1365,32 @@ export const serializeAws_restJson1ListAliasesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListCodeSigningConfigsCommand = async (
+  input: ListCodeSigningConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs";
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
   input: ListEventSourceMappingsCommandInput,
   context: __SerdeContext
@@ -1246,6 +1465,41 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
   const query: any = {
     ...(input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion }),
     ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = async (
+  input: ListFunctionsByCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
+  if (input.CodeSigningConfigArn !== undefined) {
+    const labelValue: string = input.CodeSigningConfigArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+    }
+    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+  }
+  const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
@@ -1496,6 +1750,39 @@ export const serializeAws_restJson1PublishVersionCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
+  input: PutFunctionCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CodeSigningConfigArn !== undefined && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -1814,6 +2101,45 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
     ...(input.RoutingConfig !== undefined && {
       RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
     }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateCodeSigningConfigCommand = async (
+  input: UpdateCodeSigningConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  if (input.CodeSigningConfigArn !== undefined) {
+    const labelValue: string = input.CodeSigningConfigArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+    }
+    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AllowedPublishers !== undefined && {
+      AllowedPublishers: serializeAws_restJson1AllowedPublishers(input.AllowedPublishers, context),
+    }),
+    ...(input.CodeSigningPolicies !== undefined && {
+      CodeSigningPolicies: serializeAws_restJson1CodeSigningPolicies(input.CodeSigningPolicies, context),
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2333,6 +2659,69 @@ const deserializeAws_restJson1CreateAliasCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateCodeSigningConfigCommandError(output, context);
+  }
+  const contents: CreateCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfig: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2524,6 +2913,8 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
+    SigningJobArn: undefined,
+    SigningProfileVersionArn: undefined,
     State: undefined,
     StateReason: undefined,
     StateReasonCode: undefined,
@@ -2593,6 +2984,12 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   if (data.Runtime !== undefined && data.Runtime !== null) {
     contents.Runtime = data.Runtime;
   }
+  if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+    contents.SigningJobArn = data.SigningJobArn;
+  }
+  if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
@@ -2629,10 +3026,34 @@ const deserializeAws_restJson1CreateFunctionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "CodeStorageExceededException":
     case "com.amazonaws.lambda#CodeStorageExceededException":
       response = {
         ...(await deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CodeVerificationFailedException":
+    case "com.amazonaws.lambda#CodeVerificationFailedException":
+      response = {
+        ...(await deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCodeSignatureException":
+    case "com.amazonaws.lambda#InvalidCodeSignatureException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2748,6 +3169,81 @@ const deserializeAws_restJson1DeleteAliasCommandError = async (
     case "com.amazonaws.lambda#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCodeSigningConfigCommandError(output, context);
+  }
+  const contents: DeleteCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2957,6 +3453,97 @@ const deserializeAws_restJson1DeleteFunctionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFunctionCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError(output, context);
+  }
+  const contents: DeleteFunctionCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFunctionCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterValueException":
     case "com.amazonaws.lambda#InvalidParameterValueException":
       response = {
@@ -3480,6 +4067,77 @@ const deserializeAws_restJson1GetAliasCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCodeSigningConfigCommandError(output, context);
+  }
+  const contents: GetCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfig: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3725,6 +4383,89 @@ const deserializeAws_restJson1GetFunctionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFunctionCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError(output, context);
+  }
+  const contents: GetFunctionCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfigArn: undefined,
+    FunctionName: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
+    contents.CodeSigningConfigArn = data.CodeSigningConfigArn;
+  }
+  if (data.FunctionName !== undefined && data.FunctionName !== null) {
+    contents.FunctionName = data.FunctionName;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFunctionCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3833,6 +4574,8 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
+    SigningJobArn: undefined,
+    SigningProfileVersionArn: undefined,
     State: undefined,
     StateReason: undefined,
     StateReasonCode: undefined,
@@ -3901,6 +4644,12 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
     contents.Runtime = data.Runtime;
+  }
+  if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+    contents.SigningJobArn = data.SigningJobArn;
+  }
+  if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -5011,6 +5760,73 @@ const deserializeAws_restJson1ListAliasesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListCodeSigningConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCodeSigningConfigsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCodeSigningConfigsCommandError(output, context);
+  }
+  const contents: ListCodeSigningConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfigs: undefined,
+    NextMarker: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfigs !== undefined && data.CodeSigningConfigs !== null) {
+    contents.CodeSigningConfigs = deserializeAws_restJson1CodeSigningConfigList(data.CodeSigningConfigs, context);
+  }
+  if (data.NextMarker !== undefined && data.NextMarker !== null) {
+    contents.NextMarker = data.NextMarker;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListCodeSigningConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCodeSigningConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListEventSourceMappingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5234,6 +6050,81 @@ const deserializeAws_restJson1ListFunctionsCommandError = async (
     case "com.amazonaws.lambda#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFunctionsByCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError(output, context);
+  }
+  const contents: ListFunctionsByCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FunctionArns: undefined,
+    NextMarker: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FunctionArns !== undefined && data.FunctionArns !== null) {
+    contents.FunctionArns = deserializeAws_restJson1FunctionArnList(data.FunctionArns, context);
+  }
+  if (data.NextMarker !== undefined && data.NextMarker !== null) {
+    contents.NextMarker = data.NextMarker;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFunctionsByCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5805,6 +6696,8 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
+    SigningJobArn: undefined,
+    SigningProfileVersionArn: undefined,
     State: undefined,
     StateReason: undefined,
     StateReasonCode: undefined,
@@ -5874,6 +6767,12 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   if (data.Runtime !== undefined && data.Runtime !== null) {
     contents.Runtime = data.Runtime;
   }
+  if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+    contents.SigningJobArn = data.SigningJobArn;
+  }
+  if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
@@ -5930,6 +6829,105 @@ const deserializeAws_restJson1PublishVersionCommandError = async (
     case "com.amazonaws.lambda#PreconditionFailedException":
       response = {
         ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFunctionCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError(output, context);
+  }
+  const contents: PutFunctionCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfigArn: undefined,
+    FunctionName: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
+    contents.CodeSigningConfigArn = data.CodeSigningConfigArn;
+  }
+  if (data.FunctionName !== undefined && data.FunctionName !== null) {
+    contents.FunctionName = data.FunctionName;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFunctionCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6728,6 +7726,77 @@ const deserializeAws_restJson1UpdateAliasCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateCodeSigningConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCodeSigningConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateCodeSigningConfigCommandError(output, context);
+  }
+  const contents: UpdateCodeSigningConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeSigningConfig: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateCodeSigningConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCodeSigningConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6927,6 +7996,8 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
+    SigningJobArn: undefined,
+    SigningProfileVersionArn: undefined,
     State: undefined,
     StateReason: undefined,
     StateReasonCode: undefined,
@@ -6996,6 +8067,12 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   if (data.Runtime !== undefined && data.Runtime !== null) {
     contents.Runtime = data.Runtime;
   }
+  if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+    contents.SigningJobArn = data.SigningJobArn;
+  }
+  if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
@@ -7032,10 +8109,34 @@ const deserializeAws_restJson1UpdateFunctionCodeCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "CodeStorageExceededException":
     case "com.amazonaws.lambda#CodeStorageExceededException":
       response = {
         ...(await deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CodeVerificationFailedException":
+    case "com.amazonaws.lambda#CodeVerificationFailedException":
+      response = {
+        ...(await deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCodeSignatureException":
+    case "com.amazonaws.lambda#InvalidCodeSignatureException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7134,6 +8235,8 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     RevisionId: undefined,
     Role: undefined,
     Runtime: undefined,
+    SigningJobArn: undefined,
+    SigningProfileVersionArn: undefined,
     State: undefined,
     StateReason: undefined,
     StateReasonCode: undefined,
@@ -7203,6 +8306,12 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   if (data.Runtime !== undefined && data.Runtime !== null) {
     contents.Runtime = data.Runtime;
   }
+  if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+    contents.SigningJobArn = data.SigningJobArn;
+  }
+  if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
@@ -7239,6 +8348,30 @@ const deserializeAws_restJson1UpdateFunctionConfigurationCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CodeVerificationFailedException":
+    case "com.amazonaws.lambda#CodeVerificationFailedException":
+      response = {
+        ...(await deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCodeSignatureException":
+    case "com.amazonaws.lambda#InvalidCodeSignatureException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterValueException":
     case "com.amazonaws.lambda#InvalidParameterValueException":
       response = {
@@ -7399,6 +8532,27 @@ const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CodeSigningConfigNotFoundException> => {
+  const contents: CodeSigningConfigNotFoundException = {
+    name: "CodeSigningConfigNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1CodeStorageExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7416,6 +8570,27 @@ const deserializeAws_restJson1CodeStorageExceededExceptionResponse = async (
   }
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CodeVerificationFailedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CodeVerificationFailedException> => {
+  const contents: CodeVerificationFailedException = {
+    name: "CodeVerificationFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
   }
   return contents;
 };
@@ -7578,6 +8753,27 @@ const deserializeAws_restJson1ENILimitReachedExceptionResponse = async (
   const contents: ENILimitReachedException = {
     name: "ENILimitReachedException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1InvalidCodeSignatureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidCodeSignatureException> => {
+  const contents: InvalidCodeSignatureException = {
+    name: "InvalidCodeSignatureException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     Type: undefined,
@@ -8086,6 +9282,25 @@ const serializeAws_restJson1AliasRoutingConfiguration = (
   };
 };
 
+const serializeAws_restJson1AllowedPublishers = (input: AllowedPublishers, context: __SerdeContext): any => {
+  return {
+    ...(input.SigningProfileVersionArns !== undefined && {
+      SigningProfileVersionArns: serializeAws_restJson1SigningProfileVersionArns(
+        input.SigningProfileVersionArns,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1CodeSigningPolicies = (input: CodeSigningPolicies, context: __SerdeContext): any => {
+  return {
+    ...(input.UntrustedArtifactOnDeployment !== undefined && {
+      UntrustedArtifactOnDeployment: input.UntrustedArtifactOnDeployment,
+    }),
+  };
+};
+
 const serializeAws_restJson1CompatibleRuntimes = (input: (Runtime | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -8174,6 +9389,10 @@ const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext):
 };
 
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1SigningProfileVersionArns = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -8295,6 +9514,51 @@ const deserializeAws_restJson1AliasRoutingConfiguration = (
     AdditionalVersionWeights:
       output.AdditionalVersionWeights !== undefined && output.AdditionalVersionWeights !== null
         ? deserializeAws_restJson1AdditionalVersionWeights(output.AdditionalVersionWeights, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AllowedPublishers = (output: any, context: __SerdeContext): AllowedPublishers => {
+  return {
+    SigningProfileVersionArns:
+      output.SigningProfileVersionArns !== undefined && output.SigningProfileVersionArns !== null
+        ? deserializeAws_restJson1SigningProfileVersionArns(output.SigningProfileVersionArns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CodeSigningConfig = (output: any, context: __SerdeContext): CodeSigningConfig => {
+  return {
+    AllowedPublishers:
+      output.AllowedPublishers !== undefined && output.AllowedPublishers !== null
+        ? deserializeAws_restJson1AllowedPublishers(output.AllowedPublishers, context)
+        : undefined,
+    CodeSigningConfigArn:
+      output.CodeSigningConfigArn !== undefined && output.CodeSigningConfigArn !== null
+        ? output.CodeSigningConfigArn
+        : undefined,
+    CodeSigningConfigId:
+      output.CodeSigningConfigId !== undefined && output.CodeSigningConfigId !== null
+        ? output.CodeSigningConfigId
+        : undefined,
+    CodeSigningPolicies:
+      output.CodeSigningPolicies !== undefined && output.CodeSigningPolicies !== null
+        ? deserializeAws_restJson1CodeSigningPolicies(output.CodeSigningPolicies, context)
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CodeSigningConfigList = (output: any, context: __SerdeContext): CodeSigningConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1CodeSigningConfig(entry, context));
+};
+
+const deserializeAws_restJson1CodeSigningPolicies = (output: any, context: __SerdeContext): CodeSigningPolicies => {
+  return {
+    UntrustedArtifactOnDeployment:
+      output.UntrustedArtifactOnDeployment !== undefined && output.UntrustedArtifactOnDeployment !== null
+        ? output.UntrustedArtifactOnDeployment
         : undefined,
   } as any;
 };
@@ -8451,6 +9715,10 @@ const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __Se
   return (output || []).map((entry: any) => deserializeAws_restJson1FileSystemConfig(entry, context));
 };
 
+const deserializeAws_restJson1FunctionArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
   return {
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
@@ -8500,6 +9768,12 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Runtime: output.Runtime !== undefined && output.Runtime !== null ? output.Runtime : undefined,
+    SigningJobArn:
+      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
+    SigningProfileVersionArn:
+      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
+        ? output.SigningProfileVersionArn
+        : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
     StateReasonCode:
@@ -8557,6 +9831,12 @@ const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): La
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
+    SigningJobArn:
+      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
+    SigningProfileVersionArn:
+      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
+        ? output.SigningProfileVersionArn
+        : undefined,
   } as any;
 };
 
@@ -8587,6 +9867,12 @@ const deserializeAws_restJson1LayerVersionContentOutput = (
     CodeSha256: output.CodeSha256 !== undefined && output.CodeSha256 !== null ? output.CodeSha256 : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    SigningJobArn:
+      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
+    SigningProfileVersionArn:
+      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
+        ? output.SigningProfileVersionArn
+        : undefined,
   } as any;
 };
 
@@ -8662,6 +9948,10 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

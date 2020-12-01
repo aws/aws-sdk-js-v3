@@ -15,12 +15,16 @@ import {
   ErrorDetail,
   ExecutionProperty,
   GlueTable,
+  Job,
   JobBookmarkEntry,
   JobCommand,
+  JobRun,
   Language,
+  LineageConfiguration,
   NotificationProperty,
   Partition,
   PartitionInput,
+  PartitionValueList,
   Predicate,
   PrincipalType,
   RecrawlPolicy,
@@ -47,6 +51,132 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface GetJobBookmarkResponse {
+  /**
+   * <p>A structure that defines a point that a job can resume processing.</p>
+   */
+  JobBookmarkEntry?: JobBookmarkEntry;
+}
+
+export namespace GetJobBookmarkResponse {
+  export const filterSensitiveLog = (obj: GetJobBookmarkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobRunRequest {
+  /**
+   * <p>Name of the job definition being run.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The ID of the job run.</p>
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>True if a list of predecessor runs should be returned.</p>
+   */
+  PredecessorsIncluded?: boolean;
+}
+
+export namespace GetJobRunRequest {
+  export const filterSensitiveLog = (obj: GetJobRunRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobRunResponse {
+  /**
+   * <p>The requested job-run metadata.</p>
+   */
+  JobRun?: JobRun;
+}
+
+export namespace GetJobRunResponse {
+  export const filterSensitiveLog = (obj: GetJobRunResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobRunsRequest {
+  /**
+   * <p>The name of the job definition for which to retrieve all job runs.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetJobRunsRequest {
+  export const filterSensitiveLog = (obj: GetJobRunsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobRunsResponse {
+  /**
+   * <p>A list of job-run metadata objects.</p>
+   */
+  JobRuns?: JobRun[];
+
+  /**
+   * <p>A continuation token, if not all requested job runs have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobRunsResponse {
+  export const filterSensitiveLog = (obj: GetJobRunsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobsRequest {
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetJobsRequest {
+  export const filterSensitiveLog = (obj: GetJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetJobsResponse {
+  /**
+   * <p>A list of job definitions.</p>
+   */
+  Jobs?: Job[];
+
+  /**
+   * <p>A continuation token, if not all job definitions have yet been returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobsResponse {
+  export const filterSensitiveLog = (obj: GetJobsResponse): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The location of resources.</p>
@@ -1177,24 +1307,6 @@ export namespace GetPartitionResponse {
   });
 }
 
-/**
- * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPartitionIndexesRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -1223,8 +1335,60 @@ export namespace GetPartitionIndexesRequest {
   });
 }
 
+export enum BackfillErrorCode {
+  ENCRYPTED_PARTITION_ERROR = "ENCRYPTED_PARTITION_ERROR",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INVALID_PARTITION_TYPE_DATA_ERROR = "INVALID_PARTITION_TYPE_DATA_ERROR",
+  MISSING_PARTITION_VALUE_ERROR = "MISSING_PARTITION_VALUE_ERROR",
+  UNSUPPORTED_PARTITION_CHARACTER_ERROR = "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+}
+
+/**
+ * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
+ *
+ * 	        <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>
+ *
+ * 	        <ul>
+ *             <li>
+ *                <p>EncryptedPartitionError: The partitions are encrypted.</p>
+ *             </li>
+ *             <li>
+ *                <p>InvalidPartitionTypeDataError: The partition value doesn't match the data type for that partition column.</p>
+ *             </li>
+ *             <li>
+ *                <p>MissingPartitionValueError: The partitions are encrypted.</p>
+ *             </li>
+ *             <li>
+ *                <p>UnsupportedPartitionCharacterError: Characters inside the partition value are not supported. For example: U+0000 , U+0001, U+0002.</p>
+ *             </li>
+ *             <li>
+ *                <p>InternalError: Any error which does not belong to other error codes.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface BackfillError {
+  /**
+   * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
+   */
+  Code?: BackfillErrorCode | string;
+
+  /**
+   * <p>A list of a limited number of partitions in the response.</p>
+   */
+  Partitions?: PartitionValueList[];
+}
+
+export namespace BackfillError {
+  export const filterSensitiveLog = (obj: BackfillError): any => ({
+    ...obj,
+  });
+}
+
 export enum PartitionIndexStatus {
   ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
 }
 
 /**
@@ -1264,8 +1428,29 @@ export interface PartitionIndexDescriptor {
 
   /**
    * <p>The status of the partition index. </p>
+   *
+   * 	        <p>The possible statuses are:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The index creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The index creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The index is deleted from the list of indexes.</p>
+   *             </li>
+   *          </ul>
    */
   IndexStatus: PartitionIndexStatus | string | undefined;
+
+  /**
+   * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
+   */
+  BackfillErrors?: BackfillError[];
 }
 
 export namespace PartitionIndexDescriptor {
@@ -4989,6 +5174,11 @@ export interface UpdateCrawlerRequest {
    * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
    */
   RecrawlPolicy?: RecrawlPolicy;
+
+  /**
+   * <p>Specifies data lineage configuration settings for the crawler.</p>
+   */
+  LineageConfiguration?: LineageConfiguration;
 
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users

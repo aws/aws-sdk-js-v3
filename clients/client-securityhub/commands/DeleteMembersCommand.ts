@@ -22,6 +22,8 @@ export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBeare
 
 /**
  * <p>Deletes the specified member accounts from Security Hub.</p>
+ *          <p>Can be used to delete member accounts that belong to an organization as well as member
+ *          accounts that were invited manually.</p>
  */
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,

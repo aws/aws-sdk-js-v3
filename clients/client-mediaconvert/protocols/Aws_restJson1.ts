@@ -4091,6 +4091,7 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
 
 const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
     ...(input.Scte35Esam !== undefined && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
   };
@@ -4178,6 +4179,7 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
     ...(input.FragmentLength !== undefined && { fragmentLength: input.FragmentLength }),
     ...(input.HbbtvCompliance !== undefined && { hbbtvCompliance: input.HbbtvCompliance }),
     ...(input.MinBufferTime !== undefined && { minBufferTime: input.MinBufferTime }),
+    ...(input.MinFinalSegmentLength !== undefined && { minFinalSegmentLength: input.MinFinalSegmentLength }),
     ...(input.MpdProfile !== undefined && { mpdProfile: input.MpdProfile }),
     ...(input.SegmentControl !== undefined && { segmentControl: input.SegmentControl }),
     ...(input.SegmentLength !== undefined && { segmentLength: input.SegmentLength }),
@@ -4894,6 +4896,7 @@ const serializeAws_restJson1M2tsScte35Esam = (input: M2tsScte35Esam, context: __
 const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
   return {
     ...(input.AudioBufferModel !== undefined && { audioBufferModel: input.AudioBufferModel }),
+    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
     ...(input.AudioFramesPerPes !== undefined && { audioFramesPerPes: input.AudioFramesPerPes }),
     ...(input.AudioPids !== undefined && {
       audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
@@ -4946,6 +4949,7 @@ const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __Serd
 
 const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
   return {
+    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
     ...(input.AudioFramesPerPes !== undefined && { audioFramesPerPes: input.AudioFramesPerPes }),
     ...(input.AudioPids !== undefined && {
       audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
@@ -5032,6 +5036,7 @@ const serializeAws_restJson1Mp3Settings = (input: Mp3Settings, context: __SerdeC
 
 const serializeAws_restJson1Mp4Settings = (input: Mp4Settings, context: __SerdeContext): any => {
   return {
+    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
     ...(input.CslgAtom !== undefined && { cslgAtom: input.CslgAtom }),
     ...(input.CttsVersion !== undefined && { cttsVersion: input.CttsVersion }),
     ...(input.FreeSpaceBox !== undefined && { freeSpaceBox: input.FreeSpaceBox }),
@@ -5042,6 +5047,10 @@ const serializeAws_restJson1Mp4Settings = (input: Mp4Settings, context: __SerdeC
 
 const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AccessibilityCaptionHints !== undefined && {
+      accessibilityCaptionHints: input.AccessibilityCaptionHints,
+    }),
+    ...(input.AudioDuration !== undefined && { audioDuration: input.AudioDuration }),
     ...(input.CaptionContainerType !== undefined && { captionContainerType: input.CaptionContainerType }),
     ...(input.Scte35Esam !== undefined && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && { scte35Source: input.Scte35Source }),
@@ -6550,6 +6559,8 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeContext): CmfcSettings => {
   return {
+    AudioDuration:
+      output.audioDuration !== undefined && output.audioDuration !== null ? output.audioDuration : undefined,
     Scte35Esam: output.scte35Esam !== undefined && output.scte35Esam !== null ? output.scte35Esam : undefined,
     Scte35Source: output.scte35Source !== undefined && output.scte35Source !== null ? output.scte35Source : undefined,
   } as any;
@@ -6664,6 +6675,10 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
       output.hbbtvCompliance !== undefined && output.hbbtvCompliance !== null ? output.hbbtvCompliance : undefined,
     MinBufferTime:
       output.minBufferTime !== undefined && output.minBufferTime !== null ? output.minBufferTime : undefined,
+    MinFinalSegmentLength:
+      output.minFinalSegmentLength !== undefined && output.minFinalSegmentLength !== null
+        ? output.minFinalSegmentLength
+        : undefined,
     MpdProfile: output.mpdProfile !== undefined && output.mpdProfile !== null ? output.mpdProfile : undefined,
     SegmentControl:
       output.segmentControl !== undefined && output.segmentControl !== null ? output.segmentControl : undefined,
@@ -7843,6 +7858,8 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
   return {
     AudioBufferModel:
       output.audioBufferModel !== undefined && output.audioBufferModel !== null ? output.audioBufferModel : undefined,
+    AudioDuration:
+      output.audioDuration !== undefined && output.audioDuration !== null ? output.audioDuration : undefined,
     AudioFramesPerPes:
       output.audioFramesPerPes !== undefined && output.audioFramesPerPes !== null
         ? output.audioFramesPerPes
@@ -7929,6 +7946,8 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => {
   return {
+    AudioDuration:
+      output.audioDuration !== undefined && output.audioDuration !== null ? output.audioDuration : undefined,
     AudioFramesPerPes:
       output.audioFramesPerPes !== undefined && output.audioFramesPerPes !== null
         ? output.audioFramesPerPes
@@ -8042,6 +8061,8 @@ const deserializeAws_restJson1Mp3Settings = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Mp4Settings = (output: any, context: __SerdeContext): Mp4Settings => {
   return {
+    AudioDuration:
+      output.audioDuration !== undefined && output.audioDuration !== null ? output.audioDuration : undefined,
     CslgAtom: output.cslgAtom !== undefined && output.cslgAtom !== null ? output.cslgAtom : undefined,
     CttsVersion: output.cttsVersion !== undefined && output.cttsVersion !== null ? output.cttsVersion : undefined,
     FreeSpaceBox: output.freeSpaceBox !== undefined && output.freeSpaceBox !== null ? output.freeSpaceBox : undefined,
@@ -8054,6 +8075,12 @@ const deserializeAws_restJson1Mp4Settings = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MpdSettings = (output: any, context: __SerdeContext): MpdSettings => {
   return {
+    AccessibilityCaptionHints:
+      output.accessibilityCaptionHints !== undefined && output.accessibilityCaptionHints !== null
+        ? output.accessibilityCaptionHints
+        : undefined,
+    AudioDuration:
+      output.audioDuration !== undefined && output.audioDuration !== null ? output.audioDuration : undefined,
     CaptionContainerType:
       output.captionContainerType !== undefined && output.captionContainerType !== null
         ? output.captionContainerType

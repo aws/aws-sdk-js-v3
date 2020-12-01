@@ -177,6 +177,7 @@ export enum Locale {
   EN_AU = "en-AU",
   EN_GB = "en-GB",
   EN_US = "en-US",
+  ES_419 = "es-419",
   ES_ES = "es-ES",
   ES_US = "es-US",
   FR_CA = "fr-CA",

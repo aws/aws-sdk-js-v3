@@ -1334,6 +1334,9 @@
           "target": "com.amazonaws.codebuild#DescribeTestCases"
         },
         {
+          "target": "com.amazonaws.codebuild#GetReportGroupTrend"
+        },
+        {
           "target": "com.amazonaws.codebuild#GetResourcePolicy"
         },
         {
@@ -2543,6 +2546,54 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.codebuild#FilterGroup"
+      }
+    },
+    "com.amazonaws.codebuild#GetReportGroupTrend": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.codebuild#GetReportGroupTrendInput"
+      },
+      "output": {
+        "target": "com.amazonaws.codebuild#GetReportGroupTrendOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.codebuild#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.codebuild#ResourceNotFoundException"
+        }
+      ]
+    },
+    "com.amazonaws.codebuild#GetReportGroupTrendInput": {
+      "type": "structure",
+      "members": {
+        "reportGroupArn": {
+          "target": "com.amazonaws.codebuild#NonEmptyString",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "numOfReports": {
+          "target": "com.amazonaws.codebuild#PageSize"
+        },
+        "trendField": {
+          "target": "com.amazonaws.codebuild#ReportGroupTrendFieldType",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.codebuild#GetReportGroupTrendOutput": {
+      "type": "structure",
+      "members": {
+        "stats": {
+          "target": "com.amazonaws.codebuild#ReportGroupTrendStats"
+        },
+        "rawData": {
+          "target": "com.amazonaws.codebuild#ReportGroupTrendRawDataList"
+        }
       }
     },
     "com.amazonaws.codebuild#GetResourcePolicy": {
@@ -4704,6 +4755,69 @@
         ]
       }
     },
+    "com.amazonaws.codebuild#ReportGroupTrendFieldType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PASS_RATE",
+            "name": "PASS_RATE"
+          },
+          {
+            "value": "DURATION",
+            "name": "DURATION"
+          },
+          {
+            "value": "TOTAL",
+            "name": "TOTAL"
+          },
+          {
+            "value": "LINE_COVERAGE",
+            "name": "LINE_COVERAGE"
+          },
+          {
+            "value": "LINES_COVERED",
+            "name": "LINES_COVERED"
+          },
+          {
+            "value": "LINES_MISSED",
+            "name": "LINES_MISSED"
+          },
+          {
+            "value": "BRANCH_COVERAGE",
+            "name": "BRANCH_COVERAGE"
+          },
+          {
+            "value": "BRANCHES_COVERED",
+            "name": "BRANCHES_COVERED"
+          },
+          {
+            "value": "BRANCHES_MISSED",
+            "name": "BRANCHES_MISSED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.codebuild#ReportGroupTrendRawDataList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.codebuild#ReportWithRawData"
+      }
+    },
+    "com.amazonaws.codebuild#ReportGroupTrendStats": {
+      "type": "structure",
+      "members": {
+        "average": {
+          "target": "com.amazonaws.codebuild#String"
+        },
+        "max": {
+          "target": "com.amazonaws.codebuild#String"
+        },
+        "min": {
+          "target": "com.amazonaws.codebuild#String"
+        }
+      }
+    },
     "com.amazonaws.codebuild#ReportGroups": {
       "type": "list",
       "member": {
@@ -4780,6 +4894,17 @@
             "name": "CODE_COVERAGE"
           }
         ]
+      }
+    },
+    "com.amazonaws.codebuild#ReportWithRawData": {
+      "type": "structure",
+      "members": {
+        "reportArn": {
+          "target": "com.amazonaws.codebuild#NonEmptyString"
+        },
+        "data": {
+          "target": "com.amazonaws.codebuild#String"
+        }
       }
     },
     "com.amazonaws.codebuild#Reports": {

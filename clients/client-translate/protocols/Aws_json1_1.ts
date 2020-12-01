@@ -1,10 +1,14 @@
+import { CreateParallelDataCommandInput, CreateParallelDataCommandOutput } from "../commands/CreateParallelDataCommand";
+import { DeleteParallelDataCommandInput, DeleteParallelDataCommandOutput } from "../commands/DeleteParallelDataCommand";
 import { DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput } from "../commands/DeleteTerminologyCommand";
 import {
   DescribeTextTranslationJobCommandInput,
   DescribeTextTranslationJobCommandOutput,
 } from "../commands/DescribeTextTranslationJobCommand";
+import { GetParallelDataCommandInput, GetParallelDataCommandOutput } from "../commands/GetParallelDataCommand";
 import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "../commands/GetTerminologyCommand";
 import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "../commands/ImportTerminologyCommand";
+import { ListParallelDataCommandInput, ListParallelDataCommandOutput } from "../commands/ListParallelDataCommand";
 import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "../commands/ListTerminologiesCommand";
 import {
   ListTextTranslationJobsCommandInput,
@@ -19,13 +23,22 @@ import {
   StopTextTranslationJobCommandOutput,
 } from "../commands/StopTextTranslationJobCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "../commands/TranslateTextCommand";
+import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "../commands/UpdateParallelDataCommand";
 import {
   AppliedTerminology,
+  ConcurrentModificationException,
+  ConflictException,
+  CreateParallelDataRequest,
+  CreateParallelDataResponse,
+  DeleteParallelDataRequest,
+  DeleteParallelDataResponse,
   DeleteTerminologyRequest,
   DescribeTextTranslationJobRequest,
   DescribeTextTranslationJobResponse,
   DetectedLanguageLowConfidenceException,
   EncryptionKey,
+  GetParallelDataRequest,
+  GetParallelDataResponse,
   GetTerminologyRequest,
   GetTerminologyResponse,
   ImportTerminologyRequest,
@@ -37,11 +50,16 @@ import {
   InvalidRequestException,
   JobDetails,
   LimitExceededException,
+  ListParallelDataRequest,
+  ListParallelDataResponse,
   ListTerminologiesRequest,
   ListTerminologiesResponse,
   ListTextTranslationJobsRequest,
   ListTextTranslationJobsResponse,
   OutputDataConfig,
+  ParallelDataConfig,
+  ParallelDataDataLocation,
+  ParallelDataProperties,
   ResourceNotFoundException,
   ServiceUnavailableException,
   StartTextTranslationJobRequest,
@@ -59,6 +77,8 @@ import {
   TranslateTextRequest,
   TranslateTextResponse,
   UnsupportedLanguagePairException,
+  UpdateParallelDataRequest,
+  UpdateParallelDataResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -70,6 +90,32 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_json1_1CreateParallelDataCommand = async (
+  input: CreateParallelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.CreateParallelData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateParallelDataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteParallelDataCommand = async (
+  input: DeleteParallelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteParallelData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteParallelDataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1DeleteTerminologyCommand = async (
   input: DeleteTerminologyCommandInput,
@@ -97,6 +143,19 @@ export const serializeAws_json1_1DescribeTextTranslationJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetParallelDataCommand = async (
+  input: GetParallelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.GetParallelData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetParallelDataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetTerminologyCommand = async (
   input: GetTerminologyCommandInput,
   context: __SerdeContext
@@ -120,6 +179,19 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportTerminologyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListParallelDataCommand = async (
+  input: ListParallelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.ListParallelData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -186,6 +258,193 @@ export const serializeAws_json1_1TranslateTextCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TranslateTextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateParallelDataCommand = async (
+  input: UpdateParallelDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.UpdateParallelData",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateParallelDataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1CreateParallelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateParallelDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateParallelDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateParallelDataResponse(data, context);
+  const response: CreateParallelDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateParallelDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateParallelDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.translate#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.translate#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteParallelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteParallelDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteParallelDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteParallelDataResponse(data, context);
+  const response: DeleteParallelDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteParallelDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteParallelDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTerminologyCommand = async (
@@ -298,6 +557,85 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
     case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetParallelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParallelDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetParallelDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetParallelDataResponse(data, context);
+  const response: GetParallelDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetParallelDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParallelDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -464,6 +802,77 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
     case "com.amazonaws.translate#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListParallelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListParallelDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListParallelDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListParallelDataResponse(data, context);
+  const response: ListParallelDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListParallelDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListParallelDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -912,6 +1321,147 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateParallelDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParallelDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateParallelDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateParallelDataResponse(data, context);
+  const response: UpdateParallelDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateParallelDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParallelDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.translate#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.translate#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.translate#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentModificationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1DetectedLanguageLowConfidenceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1077,6 +1627,32 @@ const deserializeAws_json1_1UnsupportedLanguagePairExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1CreateParallelDataRequest = (
+  input: CreateParallelDataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.EncryptionKey !== undefined && {
+      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParallelDataConfig !== undefined && {
+      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1DeleteParallelDataRequest = (
+  input: DeleteParallelDataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DeleteTerminologyRequest = (
   input: DeleteTerminologyRequest,
   context: __SerdeContext
@@ -1099,6 +1675,12 @@ const serializeAws_json1_1EncryptionKey = (input: EncryptionKey, context: __Serd
   return {
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1GetParallelDataRequest = (input: GetParallelDataRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -1133,6 +1715,13 @@ const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __
   };
 };
 
+const serializeAws_json1_1ListParallelDataRequest = (input: ListParallelDataRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListTerminologiesRequest = (
   input: ListTerminologiesRequest,
   context: __SerdeContext
@@ -1160,6 +1749,13 @@ const serializeAws_json1_1OutputDataConfig = (input: OutputDataConfig, context: 
   };
 };
 
+const serializeAws_json1_1ParallelDataConfig = (input: ParallelDataConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Format !== undefined && { Format: input.Format }),
+    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
+  };
+};
+
 const serializeAws_json1_1ResourceNameList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -1177,6 +1773,9 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.OutputDataConfig !== undefined && {
       OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+    }),
+    ...(input.ParallelDataNames !== undefined && {
+      ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
     }),
     ...(input.SourceLanguageCode !== undefined && { SourceLanguageCode: input.SourceLanguageCode }),
     ...(input.TargetLanguageCodes !== undefined && {
@@ -1235,6 +1834,20 @@ const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateParallelDataRequest = (
+  input: UpdateParallelDataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParallelDataConfig !== undefined && {
+      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+    }),
+  };
+};
+
 const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeContext): AppliedTerminology => {
   return {
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -1247,6 +1860,41 @@ const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1AppliedTerminologyList = (output: any, context: __SerdeContext): AppliedTerminology[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1AppliedTerminology(entry, context));
+};
+
+const deserializeAws_json1_1ConcurrentModificationException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentModificationException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateParallelDataResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateParallelDataResponse => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteParallelDataResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteParallelDataResponse => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTextTranslationJobResponse = (
@@ -1278,6 +1926,31 @@ const deserializeAws_json1_1EncryptionKey = (output: any, context: __SerdeContex
   return {
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetParallelDataResponse = (
+  output: any,
+  context: __SerdeContext
+): GetParallelDataResponse => {
+  return {
+    AuxiliaryDataLocation:
+      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+        ? deserializeAws_json1_1ParallelDataDataLocation(output.AuxiliaryDataLocation, context)
+        : undefined,
+    DataLocation:
+      output.DataLocation !== undefined && output.DataLocation !== null
+        ? deserializeAws_json1_1ParallelDataDataLocation(output.DataLocation, context)
+        : undefined,
+    LatestUpdateAttemptAuxiliaryDataLocation:
+      output.LatestUpdateAttemptAuxiliaryDataLocation !== undefined &&
+      output.LatestUpdateAttemptAuxiliaryDataLocation !== null
+        ? deserializeAws_json1_1ParallelDataDataLocation(output.LatestUpdateAttemptAuxiliaryDataLocation, context)
+        : undefined,
+    ParallelDataProperties:
+      output.ParallelDataProperties !== undefined && output.ParallelDataProperties !== null
+        ? deserializeAws_json1_1ParallelDataProperties(output.ParallelDataProperties, context)
+        : undefined,
   } as any;
 };
 
@@ -1373,6 +2046,19 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListParallelDataResponse = (
+  output: any,
+  context: __SerdeContext
+): ListParallelDataResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ParallelDataPropertiesList:
+      output.ParallelDataPropertiesList !== undefined && output.ParallelDataPropertiesList !== null
+        ? deserializeAws_json1_1ParallelDataPropertiesList(output.ParallelDataPropertiesList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTerminologiesResponse = (
   output: any,
   context: __SerdeContext
@@ -1403,6 +2089,87 @@ const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeCon
   return {
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ParallelDataConfig = (output: any, context: __SerdeContext): ParallelDataConfig => {
+  return {
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ParallelDataDataLocation = (
+  output: any,
+  context: __SerdeContext
+): ParallelDataDataLocation => {
+  return {
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    RepositoryType:
+      output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __SerdeContext): ParallelDataProperties => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    EncryptionKey:
+      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
+        : undefined,
+    FailedRecordCount:
+      output.FailedRecordCount !== undefined && output.FailedRecordCount !== null
+        ? output.FailedRecordCount
+        : undefined,
+    ImportedDataSize:
+      output.ImportedDataSize !== undefined && output.ImportedDataSize !== null ? output.ImportedDataSize : undefined,
+    ImportedRecordCount:
+      output.ImportedRecordCount !== undefined && output.ImportedRecordCount !== null
+        ? output.ImportedRecordCount
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    LatestUpdateAttemptAt:
+      output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
+        ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
+        : undefined,
+    LatestUpdateAttemptStatus:
+      output.LatestUpdateAttemptStatus !== undefined && output.LatestUpdateAttemptStatus !== null
+        ? output.LatestUpdateAttemptStatus
+        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ParallelDataConfig:
+      output.ParallelDataConfig !== undefined && output.ParallelDataConfig !== null
+        ? deserializeAws_json1_1ParallelDataConfig(output.ParallelDataConfig, context)
+        : undefined,
+    SkippedRecordCount:
+      output.SkippedRecordCount !== undefined && output.SkippedRecordCount !== null
+        ? output.SkippedRecordCount
+        : undefined,
+    SourceLanguageCode:
+      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
+        ? output.SourceLanguageCode
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    TargetLanguageCodes:
+      output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
+        ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ParallelDataPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): ParallelDataProperties[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ParallelDataProperties(entry, context));
 };
 
 const deserializeAws_json1_1ResourceNameList = (output: any, context: __SerdeContext): string[] => {
@@ -1546,6 +2313,10 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
         : undefined,
+    ParallelDataNames:
+      output.ParallelDataNames !== undefined && output.ParallelDataNames !== null
+        ? deserializeAws_json1_1ResourceNameList(output.ParallelDataNames, context)
+        : undefined,
     SourceLanguageCode:
       output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
         ? output.SourceLanguageCode
@@ -1614,6 +2385,24 @@ const deserializeAws_json1_1UnsupportedLanguagePairException = (
       output.TargetLanguageCode !== undefined && output.TargetLanguageCode !== null
         ? output.TargetLanguageCode
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateParallelDataResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateParallelDataResponse => {
+  return {
+    LatestUpdateAttemptAt:
+      output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
+        ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
+        : undefined,
+    LatestUpdateAttemptStatus:
+      output.LatestUpdateAttemptStatus !== undefined && output.LatestUpdateAttemptStatus !== null
+        ? output.LatestUpdateAttemptStatus
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 

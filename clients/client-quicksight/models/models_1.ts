@@ -16,6 +16,7 @@ import {
   Group,
   IdentityType,
   LogicalTable,
+  NamespaceInfoV2,
   PhysicalTable,
   ResourcePermission,
   ResourceStatus,
@@ -33,6 +34,49 @@ import {
   _Parameters,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface ListNamespacesResponse {
+  /**
+   * <p>The information about the namespaces in this AWS account. The response includes
+   *         the namespace ARN, name, AWS Region, notification email address, creation status, and
+   *         identity store.</p>
+   */
+  Namespaces?: NamespaceInfoV2[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListNamespacesResponse {
+  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTagsForResourceResponse {
   /**
@@ -1617,6 +1661,24 @@ export interface UpdateDataSetRequest {
 export namespace UpdateDataSetRequest {
   export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
     ...obj,
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -1761,6 +1823,9 @@ export interface UpdateDataSourceRequest {
 export namespace UpdateDataSourceRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
     ...obj,
+    ...(obj.DataSourceParameters && {
+      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
+    }),
     ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
   });
 }

@@ -18,9 +18,9 @@ export type AddTagsCommandInput = AddTagsInput;
 export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
 
 /**
- * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
- *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>.
- *       </p>
+ * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
+ *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
+ *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, EMRClientResolvedConfig> {
   // Start section: command_properties

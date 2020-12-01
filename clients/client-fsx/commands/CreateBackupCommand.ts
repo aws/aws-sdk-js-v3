@@ -36,7 +36,7 @@ export type CreateBackupCommandOutput = CreateBackupResponse & __MetadataBearer;
  *          </ul>
  *             <p>For more information about backing up Amazon FSx for Lustre file systems,
  *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
- *         <p>For more information about backing up Amazon FSx for Lustre file systems,
+ *         <p>For more information about backing up Amazon FSx for Windows file systems,
  *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
  *
  *         <p>If a backup with the specified client request token exists, and the parameters

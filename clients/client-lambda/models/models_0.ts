@@ -423,6 +423,23 @@ export namespace AliasConfiguration {
   });
 }
 
+/**
+ * <p>List of signing profiles that can sign a code package. </p>
+ */
+export interface AllowedPublishers {
+  /**
+   * <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user
+   *       who can sign a code package. </p>
+   */
+  SigningProfileVersionArns: string[] | undefined;
+}
+
+export namespace AllowedPublishers {
+  export const filterSensitiveLog = (obj: AllowedPublishers): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -472,6 +489,109 @@ export interface CreateAliasRequest {
 
 export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum CodeSigningPolicy {
+  Enforce = "Enforce",
+  Warn = "Warn",
+}
+
+/**
+ * <p>Code signing configuration policies specifies the validation failure action for signature mismatch or
+ *       expiry.</p>
+ */
+export interface CodeSigningPolicies {
+  /**
+   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to
+   *       <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the
+   *       policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p>
+   *          <p>Default value: <code>Warn</code>
+   *          </p>
+   */
+  UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
+}
+
+export namespace CodeSigningPolicies {
+  export const filterSensitiveLog = (obj: CodeSigningPolicies): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCodeSigningConfigRequest {
+  /**
+   * <p>Descriptive name for this code signing configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Signing profiles for this code signing configuration.</p>
+   */
+  AllowedPublishers: AllowedPublishers | undefined;
+
+  /**
+   * <p>The code signing policies define the actions to take if the validation checks fail. </p>
+   */
+  CodeSigningPolicies?: CodeSigningPolicies;
+}
+
+export namespace CreateCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: CreateCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a Code signing configuration. </p>
+ */
+export interface CodeSigningConfig {
+  /**
+   * <p>Unique identifer for the Code signing configuration.</p>
+   */
+  CodeSigningConfigId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Code signing configuration description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>List of allowed publishers.</p>
+   */
+  AllowedPublishers: AllowedPublishers | undefined;
+
+  /**
+   * <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
+   */
+  CodeSigningPolicies: CodeSigningPolicies | undefined;
+
+  /**
+   * <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
+   */
+  LastModified: string | undefined;
+}
+
+export namespace CodeSigningConfig {
+  export const filterSensitiveLog = (obj: CodeSigningConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration.</p>
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+export namespace CreateCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: CreateCodeSigningConfigResponse): any => ({
     ...obj,
   });
 }
@@ -879,6 +999,22 @@ export namespace EventSourceMappingConfiguration {
 }
 
 /**
+ * <p>The specified code signing configuration does not exist.</p>
+ */
+export interface CodeSigningConfigNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "CodeSigningConfigNotFoundException";
+  $fault: "client";
+  Type?: string;
+  Message?: string;
+}
+
+export namespace CodeSigningConfigNotFoundException {
+  export const filterSensitiveLog = (obj: CodeSigningConfigNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
@@ -895,6 +1031,23 @@ export interface CodeStorageExceededException extends __SmithyException, $Metada
 
 export namespace CodeStorageExceededException {
   export const filterSensitiveLog = (obj: CodeStorageExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy
+ *       is set to ENFORCE. Lambda blocks the deployment. </p>
+ */
+export interface CodeVerificationFailedException extends __SmithyException, $MetadataBearer {
+  name: "CodeVerificationFailedException";
+  $fault: "client";
+  Type?: string;
+  Message?: string;
+}
+
+export namespace CodeVerificationFailedException {
+  export const filterSensitiveLog = (obj: CodeVerificationFailedException): any => ({
     ...obj,
   });
 }
@@ -1172,6 +1325,12 @@ export interface CreateFunctionRequest {
    * <p>Connection settings for an Amazon EFS file system.</p>
    */
   FileSystemConfigs?: FileSystemConfig[];
+
+  /**
+   * <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration
+   * includes set set of signing profiles, which define the trusted publishers for this function.</p>
+   */
+  CodeSigningConfigArn?: string;
 }
 
 export namespace CreateFunctionRequest {
@@ -1258,6 +1417,16 @@ export interface Layer {
    * <p>The size of the layer archive in bytes.</p>
    */
   CodeSize?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+   */
+  SigningProfileVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN)  of a signing job.</p>
+   */
+  SigningJobArn?: string;
 }
 
 export namespace Layer {
@@ -1471,12 +1640,39 @@ export interface FunctionConfiguration {
    * <p>Connection settings for an Amazon EFS file system.</p>
    */
   FileSystemConfigs?: FileSystemConfig[];
+
+  /**
+   * <p>The ARN of the signing profile version.</p>
+   */
+  SigningProfileVersionArn?: string;
+
+  /**
+   * <p>The ARN of the signing job.</p>
+   */
+  SigningJobArn?: string;
 }
 
 export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
     ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
+  });
+}
+
+/**
+ * <p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check
+ *       fails, even if code signing policy is set to WARN.</p>
+ */
+export interface InvalidCodeSignatureException extends __SmithyException, $MetadataBearer {
+  name: "InvalidCodeSignatureException";
+  $fault: "client";
+  Type?: string;
+  Message?: string;
+}
+
+export namespace InvalidCodeSignatureException {
+  export const filterSensitiveLog = (obj: InvalidCodeSignatureException): any => ({
+    ...obj,
   });
 }
 
@@ -1513,6 +1709,27 @@ export interface DeleteAliasRequest {
 
 export namespace DeleteAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+}
+
+export namespace DeleteCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: DeleteCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCodeSigningConfigResponse {}
+
+export namespace DeleteCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: DeleteCodeSigningConfigResponse): any => ({
     ...obj,
   });
 }
@@ -1580,6 +1797,38 @@ export interface DeleteFunctionRequest {
 
 export namespace DeleteFunctionRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFunctionCodeSigningConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace DeleteFunctionCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: DeleteFunctionCodeSigningConfigRequest): any => ({
     ...obj,
   });
 }
@@ -1771,6 +2020,32 @@ export namespace GetAliasRequest {
   });
 }
 
+export interface GetCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
+   */
+  CodeSigningConfigArn: string | undefined;
+}
+
+export namespace GetCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: GetCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration</p>
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+export namespace GetCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: GetCodeSigningConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
@@ -1882,6 +2157,75 @@ export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
     ...obj,
     ...(obj.Configuration && { Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration) }),
+  });
+}
+
+export interface GetFunctionCodeSigningConfigRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace GetFunctionCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: GetFunctionCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFunctionCodeSigningConfigResponse {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace GetFunctionCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: GetFunctionCodeSigningConfigResponse): any => ({
+    ...obj,
   });
 }
 
@@ -2095,6 +2439,16 @@ export interface LayerVersionContentOutput {
    * <p>The size of the layer archive in bytes.</p>
    */
   CodeSize?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+   */
+  SigningProfileVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN)  of a signing job.</p>
+   */
+  SigningJobArn?: string;
 }
 
 export namespace LayerVersionContentOutput {
@@ -2957,6 +3311,42 @@ export namespace ListAliasesResponse {
   });
 }
 
+export interface ListCodeSigningConfigsRequest {
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Maximum number of items to return.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListCodeSigningConfigsRequest {
+  export const filterSensitiveLog = (obj: ListCodeSigningConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCodeSigningConfigsResponse {
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The code signing configurations</p>
+   */
+  CodeSigningConfigs?: CodeSigningConfig[];
+}
+
+export namespace ListCodeSigningConfigsResponse {
+  export const filterSensitiveLog = (obj: ListCodeSigningConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListEventSourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
@@ -3157,6 +3547,47 @@ export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
     ...obj,
     ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListFunctionsByCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Maximum number of items to return.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListFunctionsByCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: ListFunctionsByCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFunctionsByCodeSigningConfigResponse {
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The function ARNs. </p>
+   */
+  FunctionArns?: string[];
+}
+
+export namespace ListFunctionsByCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: ListFunctionsByCodeSigningConfigResponse): any => ({
+    ...obj,
   });
 }
 
@@ -3690,6 +4121,80 @@ export namespace PublishVersionRequest {
   });
 }
 
+export interface PutFunctionCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace PutFunctionCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: PutFunctionCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutFunctionCodeSigningConfigResponse {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace PutFunctionCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: PutFunctionCodeSigningConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PutFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -4048,6 +4553,47 @@ export interface UpdateAliasRequest {
 
 export namespace UpdateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Descriptive name for this code signing configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Signing profiles for this code signing configuration.</p>
+   */
+  AllowedPublishers?: AllowedPublishers;
+
+  /**
+   * <p>The code signing policy.</p>
+   */
+  CodeSigningPolicies?: CodeSigningPolicies;
+}
+
+export namespace UpdateCodeSigningConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateCodeSigningConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration</p>
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+export namespace UpdateCodeSigningConfigResponse {
+  export const filterSensitiveLog = (obj: UpdateCodeSigningConfigResponse): any => ({
     ...obj,
   });
 }

@@ -105,6 +105,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
+import {
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand";
@@ -215,6 +219,7 @@ export type ServiceInputTypes =
   | SubmitTaskStateChangeCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCapacityProviderCommandInput
   | UpdateClusterSettingsCommandInput
   | UpdateContainerAgentCommandInput
   | UpdateContainerInstancesStateCommandInput
@@ -266,6 +271,7 @@ export type ServiceOutputTypes =
   | SubmitTaskStateChangeCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCapacityProviderCommandOutput
   | UpdateClusterSettingsCommandOutput
   | UpdateContainerAgentCommandOutput
   | UpdateContainerInstancesStateCommandOutput

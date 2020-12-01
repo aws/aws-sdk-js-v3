@@ -43,6 +43,9 @@
           "target": "com.amazonaws.lambda#CreateAlias"
         },
         {
+          "target": "com.amazonaws.lambda#CreateCodeSigningConfig"
+        },
+        {
           "target": "com.amazonaws.lambda#CreateEventSourceMapping"
         },
         {
@@ -52,10 +55,16 @@
           "target": "com.amazonaws.lambda#DeleteAlias"
         },
         {
+          "target": "com.amazonaws.lambda#DeleteCodeSigningConfig"
+        },
+        {
           "target": "com.amazonaws.lambda#DeleteEventSourceMapping"
         },
         {
           "target": "com.amazonaws.lambda#DeleteFunction"
+        },
+        {
+          "target": "com.amazonaws.lambda#DeleteFunctionCodeSigningConfig"
         },
         {
           "target": "com.amazonaws.lambda#DeleteFunctionConcurrency"
@@ -76,10 +85,16 @@
           "target": "com.amazonaws.lambda#GetAlias"
         },
         {
+          "target": "com.amazonaws.lambda#GetCodeSigningConfig"
+        },
+        {
           "target": "com.amazonaws.lambda#GetEventSourceMapping"
         },
         {
           "target": "com.amazonaws.lambda#GetFunction"
+        },
+        {
+          "target": "com.amazonaws.lambda#GetFunctionCodeSigningConfig"
         },
         {
           "target": "com.amazonaws.lambda#GetFunctionConcurrency"
@@ -115,6 +130,9 @@
           "target": "com.amazonaws.lambda#ListAliases"
         },
         {
+          "target": "com.amazonaws.lambda#ListCodeSigningConfigs"
+        },
+        {
           "target": "com.amazonaws.lambda#ListEventSourceMappings"
         },
         {
@@ -122,6 +140,9 @@
         },
         {
           "target": "com.amazonaws.lambda#ListFunctions"
+        },
+        {
+          "target": "com.amazonaws.lambda#ListFunctionsByCodeSigningConfig"
         },
         {
           "target": "com.amazonaws.lambda#ListLayers"
@@ -143,6 +164,9 @@
         },
         {
           "target": "com.amazonaws.lambda#PublishVersion"
+        },
+        {
+          "target": "com.amazonaws.lambda#PutFunctionCodeSigningConfig"
         },
         {
           "target": "com.amazonaws.lambda#PutFunctionConcurrency"
@@ -167,6 +191,9 @@
         },
         {
           "target": "com.amazonaws.lambda#UpdateAlias"
+        },
+        {
+          "target": "com.amazonaws.lambda#UpdateCodeSigningConfig"
         },
         {
           "target": "com.amazonaws.lambda#UpdateEventSourceMapping"
@@ -581,6 +608,21 @@
         "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\">traffic-shifting</a> configuration of a Lambda function alias.</p>"
       }
     },
+    "com.amazonaws.lambda#AllowedPublishers": {
+      "type": "structure",
+      "members": {
+        "SigningProfileVersionArns": {
+          "target": "com.amazonaws.lambda#SigningProfileVersionArns",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user\n      who can sign a code package. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>List of signing profiles that can sign a code package. </p>"
+      }
+    },
     "com.amazonaws.lambda#Arn": {
       "type": "string",
       "traits": {
@@ -618,6 +660,122 @@
     "com.amazonaws.lambda#Boolean": {
       "type": "boolean"
     },
+    "com.amazonaws.lambda#CodeSigningConfig": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigId": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigId",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique identifer for the Code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>Code signing configuration description.</p>"
+          }
+        },
+        "AllowedPublishers": {
+          "target": "com.amazonaws.lambda#AllowedPublishers",
+          "traits": {
+            "smithy.api#documentation": "<p>List of allowed publishers.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CodeSigningPolicies": {
+          "target": "com.amazonaws.lambda#CodeSigningPolicies",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.lambda#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about a Code signing configuration. </p>"
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningConfigArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        },
+        "smithy.api#pattern": "arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:code-signing-config:csc-[a-z0-9]{17}"
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningConfigId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "csc-[a-zA-Z0-9-_\\.]{17}"
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningConfigList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lambda#CodeSigningConfig"
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningConfigNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String"
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified code signing configuration does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningPolicies": {
+      "type": "structure",
+      "members": {
+        "UntrustedArtifactOnDeployment": {
+          "target": "com.amazonaws.lambda#CodeSigningPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Code signing configuration policy for deployment validation failure. If you set the policy to\n      <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the\n      policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p>\n         <p>Default value: <code>Warn</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Code signing configuration policies specifies the validation failure action for signature mismatch or\n      expiry.</p>"
+      }
+    },
+    "com.amazonaws.lambda#CodeSigningPolicy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Warn",
+            "name": "Warn"
+          },
+          {
+            "value": "Enforce",
+            "name": "Enforce"
+          }
+        ]
+      }
+    },
     "com.amazonaws.lambda#CodeStorageExceededException": {
       "type": "structure",
       "members": {
@@ -637,6 +795,22 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.lambda#CodeVerificationFailedException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String"
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy \n      is set to ENFORCE. Lambda blocks the deployment. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.lambda#CompatibleRuntimes": {
       "type": "list",
       "member": {
@@ -645,7 +819,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 5
+          "max": 15
         }
       }
     },
@@ -729,6 +903,67 @@
           "target": "com.amazonaws.lambda#AliasRoutingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing\n        configuration</a> of the alias.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#CreateCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#CreateCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#CreateCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a code signing configuration. A <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html\">code signing configuration</a> defines a list of\n      allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment\n      validation checks fail). </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2020-04-22/code-signing-configs",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.lambda#CreateCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>Descriptive name for this code signing configuration.</p>"
+          }
+        },
+        "AllowedPublishers": {
+          "target": "com.amazonaws.lambda#AllowedPublishers",
+          "traits": {
+            "smithy.api#documentation": "<p>Signing profiles for this code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CodeSigningPolicies": {
+          "target": "com.amazonaws.lambda#CodeSigningPolicies",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing policies define the actions to take if the validation checks fail. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#CreateCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfig": {
+          "target": "com.amazonaws.lambda#CodeSigningConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing configuration.</p>",
+            "smithy.api#required": {}
           }
         }
       }
@@ -859,7 +1094,7 @@
         "SourceAccessConfigurations": {
           "target": "com.amazonaws.lambda#SourceAccessConfigurations",
           "traits": {
-            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>  \n    \n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
+            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>\n\n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
           }
         }
       }
@@ -874,7 +1109,16 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.lambda#CodeSigningConfigNotFoundException"
+        },
+        {
           "target": "com.amazonaws.lambda#CodeStorageExceededException"
+        },
+        {
+          "target": "com.amazonaws.lambda#CodeVerificationFailedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#InvalidCodeSignatureException"
         },
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
@@ -893,7 +1137,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The\n      deployment package contains your function code. The execution role grants the function permission to use AWS\n      services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>\n      \n         <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If\n      your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or\n      modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in\n      the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For\n      more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Function\n        States</a>.</p>\n      \n         <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version\n      changes when you update your function's code and configuration. A published version is a snapshot of your function\n      code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be\n      changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of\n      your function from its initial configuration.</p>\n      \n         <p>The other parameters let you configure version-specific and function-level settings. You can modify\n      version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply\n      to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)\n      and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>\n      \n         <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant\n      permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,\n      or on an alias.</p>\n      \n         <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events\n      in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a\n      function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Functions</a>.</p>",
+        "smithy.api#documentation": "<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The\n      deployment package contains your function code. The execution role grants the function permission to use AWS\n      services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>\n      \n         <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If\n      your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or\n      modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in\n      the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For\n      more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Function\n        States</a>.</p>\n      \n         <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version\n      changes when you update your function's code and configuration. A published version is a snapshot of your function\n      code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be\n      changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of\n      your function from its initial configuration.</p>\n      \n         <p>The other parameters let you configure version-specific and function-level settings. You can modify\n      version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply\n      to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)\n      and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>\n      \n         <p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user\n      attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code\n      package has a valid signature from a trusted publisher. The code-signing configuration \n      includes set set of signing profiles, which define the trusted publishers for this function.</p>\n      \n         <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant\n      permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,\n      or on an alias.</p>\n      \n         <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events\n      in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a\n      function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Functions</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2015-03-31/functions",
@@ -1010,6 +1254,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
           }
+        },
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration\nincludes set set of signing profiles, which define the trusted publishers for this function.</p>"
+          }
         }
       }
     },
@@ -1078,6 +1328,54 @@
           }
         }
       }
+    },
+    "com.amazonaws.lambda#DeleteCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#DeleteCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#DeleteCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is\n      using it. </p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.lambda#DeleteCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#DeleteCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.lambda#DeleteEventSourceMapping": {
       "type": "operation",
@@ -1154,6 +1452,53 @@
           "method": "DELETE",
           "uri": "/2015-03-31/functions/{FunctionName}",
           "code": 204
+        }
+      }
+    },
+    "com.amazonaws.lambda#DeleteFunctionCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#DeleteFunctionCodeSigningConfigRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#CodeSigningConfigNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.lambda#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes the code signing configuration from the function.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.lambda#DeleteFunctionCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -1715,7 +2060,7 @@
         "SourceAccessConfigurations": {
           "target": "com.amazonaws.lambda#SourceAccessConfigurations",
           "traits": {
-            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>  \n    \n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
+            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>\n\n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
           }
         },
         "MaximumRecordAgeInSeconds": {
@@ -1824,6 +2169,12 @@
       "type": "string",
       "traits": {
         "smithy.api#pattern": "arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?"
+      }
+    },
+    "com.amazonaws.lambda#FunctionArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lambda#FunctionArn"
       }
     },
     "com.amazonaws.lambda#FunctionCode": {
@@ -2042,6 +2393,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Connection settings for an Amazon EFS file system.</p>"
           }
+        },
+        "SigningProfileVersionArn": {
+          "target": "com.amazonaws.lambda#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the signing profile version.</p>"
+          }
+        },
+        "SigningJobArn": {
+          "target": "com.amazonaws.lambda#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the signing job.</p>"
+          }
         }
       },
       "traits": {
@@ -2214,6 +2577,59 @@
         }
       }
     },
+    "com.amazonaws.lambda#GetCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#GetCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#GetCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about the specified code signing configuration.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lambda#GetCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#GetCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfig": {
+          "target": "com.amazonaws.lambda#CodeSigningConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing configuration</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.lambda#GetEventSourceMapping": {
       "type": "operation",
       "input": {
@@ -2286,6 +2702,69 @@
           "method": "GET",
           "uri": "/2015-03-31/functions/{FunctionName}",
           "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#GetFunctionCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#GetFunctionCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.lambda#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the code signing configuration for the specified function.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#required": {}
+          }
         }
       }
     },
@@ -2893,6 +3372,22 @@
     "com.amazonaws.lambda#Integer": {
       "type": "integer"
     },
+    "com.amazonaws.lambda#InvalidCodeSignatureException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String"
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check\n      fails, even if code signing policy is set to WARN.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.lambda#InvalidParameterValueException": {
       "type": "structure",
       "members": {
@@ -3421,6 +3916,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The size of the layer archive in bytes.</p>"
           }
+        },
+        "SigningProfileVersionArn": {
+          "target": "com.amazonaws.lambda#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a signing profile version.</p>"
+          }
+        },
+        "SigningJobArn": {
+          "target": "com.amazonaws.lambda#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN)  of a signing job.</p>"
+          }
         }
       },
       "traits": {
@@ -3526,6 +4033,18 @@
           "target": "com.amazonaws.lambda#Long",
           "traits": {
             "smithy.api#documentation": "<p>The size of the layer archive in bytes.</p>"
+          }
+        },
+        "SigningProfileVersionArn": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a signing profile version.</p>"
+          }
+        },
+        "SigningJobArn": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN)  of a signing job.</p>"
           }
         }
       },
@@ -3717,6 +4236,73 @@
           "target": "com.amazonaws.lambda#AliasList",
           "traits": {
             "smithy.api#documentation": "<p>A list of aliases.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListCodeSigningConfigs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#ListCodeSigningConfigsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#ListCodeSigningConfigsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html\">code\n        signing configurations</a> for the specified function. A request returns up to 10,000 configurations per\n      call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2020-04-22/code-signing-configs",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "CodeSigningConfigs",
+          "pageSize": "MaxItems"
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListCodeSigningConfigsRequest": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "Marker"
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxListItems",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of items to return.</p>",
+            "smithy.api#httpQuery": "MaxItems"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListCodeSigningConfigsResponse": {
+      "type": "structure",
+      "members": {
+        "NextMarker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
+          }
+        },
+        "CodeSigningConfigs": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing configurations</p>"
           }
         }
       }
@@ -3920,6 +4506,84 @@
           "outputToken": "NextMarker",
           "items": "Functions",
           "pageSize": "MaxItems"
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListFunctionsByCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#ListFunctionsByCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#ListFunctionsByCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a\n      code signing configuration, to verify that no functions are using it.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "FunctionArns",
+          "pageSize": "MaxItems"
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListFunctionsByCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "Marker"
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.lambda#MaxListItems",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of items to return.</p>",
+            "smithy.api#httpQuery": "MaxItems"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#ListFunctionsByCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "NextMarker": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token that's included if more results are available.</p>"
+          }
+        },
+        "FunctionArns": {
+          "target": "com.amazonaws.lambda#FunctionArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The function ARNs. </p>"
+          }
         }
       }
     },
@@ -4911,6 +5575,82 @@
         }
       }
     },
+    "com.amazonaws.lambda#PutFunctionCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#PutFunctionCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#PutFunctionCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#CodeSigningConfigNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.lambda#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the\n      next time a user tries to deploy a code package to the function. </p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lambda#PutFunctionCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#PutFunctionCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Lambda function.</p>\n         <p class=\"title\">\n            <b>Name formats</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Function name</b> - <code>MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p>\n            </li>\n         </ul>\n         <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64\n      characters in length.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.lambda#PutFunctionConcurrency": {
       "type": "operation",
       "input": {
@@ -5579,6 +6319,18 @@
         "smithy.api#httpError": 500
       }
     },
+    "com.amazonaws.lambda#SigningProfileVersionArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lambda#Arn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
     "com.amazonaws.lambda#SourceAccessConfiguration": {
       "type": "structure",
       "members": {
@@ -6106,6 +6858,77 @@
         }
       }
     },
+    "com.amazonaws.lambda#UpdateCodeSigningConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#UpdateCodeSigningConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#UpdateCodeSigningConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a\n      user tries to deploy a code package to the function. </p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lambda#UpdateCodeSigningConfigRequest": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfigArn": {
+          "target": "com.amazonaws.lambda#CodeSigningConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.lambda#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>Descriptive name for this code signing configuration.</p>"
+          }
+        },
+        "AllowedPublishers": {
+          "target": "com.amazonaws.lambda#AllowedPublishers",
+          "traits": {
+            "smithy.api#documentation": "<p>Signing profiles for this code signing configuration.</p>"
+          }
+        },
+        "CodeSigningPolicies": {
+          "target": "com.amazonaws.lambda#CodeSigningPolicies",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing policy.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.lambda#UpdateCodeSigningConfigResponse": {
+      "type": "structure",
+      "members": {
+        "CodeSigningConfig": {
+          "target": "com.amazonaws.lambda#CodeSigningConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The code signing configuration</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.lambda#UpdateEventSourceMapping": {
       "type": "operation",
       "input": {
@@ -6211,7 +7034,7 @@
         "SourceAccessConfigurations": {
           "target": "com.amazonaws.lambda#SourceAccessConfigurations",
           "traits": {
-            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>  \n    \n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
+            "smithy.api#documentation": "<p>\n      (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:\n      <code>\t  {\n        \"username\": \"your username\",\n        \"password\": \"your password\"\n        }</code>\n         </p>\n\n         <p>To reference the secret, use the following format:\n      <code>[\n        {\n        \"Type\": \"BASIC_AUTH\",\n        \"URI\": \"secretARN\"\n        }\n        ]</code>    \n         </p>\n         <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>"
           }
         }
       }
@@ -6226,7 +7049,16 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.lambda#CodeSigningConfigNotFoundException"
+        },
+        {
           "target": "com.amazonaws.lambda#CodeStorageExceededException"
+        },
+        {
+          "target": "com.amazonaws.lambda#CodeVerificationFailedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#InvalidCodeSignatureException"
         },
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
@@ -6248,7 +7080,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a Lambda function's code.</p>\n      \n         <p>The function's code is locked when you publish a version. You can't modify the code of a published version,\n      only the unpublished version.</p>",
+        "smithy.api#documentation": "<p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed\n      by a trusted publisher. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html\">Configuring code signing</a>.</p>\n      \n         <p>The function's code is locked when you publish a version. You can't modify the code of a published version,\n      only the unpublished version.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/2015-03-31/functions/{FunctionName}/code",
@@ -6320,6 +7152,15 @@
         "target": "com.amazonaws.lambda#FunctionConfiguration"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.lambda#CodeSigningConfigNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#CodeVerificationFailedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#InvalidCodeSignatureException"
+        },
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
         },

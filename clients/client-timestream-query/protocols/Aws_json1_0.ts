@@ -16,6 +16,7 @@ import {
   QueryExecutionException,
   QueryRequest,
   QueryResponse,
+  QueryStatus,
   Row,
   ThrottlingException,
   TimeSeriesDataPoint,
@@ -577,9 +578,30 @@ const deserializeAws_json1_0QueryResponse = (output: any, context: __SerdeContex
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     QueryId: output.QueryId !== undefined && output.QueryId !== null ? output.QueryId : undefined,
+    QueryStatus:
+      output.QueryStatus !== undefined && output.QueryStatus !== null
+        ? deserializeAws_json1_0QueryStatus(output.QueryStatus, context)
+        : undefined,
     Rows:
       output.Rows !== undefined && output.Rows !== null
         ? deserializeAws_json1_0RowList(output.Rows, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0QueryStatus = (output: any, context: __SerdeContext): QueryStatus => {
+  return {
+    CumulativeBytesMetered:
+      output.CumulativeBytesMetered !== undefined && output.CumulativeBytesMetered !== null
+        ? output.CumulativeBytesMetered
+        : undefined,
+    CumulativeBytesScanned:
+      output.CumulativeBytesScanned !== undefined && output.CumulativeBytesScanned !== null
+        ? output.CumulativeBytesScanned
+        : undefined,
+    ProgressPercentage:
+      output.ProgressPercentage !== undefined && output.ProgressPercentage !== null
+        ? output.ProgressPercentage
         : undefined,
   } as any;
 };

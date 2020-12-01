@@ -21,7 +21,10 @@ export type PutAutoScalingPolicyCommandInput = PutAutoScalingPolicyInput;
 export type PutAutoScalingPolicyCommandOutput = PutAutoScalingPolicyOutput & __MetadataBearer;
 
 /**
- * <p>Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.</p>
+ * <p>Creates or updates an automatic scaling policy for a core instance group or task
+ *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how an
+ *          instance group dynamically adds and terminates EC2 instances in response to the value of a
+ *          CloudWatch metric.</p>
  */
 export class PutAutoScalingPolicyCommand extends $Command<
   PutAutoScalingPolicyCommandInput,

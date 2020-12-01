@@ -13,5 +13,6 @@ export * from "./pagination/ListHostsPaginator";
 export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./commands/UpdateHostCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";

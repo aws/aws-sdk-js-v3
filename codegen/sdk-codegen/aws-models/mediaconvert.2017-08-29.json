@@ -2465,7 +2465,7 @@
     "com.amazonaws.mediaconvert#CmafClientCache": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
+        "smithy.api#documentation": "Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.",
         "smithy.api#enum": [
           {
             "value": "DISABLED",
@@ -2580,7 +2580,7 @@
         "ClientCache": {
           "target": "com.amazonaws.mediaconvert#CmafClientCache",
           "traits": {
-            "smithy.api#documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
+            "smithy.api#documentation": "Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.",
             "smithy.api#jsonName": "clientCache"
           }
         },
@@ -2861,6 +2861,22 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#CmfcAudioDuration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT_CODEC_DURATION",
+            "name": "DEFAULT_CODEC_DURATION"
+          },
+          {
+            "value": "MATCH_VIDEO_DURATION",
+            "name": "MATCH_VIDEO_DURATION"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#CmfcScte35Esam": {
       "type": "string",
       "traits": {
@@ -2896,6 +2912,13 @@
     "com.amazonaws.mediaconvert#CmfcSettings": {
       "type": "structure",
       "members": {
+        "AudioDuration": {
+          "target": "com.amazonaws.mediaconvert#CmfcAudioDuration",
+          "traits": {
+            "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+            "smithy.api#jsonName": "audioDuration"
+          }
+        },
         "Scte35Esam": {
           "target": "com.amazonaws.mediaconvert#CmfcScte35Esam",
           "traits": {
@@ -3327,14 +3350,14 @@
         "Tags": {
           "target": "com.amazonaws.mediaconvert#__mapOf__string",
           "traits": {
-            "smithy.api#documentation": "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.",
+            "smithy.api#documentation": "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.",
             "smithy.api#jsonName": "tags"
           }
         },
         "UserMetadata": {
           "target": "com.amazonaws.mediaconvert#__mapOf__string",
           "traits": {
-            "smithy.api#documentation": "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.",
+            "smithy.api#documentation": "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.",
             "smithy.api#jsonName": "userMetadata"
           }
         }
@@ -3767,6 +3790,13 @@
           "traits": {
             "smithy.api#documentation": "Minimum time of initially buffered media that is needed to ensure smooth playout.",
             "smithy.api#jsonName": "minBufferTime"
+          }
+        },
+        "MinFinalSegmentLength": {
+          "target": "com.amazonaws.mediaconvert#__doubleMin0Max2147483647",
+          "traits": {
+            "smithy.api#documentation": "Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.",
+            "smithy.api#jsonName": "minFinalSegmentLength"
           }
         },
         "MpdProfile": {
@@ -7998,7 +8028,7 @@
     "com.amazonaws.mediaconvert#HlsClientCache": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
+        "smithy.api#documentation": "Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.",
         "smithy.api#enum": [
           {
             "value": "DISABLED",
@@ -8164,7 +8194,7 @@
         "ClientCache": {
           "target": "com.amazonaws.mediaconvert#HlsClientCache",
           "traits": {
-            "smithy.api#documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
+            "smithy.api#documentation": "Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.",
             "smithy.api#jsonName": "clientCache"
           }
         },
@@ -8686,7 +8716,7 @@
           }
         },
         "FileInput": {
-          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLL",
+          "target": "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaA",
           "traits": {
             "smithy.api#documentation": "Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, \"s3://bucket/vf/cpl.xml\". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.",
             "smithy.api#jsonName": "fileInput"
@@ -10982,6 +11012,22 @@
         ]
       }
     },
+    "com.amazonaws.mediaconvert#M2tsAudioDuration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT_CODEC_DURATION",
+            "name": "DEFAULT_CODEC_DURATION"
+          },
+          {
+            "value": "MATCH_VIDEO_DURATION",
+            "name": "MATCH_VIDEO_DURATION"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#M2tsBufferModel": {
       "type": "string",
       "traits": {
@@ -11197,6 +11243,13 @@
           "traits": {
             "smithy.api#documentation": "Selects between the DVB and ATSC buffer models for Dolby Digital audio.",
             "smithy.api#jsonName": "audioBufferModel"
+          }
+        },
+        "AudioDuration": {
+          "target": "com.amazonaws.mediaconvert#M2tsAudioDuration",
+          "traits": {
+            "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+            "smithy.api#jsonName": "audioDuration"
           }
         },
         "AudioFramesPerPes": {
@@ -11449,6 +11502,22 @@
         "smithy.api#documentation": "MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset."
       }
     },
+    "com.amazonaws.mediaconvert#M3u8AudioDuration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT_CODEC_DURATION",
+            "name": "DEFAULT_CODEC_DURATION"
+          },
+          {
+            "value": "MATCH_VIDEO_DURATION",
+            "name": "MATCH_VIDEO_DURATION"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mediaconvert#M3u8NielsenId3": {
       "type": "string",
       "traits": {
@@ -11500,6 +11569,13 @@
     "com.amazonaws.mediaconvert#M3u8Settings": {
       "type": "structure",
       "members": {
+        "AudioDuration": {
+          "target": "com.amazonaws.mediaconvert#M3u8AudioDuration",
+          "traits": {
+            "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+            "smithy.api#jsonName": "audioDuration"
+          }
+        },
         "AudioFramesPerPes": {
           "target": "com.amazonaws.mediaconvert#__integerMin0Max2147483647",
           "traits": {
@@ -12100,6 +12176,13 @@
     "com.amazonaws.mediaconvert#Mp4Settings": {
       "type": "structure",
       "members": {
+        "AudioDuration": {
+          "target": "com.amazonaws.mediaconvert#CmfcAudioDuration",
+          "traits": {
+            "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+            "smithy.api#jsonName": "audioDuration"
+          }
+        },
         "CslgAtom": {
           "target": "com.amazonaws.mediaconvert#Mp4CslgAtom",
           "traits": {
@@ -12138,6 +12221,38 @@
       },
       "traits": {
         "smithy.api#documentation": "Settings for MP4 container. You can create audio-only AAC outputs with this container."
+      }
+    },
+    "com.amazonaws.mediaconvert#MpdAccessibilityCaptionHints": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Optional. Choose Include (INCLUDE) to have MediaConvert mark up your DASH manifest with <Accessibility> elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility schemeIdUri=\"urn:scte:dash:cc:cea-608:2015\" value=\"CC1=eng\"/>",
+        "smithy.api#enum": [
+          {
+            "value": "INCLUDE",
+            "name": "INCLUDE"
+          },
+          {
+            "value": "EXCLUDE",
+            "name": "EXCLUDE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mediaconvert#MpdAudioDuration": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+        "smithy.api#enum": [
+          {
+            "value": "DEFAULT_CODEC_DURATION",
+            "name": "DEFAULT_CODEC_DURATION"
+          },
+          {
+            "value": "MATCH_VIDEO_DURATION",
+            "name": "MATCH_VIDEO_DURATION"
+          }
+        ]
       }
     },
     "com.amazonaws.mediaconvert#MpdCaptionContainerType": {
@@ -12191,6 +12306,20 @@
     "com.amazonaws.mediaconvert#MpdSettings": {
       "type": "structure",
       "members": {
+        "AccessibilityCaptionHints": {
+          "target": "com.amazonaws.mediaconvert#MpdAccessibilityCaptionHints",
+          "traits": {
+            "smithy.api#documentation": "Optional. Choose Include (INCLUDE) to have MediaConvert mark up your DASH manifest with <Accessibility> elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility schemeIdUri=\"urn:scte:dash:cc:cea-608:2015\" value=\"CC1=eng\"/>",
+            "smithy.api#jsonName": "accessibilityCaptionHints"
+          }
+        },
+        "AudioDuration": {
+          "target": "com.amazonaws.mediaconvert#MpdAudioDuration",
+          "traits": {
+            "smithy.api#documentation": "Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.",
+            "smithy.api#jsonName": "audioDuration"
+          }
+        },
         "CaptionContainerType": {
           "target": "com.amazonaws.mediaconvert#MpdCaptionContainerType",
           "traits": {
@@ -17847,10 +17976,10 @@
         "smithy.api#pattern": "^s3:\\/\\/.*\\/(ASSETMAP.xml)?$"
       }
     },
-    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLL": {
+    "com.amazonaws.mediaconvert#__stringPatternS3MM2PPMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaAHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8WWEEBBMMLLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMXXMMLLOOGGGGaA": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
+        "smithy.api#pattern": "^((s3://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[pP]|[mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA]))))|(https?://([^\\/]+\\/+)+([^\\/\\.]+|(([^\\/]*)\\.([mM]2[vV]|[mM][pP][eE][gG]|[mM][pP]3|[aA][vV][iI]|[mM][pP]4|[fF][lL][vV]|[mM][pP][tT]|[mM][pP][gG]|[mM]4[vV]|[tT][rR][pP]|[fF]4[vV]|[mM]2[tT][sS]|[tT][sS]|264|[hH]264|[mM][kK][vV]|[mM][kK][aA]|[mM][oO][vV]|[mM][tT][sS]|[mM]2[tT]|[wW][mM][vV]|[aA][sS][fF]|[vV][oO][bB]|3[gG][pP]|3[gG][pP][pP]|[mM][xX][fF]|[dD][iI][vV][xX]|[xX][vV][iI][dD]|[rR][aA][wW]|[dD][vV]|[gG][xX][fF]|[mM]1[vV]|3[gG]2|[vV][mM][fF]|[mM]3[uU]8|[wW][eE][bB][mM]|[lL][cC][hH]|[gG][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF]_[mM][pP][eE][gG]2|[mM][xX][fF][hH][dD]|[wW][aA][vV]|[yY]4[mM]|[xX][mM][lL]|[oO][gG][gGaA])))(\\?([^&=]+=[^&]+&)*[^&=]+=[^&]+)?))$"
       }
     },
     "com.amazonaws.mediaconvert#__stringPatternS3MM2PPWWEEBBMMMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEEHttpsMM2VVMMPPEEGGMMPP3AAVVIIMMPP4FFLLVVMMPPTTMMPPGGMM4VVTTRRPPFF4VVMM2TTSSTTSS264HH264MMKKVVMMKKAAMMOOVVMMTTSSMM2TTWWMMVVAASSFFVVOOBB3GGPP3GGPPPPMMXXFFDDIIVVXXXXVVIIDDRRAAWWDDVVGGXXFFMM1VV3GG2VVMMFFMM3UU8LLCCHHGGXXFFMMPPEEGG2MMXXFFMMPPEEGG2MMXXFFHHDDWWAAVVYY4MMAAAACCAAIIFFFFMMPP2AACC3EECC3DDTTSSEE": {

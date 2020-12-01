@@ -23,6 +23,8 @@ export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
 /**
  * <p>Lists details about all member accounts for the current Security Hub master
  *          account.</p>
+ *          <p>The results include both member accounts that belong to an organization and member
+ *          accounts that were invited manually.</p>
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

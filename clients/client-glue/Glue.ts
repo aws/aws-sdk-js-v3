@@ -111,6 +111,11 @@ import {
   CreatePartitionCommandOutput,
 } from "./commands/CreatePartitionCommand";
 import {
+  CreatePartitionIndexCommand,
+  CreatePartitionIndexCommandInput,
+  CreatePartitionIndexCommandOutput,
+} from "./commands/CreatePartitionIndexCommand";
+import {
   CreateRegistryCommand,
   CreateRegistryCommandInput,
   CreateRegistryCommandOutput,
@@ -192,6 +197,11 @@ import {
   DeletePartitionCommandInput,
   DeletePartitionCommandOutput,
 } from "./commands/DeletePartitionCommand";
+import {
+  DeletePartitionIndexCommand,
+  DeletePartitionIndexCommandInput,
+  DeletePartitionIndexCommandOutput,
+} from "./commands/DeletePartitionIndexCommand";
 import {
   DeleteRegistryCommand,
   DeleteRegistryCommandInput,
@@ -1426,6 +1436,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Creates a specified partition index in an existing table.</p>
+   */
+  public createPartitionIndex(
+    args: CreatePartitionIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartitionIndexCommandOutput>;
+  public createPartitionIndex(
+    args: CreatePartitionIndexCommandInput,
+    cb: (err: any, data?: CreatePartitionIndexCommandOutput) => void
+  ): void;
+  public createPartitionIndex(
+    args: CreatePartitionIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartitionIndexCommandOutput) => void
+  ): void;
+  public createPartitionIndex(
+    args: CreatePartitionIndexCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePartitionIndexCommandOutput) => void),
+    cb?: (err: any, data?: CreatePartitionIndexCommandOutput) => void
+  ): Promise<CreatePartitionIndexCommandOutput> | void {
+    const command = new CreatePartitionIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
    */
   public createRegistry(
@@ -1998,6 +2040,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeletePartitionCommandOutput) => void
   ): Promise<DeletePartitionCommandOutput> | void {
     const command = new DeletePartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a specified partition index from an existing table.</p>
+   */
+  public deletePartitionIndex(
+    args: DeletePartitionIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePartitionIndexCommandOutput>;
+  public deletePartitionIndex(
+    args: DeletePartitionIndexCommandInput,
+    cb: (err: any, data?: DeletePartitionIndexCommandOutput) => void
+  ): void;
+  public deletePartitionIndex(
+    args: DeletePartitionIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePartitionIndexCommandOutput) => void
+  ): void;
+  public deletePartitionIndex(
+    args: DeletePartitionIndexCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePartitionIndexCommandOutput) => void),
+    cb?: (err: any, data?: DeletePartitionIndexCommandOutput) => void
+  ): Promise<DeletePartitionIndexCommandOutput> | void {
+    const command = new DeletePartitionIndexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

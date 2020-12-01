@@ -103,6 +103,9 @@
           "target": "com.amazonaws.glue#CreatePartition"
         },
         {
+          "target": "com.amazonaws.glue#CreatePartitionIndex"
+        },
+        {
           "target": "com.amazonaws.glue#CreateRegistry"
         },
         {
@@ -155,6 +158,9 @@
         },
         {
           "target": "com.amazonaws.glue#DeletePartition"
+        },
+        {
+          "target": "com.amazonaws.glue#DeletePartitionIndex"
         },
         {
           "target": "com.amazonaws.glue#DeleteRegistry"
@@ -605,6 +611,65 @@
     },
     "com.amazonaws.glue#AttemptCount": {
       "type": "integer"
+    },
+    "com.amazonaws.glue#BackfillError": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.glue#BackfillErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code for an error that occurred when registering partition indexes for an existing table.</p>"
+          }
+        },
+        "Partitions": {
+          "target": "com.amazonaws.glue#BackfillErroredPartitionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of a limited number of partitions in the response.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A list of errors that can occur when registering partition indexes for an existing table.</p>\n\t\n\t        <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>\n\t \n\t        <ul>\n            <li>\n               <p>EncryptedPartitionError: The partitions are encrypted.</p>\n            </li>\n            <li>\n               <p>InvalidPartitionTypeDataError: The partition value doesn't match the data type for that partition column.</p>\n            </li>\n            <li>\n               <p>MissingPartitionValueError: The partitions are encrypted.</p>\n            </li>\n            <li>\n               <p>UnsupportedPartitionCharacterError: Characters inside the partition value are not supported. For example: U+0000 , U+0001, U+0002.</p>\n            </li>\n            <li>\n               <p>InternalError: Any error which does not belong to other error codes.</p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.glue#BackfillErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENCRYPTED_PARTITION_ERROR",
+            "name": "ENCRYPTED_PARTITION_ERROR"
+          },
+          {
+            "value": "INTERNAL_ERROR",
+            "name": "INTERNAL_ERROR"
+          },
+          {
+            "value": "INVALID_PARTITION_TYPE_DATA_ERROR",
+            "name": "INVALID_PARTITION_TYPE_DATA_ERROR"
+          },
+          {
+            "value": "MISSING_PARTITION_VALUE_ERROR",
+            "name": "MISSING_PARTITION_VALUE_ERROR"
+          },
+          {
+            "value": "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+            "name": "UNSUPPORTED_PARTITION_CHARACTER_ERROR"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.glue#BackfillErroredPartitionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.glue#PartitionValueList"
+      }
+    },
+    "com.amazonaws.glue#BackfillErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.glue#BackfillError"
+      }
     },
     "com.amazonaws.glue#BatchCreatePartition": {
       "type": "operation",
@@ -3006,6 +3071,12 @@
             "smithy.api#documentation": "<p>The policy that specifies update and delete behaviors for the crawler.</p>"
           }
         },
+        "LineageConfiguration": {
+          "target": "com.amazonaws.glue#LineageConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>A configuration that specifies whether data lineage is enabled for the crawler.</p>"
+          }
+        },
         "State": {
           "target": "com.amazonaws.glue#CrawlerState",
           "traits": {
@@ -3073,6 +3144,21 @@
     },
     "com.amazonaws.glue#CrawlerConfiguration": {
       "type": "string"
+    },
+    "com.amazonaws.glue#CrawlerLineageSettings": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLE",
+            "name": "ENABLE"
+          },
+          {
+            "value": "DISABLE",
+            "name": "DISABLE"
+          }
+        ]
+      }
     },
     "com.amazonaws.glue#CrawlerList": {
       "type": "list",
@@ -3476,6 +3562,12 @@
           "target": "com.amazonaws.glue#RecrawlPolicy",
           "traits": {
             "smithy.api#documentation": "<p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>"
+          }
+        },
+        "LineageConfiguration": {
+          "target": "com.amazonaws.glue#LineageConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies data lineage configuration settings for the crawler.</p>"
           }
         },
         "Configuration": {
@@ -4256,6 +4348,77 @@
       "traits": {
         "smithy.api#documentation": "<p>Creates a new partition.</p>"
       }
+    },
+    "com.amazonaws.glue#CreatePartitionIndex": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.glue#CreatePartitionIndexRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.glue#CreatePartitionIndexResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.glue#AlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.glue#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.glue#GlueEncryptionException"
+        },
+        {
+          "target": "com.amazonaws.glue#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.glue#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.glue#OperationTimeoutException"
+        },
+        {
+          "target": "com.amazonaws.glue#ResourceNumberLimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a specified partition index in an existing table.</p>"
+      }
+    },
+    "com.amazonaws.glue#CreatePartitionIndexRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.glue#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The catalog ID where the table resides.</p>"
+          }
+        },
+        "DatabaseName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of a database in which you want to create a partition index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TableName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of a table in which you want to create a partition index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PartitionIndex": {
+          "target": "com.amazonaws.glue#PartitionIndex",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.glue#CreatePartitionIndexResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.glue#CreatePartitionRequest": {
       "type": "structure",
@@ -5940,6 +6103,74 @@
       "traits": {
         "smithy.api#documentation": "<p>Deletes a specified partition.</p>"
       }
+    },
+    "com.amazonaws.glue#DeletePartitionIndex": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.glue#DeletePartitionIndexRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.glue#DeletePartitionIndexResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.glue#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.glue#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.glue#GlueEncryptionException"
+        },
+        {
+          "target": "com.amazonaws.glue#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.glue#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.glue#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a specified partition index from an existing table.</p>"
+      }
+    },
+    "com.amazonaws.glue#DeletePartitionIndexRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.glue#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The catalog ID where the table resides.</p>"
+          }
+        },
+        "DatabaseName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of a database from which you want to delete a partition index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TableName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the name of a table from which you want to delete a partition index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IndexName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the partition index to be deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.glue#DeletePartitionIndexResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.glue#DeletePartitionRequest": {
       "type": "structure",
@@ -12023,6 +12254,20 @@
     "com.amazonaws.glue#LatestSchemaVersionBoolean": {
       "type": "boolean"
     },
+    "com.amazonaws.glue#LineageConfiguration": {
+      "type": "structure",
+      "members": {
+        "CrawlerLineageSettings": {
+          "target": "com.amazonaws.glue#CrawlerLineageSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether data lineage is enabled for the crawler. Valid values are:</p>\n\t\n\t        <ul>\n            <li>\n               <p>ENABLE: enables data lineage for the crawler</p>\n            </li>\n            <li>\n               <p>DISABLE: disables data lineage for the crawler</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies data lineage configuration settings for the crawler.</p>"
+      }
+    },
     "com.amazonaws.glue#ListCrawlers": {
       "type": "operation",
       "input": {
@@ -13556,8 +13801,14 @@
         "IndexStatus": {
           "target": "com.amazonaws.glue#PartitionIndexStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the partition index. </p>",
+            "smithy.api#documentation": "<p>The status of the partition index. </p>\n\t\n\t        <p>The possible statuses are:</p>\n\t        <ul>\n            <li>\n               <p>CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.</p>\n            </li>\n            <li>\n               <p>ACTIVE: The index creation succeeds.</p>\n            </li>\n            <li>\n               <p>FAILED: The index creation fails. </p>\n            </li>\n            <li>\n               <p>DELETING: The index is deleted from the list of indexes.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
+          }
+        },
+        "BackfillErrors": {
+          "target": "com.amazonaws.glue#BackfillErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of errors that can occur when registering partition indexes for an existing table.</p>"
           }
         }
       },
@@ -13588,8 +13839,20 @@
       "traits": {
         "smithy.api#enum": [
           {
+            "value": "CREATING",
+            "name": "CREATING"
+          },
+          {
             "value": "ACTIVE",
             "name": "ACTIVE"
+          },
+          {
+            "value": "DELETING",
+            "name": "DELETING"
+          },
+          {
+            "value": "FAILED",
+            "name": "FAILED"
           }
         ]
       }
@@ -18020,6 +18283,12 @@
           "target": "com.amazonaws.glue#RecrawlPolicy",
           "traits": {
             "smithy.api#documentation": "<p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>"
+          }
+        },
+        "LineageConfiguration": {
+          "target": "com.amazonaws.glue#LineageConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies data lineage configuration settings for the crawler.</p>"
           }
         },
         "Configuration": {

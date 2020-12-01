@@ -23,7 +23,8 @@ export type ListInstanceFleetsCommandOutput = ListInstanceFleetsOutput & __Metad
 /**
  * <p>Lists all available details about the instance fleets in a cluster.</p>
  *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
+ *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+ *             later, excluding 5.0.x versions.</p>
  *          </note>
  */
 export class ListInstanceFleetsCommand extends $Command<

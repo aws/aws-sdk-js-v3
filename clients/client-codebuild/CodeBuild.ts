@@ -90,6 +90,11 @@ import {
   DescribeTestCasesCommandOutput,
 } from "./commands/DescribeTestCasesCommand";
 import {
+  GetReportGroupTrendCommand,
+  GetReportGroupTrendCommandInput,
+  GetReportGroupTrendCommandOutput,
+} from "./commands/GetReportGroupTrendCommand";
+import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -970,6 +975,35 @@ export class CodeBuild extends CodeBuildClient {
     cb?: (err: any, data?: DescribeTestCasesCommandOutput) => void
   ): Promise<DescribeTestCasesCommandOutput> | void {
     const command = new DescribeTestCasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getReportGroupTrend(
+    args: GetReportGroupTrendCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReportGroupTrendCommandOutput>;
+  public getReportGroupTrend(
+    args: GetReportGroupTrendCommandInput,
+    cb: (err: any, data?: GetReportGroupTrendCommandOutput) => void
+  ): void;
+  public getReportGroupTrend(
+    args: GetReportGroupTrendCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReportGroupTrendCommandOutput) => void
+  ): void;
+  public getReportGroupTrend(
+    args: GetReportGroupTrendCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReportGroupTrendCommandOutput) => void),
+    cb?: (err: any, data?: GetReportGroupTrendCommandOutput) => void
+  ): Promise<GetReportGroupTrendCommandOutput> | void {
+    const command = new GetReportGroupTrendCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

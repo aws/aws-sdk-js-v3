@@ -34,13 +34,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { UpdateHostCommand, UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CodeStar Connections</fullname>
- *          <important>
- *             <p>The CodeStar Connections feature is in preview release and is subject to change.</p>
- *          </important>
  *          <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of
  *       the operations and data types for the AWS CodeStar Connections API. You can use the
  *       connections API to work with connections and installations.</p>
@@ -53,7 +51,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       associated with a unique ARN that is used to reference the connection.</p>
  *          <p>When you create a connection, the console initiates a third-party connection handshake.
  *         <i>Installations</i> are the apps that are used to conduct this handshake. For
- *       example, the installation for the Bitbucket provider type is the Bitbucket Cloud app. When you
+ *       example, the installation for the Bitbucket provider type is the Bitbucket app. When you
  *       create a connection, you can choose an existing installation or create one.</p>
  *          <p>When you want to create a connection to an installed provider type such as GitHub
  *       Enterprise Server, you create a <i>host</i> for your connections.</p>
@@ -448,6 +446,32 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a specified host with the provided configurations.</p>
+   */
+  public updateHost(args: UpdateHostCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHostCommandOutput>;
+  public updateHost(args: UpdateHostCommandInput, cb: (err: any, data?: UpdateHostCommandOutput) => void): void;
+  public updateHost(
+    args: UpdateHostCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHostCommandOutput) => void
+  ): void;
+  public updateHost(
+    args: UpdateHostCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHostCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHostCommandOutput) => void
+  ): Promise<UpdateHostCommandOutput> | void {
+    const command = new UpdateHostCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

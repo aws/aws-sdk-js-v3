@@ -143,6 +143,9 @@ import {
   TriggerProperties,
   TriggerType,
   UnsupportedOperationException,
+  UpsolverDestinationProperties,
+  UpsolverMetadata,
+  UpsolverS3OutputFormatConfig,
   ValidationException,
   VeevaConnectorProfileCredentials,
   VeevaConnectorProfileProperties,
@@ -2529,6 +2532,9 @@ const serializeAws_restJson1DestinationConnectorProperties = (
     ...(input.Snowflake !== undefined && {
       Snowflake: serializeAws_restJson1SnowflakeDestinationProperties(input.Snowflake, context),
     }),
+    ...(input.Upsolver !== undefined && {
+      Upsolver: serializeAws_restJson1UpsolverDestinationProperties(input.Upsolver, context),
+    }),
   };
 };
 
@@ -3112,6 +3118,34 @@ const serializeAws_restJson1TriggerProperties = (input: TriggerProperties, conte
   };
 };
 
+const serializeAws_restJson1UpsolverDestinationProperties = (
+  input: UpsolverDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.bucketPrefix !== undefined && { bucketPrefix: input.bucketPrefix }),
+    ...(input.s3OutputFormatConfig !== undefined && {
+      s3OutputFormatConfig: serializeAws_restJson1UpsolverS3OutputFormatConfig(input.s3OutputFormatConfig, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1UpsolverS3OutputFormatConfig = (
+  input: UpsolverS3OutputFormatConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.aggregationConfig !== undefined && {
+      aggregationConfig: serializeAws_restJson1AggregationConfig(input.aggregationConfig, context),
+    }),
+    ...(input.fileType !== undefined && { fileType: input.fileType }),
+    ...(input.prefixConfig !== undefined && {
+      prefixConfig: serializeAws_restJson1PrefixConfig(input.prefixConfig, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1VeevaConnectorProfileCredentials = (
   input: VeevaConnectorProfileCredentials,
   context: __SerdeContext
@@ -3364,6 +3398,10 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
       output.Trendmicro !== undefined && output.Trendmicro !== null
         ? deserializeAws_restJson1TrendmicroMetadata(output.Trendmicro, context)
         : undefined,
+    Upsolver:
+      output.Upsolver !== undefined && output.Upsolver !== null
+        ? deserializeAws_restJson1UpsolverMetadata(output.Upsolver, context)
+        : undefined,
     Veeva:
       output.Veeva !== undefined && output.Veeva !== null
         ? deserializeAws_restJson1VeevaMetadata(output.Veeva, context)
@@ -3554,6 +3592,10 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
     Snowflake:
       output.Snowflake !== undefined && output.Snowflake !== null
         ? deserializeAws_restJson1SnowflakeDestinationProperties(output.Snowflake, context)
+        : undefined,
+    Upsolver:
+      output.Upsolver !== undefined && output.Upsolver !== null
+        ? deserializeAws_restJson1UpsolverDestinationProperties(output.Upsolver, context)
         : undefined,
   } as any;
 };
@@ -4345,6 +4387,41 @@ const deserializeAws_restJson1TriggerProperties = (output: any, context: __Serde
 
 const deserializeAws_restJson1TriggerTypeList = (output: any, context: __SerdeContext): (TriggerType | string)[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1UpsolverDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): UpsolverDestinationProperties => {
+  return {
+    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
+    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    s3OutputFormatConfig:
+      output.s3OutputFormatConfig !== undefined && output.s3OutputFormatConfig !== null
+        ? deserializeAws_restJson1UpsolverS3OutputFormatConfig(output.s3OutputFormatConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UpsolverMetadata = (output: any, context: __SerdeContext): UpsolverMetadata => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1UpsolverS3OutputFormatConfig = (
+  output: any,
+  context: __SerdeContext
+): UpsolverS3OutputFormatConfig => {
+  return {
+    aggregationConfig:
+      output.aggregationConfig !== undefined && output.aggregationConfig !== null
+        ? deserializeAws_restJson1AggregationConfig(output.aggregationConfig, context)
+        : undefined,
+    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
+    prefixConfig:
+      output.prefixConfig !== undefined && output.prefixConfig !== null
+        ? deserializeAws_restJson1PrefixConfig(output.prefixConfig, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1VeevaConnectorProfileProperties = (

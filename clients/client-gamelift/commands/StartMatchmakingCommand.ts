@@ -21,75 +21,38 @@ export type StartMatchmakingCommandInput = StartMatchmakingInput;
 export type StartMatchmakingCommandOutput = StartMatchmakingOutput & __MetadataBearer;
 
 /**
- * <p>Uses FlexMatch to create a game match for a group of players based on custom
- *             matchmaking rules, and starts a new game for the matched players. Each matchmaking
- *             request specifies the type of match to build (team configuration, rules for an
- *             acceptable match, etc.). The request also specifies the players to find a match for and
- *             where to host the new game session for optimal performance. A matchmaking request might
- *             start with a single player or a group of players who want to play together. FlexMatch
- *             finds additional players as needed to fill the match. Match type, rules, and the queue
- *             used to place a new game session are defined in a <code>MatchmakingConfiguration</code>.
- * </p>
+ * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
+ *             rules. If you're also using GameLift hosting, a new game session is started for the
+ *             matched players. Each matchmaking request identifies one or more players to find a match
+ *             for, and specifies the type of match to build, including the team configuration and the
+ *             rules for an acceptable match. When a matchmaking request identifies a group of players
+ *             who want to play together, FlexMatch finds additional players to fill the match. Match
+ *             type, rules, and other features are defined in a <code>MatchmakingConfiguration</code>. </p>
  *         <p>To start matchmaking, provide a unique ticket ID, specify a matchmaking configuration,
- *             and include the players to be matched. You must also include a set of player attributes
- *             relevant for the matchmaking configuration. If successful, a matchmaking ticket is
- *             returned with status set to <code>QUEUED</code>. </p>
- *         <p>Track the status of the ticket to respond as needed and acquire game session
- *             connection information for successfully completed matches. Ticket status updates are
- *             tracked using event notification through Amazon Simple Notification Service (SNS), which is defined in the matchmaking
- *             configuration.</p>
- *         <p>
- *             <b>Processing a matchmaking request</b> -- FlexMatch
- *             handles a matchmaking request as follows: </p>
- *         <ol>
- *             <li>
- *                 <p>Your client code submits a <code>StartMatchmaking</code> request for one or
- *                     more players and tracks the status of the request ticket. </p>
- *             </li>
- *             <li>
- *                 <p>FlexMatch uses this ticket and others in process to build an acceptable
- *                     match. When a potential match is identified, all tickets in the proposed match
- *                     are advanced to the next status. </p>
- *             </li>
- *             <li>
- *                 <p>If the match requires player acceptance (set in the matchmaking
- *                     configuration), the tickets move into status <code>REQUIRES_ACCEPTANCE</code>.
- *                     This status triggers your client code to solicit acceptance from all players in
- *                     every ticket involved in the match, and then call <a>AcceptMatch</a>
- *                     for each player. If any player rejects or fails to accept the match before a
- *                     specified timeout, the proposed match is dropped (see <code>AcceptMatch</code>
- *                     for more details).</p>
- *             </li>
- *             <li>
- *                 <p>Once a match is proposed and accepted, the matchmaking tickets move into
- *                     status <code>PLACING</code>. FlexMatch locates resources for a new game session
- *                     using the game session queue (set in the matchmaking configuration) and creates
- *                     the game session based on the match data. </p>
- *             </li>
- *             <li>
- *                 <p>When the match is successfully placed, the matchmaking tickets move into
- *                     <code>COMPLETED</code> status. Connection information (including game
- *                     session endpoint and player session) is added to the matchmaking tickets.
- *                     Matched players can use the connection information to join the game. </p>
- *             </li>
- *          </ol>
+ *             and include the players to be matched. For each player, you must also include the player
+ *             attribute values that are required by the matchmaking configuration (in the rule set).
+ *             If successful, a matchmaking ticket is returned with status set to <code>QUEUED</code>. </p>
+ *         <p>Track the status of the ticket to respond as needed. If you're also using GameLift
+ *             hosting, a successfully completed ticket contains game session connection information.
+ *             Ticket status updates are tracked using event notification through Amazon Simple Notification Service (SNS), which is
+ *             defined in the matchmaking configuration.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *             Add FlexMatch to a Game Client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
  *             Set Up FlexMatch Event Notification</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-tasks.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-tasks.html">
  *             FlexMatch Integration Roadmap</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
  *             How GameLift FlexMatch Works</a>
  *          </p>
  *         <p>

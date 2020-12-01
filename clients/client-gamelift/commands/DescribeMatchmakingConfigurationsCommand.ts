@@ -32,7 +32,7 @@ export type DescribeMatchmakingConfigurationsCommandOutput = DescribeMatchmaking
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/matchmaker-build.html"> Setting Up FlexMatch
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html"> Setting Up FlexMatch
  *                 Matchmakers</a>
  *          </p>
  *         <p>

@@ -22,6 +22,8 @@ export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse & __Metad
 
 /**
  * <p>Deletes invitations received by the AWS account to become a member account.</p>
+ *          <p>This operation is only used by accounts that are not part of an organization.
+ *          Organization accounts do not receive invitations.</p>
  */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,

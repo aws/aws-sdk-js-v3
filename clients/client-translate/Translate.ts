@@ -1,5 +1,15 @@
 import { TranslateClient } from "./TranslateClient";
 import {
+  CreateParallelDataCommand,
+  CreateParallelDataCommandInput,
+  CreateParallelDataCommandOutput,
+} from "./commands/CreateParallelDataCommand";
+import {
+  DeleteParallelDataCommand,
+  DeleteParallelDataCommandInput,
+  DeleteParallelDataCommandOutput,
+} from "./commands/DeleteParallelDataCommand";
+import {
   DeleteTerminologyCommand,
   DeleteTerminologyCommandInput,
   DeleteTerminologyCommandOutput,
@@ -10,6 +20,11 @@ import {
   DescribeTextTranslationJobCommandOutput,
 } from "./commands/DescribeTextTranslationJobCommand";
 import {
+  GetParallelDataCommand,
+  GetParallelDataCommandInput,
+  GetParallelDataCommandOutput,
+} from "./commands/GetParallelDataCommand";
+import {
   GetTerminologyCommand,
   GetTerminologyCommandInput,
   GetTerminologyCommandOutput,
@@ -19,6 +34,11 @@ import {
   ImportTerminologyCommandInput,
   ImportTerminologyCommandOutput,
 } from "./commands/ImportTerminologyCommand";
+import {
+  ListParallelDataCommand,
+  ListParallelDataCommandInput,
+  ListParallelDataCommandOutput,
+} from "./commands/ListParallelDataCommand";
 import {
   ListTerminologiesCommand,
   ListTerminologiesCommandInput,
@@ -44,6 +64,11 @@ import {
   TranslateTextCommandInput,
   TranslateTextCommandOutput,
 } from "./commands/TranslateTextCommand";
+import {
+  UpdateParallelDataCommand,
+  UpdateParallelDataCommandInput,
+  UpdateParallelDataCommandOutput,
+} from "./commands/UpdateParallelDataCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -51,6 +76,73 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       languages.</p>
  */
 export class Translate extends TranslateClient {
+  /**
+   * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
+   *       Amazon S3. Parallel data files contain examples of source phrases and their translations from
+   *       your translation memory. By adding parallel data, you can influence the style, tone, and word
+   *       choice in your translation output.</p>
+   */
+  public createParallelData(
+    args: CreateParallelDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateParallelDataCommandOutput>;
+  public createParallelData(
+    args: CreateParallelDataCommandInput,
+    cb: (err: any, data?: CreateParallelDataCommandOutput) => void
+  ): void;
+  public createParallelData(
+    args: CreateParallelDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateParallelDataCommandOutput) => void
+  ): void;
+  public createParallelData(
+    args: CreateParallelDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateParallelDataCommandOutput) => void),
+    cb?: (err: any, data?: CreateParallelDataCommandOutput) => void
+  ): Promise<CreateParallelDataCommandOutput> | void {
+    const command = new CreateParallelDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a parallel data resource in Amazon Translate.</p>
+   */
+  public deleteParallelData(
+    args: DeleteParallelDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteParallelDataCommandOutput>;
+  public deleteParallelData(
+    args: DeleteParallelDataCommandInput,
+    cb: (err: any, data?: DeleteParallelDataCommandOutput) => void
+  ): void;
+  public deleteParallelData(
+    args: DeleteParallelDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteParallelDataCommandOutput) => void
+  ): void;
+  public deleteParallelData(
+    args: DeleteParallelDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParallelDataCommandOutput) => void),
+    cb?: (err: any, data?: DeleteParallelDataCommandOutput) => void
+  ): Promise<DeleteParallelDataCommandOutput> | void {
+    const command = new DeleteParallelDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>A synchronous action that deletes a custom terminology.</p>
    */
@@ -106,6 +198,38 @@ export class Translate extends TranslateClient {
     cb?: (err: any, data?: DescribeTextTranslationJobCommandOutput) => void
   ): Promise<DescribeTextTranslationJobCommandOutput> | void {
     const command = new DescribeTextTranslationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides information about a parallel data resource.</p>
+   */
+  public getParallelData(
+    args: GetParallelDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParallelDataCommandOutput>;
+  public getParallelData(
+    args: GetParallelDataCommandInput,
+    cb: (err: any, data?: GetParallelDataCommandOutput) => void
+  ): void;
+  public getParallelData(
+    args: GetParallelDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParallelDataCommandOutput) => void
+  ): void;
+  public getParallelData(
+    args: GetParallelDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParallelDataCommandOutput) => void),
+    cb?: (err: any, data?: GetParallelDataCommandOutput) => void
+  ): Promise<GetParallelDataCommandOutput> | void {
+    const command = new GetParallelDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -177,6 +301,38 @@ export class Translate extends TranslateClient {
     cb?: (err: any, data?: ImportTerminologyCommandOutput) => void
   ): Promise<ImportTerminologyCommandOutput> | void {
     const command = new ImportTerminologyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+   */
+  public listParallelData(
+    args: ListParallelDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListParallelDataCommandOutput>;
+  public listParallelData(
+    args: ListParallelDataCommandInput,
+    cb: (err: any, data?: ListParallelDataCommandOutput) => void
+  ): void;
+  public listParallelData(
+    args: ListParallelDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListParallelDataCommandOutput) => void
+  ): void;
+  public listParallelData(
+    args: ListParallelDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListParallelDataCommandOutput) => void),
+    cb?: (err: any, data?: ListParallelDataCommandOutput) => void
+  ): Promise<ListParallelDataCommandOutput> | void {
+    const command = new ListParallelDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -351,6 +507,39 @@ export class Translate extends TranslateClient {
     cb?: (err: any, data?: TranslateTextCommandOutput) => void
   ): Promise<TranslateTextCommandOutput> | void {
     const command = new TranslateTextCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a previously created parallel data resource by importing a new input file from
+   *       Amazon S3.</p>
+   */
+  public updateParallelData(
+    args: UpdateParallelDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateParallelDataCommandOutput>;
+  public updateParallelData(
+    args: UpdateParallelDataCommandInput,
+    cb: (err: any, data?: UpdateParallelDataCommandOutput) => void
+  ): void;
+  public updateParallelData(
+    args: UpdateParallelDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateParallelDataCommandOutput) => void
+  ): void;
+  public updateParallelData(
+    args: UpdateParallelDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateParallelDataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateParallelDataCommandOutput) => void
+  ): Promise<UpdateParallelDataCommandOutput> | void {
+    const command = new UpdateParallelDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

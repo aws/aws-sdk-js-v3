@@ -51,6 +51,7 @@ export * from "./commands/SubmitContainerStateChangeCommand";
 export * from "./commands/SubmitTaskStateChangeCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
+export * from "./commands/UpdateCapacityProviderCommand";
 export * from "./commands/UpdateClusterSettingsCommand";
 export * from "./commands/UpdateContainerAgentCommand";
 export * from "./commands/UpdateContainerInstancesStateCommand";

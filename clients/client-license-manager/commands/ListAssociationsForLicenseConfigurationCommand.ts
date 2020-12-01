@@ -26,9 +26,9 @@ export type ListAssociationsForLicenseConfigurationCommandOutput = ListAssociati
 
 /**
  * <p>Lists the resource associations for the specified license configuration.</p>
- *          <p>Resource associations need not consume licenses from a license configuration.
- *          For example, an AMI or a stopped instance might not consume a license (depending on
- *          the license rules).</p>
+ *          <p>Resource associations need not consume licenses from a license configuration. For
+ *          example, an AMI or a stopped instance might not consume a license (depending on the license
+ *          rules).</p>
  */
 export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ListAssociationsForLicenseConfigurationCommandInput,

@@ -25,6 +25,8 @@ export type DeleteTableCommandOutput = __MetadataBearer;
  *        After a Timestream database table is deleted, the time series data stored in
  *        the table cannot be recovered.
  *        </p>
+ *          <p>Due to the nature of distributed retries,
+ *          the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.</p>
  */
 export class DeleteTableCommand extends $Command<
   DeleteTableCommandInput,

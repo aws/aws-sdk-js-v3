@@ -23,11 +23,13 @@ export type InviteMembersCommandOutput = InviteMembersResponse & __MetadataBeare
 /**
  * <p>Invites other AWS accounts to become member accounts for the Security Hub master account that
  *          the invitation is sent from.</p>
+ *          <p>This operation is only used to invite accounts that do not belong to an organization.
+ *          Organization accounts do not receive invitations.</p>
  *          <p>Before you can use this action to invite a member, you must first use the <code>
  *                <a>CreateMembers</a>
  *             </code> action to create the member account in Security Hub.</p>
- *          <p>When the account owner accepts the invitation to become a member account and enables
- *          Security Hub, the master account can view the findings generated from the member account.</p>
+ *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
+ *          account, the master account can view the findings generated from the member account.</p>
  */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,

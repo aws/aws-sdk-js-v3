@@ -21,7 +21,10 @@ export type ListNotebookExecutionsCommandInput = ListNotebookExecutionsInput;
 export type ListNotebookExecutionsCommandOutput = ListNotebookExecutionsOutput & __MetadataBearer;
 
 /**
- * <p>Provides summaries of all notebook executions. You can filter the list based on multiple criteria such as status, time range, and editor id. Returns a maximum of 50 notebook executions and a marker to track the paging of a longer notebook execution list across multiple <code>ListNotebookExecution</code> calls.</p>
+ * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
+ *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
+ *          executions and a marker to track the paging of a longer notebook execution list across
+ *          multiple <code>ListNotebookExecution</code> calls.</p>
  */
 export class ListNotebookExecutionsCommand extends $Command<
   ListNotebookExecutionsCommandInput,

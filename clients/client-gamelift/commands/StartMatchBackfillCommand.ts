@@ -38,17 +38,17 @@ export type StartMatchBackfillCommandOutput = StartMatchBackfillOutput & __Metad
  *             a match is formed, the matchmaker creates player sessions for the new players. All
  *             tickets in the match are updated with the game session's connection information, and the
  *             <a>GameSession</a> object is updated to include matchmaker data on the
- *             new players. For more detail on how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html"> How
+ *             new players. For more detail on how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html"> How
  *                 Amazon GameLift FlexMatch Works</a>. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
  *             Backfill Existing Games with FlexMatch</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-match.html">
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
  *                 How GameLift FlexMatch Works</a>
  *          </p>
  *         <p>

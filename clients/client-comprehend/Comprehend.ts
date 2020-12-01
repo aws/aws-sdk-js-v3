@@ -90,6 +90,11 @@ import {
   DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand";
 import {
+  DescribeEventsDetectionJobCommand,
+  DescribeEventsDetectionJobCommandInput,
+  DescribeEventsDetectionJobCommandOutput,
+} from "./commands/DescribeEventsDetectionJobCommand";
+import {
   DescribeKeyPhrasesDetectionJobCommand,
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
@@ -170,6 +175,11 @@ import {
   ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand";
 import {
+  ListEventsDetectionJobsCommand,
+  ListEventsDetectionJobsCommandInput,
+  ListEventsDetectionJobsCommandOutput,
+} from "./commands/ListEventsDetectionJobsCommand";
+import {
   ListKeyPhrasesDetectionJobsCommand,
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
@@ -210,6 +220,11 @@ import {
   StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand";
 import {
+  StartEventsDetectionJobCommand,
+  StartEventsDetectionJobCommandInput,
+  StartEventsDetectionJobCommandOutput,
+} from "./commands/StartEventsDetectionJobCommand";
+import {
   StartKeyPhrasesDetectionJobCommand,
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
@@ -239,6 +254,11 @@ import {
   StopEntitiesDetectionJobCommandInput,
   StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand";
+import {
+  StopEventsDetectionJobCommand,
+  StopEventsDetectionJobCommandInput,
+  StopEventsDetectionJobCommandOutput,
+} from "./commands/StopEventsDetectionJobCommand";
 import {
   StopKeyPhrasesDetectionJobCommand,
   StopKeyPhrasesDetectionJobCommandInput,
@@ -894,6 +914,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets the status and details of an events detection job.</p>
+   */
+  public describeEventsDetectionJob(
+    args: DescribeEventsDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventsDetectionJobCommandOutput>;
+  public describeEventsDetectionJob(
+    args: DescribeEventsDetectionJobCommandInput,
+    cb: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
+  ): void;
+  public describeEventsDetectionJob(
+    args: DescribeEventsDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
+  ): void;
+  public describeEventsDetectionJob(
+    args: DescribeEventsDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
+  ): Promise<DescribeEventsDetectionJobCommandOutput> | void {
+    const command = new DescribeEventsDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
    *       the status of a detection job.</p>
    */
@@ -1417,6 +1469,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets a list of the events detection jobs that you have submitted.</p>
+   */
+  public listEventsDetectionJobs(
+    args: ListEventsDetectionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventsDetectionJobsCommandOutput>;
+  public listEventsDetectionJobs(
+    args: ListEventsDetectionJobsCommandInput,
+    cb: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
+  ): void;
+  public listEventsDetectionJobs(
+    args: ListEventsDetectionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
+  ): void;
+  public listEventsDetectionJobs(
+    args: ListEventsDetectionJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventsDetectionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
+  ): Promise<ListEventsDetectionJobsCommandOutput> | void {
+    const command = new ListEventsDetectionJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get a list of key phrase detection jobs that you have submitted.</p>
    */
   public listKeyPhrasesDetectionJobs(
@@ -1680,6 +1764,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Starts an asynchronous event detection job for a collection of documents.</p>
+   */
+  public startEventsDetectionJob(
+    args: StartEventsDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEventsDetectionJobCommandOutput>;
+  public startEventsDetectionJob(
+    args: StartEventsDetectionJobCommandInput,
+    cb: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
+  ): void;
+  public startEventsDetectionJob(
+    args: StartEventsDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
+  ): void;
+  public startEventsDetectionJob(
+    args: StartEventsDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEventsDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
+  ): Promise<StartEventsDetectionJobCommandOutput> | void {
+    const command = new StartEventsDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
    *          operation to track the status of a
    *       job.</p>
@@ -1884,6 +2000,38 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: StopEntitiesDetectionJobCommandOutput) => void
   ): Promise<StopEntitiesDetectionJobCommandOutput> | void {
     const command = new StopEntitiesDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops an events detection job in progress.</p>
+   */
+  public stopEventsDetectionJob(
+    args: StopEventsDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopEventsDetectionJobCommandOutput>;
+  public stopEventsDetectionJob(
+    args: StopEventsDetectionJobCommandInput,
+    cb: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
+  ): void;
+  public stopEventsDetectionJob(
+    args: StopEventsDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
+  ): void;
+  public stopEventsDetectionJob(
+    args: StopEventsDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEventsDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
+  ): Promise<StopEventsDetectionJobCommandOutput> | void {
+    const command = new StopEventsDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

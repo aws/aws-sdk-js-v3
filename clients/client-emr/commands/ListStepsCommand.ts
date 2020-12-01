@@ -18,7 +18,9 @@ export type ListStepsCommandInput = ListStepsInput;
 export type ListStepsCommandOutput = ListStepsOutput & __MetadataBearer;
 
 /**
- * <p>Provides a list of steps for the cluster in reverse order unless you specify <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can specify a maximum of ten <code>stepIDs</code>.</p>
+ * <p>Provides a list of steps for the cluster in reverse order unless you specify
+ *             <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can
+ *          specify a maximum of ten <code>stepIDs</code>.</p>
  */
 export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsCommandOutput, EMRClientResolvedConfig> {
   // Start section: command_properties

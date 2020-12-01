@@ -21,8 +21,8 @@ export type DescribeJobDefinitionsCommandInput = DescribeJobDefinitionsRequest;
 export type DescribeJobDefinitionsCommandOutput = DescribeJobDefinitionsResponse & __MetadataBearer;
 
 /**
- * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to
- *       only return job definitions that match that status.</p>
+ * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
+ *    return job definitions that match that status.</p>
  */
 export class DescribeJobDefinitionsCommand extends $Command<
   DescribeJobDefinitionsCommandInput,

@@ -14978,7 +14978,13 @@
         "target": "com.amazonaws.ec2#DescribeByoipCidrsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>\n         <p>To describe the address pools that were created when you provisioned the address\n          ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>\n         <p>To describe the address pools that were created when you provisioned the address\n          ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ByoipCidrs",
+          "pageSize": "MaxResults"
+        }
       }
     },
     "com.amazonaws.ec2#DescribeByoipCidrsMaxResults": {
@@ -35715,6 +35721,9 @@
           },
           {
             "value": "m6gd.16xlarge"
+          },
+          {
+            "value": "mac1.metal"
           }
         ]
       }
@@ -45168,6 +45177,31 @@
         ]
       }
     },
+    "com.amazonaws.ec2#PrivateDnsDetails": {
+      "type": "structure",
+      "members": {
+        "PrivateDnsName": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrivateDnsName",
+            "smithy.api#documentation": "<p>The private DNS name assigned to the VPC endpoint service.</p>",
+            "smithy.api#xmlName": "privateDnsName"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the Private DNS name for interface endpoints.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PrivateDnsDetailsSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#PrivateDnsDetails",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#PrivateDnsNameConfiguration": {
       "type": "structure",
       "members": {
@@ -51952,6 +51986,14 @@
             "aws.protocols#ec2QueryName": "PrivateDnsName",
             "smithy.api#documentation": "<p>The private DNS name for the service.</p>",
             "smithy.api#xmlName": "privateDnsName"
+          }
+        },
+        "PrivateDnsNames": {
+          "target": "com.amazonaws.ec2#PrivateDnsDetailsSet",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrivateDnsNameSet",
+            "smithy.api#documentation": "<p>The private DNS names assigned to the VPC endpoint service. </p>",
+            "smithy.api#xmlName": "privateDnsNameSet"
           }
         },
         "VpcEndpointPolicySupported": {

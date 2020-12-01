@@ -37,19 +37,19 @@ export type CreateMatchmakingRuleSetCommandOutput = CreateMatchmakingRuleSetOutp
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a Rule
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a Rule
  *                         Set</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">Design a
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">Design a
  *                         Matchmaker</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">Matchmaking with
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html">Matchmaking with
  *                         FlexMatch</a>
  *                </p>
  *             </li>

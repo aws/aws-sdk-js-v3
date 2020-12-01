@@ -21,9 +21,7 @@ export type GetManagedScalingPolicyCommandInput = GetManagedScalingPolicyInput;
 export type GetManagedScalingPolicyCommandOutput = GetManagedScalingPolicyOutput & __MetadataBearer;
 
 /**
- * <p>
- *          Fetches the attached managed scaling policy for an Amazon EMR cluster.
- *       </p>
+ * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
  */
 export class GetManagedScalingPolicyCommand extends $Command<
   GetManagedScalingPolicyCommandInput,

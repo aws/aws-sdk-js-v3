@@ -141,7 +141,7 @@
       }
     },
     "com.amazonaws.dynamodb#AttributeValue": {
-      "type": "structure",
+      "type": "union",
       "members": {
         "S": {
           "target": "com.amazonaws.dynamodb#StringAttributeValue",
@@ -727,6 +727,49 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#BatchExecuteStatement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#BatchExecuteStatementInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#BatchExecuteStatementOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#RequestLimitExceeded"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\nThis operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL.\n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#BatchExecuteStatementInput": {
+      "type": "structure",
+      "members": {
+        "Statements": {
+          "target": "com.amazonaws.dynamodb#PartiQLBatchRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe list of PartiQL statements representing the batch to run.\n</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#BatchExecuteStatementOutput": {
+      "type": "structure",
+      "members": {
+        "Responses": {
+          "target": "com.amazonaws.dynamodb#PartiQLBatchResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe response to each PartiQL statement in the batch.\n</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodb#BatchGetItem": {
       "type": "operation",
       "input": {
@@ -822,6 +865,130 @@
       },
       "value": {
         "target": "com.amazonaws.dynamodb#ItemList"
+      }
+    },
+    "com.amazonaws.dynamodb#BatchStatementError": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.dynamodb#BatchStatementErrorCodeEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe error code associated with the failed PartiQL batch statement.\n</p>"
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.dynamodb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe error message associated with the PartiQL batch resposne.\n</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nAn error associated with a statement in a PartiQL batch that was run.\n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#BatchStatementErrorCodeEnum": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ConditionalCheckFailed",
+            "name": "ConditionalCheckFailed"
+          },
+          {
+            "value": "ItemCollectionSizeLimitExceeded",
+            "name": "ItemCollectionSizeLimitExceeded"
+          },
+          {
+            "value": "RequestLimitExceeded",
+            "name": "RequestLimitExceeded"
+          },
+          {
+            "value": "ValidationError",
+            "name": "ValidationError"
+          },
+          {
+            "value": "ProvisionedThroughputExceeded",
+            "name": "ProvisionedThroughputExceeded"
+          },
+          {
+            "value": "TransactionConflict",
+            "name": "TransactionConflict"
+          },
+          {
+            "value": "ThrottlingError",
+            "name": "ThrottlingError"
+          },
+          {
+            "value": "InternalServerError",
+            "name": "InternalServerError"
+          },
+          {
+            "value": "ResourceNotFound",
+            "name": "ResourceNotFound"
+          },
+          {
+            "value": "AccessDenied",
+            "name": "AccessDenied"
+          },
+          {
+            "value": "DuplicateItem",
+            "name": "DuplicateItem"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dynamodb#BatchStatementRequest": {
+      "type": "structure",
+      "members": {
+        "Statement": {
+          "target": "com.amazonaws.dynamodb#PartiQLStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>\nA valid PartiQL statement.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Parameters": {
+          "target": "com.amazonaws.dynamodb#PreparedStatementParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe parameters associated with a PartiQL statement in the batch request.\n</p>"
+          }
+        },
+        "ConsistentRead": {
+          "target": "com.amazonaws.dynamodb#ConsistentRead",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe read consistency of the PartiQL batch request. \n</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nA PartiQL batch statement request. \n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#BatchStatementResponse": {
+      "type": "structure",
+      "members": {
+        "Error": {
+          "target": "com.amazonaws.dynamodb#BatchStatementError",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe error associated with a failed PartiQL batch statement.\n</p>"
+          }
+        },
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe table name associated with a failed PartiQL batch statement.\n</p>"
+          }
+        },
+        "Item": {
+          "target": "com.amazonaws.dynamodb#AttributeMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\nA DynamoDB item associated with a BatchStatementResponse\n</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nA PartiQL batch statement response..\n</p>"
       }
     },
     "com.amazonaws.dynamodb#BatchWriteItem": {
@@ -2412,6 +2579,58 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#DescribeKinesisStreamingDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#DescribeKinesisStreamingDestinationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#DescribeKinesisStreamingDestinationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InvalidEndpointException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about the status of Kinesis streaming.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#DescribeKinesisStreamingDestinationInput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table being described.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#DescribeKinesisStreamingDestinationOutput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table being described.</p>"
+          }
+        },
+        "KinesisDataStreamDestinations": {
+          "target": "com.amazonaws.dynamodb#KinesisDataStreamDestinations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of replica structures for the table being described.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodb#DescribeLimits": {
       "type": "operation",
       "input": {
@@ -2612,16 +2831,82 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#DestinationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLING"
+          },
+          {
+            "value": "ACTIVE"
+          },
+          {
+            "value": "DISABLING"
+          },
+          {
+            "value": "DISABLED"
+          },
+          {
+            "value": "ENABLE_FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dynamodb#DisableKinesisStreamingDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#KinesisStreamingDestinationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#KinesisStreamingDestinationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InvalidEndpointException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done\n            without deleting either of the resources.</p>"
+      }
+    },
     "com.amazonaws.dynamodb#Double": {
       "type": "double",
       "traits": {
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.dynamodb#DuplicateItemException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dynamodb#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nThere was an attempt to insert an item with the same primary key as an item that already exists in the DynamoDB table.\n</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.dynamodb#DynamoDB_20120810": {
       "type": "service",
       "version": "2012-08-10",
       "operations": [
+        {
+          "target": "com.amazonaws.dynamodb#BatchExecuteStatement"
+        },
         {
           "target": "com.amazonaws.dynamodb#BatchGetItem"
         },
@@ -2668,6 +2953,9 @@
           "target": "com.amazonaws.dynamodb#DescribeGlobalTableSettings"
         },
         {
+          "target": "com.amazonaws.dynamodb#DescribeKinesisStreamingDestination"
+        },
+        {
           "target": "com.amazonaws.dynamodb#DescribeLimits"
         },
         {
@@ -2678,6 +2966,18 @@
         },
         {
           "target": "com.amazonaws.dynamodb#DescribeTimeToLive"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#DisableKinesisStreamingDestination"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#EnableKinesisStreamingDestination"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ExecuteStatement"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ExecuteTransaction"
         },
         {
           "target": "com.amazonaws.dynamodb#ExportTableToPointInTime"
@@ -2777,6 +3077,35 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#EnableKinesisStreamingDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#KinesisStreamingDestinationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#KinesisStreamingDestinationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InvalidEndpointException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen\n            during the enable workflow. If this operation doesn't return results immediately, use\n            DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is\n            ACTIVE.</p>"
+      }
+    },
     "com.amazonaws.dynamodb#Endpoint": {
       "type": "structure",
       "members": {
@@ -2813,6 +3142,156 @@
     },
     "com.amazonaws.dynamodb#ExceptionName": {
       "type": "string"
+    },
+    "com.amazonaws.dynamodb#ExecuteStatement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#ExecuteStatementInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#ExecuteStatementOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#ConditionalCheckFailedException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#DuplicateItemException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ProvisionedThroughputExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#RequestLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#TransactionConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\nThis operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.\n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ExecuteStatementInput": {
+      "type": "structure",
+      "members": {
+        "Statement": {
+          "target": "com.amazonaws.dynamodb#PartiQLStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe PartiQL statement representing the operation to run.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Parameters": {
+          "target": "com.amazonaws.dynamodb#PreparedStatementParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe parameters for the PartiQL statement, if any.\n</p>"
+          }
+        },
+        "ConsistentRead": {
+          "target": "com.amazonaws.dynamodb#ConsistentRead",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.\n</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dynamodb#PartiQLNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSet this value to get remaining results, if <code>NextToken</code> was returned in the statement response.\n</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExecuteStatementOutput": {
+      "type": "structure",
+      "members": {
+        "Items": {
+          "target": "com.amazonaws.dynamodb#ItemList",
+          "traits": {
+            "smithy.api#documentation": "<p>\nIf a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty.\n</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dynamodb#PartiQLNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nIf the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.\n</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExecuteTransaction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#ExecuteTransactionInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#ExecuteTransactionOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#IdempotentParameterMismatchException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ProvisionedThroughputExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#RequestLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#TransactionCanceledException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#TransactionInProgressException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\nThis operation allows you to perform transactional reads or writes on data stored in DynamoDB, using PartiQL.\n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ExecuteTransactionInput": {
+      "type": "structure",
+      "members": {
+        "TransactStatements": {
+          "target": "com.amazonaws.dynamodb#ParameterizedStatements",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe list of PartiQL statements representing the transaction to run.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.dynamodb#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSet this value to get remaining results, if <code>NextToken</code> was returned in the statement response.\n</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExecuteTransactionOutput": {
+      "type": "structure",
+      "members": {
+        "Responses": {
+          "target": "com.amazonaws.dynamodb#ItemResponseList",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe response to a PartiQL transaction.\n</p>"
+          }
+        }
+      }
     },
     "com.amazonaws.dynamodb#ExpectedAttributeMap": {
       "type": "map",
@@ -4096,6 +4575,80 @@
         "smithy.api#documentation": "<p>Represents a set of primary keys and, for each key, the attributes to retrieve from the table.</p>\n         <p>For each primary key, you must provide <i>all</i> of the key attributes. For example, with a\n      simple primary key, you only need to provide the partition key. For a composite\n      primary key, you must provide <i>both</i> the partition key and the sort key.</p>"
       }
     },
+    "com.amazonaws.dynamodb#KinesisDataStreamDestination": {
+      "type": "structure",
+      "members": {
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodb#StreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for a specific Kinesis data stream.</p>"
+          }
+        },
+        "DestinationStatus": {
+          "target": "com.amazonaws.dynamodb#DestinationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of replication.</p>"
+          }
+        },
+        "DestinationStatusDescription": {
+          "target": "com.amazonaws.dynamodb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The human-readable string that corresponds to the replica status.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a Kinesis data stream destination.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#KinesisDataStreamDestinations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#KinesisDataStreamDestination"
+      }
+    },
+    "com.amazonaws.dynamodb#KinesisStreamingDestinationInput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the DynamoDB table.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodb#StreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for a Kinesis data stream.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#KinesisStreamingDestinationOutput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table being modified.</p>"
+          }
+        },
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodb#StreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for the specific Kinesis data stream.</p>"
+          }
+        },
+        "DestinationStatus": {
+          "target": "com.amazonaws.dynamodb#DestinationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the replication.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodb#LastUpdateDateTime": {
       "type": "timestamp"
     },
@@ -4717,6 +5270,75 @@
         "target": "com.amazonaws.dynamodb#NumberAttributeValue"
       }
     },
+    "com.amazonaws.dynamodb#ParameterizedStatement": {
+      "type": "structure",
+      "members": {
+        "Statement": {
+          "target": "com.amazonaws.dynamodb#PartiQLStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>\nA PartiQL statment that uses parameters.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Parameters": {
+          "target": "com.amazonaws.dynamodb#PreparedStatementParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe parameter values.\n</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nRepresents a PartiQL statment that uses parameters.\n</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ParameterizedStatements": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#ParameterizedStatement"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#PartiQLBatchRequest": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#BatchStatementRequest"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#PartiQLBatchResponse": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#BatchStatementResponse"
+      }
+    },
+    "com.amazonaws.dynamodb#PartiQLNextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 32768
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#PartiQLStatement": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 8192
+        }
+      }
+    },
     "com.amazonaws.dynamodb#PointInTimeRecoveryDescription": {
       "type": "structure",
       "members": {
@@ -4797,6 +5419,17 @@
       "traits": {
         "smithy.api#box": {},
         "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#PreparedStatementParameters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#AttributeValue"
+      },
+      "traits": {
+        "smithy.api#length": {
           "min": 1
         }
       }

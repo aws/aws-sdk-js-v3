@@ -362,6 +362,8 @@ import {
   CreateUserPoolRequest,
   CreateUserPoolResponse,
   CustomDomainConfigType,
+  CustomEmailLambdaVersionConfigType,
+  CustomSMSLambdaVersionConfigType,
   DeleteGroupRequest,
   DeleteIdentityProviderRequest,
   DeleteResourceServerRequest,
@@ -517,10 +519,6 @@ import {
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
   UnsupportedUserStateException,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAuthEventFeedbackRequest,
-  UpdateAuthEventFeedbackResponse,
   UserContextDataType,
   UserImportInProgressException,
   UserImportJobType,
@@ -544,6 +542,10 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  UntagResourceRequest,
+  UntagResourceResponse,
+  UpdateAuthEventFeedbackRequest,
+  UpdateAuthEventFeedbackResponse,
   UpdateDeviceStatusRequest,
   UpdateDeviceStatusResponse,
   UpdateGroupRequest,
@@ -14061,6 +14063,26 @@ const serializeAws_json1_1CustomDomainConfigType = (input: CustomDomainConfigTyp
   };
 };
 
+const serializeAws_json1_1CustomEmailLambdaVersionConfigType = (
+  input: CustomEmailLambdaVersionConfigType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LambdaArn !== undefined && { LambdaArn: input.LambdaArn }),
+    ...(input.LambdaVersion !== undefined && { LambdaVersion: input.LambdaVersion }),
+  };
+};
+
+const serializeAws_json1_1CustomSMSLambdaVersionConfigType = (
+  input: CustomSMSLambdaVersionConfigType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LambdaArn !== undefined && { LambdaArn: input.LambdaArn }),
+    ...(input.LambdaVersion !== undefined && { LambdaVersion: input.LambdaVersion }),
+  };
+};
+
 const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
@@ -14390,8 +14412,15 @@ const serializeAws_json1_1InitiateAuthRequest = (input: InitiateAuthRequest, con
 const serializeAws_json1_1LambdaConfigType = (input: LambdaConfigType, context: __SerdeContext): any => {
   return {
     ...(input.CreateAuthChallenge !== undefined && { CreateAuthChallenge: input.CreateAuthChallenge }),
+    ...(input.CustomEmailSender !== undefined && {
+      CustomEmailSender: serializeAws_json1_1CustomEmailLambdaVersionConfigType(input.CustomEmailSender, context),
+    }),
     ...(input.CustomMessage !== undefined && { CustomMessage: input.CustomMessage }),
+    ...(input.CustomSMSSender !== undefined && {
+      CustomSMSSender: serializeAws_json1_1CustomSMSLambdaVersionConfigType(input.CustomSMSSender, context),
+    }),
     ...(input.DefineAuthChallenge !== undefined && { DefineAuthChallenge: input.DefineAuthChallenge }),
+    ...(input.KMSKeyID !== undefined && { KMSKeyID: input.KMSKeyID }),
     ...(input.PostAuthentication !== undefined && { PostAuthentication: input.PostAuthentication }),
     ...(input.PostConfirmation !== undefined && { PostConfirmation: input.PostConfirmation }),
     ...(input.PreAuthentication !== undefined && { PreAuthentication: input.PreAuthentication }),
@@ -15857,6 +15886,28 @@ const deserializeAws_json1_1CustomDomainConfigType = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1CustomEmailLambdaVersionConfigType = (
+  output: any,
+  context: __SerdeContext
+): CustomEmailLambdaVersionConfigType => {
+  return {
+    LambdaArn: output.LambdaArn !== undefined && output.LambdaArn !== null ? output.LambdaArn : undefined,
+    LambdaVersion:
+      output.LambdaVersion !== undefined && output.LambdaVersion !== null ? output.LambdaVersion : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomSMSLambdaVersionConfigType = (
+  output: any,
+  context: __SerdeContext
+): CustomSMSLambdaVersionConfigType => {
+  return {
+    LambdaArn: output.LambdaArn !== undefined && output.LambdaArn !== null ? output.LambdaArn : undefined,
+    LambdaVersion:
+      output.LambdaVersion !== undefined && output.LambdaVersion !== null ? output.LambdaVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
@@ -16387,12 +16438,21 @@ const deserializeAws_json1_1LambdaConfigType = (output: any, context: __SerdeCon
       output.CreateAuthChallenge !== undefined && output.CreateAuthChallenge !== null
         ? output.CreateAuthChallenge
         : undefined,
+    CustomEmailSender:
+      output.CustomEmailSender !== undefined && output.CustomEmailSender !== null
+        ? deserializeAws_json1_1CustomEmailLambdaVersionConfigType(output.CustomEmailSender, context)
+        : undefined,
     CustomMessage:
       output.CustomMessage !== undefined && output.CustomMessage !== null ? output.CustomMessage : undefined,
+    CustomSMSSender:
+      output.CustomSMSSender !== undefined && output.CustomSMSSender !== null
+        ? deserializeAws_json1_1CustomSMSLambdaVersionConfigType(output.CustomSMSSender, context)
+        : undefined,
     DefineAuthChallenge:
       output.DefineAuthChallenge !== undefined && output.DefineAuthChallenge !== null
         ? output.DefineAuthChallenge
         : undefined,
+    KMSKeyID: output.KMSKeyID !== undefined && output.KMSKeyID !== null ? output.KMSKeyID : undefined,
     PostAuthentication:
       output.PostAuthentication !== undefined && output.PostAuthentication !== null
         ? output.PostAuthentication

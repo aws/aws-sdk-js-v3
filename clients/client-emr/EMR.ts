@@ -22,10 +22,30 @@ import {
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
 import {
+  CreateStudioCommand,
+  CreateStudioCommandInput,
+  CreateStudioCommandOutput,
+} from "./commands/CreateStudioCommand";
+import {
+  CreateStudioSessionMappingCommand,
+  CreateStudioSessionMappingCommandInput,
+  CreateStudioSessionMappingCommandOutput,
+} from "./commands/CreateStudioSessionMappingCommand";
+import {
   DeleteSecurityConfigurationCommand,
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
+import {
+  DeleteStudioCommand,
+  DeleteStudioCommandInput,
+  DeleteStudioCommandOutput,
+} from "./commands/DeleteStudioCommand";
+import {
+  DeleteStudioSessionMappingCommand,
+  DeleteStudioSessionMappingCommandInput,
+  DeleteStudioSessionMappingCommandOutput,
+} from "./commands/DeleteStudioSessionMappingCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
@@ -52,6 +72,11 @@ import {
   DescribeStepCommandOutput,
 } from "./commands/DescribeStepCommand";
 import {
+  DescribeStudioCommand,
+  DescribeStudioCommandInput,
+  DescribeStudioCommandOutput,
+} from "./commands/DescribeStudioCommand";
+import {
   GetBlockPublicAccessConfigurationCommand,
   GetBlockPublicAccessConfigurationCommandInput,
   GetBlockPublicAccessConfigurationCommandOutput,
@@ -61,6 +86,11 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "./commands/GetManagedScalingPolicyCommand";
+import {
+  GetStudioSessionMappingCommand,
+  GetStudioSessionMappingCommandInput,
+  GetStudioSessionMappingCommandOutput,
+} from "./commands/GetStudioSessionMappingCommand";
 import {
   ListBootstrapActionsCommand,
   ListBootstrapActionsCommandInput,
@@ -97,6 +127,12 @@ import {
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
 import { ListStepsCommand, ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import {
+  ListStudioSessionMappingsCommand,
+  ListStudioSessionMappingsCommandInput,
+  ListStudioSessionMappingsCommandOutput,
+} from "./commands/ListStudioSessionMappingsCommand";
+import { ListStudiosCommand, ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
 import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
@@ -164,16 +200,25 @@ import {
   TerminateJobFlowsCommandInput,
   TerminateJobFlowsCommandOutput,
 } from "./commands/TerminateJobFlowsCommand";
+import {
+  UpdateStudioSessionMappingCommand,
+  UpdateStudioSessionMappingCommandInput,
+  UpdateStudioSessionMappingCommandOutput,
+} from "./commands/UpdateStudioSessionMappingCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Amazon EMR is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.</p>
+ * <p>Amazon EMR is a web service that makes it easier to process large amounts of data
+ *          efficiently. Amazon EMR uses Hadoop processing combined with several AWS services to do
+ *          tasks such as web indexing, data mining, log file analysis, machine learning, scientific
+ *          simulation, and data warehouse management.</p>
  */
 export class EMR extends EMRClient {
   /**
    * <p>Adds an instance fleet to a running cluster.</p>
    *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x.</p>
+   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+   *             later, excluding 5.0.x.</p>
    *          </note>
    */
   public addInstanceFleet(
@@ -238,11 +283,23 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed in each job flow.</p>
-   *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
-   *          <p>A step specifies the location of a JAR file stored either on the master node of the cluster or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.</p>
-   *          <p>Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.</p>
-   *          <p>You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.</p>
+   * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
+   *          in each job flow.</p>
+   *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
+   *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
+   *          various ways, including using SSH to connect to the master node and submitting queries
+   *          directly to the software running on the master node, such as Hive and Hadoop. For more
+   *          information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
+   *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   *          <p>A step specifies the location of a JAR file stored either on the master node of the
+   *          cluster or in Amazon S3. Each step is performed by the main function of the main class of
+   *          the JAR file. The main class can be specified either in the manifest of the JAR or by using
+   *          the MainFunction parameter of the step.</p>
+   *          <p>Amazon EMR executes each step in the order listed. For a step to be considered complete,
+   *          the main function must exit with a zero exit code and all Hadoop jobs started while the
+   *          step was running must have completed and run successfully.</p>
+   *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
+   *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
    */
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
@@ -274,9 +331,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
-   *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>.
-   *       </p>
+   * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
+   *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
+   *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -302,7 +359,11 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee a step will be canceled, even if the request is successfully submitted. You can only cancel steps that are in a <code>PENDING</code> state.</p>
+   * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR
+   *          versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in
+   *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
+   *          that a step will be canceled, even if the request is successfully submitted. You can only
+   *          cancel steps that are in a <code>PENDING</code> state.</p>
    */
   public cancelSteps(args: CancelStepsCommandInput, options?: __HttpHandlerOptions): Promise<CancelStepsCommandOutput>;
   public cancelSteps(args: CancelStepsCommandInput, cb: (err: any, data?: CancelStepsCommandOutput) => void): void;
@@ -328,7 +389,8 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Creates a security configuration, which is stored in the service and can be specified when a cluster is created.</p>
+   * <p>Creates a security configuration, which is stored in the service and can be specified
+   *          when a cluster is created.</p>
    */
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
@@ -349,6 +411,76 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): Promise<CreateSecurityConfigurationCommandOutput> | void {
     const command = new CreateSecurityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Creates a new Amazon EMR Studio.</p>
+   */
+  public createStudio(
+    args: CreateStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStudioCommandOutput>;
+  public createStudio(args: CreateStudioCommandInput, cb: (err: any, data?: CreateStudioCommandOutput) => void): void;
+  public createStudio(
+    args: CreateStudioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStudioCommandOutput) => void
+  ): void;
+  public createStudio(
+    args: CreateStudioCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStudioCommandOutput) => void),
+    cb?: (err: any, data?: CreateStudioCommandOutput) => void
+  ): Promise<CreateStudioCommandOutput> | void {
+    const command = new CreateStudioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
+   *          applies a session policy to refine Studio permissions for that user or group.</p>
+   */
+  public createStudioSessionMapping(
+    args: CreateStudioSessionMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStudioSessionMappingCommandOutput>;
+  public createStudioSessionMapping(
+    args: CreateStudioSessionMappingCommandInput,
+    cb: (err: any, data?: CreateStudioSessionMappingCommandOutput) => void
+  ): void;
+  public createStudioSessionMapping(
+    args: CreateStudioSessionMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStudioSessionMappingCommandOutput) => void
+  ): void;
+  public createStudioSessionMapping(
+    args: CreateStudioSessionMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStudioSessionMappingCommandOutput) => void),
+    cb?: (err: any, data?: CreateStudioSessionMappingCommandOutput) => void
+  ): Promise<CreateStudioSessionMappingCommandOutput> | void {
+    const command = new CreateStudioSessionMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -392,7 +524,77 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. </p>
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
+   */
+  public deleteStudio(
+    args: DeleteStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStudioCommandOutput>;
+  public deleteStudio(args: DeleteStudioCommandInput, cb: (err: any, data?: DeleteStudioCommandOutput) => void): void;
+  public deleteStudio(
+    args: DeleteStudioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStudioCommandOutput) => void
+  ): void;
+  public deleteStudio(
+    args: DeleteStudioCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStudioCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStudioCommandOutput) => void
+  ): Promise<DeleteStudioCommandOutput> | void {
+    const command = new DeleteStudioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Removes a user or group from an Amazon EMR Studio.</p>
+   */
+  public deleteStudioSessionMapping(
+    args: DeleteStudioSessionMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStudioSessionMappingCommandOutput>;
+  public deleteStudioSessionMapping(
+    args: DeleteStudioSessionMappingCommandInput,
+    cb: (err: any, data?: DeleteStudioSessionMappingCommandOutput) => void
+  ): void;
+  public deleteStudioSessionMapping(
+    args: DeleteStudioSessionMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStudioSessionMappingCommandOutput) => void
+  ): void;
+  public deleteStudioSessionMapping(
+    args: DeleteStudioSessionMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStudioSessionMappingCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStudioSessionMappingCommandOutput) => void
+  ): Promise<DeleteStudioSessionMappingCommandOutput> | void {
+    const command = new DeleteStudioSessionMappingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides cluster-level details including status, hardware and software configuration,
+   *          VPC settings, and so on. </p>
    */
   public describeCluster(
     args: DescribeClusterCommandInput,
@@ -424,19 +626,23 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>This API is deprecated and will eventually be removed. We recommend you use <a>ListClusters</a>,
-   *          <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a>
-   *          instead.</p>
-   *          <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters. The parameters can include a list of job flow IDs, job flow states, and restrictions on job flow creation date and time.</p>
-   *          <p>Regardless of supplied parameters, only job flows created within the last two months are returned.</p>
-   *          <p>If no parameters are supplied, then job flows matching either of the following criteria are returned:</p>
+   * <p>This API is no longer supported and will eventually be removed. We recommend you use
+   *             <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p>
+   *          <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters.
+   *          The parameters can include a list of job flow IDs, job flow states, and restrictions on job
+   *          flow creation date and time.</p>
+   *          <p>Regardless of supplied parameters, only job flows created within the last two months are
+   *          returned.</p>
+   *          <p>If no parameters are supplied, then job flows matching either of the following criteria
+   *          are returned:</p>
    *          <ul>
    *             <li>
    *                <p>Job flows created and completed in the last two weeks</p>
    *             </li>
    *             <li>
-   *                <p> Job flows created within the last two months that are in one of the following states: <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>,
-   *                <code>STARTING</code>
+   *                <p> Job flows created within the last two months that are in one of the following
+   *                states: <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>,
+   *                   <code>STARTING</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -504,7 +710,8 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides the details of a security configuration by returning the configuration JSON.</p>
+   * <p>Provides the details of a security configuration by returning the configuration
+   *          JSON.</p>
    */
   public describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
@@ -565,7 +772,47 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Returns the Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
+   *          access URL, and so on.</p>
+   */
+  public describeStudio(
+    args: DescribeStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStudioCommandOutput>;
+  public describeStudio(
+    args: DescribeStudioCommandInput,
+    cb: (err: any, data?: DescribeStudioCommandOutput) => void
+  ): void;
+  public describeStudio(
+    args: DescribeStudioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStudioCommandOutput) => void
+  ): void;
+  public describeStudio(
+    args: DescribeStudioCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStudioCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStudioCommandOutput) => void
+  ): Promise<DescribeStudioCommandOutput> | void {
+    const command = new DescribeStudioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the Amazon EMR block public access configuration for your AWS account in the
+   *          current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
+   *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
+   *             Guide</i>.</p>
    */
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
@@ -597,9 +844,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>
-   *          Fetches the attached managed scaling policy for an Amazon EMR cluster.
-   *       </p>
+   * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
    */
   public getManagedScalingPolicy(
     args: GetManagedScalingPolicyCommandInput,
@@ -620,6 +865,43 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
   ): Promise<GetManagedScalingPolicyCommandOutput> | void {
     const command = new GetManagedScalingPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
+   *          group).</p>
+   */
+  public getStudioSessionMapping(
+    args: GetStudioSessionMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStudioSessionMappingCommandOutput>;
+  public getStudioSessionMapping(
+    args: GetStudioSessionMappingCommandInput,
+    cb: (err: any, data?: GetStudioSessionMappingCommandOutput) => void
+  ): void;
+  public getStudioSessionMapping(
+    args: GetStudioSessionMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStudioSessionMappingCommandOutput) => void
+  ): void;
+  public getStudioSessionMapping(
+    args: GetStudioSessionMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStudioSessionMappingCommandOutput) => void),
+    cb?: (err: any, data?: GetStudioSessionMappingCommandOutput) => void
+  ): Promise<GetStudioSessionMappingCommandOutput> | void {
+    const command = new GetStudioSessionMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -663,7 +945,11 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.</p>
+   * <p>Provides the status of all clusters visible to this AWS account. Allows you to filter
+   *          the list of clusters based on certain criteria; for example, filtering by cluster creation
+   *          date and time or by status. This call returns a maximum of 50 clusters per call, but
+   *          returns a marker to track the paging of the cluster list across multiple ListClusters
+   *          calls.</p>
    */
   public listClusters(
     args: ListClustersCommandInput,
@@ -694,7 +980,8 @@ export class EMR extends EMRClient {
   /**
    * <p>Lists all available details about the instance fleets in a cluster.</p>
    *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
+   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+   *             later, excluding 5.0.x versions.</p>
    *          </note>
    */
   public listInstanceFleets(
@@ -759,7 +1046,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
+   * <p>Provides information for all active EC2 instances and EC2 instances terminated in the
+   *          last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are
+   *          considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
    */
   public listInstances(
     args: ListInstancesCommandInput,
@@ -791,7 +1080,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides summaries of all notebook executions. You can filter the list based on multiple criteria such as status, time range, and editor id. Returns a maximum of 50 notebook executions and a marker to track the paging of a longer notebook execution list across multiple <code>ListNotebookExecution</code> calls.</p>
+   * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
+   *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
+   *          executions and a marker to track the paging of a longer notebook execution list across
+   *          multiple <code>ListNotebookExecution</code> calls.</p>
    */
   public listNotebookExecutions(
     args: ListNotebookExecutionsCommandInput,
@@ -823,7 +1115,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls.</p>
+   * <p>Lists all the security configurations visible to this account, providing their creation
+   *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
+   *          returns a marker to track the paging of the cluster list across multiple
+   *          ListSecurityConfigurations calls.</p>
    */
   public listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
@@ -855,7 +1150,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Provides a list of steps for the cluster in reverse order unless you specify <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can specify a maximum of ten <code>stepIDs</code>.</p>
+   * <p>Provides a list of steps for the cluster in reverse order unless you specify
+   *             <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can
+   *          specify a maximum of ten <code>stepIDs</code>.</p>
    */
   public listSteps(args: ListStepsCommandInput, options?: __HttpHandlerOptions): Promise<ListStepsCommandOutput>;
   public listSteps(args: ListStepsCommandInput, cb: (err: any, data?: ListStepsCommandOutput) => void): void;
@@ -881,7 +1178,76 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Modifies the number of steps that can be executed concurrently for the cluster specified using ClusterID.</p>
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list
+   *          includes details such as ID, Studio Access URL, and creation time for each Studio.</p>
+   */
+  public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
+  public listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
+  public listStudios(
+    args: ListStudiosCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStudiosCommandOutput) => void
+  ): void;
+  public listStudios(
+    args: ListStudiosCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStudiosCommandOutput) => void),
+    cb?: (err: any, data?: ListStudiosCommandOutput) => void
+  ): Promise<ListStudiosCommandOutput> | void {
+    const command = new ListStudiosCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Returns a list of all user or group session mappings for the EMR Studio specified by
+   *             <code>StudioId</code>.</p>
+   */
+  public listStudioSessionMappings(
+    args: ListStudioSessionMappingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStudioSessionMappingsCommandOutput>;
+  public listStudioSessionMappings(
+    args: ListStudioSessionMappingsCommandInput,
+    cb: (err: any, data?: ListStudioSessionMappingsCommandOutput) => void
+  ): void;
+  public listStudioSessionMappings(
+    args: ListStudioSessionMappingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStudioSessionMappingsCommandOutput) => void
+  ): void;
+  public listStudioSessionMappings(
+    args: ListStudioSessionMappingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStudioSessionMappingsCommandOutput) => void),
+    cb?: (err: any, data?: ListStudioSessionMappingsCommandOutput) => void
+  ): Promise<ListStudioSessionMappingsCommandOutput> | void {
+    const command = new ListStudioSessionMappingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
+   *          using ClusterID.</p>
    */
   public modifyCluster(
     args: ModifyClusterCommandInput,
@@ -913,9 +1279,12 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the specified InstanceFleetID within the cluster specified using ClusterID. The call either succeeds or fails atomically.</p>
+   * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the
+   *          specified InstanceFleetID within the cluster specified using ClusterID. The call either
+   *          succeeds or fails atomically.</p>
    *          <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
+   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+   *             later, excluding 5.0.x versions.</p>
    *          </note>
    */
   public modifyInstanceFleet(
@@ -948,7 +1317,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.</p>
+   * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
+   *          instance group. The input parameters include the new target instance count for the group
+   *          and the instance group ID. The call will either succeed or fail atomically.</p>
    */
   public modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
@@ -980,7 +1351,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.</p>
+   * <p>Creates or updates an automatic scaling policy for a core instance group or task
+   *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how an
+   *          instance group dynamically adds and terminates EC2 instances in response to the value of a
+   *          CloudWatch metric.</p>
    */
   public putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
@@ -1012,7 +1386,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Creates or updates an Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   * <p>Creates or updates an Amazon EMR block public access configuration for your AWS account
+   *          in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
+   *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
+   *             Guide</i>.</p>
    */
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
@@ -1044,9 +1421,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>
-   *          Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed scaling policy defines the limits for resources, such as EC2 instances that can be added or terminated from a cluster. The policy only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-   *       </p>
+   * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed
+   *          scaling policy defines the limits for resources, such as EC2 instances that can be added or
+   *          terminated from a cluster. The policy only applies to the core and task nodes. The master
+   *          node cannot be scaled after initial configuration. </p>
    */
   public putManagedScalingPolicy(
     args: PutManagedScalingPolicyCommandInput,
@@ -1078,7 +1456,8 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Removes an automatic scaling policy from a specified instance group within an EMR cluster.</p>
+   * <p>Removes an automatic scaling policy from a specified instance group within an EMR
+   *          cluster.</p>
    */
   public removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
@@ -1110,9 +1489,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>
-   *          Removes a managed scaling policy from a specified EMR cluster.
-   *       </p>
+   * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
    */
   public removeManagedScalingPolicy(
     args: RemoveManagedScalingPolicyCommandInput,
@@ -1144,9 +1521,9 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
-   *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>.
-   *       </p>
+   * <p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in
+   *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
+   *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
    *          <p>The following example removes the stack tag with value Prod from a cluster:</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
@@ -1173,24 +1550,28 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps
-   *          specified. After the steps complete, the cluster stops and the HDFS partition is
+   * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the
+   *          steps specified. After the steps complete, the cluster stops and the HDFS partition is
    *          lost. To prevent loss of data, configure the last step of the job flow to store results in
    *          Amazon S3. If the <a>JobFlowInstancesConfig</a>
-   *             <code>KeepJobFlowAliveWhenNoSteps</code> parameter is
-   *          set to <code>TRUE</code>, the cluster transitions to the WAITING state rather than shutting down after the steps have completed. </p>
-   *
-   *          <p>For additional protection, you can set the
-   *          <a>JobFlowInstancesConfig</a>
-   *             <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the
-   *          cluster and prevent it from being
-   *          terminated by API call, user intervention, or in the event of a job flow error.</p>
-   *
+   *             <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster
+   *          transitions to the WAITING state rather than shutting down after the steps have completed. </p>
+   *          <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a>
+   *             <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and
+   *          prevent it from being terminated by API call, user intervention, or in the event of a job
+   *          flow error.</p>
    *          <p>A maximum of 256 steps are allowed in each job flow.</p>
-   *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
+   *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
+   *          require more than 256 steps to process your data. You can bypass the 256-step limitation in
+   *          various ways, including using the SSH shell to connect to the master node and submitting
+   *          queries directly to the software running on the master node, such as Hive and Hadoop. For
+   *          more information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
+   *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
    *          <p>For long running clusters, we recommend that you periodically store your results.</p>
    *          <note>
-   *             <p>The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.</p>
+   *             <p>The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and
+   *             later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
+   *             parameters or InstanceGroups parameters, but not both.</p>
    *          </note>
    */
   public runJobFlow(args: RunJobFlowCommandInput, options?: __HttpHandlerOptions): Promise<RunJobFlowCommandOutput>;
@@ -1217,16 +1598,21 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2 <code>DisableAPITermination</code> API on all EC2 instances in a cluster.</p>
+   * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
+   *          cannot be terminated by user intervention, an API call, or in the event of a job-flow
+   *          error. The cluster still terminates upon successful completion of the job flow. Calling
+   *             <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2
+   *             <code>DisableAPITermination</code> API on all EC2 instances in a cluster.</p>
    *          <p>
-   *             <code>SetTerminationProtection</code> is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.</p>
-   *
-   *          <p> To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code> to <code>true</code>,
-   *          you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code>
-   *          in which you set the value to <code>false</code>. </p>
-   *          <p> For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing Cluster Termination</a> in the
-   *          <i>Amazon EMR Management Guide</i>.
-   *       </p>
+   *             <code>SetTerminationProtection</code> is used to prevent accidental termination of a
+   *          cluster and to ensure that in the event of an error, the instances persist so that you can
+   *          recover any data stored in their ephemeral instance storage.</p>
+   *          <p> To terminate a cluster that has been locked by setting
+   *             <code>SetTerminationProtection</code> to <code>true</code>, you must first unlock the
+   *          job flow by a subsequent call to <code>SetTerminationProtection</code> in which you set the
+   *          value to <code>false</code>. </p>
+   *          <p> For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing Cluster
+   *             Termination</a> in the <i>Amazon EMR Management Guide</i>. </p>
    */
   public setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
@@ -1258,7 +1644,15 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Sets the <a>Cluster$VisibleToAllUsers</a> value, which determines whether the cluster is visible to all IAM users of the AWS account associated with the cluster. Only the IAM user who created the cluster or the AWS account root user can call this action. The default value, <code>true</code>, indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. If set to <code>false</code>, only the IAM user that created the cluster can perform actions. This action works on running clusters. You can override the default <code>true</code> setting when you create a cluster by using the <code>VisibleToAllUsers</code> parameter with <code>RunJobFlow</code>.</p>
+   * <p>Sets the <a>Cluster$VisibleToAllUsers</a> value, which determines whether the
+   *          cluster is visible to all IAM users of the AWS account associated with the cluster. Only
+   *          the IAM user who created the cluster or the AWS account root user can call this action. The
+   *          default value, <code>true</code>, indicates that all IAM users in the AWS account can
+   *          perform cluster actions if they have the proper IAM policy permissions. If set to
+   *             <code>false</code>, only the IAM user that created the cluster can perform actions. This
+   *          action works on running clusters. You can override the default <code>true</code> setting
+   *          when you create a cluster by using the <code>VisibleToAllUsers</code> parameter with
+   *             <code>RunJobFlow</code>.</p>
    */
   public setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
@@ -1354,8 +1748,14 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p>
-   *          <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code> is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.</p>
+   * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
+   *          down, any step not yet completed is canceled and the EC2 instances on which the cluster is
+   *          running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri
+   *          was specified when the cluster was created.</p>
+   *          <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code>
+   *          is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5
+   *          minutes for the cluster to completely terminate and release allocated resources, such as
+   *          Amazon EC2 instances.</p>
    */
   public terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
@@ -1376,6 +1776,43 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: TerminateJobFlowsCommandOutput) => void
   ): Promise<TerminateJobFlowsCommandOutput> | void {
     const command = new TerminateJobFlowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
+   *             change.</p>
+   *          </note>
+   *          <p>Updates the session policy attached to the user or group for the specified Amazon EMR
+   *          Studio.</p>
+   */
+  public updateStudioSessionMapping(
+    args: UpdateStudioSessionMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStudioSessionMappingCommandOutput>;
+  public updateStudioSessionMapping(
+    args: UpdateStudioSessionMappingCommandInput,
+    cb: (err: any, data?: UpdateStudioSessionMappingCommandOutput) => void
+  ): void;
+  public updateStudioSessionMapping(
+    args: UpdateStudioSessionMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStudioSessionMappingCommandOutput) => void
+  ): void;
+  public updateStudioSessionMapping(
+    args: UpdateStudioSessionMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStudioSessionMappingCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStudioSessionMappingCommandOutput) => void
+  ): Promise<UpdateStudioSessionMappingCommandOutput> | void {
+    const command = new UpdateStudioSessionMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

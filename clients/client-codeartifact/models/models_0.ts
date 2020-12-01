@@ -34,17 +34,17 @@ export enum HashAlgorithm {
 export interface AssetSummary {
   /**
    * <p>
-   *       The size of the asset.
-   *     </p>
-   */
-  size?: number;
-
-  /**
-   * <p>
    *          The name of the asset.
    *        </p>
    */
   name: string | undefined;
+
+  /**
+   * <p>
+   *       The size of the asset.
+   *     </p>
+   */
+  size?: number;
 
   /**
    * <p>
@@ -61,6 +61,26 @@ export namespace AssetSummary {
 }
 
 export interface AssociateExternalConnectionRequest {
+  /**
+   * <p>The name of the domain that contains the repository.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The name of the repository to which the external connection is added.
+   *     </p>
+   */
+  repository: string | undefined;
+
   /**
    * <p>
    *       The name of the external connection to add to the repository. The following values are supported:
@@ -96,29 +116,14 @@ export interface AssociateExternalConnectionRequest {
    *                   <code>public:maven-commonsware</code> - for the CommonsWare Android repository.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   externalConnection: string | undefined;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
-
-  /**
-   * <p>The name of the domain that contains the repository.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>
-   *       The name of the repository to which the external connection is added.
-   *     </p>
-   */
-  repository: string | undefined;
 }
 
 export namespace AssociateExternalConnectionRequest {
@@ -130,6 +135,7 @@ export namespace AssociateExternalConnectionRequest {
 export enum PackageFormat {
   MAVEN = "maven",
   NPM = "npm",
+  NUGET = "nuget",
   PYPI = "pypi",
 }
 
@@ -143,6 +149,11 @@ export enum ExternalConnectionStatus {
  *       </p>
  */
 export interface RepositoryExternalConnectionInfo {
+  /**
+   * <p> The name of the external connection associated with a repository. </p>
+   */
+  externalConnectionName?: string;
+
   /**
    * <p>
    *         The package format associated with a repository's external connection. The valid package formats are:
@@ -163,14 +174,14 @@ export interface RepositoryExternalConnectionInfo {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   packageFormat?: PackageFormat | string;
-
-  /**
-   * <p> The name of the external connection associated with a repository. </p>
-   */
-  externalConnectionName?: string;
 
   /**
    * <p>
@@ -215,17 +226,15 @@ export namespace UpstreamRepositoryInfo {
 export interface RepositoryDescription {
   /**
    * <p>
-   *       A text description of the repository.
-   *     </p>
+   *         The name of the repository.
+   *        </p>
    */
-  description?: string;
+  name?: string;
 
   /**
-   * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
-   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
-   *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   * <p> The 12-digit account number of the AWS account that manages the repository. </p>
    */
-  upstreams?: UpstreamRepositoryInfo[];
+  administratorAccount?: string;
 
   /**
    * <p>
@@ -243,28 +252,30 @@ export interface RepositoryDescription {
   domainOwner?: string;
 
   /**
-   * <p>
-   *       An array of external connections associated with the repository.
-   *     </p>
-   */
-  externalConnections?: RepositoryExternalConnectionInfo[];
-
-  /**
-   * <p> The 12-digit account number of the AWS account that manages the repository. </p>
-   */
-  administratorAccount?: string;
-
-  /**
    * <p> The Amazon Resource Name (ARN) of the repository. </p>
    */
   arn?: string;
 
   /**
    * <p>
-   *         The name of the repository.
-   *        </p>
+   *       A text description of the repository.
+   *     </p>
    */
-  name?: string;
+  description?: string;
+
+  /**
+   * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
+   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
+   *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   */
+  upstreams?: UpstreamRepositoryInfo[];
+
+  /**
+   * <p>
+   *       An array of external connections associated with the repository.
+   *     </p>
+   */
+  externalConnections?: RepositoryExternalConnectionInfo[];
 }
 
 export namespace RepositoryDescription {
@@ -304,13 +315,6 @@ export enum ResourceType {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
-  /**
-   * <p>
-   *       The type of AWS resource.
-   *     </p>
-   */
-  resourceType?: ResourceType | string;
-
   message: string | undefined;
   /**
    * <p>
@@ -318,6 +322,13 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    *     </p>
    */
   resourceId?: string;
+
+  /**
+   * <p>
+   *       The type of AWS resource.
+   *     </p>
+   */
+  resourceType?: ResourceType | string;
 }
 
 export namespace ConflictException {
@@ -349,6 +360,7 @@ export namespace InternalServerException {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
+  message: string | undefined;
   /**
    * <p>
    *       The ID of the resource.
@@ -356,7 +368,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    */
   resourceId?: string;
 
-  message: string | undefined;
   /**
    * <p>
    *       The type of AWS resource.
@@ -379,6 +390,7 @@ export namespace ResourceNotFoundException {
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
+  message: string | undefined;
   /**
    * <p>
    *       The ID of the resource.
@@ -386,7 +398,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    */
   resourceId?: string;
 
-  message: string | undefined;
   /**
    * <p>
    *       The type of AWS resource.
@@ -440,14 +451,13 @@ export enum ValidationExceptionReason {
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
+  message: string | undefined;
   /**
    * <p>
    *
    *     </p>
    */
   reason?: ValidationExceptionReason | string;
-
-  message: string | undefined;
 }
 
 export namespace ValidationException {
@@ -459,6 +469,21 @@ export namespace ValidationException {
 export interface CopyPackageVersionsRequest {
   /**
    * <p>
+   *         The name of the domain that contains the source and destination repositories.
+   *       </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
    *          The name of the repository that contains the package versions to copy.
    *        </p>
    */
@@ -466,47 +491,10 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *         The name of the domain that contains the source and destination repositories.
-   *       </p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p> Set to true to copy packages from repositories that are upstream from the source
-   *       repository to the destination repository. The default setting is false. For more information,
-   *       see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with
-   *         upstream repositories</a>. </p>
-   */
-  includeFromUpstream?: boolean;
-
-  /**
-   * <p>
-   *       The name of the package that is copied.
+   *       The name of the repository into which package versions are copied.
    *     </p>
    */
-  package: string | undefined;
-
-  /**
-   * <p>
-   *         The versions of the package to copy.
-   *       </p>
-   *          <note>
-   *             <p>
-   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
-   *       </p>
-   *          </note>
-   */
-  versions?: string[];
-
-  /**
-   * <p>
-   *        Set to true to overwrite a package version that already exists in the destination repository.
-   *        If set to false and the package version already exists in the destination repository,
-   *        the package version is returned in the <code>failedVersions</code> field of the response with
-   *        an <code>ALREADY_EXISTS</code> error code.
-   *      </p>
-   */
-  allowOverwrite?: boolean;
+  destinationRepository: string | undefined;
 
   /**
    * <p>
@@ -528,30 +516,14 @@ export interface CopyPackageVersionsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
-
-  /**
-   * <p>
-   *        A list of key-value pairs. The keys are package versions and the values are package version revisions. A <code>CopyPackageVersion</code> operation
-   *       succeeds if the specified versions in the source repository match the specified package version revision.
-   *     </p>
-   *          <note>
-   *             <p>
-   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
-   *       </p>
-   *          </note>
-   */
-  versionRevisions?: { [key: string]: string };
 
   /**
    * <p>
@@ -575,16 +547,65 @@ export interface CopyPackageVersionsRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
 
   /**
    * <p>
-   *       The name of the repository into which package versions are copied.
+   *       The name of the package that is copied.
    *     </p>
    */
-  destinationRepository: string | undefined;
+  package: string | undefined;
+
+  /**
+   * <p>
+   *         The versions of the package to copy.
+   *       </p>
+   *          <note>
+   *             <p>
+   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
+   *       </p>
+   *          </note>
+   */
+  versions?: string[];
+
+  /**
+   * <p>
+   *        A list of key-value pairs. The keys are package versions and the values are package version revisions. A <code>CopyPackageVersion</code> operation
+   *       succeeds if the specified versions in the source repository match the specified package version revision.
+   *     </p>
+   *          <note>
+   *             <p>
+   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
+   *       </p>
+   *          </note>
+   */
+  versionRevisions?: { [key: string]: string };
+
+  /**
+   * <p>
+   *        Set to true to overwrite a package version that already exists in the destination repository.
+   *        If set to false and the package version already exists in the destination repository,
+   *        the package version is returned in the <code>failedVersions</code> field of the response with
+   *        an <code>ALREADY_EXISTS</code> error code.
+   *      </p>
+   */
+  allowOverwrite?: boolean;
+
+  /**
+   * <p> Set to true to copy packages from repositories that are upstream from the source
+   *       repository to the destination repository. The default setting is false. For more information,
+   *       see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with
+   *         upstream repositories</a>. </p>
+   */
+  includeFromUpstream?: boolean;
 }
 
 export namespace CopyPackageVersionsRequest {
@@ -608,13 +629,6 @@ export enum PackageVersionErrorCode {
  *    </p>
  */
 export interface PackageVersionError {
-  /**
-   * <p>
-   *          The error message associated with the error.
-   *      </p>
-   */
-  errorMessage?: string;
-
   /**
    * <p> The error code associated with the error. Valid error codes are: </p>
    *          <ul>
@@ -651,6 +665,13 @@ export interface PackageVersionError {
    *          </ul>
    */
   errorCode?: PackageVersionErrorCode | string;
+
+  /**
+   * <p>
+   *          The error message associated with the error.
+   *      </p>
+   */
+  errorMessage?: string;
 }
 
 export namespace PackageVersionError {
@@ -782,12 +803,12 @@ export namespace CopyPackageVersionsResult {
  */
 export interface Tag {
   /**
-   * <p>The tag's key.</p>
+   * <p>The tag key.</p>
    */
   key: string | undefined;
 
   /**
-   * <p>The tag's value.</p>
+   * <p>The tag value.</p>
    */
   value: string | undefined;
 }
@@ -847,23 +868,11 @@ export enum DomainStatus {
  */
 export interface DomainDescription {
   /**
-   * <p> The Amazon Resource Name (ARN) of the domain. </p>
-   */
-  arn?: string;
-
-  /**
    * <p>
-   *       A timestamp that represents the date and time the domain was created.
-   *     </p>
+   *          The name of the domain.
+   *        </p>
    */
-  createdTime?: Date;
-
-  /**
-   * <p>
-   *       The total size of all assets in the domain.
-   *     </p>
-   */
-  assetSizeBytes?: number;
+  name?: string;
 
   /**
    * <p> The AWS account ID that owns the domain. </p>
@@ -871,21 +880,9 @@ export interface DomainDescription {
   owner?: string;
 
   /**
-   * <p> The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain. </p>
+   * <p> The Amazon Resource Name (ARN) of the domain. </p>
    */
-  encryptionKey?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
-   */
-  s3BucketArn?: string;
-
-  /**
-   * <p>
-   *       The number of repositories in the domain.
-   *     </p>
-   */
-  repositoryCount?: number;
+  arn?: string;
 
   /**
    * <p> The current status of a domain. The valid values are </p>
@@ -906,10 +903,34 @@ export interface DomainDescription {
 
   /**
    * <p>
-   *          The name of the domain.
-   *        </p>
+   *       A timestamp that represents the date and time the domain was created.
+   *     </p>
    */
-  name?: string;
+  createdTime?: Date;
+
+  /**
+   * <p> The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain. </p>
+   */
+  encryptionKey?: string;
+
+  /**
+   * <p>
+   *       The number of repositories in the domain.
+   *     </p>
+   */
+  repositoryCount?: number;
+
+  /**
+   * <p>
+   *       The total size of all assets in the domain.
+   *     </p>
+   */
+  assetSizeBytes?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
+   */
+  s3BucketArn?: string;
 }
 
 export namespace DomainDescription {
@@ -959,14 +980,11 @@ export namespace UpstreamRepository {
 
 export interface CreateRepositoryRequest {
   /**
-   * <p> The name of the repository to create. </p>
+   * <p>
+   *         The domain that contains the created repository.
+   *       </p>
    */
-  repository: string | undefined;
-
-  /**
-   * <p>One or more tag key-value pairs for the repository.</p>
-   */
-  tags?: Tag[];
+  domain: string | undefined;
 
   /**
    * <p>
@@ -977,11 +995,16 @@ export interface CreateRepositoryRequest {
   domainOwner?: string;
 
   /**
-   * <p>
-   *         The domain that contains the created repository.
-   *       </p>
+   * <p> The name of the repository to create. </p>
    */
-  domain: string | undefined;
+  repository: string | undefined;
+
+  /**
+   * <p>
+   *       A description of the created repository.
+   *     </p>
+   */
+  description?: string;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -991,11 +1014,9 @@ export interface CreateRepositoryRequest {
   upstreams?: UpstreamRepository[];
 
   /**
-   * <p>
-   *       A description of the created repository.
-   *     </p>
+   * <p>One or more tag key-value pairs for the repository.</p>
    */
-  description?: string;
+  tags?: Tag[];
 }
 
 export namespace CreateRepositoryRequest {
@@ -1022,18 +1043,18 @@ export namespace CreateRepositoryResult {
 export interface DeleteDomainRequest {
   /**
    * <p>
+   *          The name of the domain to delete.
+   *        </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *          The name of the domain to delete.
-   *        </p>
-   */
-  domain: string | undefined;
 }
 
 export namespace DeleteDomainRequest {
@@ -1060,11 +1081,10 @@ export namespace DeleteDomainResult {
 export interface DeleteDomainPermissionsPolicyRequest {
   /**
    * <p>
-   *         The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which
-   *         prevents others from overwriting your changes to the domain's resource policy.
+   *         The name of the domain associated with the resource policy to be deleted.
    *       </p>
    */
-  policyRevision?: string;
+  domain: string | undefined;
 
   /**
    * <p>
@@ -1076,10 +1096,11 @@ export interface DeleteDomainPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The name of the domain associated with the resource policy to be deleted.
+   *         The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which
+   *         prevents others from overwriting your changes to the domain's resource policy.
    *       </p>
    */
-  domain: string | undefined;
+  policyRevision?: string;
 }
 
 export namespace DeleteDomainPermissionsPolicyRequest {
@@ -1096,17 +1117,17 @@ export namespace DeleteDomainPermissionsPolicyRequest {
 export interface ResourcePolicy {
   /**
    * <p>
-   *         The current revision of the resource policy.
-   *       </p>
-   */
-  revision?: string;
-
-  /**
-   * <p>
    *         The ARN of the resource associated with the resource policy
    *       </p>
    */
   resourceArn?: string;
+
+  /**
+   * <p>
+   *         The current revision of the resource policy.
+   *       </p>
+   */
+  revision?: string;
 
   /**
    * <p>
@@ -1140,17 +1161,18 @@ export namespace DeleteDomainPermissionsPolicyResult {
 export interface DeletePackageVersionsRequest {
   /**
    * <p>
-   *         An array of strings that specify the versions of the package to delete.
+   *         The name of the domain that contains the package to delete.
    *       </p>
    */
-  versions: string[] | undefined;
+  domain: string | undefined;
 
   /**
    * <p>
-   *         The name of the package with the versions to delete.
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
    *       </p>
    */
-  package: string | undefined;
+  domainOwner?: string;
 
   /**
    * <p>
@@ -1158,6 +1180,35 @@ export interface DeletePackageVersionsRequest {
    *       </p>
    */
   repository: string | undefined;
+
+  /**
+   * <p>
+   *         The format of the package versions to delete. The valid values are:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>npm</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pypi</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>maven</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  format: PackageFormat | string | undefined;
 
   /**
    * <p>
@@ -1181,9 +1232,29 @@ export interface DeletePackageVersionsRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *         The name of the package with the versions to delete.
+   *       </p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>
+   *         An array of strings that specify the versions of the package to delete.
+   *       </p>
+   */
+  versions: string[] | undefined;
 
   /**
    * <p>
@@ -1218,45 +1289,6 @@ export interface DeletePackageVersionsRequest {
    *          </ul>
    */
   expectedStatus?: PackageVersionStatus | string;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
-
-  /**
-   * <p>
-   *         The name of the domain that contains the package to delete.
-   *       </p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>
-   *         The format of the package versions to delete. The valid values are:
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  format: PackageFormat | string | undefined;
 }
 
 export namespace DeletePackageVersionsRequest {
@@ -1323,18 +1355,18 @@ export namespace DeletePackageVersionsResult {
 export interface DeleteRepositoryRequest {
   /**
    * <p>
+   *          The name of the domain that contains the repository to delete.
+   *        </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *          The name of the domain that contains the repository to delete.
-   *        </p>
-   */
-  domain: string | undefined;
 
   /**
    * <p> The name of the repository to delete. </p>
@@ -1366,21 +1398,6 @@ export namespace DeleteRepositoryResult {
 export interface DeleteRepositoryPermissionsPolicyRequest {
   /**
    * <p>
-   *       The name of the repository that is associated with the resource policy to be deleted
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
-   *       The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which
-   *       prevents others from accidentally overwriting your changes to the repository's resource policy.
-   *     </p>
-   */
-  policyRevision?: string;
-
-  /**
-   * <p>
    *         The name of the domain that contains the repository associated with the resource policy to be deleted.
    *       </p>
    */
@@ -1393,6 +1410,21 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
    *       </p>
    */
   domainOwner?: string;
+
+  /**
+   * <p>
+   *       The name of the repository that is associated with the resource policy to be deleted
+   *     </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>
+   *       The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which
+   *       prevents others from accidentally overwriting your changes to the repository's resource policy.
+   *     </p>
+   */
+  policyRevision?: string;
 }
 
 export namespace DeleteRepositoryPermissionsPolicyRequest {
@@ -1419,18 +1451,18 @@ export namespace DeleteRepositoryPermissionsPolicyResult {
 export interface DescribeDomainRequest {
   /**
    * <p>
+   *          A string that specifies the name of the requested domain.
+   *      </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *          A string that specifies the name of the requested domain.
-   *      </p>
-   */
-  domain: string | undefined;
 }
 
 export namespace DescribeDomainRequest {
@@ -1465,15 +1497,16 @@ export interface DescribePackageVersionRequest {
 
   /**
    * <p>
-   *       A string that contains the package version (for example, <code>3.5.2</code>).
-   *     </p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
    */
-  packageVersion: string | undefined;
+  domainOwner?: string;
 
   /**
-   * <p> The name of the requested package version. </p>
+   * <p> The name of the repository that contains the package version. </p>
    */
-  package: string | undefined;
+  repository: string | undefined;
 
   /**
    * <p>
@@ -1495,17 +1528,14 @@ export interface DescribePackageVersionRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
 
   /**
    * <p>
@@ -1529,14 +1559,27 @@ export interface DescribePackageVersionRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
 
   /**
-   * <p> The name of the repository that contains the package version. </p>
+   * <p> The name of the requested package version. </p>
    */
-  repository: string | undefined;
+  package: string | undefined;
+
+  /**
+   * <p>
+   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *     </p>
+   */
+  packageVersion: string | undefined;
 }
 
 export namespace DescribePackageVersionRequest {
@@ -1553,17 +1596,17 @@ export namespace DescribePackageVersionRequest {
 export interface LicenseInfo {
   /**
    * <p>
-   *         The URL for license data.
-   *       </p>
-   */
-  url?: string;
-
-  /**
-   * <p>
    *         Name of the license.
    *       </p>
    */
   name?: string;
+
+  /**
+   * <p>
+   *         The URL for license data.
+   *       </p>
+   */
+  url?: string;
 }
 
 export namespace LicenseInfo {
@@ -1580,10 +1623,71 @@ export namespace LicenseInfo {
 export interface PackageVersionDescription {
   /**
    * <p>
-   *       A timestamp that contains the date and time the package version was published.
+   *       The format of the package version. The valid package formats are:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>npm</code>: A Node Package Manager (npm) package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  format?: PackageFormat | string;
+
+  /**
+   * <p>
+   *       The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A Python package does not contain a corresponding component, so
+   *           Python packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the requested package.
    *     </p>
    */
-  publishedTime?: Date;
+  packageName?: string;
 
   /**
    * <p>
@@ -1612,67 +1716,38 @@ export interface PackageVersionDescription {
 
   /**
    * <p>
+   *       The homepage associated with the package.
+   *     </p>
+   */
+  homePage?: string;
+
+  /**
+   * <p>
+   *       The repository for the source code in the package version, or the source code used to build it.
+   *     </p>
+   */
+  sourceCodeRepository?: string;
+
+  /**
+   * <p>
+   *       A timestamp that contains the date and time the package version was published.
+   *     </p>
+   */
+  publishedTime?: Date;
+
+  /**
+   * <p>
+   *       Information about licenses associated with the package version.
+   *     </p>
+   */
+  licenses?: LicenseInfo[];
+
+  /**
+   * <p>
    *       The revision of the package version.
    *     </p>
    */
   revision?: string;
-
-  /**
-   * <p>
-   *       The format of the package version. The valid package formats are:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  format?: PackageFormat | string;
-
-  /**
-   * <p>
-   *       The name of the requested package.
-   *     </p>
-   */
-  packageName?: string;
-
-  /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  namespace?: string;
 
   /**
    * <p>
@@ -1707,27 +1782,6 @@ export interface PackageVersionDescription {
    *          </ul>
    */
   status?: PackageVersionStatus | string;
-
-  /**
-   * <p>
-   *       The homepage associated with the package.
-   *     </p>
-   */
-  homePage?: string;
-
-  /**
-   * <p>
-   *       Information about licenses associated with the package version.
-   *     </p>
-   */
-  licenses?: LicenseInfo[];
-
-  /**
-   * <p>
-   *       The repository for the source code in the package version, or the source code used to build it.
-   *     </p>
-   */
-  sourceCodeRepository?: string;
 }
 
 export namespace PackageVersionDescription {
@@ -1801,16 +1855,6 @@ export namespace DescribeRepositoryResult {
 
 export interface DisassociateExternalConnectionRequest {
   /**
-   * <p>The name of the repository from which the external connection will be removed. </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>The name of the external connection to be removed from the repository. </p>
-   */
-  externalConnection: string | undefined;
-
-  /**
    * <p>The name of the domain that contains the repository from which to remove the external
    *       repository. </p>
    */
@@ -1823,6 +1867,16 @@ export interface DisassociateExternalConnectionRequest {
    *       </p>
    */
   domainOwner?: string;
+
+  /**
+   * <p>The name of the repository from which the external connection will be removed. </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>The name of the external connection to be removed from the repository. </p>
+   */
+  externalConnection: string | undefined;
 }
 
 export namespace DisassociateExternalConnectionRequest {
@@ -1849,10 +1903,54 @@ export namespace DisassociateExternalConnectionResult {
 export interface DisposePackageVersionsRequest {
   /**
    * <p>
+   *       The name of the domain that contains the repository you want to dispose.
+   *     </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
    *       The name of the repository that contains the package versions you want to dispose.
    *     </p>
    */
   repository: string | undefined;
+
+  /**
+   * <p>
+   *       A format that specifies the type of package versions you want to dispose. The valid values are:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>npm</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pypi</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>maven</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  format: PackageFormat | string | undefined;
 
   /**
    * <p>
@@ -1876,9 +1974,22 @@ export interface DisposePackageVersionsRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package with the versions you want to dispose.
+   *     </p>
+   */
+  package: string | undefined;
 
   /**
    * <p>
@@ -1889,10 +2000,10 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       The name of the package with the versions you want to dispose.
+   *       The revisions of the package versions you want to dispose.
    *     </p>
    */
-  package: string | undefined;
+  versionRevisions?: { [key: string]: string };
 
   /**
    * <p>
@@ -1927,52 +2038,6 @@ export interface DisposePackageVersionsRequest {
    *          </ul>
    */
   expectedStatus?: PackageVersionStatus | string;
-
-  /**
-   * <p>
-   *       The revisions of the package versions you want to dispose.
-   *     </p>
-   */
-  versionRevisions?: { [key: string]: string };
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
-
-  /**
-   * <p>
-   *       A format that specifies the type of package versions you want to dispose. The valid values are:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *       The name of the domain that contains the repository you want to dispose.
-   *     </p>
-   */
-  domain: string | undefined;
 }
 
 export namespace DisposePackageVersionsRequest {
@@ -2039,18 +2104,18 @@ export namespace DisposePackageVersionsResult {
 export interface GetAuthorizationTokenRequest {
   /**
    * <p>
+   *         The name of the domain that is in scope for the generated authorization token.
+   *        </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *         The name of the domain that is in scope for the generated authorization token.
-   *        </p>
-   */
-  domain: string | undefined;
 
   /**
    * <p>The time, in seconds, that the generated authorization token is valid. Valid values are
@@ -2070,17 +2135,17 @@ export namespace GetAuthorizationTokenRequest {
 export interface GetAuthorizationTokenResult {
   /**
    * <p>
-   *       A timestamp that specifies the date and time the authorization token expires.
-   *     </p>
-   */
-  expiration?: Date;
-
-  /**
-   * <p>
    *         The returned authentication token.
    *        </p>
    */
   authorizationToken?: string;
+
+  /**
+   * <p>
+   *       A timestamp that specifies the date and time the authorization token expires.
+   *     </p>
+   */
+  expiration?: Date;
 }
 
 export namespace GetAuthorizationTokenResult {
@@ -2145,10 +2210,10 @@ export interface GetPackageVersionAssetRequest {
 
   /**
    * <p>
-   *         The name of the package version revision that contains the requested asset.
+   *       The repository that contains the package version with the requested asset.
    *     </p>
    */
-  packageVersionRevision?: string;
+  repository: string | undefined;
 
   /**
    * <p>
@@ -2170,30 +2235,14 @@ export interface GetPackageVersionAssetRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *       The repository that contains the package version with the requested asset.
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
-   *       The name of the package that contains the requested asset.
-   *     </p>
-   */
-  package: string | undefined;
-
-  /**
-   * <p>
-   *       A string that contains the package version (for example, <code>3.5.2</code>).
-   *     </p>
-   */
-  packageVersion: string | undefined;
 
   /**
    * <p>
@@ -2217,9 +2266,29 @@ export interface GetPackageVersionAssetRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package that contains the requested asset.
+   *     </p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>
+   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *     </p>
+   */
+  packageVersion: string | undefined;
 
   /**
    * <p>
@@ -2227,6 +2296,13 @@ export interface GetPackageVersionAssetRequest {
    *     </p>
    */
   asset: string | undefined;
+
+  /**
+   * <p>
+   *         The name of the package version revision that contains the requested asset.
+   *     </p>
+   */
+  packageVersionRevision?: string;
 }
 
 export namespace GetPackageVersionAssetRequest {
@@ -2236,13 +2312,6 @@ export namespace GetPackageVersionAssetRequest {
 }
 
 export interface GetPackageVersionAssetResult {
-  /**
-   * <p>
-   *       The name of the package version revision that contains the downloaded asset.
-   *     </p>
-   */
-  packageVersionRevision?: string;
-
   /**
    * <p> The binary file, or asset, that is downloaded.</p>
    */
@@ -2261,6 +2330,13 @@ export interface GetPackageVersionAssetResult {
    *     </p>
    */
   packageVersion?: string;
+
+  /**
+   * <p>
+   *       The name of the package version revision that contains the downloaded asset.
+   *     </p>
+   */
+  packageVersionRevision?: string;
 }
 
 export namespace GetPackageVersionAssetResult {
@@ -2272,50 +2348,10 @@ export namespace GetPackageVersionAssetResult {
 export interface GetPackageVersionReadmeRequest {
   /**
    * <p>
-   *       The name of the package version that contains the requested readme file.
-   *     </p>
-   */
-  package: string | undefined;
-
-  /**
-   * <p>
-   *       The repository that contains the package with the requested readme file.
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
    *       The name of the domain that contains the repository that contains the package version with the requested readme file.
    *     </p>
    */
   domain: string | undefined;
-
-  /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  namespace?: string;
 
   /**
    * <p>
@@ -2327,10 +2363,10 @@ export interface GetPackageVersionReadmeRequest {
 
   /**
    * <p>
-   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *       The repository that contains the package with the requested readme file.
    *     </p>
    */
-  packageVersion: string | undefined;
+  repository: string | undefined;
 
   /**
    * <p>
@@ -2352,9 +2388,60 @@ export interface GetPackageVersionReadmeRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
+
+  /**
+   * <p>
+   *       The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A Python package does not contain a corresponding component, so
+   *           Python packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package version that contains the requested readme file.
+   *     </p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>
+   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *     </p>
+   */
+  packageVersion: string | undefined;
 }
 
 export namespace GetPackageVersionReadmeRequest {
@@ -2384,6 +2471,11 @@ export interface GetPackageVersionReadmeResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -2410,16 +2502,22 @@ export interface GetPackageVersionReadmeResult {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
 
   /**
    * <p>
-   *       The text of the returned readme file.
+   *       The name of the package that contains the returned readme file.
    *     </p>
    */
-  readme?: string;
+  package?: string;
 
   /**
    * <p>
@@ -2437,10 +2535,10 @@ export interface GetPackageVersionReadmeResult {
 
   /**
    * <p>
-   *       The name of the package that contains the returned readme file.
+   *       The text of the returned readme file.
    *     </p>
    */
-  package?: string;
+  readme?: string;
 }
 
 export namespace GetPackageVersionReadmeResult {
@@ -2452,11 +2550,25 @@ export namespace GetPackageVersionReadmeResult {
 export interface GetRepositoryEndpointRequest {
   /**
    * <p>
+   *          The name of the domain that contains the repository.
+   *      </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain that contains the repository. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
+
+  /**
+   * <p>
+   *          The name of the repository.
+   *      </p>
+   */
+  repository: string | undefined;
 
   /**
    * <p>
@@ -2479,23 +2591,14 @@ export interface GetRepositoryEndpointRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *          The name of the repository.
-   *      </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
-   *          The name of the domain that contains the repository.
-   *      </p>
-   */
-  domain: string | undefined;
 }
 
 export namespace GetRepositoryEndpointRequest {
@@ -2522,18 +2625,18 @@ export namespace GetRepositoryEndpointResult {
 export interface GetRepositoryPermissionsPolicyRequest {
   /**
    * <p>
+   *         The name of the domain containing the repository whose associated resource policy is to be retrieved.
+   *       </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *         The name of the domain containing the repository whose associated resource policy is to be retrieved.
-   *       </p>
-   */
-  domain: string | undefined;
 
   /**
    * <p>
@@ -2596,6 +2699,13 @@ export namespace ListDomainsRequest {
 export interface DomainSummary {
   /**
    * <p>
+   *       The name of the domain.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
@@ -2608,20 +2718,6 @@ export interface DomainSummary {
    *     </p>
    */
   arn?: string;
-
-  /**
-   * <p>
-   *       The name of the domain.
-   *     </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
-   *       The key used to encrypt the domain.
-   *     </p>
-   */
-  encryptionKey?: string;
 
   /**
    * <p>
@@ -2648,6 +2744,13 @@ export interface DomainSummary {
    *     </p>
    */
   createdTime?: Date;
+
+  /**
+   * <p>
+   *       The key used to encrypt the domain.
+   *     </p>
+   */
+  encryptionKey?: string;
 }
 
 export namespace DomainSummary {
@@ -2683,10 +2786,54 @@ export namespace ListDomainsResult {
 export interface ListPackagesRequest {
   /**
    * <p>
+   *         The domain that contains the repository that contains the requested list of packages.
+   *       </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
    *          The name of the repository from which packages are to be listed.
    *        </p>
    */
   repository: string | undefined;
+
+  /**
+   * <p>
+   *       The format of the packages. The valid package types are:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>npm</code>: A Node Package Manager (npm) package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  format?: PackageFormat | string;
 
   /**
    * <p>
@@ -2710,21 +2857,20 @@ export interface ListPackagesRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
 
   /**
    * <p>
-   *         The domain that contains the repository that contains the requested list of packages.
-   *       </p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>
-   *       A prefix used to filter returned repositories. Only repositories with names that start with
-   *       <code>repositoryPrefix</code> are returned.
+   *       A prefix used to filter returned packages. Only packages with names that start with
+   *       <code>packagePrefix</code> are returned.
    *     </p>
    */
   packagePrefix?: string;
@@ -2742,38 +2888,6 @@ export interface ListPackagesRequest {
    *        </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *       The format of the packages. The valid package types are:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>npm</code>: A Node Package Manager (npm) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pypi</code>: A Python Package Index (PyPI) package.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  format?: PackageFormat | string;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
 }
 
 export namespace ListPackagesRequest {
@@ -2812,6 +2926,11 @@ export interface PackageSummary {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -2836,6 +2955,12 @@ export interface PackageSummary {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2884,6 +3009,28 @@ export namespace ListPackagesResult {
 export interface ListPackageVersionAssetsRequest {
   /**
    * <p>
+   *          The name of the domain that contains the repository associated with the package version assets.
+   *        </p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The name of the repository that contains the package that contains the returned package version assets.
+   *     </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>
    *       The format of the package that contains the returned package version assets. The valid package types are:
    *     </p>
    *          <ul>
@@ -2902,17 +3049,14 @@ export interface ListPackageVersionAssetsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
-   */
-  domainOwner?: string;
 
   /**
    * <p>
@@ -2936,37 +3080,15 @@ export interface ListPackageVersionAssetsRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The name of the repository that contains the package that contains the returned package version assets.
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
-   *         The maximum number of results to return per page.
-   *        </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       A string that contains the package version (for example, <code>3.5.2</code>).
-   *     </p>
-   */
-  packageVersion: string | undefined;
 
   /**
    * <p>
@@ -2977,10 +3099,24 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *          The name of the domain that contains the repository associated with the package version assets.
+   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *     </p>
+   */
+  packageVersion: string | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
    *        </p>
    */
-  domain: string | undefined;
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPackageVersionAssetsRequest {
@@ -2992,26 +3128,10 @@ export namespace ListPackageVersionAssetsRequest {
 export interface ListPackageVersionAssetsResult {
   /**
    * <p>
-   *       The name of the package that contains the returned package version assets.
+   *       The format of the package that contains the returned package version assets.
    *     </p>
    */
-  package?: string;
-
-  /**
-   * <p>
-   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
-   *                <code>AssetSummary</code>
-   *             </a> objects.
-   *     </p>
-   */
-  assets?: AssetSummary[];
-
-  /**
-   * <p>
-   *       The version of the package associated with the returned assets.
-   *     </p>
-   */
-  version?: string;
+  format?: PackageFormat | string;
 
   /**
    * <p>
@@ -3035,9 +3155,29 @@ export interface ListPackageVersionAssetsResult {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package that contains the returned package version assets.
+   *     </p>
+   */
+  package?: string;
+
+  /**
+   * <p>
+   *       The version of the package associated with the returned assets.
+   *     </p>
+   */
+  version?: string;
 
   /**
    * <p>
@@ -3048,17 +3188,19 @@ export interface ListPackageVersionAssetsResult {
 
   /**
    * <p>
-   *       The format of the package that contains the returned package version assets.
-   *     </p>
-   */
-  format?: PackageFormat | string;
-
-  /**
-   * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
+   *                <code>AssetSummary</code>
+   *             </a> objects.
+   *     </p>
+   */
+  assets?: AssetSummary[];
 }
 
 export namespace ListPackageVersionAssetsResult {
@@ -3068,13 +3210,6 @@ export namespace ListPackageVersionAssetsResult {
 }
 
 export interface ListPackageVersionDependenciesRequest {
-  /**
-   * <p>
-   *       A string that contains the package version (for example, <code>3.5.2</code>).
-   *     </p>
-   */
-  packageVersion: string | undefined;
-
   /**
    * <p>
    *       The domain that contains the repository that contains the requested package version dependencies.
@@ -3092,10 +3227,10 @@ export interface ListPackageVersionDependenciesRequest {
 
   /**
    * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
+   *       The name of the repository that contains the requested package version.
+   *     </p>
    */
-  nextToken?: string;
+  repository: string | undefined;
 
   /**
    * <p>
@@ -3117,23 +3252,14 @@ export interface ListPackageVersionDependenciesRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p>
-   *       The name of the repository that contains the requested package version.
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
-   *       The name of the package versions' package.
-   *     </p>
-   */
-  package: string | undefined;
 
   /**
    * <p>
@@ -3157,9 +3283,36 @@ export interface ListPackageVersionDependenciesRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package versions' package.
+   *     </p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>
+   *       A string that contains the package version (for example, <code>3.5.2</code>).
+   *     </p>
+   */
+  packageVersion: string | undefined;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPackageVersionDependenciesRequest {
@@ -3175,20 +3328,6 @@ export namespace ListPackageVersionDependenciesRequest {
  */
 export interface PackageDependency {
   /**
-   * <p> The type of a package dependency. The possible values depend on the package type.
-   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
-   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
-   */
-  dependencyType?: string;
-
-  /**
-   * <p>
-   *         The name of the package that this package depends on.
-   *        </p>
-   */
-  package?: string;
-
-  /**
    * <p>
    *       The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:
@@ -3210,9 +3349,29 @@ export interface PackageDependency {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *         The name of the package that this package depends on.
+   *        </p>
+   */
+  package?: string;
+
+  /**
+   * <p> The type of a package dependency. The possible values depend on the package type.
+   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
+   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
+   */
+  dependencyType?: string;
 
   /**
    * <p>
@@ -3251,6 +3410,11 @@ export interface ListPackageVersionDependenciesResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -3277,23 +3441,15 @@ export interface ListPackageVersionDependenciesResult {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The version of the package that is specified in the request.
-   *     </p>
-   */
-  version?: string;
 
   /**
    * <p>
@@ -3304,10 +3460,24 @@ export interface ListPackageVersionDependenciesResult {
 
   /**
    * <p>
+   *       The version of the package that is specified in the request.
+   *     </p>
+   */
+  version?: string;
+
+  /**
+   * <p>
    *       The current revision associated with the package version.
    *     </p>
    */
   versionRevision?: string;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 
   /**
    * <p>
@@ -3339,10 +3509,11 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       The name of the package for which you want to return a list of package versions.
-   *     </p>
+   *         The 12-digit account number of the AWS account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
    */
-  package: string | undefined;
+  domainOwner?: string;
 
   /**
    * <p>
@@ -3350,13 +3521,6 @@ export interface ListPackageVersionsRequest {
    *        </p>
    */
   repository: string | undefined;
-
-  /**
-   * <p>
-   *       How to sort the returned list of package versions.
-   *     </p>
-   */
-  sortBy?: PackageVersionSortType | string;
 
   /**
    * <p>
@@ -3378,31 +3542,53 @@ export interface ListPackageVersionsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>: A NuGet package.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
 
   /**
    * <p>
-   *         The 12-digit account number of the AWS account that owns the domain. It does not include
-   *         dashes or spaces.
-   *       </p>
+   *       The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A Python package does not contain a corresponding component, so
+   *           Python packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
    */
-  domainOwner?: string;
+  namespace?: string;
 
   /**
    * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
+   *       The name of the package for which you want to return a list of package versions.
+   *     </p>
    */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *         The maximum number of results to return per page.
-   *        </p>
-   */
-  maxResults?: number;
+  package: string | undefined;
 
   /**
    * <p>
@@ -3440,29 +3626,24 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
+   *       How to sort the returned list of package versions.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *          </ul>
    */
-  namespace?: string;
+  sortBy?: PackageVersionSortType | string;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPackageVersionsRequest {
@@ -3481,6 +3662,13 @@ export namespace ListPackageVersionsRequest {
  *      </p>
  */
 export interface PackageVersionSummary {
+  /**
+   * <p>
+   *         Information about a package version.
+   *        </p>
+   */
+  version: string | undefined;
+
   /**
    * <p>
    *       The revision associated with a package version.
@@ -3521,13 +3709,6 @@ export interface PackageVersionSummary {
    *          </ul>
    */
   status: PackageVersionStatus | string | undefined;
-
-  /**
-   * <p>
-   *         Information about a package version.
-   *        </p>
-   */
-  version: string | undefined;
 }
 
 export namespace PackageVersionSummary {
@@ -3539,14 +3720,23 @@ export namespace PackageVersionSummary {
 export interface ListPackageVersionsResult {
   /**
    * <p>
-   *         The returned list of
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
-   *                <code>PackageVersionSummary</code>
-   *             </a>
-   *         objects.
-   *        </p>
+   *       The default package version to display. This depends on the package format:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           For Maven and PyPI packages, it's the most recently published package version.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           For npm packages, it's the version referenced by the
+   *           <code>latest</code> tag. If the  <code>latest</code> tag is not set, it's the most recently published package version.
+   *         </p>
+   *             </li>
+   *          </ul>
    */
-  versions?: PackageVersionSummary[];
+  defaultDisplayVersion?: string;
 
   /**
    * <p>
@@ -3568,36 +3758,14 @@ export interface ListPackageVersionsResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
-
-  /**
-   * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The default package version to display. This depends on the package format:
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           For Maven and PyPI packages, it's the most recently published package version.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           For npm packages, it's the version referenced by the
-   *           <code>latest</code> tag. If the  <code>latest</code> tag is not set, it's the most recently published package version.
-   *         </p>
-   *             </li>
-   *          </ul>
-   */
-  defaultDisplayVersion?: string;
 
   /**
    * <p>
@@ -3621,6 +3789,12 @@ export interface ListPackageVersionsResult {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -3631,6 +3805,24 @@ export interface ListPackageVersionsResult {
    *        </p>
    */
   package?: string;
+
+  /**
+   * <p>
+   *         The returned list of
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
+   *                <code>PackageVersionSummary</code>
+   *             </a>
+   *         objects.
+   *        </p>
+   */
+  versions?: PackageVersionSummary[];
+
+  /**
+   * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPackageVersionsResult {
@@ -3640,6 +3832,12 @@ export namespace ListPackageVersionsResult {
 }
 
 export interface ListRepositoriesRequest {
+  /**
+   * <p> A prefix used to filter returned repositories. Only repositories with names that start
+   *       with <code>repositoryPrefix</code> are returned.</p>
+   */
+  repositoryPrefix?: string;
+
   /**
    * <p>
    *         The maximum number of results to return per page.
@@ -3653,12 +3851,6 @@ export interface ListRepositoriesRequest {
    *        </p>
    */
   nextToken?: string;
-
-  /**
-   * <p> A prefix used to filter returned repositories. Only repositories with names that start
-   *       with <code>repositoryPrefix</code> are returned.</p>
-   */
-  repositoryPrefix?: string;
 }
 
 export namespace ListRepositoriesRequest {
@@ -3677,6 +3869,20 @@ export namespace ListRepositoriesRequest {
 export interface RepositorySummary {
   /**
    * <p>
+   *          The name of the repository.
+   *       </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *          The AWS account ID that manages the repository.
+   *       </p>
+   */
+  administratorAccount?: string;
+
+  /**
+   * <p>
    *          The name of the domain that contains the repository.
    *       </p>
    */
@@ -3691,30 +3897,16 @@ export interface RepositorySummary {
   domainOwner?: string;
 
   /**
+   * <p> The ARN of the repository. </p>
+   */
+  arn?: string;
+
+  /**
    * <p>
    *       The description of the repository.
    *     </p>
    */
   description?: string;
-
-  /**
-   * <p>
-   *          The name of the repository.
-   *       </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
-   *          The AWS account ID that manages the repository.
-   *       </p>
-   */
-  administratorAccount?: string;
-
-  /**
-   * <p> The ARN of the repository. </p>
-   */
-  arn?: string;
 }
 
 export namespace RepositorySummary {
@@ -3726,13 +3918,6 @@ export namespace RepositorySummary {
 export interface ListRepositoriesResult {
   /**
    * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
    *         The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
    *                <code>RepositorySummary</code>
    *             </a>
@@ -3740,6 +3925,13 @@ export interface ListRepositoriesResult {
    *        </p>
    */
   repositories?: RepositorySummary[];
+
+  /**
+   * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListRepositoriesResult {
@@ -3751,25 +3943,10 @@ export namespace ListRepositoriesResult {
 export interface ListRepositoriesInDomainRequest {
   /**
    * <p>
-   *          Filter the list of repositories to only include those that are managed by the AWS account ID.
-   *        </p>
-   */
-  administratorAccount?: string;
-
-  /**
-   * <p>
    *          The name of the domain that contains the returned list of repositories.
    *        </p>
    */
   domain: string | undefined;
-
-  /**
-   * <p>
-   *       A prefix used to filter returned repositories. Only repositories with names that start with
-   *       <code>repositoryPrefix</code> are returned.
-   *     </p>
-   */
-  repositoryPrefix?: string;
 
   /**
    * <p>
@@ -3778,6 +3955,21 @@ export interface ListRepositoriesInDomainRequest {
    *       </p>
    */
   domainOwner?: string;
+
+  /**
+   * <p>
+   *          Filter the list of repositories to only include those that are managed by the AWS account ID.
+   *        </p>
+   */
+  administratorAccount?: string;
+
+  /**
+   * <p>
+   *       A prefix used to filter returned repositories. Only repositories with names that start with
+   *       <code>repositoryPrefix</code> are returned.
+   *     </p>
+   */
+  repositoryPrefix?: string;
 
   /**
    * <p>
@@ -3803,17 +3995,17 @@ export namespace ListRepositoriesInDomainRequest {
 export interface ListRepositoriesInDomainResult {
   /**
    * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
    *        The returned list of repositories.
    *      </p>
    */
   repositories?: RepositorySummary[];
+
+  /**
+   * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListRepositoriesInDomainResult {
@@ -3851,11 +4043,10 @@ export namespace ListTagsForResourceResult {
 export interface PutDomainPermissionsPolicyRequest {
   /**
    * <p>
-   *         The current revision of the resource policy to be set. This revision is used for optimistic locking, which
-   *         prevents others from overwriting your changes to the domain's resource policy.
+   *         The name of the domain on which to set the resource policy.
    *       </p>
    */
-  policyRevision?: string;
+  domain: string | undefined;
 
   /**
    * <p>
@@ -3866,17 +4057,18 @@ export interface PutDomainPermissionsPolicyRequest {
   domainOwner?: string;
 
   /**
+   * <p>
+   *         The current revision of the resource policy to be set. This revision is used for optimistic locking, which
+   *         prevents others from overwriting your changes to the domain's resource policy.
+   *       </p>
+   */
+  policyRevision?: string;
+
+  /**
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
    *       policy on the provided domain. </p>
    */
   policyDocument: string | undefined;
-
-  /**
-   * <p>
-   *         The name of the domain on which to set the resource policy.
-   *       </p>
-   */
-  domain: string | undefined;
 }
 
 export namespace PutDomainPermissionsPolicyRequest {
@@ -3901,12 +4093,10 @@ export namespace PutDomainPermissionsPolicyResult {
 export interface PutRepositoryPermissionsPolicyRequest {
   /**
    * <p>
-   *         Sets the revision of the resource policy that specifies permissions to access the repository.
-   *         This revision is used for optimistic locking, which prevents others from overwriting your
-   *         changes to the repository's resource policy.
+   *         The name of the domain containing the repository to set the resource policy on.
    *       </p>
    */
-  policyRevision?: string;
+  domain: string | undefined;
 
   /**
    * <p>
@@ -3923,10 +4113,12 @@ export interface PutRepositoryPermissionsPolicyRequest {
 
   /**
    * <p>
-   *         The name of the domain containing the repository to set the resource policy on.
+   *         Sets the revision of the resource policy that specifies permissions to access the repository.
+   *         This revision is used for optimistic locking, which prevents others from overwriting your
+   *         changes to the repository's resource policy.
    *       </p>
    */
-  domain: string | undefined;
+  policyRevision?: string;
 
   /**
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
@@ -3956,14 +4148,14 @@ export namespace PutRepositoryPermissionsPolicyResult {
 
 export interface TagResourceRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
    * <p>The tags you want to modify or add to the resource.</p>
    */
   tags: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
-   */
-  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3982,7 +4174,7 @@ export namespace TagResourceResult {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
    */
   resourceArn: string | undefined;
 
@@ -4016,39 +4208,18 @@ export interface UpdatePackageVersionsStatusRequest {
 
   /**
    * <p>
-   *       An array of strings that specify the versions of the package with the statuses to update.
-   *     </p>
-   */
-  versions: string[] | undefined;
-
-  /**
-   * <p>
-   *       The name of the package with the version statuses to update.
-   *     </p>
-   */
-  package: string | undefined;
-
-  /**
-   * <p>
-   *       The status you want to change the package version status to.
-   *     </p>
-   */
-  targetStatus: PackageVersionStatus | string | undefined;
-
-  /**
-   * <p> A map of package versions and package version revisions. The map <code>key</code> is the
-   *       package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the
-   *       package version revision. </p>
-   */
-  versionRevisions?: { [key: string]: string };
-
-  /**
-   * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
    */
   domainOwner?: string;
+
+  /**
+   * <p>
+   *       The repository that contains the package versions with the status you want to update.
+   *     </p>
+   */
+  repository: string | undefined;
 
   /**
    * <p>
@@ -4070,24 +4241,14 @@ export interface UpdatePackageVersionsStatusRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nuget</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
-
-  /**
-   * <p> The package version’s expected status before it is updated. If
-   *         <code>expectedStatus</code> is provided, the package version's status is updated only if its
-   *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
-   *         <code>expectedStatus</code>. </p>
-   */
-  expectedStatus?: PackageVersionStatus | string;
-
-  /**
-   * <p>
-   *       The repository that contains the package versions with the status you want to update.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -4111,9 +4272,51 @@ export interface UpdatePackageVersionsStatusRequest {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *           A NuGet package does not contain a corresponding component, so
+   *           NuGet packages do not have a namespace.
+   *         </p>
+   *             </li>
    *          </ul>
    */
   namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the package with the version statuses to update.
+   *     </p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>
+   *       An array of strings that specify the versions of the package with the statuses to update.
+   *     </p>
+   */
+  versions: string[] | undefined;
+
+  /**
+   * <p> A map of package versions and package version revisions. The map <code>key</code> is the
+   *       package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the
+   *       package version revision. </p>
+   */
+  versionRevisions?: { [key: string]: string };
+
+  /**
+   * <p> The package version’s expected status before it is updated. If
+   *         <code>expectedStatus</code> is provided, the package version's status is updated only if its
+   *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
+   *         <code>expectedStatus</code>. </p>
+   */
+  expectedStatus?: PackageVersionStatus | string;
+
+  /**
+   * <p>
+   *       The status you want to change the package version status to.
+   *     </p>
+   */
+  targetStatus: PackageVersionStatus | string | undefined;
 }
 
 export namespace UpdatePackageVersionsStatusRequest {
@@ -4124,18 +4327,18 @@ export namespace UpdatePackageVersionsStatusRequest {
 
 export interface UpdatePackageVersionsStatusResult {
   /**
-   * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
-   *       with a status that successfully updated. </p>
-   */
-  failedVersions?: { [key: string]: PackageVersionError };
-
-  /**
    * <p>
    *       A list of <code>PackageVersionError</code> objects, one for each package version with
    *       a status that failed to update.
    *     </p>
    */
   successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
+
+  /**
+   * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
+   *       with a status that successfully updated. </p>
+   */
+  failedVersions?: { [key: string]: PackageVersionError };
 }
 
 export namespace UpdatePackageVersionsStatusResult {
@@ -4146,25 +4349,11 @@ export namespace UpdatePackageVersionsStatusResult {
 
 export interface UpdateRepositoryRequest {
   /**
-   * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
-   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
-   *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
-   */
-  upstreams?: UpstreamRepository[];
-
-  /**
    * <p>
    *          The name of the domain associated with the repository to update.
    *        </p>
    */
   domain: string | undefined;
-
-  /**
-   * <p>
-   *          An updated repository description.
-   *        </p>
-   */
-  description?: string;
 
   /**
    * <p>
@@ -4180,6 +4369,20 @@ export interface UpdateRepositoryRequest {
    *        </p>
    */
   repository: string | undefined;
+
+  /**
+   * <p>
+   *          An updated repository description.
+   *        </p>
+   */
+  description?: string;
+
+  /**
+   * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
+   *         in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more
+   *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   */
+  upstreams?: UpstreamRepository[];
 }
 
 export namespace UpdateRepositoryRequest {

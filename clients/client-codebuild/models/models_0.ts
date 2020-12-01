@@ -4162,6 +4162,64 @@ export namespace DescribeTestCasesOutput {
   });
 }
 
+export enum ReportGroupTrendFieldType {
+  BRANCHES_COVERED = "BRANCHES_COVERED",
+  BRANCHES_MISSED = "BRANCHES_MISSED",
+  BRANCH_COVERAGE = "BRANCH_COVERAGE",
+  DURATION = "DURATION",
+  LINES_COVERED = "LINES_COVERED",
+  LINES_MISSED = "LINES_MISSED",
+  LINE_COVERAGE = "LINE_COVERAGE",
+  PASS_RATE = "PASS_RATE",
+  TOTAL = "TOTAL",
+}
+
+export interface GetReportGroupTrendInput {
+  reportGroupArn: string | undefined;
+  numOfReports?: number;
+  trendField: ReportGroupTrendFieldType | string | undefined;
+}
+
+export namespace GetReportGroupTrendInput {
+  export const filterSensitiveLog = (obj: GetReportGroupTrendInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ReportWithRawData {
+  reportArn?: string;
+  data?: string;
+}
+
+export namespace ReportWithRawData {
+  export const filterSensitiveLog = (obj: ReportWithRawData): any => ({
+    ...obj,
+  });
+}
+
+export interface ReportGroupTrendStats {
+  average?: string;
+  max?: string;
+  min?: string;
+}
+
+export namespace ReportGroupTrendStats {
+  export const filterSensitiveLog = (obj: ReportGroupTrendStats): any => ({
+    ...obj,
+  });
+}
+
+export interface GetReportGroupTrendOutput {
+  stats?: ReportGroupTrendStats;
+  rawData?: ReportWithRawData[];
+}
+
+export namespace GetReportGroupTrendOutput {
+  export const filterSensitiveLog = (obj: GetReportGroupTrendOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface GetResourcePolicyInput {
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>

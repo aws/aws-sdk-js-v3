@@ -105,6 +105,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "../commands/UpdateCapacityProviderCommand";
+import {
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
 } from "../commands/UpdateClusterSettingsCommand";
@@ -129,6 +133,7 @@ import {
   Attribute,
   AttributeLimitExceededException,
   AutoScalingGroupProvider,
+  AutoScalingGroupProviderUpdate,
   AwsVpcConfiguration,
   BlockedException,
   CapacityProvider,
@@ -171,6 +176,7 @@ import {
   DeleteTaskSetRequest,
   DeleteTaskSetResponse,
   Deployment,
+  DeploymentCircuitBreaker,
   DeploymentConfiguration,
   DeploymentController,
   DeregisterContainerInstanceRequest,
@@ -305,6 +311,8 @@ import {
   UnsupportedFeatureException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateCapacityProviderRequest,
+  UpdateCapacityProviderResponse,
   UpdateClusterSettingsRequest,
   UpdateClusterSettingsResponse,
   UpdateContainerAgentRequest,
@@ -888,6 +896,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateCapacityProviderCommand = async (
+  input: UpdateCapacityProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateCapacityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4478,6 +4499,77 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateCapacityProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateCapacityProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateCapacityProviderResponse(data, context);
+  const response: UpdateCapacityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateCapacityProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      response = {
+        ...(await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateClusterSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5480,6 +5572,20 @@ const serializeAws_json1_1AutoScalingGroupProvider = (
   };
 };
 
+const serializeAws_json1_1AutoScalingGroupProviderUpdate = (
+  input: AutoScalingGroupProviderUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.managedScaling !== undefined && {
+      managedScaling: serializeAws_json1_1ManagedScaling(input.managedScaling, context),
+    }),
+    ...(input.managedTerminationProtection !== undefined && {
+      managedTerminationProtection: input.managedTerminationProtection,
+    }),
+  };
+};
+
 const serializeAws_json1_1AwsVpcConfiguration = (input: AwsVpcConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.assignPublicIp !== undefined && { assignPublicIp: input.assignPublicIp }),
@@ -5822,8 +5928,21 @@ const serializeAws_json1_1DeleteTaskSetRequest = (input: DeleteTaskSetRequest, c
   };
 };
 
+const serializeAws_json1_1DeploymentCircuitBreaker = (
+  input: DeploymentCircuitBreaker,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.enable !== undefined && { enable: input.enable }),
+    ...(input.rollback !== undefined && { rollback: input.rollback }),
+  };
+};
+
 const serializeAws_json1_1DeploymentConfiguration = (input: DeploymentConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.deploymentCircuitBreaker !== undefined && {
+      deploymentCircuitBreaker: serializeAws_json1_1DeploymentCircuitBreaker(input.deploymentCircuitBreaker, context),
+    }),
     ...(input.maximumPercent !== undefined && { maximumPercent: input.maximumPercent }),
     ...(input.minimumHealthyPercent !== undefined && { minimumHealthyPercent: input.minimumHealthyPercent }),
   };
@@ -6292,6 +6411,7 @@ const serializeAws_json1_1LogConfigurationOptionsMap = (
 
 const serializeAws_json1_1ManagedScaling = (input: ManagedScaling, context: __SerdeContext): any => {
   return {
+    ...(input.instanceWarmupPeriod !== undefined && { instanceWarmupPeriod: input.instanceWarmupPeriod }),
     ...(input.maximumScalingStepSize !== undefined && { maximumScalingStepSize: input.maximumScalingStepSize }),
     ...(input.minimumScalingStepSize !== undefined && { minimumScalingStepSize: input.minimumScalingStepSize }),
     ...(input.status !== undefined && { status: input.status }),
@@ -6801,6 +6921,21 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1TagKeys(input.tagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateCapacityProviderRequest = (
+  input: UpdateCapacityProviderRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.autoScalingGroupProvider !== undefined && {
+      autoScalingGroupProvider: serializeAws_json1_1AutoScalingGroupProviderUpdate(
+        input.autoScalingGroupProvider,
+        context
+      ),
+    }),
+    ...(input.name !== undefined && { name: input.name }),
   };
 };
 
@@ -7560,6 +7695,7 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     desiredCount: output.desiredCount !== undefined && output.desiredCount !== null ? output.desiredCount : undefined,
+    failedTasks: output.failedTasks !== undefined && output.failedTasks !== null ? output.failedTasks : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     launchType: output.launchType !== undefined && output.launchType !== null ? output.launchType : undefined,
     networkConfiguration:
@@ -7569,6 +7705,11 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
     pendingCount: output.pendingCount !== undefined && output.pendingCount !== null ? output.pendingCount : undefined,
     platformVersion:
       output.platformVersion !== undefined && output.platformVersion !== null ? output.platformVersion : undefined,
+    rolloutState: output.rolloutState !== undefined && output.rolloutState !== null ? output.rolloutState : undefined,
+    rolloutStateReason:
+      output.rolloutStateReason !== undefined && output.rolloutStateReason !== null
+        ? output.rolloutStateReason
+        : undefined,
     runningCount: output.runningCount !== undefined && output.runningCount !== null ? output.runningCount : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     taskDefinition:
@@ -7580,11 +7721,25 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1DeploymentCircuitBreaker = (
+  output: any,
+  context: __SerdeContext
+): DeploymentCircuitBreaker => {
+  return {
+    enable: output.enable !== undefined && output.enable !== null ? output.enable : undefined,
+    rollback: output.rollback !== undefined && output.rollback !== null ? output.rollback : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeploymentConfiguration = (
   output: any,
   context: __SerdeContext
 ): DeploymentConfiguration => {
   return {
+    deploymentCircuitBreaker:
+      output.deploymentCircuitBreaker !== undefined && output.deploymentCircuitBreaker !== null
+        ? deserializeAws_json1_1DeploymentCircuitBreaker(output.deploymentCircuitBreaker, context)
+        : undefined,
     maximumPercent:
       output.maximumPercent !== undefined && output.maximumPercent !== null ? output.maximumPercent : undefined,
     minimumHealthyPercent:
@@ -8178,6 +8333,10 @@ const deserializeAws_json1_1LogConfigurationOptionsMap = (
 
 const deserializeAws_json1_1ManagedScaling = (output: any, context: __SerdeContext): ManagedScaling => {
   return {
+    instanceWarmupPeriod:
+      output.instanceWarmupPeriod !== undefined && output.instanceWarmupPeriod !== null
+        ? output.instanceWarmupPeriod
+        : undefined,
     maximumScalingStepSize:
       output.maximumScalingStepSize !== undefined && output.maximumScalingStepSize !== null
         ? output.maximumScalingStepSize
@@ -9038,6 +9197,18 @@ const deserializeAws_json1_1UnsupportedFeatureException = (
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateCapacityProviderResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCapacityProviderResponse => {
+  return {
+    capacityProvider:
+      output.capacityProvider !== undefined && output.capacityProvider !== null
+        ? deserializeAws_json1_1CapacityProvider(output.capacityProvider, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateClusterSettingsResponse = (

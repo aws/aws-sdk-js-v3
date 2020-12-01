@@ -58,6 +58,9 @@ export type UpdateFileSystemCommandOutput = UpdateFileSystemResponse & __Metadat
  *                <p>DailyAutomaticBackupStartTime</p>
  *             </li>
  *             <li>
+ *                <p>StorageCapacity</p>
+ *             </li>
+ *             <li>
  *                <p>WeeklyMaintenanceStartTime</p>
  *             </li>
  *          </ul>

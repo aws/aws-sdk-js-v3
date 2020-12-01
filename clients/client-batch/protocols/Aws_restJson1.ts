@@ -58,6 +58,7 @@ import {
   ContainerSummary,
   Device,
   DeviceCgroupPermission,
+  Ec2Configuration,
   EvaluateOnExit,
   Host,
   JobDefinition,
@@ -1940,6 +1941,9 @@ const serializeAws_restJson1ComputeResource = (input: ComputeResource, context: 
     ...(input.allocationStrategy !== undefined && { allocationStrategy: input.allocationStrategy }),
     ...(input.bidPercentage !== undefined && { bidPercentage: input.bidPercentage }),
     ...(input.desiredvCpus !== undefined && { desiredvCpus: input.desiredvCpus }),
+    ...(input.ec2Configuration !== undefined && {
+      ec2Configuration: serializeAws_restJson1Ec2ConfigurationList(input.ec2Configuration, context),
+    }),
     ...(input.ec2KeyPair !== undefined && { ec2KeyPair: input.ec2KeyPair }),
     ...(input.imageId !== undefined && { imageId: input.imageId }),
     ...(input.instanceRole !== undefined && { instanceRole: input.instanceRole }),
@@ -2037,6 +2041,17 @@ const serializeAws_restJson1DeviceCgroupPermissions = (
 
 const serializeAws_restJson1DevicesList = (input: Device[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1Device(entry, context));
+};
+
+const serializeAws_restJson1Ec2Configuration = (input: Ec2Configuration, context: __SerdeContext): any => {
+  return {
+    ...(input.imageIdOverride !== undefined && { imageIdOverride: input.imageIdOverride }),
+    ...(input.imageType !== undefined && { imageType: input.imageType }),
+  };
+};
+
+const serializeAws_restJson1Ec2ConfigurationList = (input: Ec2Configuration[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Ec2Configuration(entry, context));
 };
 
 const serializeAws_restJson1EnvironmentVariables = (input: KeyValuePair[], context: __SerdeContext): any => {
@@ -2430,6 +2445,10 @@ const deserializeAws_restJson1ComputeResource = (output: any, context: __SerdeCo
     bidPercentage:
       output.bidPercentage !== undefined && output.bidPercentage !== null ? output.bidPercentage : undefined,
     desiredvCpus: output.desiredvCpus !== undefined && output.desiredvCpus !== null ? output.desiredvCpus : undefined,
+    ec2Configuration:
+      output.ec2Configuration !== undefined && output.ec2Configuration !== null
+        ? deserializeAws_restJson1Ec2ConfigurationList(output.ec2Configuration, context)
+        : undefined,
     ec2KeyPair: output.ec2KeyPair !== undefined && output.ec2KeyPair !== null ? output.ec2KeyPair : undefined,
     imageId: output.imageId !== undefined && output.imageId !== null ? output.imageId : undefined,
     instanceRole: output.instanceRole !== undefined && output.instanceRole !== null ? output.instanceRole : undefined,
@@ -2612,6 +2631,18 @@ const deserializeAws_restJson1DeviceCgroupPermissions = (
 
 const deserializeAws_restJson1DevicesList = (output: any, context: __SerdeContext): Device[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Device(entry, context));
+};
+
+const deserializeAws_restJson1Ec2Configuration = (output: any, context: __SerdeContext): Ec2Configuration => {
+  return {
+    imageIdOverride:
+      output.imageIdOverride !== undefined && output.imageIdOverride !== null ? output.imageIdOverride : undefined,
+    imageType: output.imageType !== undefined && output.imageType !== null ? output.imageType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Ec2ConfigurationList = (output: any, context: __SerdeContext): Ec2Configuration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Ec2Configuration(entry, context));
 };
 
 const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __SerdeContext): KeyValuePair[] => {

@@ -1154,6 +1154,14 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.timestreamwrite#ValidationException":
       response = {
@@ -1233,6 +1241,14 @@ const deserializeAws_json1_0TagResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.timestreamwrite#ValidationException":
       response = {
@@ -1308,6 +1324,14 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.timestreamwrite#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1866,6 +1890,7 @@ const serializeAws_json1_0_Record = (input: _Record, context: __SerdeContext): a
     ...(input.MeasureValueType !== undefined && { MeasureValueType: input.MeasureValueType }),
     ...(input.Time !== undefined && { Time: input.Time }),
     ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit }),
+    ...(input.Version !== undefined && { Version: input.Version }),
   };
 };
 
@@ -2091,6 +2116,8 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 
 const deserializeAws_json1_0RejectedRecord = (output: any, context: __SerdeContext): RejectedRecord => {
   return {
+    ExistingVersion:
+      output.ExistingVersion !== undefined && output.ExistingVersion !== null ? output.ExistingVersion : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
     RecordIndex: output.RecordIndex !== undefined && output.RecordIndex !== null ? output.RecordIndex : undefined,
   } as any;

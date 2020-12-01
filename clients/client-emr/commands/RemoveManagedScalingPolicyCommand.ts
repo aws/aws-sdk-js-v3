@@ -21,9 +21,7 @@ export type RemoveManagedScalingPolicyCommandInput = RemoveManagedScalingPolicyI
 export type RemoveManagedScalingPolicyCommandOutput = RemoveManagedScalingPolicyOutput & __MetadataBearer;
 
 /**
- * <p>
- *          Removes a managed scaling policy from a specified EMR cluster.
- *       </p>
+ * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
  */
 export class RemoveManagedScalingPolicyCommand extends $Command<
   RemoveManagedScalingPolicyCommandInput,

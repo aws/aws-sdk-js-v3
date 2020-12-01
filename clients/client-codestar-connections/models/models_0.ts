@@ -13,14 +13,14 @@ export enum ProviderType {
  */
 export interface Tag {
   /**
-   * <p>The tag's value.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The tag's key.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -31,9 +31,10 @@ export namespace Tag {
 
 export interface CreateConnectionInput {
   /**
-   * <p>The key-value pair to use when tagging the resource.</p>
+   * <p>The name of the external provider where your third-party code repository is
+   *       configured.</p>
    */
-  Tags?: Tag[];
+  ProviderType?: ProviderType | string;
 
   /**
    * <p>The name of the connection to be created. The name must be unique in the calling AWS
@@ -42,10 +43,9 @@ export interface CreateConnectionInput {
   ConnectionName: string | undefined;
 
   /**
-   * <p>The name of the external provider where your third-party code repository is configured.
-   *       The valid provider type is Bitbucket.</p>
+   * <p>The key-value pair to use when tagging the resource.</p>
    */
-  ProviderType?: ProviderType | string;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
@@ -131,9 +131,10 @@ export namespace ResourceUnavailableException {
  */
 export interface VpcConfiguration {
   /**
-   * <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
+   * <p>The ID of the Amazon VPC connected to the infrastructure where your provider type is
+   *       installed.</p>
    */
-  TlsCertificate?: string;
+  VpcId: string | undefined;
 
   /**
    * <p>The ID of the subnet or subnets associated with the Amazon VPC connected to the
@@ -148,10 +149,9 @@ export interface VpcConfiguration {
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon VPC connected to the infrastructure where your provider type is
-   *       installed.</p>
+   * <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
    */
-  VpcId: string | undefined;
+  TlsCertificate?: string;
 }
 
 export namespace VpcConfiguration {
@@ -162,6 +162,12 @@ export namespace VpcConfiguration {
 
 export interface CreateHostInput {
   /**
+   * <p>The name of the host to be created. The name must be unique in the calling AWS
+   *       account.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The name of the installed provider to be associated with your connection. The host
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
@@ -169,22 +175,16 @@ export interface CreateHostInput {
   ProviderType: ProviderType | string | undefined;
 
   /**
-   * <p>The name of the host to be created. The name must be unique in the calling AWS
-   *       account.</p>
+   * <p>The endpoint of the infrastructure to be represented by the host after it is
+   *       created.</p>
    */
-  Name: string | undefined;
+  ProviderEndpoint: string | undefined;
 
   /**
    * <p>The VPC configuration to be provisioned for the host. A VPC must be configured and the
    *       infrastructure to be represented by the host must already be connected to the VPC.</p>
    */
   VpcConfiguration?: VpcConfiguration;
-
-  /**
-   * <p>The endpoint of the infrastructure to be represented by the host after it is
-   *       created.</p>
-   */
-  ProviderEndpoint: string | undefined;
 }
 
 export namespace CreateHostInput {
@@ -277,6 +277,11 @@ export enum ConnectionStatus {
  */
 export interface Connection {
   /**
+   * <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
+   */
+  ConnectionName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
    *       reference when the connection is shared between AWS services.</p>
    *          <note>
@@ -286,23 +291,8 @@ export interface Connection {
   ConnectionArn?: string;
 
   /**
-   * <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
-   */
-  ConnectionName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
-   */
-  HostArn?: string;
-
-  /**
-   * <p>The current status of the connection. </p>
-   */
-  ConnectionStatus?: ConnectionStatus | string;
-
-  /**
-   * <p>The name of the external provider where your third-party code repository is configured.
-   *       The valid provider type is Bitbucket.</p>
+   * <p>The name of the external provider where your third-party code repository is
+   *       configured.</p>
    */
   ProviderType?: ProviderType | string;
 
@@ -311,6 +301,16 @@ export interface Connection {
    *       For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>
    */
   OwnerAccountId?: string;
+
+  /**
+   * <p>The current status of the connection. </p>
+   */
+  ConnectionStatus?: ConnectionStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
+   */
+  HostArn?: string;
 }
 
 export namespace Connection {
@@ -347,14 +347,19 @@ export namespace GetHostInput {
 
 export interface GetHostOutput {
   /**
-   * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
-   */
-  ProviderType?: ProviderType | string;
-
-  /**
    * <p>The name of the requested host.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The status of the requested host.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
+   */
+  ProviderType?: ProviderType | string;
 
   /**
    * <p>The endpoint of the infrastructure represented by the requested host.</p>
@@ -365,11 +370,6 @@ export interface GetHostOutput {
    * <p>The VPC configuration of the requested host.</p>
    */
   VpcConfiguration?: VpcConfiguration;
-
-  /**
-   * <p>The status of the requested host.</p>
-   */
-  Status?: string;
 }
 
 export namespace GetHostOutput {
@@ -386,6 +386,11 @@ export interface ListConnectionsInput {
   ProviderTypeFilter?: ProviderType | string;
 
   /**
+   * <p>Filters the list of connections to those associated with a specified host.</p>
+   */
+  HostArnFilter?: string;
+
+  /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -396,11 +401,6 @@ export interface ListConnectionsInput {
    *       can be used to return the next set of connections in the list.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Filters the list of connections to those associated with a specified host.</p>
-   */
-  HostArnFilter?: string;
 }
 
 export namespace ListConnectionsInput {
@@ -461,9 +461,14 @@ export namespace ListHostsInput {
  */
 export interface Host {
   /**
-   * <p>The status description for the host.</p>
+   * <p>The name of the host.</p>
    */
-  StatusMessage?: string;
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the host.</p>
+   */
+  HostArn?: string;
 
   /**
    * <p>The name of the installed provider to be associated with your connection. The host
@@ -473,14 +478,9 @@ export interface Host {
   ProviderType?: ProviderType | string;
 
   /**
-   * <p>The name of the host.</p>
+   * <p>The endpoint of the infrastructure where your provider type is installed.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the host.</p>
-   */
-  HostArn?: string;
+  ProviderEndpoint?: string;
 
   /**
    * <p>The VPC configuration provisioned for the host.</p>
@@ -493,9 +493,9 @@ export interface Host {
   Status?: string;
 
   /**
-   * <p>The endpoint of the infrastructure where your provider type is installed.</p>
+   * <p>The status description for the host.</p>
    */
-  ProviderEndpoint?: string;
+  StatusMessage?: string;
 }
 
 export namespace Host {
@@ -599,6 +599,68 @@ export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Two conflicting operations have been made on the same resource.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation is not supported. Check the connection status and try again.</p>
+ */
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnsupportedOperationException {
+  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateHostInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the host to be updated.</p>
+   */
+  HostArn: string | undefined;
+
+  /**
+   * <p>The URL or endpoint of the host to be updated.</p>
+   */
+  ProviderEndpoint?: string;
+
+  /**
+   * <p>The VPC configuration of the host to be updated. A VPC must be configured and the
+   *       infrastructure to be represented by the host must already be connected to the VPC.</p>
+   */
+  VpcConfiguration?: VpcConfiguration;
+}
+
+export namespace UpdateHostInput {
+  export const filterSensitiveLog = (obj: UpdateHostInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateHostOutput {}
+
+export namespace UpdateHostOutput {
+  export const filterSensitiveLog = (obj: UpdateHostOutput): any => ({
     ...obj,
   });
 }

@@ -43,6 +43,11 @@ export type CreateFunctionCommandOutput = FunctionConfiguration & __MetadataBear
  *       to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)
  *       and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>
  *
+ *          <p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user
+ *       attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code
+ *       package has a valid signature from a trusted publisher. The code-signing configuration
+ *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
+ *
  *          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
  *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
  *       or on an alias.</p>

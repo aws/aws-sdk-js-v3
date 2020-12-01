@@ -22,6 +22,8 @@ export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __Met
 
 /**
  * <p>Declines invitations to become a member account.</p>
+ *          <p>This operation is only used by accounts that are not part of an organization.
+ *          Organization accounts do not receive invitations.</p>
  */
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,
