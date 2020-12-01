@@ -2,11 +2,11 @@ module.exports = {
   parser: "@typescript-eslint/parser", // Specifies the ESLint parser
   parserOptions: {
     ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    sourceType: "module" // Allows for the use of imports
+    sourceType: "module", // Allows for the use of imports
   },
   extends: [
     // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
   ],
   plugins: ["@typescript-eslint", "simple-import-sort"],
   rules: {
@@ -25,6 +25,6 @@ module.exports = {
     "@typescript-eslint/no-namespace": "warn",
 
     /** Errors */
-    "simple-import-sort/sort": "error"
-  }
+    "simple-import-sort/imports": "error",
+  },
 };
