@@ -31,15 +31,12 @@ Given("I create an IAM user with the username", function (callback) {
   );
 });
 
-Given("I list the IAM users", function (callback) {
-  this.request("iam", "listUsers", {}, callback);
+Given("I get the IAM user", function (callback) {
+  this.request("iam", "getUser", { UserName: this.iamUser }, callback);
 });
 
-Then("the list should contain the user", function (callback) {
-  const name = this.iamUser;
-  this.assert.contains(this.data.Users, function (user) {
-    return user.UserName === name;
-  });
+Then("the IAM user should exist", function (callback) {
+  this.assert.equal(this.data.User.UserName, this.iamUser);
   callback();
 });
 
