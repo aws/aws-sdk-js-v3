@@ -67,10 +67,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                         // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
                         .servicePredicate(
-                            (m, s) ->
-                                !testServiceId(s, "Cognito Identity")
-                                && !testServiceId(s, "STS")
-                                && !hasOptionalAuthOperation(m, s)
+                            (m, s) -> !testServiceId(s, "STS") && !hasOptionalAuthOperation(m, s)
                         ).build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
@@ -169,15 +166,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
-        // Cognito Identity doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity, UnlinkIdentity.
-        // Remove when optionalAuth model update is published in V261331976.
-        if (testServiceId(service, "Cognito Identity")) {
-            Boolean isUnsignedCommand = SetUtils
-                    .of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity", "UnlinkIdentity")
-                    .contains(operation.getId().getName());
-            return !isUnsignedCommand;
-        }
-
         // STS doesn't need auth for AssumeRoleWithWebIdentity, AssumeRoleWithSAML.
         // Remove when optionalAuth model update is published in 0533102932.
         if (testServiceId(service, "STS")) {
