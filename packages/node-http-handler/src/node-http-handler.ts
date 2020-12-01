@@ -51,7 +51,7 @@ export class NodeHttpHandler implements HttpHandler {
     this.httpsAgent.destroy();
   }
 
-  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
