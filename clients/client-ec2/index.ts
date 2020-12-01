@@ -159,6 +159,7 @@ export * from "./commands/DescribeAggregateIdFormatCommand";
 export * from "./commands/DescribeAvailabilityZonesCommand";
 export * from "./commands/DescribeBundleTasksCommand";
 export * from "./commands/DescribeByoipCidrsCommand";
+export * from "./pagination/DescribeByoipCidrsPaginator";
 export * from "./commands/DescribeCapacityReservationsCommand";
 export * from "./pagination/DescribeCapacityReservationsPaginator";
 export * from "./commands/DescribeCarrierGatewaysCommand";
