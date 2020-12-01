@@ -20,6 +20,9 @@ import {
 export type DisassociateLexBotCommandInput = DisassociateLexBotRequest;
 export type DisassociateLexBotCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+ */
 export class DisassociateLexBotCommand extends $Command<
   DisassociateLexBotCommandInput,
   DisassociateLexBotCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateLexBotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

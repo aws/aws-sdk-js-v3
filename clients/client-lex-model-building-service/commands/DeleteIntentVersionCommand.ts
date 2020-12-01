@@ -25,10 +25,10 @@ export type DeleteIntentVersionCommandInput = DeleteIntentVersionRequest;
 export type DeleteIntentVersionCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes a specific version of an intent. To delete all versions of a intent, use the
- *         <a>DeleteIntent</a> operation. </p>
- *          <p>This operation requires permissions for the <code>lex:DeleteIntentVersion</code>
- *       action.</p>
+ * <p>Deletes a specific version of an intent. To delete all versions of
+ *       a intent, use the <a>DeleteIntent</a> operation. </p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:DeleteIntentVersion</code> action.</p>
  */
 export class DeleteIntentVersionCommand extends $Command<
   DeleteIntentVersionCommandInput,

@@ -20,6 +20,9 @@ import {
 export type PutSchemaVersionMetadataCommandInput = PutSchemaVersionMetadataInput;
 export type PutSchemaVersionMetadataCommandOutput = PutSchemaVersionMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
+ */
 export class PutSchemaVersionMetadataCommand extends $Command<
   PutSchemaVersionMetadataCommandInput,
   PutSchemaVersionMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class PutSchemaVersionMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

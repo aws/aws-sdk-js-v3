@@ -20,6 +20,26 @@ import {
 export type CreateChannelModeratorCommandInput = CreateChannelModeratorRequest;
 export type CreateChannelModeratorCommandOutput = CreateChannelModeratorResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Add and remove other members of the channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Add and remove other moderators of the channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Add and remove user bans for the channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>Redact messages in the channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>List messages in the channel.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateChannelModeratorCommand extends $Command<
   CreateChannelModeratorCommandInput,
   CreateChannelModeratorCommandOutput,
@@ -34,6 +54,9 @@ export class CreateChannelModeratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

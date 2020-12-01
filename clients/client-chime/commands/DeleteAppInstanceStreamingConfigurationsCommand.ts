@@ -20,6 +20,9 @@ import {
 export type DeleteAppInstanceStreamingConfigurationsCommandInput = DeleteAppInstanceStreamingConfigurationsRequest;
 export type DeleteAppInstanceStreamingConfigurationsCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the streaming configurations of an app instance.</p>
+ */
 export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
   DeleteAppInstanceStreamingConfigurationsCommandInput,
   DeleteAppInstanceStreamingConfigurationsCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

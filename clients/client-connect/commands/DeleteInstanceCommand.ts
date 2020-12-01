@@ -20,6 +20,9 @@ import {
 export type DeleteInstanceCommandInput = DeleteInstanceRequest;
 export type DeleteInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the Amazon Connect instance.</p>
+ */
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

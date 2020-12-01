@@ -20,6 +20,36 @@ import {
 export type CreateChannelMembershipCommandInput = CreateChannelMembershipRequest;
 export type CreateChannelMembershipCommandOutput = CreateChannelMembershipResponse & __MetadataBearer;
 
+/**
+ * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header.
+ *            A channel member can:</p>
+ *          <ul>
+ *             <li>
+ *                <p>List messages</p>
+ *             </li>
+ *             <li>
+ *                <p>Send messages</p>
+ *             </li>
+ *             <li>
+ *                <p>Receive messages</p>
+ *             </li>
+ *             <li>
+ *                <p>Edit their own messages</p>
+ *             </li>
+ *             <li>
+ *                <p>Leave the channel</p>
+ *             </li>
+ *          </ul>
+ *          <p>Privacy settings impact this action as follows:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p>
+ *             </li>
+ *             <li>
+ *                <p>Private Channels: You must be a member to list or send messages.</p>
+ *             </li>
+ *          </ul>
+ */
 export class CreateChannelMembershipCommand extends $Command<
   CreateChannelMembershipCommandInput,
   CreateChannelMembershipCommandOutput,
@@ -34,6 +64,9 @@ export class CreateChannelMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

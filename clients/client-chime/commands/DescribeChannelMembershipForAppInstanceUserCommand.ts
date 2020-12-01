@@ -24,6 +24,9 @@ export type DescribeChannelMembershipForAppInstanceUserCommandInput = DescribeCh
 export type DescribeChannelMembershipForAppInstanceUserCommandOutput = DescribeChannelMembershipForAppInstanceUserResponse &
   __MetadataBearer;
 
+/**
+ * <p>Returns the details of a channel based on the membership of the <code>AppInstanceUser</code> specified.</p>
+ */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command<
   DescribeChannelMembershipForAppInstanceUserCommandInput,
   DescribeChannelMembershipForAppInstanceUserCommandOutput,
@@ -38,6 +41,9 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

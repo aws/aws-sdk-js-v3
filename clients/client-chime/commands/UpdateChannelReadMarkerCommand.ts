@@ -20,6 +20,9 @@ import {
 export type UpdateChannelReadMarkerCommandInput = UpdateChannelReadMarkerRequest;
 export type UpdateChannelReadMarkerCommandOutput = UpdateChannelReadMarkerResponse & __MetadataBearer;
 
+/**
+ * <p>Sets the timestamp to the point when a user last read messages in a channel.</p>
+ */
 export class UpdateChannelReadMarkerCommand extends $Command<
   UpdateChannelReadMarkerCommandInput,
   UpdateChannelReadMarkerCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -25,10 +25,10 @@ export type GetBotAliasCommandInput = GetBotAliasRequest;
 export type GetBotAliasCommandOutput = GetBotAliasResponse & __MetadataBearer;
 
 /**
- * <p>Returns information about an Amazon Lex bot alias. For more information about aliases, see
- *         <a>versioning-aliases</a>.</p>
- *          <p>This operation requires permissions for the <code>lex:GetBotAlias</code>
- *       action.</p>
+ * <p>Returns information about an Amazon Lex bot alias. For more information
+ *       about aliases, see <a>versioning-aliases</a>.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:GetBotAlias</code> action.</p>
  */
 export class GetBotAliasCommand extends $Command<
   GetBotAliasCommandInput,

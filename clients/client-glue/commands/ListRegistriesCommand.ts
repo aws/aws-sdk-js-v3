@@ -20,6 +20,9 @@ import {
 export type ListRegistriesCommandInput = ListRegistriesInput;
 export type ListRegistriesCommandOutput = ListRegistriesResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
+ */
 export class ListRegistriesCommand extends $Command<
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
@@ -34,6 +37,9 @@ export class ListRegistriesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

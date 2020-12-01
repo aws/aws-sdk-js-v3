@@ -20,6 +20,9 @@ import {
 export type DeleteChannelModeratorCommandInput = DeleteChannelModeratorRequest;
 export type DeleteChannelModeratorCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes a channel moderator.</p>
+ */
 export class DeleteChannelModeratorCommand extends $Command<
   DeleteChannelModeratorCommandInput,
   DeleteChannelModeratorCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteChannelModeratorCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteChannelBanCommandInput = DeleteChannelBanRequest;
 export type DeleteChannelBanCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a user from a channel's ban list.</p>
+ */
 export class DeleteChannelBanCommand extends $Command<
   DeleteChannelBanCommandInput,
   DeleteChannelBanCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteChannelBanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DeleteChannelMembershipCommandInput = DeleteChannelMembershipRequest;
 export type DeleteChannelMembershipCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Removes a member from a channel.</p>
+ */
 export class DeleteChannelMembershipCommand extends $Command<
   DeleteChannelMembershipCommandInput,
   DeleteChannelMembershipCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteChannelMembershipCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

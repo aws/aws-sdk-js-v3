@@ -20,6 +20,9 @@ import {
 export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeRequest;
 export type DescribeInstanceAttributeCommandOutput = DescribeInstanceAttributeResponse & __MetadataBearer;
 
+/**
+ * <p>Describes the specified instance attribute.</p>
+ */
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

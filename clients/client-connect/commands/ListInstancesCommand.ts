@@ -20,6 +20,11 @@ import {
 export type ListInstancesCommandInput = ListInstancesRequest;
 export type ListInstancesCommandOutput = ListInstancesResponse & __MetadataBearer;
 
+/**
+ * <p>Return a list of instances which are in active state, creation-in-progress state, and failed
+ *    state. Instances that aren't successfully created (they are in a failed state) are returned only
+ *    for 24 hours after the CreateInstance API was invoked.</p>
+ */
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
@@ -34,6 +39,9 @@ export class ListInstancesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,10 @@ import {
 export type ListInstanceStorageConfigsCommandInput = ListInstanceStorageConfigsRequest;
 export type ListInstanceStorageConfigsCommandOutput = ListInstanceStorageConfigsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of storage configs for the identified instance and resource
+ *    type.</p>
+ */
 export class ListInstanceStorageConfigsCommand extends $Command<
   ListInstanceStorageConfigsCommandInput,
   ListInstanceStorageConfigsCommandOutput,
@@ -34,6 +38,9 @@ export class ListInstanceStorageConfigsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

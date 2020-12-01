@@ -25,10 +25,11 @@ export type GetSlotTypeCommandInput = GetSlotTypeRequest;
 export type GetSlotTypeCommandOutput = GetSlotTypeResponse & __MetadataBearer;
 
 /**
- * <p>Returns information about a specific version of a slot type. In addition to specifying
- *       the slot type name, you must specify the slot type version.</p>
- *          <p>This operation requires permissions for the <code>lex:GetSlotType</code>
- *       action.</p>
+ * <p>Returns information about a specific version of a slot type. In
+ *       addition to specifying the slot type name, you must specify the slot type
+ *       version.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:GetSlotType</code> action.</p>
  */
 export class GetSlotTypeCommand extends $Command<
   GetSlotTypeCommandInput,

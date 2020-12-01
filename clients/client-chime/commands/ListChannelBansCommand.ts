@@ -20,6 +20,9 @@ import {
 export type ListChannelBansCommandInput = ListChannelBansRequest;
 export type ListChannelBansCommandOutput = ListChannelBansResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the users banned from a particular channel.</p>
+ */
 export class ListChannelBansCommand extends $Command<
   ListChannelBansCommandInput,
   ListChannelBansCommandOutput,
@@ -34,6 +37,9 @@ export class ListChannelBansCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

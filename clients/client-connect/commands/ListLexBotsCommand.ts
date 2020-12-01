@@ -20,6 +20,9 @@ import {
 export type ListLexBotsCommandInput = ListLexBotsRequest;
 export type ListLexBotsCommandOutput = ListLexBotsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+ */
 export class ListLexBotsCommand extends $Command<
   ListLexBotsCommandInput,
   ListLexBotsCommandOutput,
@@ -34,6 +37,9 @@ export class ListLexBotsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

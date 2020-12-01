@@ -20,6 +20,9 @@ import {
 export type ListChannelModeratorsCommandInput = ListChannelModeratorsRequest;
 export type ListChannelModeratorsCommandOutput = ListChannelModeratorsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all the moderators for a channel.</p>
+ */
 export class ListChannelModeratorsCommand extends $Command<
   ListChannelModeratorsCommandInput,
   ListChannelModeratorsCommandOutput,
@@ -34,6 +37,9 @@ export class ListChannelModeratorsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

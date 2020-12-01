@@ -20,6 +20,9 @@ import {
 export type ModifyBackupAttributesCommandInput = ModifyBackupAttributesRequest;
 export type ModifyBackupAttributesCommandOutput = ModifyBackupAttributesResponse & __MetadataBearer;
 
+/**
+ * <p>Modifies attributes for AWS CloudHSM backup.</p>
+ */
 export class ModifyBackupAttributesCommand extends $Command<
   ModifyBackupAttributesCommandInput,
   ModifyBackupAttributesCommandOutput,
@@ -34,6 +37,9 @@ export class ModifyBackupAttributesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMV2ClientResolvedConfig,

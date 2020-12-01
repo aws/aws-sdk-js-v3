@@ -20,6 +20,10 @@ import {
 export type GetSchemaVersionsDiffCommandInput = GetSchemaVersionsDiffInput;
 export type GetSchemaVersionsDiffCommandOutput = GetSchemaVersionsDiffResponse & __MetadataBearer;
 
+/**
+ * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
+ *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
+ */
 export class GetSchemaVersionsDiffCommand extends $Command<
   GetSchemaVersionsDiffCommandInput,
   GetSchemaVersionsDiffCommandOutput,
@@ -34,6 +38,9 @@ export class GetSchemaVersionsDiffCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

@@ -20,6 +20,14 @@ import {
 export type ListChannelMessagesCommandInput = ListChannelMessagesRequest;
 export type ListChannelMessagesCommandOutput = ListChannelMessagesResponse & __MetadataBearer;
 
+/**
+ * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
+ *            Sorted in descending order by default, based on the creation timestamp.</p>
+ *          <note>
+ *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
+ *            Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p>
+ *          </note>
+ */
 export class ListChannelMessagesCommand extends $Command<
   ListChannelMessagesCommandInput,
   ListChannelMessagesCommandOutput,
@@ -34,6 +42,9 @@ export class ListChannelMessagesCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

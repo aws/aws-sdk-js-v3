@@ -20,6 +20,9 @@ import {
 export type UpdateInstanceStorageConfigCommandInput = UpdateInstanceStorageConfigRequest;
 export type UpdateInstanceStorageConfigCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+ */
 export class UpdateInstanceStorageConfigCommand extends $Command<
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -26,8 +26,7 @@ export type GetVoiceConnectorLoggingConfigurationCommandOutput = GetVoiceConnect
 
 /**
  * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice
- *       Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
- *       Logs.</p>
+ *       Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch.</p>
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
   GetVoiceConnectorLoggingConfigurationCommandInput,

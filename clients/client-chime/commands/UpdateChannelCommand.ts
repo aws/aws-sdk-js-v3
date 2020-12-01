@@ -20,6 +20,11 @@ import {
 export type UpdateChannelCommandInput = UpdateChannelRequest;
 export type UpdateChannelCommandOutput = UpdateChannelResponse & __MetadataBearer;
 
+/**
+ * <p>Update a channel's attributes.</p>
+ *          <p>
+ *             <b>Restriction</b>: You can't change a channel's privacy.</p>
+ */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
@@ -34,6 +39,9 @@ export class UpdateChannelCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

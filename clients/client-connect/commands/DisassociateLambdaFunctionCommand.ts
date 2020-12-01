@@ -20,6 +20,10 @@ import {
 export type DisassociateLambdaFunctionCommandInput = DisassociateLambdaFunctionRequest;
 export type DisassociateLambdaFunctionCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Remove the Lambda function from the drop-down options available in the relevant contact flow
+ *    blocks.</p>
+ */
 export class DisassociateLambdaFunctionCommand extends $Command<
   DisassociateLambdaFunctionCommandInput,
   DisassociateLambdaFunctionCommandOutput,
@@ -34,6 +38,9 @@ export class DisassociateLambdaFunctionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

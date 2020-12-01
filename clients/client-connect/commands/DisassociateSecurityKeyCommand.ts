@@ -20,6 +20,9 @@ import {
 export type DisassociateSecurityKeyCommandInput = DisassociateSecurityKeyRequest;
 export type DisassociateSecurityKeyCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes the specified security key.</p>
+ */
 export class DisassociateSecurityKeyCommand extends $Command<
   DisassociateSecurityKeyCommandInput,
   DisassociateSecurityKeyCommandOutput,
@@ -34,6 +37,9 @@ export class DisassociateSecurityKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

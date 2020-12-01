@@ -20,6 +20,9 @@ import {
 export type UpdateAppInstanceUserCommandInput = UpdateAppInstanceUserRequest;
 export type UpdateAppInstanceUserCommandOutput = UpdateAppInstanceUserResponse & __MetadataBearer;
 
+/**
+ * <p>Updates the details for an <code>AppInstanceUser</code>. You can update names and metadata.</p>
+ */
 export class UpdateAppInstanceUserCommand extends $Command<
   UpdateAppInstanceUserCommandInput,
   UpdateAppInstanceUserCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

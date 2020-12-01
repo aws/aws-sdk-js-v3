@@ -20,6 +20,13 @@ import {
 export type CreateChannelBanCommandInput = CreateChannelBanRequest;
 export type CreateChannelBanCommandOutput = CreateChannelBanResponse & __MetadataBearer;
 
+/**
+ * <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel.
+ *            To undo a ban, you first have to <code>DeleteChannelBan</code>, and then <code>CreateChannelMembership</code>.
+ *            Bans are cleaned up when you delete users or channels.
+ *        </p>
+ *          <p>If you ban a user who is already part of a channel, that user is automatically kicked from the channel.</p>
+ */
 export class CreateChannelBanCommand extends $Command<
   CreateChannelBanCommandInput,
   CreateChannelBanCommandOutput,
@@ -34,6 +41,9 @@ export class CreateChannelBanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

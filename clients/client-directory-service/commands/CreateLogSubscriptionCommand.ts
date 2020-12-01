@@ -21,8 +21,8 @@ export type CreateLogSubscriptionCommandInput = CreateLogSubscriptionRequest;
 export type CreateLogSubscriptionCommandOutput = CreateLogSubscriptionResult & __MetadataBearer;
 
 /**
- * <p>Creates a subscription to forward real-time Directory Service domain controller
- *       security logs to the specified Amazon CloudWatch log group in your AWS account.</p>
+ * <p>Creates a subscription to forward real-time Directory Service domain controller security
+ *       logs to the specified Amazon CloudWatch log group in your AWS account.</p>
  */
 export class CreateLogSubscriptionCommand extends $Command<
   CreateLogSubscriptionCommandInput,

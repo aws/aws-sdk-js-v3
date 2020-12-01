@@ -20,6 +20,10 @@ import {
 export type CreateAppInstanceUserCommandInput = CreateAppInstanceUserRequest;
 export type CreateAppInstanceUserCommandOutput = CreateAppInstanceUserResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
+ *            <code>Name</code> for that user.</p>
+ */
 export class CreateAppInstanceUserCommand extends $Command<
   CreateAppInstanceUserCommandInput,
   CreateAppInstanceUserCommandOutput,
@@ -34,6 +38,9 @@ export class CreateAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeChannelBanCommandInput = DescribeChannelBanRequest;
 export type DescribeChannelBanCommandOutput = DescribeChannelBanResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the full details of a channel ban.</p>
+ */
 export class DescribeChannelBanCommand extends $Command<
   DescribeChannelBanCommandInput,
   DescribeChannelBanCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeChannelBanCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

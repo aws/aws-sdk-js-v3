@@ -20,6 +20,15 @@ import {
 export type SendChannelMessageCommandInput = SendChannelMessageRequest;
 export type SendChannelMessageCommandOutput = SendChannelMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Sends a message to a particular channel that the member is a part of.</p>
+ *
+ *          <note>
+ *             <p>
+ *                <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30
+ *            bytes of data and no metadata.</p>
+ *          </note>
+ */
 export class SendChannelMessageCommand extends $Command<
   SendChannelMessageCommandInput,
   SendChannelMessageCommandOutput,
@@ -34,6 +43,9 @@ export class SendChannelMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

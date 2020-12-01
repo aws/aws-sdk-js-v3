@@ -20,6 +20,9 @@ import {
 export type AssociateSecurityKeyCommandInput = AssociateSecurityKeyRequest;
 export type AssociateSecurityKeyCommandOutput = AssociateSecurityKeyResponse & __MetadataBearer;
 
+/**
+ * <p>Associates a security key to the instance.</p>
+ */
 export class AssociateSecurityKeyCommand extends $Command<
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateSecurityKeyCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

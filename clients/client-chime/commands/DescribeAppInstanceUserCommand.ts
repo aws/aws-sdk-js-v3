@@ -20,6 +20,9 @@ import {
 export type DescribeAppInstanceUserCommandInput = DescribeAppInstanceUserRequest;
 export type DescribeAppInstanceUserCommandOutput = DescribeAppInstanceUserResponse & __MetadataBearer;
 
+/**
+ * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
+ */
 export class DescribeAppInstanceUserCommand extends $Command<
   DescribeAppInstanceUserCommandInput,
   DescribeAppInstanceUserCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

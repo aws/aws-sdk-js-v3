@@ -20,6 +20,9 @@ import {
 export type ListChannelMembershipsCommandInput = ListChannelMembershipsRequest;
 export type ListChannelMembershipsCommandOutput = ListChannelMembershipsResponse & __MetadataBearer;
 
+/**
+ * <p>Lists all channel memberships in a channel.</p>
+ */
 export class ListChannelMembershipsCommand extends $Command<
   ListChannelMembershipsCommandInput,
   ListChannelMembershipsCommandOutput,
@@ -34,6 +37,9 @@ export class ListChannelMembershipsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

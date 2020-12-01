@@ -24,6 +24,9 @@ export type ListChannelsModeratedByAppInstanceUserCommandInput = ListChannelsMod
 export type ListChannelsModeratedByAppInstanceUserCommandOutput = ListChannelsModeratedByAppInstanceUserResponse &
   __MetadataBearer;
 
+/**
+ * <p>A list of the channels moderated by an app instance user.</p>
+ */
 export class ListChannelsModeratedByAppInstanceUserCommand extends $Command<
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
@@ -38,6 +41,9 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

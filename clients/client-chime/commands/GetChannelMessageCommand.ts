@@ -20,6 +20,9 @@ import {
 export type GetChannelMessageCommandInput = GetChannelMessageRequest;
 export type GetChannelMessageCommandOutput = GetChannelMessageResponse & __MetadataBearer;
 
+/**
+ * <p>Gets the full details of a channel message.</p>
+ */
 export class GetChannelMessageCommand extends $Command<
   GetChannelMessageCommandInput,
   GetChannelMessageCommandOutput,
@@ -34,6 +37,9 @@ export class GetChannelMessageCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

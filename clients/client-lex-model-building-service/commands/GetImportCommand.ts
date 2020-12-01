@@ -25,8 +25,8 @@ export type GetImportCommandInput = GetImportRequest;
 export type GetImportCommandOutput = GetImportResponse & __MetadataBearer;
 
 /**
- * <p>Gets information about an import job started with the <code>StartImport</code>
- *       operation.</p>
+ * <p>Gets information about an import job started with the
+ *         <code>StartImport</code> operation.</p>
  */
 export class GetImportCommand extends $Command<
   GetImportCommandInput,

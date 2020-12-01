@@ -23,14 +23,15 @@ export type DescribeDirectoriesCommandOutput = DescribeDirectoriesResult & __Met
 /**
  * <p>Obtains information about the directories that belong to this account.</p>
  *          <p>You can retrieve information about specific directories by passing the directory
- *          identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong to
- *          the current account are returned.</p>
+ *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
+ *       to the current account are returned.</p>
  *          <p>This operation supports pagination with the use of the <code>NextToken</code> request and
- *          response parameters. If more results are available, the
- *             <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in the
- *          next call to <a>DescribeDirectories</a> to retrieve the next set of items.</p>
+ *       response parameters. If more results are available, the
+ *         <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in
+ *       the next call to <a>DescribeDirectories</a> to retrieve the next set of
+ *       items.</p>
  *          <p>You can also specify a maximum number of return results with the <code>Limit</code>
- *          parameter.</p>
+ *       parameter.</p>
  */
 export class DescribeDirectoriesCommand extends $Command<
   DescribeDirectoriesCommandInput,

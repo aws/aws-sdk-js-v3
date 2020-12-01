@@ -20,6 +20,9 @@ import {
 export type UpdateRegistryCommandInput = UpdateRegistryInput;
 export type UpdateRegistryCommandOutput = UpdateRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Updates an existing registry which is used to hold a collection of schemas. The updated properties relate to the registry, and do not modify any of the schemas within the registry. </p>
+ */
 export class UpdateRegistryCommand extends $Command<
   UpdateRegistryCommandInput,
   UpdateRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

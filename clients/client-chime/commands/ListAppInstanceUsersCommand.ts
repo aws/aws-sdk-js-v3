@@ -20,6 +20,9 @@ import {
 export type ListAppInstanceUsersCommandInput = ListAppInstanceUsersRequest;
 export type ListAppInstanceUsersCommandOutput = ListAppInstanceUsersResponse & __MetadataBearer;
 
+/**
+ * <p>List all <code>AppInstanceUsers</code> created under a single app instance.</p>
+ */
 export class ListAppInstanceUsersCommand extends $Command<
   ListAppInstanceUsersCommandInput,
   ListAppInstanceUsersCommandOutput,
@@ -34,6 +37,9 @@ export class ListAppInstanceUsersCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type DescribeInstanceStorageConfigCommandInput = DescribeInstanceStorageConfigRequest;
 export type DescribeInstanceStorageConfigCommandOutput = DescribeInstanceStorageConfigResponse & __MetadataBearer;
 
+/**
+ * <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>
+ */
 export class DescribeInstanceStorageConfigCommand extends $Command<
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
@@ -34,6 +37,9 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

@@ -20,6 +20,9 @@ import {
 export type ListAppInstanceAdminsCommandInput = ListAppInstanceAdminsRequest;
 export type ListAppInstanceAdminsCommandOutput = ListAppInstanceAdminsResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a list of the administrators in the app instance.</p>
+ */
 export class ListAppInstanceAdminsCommand extends $Command<
   ListAppInstanceAdminsCommandInput,
   ListAppInstanceAdminsCommandOutput,
@@ -34,6 +37,9 @@ export class ListAppInstanceAdminsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

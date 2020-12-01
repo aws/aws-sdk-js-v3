@@ -20,6 +20,9 @@ import {
 export type AssociateLexBotCommandInput = AssociateLexBotRequest;
 export type AssociateLexBotCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+ */
 export class AssociateLexBotCommand extends $Command<
   AssociateLexBotCommandInput,
   AssociateLexBotCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateLexBotCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

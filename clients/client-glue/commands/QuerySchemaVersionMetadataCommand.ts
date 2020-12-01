@@ -20,6 +20,9 @@ import {
 export type QuerySchemaVersionMetadataCommandInput = QuerySchemaVersionMetadataInput;
 export type QuerySchemaVersionMetadataCommandOutput = QuerySchemaVersionMetadataResponse & __MetadataBearer;
 
+/**
+ * <p>Queries for the schema version metadata information. </p>
+ */
 export class QuerySchemaVersionMetadataCommand extends $Command<
   QuerySchemaVersionMetadataCommandInput,
   QuerySchemaVersionMetadataCommandOutput,
@@ -34,6 +37,9 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

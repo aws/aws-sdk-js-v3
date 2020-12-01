@@ -20,6 +20,9 @@ import {
 export type DeleteRegistryCommandInput = DeleteRegistryInput;
 export type DeleteRegistryCommandOutput = DeleteRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will disable all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
+ */
 export class DeleteRegistryCommand extends $Command<
   DeleteRegistryCommandInput,
   DeleteRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

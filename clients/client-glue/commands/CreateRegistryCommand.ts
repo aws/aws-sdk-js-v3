@@ -20,6 +20,9 @@ import {
 export type CreateRegistryCommandInput = CreateRegistryInput;
 export type CreateRegistryCommandOutput = CreateRegistryResponse & __MetadataBearer;
 
+/**
+ * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
+ */
 export class CreateRegistryCommand extends $Command<
   CreateRegistryCommandInput,
   CreateRegistryCommandOutput,
@@ -34,6 +37,9 @@ export class CreateRegistryCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,

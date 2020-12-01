@@ -20,6 +20,9 @@ import {
 export type ListSecurityKeysCommandInput = ListSecurityKeysRequest;
 export type ListSecurityKeysCommandOutput = ListSecurityKeysResponse & __MetadataBearer;
 
+/**
+ * <p>Returns a paginated list of all security keys associated with the instance.</p>
+ */
 export class ListSecurityKeysCommand extends $Command<
   ListSecurityKeysCommandInput,
   ListSecurityKeysCommandOutput,
@@ -34,6 +37,9 @@ export class ListSecurityKeysCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

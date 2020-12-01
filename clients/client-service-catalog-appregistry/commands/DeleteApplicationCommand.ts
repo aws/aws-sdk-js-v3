@@ -25,7 +25,7 @@ export type DeleteApplicationCommandInput = DeleteApplicationRequest;
 export type DeleteApplicationCommandOutput = DeleteApplicationResponse & __MetadataBearer;
 
 /**
- * <p>Delete an application, specified either by its application ID or name.</p>
+ * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

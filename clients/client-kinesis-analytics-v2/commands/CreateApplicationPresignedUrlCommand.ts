@@ -24,6 +24,21 @@ import {
 export type CreateApplicationPresignedUrlCommandInput = CreateApplicationPresignedUrlRequest;
 export type CreateApplicationPresignedUrlCommandOutput = CreateApplicationPresignedUrlResponse & __MetadataBearer;
 
+/**
+ * <p>Creates and returns a URL that you can use to connect to
+ *             an application's extension. Currently, the only
+ *             available extension is the Apache Flink dashboard.</p>
+ *         <p>The IAM role or user used to call this API defines the permissions to access the extension.
+ *             Once the presigned URL is created, no additional permission is required to access this URL. IAM
+ *             authorization policies for this API are also enforced for every HTTP request that attempts to
+ *             connect to the extension.
+ *         </p>
+ *         <note>
+ *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
+ *             to be valid.
+ *             If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>
+ *          </note>
+ */
 export class CreateApplicationPresignedUrlCommand extends $Command<
   CreateApplicationPresignedUrlCommandInput,
   CreateApplicationPresignedUrlCommandOutput,
@@ -38,6 +53,9 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,

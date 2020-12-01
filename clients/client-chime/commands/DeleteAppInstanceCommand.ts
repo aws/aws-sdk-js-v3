@@ -20,6 +20,9 @@ import {
 export type DeleteAppInstanceCommandInput = DeleteAppInstanceRequest;
 export type DeleteAppInstanceCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
+ */
 export class DeleteAppInstanceCommand extends $Command<
   DeleteAppInstanceCommandInput,
   DeleteAppInstanceCommandOutput,
@@ -34,6 +37,9 @@ export class DeleteAppInstanceCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,

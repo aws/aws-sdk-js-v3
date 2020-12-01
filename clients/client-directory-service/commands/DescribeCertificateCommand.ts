@@ -21,7 +21,8 @@ export type DescribeCertificateCommandInput = DescribeCertificateRequest;
 export type DescribeCertificateCommandOutput = DescribeCertificateResult & __MetadataBearer;
 
 /**
- * <p>Displays information about the certificate registered for a secured LDAP connection.</p>
+ * <p>Displays information about the certificate registered for a secured LDAP
+ *       connection.</p>
  */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,

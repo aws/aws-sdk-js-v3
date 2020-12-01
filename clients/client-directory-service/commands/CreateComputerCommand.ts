@@ -21,7 +21,7 @@ export type CreateComputerCommandInput = CreateComputerRequest;
 export type CreateComputerCommandOutput = CreateComputerResult & __MetadataBearer;
 
 /**
- * <p>Creates a computer account in the specified directory, and joins the computer to the directory.</p>
+ * <p>Creates an Active Directory computer object in the specified directory.</p>
  */
 export class CreateComputerCommand extends $Command<
   CreateComputerCommandInput,

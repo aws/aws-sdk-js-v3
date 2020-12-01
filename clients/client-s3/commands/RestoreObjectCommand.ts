@@ -141,16 +141,17 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Restoring Archives</b>
+ *             <b>Restoring objects</b>
  *          </p>
- *          <p>Objects that you archive to the S3 Glacier,
- *          S3 Glacier Deep Archive, S3 Intelligent-Tiering Archive, or S3 Intelligent-Tiering Deep Archive storage
- *          classes are not accessible in real time. For objects in Archive Access tier or
- *          Deep Archive Access tier you must first initiate a restore request, and then wait until the object
- *          is moved into the Frequent Access tier. For objects in S3 Glacier or
- *          S3 Glacier Deep Archive you must first initiate a restore request, and then wait
- *          until a temporary copy of the object is available. To access an archived object, you must
- *          restore the object for the duration (number of days) that you specify.</p>
+ *          <p>Objects that you archive to the S3 Glacier or
+ *          S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
+ *          S3 Intelligent-Tiering Deep Archive tiers are not accessible in real time. For objects in
+ *          Archive Access or Deep Archive Access tiers you must first initiate a restore request, and
+ *          then wait until the object is moved into the Frequent Access tier. For objects in
+ *          S3 Glacier or S3 Glacier Deep Archive storage classes you must
+ *          first initiate a restore request, and then wait until a temporary copy of the object is
+ *          available. To access an archived object, you must restore the object for the duration
+ *          (number of days) that you specify.</p>
  *          <p>To restore a specific object version, you can provide a version ID. If you don't provide
  *          a version ID, Amazon S3 restores the current version.</p>
  *          <p>When restoring an archived object (or using a select request), you can specify one of
@@ -162,14 +163,14 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                   <b>
  *                      <code>Expedited</code>
  *                   </b> - Expedited retrievals
- *                allow you to quickly access your data stored in the S3 Glacier or
- *                S3 Intelligent-Tiering Archive storage class when occasional urgent requests for a subset of
- *                archives are required. For all but the largest archived objects (250 MB+), data
- *                accessed using Expedited retrievals is typically made available within 1–5 minutes.
- *                Provisioned capacity ensures that retrieval capacity for Expedited retrievals is
- *                available when you need it. Expedited retrievals and provisioned capacity are not
- *                available for objects stored in the S3 Glacier Deep Archive or
- *                S3 Intelligent-Tiering Deep Archive storage class.</p>
+ *                allow you to quickly access your data stored in the S3 Glacier
+ *                storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests for a
+ *                subset of archives are required. For all but the largest archived objects (250 MB+),
+ *                data accessed using Expedited retrievals is typically made available within 1–5
+ *                minutes. Provisioned capacity ensures that retrieval capacity for Expedited
+ *                retrievals is available when you need it. Expedited retrievals and provisioned
+ *                capacity are not available for objects stored in the S3 Glacier Deep Archive
+ *                storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -179,10 +180,10 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                you to access any of your archived objects within several hours. This is the default
  *                option for retrieval requests that do not specify the retrieval option. Standard
  *                retrievals typically finish within 3–5 hours for objects stored in the
- *                S3 Glacier or S3 Intelligent-Tiering Archive storage class. They typically
- *                finish within 12 hours for objects stored in the S3 Glacier Deep Archive or
- *                S3 Intelligent-Tiering Deep Archive storage class. Standard retrievals are free for objects stored
- *                in S3 Intelligent-Tiering.</p>
+ *                S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
+ *                typically finish within 12 hours for objects stored in the
+ *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+ *                Standard retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -191,10 +192,10 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                   </b> - Bulk retrievals are the
  *                lowest-cost retrieval option in S3 Glacier, enabling you to retrieve large amounts,
  *                even petabytes, of data inexpensively. Bulk retrievals typically finish within 5–12
- *                hours for objects stored in the S3 Glacier or S3 Intelligent-Tiering Archive
- *                storage class. They typically finish within 48 hours for objects stored in the
- *                S3 Glacier Deep Archive or S3 Intelligent-Tiering Deep Archive storage class. Bulk
- *                retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+ *                hours for objects stored in the S3 Glacier storage class or
+ *                S3 Intelligent-Tiering Archive tier. They typically finish within 48 hours for objects stored
+ *                in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+ *                Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
  *             </li>
  *          </ul>
  *          <p>For more information about archive retrieval options and provisioned capacity for

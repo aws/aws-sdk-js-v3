@@ -20,6 +20,9 @@ import {
 export type UpdateInstanceAttributeCommandInput = UpdateInstanceAttributeRequest;
 export type UpdateInstanceAttributeCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Updates the value for the specified attribute type.</p>
+ */
 export class UpdateInstanceAttributeCommand extends $Command<
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -34,6 +37,9 @@ export class UpdateInstanceAttributeCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,

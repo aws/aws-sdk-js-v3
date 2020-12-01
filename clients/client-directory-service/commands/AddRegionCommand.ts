@@ -17,6 +17,9 @@ import {
 export type AddRegionCommandInput = AddRegionRequest;
 export type AddRegionCommandOutput = AddRegionResult & __MetadataBearer;
 
+/**
+ * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
+ */
 export class AddRegionCommand extends $Command<
   AddRegionCommandInput,
   AddRegionCommandOutput,
@@ -31,6 +34,9 @@ export class AddRegionCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,

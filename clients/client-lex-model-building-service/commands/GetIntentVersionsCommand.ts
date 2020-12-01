@@ -26,14 +26,16 @@ export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse & __Metad
 
 /**
  * <p>Gets information about all of the versions of an intent.</p>
- *          <p>The <code>GetIntentVersions</code> operation returns an <code>IntentMetadata</code>
- *       object for each version of an intent. For example, if an intent has three numbered versions,
- *       the <code>GetIntentVersions</code> operation returns four <code>IntentMetadata</code> objects
- *       in the response, one for each numbered version and one for the <code>$LATEST</code> version. </p>
- *          <p>The <code>GetIntentVersions</code> operation always returns at least one version, the
- *         <code>$LATEST</code> version.</p>
- *          <p>This operation requires permissions for the <code>lex:GetIntentVersions</code>
- *       action.</p>
+ *          <p>The <code>GetIntentVersions</code> operation returns an
+ *         <code>IntentMetadata</code> object for each version of an intent. For
+ *       example, if an intent has three numbered versions, the
+ *         <code>GetIntentVersions</code> operation returns four
+ *         <code>IntentMetadata</code> objects in the response, one for each
+ *       numbered version and one for the <code>$LATEST</code> version. </p>
+ *          <p>The <code>GetIntentVersions</code> operation always returns at
+ *       least one version, the <code>$LATEST</code> version.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>lex:GetIntentVersions</code> action.</p>
  */
 export class GetIntentVersionsCommand extends $Command<
   GetIntentVersionsCommandInput,

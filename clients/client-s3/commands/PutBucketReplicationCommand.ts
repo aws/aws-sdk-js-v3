@@ -47,12 +47,8 @@ export type PutBucketReplicationCommandOutput = __MetadataBearer;
  *             <code>DeleteMarkerReplication</code>, <code>Status</code>, and
  *          <code>Priority</code>.</p>
  *          <note>
- *             <p>The latest version of the replication configuration XML is V2. XML V2 replication
- *             configurations are those that contain the <code>Filter</code> element for rules, and
- *             rules that specify S3 Replication Time Control (S3 RTC). In XML V2 replication configurations, Amazon S3 doesn't
- *             replicate delete markers. Therefore, you must set the
- *                <code>DeleteMarkerReplication</code> element to <code>Disabled</code>. For backward
- *             compatibility, Amazon S3 continues to support the XML V1 replication configuration.</p>
+ *             <p>If you are using an earlier version of the replication configuration, Amazon S3 handles
+ *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
  *          </note>
  *          <p>For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using Versioning</a>.</p>
  *

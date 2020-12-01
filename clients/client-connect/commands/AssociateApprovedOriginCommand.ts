@@ -20,6 +20,9 @@ import {
 export type AssociateApprovedOriginCommandInput = AssociateApprovedOriginRequest;
 export type AssociateApprovedOriginCommandOutput = __MetadataBearer;
 
+/**
+ * <p>Associates an approved origin to an Amazon Connect instance.</p>
+ */
 export class AssociateApprovedOriginCommand extends $Command<
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
@@ -34,6 +37,9 @@ export class AssociateApprovedOriginCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
